@@ -1,0 +1,247 @@
+.body_area {
+  width: 95%;
+}
+
+.header {
+  .title {
+    .title_pic {
+      height: 550px;
+    }
+  }
+}
+
+.news {
+  // border: 1px solid red;
+  margin: 100px auto 50px auto;
+  width: 100%;
+  max-width: 1920px;
+  height: 700px;
+
+  .news_title {
+    padding: 80px 0 60px 0;
+    text-align: center;
+  }
+
+  .news_board {
+    // border: 1px solid red;
+    width: 90%;
+    max-width: 1920px;
+    @include marginAuto();
+    display: flex;
+
+    .news_board_card {
+      // border: 1px solid blue;
+      @include marginAuto();
+      width: 25%;
+      margin: 0 10px;
+
+
+      img {
+        width: 100%;
+        padding: 10px;
+        border-radius: 15px;
+      }
+
+      h4 {
+        text-align: center;
+        padding-bottom: 20px;
+
+      }
+
+      h5 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.go_buy_all {
+  padding-bottom: 100px;
+}
+
+.go_buy {
+  // border: 1px solid green;
+  // height: 1000px;
+  position: relative;
+
+  .buy_scroll {
+    background-image: url("../../images/index/02_buy_scroll.png");
+    width: 100%;
+    height: 80vh;
+    max-height: 1000px;
+    background-size: cover;
+  }
+
+  .go_buy_title {
+    position: absolute;
+    top: 80%;
+    left: 47%;
+  }
+}
+
+.buy_item {
+  // border: 1px solid blue;
+  width: 100%;
+  max-width: 1920px;
+  @include marginAuto();
+  height: 550px;
+  display: flex;
+  justify-content: center;
+
+
+  .buy_card {
+    width: 20%;
+    border: 1px solid red;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.plant_methods {
+  // border: 1px solid blue;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 100px;
+
+  .plant_title {
+    margin: 50px 0;
+
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+.plant_img_scroll {
+  border: 1px solid blue;
+  width: 100%;
+  height: 90%;
+
+  p {
+    text-align: center;
+    line-height: 430px;
+  }
+}
+
+.farm_expr {
+  border: 1px solid red;
+  width: 100%;
+  margin-bottom: 100px;
+
+  .farm_expr_title {
+    margin: 50px 0;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .farm_expr_board {
+    width: 100%;
+    max-width: 1920px;
+    @include marginAuto();
+    display: flex;
+    justify-content: space-evenly;
+
+    .farm_expr_card {
+      background-color: #FFF;
+      width: 23%;
+      max-width: 350px;
+      // height: 450px;
+      border-radius: 15px;
+      box-shadow: 0 3.4px 4.8px rgba(0, 0, 0, 0.02),
+        0 11.4px 16.1px rgba(0, 0, 0, 0.03),
+        0 51px 72px rgba(0, 0, 0, 0.05);
+      margin-bottom: 50px;
+
+      img {
+        width: 100%;
+        border-radius: 15px;
+        padding: 5px;
+      }
+
+      .farm_expr_text {
+        // border: 1px solid red;
+
+        h4 {
+          text-align: center;
+          padding: 10px 0;
+        }
+
+        h5 {
+          padding: 20px 20px;
+          height: 180px;
+        }
+      }
+
+      .farm_expr_btn {
+        @include btn(50%);
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.about_board {
+  border: 1px solid red;
+  width: 100%;
+  max-width: 1920px;
+  height: 800px;
+  margin-bottom: 20%;
+  position: relative;
+  @include marginAuto();
+
+
+  .about_us {
+    border: 1px solid blue;
+    width: 30%;
+    height: 350px;
+    border-radius: 100%;
+    background-color: $bkc_yellow;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about_img_all {
+
+
+    @for $i from 1 through 8 {
+      .about_img#{$i} {
+        border: 1px solid blueviolet;
+        width: 180px;
+        height: 180px;
+        position: absolute;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .about_img1 {
+      top: 30px;
+      left: 42%;
+    }
+
+    .about_img2 {
+      top: 280px;
+      left: 15%;
+    }
+
+    .about_img3 {
+      top: 290px;
+      right: 15%;
+    }
+
+    .about_img4 {
+      bottom: 100px;
+      right: 15%;
+    }
+  }
+}
