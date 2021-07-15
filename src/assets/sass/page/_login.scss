@@ -1,0 +1,66 @@
+div.login_block{
+    width: 100%;
+    margin-top: 80px;
+    padding-left: 5%;
+    padding-right: 20%;
+    display: flex;
+    .login_form{
+        width: 40%;
+        background-color: $white;
+        /* box-shadow: 1px 1px 1px black; */
+        border:1px solid $brown;
+        padding: 30px 0px;
+        transition: 1s;
+        h2{
+            text-align: center;
+            margin-top: 5%;
+        }
+        input{
+            display: block;
+            margin: 40px auto;
+            width: 60%;
+            padding: 10px;
+            &:focus{
+                outline: 1px solid $brown;
+            }
+        }
+        #login_btn{
+            @include btn(60%);
+            display: block;
+            &:focus{
+                outline: none;
+            }
+        }
+        div.login_notice{
+            margin-top: 10%;
+            text-align: center;
+            a{
+                text-decoration: none;
+                padding: 5px 10px;
+                color:$brown;
+            }
+        }
+    }
+    .login_pic{
+        width: 60%;
+        /* overflow: hidden; */
+        justify-self: flex-end;
+        transition: 1s;
+        img{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            vertical-align: bottom;
+        }
+    }
+
+}
+
+
+.form_move{
+    transform: translate3d(150%,0,100px)
+}
+
+.pic_move{
+    transform: translate3d(-66.6%,0,100px);
+}

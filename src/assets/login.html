@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>良耕野菜</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="menu_fixed">
+        <div class="icon">
+          <div class="ham">
+            <div class="ham_top"></div>
+            <div class="ham_middle"></div>
+            <div class="ham_bottom"></div>
+          </div>
+          <div class="login">
+            <a href="#">
+              <img src="./images/login_icon.svg" alt="login_icon" />
+            </a>
+          </div>
+          <div class="shop_car">
+            <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+          </div>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="logo_img">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <div class="page_list">
+          <a href="#">農村體驗</a>
+          <a href="#">客製蔬果箱</a>
+          <a href="#">蔬果知識小遊戲</a>
+          <a href="#">關於我們</a>
+          <a href="#">問與答</a>
+          <a href="#">新鮮蔬果</a>
+        </div>
+      </div>
+      <div class="title">
+        <div class="title_btn">
+          <button class="comm_us">
+            聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+          </button>
+          <button class="buy_now">
+            立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="login_block">
+      <form class="login_form" action="#" method="POST">
+        <h2>會員登入</h2>
+        <input type="text" placeholder="註冊信箱" />
+        <input type="password" placeholder="會員密碼" />
+        <input type="submit" value="登入" id="login_btn" />
+        <div class="login_notice">
+          <a id="signup_btn" href="#">立即註冊</a>
+          <span>|</span>
+          <a href="#">忘記密碼</a>
+        </div>
+      </form>
+      <div class="login_pic">
+        <img id="login_img" src="./images/login&out/login_01.jpg" alt="login_pic"/>
+      </div>
+    </div>
+
+    <script>
+      var menu = document.getElementById("menu");
+      document.addEventListener("scroll", function () {
+        // console.log(window.scrollY);
+        // menu.style.top = 0 - scrollY + "px";
+      });
+
+      var sign_btn = document.getElementById("signup_btn");
+      sign_btn.addEventListener("click", function (e) {
+        e.preventDefault;
+        let login_form = document.getElementsByClassName("login_form")[0];
+        let login_img = document.getElementById("login_img");
+        let login_pic = document.getElementsByClassName("login_pic")[0];
+        console.log(login_img.src);
+        login_form.classList.toggle("form_move");
+        login_pic.classList.toggle("pic_move");
+
+        if (login_form.classList.contains("form_move")) {
+          login_img.src =
+            "./images/login&out/logout_01.jpg";
+          console.log("aaa");
+        } else {
+          login_img.src =
+            "./images/login&out/login_01.jpg";
+          console.log("bbb");
+        }
+      });
+    </script>
+  </body>
+</html>
