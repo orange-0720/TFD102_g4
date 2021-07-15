@@ -1,5 +1,16 @@
 .body_area {
   width: 95%;
+
+  a {
+    @include a_link();
+  }
+
+  .text_underline {
+    border-top: 5px solid $text_underline;
+    width: 120px;
+    @include marginAuto();
+    margin-top: 5px;
+  }
 }
 
 .header {
@@ -131,6 +142,7 @@
   border: 1px solid red;
   width: 100%;
   margin-bottom: 100px;
+  position: relative;
 
   .farm_expr_title {
     margin: 50px 0;
@@ -184,21 +196,35 @@
       }
     }
   }
+
+  .bg_img1 {
+    width: 50%;
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    z-index: -100;
+  }
 }
 
 .about_board {
   border: 1px solid red;
   width: 100%;
-  max-width: 1920px;
+  max-width: 1200px;
   height: 800px;
-  margin-bottom: 20%;
+  margin: 5% 0 10% 0;
   position: relative;
   @include marginAuto();
 
+  .bg_img2 {
+    width: 20%;
+    position: absolute;
+    top: -20%;
+    right: 0%;
+  }
 
   .about_us {
-    border: 1px solid blue;
-    width: 30%;
+    // border: 1px solid blue;
+    width: 350px;
     height: 350px;
     border-radius: 100%;
     background-color: $bkc_yellow;
@@ -206,6 +232,9 @@
     top: 28%;
     left: 50%;
     transform: translateX(-50%);
+    box-shadow: 0 3.4px 4.8px rgba(0, 0, 0, 0.02),
+      0 11.4px 16.1px rgba(0, 0, 0, 0.03),
+      0 51px 72px rgba(0, 0, 0, 0.05);
   }
 
   .about_img_all {
@@ -213,7 +242,7 @@
 
     @for $i from 1 through 8 {
       .about_img#{$i} {
-        border: 1px solid blueviolet;
+        // border: 1px solid blueviolet;
         width: 180px;
         height: 180px;
         position: absolute;
@@ -225,23 +254,43 @@
     }
 
     .about_img1 {
-      top: 30px;
-      left: 42%;
+      top: 0px;
+      left: 500px;
     }
 
     .about_img2 {
-      top: 280px;
-      left: 15%;
+      top: 290px;
+      left: 150px;
     }
 
     .about_img3 {
       top: 290px;
-      right: 15%;
+      right: 150px;
     }
 
     .about_img4 {
+      bottom: 0px;
+      right: 500px;
+    }
+
+    .about_img5 {
       bottom: 100px;
-      right: 15%;
+      right: 250px;
+    }
+
+    .about_img6 {
+      top: 50px;
+      right: 250px;
+    }
+
+    .about_img7 {
+      top: 50px;
+      left: 250px;
+    }
+
+    .about_img8 {
+      bottom: 100px;
+      left: 250px;
     }
   }
 }
