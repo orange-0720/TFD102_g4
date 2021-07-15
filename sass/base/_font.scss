@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "huninn";
+    src: url("../../font/jf-openhuninn-1.1/jf-openhuninn-1.1.ttf");  //粉圓體
+}
+
+$h1 : 36px;
+$h2 : 30px;
+$h3 : 24px;
+$h4 : 20px;
+$h5 : 16px;
+
+h1{
+    font-size: $h1;
+}
+
+h2{
+    font-size: $h2;
+}
+
+h3{
+    font-size: $h3;
+}
+
+h4{
+    font-size: $h4;
+}
+
+h5{
+    font-size: $h5;
+}
