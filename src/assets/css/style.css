@@ -106,11 +106,12 @@ body {
   width: 220px;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   margin-right: 30px;
@@ -130,11 +131,12 @@ body {
   width: 220px;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -471,11 +473,13 @@ body {
 }
 
 .footer_bg {
+  margin-top: 70px;
   background-image: url("../../images/footer.png");
   width: 100%;
   background-position: -50px top;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 .footer_bg .footer {
@@ -518,11 +522,12 @@ body {
   width: 100%;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   max-width: 300px;
@@ -632,11 +637,12 @@ div.login_block .login_form #login_btn {
   width: 60%;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   display: block;
@@ -922,11 +928,12 @@ div.checkout_shopping_detail .checkout_shopping_detail_keep_shopping:link, div.c
   width: 70%;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   width: 80%;
@@ -1128,11 +1135,12 @@ div.checkout_shopping_detail .checkout_shopping_detail_keep_shopping:link, div.c
   width: 250px;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   padding: 10px;
@@ -1311,11 +1319,12 @@ div.checkout_shopping_detail .checkout_shopping_detail_keep_shopping:link, div.c
   width: 30%;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -1488,11 +1497,12 @@ div.checkout_s3_order_detail .order_total_price {
   width: 40%;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -1515,15 +1525,14 @@ div.checkout_s3_order_detail .order_total_price {
   width: 220px;
   background-color: #91C359;
   text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
-  cursor: pointer;
-  vertical-align: middle;
 }
 
 .member_logout_block button:hover {
@@ -1531,7 +1540,9 @@ div.checkout_s3_order_detail .order_total_price {
 }
 
 .member_logout_block button img {
+  width: 30px;
   margin-left: 10px;
+  vertical-align: top;
 }
 
 .member_logout_block h3 {
@@ -1549,30 +1560,48 @@ div.checkout_s3_order_detail .order_total_price {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  margin-bottom: 250px;
 }
 
 .member_block .member_block_nav {
   width: 20%;
 }
 
-.member_block .member_block_nav .member_detail, .member_block .member_block_nav .member_order_detail, .member_block .member_block_nav .member_active_detail, .member_block .member_block_nav .member_message {
+.member_block .member_block_nav .member_detail, .member_block .member_block_nav .member_order, .member_block .member_block_nav .member_active, .member_block .member_block_nav .member_message {
+  display: inline-block;
+  width: 100%;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
   border-radius: 101px;
   padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
   text-align: center;
+  font-size: 24px;
   margin: 30px 0;
   background-color: #FAF9EF;
   color: #A07332;
   border: 1px solid #A07332;
+  cursor: pointer;
 }
 
-.member_block .member_block_nav .member_detail:hover, .member_block .member_block_nav .member_order_detail:hover, .member_block .member_block_nav .member_active_detail:hover, .member_block .member_block_nav .member_message:hover {
+.member_block .member_block_nav .member_detail:hover, .member_block .member_block_nav .member_order:hover, .member_block .member_block_nav .member_active:hover, .member_block .member_block_nav .member_message:hover {
+  background-color: #6b9837;
+}
+
+.member_block .member_block_nav .member_detail:hover, .member_block .member_block_nav .member_order:hover, .member_block .member_block_nav .member_active:hover, .member_block .member_block_nav .member_message:hover {
   background-color: #FFF353;
 }
 
 .member_block .member_right_member {
-  width: 70%;
+  width: 75%;
   margin-top: 30px;
-  margin-left: 10%;
+  margin-left: 5%;
+  padding-bottom: 50px;
   background-color: #FFF7D2;
 }
 
@@ -1580,5 +1609,420 @@ div.checkout_s3_order_detail .order_total_price {
   background-color: #FAE7C3;
   padding: 30px;
   text-align: center;
+}
+
+.member_block .member_right_member .member_right_detail {
+  display: flex;
+  width: 100%;
+}
+
+.member_block .member_right_member .member_right_detail .member_pic_block {
+  width: 40%;
+  margin-top: 50px;
+}
+
+.member_block .member_right_member .member_right_detail .member_pic_block img {
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member_block .member_right_member .member_right_detail .member_pic_block .member_pwd_change {
+  display: inline-block;
+  width: 60%;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.member_block .member_right_member .member_right_detail .member_pic_block .member_pwd_change:hover {
+  background-color: #6b9837;
+}
+
+.member_block .member_right_member .member_right_detail .member_pic_block .member_pwd_change img {
+  display: inline-block;
+  width: 30px;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.member_block .member_right_member .member_right_detail .member_detail_info {
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.member_block .member_right_member .member_right_detail .member_detail_info .member_info_name input, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_mail input, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_hb input, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_phone input, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_address input, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_name .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .member_block .member_right_member .member_right_detail .member_detail_info .member_info_name select, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_mail .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .member_block .member_right_member .member_right_detail .member_detail_info .member_info_mail select, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_hb .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .member_block .member_right_member .member_right_detail .member_detail_info .member_info_hb select, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_phone .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .member_block .member_right_member .member_right_detail .member_detail_info .member_info_phone select, .member_block .member_right_member .member_right_detail .member_detail_info .member_info_address .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .member_block .member_right_member .member_right_detail .member_detail_info .member_info_address select {
+  display: inline-block;
+  width: 70%;
+  margin-left: 10px;
+  margin-bottom: 50px;
+  padding: 10px;
+  font-size: 20px;
+  color: #A07332;
+}
+
+.member_block .member_right_member .member_change_detail {
+  display: inline-block;
+  width: 40%;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.member_block .member_right_member .member_change_detail:hover {
+  background-color: #6b9837;
+}
+
+.member_block .member_right_member .member_change_detail img {
+  vertical-align: top;
+}
+
+.member_order_detail {
+  width: 75%;
+  margin-top: 30px;
+  margin-left: 5%;
+  padding-bottom: 50px;
+  background-color: #FFF7D2;
+}
+
+.member_order_detail h3 {
+  background-color: #FAE7C3;
+  padding: 30px;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block {
+  margin-top: 50px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member_order_detail .member_order_block .order_line {
+  background-color: #FAE7C3;
+  display: flex;
+  padding: 20px;
+}
+
+.member_order_detail .member_order_block .order_line h4 {
+  width: 20%;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .order_inside_detail {
+  background-color: #FAF9EF;
+  display: flex;
+  padding: 20px;
+}
+
+.member_order_detail .member_order_block .order_inside_detail h4 {
+  width: 20%;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block hr {
+  width: calc(100% - 40px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member_order_detail .member_order_block .show_order_detail {
+  background-color: #FAF9EF;
+  padding: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_arrow_icon {
+  display: inline-block;
+  width: 25px;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail {
+  border: 1px solid #A07332;
+  margin-top: 10px;
+  border-top: 0px;
+  display: none;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_detail_block {
+  padding: 20px 0px;
+  background-color: #91C359;
+  color: #FAF9EF;
+  width: 100%;
+  display: flex;
+  align-self: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_detail_block .show_order_detail_img {
+  width: 20%;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_detail_block .show_order_detail_name {
+  width: 20%;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_detail_block .show_order_detail_sum {
+  width: 20%;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_detail_block .show_order_detail_price,
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_detail_block .show_order_detail_total {
+  width: 20%;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 0px;
+  display: flex;
+  background-color: #FAF9EF;
+  font-size: 24px;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_img {
+  width: 20%;
+  align-self: center;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_img img {
+  width: 90%;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_name {
+  width: 20%;
+  align-self: center;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_sum {
+  width: 20%;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_sum button {
+  display: inline-block;
+  border: 1px solid #A07332;
+  width: 50px;
+  height: 50px;
+  background-color: #FAE7C3;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_sum input, .member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_sum .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_sum select {
+  width: calc(100% - 100px);
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #A07332;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_price,
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_product_detail .show_order_product_detail_total {
+  width: 20%;
+  align-self: center;
+  text-align: center;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail hr {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member_order_detail .member_order_block .show_order_detail .member_check_order_detail .show_order_total_price {
+  padding: 10px 0 10px 80%;
+  text-align: center;
+  background-color: #FAF9EF;
+}
+
+.turn_on {
+  transform: rotate(180deg) !important;
+}
+
+.member_active_detail {
+  width: 75%;
+  margin-top: 30px;
+  margin-left: 5%;
+  padding-bottom: 50px;
+  background-color: #FFF7D2;
+}
+
+.member_active_detail h3 {
+  background-color: #FAE7C3;
+  padding: 30px;
+  text-align: center;
+}
+
+.member_active_detail .member_active_block {
+  margin-top: 50px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member_active_detail .member_active_block .active_line {
+  background-color: #FAE7C3;
+  display: flex;
+  padding: 20px;
+}
+
+.member_active_detail .member_active_block .active_line h4 {
+  width: 20%;
+  text-align: center;
+}
+
+.member_active_detail .member_active_block .active_inside_detail {
+  background-color: #FAF9EF;
+  display: flex;
+  padding: 20px;
+}
+
+.member_active_detail .member_active_block .active_inside_detail h4 {
+  width: 20%;
+  text-align: center;
+}
+
+.member_message_detail {
+  width: 75%;
+  margin-top: 30px;
+  margin-left: 5%;
+  padding-bottom: 50px;
+  background-color: #FFF7D2;
+}
+
+.member_message_detail h3 {
+  background-color: #FAE7C3;
+  padding: 30px;
+  text-align: center;
+}
+
+.member_message_detail .member_message_block {
+  width: 90%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.member_message_detail .member_message_block .message_line {
+  background-color: #FAE7C3;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.member_message_detail .member_message_block .message_inside_detail {
+  background-color: #FAF9EF;
+}
+
+.member_message_detail .member_message_block .message_inside_detail h3 {
+  background-color: #FAF9EF;
+}
+
+.member_message_detail .member_message_block .message_inside_detail textarea {
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+.member_message_detail .member_message_block .member_message_button {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.member_message_detail .member_message_block .member_message_button #message_img {
+  display: none;
+}
+
+.member_message_detail .member_message_block .member_message_button label {
+  display: inline-block;
+  width: 20%;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.member_message_detail .member_message_block .member_message_button label:hover {
+  background-color: #6b9837;
+}
+
+.member_message_detail .member_message_block .member_message_button #message_submit {
+  display: inline-block;
+  width: 20%;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-family: "huninn";
+  text-align: center;
+  margin: 0 20px;
+  line-height: 1;
+}
+
+.member_message_detail .member_message_block .member_message_button #message_submit:hover {
+  background-color: #6b9837;
+}
+
+.member_footer_img {
+  position: absolute;
+  top: -50%;
+  left: 10%;
 }
 /*# sourceMappingURL=style.css.map */

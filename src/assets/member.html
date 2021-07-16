@@ -60,20 +60,131 @@
         <button>登出<img src="./images/member/logout_icon.svg" alt=""></button>
         <h3>持有購物金:<span>0</span>元</h3>
       </div>
-      <div class="member_block">
+      <div class="member_block" id="member_block">
           <div class="member_block_nav">
-              <div class="member_detail">會員資料</div>
-              <div class="member_order_detail">訂單查詢</div>
-              <div class="member_active_detail">活動查詢</div>
-              <div class="member_message">留言板</div>
+              <div @click="show_member" class="member_detail">會員資料</div>
+              <div @click="show_order" class="member_order">訂單查詢</div>
+              <div @click="show_active" class="member_active">活動查詢</div>
+              <div @click="show_message" class="member_message">留言板</div>
           </div>
-          <div class="member_right_member">
+          <div class="member_right_member" v-if="memberShow">
               <h3>會員資料</h3>
               <div class="member_right_detail">
-                  
+                <div class="member_pic_block">
+                  <img src="./images/member/member_fake_img.svg" alt="大頭照">
+                  <button class="member_pwd_change"><img src="./images/member/member_pen.svg" alt="pen">變更密碼</button>
+                </div>
+                <div class="member_detail_info">
+                  <div class="member_info_name">
+                    姓名:
+                    <input type="text">
+                  </div>
+                  <div class="member_info_mail">
+                    郵件:
+                    <input type="text">
+                  </div>
+                  <div class="member_info_hb">
+                    生日:
+                    <input type="text" placeholder="1992/5/27">
+                  </div>
+                  <div class="member_info_phone">
+                    電話:
+                    <input type="text">
+                  </div>
+                  <div class="member_info_address">
+                    地址:
+                    <input type="text">
+                  </div>
+                </div> 
               </div>
+              <button class="member_change_detail">
+                <img src="./images/member/member_pen.svg" alt="筆">
+                編輯會員資料
+              </button>
           </div>
 
+          <div class="member_order_detail" v-if="orderShow">
+            <h3>訂單查詢</h3>
+            <div class="member_order_block">
+              <div class="order_line">
+                <h4>下單時間</h4>
+                <h4>訂單編號</h4>
+                <h4>付款方式</h4>
+                <h4>訂單金額</h4>
+                <h4>配送狀態</h4>
+              </div>
+              <div class="order_inside_detail">
+                <h4>2021/09/01</h4>
+                <h4>A000001</h4>
+                <h4>信用卡</h4>
+                <h4>399</h4>
+                <h4>配送中</h4>
+              </div>
+              <hr>
+              <div @click="turn_on" class="show_order_detail">
+                訂單內容
+                <img class="member_arrow_icon" src="./images/member/member_arrow_icon.svg" alt="">
+                <div class="member_check_order_detail">
+                    <div class="show_order_detail_block">
+                      <section class="show_order_detail_img">商品圖片</section>
+                      <section class="show_order_detail_name">商品名稱</section>
+                      <section class="show_order_detail_sum">數量</section>
+                      <section class="show_order_detail_price">單價</section>
+                      <section class="show_order_detail_total">小計</section>
+                    </div>
+                    <div class="show_order_product_detail">
+                      <section class="show_order_product_detail_img">
+                        <img src="./images/checkout/checkout_01.jpg">
+                      </section>
+                      <section class="show_order_product_detail_name">防疫蔬果箱</section>
+                      <section class="show_order_product_detail_sum">
+                        <input type="text" value="1" disabled>
+                      </section>
+                      <section class="show_order_product_detail_price">399</section>
+                      <section class="show_order_product_detail_total">399</section>
+                    </div>
+                    <hr>
+                    <p class="show_order_total_price">總金額:<span>399</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="member_active_detail" v-if="activeShow">
+            <h3>活動查詢</h3>
+            <div class="member_active_block">
+              <div class="active_line">
+                <h4>預約編號</h4>
+                <h4>活動內容</h4>
+                <h4>預約日期</h4>
+                <h4>金額</h4>
+                <h4>人數</h4>
+              </div>
+              <div class="active_inside_detail">
+                <h4>B12345678</h4>
+                <h4>窯烤</h4>
+                <h4>2021/8/27</h4>
+                <h4>399</h4>
+                <h4>5</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="member_message_detail" v-if="messageShow">
+            <h3>留言板</h3>
+            <div class="member_message_block">
+              <div class="message_line">良耕野菜</div>
+              <form class="message_inside_detail">
+                <h3>目前尚未收到您的任何訊息</h4>
+                <textarea rows="5" placeholder="請寫下您的疑問"></textarea>
+                <div class="member_message_button">
+                  <input type="file" id="message_img">
+                  <label for="message_img">加入圖片</label>
+                  <input type="submit" value="傳送" id="message_submit">
+                </div>
+              </form>
+            </div>
+          </div>  
       </div>
 
       <div class="jump_hamburger_block">
@@ -115,6 +226,7 @@
 
 
     <footer class="footer_bg">
+      <img class="member_footer_img" src="./images/member/member_footer.svg" alt="for_footer">
       <div class="footer">
         <button class="go_top" id="go_top">
           <img src="./images/top.svg" alt="top">
@@ -126,12 +238,11 @@
         </div>
         <div class="footer_center">
           <h4>電話:02-26938800</h4>
-          <br>
-          <h4>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
-          <h4>※農曆過年假期本農場也公休
+          <h5>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
+          <h5>※農曆過年假期本農場也公休
             網路接單為24小時</h5>
-          <h4>※當日訂單最晚收到17:00</h5>
-          <h4>(17:00後下單視為隔日下單)</h5>
+          <h5>※當日訂單最晚收到17:00</h5>
+          <h5>(17:00後下單視為隔日下單)</h5>
           <button class="mail_btn">
             <img src="./images/mail.svg" alt="mail">MAIL
           </button>
@@ -162,13 +273,10 @@
     <script>
       var menu = document.getElementsByClassName("menu")[0];
       document.addEventListener("scroll", function(){
-        console.log(window.scrollY);
-        // console.log(menu)
-        // console.log(menu_top);
-        console.log(menu.style.top)
         menu.style.top = (0 - (scrollY)) + "px";
       });
 
+      // 漢堡選單
       $('.ham').on("click",function(){
         $('.jump_hamburger_block').fadeToggle();
         $('.ham_top').toggleClass('ham_top_move');
@@ -177,6 +285,7 @@
         
       })
 
+      // 回頁首
       $("#go_top").on("click", function (e) {
       e.preventDefault();
       $('html, body').animate({
@@ -184,6 +293,48 @@
         }, 750);
       });
       
+
+      new Vue({
+        el:"#member_block",
+        data:{
+          memberShow:true,
+          orderShow:false,
+          activeShow:false,
+          messageShow:false,
+        },
+        methods: {
+          turn_on(){
+            let arrow = document.getElementsByClassName('member_arrow_icon')[0];
+            arrow.classList.toggle('turn_on');
+            $('.member_check_order_detail').slideToggle();
+          },
+          show_member(){
+            this.memberShow = true;
+            this.orderShow = false;
+            this.activeShow = false;
+            this.messageShow = false;
+          },
+          show_order(){
+            this.orderShow = true;
+            this.memberShow = false;
+            this.activeShow = false
+            this.messageShow = false;
+          },
+          show_active(){
+            this.orderShow = false;
+            this.memberShow = false;
+            this.activeShow = true;
+            this.messageShow = false;
+          },
+          show_message(){
+            this.orderShow = false;
+            this.memberShow = false;
+            this.activeShow = false;
+            this.messageShow = true;
+          }
+        },
+      })
+
     </script>
   </body>
 </html>

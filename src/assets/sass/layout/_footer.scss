@@ -1,13 +1,13 @@
 @import '../mixin/mixin';
 
 .footer_bg {
+  margin-top: 70px;
   background-image: url("../../images/footer.png");
   width: 100%;
   background-position: -50px top;
   background-repeat: no-repeat;
   background-size: cover;
-
-
+  position: relative;
 
   .footer {
     width: 70%;
