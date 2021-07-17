@@ -35,7 +35,8 @@
 
   .news_board {
     // border: 1px solid red;
-    width: 90%;
+    width: 100%;
+    height: 500px;
     max-width: 1920px;
     @include marginAuto();
     display: flex;
@@ -43,28 +44,50 @@
     .news_board_card {
       // border: 1px solid blue;
       @include marginAuto();
-      width: 25%;
+      width: 50%;
       margin: 0 10px;
 
-
-      img {
+      .card_cover {
         width: 100%;
-        padding: 10px;
-        border-radius: 15px;
+        overflow: hidden;
+
+
+        img {
+          width: 100%;
+          @include marginAuto();
+          border-radius: 15px;
+
+          &:hover {
+            transform: scale(1.05);
+            transition: transform 1s;
+          }
+        }
       }
 
-      h4 {
-        text-align: center;
-        padding-bottom: 20px;
+      .news_card_text {
+        // border: 1px solid blue;
+        width: 80%;
+        @include marginAuto();
 
-      }
+        p {
+          height: 100px;
+          padding: 15px;
+        }
 
-      h5 {
-        text-align: center;
+        h4 {
+          text-align: center;
+          padding-top: 20px;
+
+        }
+
+        h5 {
+          text-align: center;
+        }
       }
     }
   }
 }
+
 
 .go_buy_all {
   padding-bottom: 100px;
@@ -92,7 +115,9 @@
 
 .buy_item {
   // border: 1px solid blue;
-  width: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  width: 80%;
   max-width: 1920px;
   @include marginAuto();
   height: 550px;
@@ -101,13 +126,39 @@
 
 
   .buy_card {
-    width: 20%;
-    border: 1px solid red;
+    width: 10%;
+    flex: 1;
+    // border: 1px solid red;
+    transition-duration: 2s;
+    position: relative;
+
+    .buy_card_hover {
+      position: absolute;
+      top: 50%;
+      // left: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      border: 1px solid red;
+      width: 100%;
+      height: 100%;
+      transition-duration: 2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
 
     img {
       height: 100%;
       width: 100%;
       object-fit: cover;
+      // filter: brightness(1.75);
+    }
+
+    &:hover {
+      flex: 4;
+      cursor: pointer;
+      filter: brightness(0.6);
     }
   }
 }
@@ -130,12 +181,8 @@
 .plant_img_scroll {
   border: 1px solid blue;
   width: 100%;
-  height: 90%;
-
-  p {
-    text-align: center;
-    line-height: 430px;
-  }
+  height: 510px;
+  overflow: hidden;
 }
 
 .farm_expr {
@@ -169,6 +216,11 @@
         0 11.4px 16.1px rgba(0, 0, 0, 0.03),
         0 51px 72px rgba(0, 0, 0, 0.05);
       margin-bottom: 50px;
+
+      &:hover {
+        transform: translateY(-20px);
+        transition: 0.5s;
+      }
 
       img {
         width: 100%;
@@ -204,6 +256,14 @@
     left: -10%;
     z-index: -100;
   }
+
+  .bg_img2 {
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    z-index: -100;
+  }
 }
 
 .about_board {
@@ -214,13 +274,6 @@
   margin: 5% 0 10% 0;
   position: relative;
   @include marginAuto();
-
-  .bg_img2 {
-    width: 20%;
-    position: absolute;
-    top: -20%;
-    right: 0%;
-  }
 
   .about_us {
     // border: 1px solid blue;
@@ -235,6 +288,33 @@
     box-shadow: 0 3.4px 4.8px rgba(0, 0, 0, 0.02),
       0 11.4px 16.1px rgba(0, 0, 0, 0.03),
       0 51px 72px rgba(0, 0, 0, 0.05);
+
+
+    .us_bg1 {
+      position: absolute;
+      top: 85px;
+    }
+
+    .us_bg2 {
+      position: absolute;
+      top: 170px;
+    }
+
+    .us_title1 {
+      color: #FAF9EF;
+      position: absolute;
+      top: 125px;
+      left: 55px;
+      z-index: 5;
+    }
+
+    .us_title2 {
+      color: #FAF9EF;
+      position: absolute;
+      top: 200px;
+      left: 125px;
+      z-index: 5;
+    }
   }
 
   .about_img_all {
@@ -249,7 +329,31 @@
 
         img {
           width: 100%;
+
+          &:hover {
+            animation: shake 1s;
+            animation-timing-function: ease;
+            cursor: pointer;
+          }
         }
+      }
+    }
+
+    @keyframes shake {
+      0% {
+        transform: scale(0.5, 1) rotate(0deg);
+      }
+
+      50% {
+        transform: scale(2, 0.5) rotate(1deg);
+      }
+
+      75% {
+        transform: scale(0.5, 1) rotate(1deg);
+      }
+
+      100% {
+        transform: scale(1, 1) rotate(0deg);
       }
     }
 

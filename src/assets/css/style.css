@@ -666,7 +666,8 @@ body {
 }
 
 .news .news_board {
-  width: 90%;
+  width: 100%;
+  height: 500px;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
@@ -678,22 +679,48 @@ body {
 .news .news_board .news_board_card {
   margin-left: auto;
   margin-right: auto;
-  width: 25%;
+  width: 50%;
   margin: 0 10px;
 }
 
-.news .news_board .news_board_card img {
+.news .news_board .news_board_card .card_cover {
   width: 100%;
-  padding: 10px;
+  overflow: hidden;
+}
+
+.news .news_board .news_board_card .card_cover img {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
 }
 
-.news .news_board .news_board_card h4 {
-  text-align: center;
-  padding-bottom: 20px;
+.news .news_board .news_board_card .card_cover img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
 }
 
-.news .news_board .news_board_card h5 {
+.news .news_board .news_board_card .news_card_text {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news .news_board .news_board_card .news_card_text p {
+  height: 100px;
+  padding: 15px;
+}
+
+.news .news_board .news_board_card .news_card_text h4 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.news .news_board .news_board_card .news_card_text h5 {
   text-align: center;
 }
 
@@ -720,7 +747,9 @@ body {
 }
 
 .buy_item {
-  width: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  width: 80%;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
@@ -734,8 +763,30 @@ body {
 }
 
 .buy_item .buy_card {
-  width: 20%;
+  width: 10%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+  position: relative;
+}
+
+.buy_item .buy_card .buy_card_hover {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  opacity: 0;
   border: 1px solid red;
+  width: 100%;
+  height: 100%;
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+}
+
+.buy_item .buy_card .buy_card_hover:hover {
+  opacity: 1;
 }
 
 .buy_item .buy_card img {
@@ -743,6 +794,15 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.buy_item .buy_card:hover {
+  -webkit-box-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
+  cursor: pointer;
+  -webkit-filter: brightness(0.6);
+          filter: brightness(0.6);
 }
 
 .plant_methods {
@@ -762,12 +822,8 @@ body {
 .plant_img_scroll {
   border: 1px solid blue;
   width: 100%;
-  height: 90%;
-}
-
-.plant_img_scroll p {
-  text-align: center;
-  line-height: 430px;
+  height: 510px;
+  overflow: hidden;
 }
 
 .farm_expr {
@@ -806,6 +862,13 @@ body {
   -webkit-box-shadow: 0 3.4px 4.8px rgba(0, 0, 0, 0.02), 0 11.4px 16.1px rgba(0, 0, 0, 0.03), 0 51px 72px rgba(0, 0, 0, 0.05);
           box-shadow: 0 3.4px 4.8px rgba(0, 0, 0, 0.02), 0 11.4px 16.1px rgba(0, 0, 0, 0.03), 0 51px 72px rgba(0, 0, 0, 0.05);
   margin-bottom: 50px;
+}
+
+.farm_expr .farm_expr_board .farm_expr_card:hover {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .farm_expr .farm_expr_board .farm_expr_card img {
@@ -852,6 +915,14 @@ body {
   z-index: -100;
 }
 
+.farm_expr .bg_img2 {
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  z-index: -100;
+}
+
 .about_board {
   border: 1px solid red;
   width: 100%;
@@ -861,13 +932,6 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-}
-
-.about_board .bg_img2 {
-  width: 20%;
-  position: absolute;
-  top: -20%;
-  right: 0%;
 }
 
 .about_board .about_us {
@@ -884,6 +948,32 @@ body {
           box-shadow: 0 3.4px 4.8px rgba(0, 0, 0, 0.02), 0 11.4px 16.1px rgba(0, 0, 0, 0.03), 0 51px 72px rgba(0, 0, 0, 0.05);
 }
 
+.about_board .about_us .us_bg1 {
+  position: absolute;
+  top: 85px;
+}
+
+.about_board .about_us .us_bg2 {
+  position: absolute;
+  top: 170px;
+}
+
+.about_board .about_us .us_title1 {
+  color: #FAF9EF;
+  position: absolute;
+  top: 125px;
+  left: 55px;
+  z-index: 5;
+}
+
+.about_board .about_us .us_title2 {
+  color: #FAF9EF;
+  position: absolute;
+  top: 200px;
+  left: 125px;
+  z-index: 5;
+}
+
 .about_board .about_img_all .about_img1 {
   width: 180px;
   height: 180px;
@@ -892,6 +982,14 @@ body {
 
 .about_board .about_img_all .about_img1 img {
   width: 100%;
+}
+
+.about_board .about_img_all .about_img1 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
 }
 
 .about_board .about_img_all .about_img2 {
@@ -904,6 +1002,14 @@ body {
   width: 100%;
 }
 
+.about_board .about_img_all .about_img2 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
+}
+
 .about_board .about_img_all .about_img3 {
   width: 180px;
   height: 180px;
@@ -912,6 +1018,14 @@ body {
 
 .about_board .about_img_all .about_img3 img {
   width: 100%;
+}
+
+.about_board .about_img_all .about_img3 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
 }
 
 .about_board .about_img_all .about_img4 {
@@ -924,6 +1038,14 @@ body {
   width: 100%;
 }
 
+.about_board .about_img_all .about_img4 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
+}
+
 .about_board .about_img_all .about_img5 {
   width: 180px;
   height: 180px;
@@ -932,6 +1054,14 @@ body {
 
 .about_board .about_img_all .about_img5 img {
   width: 100%;
+}
+
+.about_board .about_img_all .about_img5 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
 }
 
 .about_board .about_img_all .about_img6 {
@@ -944,6 +1074,14 @@ body {
   width: 100%;
 }
 
+.about_board .about_img_all .about_img6 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
+}
+
 .about_board .about_img_all .about_img7 {
   width: 180px;
   height: 180px;
@@ -954,6 +1092,14 @@ body {
   width: 100%;
 }
 
+.about_board .about_img_all .about_img7 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
+}
+
 .about_board .about_img_all .about_img8 {
   width: 180px;
   height: 180px;
@@ -962,6 +1108,52 @@ body {
 
 .about_board .about_img_all .about_img8 img {
   width: 100%;
+}
+
+.about_board .about_img_all .about_img8 img:hover {
+  -webkit-animation: shake 1s;
+          animation: shake 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  cursor: pointer;
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: scale(0.5, 1) rotate(0deg);
+            transform: scale(0.5, 1) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(2, 0.5) rotate(1deg);
+            transform: scale(2, 0.5) rotate(1deg);
+  }
+  75% {
+    -webkit-transform: scale(0.5, 1) rotate(1deg);
+            transform: scale(0.5, 1) rotate(1deg);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) rotate(0deg);
+            transform: scale(1, 1) rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: scale(0.5, 1) rotate(0deg);
+            transform: scale(0.5, 1) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: scale(2, 0.5) rotate(1deg);
+            transform: scale(2, 0.5) rotate(1deg);
+  }
+  75% {
+    -webkit-transform: scale(0.5, 1) rotate(1deg);
+            transform: scale(0.5, 1) rotate(1deg);
+  }
+  100% {
+    -webkit-transform: scale(1, 1) rotate(0deg);
+            transform: scale(1, 1) rotate(0deg);
+  }
 }
 
 .about_board .about_img_all .about_img1 {
