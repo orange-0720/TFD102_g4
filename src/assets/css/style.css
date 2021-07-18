@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -1469,5 +1470,206 @@ div.qa_item div.qa_problem p.question::after {
   height: 35vh;
   margin-left: auto;
   margin-right: auto;
+}
+
+section#game_play_border {
+  width: 85%;
+  height: 1000px;
+  border-radius: 53px;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: 20px solid #006c3e;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+section#game_play_border .icon_1 {
+  position: absolute;
+  top: -4%;
+  left: -4%;
+  width: 12vw;
+}
+
+section#game_play_border .icon_2 {
+  position: absolute;
+  bottom: -4%;
+  left: -4%;
+  width: 12vw;
+}
+
+section#game_play_border .icon_3 {
+  position: absolute;
+  bottom: -4%;
+  right: -4%;
+  width: 12vw;
+}
+
+section#game_play_border .icon_4 {
+  position: absolute;
+  top: -5%;
+  right: -2%;
+  width: 7vw;
+}
+
+section#game_play_border #game_question {
+  margin-top: 12rem;
+  margin-bottom: 2rem;
+  height: 200px;
+  text-align: center;
+  padding: 4px;
+}
+
+section#game_play_border div.game_test {
+  height: 200px;
+  margin-top: 8rem;
+  display: flex;
+}
+
+section#game_play_border div.game_test #game_test {
+  width: 50vw;
+  height: 300px;
+}
+
+div#game_title {
+  height: 200pX;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#game_title h2.game_title {
+  position: relative;
+}
+
+div#game_title h2.game_title::after {
+  content: "";
+  color: #FF9B2F;
+  border-color: #FF9B2F;
+  width: 250px;
+  height: 10px;
+  position: absolute;
+  left: -25px;
+  top: 40px;
+  background-color: #FFBA10;
+  border-color: black;
+  border-radius: 101px;
+}
+
+div#game_decorate_testNumberCircle {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 50%;
+  top: -4rem;
+  background-color: #B9F18C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#game_decorate_testNumberCircle h1#inside_testNumber {
+  font-weight: bolder;
+  color: white;
+}
+
+/* ===以上為邊框設計=== */
+#game_bottom_part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#game_bottom_part .icon_11 {
+  width: 10vw;
+  /* position:absolute; */
+  margin-top: 2rem;
+}
+
+#game_bottom_part .blue {
+  background-color: blue;
+}
+
+#game_bottom_part .green {
+  background-color: #91C359;
+}
+
+#game_bottom_part button#submit {
+  display: inline-block;
+  width: 200px;
+  height: 75px;
+  background-color: #91C359;
+  text-decoration: none;
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 24px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+#game_bottom_part button#submit:hover {
+  background-color: #6b9837;
+}
+
+#game_bottom_part button#submit:hover {
+  background-color: #FF5B3B;
+}
+
+/* ===以上為BUTTON=== */
+section#game_slideshow_step {
+  display: flex;
+  width: 90%;
+  height: 350px;
+  margin: 0 auto;
+  max-width: 1200px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+section#game_slideshow_step #game_slideshow {
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+  width: 100%;
+  border-radius: 101px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px #ccc;
+}
+
+section#game_slideshow_step #game_slideshow img.game_slideshow {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+#game_slideshow_2 {
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+  width: 35%;
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px #ccc;
+}
+
+#game_slideshow_2 img.game_slideshow_2 {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
