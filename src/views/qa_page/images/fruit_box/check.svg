@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="94" height="85" viewBox="0 0 94 85">
+  <defs>
+    <clipPath id="clip-check">
+      <rect width="94" height="85"/>
+    </clipPath>
+  </defs>
+  <g id="check" clip-path="url(#clip-check)">
+    <rect width="94" height="85" fill="#fff"/>
+    <rect id="Rectangle_714" data-name="Rectangle 714" width="74" height="74" rx="12" transform="translate(10 6)" fill="#4a8507"/>
+    <path id="Icon_ionic-ios-checkmark" data-name="Icon ionic-ios-checkmark" d="M53.1,16.05l-3.506-3.605a.754.754,0,0,0-.558-.239h0a.723.723,0,0,0-.558.239l-24.3,24.479-8.843-8.843a.77.77,0,0,0-1.115,0l-3.545,3.545a.794.794,0,0,0,0,1.135L21.827,43.915a3.527,3.527,0,0,0,2.33,1.135,3.7,3.7,0,0,0,2.31-1.1h.02l26.63-26.769A.851.851,0,0,0,53.1,16.05Z" transform="translate(15.565 14.794)" fill="#fffcfb"/>
+  </g>
+</svg>

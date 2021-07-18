@@ -151,7 +151,7 @@ body {
 
 .header .title .title_pic {
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   margin-bottom: 5vh;
   margin-top: 30px;
   text-align: right;
@@ -2825,5 +2825,387 @@ div.checkout_s3_order_detail .order_total_price {
 .about_board .about_img_all .about_img8 {
   bottom: 100px;
   left: 250px;
+}
+
+div.qa_step {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 1200px;
+}
+
+div.qa_step div.notice {
+  width: 85%;
+  display: flex;
+  border-radius: 20px;
+  background-color: #FFF7D2;
+}
+
+div.qa_step div.notice h4 {
+  padding: 15px;
+  border-radius: 15px;
+}
+
+div.qa_step div.notice .light {
+  background-color: #FFF353;
+  border-radius: 20px;
+}
+
+div.qa_step div.notice img {
+  width: 50px;
+  height: 50px;
+}
+
+div.qa_item {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.qa_item div.aside {
+  width: 15%;
+  margin-top: 20px;
+  padding: 15px 0px;
+}
+
+div.qa_item div.aside .sticky {
+  position: sticky;
+  top: 0;
+}
+
+div.qa_item div.aside .qa_list {
+  line-height: 30px;
+  position: sticky;
+  top: -5px;
+}
+
+div.qa_item div.aside a {
+  text-decoration: none;
+  color: #A07332;
+  bottom: 20px;
+  line-height: 30px;
+  margin-top: 100px;
+  position: sticky;
+  top: 20px;
+}
+
+div.qa_item div.aside a:link, div.qa_item div.aside a:visited {
+  color: #A07332;
+}
+
+div.qa_item div.aside .hr {
+  width: 80%;
+  height: 3px;
+  background-color: #A07332;
+  margin-top: 5%;
+  position: sticky;
+  top: 20px;
+}
+
+div.qa_item div.aside ul {
+  margin-top: 5%;
+  position: sticky;
+  top: 20px;
+}
+
+div.qa_item div.qa_problem {
+  width: 70%;
+  margin-top: 20px;
+}
+
+div.qa_item div.qa_problem .qa_01 {
+  width: 100%;
+  background-color: #FAF9EF;
+  margin-top: 40px;
+}
+
+div.qa_item div.qa_problem .question {
+  color: #008000;
+  padding: 15px;
+  display: flex;
+}
+
+div.qa_item div.qa_problem p.answer {
+  line-height: 25px;
+  padding: 0px 30px 10px 15px;
+}
+
+div.qa_item div.qa_problem .title1 {
+  background-color: #FAE7C3;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+div.qa_item div.qa_problem .hr {
+  width: 90%;
+  height: 1px;
+  background-color: #A07332;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+div.qa_item div.qa_problem li {
+  line-height: 25px;
+  padding: 0px 30px 10px 15px;
+}
+
+div.qa_item div.qa_problem img {
+  width: 30px;
+  height: 30px;
+  margin-top: -8px;
+}
+
+div.qa_item div.qa_problem p.question::after {
+  padding: 0px 5px 0px 10px;
+  color: #78552B;
+  content: '\f078';
+  font-family: FontAwesome;
+}
+
+.animal_huacaya {
+  position: absolute;
+}
+
+.animal_huacaya img {
+  position: relative;
+  margin-left: 40%;
+  margin-top: -51%;
+}
+
+.kiwi {
+  width: 15%;
+  margin-left: 79%;
+  margin-top: 30%;
+  position: absolute;
+}
+
+.kiwi img {
+  position: relative;
+}
+
+.price_butten {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 1200px;
+  cursor: pointer;
+}
+
+.price_butten button {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.price_butten button:hover {
+  background-color: #6b9837;
+}
+
+.fruits_box_two {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 1200px;
+}
+
+.fruits_box_two .fruits_remove_menu {
+  width: 8%;
+  background-color: #FFF7D2;
+  margin-top: 2%;
+  border-radius: 10px;
+  right: 0;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits {
+  padding-top: 20px;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits button {
+  width: 30%;
+  height: 30%;
+  background-color: #008000;
+  text-decoration: none;
+  border-radius: 101px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits .fruit_1 {
+  border: 1px solid purple;
+  width: 100%;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits .fruit_2 {
+  border: 1px solid purple;
+  width: 100%;
+  height: 12vh;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits .fruit_3 {
+  border: 1px solid purple;
+  width: 100%;
+  height: 12vh;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits .fruit_4 {
+  border: 1px solid purple;
+  width: 100%;
+  height: 12vh;
+}
+
+.fruits_box_two .fruits_remove_menu .five_fruits .fruit_5 {
+  border: 1px solid purple;
+  width: 100%;
+  height: 12vh;
+}
+
+.fruits_box_two .fruits_basket {
+  border: 1px solid orange;
+  width: 70%;
+  height: 65vh;
+  margin-left: 2%;
+  margin-top: 20px;
+}
+
+.fruits_box_two .fruits_check_butten {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: -4%;
+}
+
+.fruits_box_two .fruits_check_butten button {
+  outline: none;
+  border: 0;
+  padding: 0;
+}
+
+.fruits_box_two .fruits_check_butten button.box_check {
+  background-color: #008000;
+  height: 6vh;
+  width: 6vh;
+  color: #008000;
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fruits_box_two .fruits_check_butten button.box_delete {
+  background-color: #FFF353;
+  height: 6vh;
+  width: 6vh;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fruits_box_two .fruits_basket {
+  width: 70%;
+}
+
+.fruits_box_two .fruits_basket #wooden {
+  width: 78%;
+  top: 45%;
+  left: 15%;
+  z-index: 1;
+  position: absolute;
+}
+
+.fruits_box_two .fruits_basket #wooden_box {
+  width: 100%;
+  z-index: 0;
+  top: 24%;
+  left: 0%;
+  position: absolute;
+}
+
+.fruits_box_two .fruits_basket #avocado {
+  width: 33%;
+  z-index: 0;
+  top: 15%;
+  left: 59%;
+  position: absolute;
+}
+
+.fruits_box_two .fruits_basket #carrot {
+  width: 33%;
+  z-index: 0;
+  top: 30%;
+  left: 34%;
+  position: absolute;
+}
+
+.select_fruits {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  border: 1px solid red;
+  max-width: 1200px;
+  width: 80%;
+}
+
+.select_fruits .fruits_basket {
+  border: 3px dashed #A07332;
+  width: 82%;
+  margin-top: -2.3%;
+  border-radius: 10px;
+}
+
+.select_fruits .fruits_basket .fruits_first_row, .select_fruits .fruits_basket .fruits_second_row {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+  text-align: center;
+}
+
+.select_fruits .fruits_basket .fruits_first_row img, .select_fruits .fruits_basket .fruits_second_row img {
+  width: 100%;
+}
+
+.select_fruits .fruits_basket .fruits_first_row h5, .select_fruits .fruits_basket .fruits_second_row h5 {
+  margin-top: 6px;
+}
+
+.select_fruits .fruits_basket .fruits_second_row {
+  height: 200px;
+}
+
+.product_directions {
+  background-color: #FFF353;
+  padding: 10px 10%;
+  height: 5vh;
+  border: 1px solid red;
+}
+
+.product_directions .select {
+  width: 30%;
+}
+
+.free_give {
+  width: 80%;
+  display: flex;
+  max-width: 1200px;
+  height: 35vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 /*# sourceMappingURL=style.css.map */

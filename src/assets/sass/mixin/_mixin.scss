@@ -19,6 +19,18 @@
     }
 }
 
+@mixin btn_small($x, $y:null) {
+    width: $x;
+    height: $y;
+    background-color: $darkgreen;
+    text-decoration: none;
+    @include border_radius();
+    border: 0;
+    color: $white;
+    font-size: $h4;
+    
+}
+
 //圓角
 @mixin border_radius {
     border-radius: 101px;
