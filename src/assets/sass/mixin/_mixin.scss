@@ -6,16 +6,29 @@
     height: $y;
     background-color: $green;
     text-decoration: none;
+    font-family: "huninn";
     @include border_radius();
     padding: 15px;
     border: 0;
     color: $white;
-    font-size: $h3;
+    font-size: $h4;
     transition: 0.5s;
     cursor: pointer;
     &:hover{
         background-color: darken($color: $green, $amount: 15);
     }
+}
+
+@mixin btn_small($x, $y:null) {
+    width: $x;
+    height: $y;
+    background-color: $darkgreen;
+    text-decoration: none;
+    @include border_radius();
+    border: 0;
+    color: $white;
+    font-size: $h4;
+    
 }
 
 //圓角
