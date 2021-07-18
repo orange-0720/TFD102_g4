@@ -3999,4 +3999,85 @@ header .video iframe {
 .farm_description_box .farm_descript_item .farm_description_item_box .farm_photo img {
   width: 100%;
 }
+
+.title_pic {
+  background-image: url("../images/product_introduction/bg01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.production_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  border: 1px solid red;
+  padding-right: 15%;
+}
+
+.production_box .production_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid red;
+  width: 100%;
+  max-width: 700px;
+  height: 400px;
+}
+
+.production_box .production_item .production_box {
+  border: 1px solid #14eb1b;
+  max-width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.production_box .production_item .about_vagatable_box {
+  background-image: url("../images/product_introduction/bg_vagatable.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  border-radius: 53px;
+}
+
+.production_box .production_item .about_fruit_box {
+  background-image: url("../images/product_introduction/bg_fruit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  border-radius: 53px;
+}
+
+.production_box .production_item .production_box_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border: 1px solid red;
+  text-align: center;
+  max-width: 400px;
+}
 /*# sourceMappingURL=style.css.map */
