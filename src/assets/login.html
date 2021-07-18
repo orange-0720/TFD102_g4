@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>良耕野菜</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-3.6.0.js"></script>
   </head>
   <body>
     <header class="header">
@@ -17,7 +18,7 @@
             <div class="ham_bottom"></div>
           </div>
           <div class="login">
-            <a href="#">
+            <a href="./login.html">
               <img src="./images/login_icon.svg" alt="login_icon" />
             </a>
           </div>
@@ -49,6 +50,53 @@
           </button>
         </div>
       </div>
+
+      <div class="jump_hamburger_block">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+        <div class="header_nav_block">
+          <div class="nav_right_block">
+            <div class="nav_active">
+              <a href="#">農村體驗</a>
+              <a href="#">預約去</a>
+            </div>
+            <div class="nav_buy_now">
+              <a href="#">立即買</a>
+              <a href="#">客製蔬果箱</a>
+              <a href="#">新鮮蔬果</a>
+            </div>
+            <div class="nav_knowledge">
+              <a href="#">蔬果知識小遊戲</a>
+            </div>
+          </div>
+          <div class="nav_left_block">
+            <div class="nav_about_us">
+              <a href="#">關於我們</a>
+              <a href="#">農場介紹</a>
+              <a href="#">生產介紹</a>
+            </div>
+            <div class="nav_QA">
+              <a href="#">問與答</a>
+            </div>
+          </div>
+          <img
+            src="./images/header_vegetable.svg"
+            alt="vegetable"
+            class="header_vegetable"
+          />
+          <img
+            src="./images/header_lemon.svg"
+            alt="vegetable"
+            class="header_lemon"
+          />
+          <img
+            src="./images/header_kiwi.svg"
+            alt="vegetable"
+            class="header_kiwi"
+          />
+        </div>
+      </div>
     </header>
     <div class="login_block">
       <form class="login_form" action="#" method="POST">
@@ -68,12 +116,22 @@
     </div>
 
     <script>
+      // 固定header
       var menu = document.getElementById("menu");
       document.addEventListener("scroll", function () {
         // console.log(window.scrollY);
         // menu.style.top = 0 - scrollY + "px";
       });
 
+      // 漢堡選單打開
+      $(".ham").on("click", function() {
+        $(".jump_hamburger_block").fadeToggle();
+        $(".ham_top").toggleClass("ham_top_move");
+        $(".ham_middle").toggleClass("ham_middle_move");
+        $(".ham_bottom").toggleClass("ham_bottom_move");
+      });
+
+      // 登入介面左右互換
       var sign_btn = document.getElementById("signup_btn");
       sign_btn.addEventListener("click", function (e) {
         e.preventDefault;
