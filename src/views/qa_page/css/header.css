@@ -1,0 +1,173 @@
+
+@font-face {
+  font-family: "noto";
+  src: url("../font/NotoSansSC-Regular.otf");
+}
+
+@font-face {
+  font-family: "m_plus";
+  src: url("../font/m_plus/MPLUSRounded1c-Regular.ttf");
+}
+
+@font-face {
+  font-family: "font_master";
+  src: url("../font/genseki-font-master/ttc/GenSekiGothic-R.ttc");
+}
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "noto";
+  color: #754D00;
+}
+
+body{
+  background-image: url("../images/backround.jpg");
+}
+
+#header{
+  width: 100%;
+}
+#title{
+  width: 100%;
+  padding-left:10%;
+  padding-right: 25%;
+}
+#title_btn{
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  /* margin-right: 5%; */
+}
+#comm_us{
+  display: inline-block;
+  width: 180px;
+  padding: 5px 10px;
+  background-color: #91C359;
+  border-radius: 101px;
+  font-size: 16px;
+  border: 0px;
+  color: white;
+}
+
+#buy_now{
+  display: inline-block;
+  width: 180px;
+  margin-left: 50px;
+  background-color: #4A8507;
+  border-radius: 101px;
+  font-size: 16px;
+  border: 0px;
+  color: white;
+}
+
+#comm_us > img,
+#buy_now > img{
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+#title_pic{
+  text-align: right;
+  width: 100%;
+  max-height: 80vh;
+  margin: 25px 0;
+  overflow: hidden;
+}
+
+#title_pic > img{
+  text-align: right;
+  display: inline-block;
+  max-width: 100%;
+}
+
+
+#menu{
+  width: 13%;
+  /* height : 90vh; */
+  background-color: #FFF7D2 !important;
+  position: fixed;
+  top: 0;
+  right: 5%;
+  padding-bottom: 30px;
+}
+#logo_img{
+  width: 80%;
+  margin:0 auto;
+  margin-top: 10px;
+}
+
+#logo_img > img{
+  display: inline-block;
+  width: 100%;
+  text-align: center ;
+}
+
+#page_list{
+  width: 80%;
+  margin:0 auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#page_list > a{
+  margin: 10px 0;
+  font-size: 24px;
+  color: #754D00;
+  text-decoration: none;
+}
+
+#menu_fixed{
+  width: 5%; 
+  min-height:100vh ;
+  position: fixed;
+  top: 0;
+  right:0;
+  background-color: white !important;
+}
+#icon{
+  padding-top: 20px;
+}
+#icon #ham{
+  width: 100%;
+  margin: 10px auto 50px auto;
+}
+
+#icon #ham div.ham_top,
+#icon #ham div.ham_middle,
+#icon #ham div.ham_bottom{
+  background-color: #754D00;
+  width: 60%;
+  height: 5px;
+  margin: 5px auto
+}
+
+#icon #login{
+  width: 100%;
+  margin: 20px auto 50px auto;
+}
+
+#icon #login > a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+#icon #login > a > img{
+  width: 60%;
+  margin-left: 20%;
+  display: inline-block;
+}
+
+#icon #shopCar{
+  width: 100%;
+}
+
+#icon #shopCar> img{
+  display: inline-block;
+  width: 60%;
+  margin-left: 20%;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">送出</button>
+    <button id="btn1"></button>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        let btn = document.getElementById("btn");
+        let btn1 = document.getElementById("btn1")
+        btn.addEventListener('click',function(){
+            Email.send({
+                SecureToken : "75eb47d3-f592-4f37-b6fb-370deca11730",
+                To : 's923127@gmail.com',
+                From : "popo810527@gmail.com",
+                Subject : "良耕野菜驗證信",
+                Body : "靠北?"
+            }).then(
+            message => alert(message)
+            );
+        });
+
+        btn1.onclick = function(){
+            alert("aaa");
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="47" viewBox="0 0 47 47">
+  <defs>
+    <clipPath id="clip-a_icon">
+      <rect width="47" height="47"/>
+    </clipPath>
+  </defs>
+  <g id="a_icon" data-name="a icon" clip-path="url(#clip-a_icon)">
+    <rect width="47" height="47" fill="#fff"/>
+    <ellipse id="Ellipse_143" data-name="Ellipse 143" cx="22.5" cy="22" rx="22.5" ry="22" transform="translate(1 1)" fill="#ffbc53"/>
+    <text id="A" transform="translate(13 34)" fill="#fff" font-size="33" font-family="SegoeUI, Segoe UI" letter-spacing="0.009em"><tspan x="0" y="0">A</tspan></text>
+  </g>
+</svg>
