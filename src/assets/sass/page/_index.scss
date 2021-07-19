@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin);
+
 .body_area {
   width: 95%;
 
@@ -15,8 +17,10 @@
 
 .header {
   .title {
-    .title_pic_index {
-      height: 100vh;
+    .pic_index {
+      height: 90vh;
+      max-height: 1000px;
+      min-height: 500px;
     }
   }
 }
@@ -26,10 +30,10 @@
   margin: 100px auto 50px auto;
   width: 100%;
   max-width: 1920px;
-  height: 700px;
+  height: 600px;
 
   .news_title {
-    padding: 80px 0 60px 0;
+    padding: 0 0 60px 0;
     text-align: center;
   }
 
@@ -50,7 +54,6 @@
       .card_cover {
         width: 100%;
         overflow: hidden;
-
 
         img {
           width: 100%;
@@ -88,14 +91,12 @@
   }
 }
 
-
 .go_buy_all {
   padding-bottom: 100px;
 }
 
 .go_buy {
-  // border: 1px solid green;
-  // height: 1000px;
+  overflow: hidden;
   position: relative;
 
   .buy_scroll {
@@ -103,6 +104,7 @@
     width: 100%;
     height: 80vh;
     max-height: 1000px;
+    min-height: 500px;
     background-size: cover;
   }
 
@@ -146,22 +148,37 @@
       &:hover {
         opacity: 1;
       }
-    }
 
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      // filter: brightness(1.75);
+      .buycard_img {
+        width: 60%;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translateY(-50%);
+
+        &:hover {
+          filter: brightness(0.6);
+        }
+      }
     }
 
     &:hover {
       flex: 3;
       cursor: pointer;
-      filter: brightness(0.6);
     }
+
+    .buycard_bg {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+
+    }
+
+
   }
 }
+
 
 .plant_methods {
   // border: 1px solid blue;
@@ -396,5 +413,19 @@
       bottom: 100px;
       left: 250px;
     }
+  }
+}
+
+.index_animal {
+  height: 100px;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 60%;
+    left: 17%;
+    width: 200px;
+    transform: scaleX(-1);
+    z-index: 50;
   }
 }
