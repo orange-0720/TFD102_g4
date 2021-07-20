@@ -3719,7 +3719,6 @@ h2 {
 
 h3 {
   padding: 10px 0px;
-  padding-left: 20px;
   font-weight: 700;
 }
 
@@ -3729,11 +3728,12 @@ p {
 
 .item_title {
   position: relative;
+  padding-left: 20px;
 }
 
 .item_title:before {
   content: "";
-  background-image: url("/images/title/straberry.png");
+  background-image: url("/images/farm/aboutUs_title/straberry.png");
   background-repeat: no-repeat;
   background-size: 50% auto;
   width: 30px;
@@ -4009,14 +4009,13 @@ header .video iframe {
 }
 
 .production_box {
+  margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 100%;
-  border: 1px solid red;
-  padding-right: 15%;
 }
 
 .production_box .production_item {
@@ -4026,15 +4025,104 @@ header .video iframe {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border: 1px solid red;
   width: 100%;
-  max-width: 700px;
-  height: 400px;
+  max-width: 80%;
+  height: 500px;
 }
 
 .production_box .production_item .production_box {
-  border: 1px solid #14eb1b;
-  max-width: 40%;
+  max-width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  vertical-align: middle;
+}
+
+.production_box .production_item .adjust {
+  width: 80px;
+}
+
+.production_box .production_item .about_vagatable_box {
+  background-image: url("../images/product_introduction/bg_vagatable.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  border-radius: 53px;
+  position: relative;
+  padding: 0px;
+}
+
+.production_box .production_item .about_fruit_box {
+  background-image: url("../images/product_introduction/bg_fruit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  border-radius: 53px;
+  position: relative;
+  padding: 0px;
+}
+
+.production_box .production_item .about_fruit_box::before {
+  content: "";
+  background-image: url("../images/header_active.svg");
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  width: 100px;
+  height: 50%;
+  position: absolute;
+  top: -55px;
+  right: 0;
+}
+
+.production_box .production_item .production_box_entrance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  width: 100px;
+  height: 150px;
+  text-align: center;
+  position: absolute;
+}
+
+.production_box .production_item .production_box_entrance p {
+  position: absolute;
+  padding-top: 30px;
+}
+
+.promise_box {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  vertical-align: middle;
+  padding: 0px 70px 0px 20px;
+}
+
+.promise_box .promise_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4044,40 +4132,90 @@ header .video iframe {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.production_box .production_item .about_vagatable_box {
-  background-image: url("../images/product_introduction/bg_vagatable.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.promise_box .promise_content .promise_title h2 {
+  position: relative;
+}
+
+.promise_box .promise_content .promise_title h2:after {
+  content: '';
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  background-blend-mode: multiply;
-  border-radius: 53px;
+  height: 10px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #FFBC53;
+  opacity: 50%;
+  bottom: -5px;
 }
 
-.production_box .production_item .about_fruit_box {
-  background-image: url("../images/product_introduction/bg_fruit.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  background-blend-mode: multiply;
-  border-radius: 53px;
-}
-
-.production_box .production_item .production_box_title {
+.promise_box .promise_content .promise_item_box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item_first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
-  border: 1px solid red;
-  text-align: center;
-  max-width: 400px;
+  margin-bottom: 20px;
+  padding: 0 5%;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item_first img {
+  width: 100%;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item_first p {
+  width: 100%;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item {
+  padding: 0px 30px 0px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item .promise_item_content {
+  margin-bottom: 20px;
+  width: 45%;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item .promise_item_content img {
+  width: 100%;
+}
+
+.promise_box .promise_content .promise_item_box .promise_item .promise_item_content p {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

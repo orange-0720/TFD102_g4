@@ -7,57 +7,148 @@
 }
 
 .production_box{
+    margin-top:50px;
     display:flex;
     justify-content: space-around;
     width: 100%;
-    border:1px solid red;
-    padding-right:15%;
-    
+    // border:1px solid red;
     .production_item{
         display:flex;
         justify-content: space-between;
-        border:1px solid red;
+        // border:1px solid rgb(97, 16, 220);
         width: 100%;
-        max-width:700px;
-        height: 400px;
-
+        max-width:80%;
+        height: 500px;
         .production_box{
-            border:1px solid rgb(20, 235, 27);
-            max-width:40%;
+            max-width:400px;
             display:flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
+            vertical-align: middle;
         }
-
+        .adjust{
+            width:80px;
+            // border:1px solid red;
+        }
         .about_vagatable_box{
             background-image: url("../images/product_introduction/bg_vagatable.jpg");
             background-repeat: no-repeat;
             background-size: cover;
+            background-position:center;
             width:100%;
             height: 100%;   
             background-color: rgba(0, 0, 0, .3);
             background-blend-mode: multiply;
             border-radius: 53px;
+            position:relative;
+            padding:0px;
         }
         .about_fruit_box{
             background-image: url("../images/product_introduction/bg_fruit.jpg");
             background-repeat: no-repeat;
             background-size: cover;
+            background-position:center;
             width:100%;
             height: 100%;   
             background-color: rgba(0, 0, 0, .3);
             background-blend-mode: multiply;
             border-radius: 53px;
+            position:relative;
+            padding:0px;
+           
         }
-        .production_box_title{
+        .about_fruit_box::before{
+            content:"";
+            background-image: url("../images/header_active.svg");
+            background-repeat: no-repeat;
+            background-size: 50% auto;
+            width:100px;
+            height:50%;
+            position:absolute;
+            top:-55px;
+            right: 0;
+        }
+        .production_box_entrance{
           display:flex;
         //   justify-content: center;
-         align-items: center;
-          width:100%;
-          border:1px solid red;
+          align-items: center;
+          justify-content: center;
+          vertical-align: middle;
+          width:100px;
+          height:150px;
           text-align: center;
-          max-width:400px;
+          position: absolute;
+          p{
+            position: absolute;
+            padding-top:30px;
+          }
         }
     }
+}
 
+.promise_box{
+    margin-top: 100px;
+    // border:1px solid red;
+    display:flex;
+    vertical-align: middle;
+    align-items: center;
+    vertical-align: middle;
+   @include boxpadding;
+    .promise_content{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .promise_title{
+            // border:1px solid red;
+            h2{
+                position: relative;
+            }
+            h2:after{
+                @include underline();
+            }
+        }
+        .promise_item_box{
+            display:flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .promise_item_first{
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                width:100%;
+                // border:1px solid red;
+                margin-bottom:20px;
+                padding:0 5%;
+                img{
+                    width:100%;
+                }
+                p{
+                    // border:1px solid red;
+                    width:100%;
+                }
+            }
+            .promise_item{
+                padding:0px 30px 0px 25px;
+                display:flex;
+                flex-direction:row;
+                justify-content: space-around;
+                width:100%;
+                flex-wrap: wrap;
+                // border:1px solid rgb(79, 19, 231);
+               
+                .promise_item_content{
+                    margin-bottom:20px;
+                    width:45%;
+                    // border:1px solid rgb(79, 19, 231);
+                    img{
+                        width:100%;
+                    }
+                    p{
+                        width:100%;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -99,3 +99,25 @@
     font-size: $h4;
     
 }
+@mixin boxpadding {
+    padding:0px 70px 0px 20px;
+}
+
+//RWD
+@mixin tablet {
+    @media(max-width: 1199px) {
+        @content ;
+    } 
+}
+
+@mixin pad {
+    @media(max-width: 767px) {
+        @content ;
+    };        
+}
+
+@mixin mobile{
+    @media(max-width: 575px) {
+        @content ;
+    }
+}

@@ -16,9 +16,7 @@ h2{
 }
 h3{
     padding: 10px 0px;
-    padding-left:20px;
     font-weight: 700;
-
 }
 p{
     line-height: 25px;
@@ -27,10 +25,11 @@ p{
 // 標題介紹的裝飾圖案
 .item_title{
     position:relative;
+    padding-left:20px;
 }
 .item_title:before{
     content:"";
-    background-image: url("/images/title/straberry.png");
+    background-image: url("/images/farm/aboutUs_title/straberry.png");
     background-repeat: no-repeat;
     background-size: 50% auto;
     width:30px;
