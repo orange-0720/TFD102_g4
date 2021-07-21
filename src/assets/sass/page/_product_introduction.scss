@@ -55,7 +55,6 @@
             border-radius: 53px;
             position:relative;
             padding:0px;
-           
         }
         .about_fruit_box::before{
             content:"";
@@ -99,8 +98,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        .promise_title{
-            // border:1px solid red;
+        .production_summary_title{
             h2{
                 position: relative;
             }
@@ -117,14 +115,12 @@
                 flex-direction: column;
                 justify-content: center;
                 width:100%;
-                // border:1px solid red;
                 margin-bottom:20px;
                 padding:0 5%;
                 img{
                     width:100%;
                 }
                 p{
-                    // border:1px solid red;
                     width:100%;
                 }
             }
@@ -136,7 +132,6 @@
                 width:100%;
                 flex-wrap: wrap;
                 // border:1px solid rgb(79, 19, 231);
-               
                 .promise_item_content{
                     margin-bottom:20px;
                     width:45%;
