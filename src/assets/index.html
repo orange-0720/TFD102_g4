@@ -188,9 +188,14 @@
         </a>
         <div class="text_underline"></div>
       </div>
-      <div class="plant_img_scroll">
-        <img src="./images/index/04.png" alt="">
-      </div>
+      <a href="#">
+        <div class="plant_img_scroll">
+          <marquee behavior="alternate" scrollamount="2">
+            <img src="./images/index/04.png" class="ani_alter">
+          </marquee>
+
+        </div>
+      </a>
     </div>
     <div class="farm_expr">
       <div class="farm_expr_title">
@@ -353,7 +358,7 @@
     var buy_scroll = new TimelineMax();
     buy_scroll.fromTo(".buy_scroll", 1, { y: "-100%" }, { y: "0%", ease: Linear.easeNone })
 
-    //scroll觸發事件
+    // scroll觸發事件
     new ScrollMagic.Scene({
       triggerElement: "#keypoint",
       offset: 50,
