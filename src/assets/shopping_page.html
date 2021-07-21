@@ -5,13 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>良耕野菜-商品一覽</title>
-    <link rel="icon" href="./images/logo-02.svg">
+    <link rel="icon" href="./images/logo-02.svg" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
   <body>
     <header class="header">
+      <!-- 手機板header -->
+      <div class="fixed_top">
+        <div class="fixed_top_logo">
+          <a href="./index.html">
+            <img src="./images/fixed_top_logo.svg" alt="top_logo">
+          </a>
+        </div>
+        <div class="shop_car">
+          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+      </div>
+      <!-- 手機板header結束 -->      
       <div class="menu_fixed">
         <div class="icon">
           <div class="ham">
@@ -55,18 +72,27 @@
           <img
             src="./images/shopping_page/shopping_page01.jpg"
             alt="checkout_pic"
-            style="padding-bottom: 100px;"
+            style="padding-bottom: 100px"
           />
           <span class="bkc_black"></span>
           <h1>商品一覽</h1>
         </div>
       </div>
 
+      <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
         <a href="./index.html">
           <img src="./images/logo.svg" alt="logo" />
         </a>
         <div class="header_nav_block">
+          <div class="nav_block_contact">
+            <img src="./images/nav_block_pen.svg" />
+            聯絡我們
+          </div>
+          <div class="nav_block_log">
+            <img src="./images/nav_block_log.svg" />
+            登入註冊
+          </div>
           <div class="nav_right_block">
             <div class="nav_active">
               <a href="#">農村體驗</a>
@@ -108,32 +134,38 @@
           />
         </div>
       </div>
+      <!-- 漢堡彈窗結束 -->
+
+      <!-- 聯絡我們彈窗 -->
       <div class="index_contact_box">
         <div class="black_block"></div>
         <div class="cotanct_block">
-            <div class="contact_block_head">
-              <button class="contact_block_Xmark"></button>
-            </div>
-            <h2>聯絡我們</h2>
-            <div class="contact_search_bar">
-              <input type="text" id="order_search" placeholder="請輸入訂單編號">
-              <button class="search_icon">
-                <img src="./images/header_search_icon.svg" alt="search">
-              </button>
-            </div>
-            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
-            <div class="mailto_block">
-              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
-            </div>
+          <div class="contact_block_head">
+            <button class="contact_block_Xmark"></button>
+          </div>
+          <h2>聯絡我們</h2>
+          <div class="contact_search_bar">
+            <input type="text" id="order_search" placeholder="請輸入訂單編號" />
+            <button class="search_icon">
+              <img src="./images/header_search_icon.svg" alt="search" />
+            </button>
+          </div>
+          <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+          <div class="mailto_block">
+            <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
+              >寄送問題</a
+            >
+          </div>
         </div>
       </div>
+      <!-- 聯絡我們彈窗結束 -->
+
+      <!-- 購物車彈窗  -->
       <div class="header_shopping_cart">
         <div class="incart_car_block">
-          <img src="./images/header_incart.svg" alt="">
+          <img src="./images/header_incart.svg" alt="" />
         </div>
-        <div class="cart_buy_list">
-          目前購物車空無一物
-        </div>
+        <div class="cart_buy_list">目前購物車空無一物</div>
         <div class="incart_total">
           總和
           <span>$0</span>
@@ -142,6 +174,7 @@
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
         </div>
       </div>
+      <!-- 購物車彈窗結束  -->
     </header>
 
     <!-- 當頁內容開始 -->
@@ -215,59 +248,11 @@
         <div class="shopping_product_block">
           <a href="#">
             <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-            <a href="#">
-              <div class="shopping_product_pic">
-                  <img
-                    src="./images/shopping_page/shopping_fake.jpg"
-                    alt="商品圖片"
-                  />
-                  <span class="shopping_product_incart"></span>
-              </div>
-              <h4 class="shopping_product_name">防疫蔬果箱</h4>
-              <h5 class="shopping_product_intro">
-                防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-              </h5>
-              <h4 class="shopping_product_price">399元</h4>
-            </a>
-        </div>
-        <div class="shopping_product_block">
-            <a href="#">
-              <div class="shopping_product_pic">
-                  <img
-                    src="./images/shopping_page/shopping_fake.jpg"
-                    alt="商品圖片"
-                  />
-                  <span class="shopping_product_incart"></span>
-              </div>
-              <h4 class="shopping_product_name">防疫蔬果箱</h4>
-              <h5 class="shopping_product_intro">
-                防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-              </h5>
-              <h4 class="shopping_product_price">399元</h4>
-            </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
             </div>
             <h4 class="shopping_product_name">防疫蔬果箱</h4>
             <h5 class="shopping_product_intro">
@@ -279,11 +264,11 @@
         <div class="shopping_product_block">
           <a href="#">
             <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
             </div>
             <h4 class="shopping_product_name">防疫蔬果箱</h4>
             <h5 class="shopping_product_intro">
@@ -295,11 +280,11 @@
         <div class="shopping_product_block">
           <a href="#">
             <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
             </div>
             <h4 class="shopping_product_name">防疫蔬果箱</h4>
             <h5 class="shopping_product_intro">
@@ -311,11 +296,11 @@
         <div class="shopping_product_block">
           <a href="#">
             <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
             </div>
             <h4 class="shopping_product_name">防疫蔬果箱</h4>
             <h5 class="shopping_product_intro">
@@ -327,11 +312,11 @@
         <div class="shopping_product_block">
           <a href="#">
             <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
             </div>
             <h4 class="shopping_product_name">防疫蔬果箱</h4>
             <h5 class="shopping_product_intro">
@@ -343,11 +328,59 @@
         <div class="shopping_product_block">
           <a href="#">
             <div class="shopping_product_pic">
-                <img
-                  src="./images/shopping_page/shopping_fake.jpg"
-                  alt="商品圖片"
-                />
-                <span class="shopping_product_incart"></span>
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
+            </div>
+            <h4 class="shopping_product_name">防疫蔬果箱</h4>
+            <h5 class="shopping_product_intro">
+              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
+            </h5>
+            <h4 class="shopping_product_price">399元</h4>
+          </a>
+        </div>
+        <div class="shopping_product_block">
+          <a href="#">
+            <div class="shopping_product_pic">
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
+            </div>
+            <h4 class="shopping_product_name">防疫蔬果箱</h4>
+            <h5 class="shopping_product_intro">
+              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
+            </h5>
+            <h4 class="shopping_product_price">399元</h4>
+          </a>
+        </div>
+        <div class="shopping_product_block">
+          <a href="#">
+            <div class="shopping_product_pic">
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
+            </div>
+            <h4 class="shopping_product_name">防疫蔬果箱</h4>
+            <h5 class="shopping_product_intro">
+              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
+            </h5>
+            <h4 class="shopping_product_price">399元</h4>
+          </a>
+        </div>
+        <div class="shopping_product_block">
+          <a href="#">
+            <div class="shopping_product_pic">
+              <img
+                src="./images/shopping_page/shopping_fake.jpg"
+                alt="商品圖片"
+              />
+              <span class="shopping_product_incart"></span>
             </div>
             <h4 class="shopping_product_name">防疫蔬果箱</h4>
             <h5 class="shopping_product_intro">
@@ -357,28 +390,34 @@
           </a>
         </div>
         <div class="shooping_change_page">
-            <div class="change_page_block">
-                <div class="circle_base_prev"></div>
-                <div class="page_prev">
-                    <img src="./images/shopping_page/shopping_prev_arrow.svg" alt="上一頁">
-                </div>
-                <div class="shopping_page_01">
-                  <a href="#">1</a>
-                </div>
-                <div class="shopping_page_02">
-                  <a href="#">2</a>
-                </div>
-                <div class="shopping_page_03">
-                  <a href="#">3</a>
-                </div>
-                <div class="shopping_page_04">
-                  <a href="#">4</a>
-                </div>
-                <div class="page_next">
-                    <img src="./images/shopping_page/shopping_prev_arrow.svg" alt="下一頁">
-                </div>
-                <div class="circle_base_next"></div>
+          <div class="change_page_block">
+            <div class="circle_base_prev"></div>
+            <div class="page_prev">
+              <img
+                src="./images/shopping_page/shopping_prev_arrow.svg"
+                alt="上一頁"
+              />
             </div>
+            <div class="shopping_page_01">
+              <a href="#">1</a>
+            </div>
+            <div class="shopping_page_02">
+              <a href="#">2</a>
+            </div>
+            <div class="shopping_page_03">
+              <a href="#">3</a>
+            </div>
+            <div class="shopping_page_04">
+              <a href="#">4</a>
+            </div>
+            <div class="page_next">
+              <img
+                src="./images/shopping_page/shopping_prev_arrow.svg"
+                alt="下一頁"
+              />
+            </div>
+            <div class="circle_base_next"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -428,26 +467,25 @@
 
     <script src="./js/header.js"></script>
     <script>
-
       // 側邊攔展開
-      $(".shopping_box_slide").on("click", function() {
+      $(".shopping_box_slide").on("click", function () {
         $(".shopping_box_link").slideToggle();
       });
 
-      $(".shopping_veg_block").on("click", function() {
+      $(".shopping_veg_block").on("click", function () {
         $(".shopping_veg_link").slideToggle();
       });
 
-      $(".shopping_fruit_block").on("click", function() {
+      $(".shopping_fruit_block").on("click", function () {
         $(".shopping_fruit_link").slideToggle();
       });
 
       // 回頁首
-      $("#go_top").on("click", function(e) {
+      $("#go_top").on("click", function (e) {
         e.preventDefault();
         $("html, body").animate(
           {
-            scrollTop: 0
+            scrollTop: 0,
           },
           750
         );

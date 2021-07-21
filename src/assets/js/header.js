@@ -38,6 +38,7 @@ $('.black_block').click(function(){
   $('.index_contact_box').fadeToggle();
 });
 
+//購物車彈窗
 $('.shop_car').click(function(){
   $('.header_shopping_cart').toggleClass('cart_into');
 })
