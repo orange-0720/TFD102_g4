@@ -2352,7 +2352,7 @@ div.checkout_s3_order_detail .order_total_price {
   margin-top: 5px;
 }
 
-.header .title .title_pic_index {
+.header .title .pic_index {
   height: 100vh;
 }
 
@@ -2879,7 +2879,6 @@ div.qa_item div.aside .sticky {
 
 div.qa_item div.aside .qa_list {
   line-height: 30px;
-  position: sticky;
   top: -5px;
 }
 
@@ -2889,7 +2888,6 @@ div.qa_item div.aside a {
   bottom: 20px;
   line-height: 30px;
   margin-top: 100px;
-  position: sticky;
   top: 20px;
 }
 
@@ -2902,13 +2900,11 @@ div.qa_item div.aside .hr {
   height: 3px;
   background-color: #A07332;
   margin-top: 5%;
-  position: sticky;
   top: 20px;
 }
 
 div.qa_item div.aside ul {
   margin-top: 5%;
-  position: sticky;
   top: 20px;
 }
 
@@ -2967,13 +2963,15 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .animal_huacaya {
-  position: absolute;
+  position: relative;
 }
 
 .animal_huacaya img {
-  position: relative;
-  margin-left: 40%;
-  margin-top: -51%;
+  margin-left: 6%;
+  margin-top: -6%;
+  width: 17%;
+  z-index: 1;
+  position: absolute;
 }
 
 .kiwi {
@@ -2997,26 +2995,41 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .price_butten button {
-  display: inline-block;
   width: 100px;
   height: 50px;
-  background-color: #91C359;
+  background-color: #008000;
   text-decoration: none;
-  font-family: "huninn";
   border-radius: 101px;
-  padding: 15px;
   border: 0;
   color: #FAF9EF;
   font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   font-weight: 700;
+  padding: none;
   font-size: 24px;
   cursor: pointer;
 }
 
 .price_butten button:hover {
   background-color: #6b9837;
+}
+
+.butten_check .butten {
+  width: 80px;
+  height: 40px;
+  background-color: #FFF353;
+  text-decoration: none;
+  border-radius: 101px;
+  border: 0;
+  color: #A07332;
+  font-size: 16px;
+  z-index: 1;
+  padding: 12px;
+  margin-left: 10%;
+  font-weight: 700;
+  padding: none;
+  font-size: 24px;
 }
 
 .fruits_box_two {
@@ -3032,15 +3045,16 @@ div.qa_item div.qa_problem p.question::after {
   background-color: #FFF7D2;
   margin-top: 2%;
   border-radius: 10px;
-  right: 0;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits {
   padding-top: 20px;
+  width: 76%;
+  margin: auto;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits button {
-  width: 30%;
+  width: 37%;
   height: 30%;
   background-color: #008000;
   text-decoration: none;
@@ -3048,43 +3062,38 @@ div.qa_item div.qa_problem p.question::after {
   border: 0;
   color: #FAF9EF;
   font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
   cursor: pointer;
 }
 
+.fruits_box_two .fruits_remove_menu .five_fruits button:hover {
+  background-color: #6b9837;
+}
+
 .fruits_box_two .fruits_remove_menu .five_fruits .fruit_1 {
-  border: 1px solid purple;
   width: 100%;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits .fruit_2 {
-  border: 1px solid purple;
   width: 100%;
-  height: 12vh;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits .fruit_3 {
-  border: 1px solid purple;
   width: 100%;
-  height: 12vh;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits .fruit_4 {
-  border: 1px solid purple;
   width: 100%;
-  height: 12vh;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits .fruit_5 {
-  border: 1px solid purple;
   width: 100%;
-  height: 12vh;
 }
 
 .fruits_box_two .fruits_basket {
-  border: 1px solid orange;
-  width: 70%;
-  height: 65vh;
-  margin-left: 2%;
+  width: 1000px;
+  margin-left: 5%;
   margin-top: 20px;
 }
 
@@ -3093,6 +3102,7 @@ div.qa_item div.qa_problem p.question::after {
   justify-content: flex-end;
   align-items: flex-end;
   margin-left: -4%;
+  z-index: 1;
 }
 
 .fruits_box_two .fruits_check_butten button {
@@ -3121,6 +3131,7 @@ div.qa_item div.qa_problem p.question::after {
 
 .fruits_box_two .fruits_basket {
   width: 70%;
+  position: relative;
 }
 
 .fruits_box_two .fruits_basket #wooden {
@@ -3140,7 +3151,7 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_basket #avocado {
-  width: 33%;
+  width: 30%;
   z-index: 0;
   top: 15%;
   left: 59%;
@@ -3148,66 +3159,257 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_basket #carrot {
-  width: 33%;
+  width: 30%;
+  z-index: 0;
+  top: 12%;
+  left: 40%;
+  position: absolute;
+}
+
+.fruits_box_two .fruits_basket #orange {
+  width: 30%;
+  z-index: 0;
+  top: 18%;
+  left: 22%;
+  position: absolute;
+}
+
+.fruits_box_two .fruits_basket #pepper {
+  width: 30%;
+  z-index: 0;
+  top: 25%;
+  left: 38%;
+  position: absolute;
+}
+
+.fruits_box_two .fruits_basket #tomato {
+  width: 30%;
   z-index: 0;
   top: 30%;
-  left: 34%;
+  left: 17%;
   position: absolute;
+}
+
+.butten_check_price {
+  width: 80%;
+  margin-left: 16%;
+}
+
+.butten_check_price button {
+  width: 100px;
+  height: 50px;
+  background-color: #008000;
+  text-decoration: none;
+  border-radius: 101px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .select_fruits {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3%;
-  border: 1px solid red;
   max-width: 1200px;
   width: 80%;
 }
 
 .select_fruits .fruits_basket {
   border: 3px dashed #A07332;
-  width: 82%;
-  margin-top: -2.3%;
   border-radius: 10px;
+  width: 90%;
+  margin: auto;
+  margin-top: -2%;
 }
 
-.select_fruits .fruits_basket .fruits_first_row, .select_fruits .fruits_basket .fruits_second_row {
+.select_fruits .fruits_basket .fruits_first_row,
+.select_fruits .fruits_basket .fruits_second_row {
   display: flex;
   margin-top: 40px;
   justify-content: center;
   text-align: center;
+  margin: 5%;
 }
 
-.select_fruits .fruits_basket .fruits_first_row img, .select_fruits .fruits_basket .fruits_second_row img {
-  width: 100%;
+.select_fruits .fruits_basket .fruits_first_row img,
+.select_fruits .fruits_basket .fruits_second_row img {
+  width: 90%;
+  border-radius: 50%;
+  margin: 5%;
+  border: 4px #A07332 dashed;
 }
 
-.select_fruits .fruits_basket .fruits_first_row h5, .select_fruits .fruits_basket .fruits_second_row h5 {
+.select_fruits .fruits_basket .fruits_first_row h5,
+.select_fruits .fruits_basket .fruits_second_row h5 {
   margin-top: 6px;
 }
 
 .select_fruits .fruits_basket .fruits_second_row {
-  height: 200px;
+  height: 196px;
+}
+
+.select_fruits .fruits_basket .fruits_items_one img {
+  border: 6px green solid;
 }
 
 .product_directions {
   background-color: #FFF353;
-  padding: 10px 10%;
-  height: 5vh;
-  border: 1px solid red;
+  padding: 7px 10%;
 }
 
 .product_directions .select {
   width: 30%;
+  margin: auto;
+  font-weight: 500;
 }
 
 .free_give {
   width: 80%;
-  display: flex;
   max-width: 1200px;
-  height: 35vh;
+  display: flex;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.free_give .free_title {
+  display: flex;
+}
+
+.free_give .free_give_people {
+  margin: auto;
+}
+
+.free_give .free_give_people img {
+  width: 80%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.free_give .free_give_people .free_title h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.free_give .free_give_people .under_line {
+  border-top: 5px solid #ffbc53;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.free_give .free_give_people .free_all {
+  display: flex;
+  margin-top: 40px;
+}
+
+.free_give .free_give_people .free_all p {
+  width: 80px;
+  height: 40px;
+  background-color: #FFF353;
+  text-decoration: none;
+  border-radius: 101px;
+  border: 0;
+  color: #A07332;
+  font-size: 16px;
+  z-index: 1;
+  padding: 12px;
+  margin-left: 10%;
+}
+
+.fruit_box_board {
+  display: flex;
+  margin-top: 4%;
+}
+
+.product_name {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.product_name {
+  transition: .5s;
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
+  color: white;
+  bottom: 45%;
+  opacity: 0;
+  margin-left: 34%;
+}
+
+.fruit_box_1 {
+  position: relative;
+}
+
+.fruit_box_2 {
+  position: relative;
+}
+
+.fruit_box_3 {
+  position: relative;
+}
+
+._mask {
+  width: 80%;
+  height: 100%;
+  background-color: #00000087;
+  margin-left: 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: .5s;
+  opacity: 0;
+}
+
+.fruit_box_1:hover ._mask {
+  opacity: 1;
+}
+
+.fruit_box_2:hover ._mask {
+  opacity: 1;
+}
+
+.fruit_box_3:hover ._mask {
+  opacity: 1;
+}
+
+.fruit_box_1:hover p {
+  opacity: 1;
+}
+
+.fruit_box_2:hover p {
+  opacity: 1;
+}
+
+.fruit_box_3:hover p {
+  opacity: 1;
+}
+
+.bg_fruit_box {
+  position: relative;
+}
+
+.bg_fruit_box .ufo_ushi {
+  position: absolute;
+  width: 13%;
+  margin-left: 5%;
+  margin-top: 1%;
+  z-index: 1;
+}
+
+.bg_fruit_box .bg_img2 {
+  width: 14%;
+  position: absolute;
+  margin-top: -48%;
+  left: 0%;
+  z-index: -100;
+  transform: scaleX(-1);
 }
 
 section#game_play_border {
@@ -3350,7 +3552,7 @@ div#game_decorate_testNumberCircle h1#inside_testNumber {
   padding: 15px;
   border: 0;
   color: #FAF9EF;
-  font-size: 24px;
+  font-size: 20px;
   transition: 0.5s;
   cursor: pointer;
   font-size: 24px;
