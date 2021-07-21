@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>良耕野菜</title>
+    <link rel="icon" href="./images/logo-02.svg">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./images/logo-02.svg">
+    <script src="./js/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <!-- 手機板header -->
+      <div class="fixed_top">
+        <div class="fixed_top_logo">
+          <a href="./index.html">
+            <img src="./images/fixed_top_logo.svg" alt="top_logo">
+          </a>
+        </div>
+        <div class="shop_car">
+          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+      </div>
+      <!-- 手機板header結束 -->
+      <!-- 桌機板header -->
+      <div class="menu_fixed">
+        <div class="icon">
+          <div class="ham">
+            <div class="ham_top"></div>
+            <div class="ham_middle"></div>
+            <div class="ham_bottom"></div>
+          </div>
+          <div class="login">
+            <a href="./login.html">
+              <img src="./images/login_icon.svg" alt="login_icon" />
+            </a>
+          </div>
+          <div class="shop_car">
+            <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+          </div>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="logo_img">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <div class="page_list">
+          <a href="#">農村體驗</a>
+          <a href="#">客製蔬果箱</a>
+          <a href="#">蔬果知識小遊戲</a>
+          <a href="#">關於我們</a>
+          <a href="#">問與答</a>
+          <a href="#">新鮮蔬果</a>
+        </div>
+      </div>
+      <div class="title">
+        <div class="title_btn">
+          <button class="comm_us">
+            聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+          </button>
+          <button class="buy_now">
+            立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          </button>
+        </div>
+      </div>
+      <!-- 桌機板header 結束 -->
+
+      <!-- 漢堡彈窗 -->
+      <div class="jump_hamburger_block">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+        <div class="header_nav_block">
+          <div class="nav_block_contact">
+            <img src="./images/nav_block_pen.svg" >
+            聯絡我們
+          </div>
+          <div class="nav_block_log">
+            <img src="./images/nav_block_log.svg">
+            登入註冊
+          </div>
+          <div class="nav_right_block">
+            <div class="nav_active">
+              <a href="#">農村體驗</a>
+              <a href="#">預約去</a>
+            </div>
+            <div class="nav_buy_now">
+              <a href="#">立即買</a>
+              <a href="#">客製蔬果箱</a>
+              <a href="#">新鮮蔬果</a>
+            </div>
+            <div class="nav_knowledge">
+              <a href="#">蔬果知識小遊戲</a>
+            </div>
+          </div>
+          <div class="nav_left_block">
+            <div class="nav_about_us">
+              <a href="#">關於我們</a>
+              <a href="#">農場介紹</a>
+              <a href="#">生產介紹</a>
+            </div>
+            <div class="nav_QA">
+              <a href="#">問與答</a>
+            </div>
+          </div>
+          <img
+            src="./images/header_vegetable.svg"
+            alt="vegetable"
+            class="header_vegetable"
+          />
+          <img
+            src="./images/header_lemon.svg"
+            alt="vegetable"
+            class="header_lemon"
+          />
+          <img
+            src="./images/header_kiwi.svg"
+            alt="vegetable"
+            class="header_kiwi"
+          />
+        </div>
+      </div>
+      <!-- 漢堡彈窗結束 -->
+
+      <!-- 聯絡我們彈窗 -->
+      <div class="index_contact_box">
+        <div class="black_block"></div>
+        <div class="cotanct_block">
+            <div class="contact_block_head">
+              <button class="contact_block_Xmark"></button>
+            </div>
+            <h2>聯絡我們</h2>
+            <div class="contact_search_bar">
+              <input type="text" id="order_search" placeholder="請輸入訂單編號">
+              <button class="search_icon">
+                <img src="./images/header_search_icon.svg" alt="search">
+              </button>
+            </div>
+            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+            <div class="mailto_block">
+              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+            </div>
+        </div>
+      </div>
+       <!-- 聯絡我們彈窗結束 -->
+
+       <!-- 購物車彈窗  -->
+      <div class="header_shopping_cart">
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="">
+        </div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
+        <div class="incart_total">
+          總和
+          <span>$0</span>
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+        </div>
+      </div>
+      <!-- 購物車彈窗結束  -->
+    </header>
+    <div class="login_block">
+      <div class="form_block">
+        <form class="login_form" action="#" method="POST">
+          <h2>會員登入</h2>
+          <input type="text" placeholder="註冊信箱" />
+          <input type="password" placeholder="會員密碼" />
+          <input type="submit" value="登入" id="login_btn" />
+          <div class="login_notice">
+            <a id="signup_btn">立即登入</a>
+            <span>|</span>
+            <a href="#">忘記密碼</a>
+          </div>
+        </form>
+        <form class="signup_form" action="#" method="POST">
+          <h2>會員註冊</h2>
+          <input type="text" placeholder="註冊信箱">
+          <input type="text" placeholder="會員密碼">
+          <input type="text" placeholder="密碼確認">
+          <input type="text" placeholder="聯絡手機">
+          <label>
+            <input type="checkbox">
+            我已閱讀並同意會員條款
+          </label>
+          <input type="submit" value="註冊" id="signup_btn">
+          <div class="signin_notice">
+            <a id="change_to_log">已有帳號請按此登入</a>
+          </div>
+        </form>
+      </div>
+      <div class="login_pic">
+        <img id="login_img" src="./images/login&out/login_01.jpg" alt="login_pic"/>
+      </div>
+    </div>
+
+    <script src="./js/header.js"></script>
+    <script>
+      // 登入介面左右互換
+      var form_block = document.getElementsByClassName('form_block')[0];
+      var sign_btn = document.getElementById("signup_btn");
+      var change_to_log = document.getElementById('change_to_log');
+      var signup_form = document.getElementsByClassName('signup_form')[0];
+      let login_form = document.getElementsByClassName("login_form")[0];
+      sign_btn.addEventListener("click", function (e) {
+        e.preventDefault;
+        let login_img = document.getElementById("login_img");
+        let login_pic = document.getElementsByClassName("login_pic")[0];
+        form_block.classList.toggle("form_move");
+        login_pic.classList.toggle("pic_move");
+
+        if (form_block.classList.contains("form_move")) {
+          login_img.src =
+            "./images/login&out/logout_01.jpg";
+        } else {
+          login_img.src =
+            "./images/login&out/login_01.jpg";
+        }
+        if(login_form.style.display = 'block'){
+          login_form.style.display = 'none';
+          signup_form.style.display = 'block'
+        }
+      });
+      change_to_log.addEventListener('click', function(e){
+        e.preventDefault;
+        let login_img = document.getElementById("login_img");
+        let login_pic = document.getElementsByClassName("login_pic")[0];
+        form_block.classList.toggle("form_move");
+        login_pic.classList.toggle("pic_move");
+
+        if (form_block.classList.contains("form_move")) {
+          login_img.src =
+            "./images/login&out/logout_01.jpg";
+        } else {
+          login_img.src =
+            "./images/login&out/login_01.jpg";
+        }
+        if(login_form.style.display = 'none'){
+          login_form.style.display = 'block';
+          signup_form.style.display = 'none';
+        }
+      })
+      
+    </script>
+  </body>
+</html>

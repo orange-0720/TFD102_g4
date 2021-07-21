@@ -1,0 +1,414 @@
+//價格欄位
+.price_butten {
+  width: 80%;
+  @include marginAuto();
+  display: flex;
+  max-width: 1200px;
+  cursor: pointer;
+
+  button {
+    @include btn_small(100px, 50px);
+    font-weight: 700;
+    padding: none;
+    font-size: $h3;
+    cursor: pointer;
+  }
+}
+
+
+
+.butten_check .butten{
+  @include btn_yellow(100px, 50px);
+  font-weight: 700;
+  padding: none;
+  font-size: $h3;
+}
+
+//蔬果箱欄位
+.fruits_box_two {
+  width: 80%;
+  @include marginAuto();
+  display: flex;
+  max-width: 1200px;
+ 
+  // 蔬菜箱移除選項
+  .fruits_remove_menu {
+    //border: 1px solid purple;
+    width: 8%;
+    background-color: $bkc_yellow;
+    margin-top: 2%;
+    border-radius: 10px;
+    
+
+    // 左側黃色移除選項
+    .five_fruits {
+      //border: 1px solid black;
+      padding-top: 20px;
+      width: 76%;
+      //height: 67vh;
+      margin: auto;
+      button {
+        @include btn_small(37%, 30%);
+        cursor: pointer;
+      }
+      .fruit_1 {
+        //border: 1px solid purple;
+        width: 100%;
+      }
+
+      .fruit_2 {
+        //border: 1px solid purple;
+        width: 100%;
+      }
+
+      .fruit_3 {
+        //border: 1px solid purple;
+        width: 100%;
+      }
+
+      .fruit_4 {
+        //border: 1px solid purple;
+        width: 100%;
+      }
+
+      .fruit_5 {
+        //border: 1px solid purple;
+        width: 100%;
+      }
+    }
+  }
+
+  // 蔬菜箱整體
+  .fruits_basket {
+    //border: 1px solid orange;
+    width: 1000px;
+    //height: 65vh;
+    margin-left: 5%;
+    margin-top: 20px;
+    //寫三種1000PX 700PX 300PX 可以寫死
+    @mixin tablet {
+      width: 700px;
+     
+      
+      }
+     @mixin pad {
+        width: 300px;
+       
+        
+      }
+  
+  }
+  // 按鈕
+  .fruits_check_butten {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-left: -4%;
+    z-index: 1;
+    button {
+      outline: none;
+      border: 0;
+      padding: 0;
+    }
+    button.box_check {
+      //border: 1px solid black;
+      background-color: $darkgreen;
+      height: 6vh;
+      width: 6vh;
+      color: $darkgreen;
+      margin-right: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button.box_delete {
+      //border: 1px solid black;
+      background-color: $yellow;
+      height: 6vh;
+      width: 6vh;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  // 蔬菜箱內部
+  .fruits_basket {
+    width: 70%;
+    position: relative;
+    
+    #wooden {
+      width: 78%;
+      top: 45%;
+      left: 15%;
+      z-index: 1;
+      position: absolute;
+    }
+
+    #wooden_box {
+      width: 100%;
+      z-index: 0;
+      top: 24%;
+      left: 0%;
+      position: absolute;
+    }
+    // 399價位
+
+    #avocado {
+      width: 30%;
+      z-index: 0;
+      top: 15%;
+      left: 59%;
+      position: absolute;
+    }
+
+    #carrot {
+      width: 30%;
+      z-index: 0;
+      top: 12%;
+      left: 40%;
+      position: absolute;
+    }
+
+    #orange {
+      width: 30%;
+      z-index: 0;
+      top: 18%;
+      left: 22%;
+      position: absolute;
+    }
+
+    #pepper {
+      width: 30%;
+      z-index: 0;
+      top: 25%;
+      left: 38%;
+      position: absolute;
+    }
+
+    #tomato {
+      width: 30%;
+      z-index: 0;
+      top: 30%;
+      left: 17%;
+      position: absolute;
+    }
+  }
+}
+
+.butten_check_price{
+  width: 80%;
+  margin-left: 16%;
+    button{
+      width: 100px;
+      height: 50px;
+      background-color: $darkgreen;
+      text-decoration: none;
+      @include border_radius();
+      border: 0;
+      color: $white;
+      font-size:26px;
+      font-weight:700;
+    }
+    
+}
+
+// 選擇蔬果第二大欄
+.select_fruits {
+  @include marginAuto();
+  margin-top: 3%;
+  //border: 1px solid red;
+  max-width: 1200px;
+  width: 80%;
+  // 選擇蔬果細項
+  .fruits_basket {
+    border: 3px dashed $brown;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    margin-top: -2%;
+    .fruits_first_row,
+    .fruits_second_row {
+      display: flex;
+      margin-top: 40px;
+      justify-content: center;
+      text-align: center;
+      margin: 5%;
+      img {
+        width: 90%;
+        border-radius:50% ;
+        margin: 5%;
+        border:4px $brown dashed;
+      }
+
+      h5 {
+        margin-top: 6px;
+      }
+    }
+
+    .fruits_second_row {
+      height: 196px;
+    }
+
+    .fruits_items_one img{
+      border:6px green solid;
+    }
+
+  }
+}
+
+//  幾kg文字替換
+
+.product_directions {
+  background-color: $yellow;
+  padding: 7px 10%;
+
+  //border: 1px solid red;
+  .select {
+    width: 30%;
+    margin: auto;
+    font-weight: 500;
+  }
+}
+
+//滿額贈
+.free_give {
+  width: 80%;
+  max-width: 1200px;
+  display: flex;
+  margin-top: 70px;
+  @include marginAuto();
+
+  .free_title {
+    display: flex;
+  }
+  .free_give_people {
+    margin: auto;
+    //border: 1px solid rgb(252, 53, 53);
+
+    img {
+      width: 80%;
+      display: flex;
+      @include marginAuto();
+    }
+    .free_title {
+      h3 {
+        @include marginAuto();
+        
+      }
+    }
+    .under_line {
+        border-top: 5px solid #ffbc53;
+        width: 120px;
+        @include marginAuto();
+        margin-top: 5px;
+    }
+
+    .free_all{
+        display: flex;
+        margin-top: 40px;
+        p {
+            @include btn_yellow(100px,50px);
+          }
+          
+    }
+
+    
+
+  }
+}
+
+//下方蔬果單品 滑過出現字
+.fruit_box_board{
+  display: flex;
+  margin-top: 4%;
+}
+
+.product_name{
+  display: flex;
+  justify-content: center;
+  font-size: $h3;
+  //margin-top: 20px;
+}
+.product_name{
+    transition:.5s;
+    position: absolute;
+    cursor: pointer;
+    margin: 0;
+    color: white;
+    bottom: 45%;
+    opacity: 0;
+    margin-left: 34%;
+}
+.fruit_box_1{
+  position: relative;
+}
+
+.fruit_box_2{
+  position: relative;
+}
+
+.fruit_box_3{
+  position: relative;
+}
+
+
+._mask{
+  width: 80%;
+  height: 100%;
+  background-color:#00000087;
+  margin-left: 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: .5s;
+  opacity: 0;
+}
+
+
+
+// hover效果
+
+.fruit_box_1:hover ._mask{
+  opacity: 1;
+}
+
+.fruit_box_2:hover ._mask{
+  opacity: 1;
+}
+
+.fruit_box_3:hover ._mask{
+  opacity: 1;
+}
+.fruit_box_1:hover p{
+  opacity: 1;
+}
+.fruit_box_2:hover p{
+  opacity: 1;
+}
+.fruit_box_3:hover p{
+  opacity: 1;
+}
+
+
+// 插圖&背景
+
+.bg_fruit_box{
+  position: relative;
+  .ufo_ushi{
+        position: absolute;
+        width: 13%;
+        margin-left: 5%;
+        margin-top: 1%;
+        z-index: 1;
+    }
+
+    .bg_img2 {
+      width: 14%;
+      position: absolute;
+      margin-top: -48%;
+      left: 0%;
+      z-index: -100;
+      transform:scaleX(-1);
+    }
+}
