@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>良耕野菜-結帳頁面</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <!-- 手機板header -->
+      <div class="fixed_top">
+        <div class="fixed_top_logo">
+          <a href="./index.html">
+            <img src="./images/fixed_top_logo.svg" alt="top_logo">
+          </a>
+        </div>
+        <div class="shop_car">
+          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+      </div>
+      <!-- 手機板header結束 -->
+      <div class="menu_fixed">
+        <div class="icon">
+          <div class="ham">
+            <div class="ham_top"></div>
+            <div class="ham_middle"></div>
+            <div class="ham_bottom"></div>
+          </div>
+          <div class="login">
+            <a href="./login.html">
+              <img src="./images/login_icon.svg" alt="login_icon" />
+            </a>
+          </div>
+          <div class="shop_car">
+            <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+          </div>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="logo_img">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <div class="page_list">
+          <a href="#">農村體驗</a>
+          <a href="#">客製蔬果箱</a>
+          <a href="#">蔬果知識小遊戲</a>
+          <a href="#">關於我們</a>
+          <a href="#">問與答</a>
+          <a href="#">新鮮蔬果</a>
+        </div>
+      </div>
+      <div class="title">
+        <div class="title_btn">
+          <button class="comm_us">
+            聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+          </button>
+          <button class="buy_now">
+            立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          </button>
+        </div>
+        <div class="title_pic">
+          <img src="./images/checkout/checkout_01.jpg" alt="checkout_pic" />
+          <span class="bkc_black"></span>
+          <h1>結帳頁面</h1>
+        </div>
+      </div>
+      <!-- 漢堡彈窗 -->
+      <div class="jump_hamburger_block">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+        <div class="header_nav_block">
+          <div class="nav_block_contact">
+            <img src="./images/nav_block_pen.svg" >
+            聯絡我們
+          </div>
+          <div class="nav_block_log">
+            <img src="./images/nav_block_log.svg">
+            登入註冊
+          </div>
+          <div class="nav_right_block">
+            <div class="nav_active">
+              <a href="#">農村體驗</a>
+              <a href="#">預約去</a>
+            </div>
+            <div class="nav_buy_now">
+              <a href="#">立即買</a>
+              <a href="#">客製蔬果箱</a>
+              <a href="#">新鮮蔬果</a>
+            </div>
+            <div class="nav_knowledge">
+              <a href="#">蔬果知識小遊戲</a>
+            </div>
+          </div>
+          <div class="nav_left_block">
+            <div class="nav_about_us">
+              <a href="#">關於我們</a>
+              <a href="#">農場介紹</a>
+              <a href="#">生產介紹</a>
+            </div>
+            <div class="nav_QA">
+              <a href="#">問與答</a>
+            </div>
+          </div>
+          <img
+            src="./images/header_vegetable.svg"
+            alt="vegetable"
+            class="header_vegetable"
+          />
+          <img
+            src="./images/header_lemon.svg"
+            alt="vegetable"
+            class="header_lemon"
+          />
+          <img
+            src="./images/header_kiwi.svg"
+            alt="vegetable"
+            class="header_kiwi"
+          />
+        </div>
+      </div>
+      <!-- 漢堡彈窗結束 -->
+
+      <!-- 聯絡我們彈窗 -->
+      <div class="index_contact_box">
+        <div class="black_block"></div>
+        <div class="cotanct_block">
+            <div class="contact_block_head">
+              <button class="contact_block_Xmark"></button>
+            </div>
+            <h2>聯絡我們</h2>
+            <div class="contact_search_bar">
+              <input type="text" id="order_search" placeholder="請輸入訂單編號">
+              <button class="search_icon">
+                <img src="./images/header_search_icon.svg" alt="search">
+              </button>
+            </div>
+            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+            <div class="mailto_block">
+              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+            </div>
+        </div>
+      </div>
+       <!-- 聯絡我們彈窗結束 -->
+
+       <!-- 購物車彈窗  -->
+      <div class="header_shopping_cart">
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="">
+        </div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
+        <div class="incart_total">
+          總和
+          <span>$0</span>
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+        </div>
+      </div>
+      <!-- 購物車彈窗結束  -->
+    </header>
+    <div class="checkout_shopping_step">
+      <div class="first_step">
+        <section>1</section>
+        <p>購物車明細</p>
+      </div>
+      <span class="step_line"></span>
+      <div class="second_step">
+        <section class="step_on">2</section>
+        <p>聯絡人資料</p>
+      </div>
+      <span class="step_line"></span>
+      <div class="third_step">
+        <section>3</section>
+        <p>訂單完成</p>
+      </div>
+    </div>
+    <div class="checkout_s2_shopping_detail">
+      <p>商品總金額<span>399</span>元</p>
+      <!-- 數字部分要用函數帶入 -->
+      <p class="checkout_s2_shopping_detail_total">共計1件商品</p>  
+    </div>
+    <div class="chekout_s2_order_detail_block">
+      <div class="checkout_s2_receiver_infro">
+        <h3>訂購人資料</h3>
+        <div class=checkout_s2_receiver_infro_group>
+          <label for="">訂購人名稱</label>
+          <input type="text" >
+        </div>
+        <div class=checkout_s2_receiver_infro_group>
+          <label for="">電子郵件</label>
+          <input type="text">
+        </div>
+        <div class=checkout_s2_receiver_infro_group>
+          <label for="">聯絡電話(手機)</label>
+          <input type="text">
+        </div>
+        <div class=checkout_s2_receiver_infro_group>
+          <label for="">性別</label>
+          <select>
+            <option value="男">男</option>
+            <option value="女" selected>女</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkout_s2_deliver_infro">
+        <h3>收件人資料</h3>
+        <div class="checkout_s2_deliver_infro_check">
+          <input type="checkbox" name="deliver">
+          <label for="deliver"> 收件人資料同訂購人資訊</label>
+        </div>
+        <div class=checkout_s2_deliver_infro_group>
+          <label for="">收件人名稱</label>
+          <input type="text" >
+        </div>
+        <div class=checkout_s2_deliver_infro_group>
+          <label for="">收件人手機</label>
+          <input type="text">
+          <hr>
+        </div>
+        <div class=checkout_s2_deliver_infro_group>
+          <label for="">送貨地址</label>
+          <select class="checkout_s2_city">
+            <option value="台北市">台北市</option>
+            <option value="新北市">新北市</option>
+            <option value="桃園市">桃園市</option>
+            <option value="基隆市">基隆市</option>
+          </select>
+          <select class="checkout_s2_area">
+            <option value="南港區">南港區</option>
+            <option value="松山區">松山區</option>
+            <option value="大安區">大安區</option>
+            <option value="中正區">中正區</option>
+          </select>
+          <input type="text">
+          <hr>
+        </div>
+        <div class=checkout_s2_deliver_infro_group>
+          <label for="">預計到貨</label>
+          <input type="text" disabled value="防疫緣故，目前無法確定到貨時間">
+        </div>
+      </div>
+    </div>
+    <div class="chekout_s2_order_other_block">
+      <div class="chekout_s2_order_other_block_note">
+        <h3>訂單備註</h3>
+        <textarea rows="5" placeholder="有甚麼想告知我們的嗎??"></textarea>
+      </div>
+      <div class="chekout_s2_order_other_block_pay">
+        <h3>付款方式</h3>
+        <!-- 看是用v-model雙向綁定或span來寫 -->
+        <p>已選擇付款方式:信用卡</p>
+      </div>
+    </div>
+    <div class="chekout_s2_order_privacy" id="chekout_s2_order_privacy">
+      <input type="checkbox"><span>我已同意網站服務條款及隱私權</span>
+      <div class="chekout_s2_order_privacy_next">
+        <button>返回購物車</button>
+        <button @click="credit_confirm">提交訂單</button>
+      </div>
+      <div class="credit_bkc" v-if="isShow" @click="credit_confirm"></div>
+      <div class="credit_form" v-if="isShow">
+        <h1>信用卡結帳系統</h1>
+        <div class="step_back_btn" @click="credit_confirm">
+          <img src="./images/checkout/X_mark.svg" alt="X">
+        </div>
+        <div class="credit_form_block">
+          <div class="credit_form_left_block">
+            <div class="credit_card_img">
+              <div class="left_block_name">
+                <p>Your Name:</p>
+                <p>{{card_name}}</p>
+              </div>
+              <div class="left_block_number">
+                <p>{{card_number}}</p>
+              </div>
+              <div class="left_block_other">
+                <section class="left_block_valid">
+                  Valid Thru<br>
+                  <span>{{card_valid}}</span>
+                </section>
+                <section class="left_block_security">
+                  Security Code<br>
+                  <span>{{card_security}}</span>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="credit_form_right_block">
+            <section class="right_block_name">
+              <label>持有人名稱</label>
+              <input type="text" v-model="card_name" placeholder="王大明">
+            </section>
+            <section class="right_block_number">
+              <label>信用卡號</label>
+              <input type="text" v-model="card_number" >
+            </section>
+            <form class="right_block_other">
+              <section class="right_block_valid">
+                <label for="">有效期限</label>
+                <input type="text" v-model="card_valid" placeholder="08/21">
+              </section>
+              <section class="right_block_security">
+                <label for="">安全碼</label>
+                <input type="text" v-model="card_security" >
+              </section>
+            </form>
+          </div>
+        </div>
+        <input type="submit" value="確認送出" class="credit_detail_confirm">
+      </div>
+    </div>
+    <footer class="footer_bg">
+      <div class="footer">
+        <button class="go_top" id="go_top">
+          <img src="./images/top.svg" alt="top">
+        </button>
+        <div class="footer_logo">
+          <a href="#">
+            <img src="./images/logo.svg" alt="logo" />
+          </a>
+        </div>
+        <div class="footer_center">
+          <h4>電話:02-26938800</h4>
+          <h5>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
+          <h5>※農曆過年假期本農場也公休
+            網路接單為24小時</h5>
+          <h5>※當日訂單最晚收到17:00</h5>
+          <h5>(17:00後下單視為隔日下單)</h5>
+          <button class="mail_btn">
+            <img src="./images/mail.svg" alt="mail">MAIL
+          </button>
+          <div class="footer_icon">
+            <img src="./images/icon-fb.svg" alt="fb">
+            <img src="./images/icon-line.svg" alt="line">
+            <img src="./images/icon-ig.svg" alt="ig">
+          </div>
+        </div>
+        <div class="footer_right">
+          <div class="right_main">
+            <a href="#">首頁</a>
+            <a href="#">農村體驗</a>
+            <a href="#">蔬果知識小遊戲</a>
+            <a href="#">關於我們</a>
+            <a href="#">問與答</a>
+          </div>
+          <div class="right_buy">
+            <a href="#">客製蔬果箱</a>
+            <a href="#">蔬菜</a>
+            <a href="#">水果</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/header.js"></script>
+    <script>
+      var vm = new Vue({
+        el:'#chekout_s2_order_privacy',
+        data:{
+          isShow:false,
+          card_name:'',
+          card_number:'',
+          card_valid:'',
+          card_security:'',
+        },
+        methods: {
+          credit_confirm(){
+            this.isShow = !this.isShow
+          }
+        },
+      });
+
+      $("#go_top").on("click", function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+          scrollTop: 0
+        }, 750);
+      });
+      
+    </script>
+  </body>
+</html>

@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../src/views/qa_page/sass/layout/layout.scss"
-    ],
-    "names": [],
-    "file": "layout.css"
-}

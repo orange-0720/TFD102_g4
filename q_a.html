@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>良耕野菜-Q&A</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="./images/logo-02.svg">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="./js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+  <header class="header">     
+    <!-- 手機板header -->
+    <div class="fixed_top">
+      <div class="fixed_top_logo">
+        <a href="./index.html">
+          <img src="./images/fixed_top_logo.svg" alt="top_logo">
+        </a>
+      </div>
+      <div class="shop_car">
+        <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+      </div>
+      <div class="ham">
+        <div class="ham_top"></div>
+        <div class="ham_middle"></div>
+        <div class="ham_bottom"></div>
+      </div>
+    </div>
+    <!-- 手機板header結束 -->
+    <div class="menu_fixed">
+      <div class="icon">
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+        <div class="login">
+          <a href="#">
+            <img src="./images/login_icon.svg" alt="login_icon" />
+          </a>
+        </div>
+        <div class="shop_car">
+          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="logo_img">
+        <img src="./images/logo.svg" alt="logo" />
+      </div>
+      <div class="page_list">
+        <a href="#">農村體驗</a>
+        <a href="#">客製蔬果箱</a>
+        <a href="#">蔬果知識小遊戲</a>
+        <a href="#">關於我們</a>
+        <a href="#">問與答</a>
+        <a href="#">新鮮蔬果</a>
+      </div>
+    </div>
+    <div class="title">
+      <div class="title_btn">
+        <button class="comm_us">
+          聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+        </button>
+        <button class="buy_now">
+          立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+        </button>
+      </div>
+      <div class="title_pic">
+        <img src="./images/q_a/q_a_01.jpg" alt="q&a_pic" />
+        <span class="bkc_black"></span>
+        <h1>Q&A</h1>
+      </div>
+      <!-- 公告 -->
+      <!-- 漢堡彈窗 -->
+      <div class="jump_hamburger_block">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+        <div class="header_nav_block">
+          <div class="nav_block_contact">
+            <img src="./images/nav_block_pen.svg" >
+            聯絡我們
+          </div>
+          <div class="nav_block_log">
+            <img src="./images/nav_block_log.svg">
+            登入註冊
+          </div>
+          <div class="nav_right_block">
+            <div class="nav_active">
+              <a href="#">農村體驗</a>
+              <a href="#">預約去</a>
+            </div>
+            <div class="nav_buy_now">
+              <a href="#">立即買</a>
+              <a href="#">客製蔬果箱</a>
+              <a href="#">新鮮蔬果</a>
+            </div>
+            <div class="nav_knowledge">
+              <a href="#">蔬果知識小遊戲</a>
+            </div>
+          </div>
+          <div class="nav_left_block">
+            <div class="nav_about_us">
+              <a href="#">關於我們</a>
+              <a href="#">農場介紹</a>
+              <a href="#">生產介紹</a>
+            </div>
+            <div class="nav_QA">
+              <a href="#">問與答</a>
+            </div>
+          </div>
+          <img
+            src="./images/header_vegetable.svg"
+            alt="vegetable"
+            class="header_vegetable"
+          />
+          <img
+            src="./images/header_lemon.svg"
+            alt="vegetable"
+            class="header_lemon"
+          />
+          <img
+            src="./images/header_kiwi.svg"
+            alt="vegetable"
+            class="header_kiwi"
+          />
+        </div>
+      </div>
+      <!-- 漢堡彈窗結束 -->
+      <div class="index_contact_box">
+        <div class="black_block"></div>
+        <div class="cotanct_block">
+            <div class="contact_block_head">
+              <button class="contact_block_Xmark"></button>
+            </div>
+            <h2>聯絡我們</h2>
+            <div class="contact_search_bar">
+              <input type="text" id="order_search" placeholder="請輸入訂單編號">
+              <button class="search_icon">
+                <img src="./images/header_search_icon.svg" alt="search">
+              </button>
+            </div>
+            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+            <div class="mailto_block">
+              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+            </div>
+        </div>
+      </div>
+      <div class="header_shopping_cart">
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="">
+        </div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
+        <div class="incart_total">
+          總和
+          <span>$0</span>
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+        </div>
+      </div>
+  </header>
+
+  <!-- 插圖-水果 -->
+  <div class="kiwi">
+    <img src="/images/q_a/kiwi.svg" alt="kiwi" />
+  </div>
+
+  <!-- QA開始 -->
+  <div class="qa_step">
+    <div class="notice">
+      <img src="./images/q_a/egg.svg">
+      <section class="light">
+        <h4>最新公告</h4>
+      </section>
+      <h4>即日起疫情期間，無法保證於指定到貨日期、指定時段送達，敬請見諒。</h4>
+    </div>
+  </div>
+
+  <!-- QA 全部 -->
+  <div class="qa_item">
+    <!-- 左側QA總欄 -->
+    <div class="aside">
+      <div class="sticky">
+        <div class="qa_list">
+          <h4>Q&A總覽</h4>
+        </div>
+        <div class="hr"></div>
+        <ul>
+          <li><a href="#">訂購與訂單</a></li>
+          <li><a href="#">付款問題</a></li>
+          <li><a href="#">寄送及物流相關</a></li>
+          <li><a href="#">會員帳號</a></li>
+          <li><a href="#">退換貨及退款</li></a>
+          <li><a href="#">其他</li></a>
+        </ul>
+      </div>
+    </div>
+   
+    <!-- 問題Q&A -->
+    <div class="qa_problem">
+      <div class="qa_01">
+        <h3 class="title1">訂購與訂單</h3>
+
+        <p class="question"><img src="./images/q_a/q_green.svg">&nbsp 除了上網（電腦、平板裝置或手機）訂購外，還有其他訂購方式嗎？</p>
+        <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp服務專線 02-77788855，由專人為您服務，或下載訂購單，e-mail 至howcome@buyfruit.com.tw 或傳真至 02-77788855。</p>
+
+        <div class="hr"></div>
+
+        <p class="question"><img src="./images/q_a/q_green.svg">&nbsp同時預購多樣商品，運費如何計算？</p>
+        <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp有！相關額外優惠，請撥打客服專線 02-23778017，由專人依據您的性質或需求，為您客製服務。</p>
+
+        <div class="hr"></div>
+
+        <p class="question"><img src="./images/q_a/q_green.svg">&nbsp如何知道我已完成訂購？</p>	
+        <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp訂購成功後，系統將發送訂單信至e-mail 內，或可登入會員帳號後至【會員中心-->訂單查詢】查看訂單明細。</p>
+      </div>
+
+      
+      
+        <div class="qa_01">
+          <h3 class="title1">付款問題</h3>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp請問有哪些付款方式？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp我們提供「貨到付款(限會員)」、「線上刷卡」</p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp刷卡失敗的可能原因是？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp
+
+            <li>輸入的卡片資料不正確，包括尚未開卡、卡號輸入錯誤、有效期限或驗證碼不正確等原因。倘為信用卡相關問題，可洽詢發卡銀行。</li>
+            <li>發卡銀行目前未開放信用卡網路購物。</li>
+            <li>信用卡額度已滿，請與發卡銀行連絡，增加額度即可。</li>
+            <li>網路傳輸環境壅塞，無法傳輸完整有效的訊息，可重新載入頁面試試，或稍後回來登入會員帳號至【會員中心-->訂單查詢-->重新付款】，與網頁有關問題可洽客服專線(02)23778017。</li>
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp若刷卡失敗，我的信用卡還是會被扣款嗎？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp有！相關額外優惠，請撥打客服專線 02-23778017，由專人依據您的性質或需求，為您客製服務。</p>
+        </div>
+
+      
+      
+        <div class="qa_01">
+          <h3 class="title1">寄送與物流相關</h3>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp請問配合的宅配公司是哪一家呢？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp為確保較好的服務品質，目前僅提供黑貓宅急便（統一速達）配送服務。</p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp宅配可以選擇哪些配送的時段？</p>
+          <p class="answer">
+            <img src="./images/q_a/a_orange.svg">&nbsp您可選擇黑貓宅急便的配送時段為「9-13時」、「14-18時」；如遇端午節、中秋節、除夕等重大節慶，
+            二週前（含）恕無法指定到貨時段；另遇有颱風、地震等自然災害，配送時間可能異動，實際送達時間請以宅配通知為主。配送詳細規定以物流公司為準。
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp請問訂購後何時會出貨呢？</p>
+          <p class="answer">
+            <img src="./images/q_a/a_orange.svg">&nbsp新鮮水果為預購商品，於農夫採收後，依訂單順序出貨。以上均請以到貨通知為準。如遇國定假日或連續假期，請留意公告出貨日，並以到貨通知為準，恕不另行通知。其他與訂單、到貨等相關疑問，請洽客服專線02-23778017。
+          </p>
+          <div class="hr"></div>
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp宅配可以選擇哪些配送的時段？</p>
+          <p class="answer">
+            <img src="./images/q_a/a_orange.svg">&nbsp您可選擇黑貓宅急便的配送時段為「9-13時」、「14-18時」；如遇端午節、中秋節、除夕等重大節慶，
+            二週前（含）恕無法指定到貨時段；另遇有颱風、地震等自然災害，配送時間可能異動，實際送達時間請以宅配通知為主。配送詳細規定以物流公司為準。
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp請問出貨會通知嗎？</p>
+          <p class="answer">
+            <img src="./images/q_a/a_orange.svg">&nbsp出貨前將以簡訊及email通知，若無收到到貨通知，請確認通信服務是否設定拒收企業簡訊，或郵件被歸類為垃圾信件。
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp是否可以寄送多筆地址？</p>
+          <p class="answer">
+            <img src="./images/q_a/a_orange.svg">&nbsp一張訂單只能指定寄送一筆地址，如需分開寄送，請另外下訂單，或請客服協助分開寄送，運費將依商品規定按地址分開計算。
+          </p>
+
+        </div>
+
+      
+
+    
+        <div class="qa_01">
+          <h3 class="title1">會員帳號</h3>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp如何註冊為會員？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp桌機版網頁：於頁面最上方右邊，點擊標籤「加入會員」，輸入基本資料後按註冊即可成為會員。</p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp加入會員有什麼優惠？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp 優惠如下:
+            <li>可以在蔬果小遊戲中，抽到驚喜優惠。</li>
+            <li>優先獲得水果和食材開放預購通知及優惠。</li>
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp忘記帳號怎麼辦？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp輸入當初註冊的email，系統將發送新的密碼通知信至您的註冊email內；為了保障帳號安全，建議您立即至會員中心，更新您的密碼。</p>
+          <div class="hr"></div>
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp忘記密碼怎麼辦？</p>
+          <p class="answer">
+          <img src="./images/q_a/a_orange.svg">&nbsp請至「會員登入」內點選「 忘記密碼」，輸入當初註冊的email，系統將發送新的密碼通知信至您的註冊email內；為了保障帳號安全，建議您立即至會員中心，更新您的密碼。
+          </p>
+
+        </div>
+
+
+      
+      
+        <div class="qa_01">
+          <h3 class="title1">退換貨及退款</h3>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp收到的商品有瑕疵或破損要怎麼辦？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp生鮮商品除本身生長痕跡外，倘商品本身有嚴重瑕疵，例如因運輸造成貨品失溫或毀損、品項錯誤等，請於到貨後三小時內拍照存證，
+            保留原包裝及宅配託運單，並立即與客服聯繫，以便安排後續退換貨事宜。如產品係因送達指定地點精通知收件人卻未被領取、拒收、轉寄等人為因素，導致
+            延後到貨影響商品新鮮度與品質，恕不受理退換貨及相關賠償責任。</p>
+        </div>
+
+     
+
+      
+        <div class="qa_01">
+          <h3 class="title1">其他</h3>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp請問可寄送離島或海外嗎？運費如何計算？</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp 離島地區包含澎湖、金門、馬祖、綠島，採空運宅配，運費將依宅即便公告另外計算，費用可撥打客服專線 02-77788855詢問。
+            如有大量需求寄送海外地區，歡迎來信howcome@buyfruit.com.tw 或撥打客服專線02-77788855另行報價。</p>
+          <div class="hr"></div>
+
+          <p class="question"><img src="./images/q_a/q_green.svg">&nbsp如何知道我已經完成訂購</p>
+          <p class="answer"><img src="./images/q_a/a_orange.svg">&nbsp訂購成功後，系統將發送訂單信至e-mail 內，或可登入會員帳號後至【會員中心-->訂單查詢】查看訂單明細。</p>
+        </div>
+      
+      </div>
+
+    </div>
+
+  </div>
+  <br>
+
+  <!-- 插圖-羊 -->
+  <div class="animal_huacaya">
+      <img src="./images/q_a/animal_alpaca_huacaya.png" alt="huacaya" />
+  </div>
+
+ 
+
+  <footer class="footer_bg">
+    <div class="footer">
+      <button class="go_top" id="go_top">
+        <img src="./images/top.svg" alt="top">
+      </button>
+      <div class="footer_logo">
+        <a href="#">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+      </div>
+      <div class="footer_center">
+        <h4>電話:02-26938800</h4>
+
+        <h5>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
+        <h5>※農曆過年假期本農場也公休
+          網路接單為24小時</h5>
+        <h5>※當日訂單最晚收到17:00</h5>
+        <h5>(17:00後下單視為隔日下單)</h5>
+        <button class="mail_btn">
+          <img src="./images/mail.svg" alt="mail">MAIL
+        </button>
+        <div class="footer_icon">
+          <img src="./images/icon-fb.svg" alt="fb">
+          <img src="./images/icon-line.svg" alt="line">
+          <img src="./images/icon-ig.svg" alt="ig">
+        </div>
+      </div>
+      <div class="footer_right">
+        <div class="right_main">
+          <a href="#">首頁</a>
+          <a href="#">農村體驗</a>
+          <a href="#">蔬果知識小遊戲</a>
+          <a href="#">關於我們</a>
+          <a href="#">問與答</a>
+        </div>
+        <div class="right_buy">
+          <a href="#">客製蔬果箱</a>
+          <a href="#">蔬菜</a>
+          <a href="#">水果</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="./js/header.js"></script>
+  <script>
+    
+    $("#go_top").on("click", function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 750);
+    });
+
+
+  </script>
+</body>
+
+</html>
