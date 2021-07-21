@@ -33,17 +33,13 @@ div.qa_item{
     div.aside{
             width: 15%;
             margin-top: 20px;
-            padding: 15px 0px;
-            // position: sticky;
-            // top: 0;
-            // left: 0;
+            padding: 15px 0px;        
         .sticky{
             position: sticky;
             top: 0;
         }
         .qa_list{
             line-height: 30px;
-            position: sticky;
             top: -5px;
         }
         a{
@@ -51,7 +47,6 @@ div.qa_item{
             bottom: 20px;
             line-height: 30px;
             margin-top: 100px;
-            position: sticky;
             top: 20px;
         }
         .hr{
@@ -59,13 +54,11 @@ div.qa_item{
             height: 3px;
             background-color: $brown;
             margin-top: 5%;    
-            position: sticky;
             top: 20px;
         }
 
         ul{
             margin-top: 5%;
-            position: sticky;
             top: 20px;
         }
 
@@ -122,12 +115,13 @@ div.qa_item{
             margin-top: -8px; 
         }
 
+        //另一種寫法
         // p.question::before{
-        //     // width: 20px;
-        //     // height: 20px;
-        //     background-image:url(/images/q&a/Q_green.svg);
+        //     width: 20px;
+        //     height: 20px;
+        //     background-image:url(/images/q_a/Q_green.svg);
         //     //content:url("/images/q&a/Q_green.svg " );
-        //     background-size :10px 20px;
+        //     background-size :100% auto;
         //     content:"";   
         // }
 
@@ -153,7 +147,7 @@ div.qa_item{
         margin-top: -6%;
         width: 17%;
         z-index: 1;
-    
+        position: absolute;
     }
 }
 

@@ -2879,7 +2879,6 @@ div.qa_item div.aside .sticky {
 
 div.qa_item div.aside .qa_list {
   line-height: 30px;
-  position: sticky;
   top: -5px;
 }
 
@@ -2889,7 +2888,6 @@ div.qa_item div.aside a {
   bottom: 20px;
   line-height: 30px;
   margin-top: 100px;
-  position: sticky;
   top: 20px;
 }
 
@@ -2902,13 +2900,11 @@ div.qa_item div.aside .hr {
   height: 3px;
   background-color: #A07332;
   margin-top: 5%;
-  position: sticky;
   top: 20px;
 }
 
 div.qa_item div.aside ul {
   margin-top: 5%;
-  position: sticky;
   top: 20px;
 }
 
@@ -2975,6 +2971,7 @@ div.qa_item div.qa_problem p.question::after {
   margin-top: -6%;
   width: 17%;
   z-index: 1;
+  position: absolute;
 }
 
 .kiwi {
@@ -3095,9 +3092,7 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_basket {
-  border: 1px solid orange;
-  width: 70%;
-  height: 65vh;
+  width: 1000px;
   margin-left: 5%;
   margin-top: 20px;
 }
@@ -3107,6 +3102,7 @@ div.qa_item div.qa_problem p.question::after {
   justify-content: flex-end;
   align-items: flex-end;
   margin-left: -4%;
+  z-index: 1;
 }
 
 .fruits_box_two .fruits_check_butten button {
@@ -3282,12 +3278,11 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .free_give .free_give_people {
-  width: 80%;
   margin: auto;
 }
 
 .free_give .free_give_people img {
-  width: 60%;
+  width: 80%;
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -3308,7 +3303,7 @@ div.qa_item div.qa_problem p.question::after {
 
 .free_give .free_give_people .free_all {
   display: flex;
-  margin-top: 22px;
+  margin-top: 40px;
 }
 
 .free_give .free_give_people .free_all p {
@@ -3325,59 +3320,75 @@ div.qa_item div.qa_problem p.question::after {
   margin-left: 10%;
 }
 
-.free_give .free_give_people .fruit_box_board {
+.fruit_box_board {
   display: flex;
+  margin-top: 4%;
 }
 
-.free_give .free_give_people .fruit_box_board .product_name {
+.product_name {
   display: flex;
-  position: relative;
   justify-content: center;
-  font-size: 20px;
-  margin-top: 20px;
+  font-size: 24px;
 }
 
-.free_give .free_give_people .fruit_box_board .mask {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #5a5a5a00;
-  cursor: pointer;
+.product_name {
   transition: .5s;
-  height: 0px;
-}
-
-.free_give .free_give_people .fruit_box_board .fruit_box :hover .mask {
-  background-color: #5a5a5a87;
-  height: 300px;
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
+  color: white;
+  bottom: 45%;
+  opacity: 0;
+  margin-left: 34%;
 }
 
 .fruit_box_1 {
   position: relative;
-  overflow: hidden;
 }
 
-.mask-inner {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  width: 100%;
+.fruit_box_2 {
+  position: relative;
+}
+
+.fruit_box_3 {
+  position: relative;
+}
+
+._mask {
+  width: 80%;
   height: 100%;
-  transition: top ease 200ms;
-}
-
-.fruit-mask:hover .mask-inner {
+  background-color: #00000087;
+  margin-left: 10%;
+  position: absolute;
   top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: .5s;
+  opacity: 0;
 }
 
-#fruit_box_1 {
-  width: 300px;
-  height: 200px;
+.fruit_box_1:hover ._mask {
+  opacity: 1;
 }
 
-#fruit_box_1 .mask-inner {
-  background: rgba(0, 0, 0, 0.5);
+.fruit_box_2:hover ._mask {
+  opacity: 1;
+}
+
+.fruit_box_3:hover ._mask {
+  opacity: 1;
+}
+
+.fruit_box_1:hover p {
+  opacity: 1;
+}
+
+.fruit_box_2:hover p {
+  opacity: 1;
+}
+
+.fruit_box_3:hover p {
+  opacity: 1;
 }
 
 .bg_fruit_box {
@@ -3387,8 +3398,8 @@ div.qa_item div.qa_problem p.question::after {
 .bg_fruit_box .ufo_ushi {
   position: absolute;
   width: 13%;
-  margin-left: 9%;
-  margin-top: -2%;
+  margin-left: 5%;
+  margin-top: 1%;
   z-index: 1;
 }
 
