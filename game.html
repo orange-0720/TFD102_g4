@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="/game.css"> -->
+    <link rel="icon" href="./images/logo-02.svg">
     <title>良耕野菜-小知識頁面</title>
     <link rel="icon" href="./images/logo-02.svg">
     <link rel="stylesheet" href="./css/style.css" />
@@ -171,7 +172,41 @@
         </div>
         <!-- 購物車彈窗結束  -->
       </header>
-
+      <div class="jump_hamburger_block">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo">
+        </a>
+        <div class="header_nav_block">
+          <div class="nav_right_block">
+            <div class="nav_active">
+              <a href="#">農村體驗</a>
+              <a href="#">預約去</a>
+            </div>
+            <div class="nav_buy_now">
+              <a href="#">立即買</a>
+              <a href="#">客製蔬果箱</a>
+              <a href="#">新鮮蔬果</a>
+            </div>
+            <div class="nav_knowledge">
+              <a href="#">蔬果知識小遊戲</a>
+            </div>
+          </div>
+          <div class="nav_left_block">
+            <div class="nav_about_us">
+              <a href="#">關於我們</a>
+              <a href="#">農場介紹</a>
+              <a href="#">生產介紹</a>
+            </div>
+            <div class="nav_QA">
+              <a href="#">問與答</a>
+            </div>
+          </div>
+          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+        </div>
+      </div>
+    </header>
       <div id="game_title">
         <h2 class="game_title">蔬果知識知多少</h2>
       </div>
@@ -179,20 +214,20 @@
             <div id="game_decorate_testNumberCircle">
               <h1 id="inside_testNumber">開始</h1>      
             </div>
-            <img src="./img/cabage_group.svg" alt="" class="game icon_1">
-            <img src="./img/cabage_group.svg" alt="" class="game icon_2">
-            <img src="./img/cabage_group.svg" alt="" class="game icon_3">
-            <img src="./img/game_img_Tomato.png" alt="" class="game icon_4">
+            <img src="./images/game/cabage_group.svg" alt="" class="game icon_1">
+            <img src="./images/game/cabage_group.svg" alt="" class="game icon_2">
+            <img src="./images/game/cabage_group.svg" alt="" class="game icon_3">
+            <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4">
            
             <div class="game_test">
-              <img src="./img/game_img_Avocado.svg" alt="" id="game_test">
+              <img src="./images/game/game_img_Avocado.svg" alt="" id="game_test">
             </div>
             <div id="game_question">
               <h2 >腦力激盪，測試蔬果知識!<br>5題答對才能挑戰扭蛋獲取購物金，準備好了嗎?</h2>
             </div>
             <div id="game_bottom_part">
               <button type="submit" id="submit" class="green">遊戲開始</button>
-              <img src="./img/game_img_Farmer.svg" alt="" class="decorate icon_11">
+              <img src="./images/game/game_img_Farmer.svg" alt="" class="decorate icon_11">
             </div>
             <!-- 用js去寫換圖 -->
                <!-- button在外層直接換內層 -->    
@@ -202,11 +237,11 @@
   
     <section id="game_slideshow_step">
             <div id="game_slideshow">
-                <img src="./img/slider_1.png"    class="game_slideshow"alt="">
-                <img src="./img/slider_2.png"    class="game_slideshow"alt="">
-                <img src="./img/slider_3.png"    class="game_slideshow"alt="">
-                <img src="./img/slider_4.png"    class="game_slideshow"alt="">
-                <img src="./img/slider_5.png"    class="game_slideshow"alt="">
+                <img src="./images/game/game_scroll_1.png"    class="game_slideshow"alt="">
+                <img src="./images/game/game_scroll_2.png"    class="game_slideshow"alt="">
+                <img src="./images/game/game_scroll_3.png"    class="game_slideshow"alt="">
+                <img src="./images/game/game_scroll_4.png"    class="game_slideshow"alt="">
+                <img src="./images/game/game_scroll_5.png"    class="game_slideshow"alt="">
             </div>
             <!-- <div id="game_slideshow_2">
               
@@ -283,7 +318,7 @@
                 // .eq(n)第幾個元素，從 0 開始，0 代表第一個。以此類推。
                 slideImgs.eq(currentIndex).fadeIn();
 
-                setInterval(showSlider,8000);
+                setInterval(showSlider,4000);
 
                 function showSlider(){
                   let nextIndex=(currentIndex +1) % slideImgsCount;
@@ -292,41 +327,29 @@
                   currentIndex=nextIndex;
                 }
             })
-            // $('#game_slideshow_2').each(function(){
-            //     let slideImgs= $(this).find('img');
-                
-            //     let slideImgsCount=slideImgs.length;
-            //     let currentIndex=0;
-            //     // .eq(n)第幾個元素，從 0 開始，0 代表第一個。以此類推。
-            //     slideImgs.eq(currentIndex).fadeIn();
-
-            //     setInterval(showSlider,8000);
-
-            //     function showSlider(){
-            //       let nextIndex=(currentIndex +1) % slideImgsCount;
-            //       slideImgs.eq(currentIndex).fadeOut();
-            //       slideImgs.eq(nextIndex).fadeIn();
-            //       currentIndex=nextIndex;
-            //     }
-            // })
+            
         // ====以下為共用====
-        //menu
-        var menu = document.getElementsByClassName("menu")[0];
-        document.addEventListener("scroll", function(){
-        console.log(window.scrollY);
-        // console.log(menu)
-        // console.log(menu_top);
-        console.log(menu.style.top)
-        menu.style.top = (0 - (scrollY)) + "px";
-         });
+        // 控制HEADER裡的黃色NAV區塊
+    var menu = document.getElementsByClassName("menu")[0];
+    document.addEventListener("scroll", function () {
+      menu.style.top = (0 - (scrollY)) + "px";
+    });
 
-         //往上button
-        $("#go_top").on("click", function (e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: 0
-            }, 750);
-        });
+    // 漢堡選單
+    $('.ham').on("click", function () {
+      $('.jump_hamburger_block').fadeToggle();
+      $('.ham_top').toggleClass('ham_top_move');
+      $('.ham_middle').toggleClass('ham_middle_move')
+      $('.ham_bottom').toggleClass('ham_bottom_move');
+    })
+
+    // 回頁首
+    $("#go_top").on("click", function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 750);
+    });
 
     </script>
     
