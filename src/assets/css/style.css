@@ -3952,6 +3952,96 @@ section#game_slideshow_step #game_slideshow img.game_slideshow {
   display: none;
 }
 
+.table {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.table .table_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 1000px) {
+  .table .table_body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.table .table_body .table_left {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .table .table_body .table_left {
+    margin-bottom: 5%;
+  }
+}
+
+.table .table_body .table_left div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFF8DB;
+  border-radius: 8px;
+  border-bottom: 1px solid #C1C1C1;
+}
+
+.table .table_body .table_left div span {
+  background-color: #FAE7C3;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.table .table_body .table_left div input, .table .table_body .table_left div .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .table .table_body .table_left div select {
+  margin: 0 auto;
+}
+
+.table .table_body .table_left div select {
+  margin: 0 auto;
+}
+
+.table .table_body .table_right {
+  width: 100%;
+}
+
+.table .table_body .table_right div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFF8DB;
+  border-radius: 8px;
+  border-bottom: 1px solid #C1C1C1;
+}
+
+.table .table_body .table_right div span {
+  background-color: #FAE7C3;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.table .table_body .table_right div em {
+  margin: 0 auto;
+}
+
 .mouse_down {
   display: -webkit-box;
   display: -ms-flexbox;
