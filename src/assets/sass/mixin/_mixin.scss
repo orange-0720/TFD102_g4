@@ -28,8 +28,33 @@
     border: 0;
     color: $white;
     font-size: $h4;
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover{
+        background-color: darken($color: $green, $amount: 15);
+    }
     
 }
+
+//黃色按鈕
+
+@mixin btn_yellow($x, $y:null) {
+    width: 80px;
+    height: 40px;
+    background-color: #FFF353;
+    text-decoration: none;
+    border-radius: 101px;
+    border: 0;
+    color: #A07332;
+    font-size: 16px;
+    z-index: 1;
+    padding: 12px;
+    margin-left: 10%;
+
+}
+
+
+
 
 //圓角
 @mixin border_radius {
