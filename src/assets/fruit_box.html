@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>良耕野菜-客製蔬果箱</title>
+  <link rel="icon" href="./images/logo-02.svg">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" href="./images/logo-02.svg">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -58,7 +59,40 @@
         <span class="bkc_black"></span>
         <h1>客製蔬果箱</h1>
       </div>
-
+      <div class="index_contact_box">
+        <div class="black_block"></div>
+        <div class="cotanct_block">
+            <div class="contact_block_head">
+              <button class="contact_block_Xmark"></button>
+            </div>
+            <h2>聯絡我們</h2>
+            <div class="contact_search_bar">
+              <input type="text" id="order_search" placeholder="請輸入訂單編號">
+              <button class="search_icon">
+                <img src="./images/header_search_icon.svg" alt="search">
+              </button>
+            </div>
+            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+            <div class="mailto_block">
+              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+            </div>
+        </div>
+      </div>
+      <div class="header_shopping_cart">
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="">
+        </div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
+        <div class="incart_total">
+          總和
+          <span>$0</span>
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+        </div>
+      </div>
 
   </header>
 
@@ -290,16 +324,8 @@
 
   </footer>
 
-
+  <script src="./js/header.js"></script>
   <script>
-    var menu = document.getElementsByClassName("menu")[0];
-    document.addEventListener("scroll", function () {
-      console.log(window.scrollY);
-      // console.log(menu)
-      // console.log(menu_top);
-      console.log(menu.style.top)
-      menu.style.top = (0 - (scrollY)) + "px";
-    });
 
     $("#go_top").on("click", function (e) {
       e.preventDefault();

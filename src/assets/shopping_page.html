@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>良耕野菜-商品一覽</title>
+    <link rel="icon" href="./images/logo-02.svg">
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -105,6 +106,40 @@
             alt="vegetable"
             class="header_kiwi"
           />
+        </div>
+      </div>
+      <div class="index_contact_box">
+        <div class="black_block"></div>
+        <div class="cotanct_block">
+            <div class="contact_block_head">
+              <button class="contact_block_Xmark"></button>
+            </div>
+            <h2>聯絡我們</h2>
+            <div class="contact_search_bar">
+              <input type="text" id="order_search" placeholder="請輸入訂單編號">
+              <button class="search_icon">
+                <img src="./images/header_search_icon.svg" alt="search">
+              </button>
+            </div>
+            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+            <div class="mailto_block">
+              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+            </div>
+        </div>
+      </div>
+      <div class="header_shopping_cart">
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="">
+        </div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
+        <div class="incart_total">
+          總和
+          <span>$0</span>
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
         </div>
       </div>
     </header>
@@ -320,7 +355,7 @@
             </h5>
             <h4 class="shopping_product_price">399元</h4>
           </a>
-      </div>
+        </div>
         <div class="shooping_change_page">
             <div class="change_page_block">
                 <div class="circle_base_prev"></div>
@@ -391,19 +426,8 @@
       </div>
     </footer>
 
+    <script src="./js/header.js"></script>
     <script>
-      var menu = document.getElementsByClassName("menu")[0];
-      document.addEventListener("scroll", function() {
-        menu.style.top = 0 - scrollY + "px";
-      });
-
-      // 漢堡選單
-      $(".ham").on("click", function() {
-        $(".jump_hamburger_block").fadeToggle();
-        $(".ham_top").toggleClass("ham_top_move");
-        $(".ham_middle").toggleClass("ham_middle_move");
-        $(".ham_bottom").toggleClass("ham_bottom_move");
-      });
 
       // 側邊攔展開
       $(".shopping_box_slide").on("click", function() {

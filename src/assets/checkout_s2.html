@@ -56,7 +56,6 @@
           <h1>結帳頁面</h1>
         </div>
       </div>
-
       <div class="jump_hamburger_block">
         <a href="./index.html">
           <img src="./images/logo.svg" alt="logo">
@@ -89,6 +88,40 @@
           <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
           <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
           <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+        </div>
+      </div>
+      <div class="index_contact_box">
+        <div class="black_block"></div>
+        <div class="cotanct_block">
+            <div class="contact_block_head">
+              <button class="contact_block_Xmark"></button>
+            </div>
+            <h2>聯絡我們</h2>
+            <div class="contact_search_bar">
+              <input type="text" id="order_search" placeholder="請輸入訂單編號">
+              <button class="search_icon">
+                <img src="./images/header_search_icon.svg" alt="search">
+              </button>
+            </div>
+            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+            <div class="mailto_block">
+              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+            </div>
+        </div>
+      </div>
+      <div class="header_shopping_cart">
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="">
+        </div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
+        <div class="incart_total">
+          總和
+          <span>$0</span>
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
         </div>
       </div>
     </header>
@@ -286,9 +319,10 @@
         </div>
       </div>
     </footer>
-    <script>
 
-      new Vue({
+    <script src="./js/header.js"></script>
+    <script>
+      var vm = new Vue({
         el:'#chekout_s2_order_privacy',
         data:{
           isShow:false,
@@ -303,23 +337,6 @@
           }
         },
       });
-
-      var menu = document.getElementsByClassName("menu")[0];
-      document.addEventListener("scroll", function(){
-        console.log(window.scrollY);
-        // console.log(menu)
-        // console.log(menu_top);
-        console.log(menu.style.top)
-        menu.style.top = (0 - (scrollY)) + "px";
-      });
-
-      $('.ham').on("click",function(){
-        $('.jump_hamburger_block').fadeToggle();
-        $('.ham_top').toggleClass('ham_top_move');
-        $('.ham_middle').toggleClass('ham_middle_move')
-        $('.ham_bottom').toggleClass('ham_bottom_move');
-        
-      })
 
       $("#go_top").on("click", function (e) {
       e.preventDefault();
