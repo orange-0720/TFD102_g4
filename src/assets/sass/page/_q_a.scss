@@ -147,11 +147,13 @@ div.qa_item{
 }
 
 .animal_huacaya{
-    position: absolute;
+    position: relative;
     img{
-        position: relative;
-        margin-left: 40%;
-        margin-top: -51%;
+        margin-left: 6%;
+        margin-top: -6%;
+        width: 17%;
+        z-index: 1;
+    
     }
 }
 
