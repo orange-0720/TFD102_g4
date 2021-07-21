@@ -28,16 +28,14 @@
     border: 0;
     color: $white;
     font-size: $h4;
-<<<<<<< Updated upstream
     transition: 0.5s;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
         background-color: darken($color: $green, $amount: 15);
     }
-    
-=======
 
->>>>>>> Stashed changes
+
 }
 
 //黃色按鈕
@@ -101,29 +99,18 @@
 @mixin tablet {
     @media(max-width: 1199px) {
         @content ;
-<<<<<<< Updated upstream
-    } 
-=======
     }
->>>>>>> Stashed changes
 }
 
 @mixin pad {
     @media(max-width: 767px) {
         @content ;
-<<<<<<< Updated upstream
-    };        
-}
-
-@mixin mobile{
-=======
     }
 }
 
+
 @mixin mobile {
->>>>>>> Stashed changes
     @media(max-width: 575px) {
         @content ;
     }
 }
-    
