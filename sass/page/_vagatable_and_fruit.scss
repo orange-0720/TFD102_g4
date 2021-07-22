@@ -7,7 +7,6 @@
     align-items: center;
     vertical-align: middle;
     flex-direction: column;
-
   .production_summary_para{
     display:flex;
     justify-content: center;
@@ -42,7 +41,6 @@
       h2:after{
           @include underline();
       }
-    
     .process_content_box{
       display: flex;
       flex-direction: column;
@@ -88,7 +86,6 @@
           border-radius:30px;
           position: absolute;
           left:0;
-
         }
       }
     }
@@ -99,10 +96,10 @@
       vertical-align: middle;
       align-items: center;
       width:100%;
-      border:1px solid red;
+      // border:1px solid red;
       .vagatable_process_content{
         .vagatable_process_pic{
-          border:1px solid red;
+          width:100%;
         }
       }
     }
@@ -110,17 +107,177 @@
 }
 //蔬果表格
 .vagatable_table{
-  border:1px solid red;
+  margin-top: 100px;
+  border:1px solid rgb(101, 89, 89);
   display: flex;
   flex-direction: column;
   vertical-align: middle;
   align-items: center;
   width:100%;
-  height:400px;
+  height:100%;
+    h2{
+      position: relative;
+       }
+    h2:after{
+        @include underline();
+    }
+  .tb{
+    display:flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    flex-direction: column;
+    width:60%;
+    .row{
+      border:1px solid red;
+      display:flex;
+      justify-content: center;
+      vertical-align: middle;
+      align-items: center;
+      flex-direction: row;
+      width:100%;
+      .th{
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        align-items: center;
+        width:100%;
+        padding:5px;
+      }
+      .td{
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        align-items: center;
+        width:100%;
+        // border:1px solid rgb(174, 0, 255);
+      }
+    }
+    //高麗菜
+    #cabbage{
+      .td{
+        position:relative;
+      }
+      .td::after{
+        content:"";
+        background-image: url("../images/farm/table/cabbage.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:absolute;
+        width:20px;
+        height: 20px;
+      }
+    }
+    //小白菜
+    #chinese_cabbage{
+      .td{
+        position:relative;
+      }
+      .td::after{
+        content:"";
+        background-image: url("../images/farm/table/chinese_cabbage.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:absolute;
+        width:20px;
+        height: 20px;
+      }
+    }
+    //萵苣
+    #lettuce{
+      .td{
+        position:relative;
+      }
+      .td::after{
+        content:"";
+        background-image: url("../images/farm/table/lettuce.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:absolute;
+        width:20px;
+        height: 20px;
+      }
+    }
+    //紅蘿蔔
+    #carrot{
+      .td{
+        position:relative;
+      }
+      .td::after{
+        content:"";
+        background-image: url("../images/farm/table/carrot.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:absolute;
+        width:20px;
+        height: 20px;
+      }
+    }
+    //白蘿蔔
+    #white_radish{
+      // background-color: rgb(27, 235, 41);
+      .td{
+        position:relative;
+      }
+      .td::after{
+        content:"";
+        background-image: url("../images/farm/table/white_radish.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:absolute;
+        width:20px;
+        height: 20px;
+      }
+    }
+      //玉米
+    #corn{
+      .td{
+        position:relative;
+      }
+      .td::after{
+        content:"";
+        background-image: url("../images/farm/table/corn.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:absolute;
+        width:20px;
+        height: 20px;
+      }
+    }
+      //大番茄
+      #tomato{
+        .td{
+          position:relative;
+        }
+        .td::after{
+          content:"";
+          background-image: url("../images/farm/table/tomato.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          position:absolute;
+          width:20px;
+          height: 20px;
+        }
+      }
+        //地瓜
+      #sweet_potato{
+        .td{
+          position:relative;
+        }
+        .td::after{
+          content:"";
+          background-image: url("../images/farm/table/sweet_potato.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          position:absolute;
+          width:20px;
+          height: 20px;
+        }
+      }
+  }
 }
 //品種介紹
 .detail_introduce_box{
-  border:1px solid red;
   .detail_introduce_content{
     display:flex;
     justify-content: center;
@@ -139,16 +296,84 @@
         align-items: center;
         vertical-align: middle;
         flex-wrap: wrap;
-        width:70%;
+        width:60%;
         .detail_introduce_item{
           padding:20px;
           img{
             border-radius: 50%;
-            border:5px solid #91C359;
+            border:7px solid #91C359;
+            width:120px;
+            height:120px;
           }
         }
       }
-
+      //品種介紹內容
+      .detail_introduce_detail_content_box{
+        box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        border-radius: 33px;
+        padding:20px;
+        background-color: #fff;
+        .detail_introduce_detail_content{
+          .detail_introduce_detail_pic{
+            img{
+              width:100%;
+            }
+          }
+          .detail_introduce_detail_pic_title{
+            display:flex;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: center;
+            margin-bottom:10px;
+          }
+          .vagatable_introduce{
+            .vagatable_vertify_name{
+              p{
+                padding:5px 0px 5px 15px;
+              }
+            }
+            .vagatable_planting_conditions{
+              p{
+                padding:5px 0px 5px 15px;
+              }
+            }
+          }
+        }
+      }
+  }
+}
+.farm_products_box{
+  margin-top:100px;
+  .farm_products{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-direction: column;
+      h2{
+        position: relative;
+         }
+      h2:after{
+          @include underline();
+      }
+    .farm_products_item_box{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      flex-wrap: wrap;
+      width:60%;
+      // border:1px solid rgb(141, 16, 208);
+      .farm_products_item{
+        // border:1px solid red;
+        display:flex;
+        padding:20px;
+        img{
+          max-width:200px;
+          max-height:200px;
+        }
+      }
+    }
   }
 
 }
