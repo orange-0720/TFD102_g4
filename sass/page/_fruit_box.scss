@@ -16,7 +16,6 @@
 }
 
 
-
 .butten_check .butten{
   @include btn_yellow(100px, 50px);
   font-weight: 700;
@@ -119,6 +118,9 @@
       margin-right: 10px;
       border-radius: 10px;
       cursor: pointer;
+      &:hover{
+        background-color: darken($color: $green, $amount: 15);
+      }
     }
 
     button.box_delete {
@@ -128,7 +130,11 @@
       width: 6vh;
       border-radius: 10px;
       cursor: pointer;
+      &:hover{
+        background-color: darken($color:#ebc313, $amount: 15);
+      }
     }
+   
   }
 
   // 蔬菜箱內部
@@ -137,8 +143,8 @@
     position: relative;
     
     #wooden {
-      width: 78%;
-      top: 45%;
+      width: 79%;
+      top: 43%;
       left: 15%;
       z-index: 1;
       position: absolute;
@@ -154,44 +160,41 @@
     // 399價位
 
     #avocado {
-      width: 30%;
-      z-index: 0;
-      top: 15%;
-      left: 59%;
       position: absolute;
     }
 
     #carrot {
-      width: 30%;
-      z-index: 0;
-      top: 12%;
-      left: 40%;
       position: absolute;
     }
 
     #orange {
-      width: 30%;
-      z-index: 0;
-      top: 18%;
-      left: 22%;
       position: absolute;
     }
 
     #pepper {
-      width: 30%;
-      z-index: 0;
-      top: 25%;
-      left: 38%;
       position: absolute;
     }
 
     #tomato {
-      width: 30%;
-      z-index: 0;
-      top: 30%;
-      left: 17%;
+      left: 20px;
       position: absolute;
     }
+
+    // 未使用
+    // #salad {
+    //   position: absolute;
+     
+    // }
+
+    // #spinach {
+    //   position: absolute;
+     
+    // }
+
+    // #strawberry {
+    //   position: absolute;
+    // }
+
   }
 }
 

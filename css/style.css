@@ -3633,7 +3633,6 @@ div.qa_step {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
   max-width: 1200px;
 }
 
@@ -3644,11 +3643,6 @@ div.qa_step div.notice {
   background-color: #FFF7D2;
 }
 
-div.qa_step div.notice h4 {
-  padding: 15px;
-  border-radius: 15px;
-}
-
 div.qa_step div.notice .light {
   background-color: #FFF353;
   border-radius: 20px;
@@ -3657,6 +3651,23 @@ div.qa_step div.notice .light {
 div.qa_step div.notice img {
   width: 50px;
   height: 50px;
+}
+
+div.qa_step div.notice h4 {
+  padding: 15px;
+  border-radius: 15px;
+}
+
+div.qa_step .up {
+  width: 65%;
+  margin-left: 30%;
+  margin-top: -4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.qa_step .up h4 {
+  line-height: 40px;
 }
 
 div.qa_item {
@@ -3683,17 +3694,8 @@ div.qa_item div.aside .qa_list {
   top: -5px;
 }
 
-div.qa_item div.aside a {
-  text-decoration: none;
-  color: #A07332;
-  bottom: 20px;
-  line-height: 30px;
-  margin-top: 100px;
-  top: 20px;
-}
-
-div.qa_item div.aside a:link, div.qa_item div.aside a:visited {
-  color: #A07332;
+div.qa_item div.aside .highlight {
+  background-color: yellow;
 }
 
 div.qa_item div.aside .hr {
@@ -3707,6 +3709,29 @@ div.qa_item div.aside .hr {
 div.qa_item div.aside ul {
   margin-top: 5%;
   top: 20px;
+}
+
+div.qa_item div.aside ul li {
+  cursor: pointer;
+  text-decoration: none;
+  color: #A07332;
+  bottom: 20px;
+  line-height: 30px;
+  top: 20px;
+}
+
+div.qa_item div.aside ul li:link, div.qa_item div.aside ul li:visited {
+  color: #A07332;
+}
+
+div.qa_item div.aside ul img {
+  width: 25px;
+  height: 25px;
+  display: none;
+}
+
+div.qa_item div.aside ul :hover img {
+  display: block;
 }
 
 div.qa_item div.qa_problem {
@@ -3732,7 +3757,7 @@ div.qa_item div.qa_problem p.answer {
 }
 
 div.qa_item div.qa_problem .title1 {
-  background-color: #FAE7C3;
+  background-color: #fae7c3;
   padding: 20px;
   border-radius: 8px;
 }
@@ -3750,6 +3775,10 @@ div.qa_item div.qa_problem li {
   padding: 0px 30px 10px 15px;
 }
 
+div.qa_item div.qa_problem .answer {
+  display: none;
+}
+
 div.qa_item div.qa_problem img {
   width: 30px;
   height: 30px;
@@ -3758,8 +3787,8 @@ div.qa_item div.qa_problem img {
 
 div.qa_item div.qa_problem p.question::after {
   padding: 0px 5px 0px 10px;
-  color: #78552B;
-  content: '\f078';
+  color: #78552b;
+  content: "\f078";
   font-family: FontAwesome;
 }
 
@@ -3922,6 +3951,10 @@ div.qa_item div.qa_problem p.question::after {
   cursor: pointer;
 }
 
+.fruits_box_two .fruits_check_butten button.box_check:hover {
+  background-color: #6b9837;
+}
+
 .fruits_box_two .fruits_check_butten button.box_delete {
   background-color: #FFF353;
   height: 6vh;
@@ -3930,14 +3963,18 @@ div.qa_item div.qa_problem p.question::after {
   cursor: pointer;
 }
 
+.fruits_box_two .fruits_check_butten button.box_delete:hover {
+  background-color: #a4880d;
+}
+
 .fruits_box_two .fruits_basket {
   width: 70%;
   position: relative;
 }
 
 .fruits_box_two .fruits_basket #wooden {
-  width: 78%;
-  top: 45%;
+  width: 79%;
+  top: 43%;
   left: 15%;
   z-index: 1;
   position: absolute;
@@ -3952,42 +3989,23 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_basket #avocado {
-  width: 30%;
-  z-index: 0;
-  top: 15%;
-  left: 59%;
   position: absolute;
 }
 
 .fruits_box_two .fruits_basket #carrot {
-  width: 30%;
-  z-index: 0;
-  top: 12%;
-  left: 40%;
   position: absolute;
 }
 
 .fruits_box_two .fruits_basket #orange {
-  width: 30%;
-  z-index: 0;
-  top: 18%;
-  left: 22%;
   position: absolute;
 }
 
 .fruits_box_two .fruits_basket #pepper {
-  width: 30%;
-  z-index: 0;
-  top: 25%;
-  left: 38%;
   position: absolute;
 }
 
 .fruits_box_two .fruits_basket #tomato {
-  width: 30%;
-  z-index: 0;
-  top: 30%;
-  left: 17%;
+  left: 20px;
   position: absolute;
 }
 
