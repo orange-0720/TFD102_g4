@@ -1,0 +1,293 @@
+.test{
+    display: block;
+    margin: 40px auto;
+        .test_container{
+            margin: 0 auto;
+            padding: 0;
+            font-size: 100%;
+            max-width: 75%;
+            vertical-align: baseline;
+                .test_row{
+                    display: flex;
+                    flex-wrap: wrap;
+                    box-sizing: border-box;
+                    align-items: stretch;
+                    justify-content: space-between;
+                        .row_left{
+                            width: 48%;
+                            display: flex;
+                            flex-direction: column;
+                            align-content: flex-end;
+                            justify-content: space-between;
+                                header{
+                                    margin: 0 0 1em 0;
+                                        h2{
+                                            font-size: 2em;
+                                            line-height: 1.3em;
+                                        }
+                                        p{
+                                            margin: 0 0 2em 0;
+                                            line-height: 150%;
+                                        }
+                                }
+                                div{
+                                    display: block;
+                                    margin: 0 auto;
+                                    text-align: center;
+                                    width: 100%;
+                                    // border: 1px solid black;
+                                    display: flex;
+                                    // justify-content: space-around;
+                                        .event_btn{
+                                            margin: 0 auto;
+                                            @include btn(130px);
+                                        }
+                                }
+                                .row_img{
+                                    width: 100%;
+                                    position: relative;
+                                        img{
+                                            width: 100%;
+                                            border-radius: 8px;
+                                            display: block;
+                                        }
+                                }
+                            }
+                        .row_right{
+                            width: 48%;
+                            header{
+                                margin: 0 0 1em 0;
+                                    h2{
+                                        font-size: 2em;
+                                        line-height: 1.35em;
+                                    }
+                                    p{
+                                        margin: 0 0 2.5em 0;
+                                        line-height: 1.35em;
+                                    }
+                            }
+                            div{
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+                            .row_img{
+                                width: 100%;
+                                position: relative;
+                                    img{
+                                        width: 100%;
+                                        border-radius: 8px;
+                                        display: block;
+                                    }
+                            }
+                        }
+                    }
+            }
+}
+
+.test{
+    @include tablet{
+    
+    display: block;
+    margin: 30px auto;
+        .test_container{
+            margin: 0 auto;
+            padding: 0;
+            font-size: 100%;
+            max-width: 60%;
+            vertical-align: baseline;
+                .test_row{
+                    display: flex;
+                    flex-wrap: wrap;
+                    box-sizing: border-box;
+                    align-items: stretch;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    margin: 0 auto;
+                        .row_left{
+                            margin: 0 auto;
+                            order: 2;
+                            width: 100%;
+                            height: 100%;
+                                header{
+                                    text-align: center;
+                                }
+                                    p{
+                                    text-align: center;
+                                    }
+                                div{
+                                    margin: 0 auto;
+                                    padding-top: 5%;
+                                    text-align: center;
+                                    align-self: center;
+                                    width: 100%;
+                                    display: inline-block;
+                                    .event_btn{
+                                        margin: 0 auto;
+                                        @include btn(130px);
+                                    }
+                                }
+                        }
+                        .row_right{
+                            margin: 0 auto;
+                            width: 100%;
+                        }
+                }
+       }   }
+}
+
+.test{
+    @include pad{
+    
+    display: block;
+    margin: 30px auto;
+        .test_container{
+            margin: 0 auto;
+            padding: 0;
+            font-size: 100%;
+            max-width: 80%;
+            vertical-align: baseline;
+                .test_row{
+                    display: flex;
+                    flex-wrap: wrap;
+                    box-sizing: border-box;
+                    align-items: stretch;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    margin: 0 auto;
+                        .row_left{
+                            margin: 0 auto;
+                            order: 2;
+                            width: 100%;
+                            height: 100%;
+                                header{
+                                    text-align: center;
+                                }
+                                    p{
+                                    text-align: center;
+                                    }
+                                div{
+                                    margin: 0 auto;
+                                    padding-top: 5%;
+                                    text-align: center;
+                                    align-self: center;
+                                    width: 100%;
+                                    display: inline-block;
+                                    .event_btn{
+                                        margin: 0 5px;
+                                        @include btn(120px);
+                                    }
+                                }
+                        }
+                        .row_right{
+                            margin: 0 auto;
+                            width: 100%;
+                        }
+                }
+       }   }
+}
+
+.test{
+    @include mobile{
+    
+    display: block;
+    margin: 30px auto;
+        .test_container{
+            margin: 0 auto;
+            padding: 0;
+            font-size: 100%;
+            max-width: 80%;
+            vertical-align: baseline;
+                .test_row{
+                    display: flex;
+                    flex-wrap: wrap;
+                    box-sizing: border-box;
+                    align-items: stretch;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    margin: 0 auto;
+                        .row_left{
+                            margin: 0 auto;
+                            order: 2;
+                            width: 100%;
+                            height: 100%;
+                                header{
+                                    text-align: center;
+                                }
+                                    h2{
+                                        font-size: medium;
+                                    }
+                                    p{
+                                    text-align: center;
+                                    }
+                                div{
+                                    margin: 0 auto;
+                                    padding-top: 5%;
+                                    text-align: center;
+                                    align-self: center;
+                                    width: 100%;
+                                    display: inline-block;
+                                    .event_btn{
+                                        margin: 0 5px;
+                                        padding: 0 10px;
+                                        @include btn(120px);
+                                    }
+                                }
+                        }
+                        .row_right{
+                            margin: 0 auto;
+                            width: 100%;
+                        }
+                }
+       }   }
+}
+
+.ProductList {
+    // border: 1px solid #000;
+    margin: 20px;
+    background: #eee;
+    display: grid;
+    grid-gap: 1.35em;
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+  .ProductList__item {
+    height: 240px;
+    // width: 240px;
+    background-image: url(https://fakeimg.pl/500x500/?text=img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  @media screen and (max-width: 575px) {
+    .ProductList {
+      grid-template-columns: 1fr 1fr;
+      width: 70%;
+    }
+    .ProductList__item {
+        height: 120px;
+    }
+  }
+  
+  @media screen and (min-width: 576px) {
+    .ProductList {
+      grid-template-columns: 1fr 1fr;
+      width: 80%;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .ProductList {
+      grid-template-columns: 1fr 1fr 1fr ;
+      width: 80%;
+    }
+  }
+  
+  @media screen and (min-width: 1192px) {
+    .ProductList {
+      grid-template-columns: 1fr 1fr 1fr;
+      width: 60%;
+    }
+  }
+

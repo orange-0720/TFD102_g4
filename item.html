@@ -74,7 +74,7 @@
       <div class="title_pic">
         <img src="./images/q_a/q_a_01.jpg" alt="q&a_pic" />
         <span class="bkc_black"></span>
-        <h1>活動預約</h1>
+        <h1>活力蔬果箱</h1>
       </div>
       <!-- 公告 -->
       <!-- 漢堡彈窗 -->
@@ -156,86 +156,96 @@
         </div>
       </div>
   </header>
-    <div>
-        <section>
 
-        </section>
-    </div>
-
-    <div class="table">
-        <div class="table_body">
-            <div class="table_left">
-                <div>
-                    <span>希望日期</span>
-                    <input type="datetime-local" accept="middle">
+  <div class="small-container single-product">
+    <div class="item-row">
+        <div class="col-2">
+            <img src="/images/item/045041b1-6643-46b0-8985-4e6abd7a416c.jpg" width="100%" id="ProductImg">
+            <div class="small-img-row">
+                <div class="small-img-col">
+                    <img src="/images/item/194590840_4466085006736125_5934408763994830268_n.jpg" width="100%" class="small-img">
                 </div>
-                <div>
-                    <span>姓名</span>
-                    <input type="text">
+                <div class="small-img-col">
+                    <img src="/images/item/20210602-1809.jpg" width="100%" class="small-img">
                 </div>
-                <div>
-                    <span>電話</span>
-                    <input type="text">
+                <div class="small-img-col">
+                    <img src="/images/item/C7E613F4-8242-4B3F-84B1-BB25D0486838.jpg" width="100%" class="small-img">
                 </div>
-                <div>
-                    <span>電子郵件</span>
-                    <input type="email">
-                </div>
-                <div>
-                    <span>報名活動</span>
-                    <select>
-                    <option>請選擇活動</option>
-                    <option>Dog</option>
-                    <option>Cat</option>
-                    <option>Hamster</option>
-                </select>
-                </div>
-                <div>
-                    <span>人數</span>                    
-                    <select>
-                    <option>請選擇人數</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </select>
-                </div>
-            </div>
-            <div class="table_right">
-                <div>
-                    <span>集合場地</span>
-                    <em>台北市</em>
-                </div>
-                <div>
-                    <span>舉辦期間</span>
-                    <em>5月到7月中</em>
-                </div>
-                <div>
-                    <span>花費時間</span>
-                    <em>2個小時</em>
-                </div>
-                <div>
-                    <span>價錢</span>
-                    <em>250元</em>
-                </div>
-                <div>
-                    <span>突發狀況</span>
-                    <em>其活動視天氣做更動</em>
-                </div>
-                <div>
-                    <span>衣著</span>
-                    <em>請穿適合活動的衣物及鞋子</em>
+                <div class="small-img-col">
+                    <img src="/images/item/F3798E61-1C26-4EA3-B283-C90EF797EEB2.jpg" width="100%" class="small-img">
                 </div>
             </div>
         </div>
+        <script>
+            var ProductImg = document.getElementById("ProductImg");
+            var SmallImg = document.getElementsByClassName("small-img");
+                SmallImg[0].onclick = function(){
+                    ProductImg.src = SmallImg[0].src;
+                }
+                SmallImg[1].onclick = function(){
+                    ProductImg.src = SmallImg[1].src;
+                }
+                SmallImg[2].onclick = function(){
+                    ProductImg.src = SmallImg[2].src;
+                }
+                SmallImg[3].onclick = function(){
+                    ProductImg.src = SmallImg[3].src;
+                }
+        </script>
+        <div class="col-2">
+            <h2>活力蔬果箱</h2>
+            <br>
+            <br>
+            <h4>價錢 : 500元</h4>
+            <br>
+            <br>
+            <h3>商品内容</h3>
+            <br>
+            <br>
+            <p>
+                良耕野菜有機農場自產野菜
+                
+                - 內含6~8種精選蔬菜，凡購買即贈送辛香料(蔥、薑、蒜頭、辣椒、九層塔)
+                - 高麗菜半顆、中華豆腐 x1、玉米筍 x1
+                - 菇類：金針菇 x2、小木耳 x1、杏鮑菇 x1
+                - 根莖類：洋蔥 x2、紅蘿蔔 x1、番茄 x1、玉米 x1
+                - 青菜類：青江菜 x1、大陸妹 x1、小白菜 x1、油菜 x1、空心菜 x1
+                ※ 因皆為每日新鮮採購，若品項有缺貨會選其他當季蔬菜替補</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href="" class="btn">加入購物車</a>
+            <a href="" class="btn">馬上買</a>
+
+        </div>
     </div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
+</div>
+
+
+
+
+<div class="ProductList">
+  <div class="ProductList__item"></div>
+  <div class="ProductList__item"></div>
+  <div class="ProductList__item"></div>
+  <div class="ProductList__item"></div>
+  <div class="ProductList__item"></div>
+  <div class="ProductList__item"></div>
+</div>
+
+
+<div>1</div>
+<div>1</div>
+<div>1</div>
+<div>1</div>
+<div>1</div>
+<div>1</div>
+<div>1</div>
+<div>1</div>
+<div>1</div>
 
 
   <footer class="footer_bg">
