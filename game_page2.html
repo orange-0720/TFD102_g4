@@ -212,22 +212,25 @@
         <h2 class="game_title">蔬果知識小遊戲</h2>
       </div>
       <section id="game_play_border">
-            <div id="game_decorate_testNumberCircle">
-              <h1 id="inside_testNumber">開始</h1>      
+            <div id="game_decorate_testNumberCircle_2">
+              <h1 id="inside_testNumber">1</h1>      
             </div>
             <img src="./images/game/cabage_group.svg" alt="" class="game icon_1">
             <img src="./images/game/cabage_group.svg" alt="" class="game icon_2">
             <img src="./images/game/cabage_group.svg" alt="" class="game icon_3">
             <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4">
             <div id="count"><h1>10</h1></div>
-            <div class="game_test">
-              <img src="./images/game/game_img_Avocado.svg" alt="" id="game_test">
+            <div class="game_test_2">
+              <img src="./images/game/game_tomato.svg" alt="" id="game_test">
             </div>
             <div id="game_question">
-              <h2 >腦力激盪，測試蔬果知識!5題答對才能挑戰扭蛋獲取購物金，準備好了嗎?</h2>
+              <h2 >番茄最重要的營養素為?</h2>
             </div>
             <div id="game_bottom_part">
-              <button type="submit" id="submit" class="green">遊戲開始</button>
+              <div id="game_answer">
+              <button type="submit" id="submit_1" class="green">茄紅素</button>
+              <button type="submit" id="submit_2" class="green">蛋白質</button>
+              </div>
               <img src="./images/game/game_img_Farmer.svg" alt="" class="decorate icon_11">
             </div>
             <!-- 用js去寫換圖 -->
@@ -294,17 +297,17 @@
     <script src="./js/header.js"></script>
     <script>
       //暫時button js 
-        let button=document.querySelector("button#submit");
-        button.addEventListener("click",function(){
-            this.classList.remove("green");
-            this.classList.add("blue");
-        })
-        button.addEventListener("mouseleave",function(){
-                this.classList.remove("blue");
-                this.classList.add("green");
-            })
+        // let button=document.querySelector("button#submit");
+        // button.addEventListener("click",function(){
+        //     this.classList.remove("green");
+        //     this.classList.add("blue");
+        // })
+        // button.addEventListener("mouseleave",function(){
+        //         this.classList.remove("blue");
+        //         this.classList.add("green");
+        //     })
         //Slider
-            $('#game_slideshow').each(function(){
+        $('#game_slideshow').each(function(){
                 let slideImgs= $(this).find('img');
                 
                 let slideImgsCount=slideImgs.length;

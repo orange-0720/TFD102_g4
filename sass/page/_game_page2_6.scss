@@ -3,9 +3,13 @@
     // ==主標題==
     div#game_title{
         height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center; 
+        display: none;
+            @include pad {
+                height: 180px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            } 
             @include mobile {
                 height: 150px;
             } 
@@ -44,14 +48,14 @@
      
 //    ==數字圓框==
 
-    div#game_decorate_testNumberCircle{
+    div#game_decorate_testNumberCircle_2{
         width: 180px;
         height: 180px;
         // border: 1px solid red;
         position: absolute;
         border-radius: 50%;
         top:-5rem;
-        background-color:#B9F18C;
+        background-color:#F42272;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,7 +69,7 @@
             top:-4rem;   
         }     
         h1#inside_testNumber{
-            font-weight: bolder;
+            font-weight:bolder;
             font-size: 3vw;
             color: white;
             height: 50px;
@@ -123,7 +127,7 @@
             height: 700px;
             width: 80%;
         }
-        @include mobile {
+        @include pad {
             height: 600px;
         }
         border-radius: 53px;
@@ -137,7 +141,10 @@
             border: 8px solid #006c3e;
         }
         margin-bottom: 5vh;
-        margin-top: 5vh;
+        margin-top: 10rem;
+        @include pad {
+            margin-top: 5rem;
+        }
         justify-content: space-around;
         align-items: center;
         .icon_1{
@@ -197,9 +204,9 @@
                 font-size: 30px;
             }  
             }           
-        }div.game_test{
+        }div.game_test_2{
             height: 350px; 
-            margin-top: 16rem;
+            margin-top: 20rem;
             display: flex;
             @include pad {
                 height: 250px;
@@ -219,10 +226,11 @@
                     width: 80vw;
                     // height: 250px;
                  }
-            }   
-        }#game_question{
+            }
+        } #game_question{
             margin-top: 6rem;
             margin-bottom: 2rem;
+            line-height:2vh;
             height: 200px;
             width: 80%;
             text-align: center;
@@ -270,24 +278,134 @@
              }      
         }.green{
             background-color:$green;
-        } button#submit{
+        }div#game_answer{
+            @include flex_center;
+            }
+         button#submit_1{
             @include btn(240px,85px);
             font-size: 28px;
             font-weight: bolder;
+            margin: 1rem;
+            padding: 2px;
             @include pad {
                 @include btn(175px,70px);
                 font-size: 24px;
+                padding: 2px;
              } 
             @include mobile {
                 @include btn(120px,45px);
                 font-size: 20px;
+                margin: .5rem;
                 line-height: 20px;
              } 
             &:hover{
                 background-color: $red;
             }
-        }
+        }button#submit_2{
+            @include btn(240px,85px);
+            font-size: 28px;
+            font-weight: bolder;
+            margin: 1rem;
+            padding: 2px;
+            @include pad {
+                @include btn(175px,70px);
+                font-size: 20px;
+                padding: 2px;
+             } 
+            @include mobile {
+                @include btn(120px,45px);
+                font-size: 20px;
+                margin: .5rem;
+                line-height: 20px;
+             } 
+            &:hover{
+                background-color: $red;
+            }
     }
+}
+// ==通關成功及失敗頁面的按鈕==
+#game_bottom_part_PassandDefeat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+        @include pad {
+            margin-top: 0rem;
+        }
+        .icon_11{
+            width: 15vw;
+            margin-top: 2rem;
+            @include pad {
+                width: 25vw;
+                margin-top: 1rem;
+            }
+            @include mobile {
+                width: 40vw;
+             }      
+        }.green{
+            background-color:$green;
+        }div#game_answer{
+            display: flex;
+            flex-direction: column;
+            }
+         button#submit_1{
+            @include btn(320px,85px);
+            font-size: 28px;
+            font-weight: bolder;
+            margin: 1rem;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include pad {
+                @include btn(175px,70px);
+                font-size: 24px;
+                padding: 2px;
+             } 
+            @include mobile {
+                @include btn(120px,45px);
+                font-size: 20px;
+                margin: .5rem;
+                line-height: 20px;
+             } 
+            &:hover{
+                background-color: $red;
+            }#rightArrow{
+                width: 1vw;
+                margin-left: 1vw; 
+            }
+
+        }button#submit_2{
+            @include btn(320px,85px);
+            font-size: 28px;
+            font-weight: bolder;
+            margin: 1rem;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include pad {
+                @include btn(175px,70px);
+                font-size: 24px;
+                padding: 2px;
+             } 
+            @include mobile {
+                @include btn(120px,45px);
+                font-size: 20px;
+                margin: .5rem;
+                line-height: 20px;
+             } 
+            &:hover{
+                background-color: $red;
+            }#leftArrow{
+                width: 1vw;
+                margin-right: 1vw; 
+            }
+    }
+}
+
+
 
     // ====以下為slider====
     section#game_slideshow_step{
@@ -296,7 +414,7 @@
         height: 350px;
         margin: 0 auto;
         max-width: 1200px;
-        margin-top: 8rem;
+        margin-top: 16vh;
         display: flex;
         justify-content:space-evenly;
         // align-items: center;

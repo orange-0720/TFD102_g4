@@ -3,9 +3,13 @@
     // ==主標題==
     div#game_title{
         height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center; 
+        display: none;
+            @include pad {
+                height: 180px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            } 
             @include mobile {
                 height: 150px;
             } 
@@ -44,14 +48,14 @@
      
 //    ==數字圓框==
 
-    div#game_decorate_testNumberCircle{
+    div#game_decorate_testNumberCircle_2{
         width: 180px;
         height: 180px;
         // border: 1px solid red;
         position: absolute;
         border-radius: 50%;
         top:-5rem;
-        background-color:#B9F18C;
+        background-color:#F42272;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,7 +69,7 @@
             top:-4rem;   
         }     
         h1#inside_testNumber{
-            font-weight: bolder;
+            font-weight:bolder;
             font-size: 3vw;
             color: white;
             height: 50px;
@@ -116,11 +120,11 @@
     }
 
     // ==小遊戲主欄位==
-    section#game_play_border{
+    section#game_play_border_PassandDefeat{
         width: 60%;
-        height: 1000px;
+        height: 1100px;
         @include pad {
-            height: 700px;
+            height: 900px;
             width: 80%;
         }
         @include mobile {
@@ -137,7 +141,10 @@
             border: 8px solid #006c3e;
         }
         margin-bottom: 5vh;
-        margin-top: 5vh;
+        margin-top: 10rem;
+        @include pad {
+            margin-top: 5rem;
+        }
         justify-content: space-around;
         align-items: center;
         .icon_1{
@@ -183,7 +190,7 @@
             color: white;
             @include flex_center;
             @include pad {
-                top: 1%;
+                top: -1%;
                 right: 3%;
             }  
             @include mobile {
@@ -197,32 +204,32 @@
                 font-size: 30px;
             }  
             }           
-        }div.game_test{
-            height: 350px; 
-            margin-top: 16rem;
-            display: flex;
-            @include pad {
-                height: 250px;
-                margin-top: 12rem; 
-            }
-            @include mobile {
-                height: 200px;
-                margin-top: 8rem;
-             }
-            img#game_test{
-                width: 60vw;
-                // height: 300px; 
+        }div.game_test_2{
+                height: 350px; 
+                margin-top: 22rem;
+                display: flex;
                 @include pad {
-                    width: 60vw;
-                    // height: 200px;
-                }@include mobile {
-                    width: 80vw;
-                    // height: 250px;
+                    height: 250px;
+                    margin-top: 8rem; 
+                }
+                @include mobile {
+                    height: 200px;
+                    margin-top: 8rem;
                  }
-            }   
+                img#game_test{
+                    width: 60vw;
+                    // height: 300px; 
+                    @include pad {
+                        width: 60vw;
+                        // height: 200px;
+                    }@include mobile {
+                        width: 80vw;
+                        // height: 250px;
+                     }
+                }      
         }#game_question{
-            margin-top: 6rem;
-            margin-bottom: 2rem;
+            margin-top: 4rem;
+            line-height:4vh;
             height: 200px;
             width: 80%;
             text-align: center;
@@ -232,16 +239,14 @@
                 margin-top: 2rem;
             }
             @include mobile {
-                margin-top: 2rem;
+                margin-top: .5rem;
              }
             h2{
-                line-height:4vh;
                 @include pad {
                     font-size:26px;
-                    line-height:3vh;
                 }
                 @include mobile {
-                   font-size:20px ;
+                   font-size:16px ;
                    text-align:justify;
                 }
             }
@@ -249,7 +254,74 @@
     }
 
 /* ===按鈕及農夫圖=== */
-#game_bottom_part{
+// #game_bottom_part{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     margin-top: 2rem;
+//         @include pad {
+//             margin-top: 0rem;
+//         }
+//         .icon_11{
+//             width: 15vw;
+//             margin-top: 2rem;
+//             @include pad {
+//                 width: 25vw;
+//                 margin-top: 1rem;
+//             }
+//             @include mobile {
+//                 width: 40vw;
+//              }      
+//         }.green{
+//             background-color:$green;
+//         }div#game_answer{
+//             @include flex_center;
+//             }
+//          button#submit_1{
+//             @include btn(240px,85px);
+//             font-size: 28px;
+//             font-weight: bolder;
+//             margin: 1rem;
+//             padding: 2px;
+//             @include pad {
+//                 @include btn(175px,70px);
+//                 font-size: 24px;
+//                 padding: 2px;
+//              } 
+//             @include mobile {
+//                 @include btn(120px,45px);
+//                 font-size: 20px;
+//                 margin: .5rem;
+//                 line-height: 20px;
+//              } 
+//             &:hover{
+//                 background-color: $red;
+//             }
+//         }button#submit_2{
+//             @include btn(240px,85px);
+//             font-size: 28px;
+//             font-weight: bolder;
+//             margin: 1rem;
+//             padding: 2px;
+//             @include pad {
+//                 @include btn(175px,70px);
+//                 font-size: 24px;
+//                 padding: 2px;
+//              } 
+//             @include mobile {
+//                 @include btn(120px,45px);
+//                 font-size: 20px;
+//                 margin: .5rem;
+//                 line-height: 20px;
+//              } 
+//             &:hover{
+//                 background-color: $red;
+//             }
+//     }
+// }
+// ==通關成功及失敗頁面的按鈕==
+#game_bottom_part_PassandDefeat{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -270,39 +342,113 @@
              }      
         }.green{
             background-color:$green;
-        } button#submit{
-            @include btn(240px,85px);
+        }div#game_answer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            }
+         button#submit_1{
+            @include btn(320px,85px);
             font-size: 28px;
             font-weight: bolder;
+            margin: 1rem;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             @include pad {
-                @include btn(175px,70px);
-                font-size: 24px;
+                @include btn(220px,60px);
+                font-size: 22px;
+                padding: 1px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
              } 
             @include mobile {
-                @include btn(120px,45px);
-                font-size: 20px;
+                @include btn(170px,45px);
+                font-size: 16px;
+                margin: .5rem;
                 line-height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center
              } 
             &:hover{
                 background-color: $red;
-            }
-        }
+            }#rightArrow{
+                width: 1vw;
+                margin-left: 1vw; 
+                @include pad {
+                    width: 15px;
+                    margin-left: 5px;
+             } 
+            }#action1{
+                @include pad {
+                    // width: 170px;
+                    
+             }
+            }   
+        }button#submit_2{
+            @include btn(320px,85px);
+            font-size: 28px;
+            font-weight: bolder;
+            margin: 1rem;
+            padding: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include pad {
+                @include btn(220px,60px);
+                font-size: 22px;
+                padding: 1px;
+                display: flex;
+                align-items: center;
+                justify-content: center
+             } 
+            @include mobile {
+                @include btn(190px,45px);
+                font-size: 16px;
+                margin: .5rem;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center
+             } 
+            &:hover{
+                background-color: $red;
+            }#leftArrow{
+                width: 1vw;
+                margin-left: 1vw; 
+                @include pad {
+                    width: 15px;
+                    margin-right: 5px;
+                }
+            }#action1{
+                @include pad {
+                    // width: 180px;
+                    
+             }
+            }   
     }
+}
+
+
 
     // ====以下為slider====
-    section#game_slideshow_step{
+    section#game_slideshow_step_PassandDefeat{
         display: flex;
         width:90%;
         height: 350px;
         margin: 0 auto;
         max-width: 1200px;
-        margin-top: 8rem;
+        margin-top: 20vh;
         display: flex;
         justify-content:space-evenly;
         // align-items: center;
         @include pad {
             height: 250px;
-            margin-top: 7rem;
+            margin-top: 3rem;
             width:100%;
         }@include mobile {
             height: 200px;
