@@ -19,7 +19,52 @@
         }
     }
 }
+@include tablet {
+    .member_logout_block{
+        width:90%;
+        max-width: 1200px;
+        @include marginAuto();
+        text-align: right;
+        margin-top: 40px;
+        button{
+            @include btn(220px);
+            img{
+                width: 30px;
+                margin-left: 10px;
+                vertical-align: top;
+            }
+        }
+        h3{
+            margin-top: 30px;
+            span{
+                margin-left: 70px;
+            }
+        }
+    }
+} 
 
+@include pad {
+    .member_logout_block{
+        width:90%;
+        @include marginAuto();
+        text-align: right;
+        margin-top: 40px;
+        button{
+            @include btn(40%);
+            img{
+                width: 30px;
+                margin-left: 10px;
+                vertical-align: top;
+            }
+        }
+        h3{
+            margin-top: 30px;
+            span{
+                margin-left: 70px;
+            }
+        }
+    }
+} 
 
 // 會員資料開始
 
@@ -133,7 +178,208 @@
         }
     }
 }
+
+@include tablet {
+    .member_block{
+        width: 90%;
+        max-width: 1200px;
+        display: flex;
+        @include marginAuto();
+        margin-top: 20px;
+        margin-bottom: 250px;
+        .member_block_nav{
+            width: 20%;
+            .member_detail{
+                @include btn(100%);
+                text-align: center;
+                font-size: $h3;
+                margin: 30px 0;
+                background-color: $white;
+                color: $font_color;
+                border: 1px solid $brown;
+                cursor: pointer;
+                &:hover{
+                    background-color: $yellow;
+                }
+            }
+        }
+        .member_right_member{
+            width: 75%;
+            margin-top: 30px;
+            margin-left: 5%;
+            padding-bottom: 50px;
+            background-color: $bkc_yellow;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 30px;
+                text-align: center;
+            }
+            .member_right_detail{
+                display: flex;
+                width: 100%;
+                .member_pic_block{
+                    width: 40%;
+                    margin-top: 50px;
+                    img{
+                        display: block;
+                        width: 70%;
+                        @include marginAuto();
+                    }
+                    .member_pwd_change{
+                        @include btn(70%);
+                        @include marginAuto();
+                        margin-top: 30px;
+                        padding: 10px;
+                        display: block;
+                        text-align: center;
+                        img{
+                            display: inline-block;
+                            width: 30px;
+                            vertical-align: top;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .member_detail_info{
+                    width: 50%;
+                    margin-left: 5%;
+                    margin-top: 50px;
+                    font-size: $h5;
+                    .member_info_name{
+                        input{
+                            display: inline-block;
+                            width: 80%;
+                            margin-left: 10px;
+                            margin-bottom: 30px;
+                            padding: 10px;
+                            font-size: $h5;
+                            color:$font_color
+                        }
+                    }
+                }
+            }
+            .member_change_detail{
+                @include btn(40%);
+                @include marginAuto();
+                display: block;
+                margin-top: 10px;
+                img{
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
+@include pad {
+    .member_block{
+        width: 90%;
+        max-width: 1200px;
+        display: block;
+        @include marginAuto();
+        margin-top: 20px;
+        margin-bottom: 100px;
+        .member_block_nav{
+            width: 100%;
+            display: flex;
+            .member_detail{
+                @include btn(100%);
+                text-align: center;
+                font-size: $h5;
+                margin: 30px 0;
+                background-color: $white;
+                border-radius: 0;
+                padding: 15px 0px;
+                color: $font_color;
+                border: 1px solid $brown;
+                cursor: pointer;
+                &:hover{
+                    background-color: $yellow;
+                }
+            }
+        }
+        .member_right_member{
+            width: 100%;
+            margin-top: 30px;
+            margin-left: 0%;
+            padding-bottom: 60px;
+            background-color: $bkc_yellow;
+            position: relative;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 30px;
+                text-align: center;
+            }
+            .member_right_detail{
+                display: block;
+                width: 100%;
+                
+                .member_pic_block{
+                    width: 100%;
+                    margin-top: 50px;
+                    img{
+                        display: block;
+                        width: 50%;
+                        @include marginAuto();
+                    }
+                    .member_pwd_change{
+                        position: absolute;
+                        bottom: 2%;
+                        left: 3%;
+                        @include btn(45%);
+                        @include marginAuto();
+                        margin-top: 30px;
+                        padding: 10px 0px;
+                        display: block;
+                        text-align: center;
+                        font-size: $h5;
+                        img{
+                            display: inline-block;
+                            width: 20px;
+                            vertical-align: top;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                .member_detail_info{
+                    width: 80%;
+                    @include marginAuto();
+                    margin-top: 50px;
+                    font-size: $h5;
+                    .member_info_name{
+                        input{
+                            display: inline-block;
+                            width: 100%;
+                            margin-left: 0px;
+                            margin-bottom: 30px;
+                            padding: 10px;
+                            font-size: $h5;
+                            color:$font_color
+                        }
+                    }
+                }
+            }
+            .member_change_detail{
+                position: absolute;
+                bottom: 2%;
+                right: 3%;
+                @include btn(45%);
+                @include marginAuto();
+                padding: 10px 0px;
+                display: block;
+                margin-top: 10px;
+                font-size: $h5;
+                img{
+                    vertical-align: top;
+                    width: 20px;
+                }
+            }
+        }
+    }
+}
+
 // 會員資料結束
+
+
 
 // 訂單查詢開始
 .member_order_detail{
@@ -278,8 +524,312 @@
                 }
             }
         }
+    }  
+}
+@include tablet {
+    .member_order_detail{
+        width: 75%;
+        margin-top: 30px;
+        margin-left: 5%;
+        padding-bottom: 50px;
+        background-color: $bkc_yellow;
+        h3{
+            background-color: $bkc_lightorange;
+            padding: 30px;
+            text-align: center;
+        }
+        .member_order_block{
+            margin-top: 30px;
+            width: 90%;
+            @include marginAuto();
+            .order_line{
+                background-color: $bkc_lightorange;
+                display: flex;
+                padding: 20px 5px;
+                h4{
+                    width: 20%;
+                    text-align: center;
+                    font-size:$h5;
+                }
+            }
+            .order_inside_detail{
+                background-color: $white;
+                display: flex;
+                padding: 20px 5px;
+                h4{
+                    width: 20%;
+                    text-align: center;
+                    font-size:$h5;
+                }
+            }
+            hr{
+                width: calc(100% - 10px);
+                @include marginAuto();
+            }
+            .show_order_detail{
+                background-color: $white;
+                padding:20px 5px;
+                text-align: center;
+                @include marginAuto();
+                font-size: $h5;
+                cursor: pointer;
+                .member_arrow_icon{
+                    display: inline-block;
+                    width: 20px;
+                    margin-left: 20px;
+                    transition: 0.5s;
+                }
+                .member_check_order_detail{
+                    border: 1px solid $brown;
+                    margin-top: 10px;
+                    border-top: 0px;
+                    display: none;
+                    .show_order_detail_block{
+                        padding: 20px 0px;
+                        background-color: $green;
+                        color:$white;
+                        width: 100%;
+                        display: flex;
+                        align-self: center;
+                        .show_order_detail_img{
+                            width: 26%;
+                            text-align: center;
+                        }
+                        .show_order_detail_name{
+                            width: 26%;
+                            text-align: center;
+                        }
+                        .show_order_detail_sum{
+                            width: 16%;
+                            text-align: center;
+                        }
+                        .show_order_detail_price,
+                        .show_order_detail_total{
+                            width: 16%;
+                            text-align: center;
+                        }
+                    }
+                    .show_order_product_detail{
+                        width: 100%;
+                        max-width: 1200px;
+                        padding: 20px 0px;
+                        display: flex;
+                        background-color: $white;
+                        font-size: $h5;
+                        .show_order_product_detail_img{
+                            width: 26%;
+                            align-self: center;
+                            text-align: center;
+                            img{
+                                width: 90%
+                            }
+                        }
+                        .show_order_product_detail_name{
+                            width: 26%;
+                            align-self: center;
+                            text-align: center;
+                        }
+                        .show_order_product_detail_sum{
+                            width: 16%;
+                            align-self: center;
+                            text-align: center;
+                            justify-content: center;
+                            display: flex;
+                            input{
+                                display: inline-block;
+                                width: 50%;
+                                text-align: center;
+                                padding: 10px;
+                                border: 1px solid $brown;
+                            }
+                        }
+                        .show_order_product_detail_price,
+                        .show_order_product_detail_total{
+                            width: 16%;
+                            align-self: center;
+                            text-align: center;
+                        }
+                    }
+                    hr{
+                        width: 95%;
+                        @include marginAuto();
+                    }
+                    .show_order_total_price{
+                        padding: 10px 10px 10px 0px ;
+                        text-align: right;
+                        background-color: $white;
+                    }
+                }
+            }
+        }  
     }
-    
+}
+
+@include pad {
+    .member_order_detail{
+        width: 100%;
+        margin-top: 30px;
+        @include marginAuto();
+        padding-bottom: 50px;
+        background-color: $bkc_yellow;
+        h3{
+            background-color: $bkc_lightorange;
+            padding: 30px;
+            text-align: center;
+        }
+        .member_order_block{
+            margin-top: 30px;
+            width: 90%;
+            @include marginAuto();
+            .order_box{
+                display: flex;
+                .order_line{
+                    width: 40%;
+                    flex-direction: column;
+                    background-color: $bkc_lightorange;
+                    display: flex;
+                    padding: 5px 5px;
+                    h4{
+                        flex: 1;
+                        width: 100%;
+                        padding: 5px;
+                        text-align: center;
+                        font-size:$h5;
+                    }
+                }
+                .order_inside_detail{
+                    width: 60%;
+                    flex-direction: column;
+                    background-color: $white;
+                    display: flex;
+                    padding: 5px 5px;
+                    h4{
+                        flex: 1;
+                        width: 100%;
+                        padding: 5px;
+                        padding-left: 20%;
+                        text-align: left;
+                        font-size:$h5;
+                    }
+                }
+            }
+            hr{
+                width: calc(100%);
+                @include marginAuto();
+            }
+            .show_order_detail{
+                background-color: $white;
+                padding:20px 5px;
+                text-align: center;
+                @include marginAuto();
+                font-size: $h5;
+                cursor: pointer;
+                .member_arrow_icon{
+                    display: inline-block;
+                    width: 20px;
+                    margin-left: 20px;
+                    transition: 0.5s;
+                }
+                .member_check_order_detail{
+                    border: 1px solid $brown;
+                    margin-top: 10px;
+                    border-top: 1px solid $brown;
+                    display: none;
+                    .check_order_box{
+                        display: flex;
+                        .show_order_detail_block{
+                            flex-direction: column;
+                            padding: 5px;
+                            background-color: $green;
+                            color:$white;
+                            width: 40%;
+                            display: flex;
+                            align-self: flex-start;
+                            .show_order_detail_img{
+                                width: 100%;
+                                height: 50px;
+                                line-height: 50px;
+                                text-align: center;
+                                margin: 5px 0px;
+                            }
+                            .show_order_detail_name{
+                                width: 100%;
+                                text-align: center;
+                                margin: 5px 0px;
+                            }
+                            .show_order_detail_sum{
+                                width: 100%;
+                                text-align: center;
+                                margin: 5px 0px;
+                            }
+                            .show_order_detail_price,
+                            .show_order_detail_total{
+                                width: 100%;
+                                text-align: center;
+                                margin: 5px 0px;
+                            }
+                        }
+                        .show_order_product_detail{
+                            flex-direction: column;
+                            width: 60%;
+                            max-width: 1200px;
+                            padding: 5px;
+                            display: flex;
+                            background-color: $white;
+                            font-size: $h5;
+                            .show_order_product_detail_img{
+                                width: 100%;
+                                align-self: center;
+                                text-align: center;
+                                margin: 5px 0px;
+                                height:50px;
+                                img{
+                                    width: 50%;
+                                    max-height: 100%;
+                                }
+                            }
+                            .show_order_product_detail_name{
+                                width: 100%;
+                                align-self: center;
+                                text-align: center;
+                                margin: 5px 0px;
+                            }
+                            .show_order_product_detail_sum{
+                                width: 100%;
+                                align-self: center;
+                                text-align: center;
+                                justify-content: center;
+                                margin: 5px 0px;
+                                input{
+                                    display: inline-block;
+                                    width: 40%;
+                                    text-align: center;
+                                    padding: 0px;
+                                    border: 1px solid $brown;
+                                }
+                            }
+                            .show_order_product_detail_price,
+                            .show_order_product_detail_total{
+                                width: 100%;
+                                align-self: center;
+                                text-align: center;
+                                margin: 5px 0px;
+                            }
+                        }
+                    }
+                    hr{
+                        width: 100%;
+                        @include marginAuto();
+                    }
+                    .show_order_total_price{
+                        padding: 10px 10px 10px 10px ;
+                        text-align: right;
+                        background-color: $white;
+                    }
+                }
+            }
+        }  
+    }
 }
 
 .turn_on{
@@ -325,6 +875,96 @@
     }
 }
 // 活動查詢結束
+
+@include tablet {
+    .member_active_detail{
+        width: 75%;
+        margin-top: 30px;
+        margin-left: 5%;
+        padding-bottom: 50px;
+        background-color: $bkc_yellow;
+        h3{
+            background-color: $bkc_lightorange;
+            padding: 30px;
+            text-align: center;
+        }
+        .member_active_block{
+            margin-top: 30px;
+            width: 90%;
+            @include marginAuto();
+            .active_line{
+                background-color: $bkc_lightorange;
+                display: flex;
+                padding: 20px 10px;
+                h4{
+                    width: 20%;
+                    text-align: center;
+                    font-size: $h5;
+                }
+            }
+            .active_inside_detail{
+                background-color: $white;
+                display: flex;
+                padding: 20px 10px;
+                h4{
+                    width: 20%;
+                    text-align: center;
+                    font-size: $h5;
+                }
+            }
+        }
+    }
+}
+
+@include pad {
+    .member_active_detail{
+        width: 100%;
+        margin-top: 30px;
+        margin-left: 0%;
+        padding-bottom: 50px;
+        background-color: $bkc_yellow;
+        h3{
+            background-color: $bkc_lightorange;
+            padding: 30px;
+            text-align: center;
+        }
+        .member_active_block{
+            margin-top: 30px;
+            width: 90%;
+            @include marginAuto();
+            .active_box{
+                display: flex;
+                .active_line{
+                    flex-direction: column;
+                    width: 40%;
+                    background-color: $bkc_lightorange;
+                    display: flex;
+                    padding: 10px 10px;
+                    h4{
+                        width: 100%;
+                        text-align: center;
+                        font-size: $h5;
+                        margin: 5px 0px;
+                    }
+                }
+                .active_inside_detail{
+                    flex-direction: column;
+                    background-color: $white;
+                    width: 60%;
+                    display: flex;
+                    padding: 10px;
+                    h4{
+                        width: 100%;
+                        text-align: left;
+                        padding-left: 20%;
+                        font-size: $h5;
+                        margin: 5px 0px;
+                    }
+                }
+            }
+        }
+    }
+}
 
 // 留言板開始
 .member_message_detail{
@@ -382,10 +1022,132 @@
     }
 }
 
+@include tablet {
+    .member_message_detail{
+        width: 75%;
+        margin-top: 30px;
+        margin-left: 5%;
+        padding-bottom: 50px;
+        background-color: $bkc_yellow;
+        h3{
+            background-color: $bkc_lightorange;
+            padding: 30px;
+            text-align: center;
+        }
+        .member_message_block{
+            width: 90%;
+            margin-top: 50px;
+            @include marginAuto();
+            .message_line{
+                background-color: $bkc_lightorange;
+                padding: 20px;
+                font-size: $h3;
+                text-align: center;
+            }
+            .message_inside_detail{
+                background-color: $white;
+                h3{
+                    background-color: $white;
+                }
+                textarea{
+                    display: block;
+                    width: 80%;
+                    @include marginAuto();
+                    font-size: $h3;
+                }
+            }
+            .member_message_button{
+                margin-top: 30px;
+                text-align: center;
+                padding-bottom: 20px;
+                #message_img{
+                    display: none;
+                }
+                label{
+                    @include btn(30%);
+                    text-align: center;
+                    margin: 0 20px;
+                }
+                #message_submit{
+                    @include btn(30%);
+                    font-family: "huninn";
+                    text-align: center;
+                    margin: 0 20px;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}
+
+@include pad {
+    .member_message_detail{
+        width: 100%;
+        margin-top: 30px;
+        margin-left: 0%;
+        padding-bottom: 50px;
+        background-color: $bkc_yellow;
+        h3{
+            background-color: $bkc_lightorange;
+            padding: 30px;
+            text-align: center;
+        }
+        .member_message_block{
+            width: 90%;
+            margin-top: 50px;
+            @include marginAuto();
+            .message_line{
+                background-color: $bkc_lightorange;
+                padding: 20px;
+                font-size: $h3;
+                text-align: center;
+            }
+            .message_inside_detail{
+                background-color: $white;
+                h3{
+                    background-color: $white;
+                    padding: 20px 0px;
+                    font-size: $h4;
+                }
+                textarea{
+                    display: block;
+                    width: 90%;
+                    @include marginAuto();
+                    font-size: $h4;
+                }
+            }
+            .member_message_button{
+                margin-top: 30px;
+                text-align: center;
+                padding-bottom: 20px;
+                #message_img{
+                    display: none;
+                }
+                label{
+                    @include btn(40%);
+                    text-align: center;
+                    margin: 0 10px;
+                    padding: 15px 0px
+                }
+                #message_submit{
+                    @include btn(40%);
+                    font-family: "huninn";
+                    text-align: center;
+                    margin: 0 10px;
+                    line-height: 1;
+                    padding: 15px 0px
+                }
+            }
+        }
+    }
+}
 
 // 該頁footer 大圖
 .member_footer_img{
     position: absolute;
     top: -50%;
     left: 10%;
+    @include pad {
+        display: none;
+    }
 }

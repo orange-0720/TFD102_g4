@@ -1,7 +1,14 @@
 .checkout_s3_ordercheck{
-    width: 20%;
+    width: 100%;
     text-align: center;
     @include marginAuto();
+    img{
+        display: inline-block;
+        max-width: 20%;
+    }
+    h2{
+        margin-top: 30px;
+    }
 }
 
 .checkout_s3_order_num_block{
@@ -28,6 +35,34 @@
         background-color: $white;
         border: 1px solid $brown;
 
+    }
+}
+
+@include pad {
+    .checkout_s3_order_num_block{
+        font-size: 0;
+        width: 90%;
+        max-width: 1200px;
+        margin-top: 50px;
+        @include marginAuto();
+        .order_num{
+            display: inline-block;
+            width: 40%;
+            text-align: center;
+            padding: 15px 0px;
+            font-size: $h4;
+            background-color: $bkc_lightorange;
+            border: 1px solid $brown;
+        }
+        .order_num_detail{
+            display: inline-block;
+            width: 60%;
+            text-align: center;
+            padding: 15px 0px;
+            font-size: $h4;
+            background-color: $white;
+            border: 1px solid $brown;
+        }
     }
 }
 
@@ -65,7 +100,7 @@ div.checkout_s3_order_detail{
     .checkout_s3_order_product_detail{
         width: 100%;
         max-width: 1200px;
-        height: 200px;
+        padding: 30px 0px;
         display: flex;
         background-color: $white;
         font-size: $h3;
@@ -88,18 +123,8 @@ div.checkout_s3_order_detail{
             text-align: center;
             justify-content: center;
             display: flex;
-            button{
-                display: inline-block;
-                border: 1px solid $brown;
-                width: 50px;
-                height:50px;
-                background-color: $bkc_lightorange;
-                font-size: $h3;
-                cursor: pointer;
-                
-            }
             input{
-                width: calc(100% - 100px);
+                width: 50%;
                 text-align: center;
                 padding: 10px;
 
@@ -118,11 +143,99 @@ div.checkout_s3_order_detail{
         @include marginAuto();
     }
     .order_total_price{
-        padding: 30px 0 30px 80%;
+        padding: 20px 20px 20px 0px;
         text-align: center;
         background-color: $white;
     }
+}
 
+@include pad {  //內含手機
+    div.checkout_s3_order_detail{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 50px;
+        font-size: $h4;
+        @include mobile {
+            font-size: $h5;
+        }
+        .checkout_s3_order_detail_block{
+            margin-top: 20px;
+            padding: 20px 0px;
+            background-color: $bkc_lightorange;
+            width: 100%;
+            display: flex;
+            align-self: center;
+            .checkout_s3_order_detail_img{
+                width: 29%;
+                text-align: center;
+            }
+            .checkout_s3_order_detail_name{
+                width: 29%;
+                text-align: center;
+            }
+            .checkout_s3_order_detail_sum{
+                width: 19%;
+                text-align: center;
+            }
+            .checkout_s3_order_detail_price,
+            .checkout_s3_order_detail_total{
+                width: 14%;
+                text-align: center;
+            }
+        }
+        .checkout_s3_order_product_detail{
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            background-color: $white;
+            font-size: $h4;
+            @include mobile {
+                font-size: $h5;
+            }
+            .checkout_s3_order_product_detail_img{
+                width: 29%;
+                align-self: center;
+                text-align: center;
+                img{
+                    width: 90%
+                }
+            }
+            .checkout_s3_order_product_detail_name{
+                width: 29%;
+                align-self: center;
+                text-align: center;
+            }
+            .checkout_s3_order_product_detail_sum{
+                width: 14%;
+                align-self: center;
+                text-align: center;
+                justify-content: center;
+                display: flex;
+                input{
+                    width: 50%;
+                    text-align: center;
+                    padding: 10px;
+                    border: 1px solid $brown;
+                }
+            }
+            .checkout_s3_order_product_detail_price,
+            .checkout_s3_order_product_detail_total{
+                width: 14%;
+                align-self: center;
+                text-align: center;
+            }
+        }
+        hr{
+            width: 95%;
+            @include marginAuto();
+        }
+        .order_total_price{
+            padding: 20px 20 20px 0px;
+            text-align: right;
+            background-color: $white;
+        }
+    }
 }
 
 .checkout_s3_other_product{
@@ -135,10 +248,69 @@ div.checkout_s3_order_detail{
     .product_link_block{
         a{
             display: inline-block;
-            margin: 50px 30px;
+            margin: 30px 0%;
+                &:nth-child(2){
+                    margin: 30px 5%;
+                }
         }
     }
     .order_keep_shopping{
         @include btn(40%);
+    }
+}
+
+@include tablet {
+    .checkout_s3_other_product{
+        width: 80%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 70px;
+        margin-bottom: 70px;
+        text-align: center;
+        font-size: 0px;
+        .product_link_block{
+            a{
+                width: 30%;
+                display: inline-block;
+                margin: 40px 0%;
+                &:nth-child(2){
+                    margin: 30px 5%;
+                }
+                img{
+                    max-width: 100%
+                }
+            }
+        }
+        .order_keep_shopping{
+            @include btn(40%);
+        }
+    }
+}
+
+@include pad {
+    .checkout_s3_other_product{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        font-size: 0px;
+        .product_link_block{
+            a{
+                width: 30%;
+                display: inline-block;
+                margin: 30px 0%;
+                &:nth-child(2){
+                    margin: 30px 5%;
+                }
+                img{
+                    max-width: 100%
+                }
+            }
+        }
+        .order_keep_shopping{
+            @include btn(60%);
+        }
     }
 }
