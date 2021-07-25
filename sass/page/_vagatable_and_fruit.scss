@@ -23,22 +23,6 @@
         display:flex;
         justify-content: center;
         align-items: center;
-<<<<<<< HEAD
-        position:relative;
-    }
-    p:before{
-      content:"";
-      background-image: url("../images/farm/carrot.svg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      position:absolute;
-      border: #91C359;
-      width:15px;
-      height:20px;
-      left:-22px;
-      top:0;
-=======
->>>>>>> dev
     }
   }
 }
@@ -58,10 +42,7 @@
           @include underline();
       }
     .process_content_box{
-<<<<<<< HEAD
       margin-top:30px;
-=======
->>>>>>> dev
       display: flex;
       flex-direction: column;
       vertical-align: middle;
@@ -106,7 +87,6 @@
           border-radius:30px;
           position: absolute;
           left:0;
-<<<<<<< HEAD
           //小動畫
           animation-name:process_bar;
           animation-duration: 8s;
@@ -136,8 +116,6 @@
             }
           }
 
-=======
->>>>>>> dev
         }
       }
     }
@@ -148,50 +126,19 @@
       vertical-align: middle;
       align-items: center;
       width:100%;
-<<<<<<< HEAD
-      max-width: 500px;
-      //border:1px solid red;
-=======
       // border:1px solid red;
->>>>>>> dev
       .vagatable_process_content{
         .vagatable_process_pic{
           width:100%;
         }
-<<<<<<< HEAD
-        .vagatable_process_descript{
-          //border:1px solid rgb(103, 17, 233);
-          display: flex;
-          flex-direction: column;
-          vertical-align: middle;
-          align-items: center;
-          width:100%;
-          h3{
-            position: relative;
-             }
-          h3:after{
-              @include underline();
-          }
-          p{
-            padding:10px 0px;
-          }
-        }
-=======
->>>>>>> dev
       }
     }
   }
 }
-<<<<<<< HEAD
-//蔬菜&水果生產表格
-.vagatable_table{
-  margin-top: 100px;
-=======
 //蔬果表格
 .vagatable_table{
   margin-top: 100px;
   border:1px solid rgb(101, 89, 89);
->>>>>>> dev
   display: flex;
   flex-direction: column;
   vertical-align: middle;
@@ -205,23 +152,14 @@
         @include underline();
     }
   .tb{
-<<<<<<< HEAD
-    border:3px solid #BBA881;
-=======
->>>>>>> dev
     display:flex;
     flex-direction: column;
     vertical-align: middle;
     align-items: center;
     flex-direction: column;
-<<<<<<< HEAD
-    width:70%;
-    .row{
-=======
     width:60%;
     .row{
       border:1px solid red;
->>>>>>> dev
       display:flex;
       justify-content: center;
       vertical-align: middle;
@@ -229,88 +167,24 @@
       flex-direction: row;
       width:100%;
       .th{
-<<<<<<< HEAD
-        border:1px solid #BBA881;
-=======
->>>>>>> dev
         display: flex;
         justify-content: center;
         vertical-align: middle;
         align-items: center;
         width:100%;
-<<<<<<< HEAD
-        height: 100%;
-        padding:5px;
-        height:30px;
-        border-collapse:collapse;
-      }
-      .tr{
-        display: flex;
-        justify-content: center;
-        vertical-align: middle;
-        align-items: center;
-        width:100%;
-        //padding:1px;
-      }
-      .td{
-        //border:1px solid #BBA881;
-=======
         padding:5px;
       }
       .td{
->>>>>>> dev
         display: flex;
         justify-content: center;
         vertical-align: middle;
         align-items: center;
         width:100%;
-<<<<<<< HEAD
-        height:100%;
-        padding:5px;
-        height:30px;
-        border:1px solid #BBA881;
-=======
         // border:1px solid rgb(174, 0, 255);
->>>>>>> dev
       }
     }
     //高麗菜
     #cabbage{
-<<<<<<< HEAD
-      .tr{
-        .td{
-          position:relative;
-        }
-        .td::after{
-          content:"";
-          background-image: url("../images/farm/table/cabbage.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-
-        }
-      }      
-    }
-    //小白菜
-    #chinese_cabbage{
-      .tr{
-        .td{
-          position:relative;
-        }
-        .td::after{
-          content:"";
-          background-image: url("../images/farm/table/chinese_cabbage.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-=======
       .td{
         position:relative;
       }
@@ -337,27 +211,10 @@
         position:absolute;
         width:20px;
         height: 20px;
->>>>>>> dev
       }
     }
     //萵苣
     #lettuce{
-<<<<<<< HEAD
-      .tr{
-        .td{
-          position:relative;
-        }
-        .td::after{
-          content:"";
-          background-image: url("../images/farm/table/lettuce.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-=======
       .td{
         position:relative;
       }
@@ -369,27 +226,10 @@
         position:absolute;
         width:20px;
         height: 20px;
->>>>>>> dev
       }
     }
     //紅蘿蔔
     #carrot{
-<<<<<<< HEAD
-      .tr{
-        .td{
-          position:relative;
-        }
-        .td::after{
-          content:"";
-          background-image: url("../images/farm/table/carrot.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-=======
       .td{
         position:relative;
       }
@@ -401,28 +241,11 @@
         position:absolute;
         width:20px;
         height: 20px;
->>>>>>> dev
       }
     }
     //白蘿蔔
     #white_radish{
       // background-color: rgb(27, 235, 41);
-<<<<<<< HEAD
-      .tr{
-        .y{
-          position:relative;
-        }
-        .y::after{
-          content:"";
-          background-image: url("../images/farm/table/white_radish.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-=======
       .td{
         position:relative;
       }
@@ -434,208 +257,10 @@
         position:absolute;
         width:20px;
         height: 20px;
->>>>>>> dev
       }
     }
       //玉米
     #corn{
-<<<<<<< HEAD
-      .tr{
-        .td{
-          position:relative;
-        }
-        .td::after{
-          content:"";
-          background-image: url("../images/farm/table/corn.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-      //大番茄
-      #tomato{
-        .tr{
-          .y{
-            position:relative;
-          }
-          .y::after{
-            content:"";
-            background-image: url("../images/farm/table/tomato.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            position:absolute;
-            width:20px;
-            height: 20px;
-            @include vagatable_fruit_table_animation;
-          }
-        }
-      }
-        //地瓜
-      #sweet_potato{
-        .tr{
-          .y{
-            position:relative;
-          }
-          .y::after{
-            content:"";
-            background-image: url("../images/farm/table/sweet_potato.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            position:absolute;
-            width:20px;
-            height: 20px;
-            @include vagatable_fruit_table_animation;
-          }
-        }
-      } 
-  }
-}
-
-//水果生產表格
-.fruit_table{
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  vertical-align: middle;
-  align-items: center;
-  width:100%;
-  height:100%;
-    h2{
-      position: relative;
-       }
-    h2:after{
-        @include underline();
-    }
-  .tb{
-    border:3px solid #BBA881;
-    display:flex;
-    flex-direction: column;
-    vertical-align: middle;
-    align-items: center;
-    flex-direction: column;
-    width:70%;
-    .row{
-      display:flex;
-      justify-content: center;
-      vertical-align: middle;
-      align-items: center;
-      flex-direction: row;
-      width:100%;
-      .th{
-        border:1px solid #BBA881;
-        display: flex;
-        justify-content: center;
-        vertical-align: middle;
-        align-items: center;
-        width:100%;
-        height: 100%;
-        padding:5px;
-        height:30px;
-        border-collapse:collapse;
-      }
-      .tr{
-        display: flex;
-        justify-content: center;
-        vertical-align: middle;
-        align-items: center;
-        width:100%;
-        //padding:1px;
-      }
-      .td{
-        //border:1px solid #BBA881;
-        display: flex;
-        justify-content: center;
-        vertical-align: middle;
-        align-items: center;
-        width:100%;
-        height:100%;
-        padding:5px;
-        height:30px;
-        border:1px solid #BBA881;
-      }
-    }
-    //草莓
-    #strawberry{
-      .tr{
-        .y{
-          position:relative;
-        }
-        .y::after{
-          content:"";
-          background-image: url("../images/farm/table/strawberry.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:9px;
-          height:12px;
-          // border:1px solid red;
-          @include vagatable_fruit_table_animation;
-        }
-      }      
-    }
-    //芒果
-    #mango{
-      .tr{
-        .y{
-          position:relative;
-        }
-        .y::after{
-          content:"";
-          background-image: url("../images/farm/table/mango.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-    //柳丁
-    #orange{
-      .tr{
-        .y{
-          position:relative;
-        }
-        .y::after{
-          content:"";
-          background-image: url("../images/farm/table/orange.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:20px;
-          height: 20px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-    //小番茄
-    #cherry_tomato{
-      .tr{
-        .td{
-          position:relative;
-        }
-        .td::after{
-          content:"";
-          background-image: url("../images/farm/table/cherry_tomato.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:30px;
-          height: 30px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-    //香蕉
-    #banana{
-      // background-color: rgb(27, 235, 41);
-      .tr{
-=======
       .td{
         position:relative;
       }
@@ -651,27 +276,11 @@
     }
       //大番茄
       #tomato{
->>>>>>> dev
         .td{
           position:relative;
         }
         .td::after{
           content:"";
-<<<<<<< HEAD
-          background-image: url("../images/farm/table/banana.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:30px;
-          height: 30px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-      //芭樂
-    #guava{
-      .tr{
-=======
           background-image: url("../images/farm/table/tomato.png");
           background-repeat: no-repeat;
           background-size: cover;
@@ -682,60 +291,11 @@
       }
         //地瓜
       #sweet_potato{
->>>>>>> dev
         .td{
           position:relative;
         }
         .td::after{
           content:"";
-<<<<<<< HEAD
-          background-image: url("../images/farm/table/guava.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:30px;
-          height: 30px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-    //檸檬
-    #lemon{
-      .tr{
-        .y{
-          position:relative;
-        }
-        .y::after{
-          content:"";
-          background-image: url("../images/farm/table/lemon.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:30px;
-          height: 30px;
-          @include vagatable_fruit_table_animation;
-        }
-      }
-    }
-      //柿子
-    #persimmon{
-      .tr{
-        .y{
-          position:relative;
-        }
-        .y::after{
-          content:"";
-          background-image: url("../images/farm/table/persimmon.png");
-          background-repeat: no-repeat;
-          background-size: cover;
-          position:absolute;
-          width:30px;
-        height: 30px;
-        @include vagatable_fruit_table_animation;
-        }
-      }
-    } 
-=======
           background-image: url("../images/farm/table/sweet_potato.png");
           background-repeat: no-repeat;
           background-size: cover;
@@ -744,15 +304,10 @@
           height: 20px;
         }
       }
->>>>>>> dev
   }
 }
 //品種介紹
 .detail_introduce_box{
-<<<<<<< HEAD
-  margin-top:100px;
-=======
->>>>>>> dev
   .detail_introduce_content{
     display:flex;
     justify-content: center;
@@ -779,15 +334,6 @@
             border:7px solid #91C359;
             width:120px;
             height:120px;
-<<<<<<< HEAD
-            padding:5px;
-          }
-        }
-        .strawberry{
-          img{
-            padding:15px 18px;
-=======
->>>>>>> dev
           }
         }
       }
@@ -798,10 +344,6 @@
         padding:20px;
         background-color: #fff;
         .detail_introduce_detail_content{
-<<<<<<< HEAD
-          max-width:500px;
-=======
->>>>>>> dev
           .detail_introduce_detail_pic{
             img{
               width:100%;
@@ -814,27 +356,13 @@
             justify-content: center;
             margin-bottom:10px;
           }
-<<<<<<< HEAD
-          .vagatable_introduce , .fruit_introduce{
-            .vagatable_vertify_name , .fruit_vertify_name{
-=======
           .vagatable_introduce{
             .vagatable_vertify_name{
->>>>>>> dev
               p{
                 padding:5px 0px 5px 15px;
               }
             }
-<<<<<<< HEAD
-            .vagatable_planting_conditions , .fruit_planting_conditions{
-              p{
-                padding:5px 0px 5px 15px;
-              }
-            }
-            .swetness{
-=======
             .vagatable_planting_conditions{
->>>>>>> dev
               p{
                 padding:5px 0px 5px 15px;
               }
@@ -846,10 +374,6 @@
 }
 .farm_products_box{
   margin-top:100px;
-<<<<<<< HEAD
-  margin-bottom: 100px;
-=======
->>>>>>> dev
   .farm_products{
     display:flex;
     justify-content: center;
@@ -871,11 +395,7 @@
       width:60%;
       // border:1px solid rgb(141, 16, 208);
       .farm_products_item{
-<<<<<<< HEAD
-        // border:1px solid red;
-=======
          border:1px solid red;
->>>>>>> dev
         display:flex;
         padding:20px;
         img{
@@ -885,19 +405,4 @@
       }
     }
   }
-<<<<<<< HEAD
-}
-//蔬菜跟水果介紹頁footer種樹裝飾圖
-.vagatable_and_fruit_introduction_footer_decoration_pic{
-  position:relative;
-  img{
-    width:150px;
-      position: absolute;
-      bottom:-80px;
-      right: 110px;
-      z-index: 1;
-  }
-=======
-
->>>>>>> dev
 }
