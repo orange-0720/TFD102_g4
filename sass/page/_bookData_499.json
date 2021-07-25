@@ -1,0 +1,49 @@
+[
+    {
+        "image":"./images/fruit_box/499/lemon.png",
+        "title":"檸檬",
+        "unit":"2顆(共約240g)"
+    },
+    {
+        "image":"./images/fruit_box/499/salad_w.png",
+        "title":"小白菜",
+        "unit":"(250g)"
+    },
+    {
+        "image":"./images/fruit_box/499/onion.png",
+        "title":"洋蔥",
+        "unit":"1顆(約250g)"
+    },
+    {
+        "image":"./images/fruit_box/499/babycorn.png",
+        "title":"玉米筍",
+        "unit":"2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/499/radish.png",
+        "title":"白蘿蔔",
+        "unit":"1根(約600g)"
+    },
+    {
+        "image":"./images/fruit_box/499/radish.png",
+        "title":"橘子",
+        "unit":"2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/499/cucumber.png",
+        "title":"胡瓜",
+        "unit":"1條(約700g)"
+    },
+    {
+        "image":"./images/fruit_box/499/salad.png",
+        "title":"青江菜",
+        "unit":"(250g)"
+
+    },
+    {
+        "image":"./images/fruit_box/499/persimmon.png",
+        "title":"柿子",
+        "unit":"2顆(共約400g)"
+
+    }
+]
