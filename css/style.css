@@ -1308,7 +1308,7 @@ body {
     padding-left: 15%;
   }
   .footer_bg .footer .footer_center .btn_pos {
-    margin-left: 100px;
+    margin-left: 18%;
   }
   .footer_bg .footer .footer_center .btn_pos .mail_btn img {
     width: 25px;
@@ -1325,7 +1325,7 @@ body {
             justify-content: center;
   }
   .footer_bg .footer .footer_right {
-    width: 100%;
+    width: 80%;
     margin: 50px 30px;
   }
   .footer_bg .footer .footer_right .right_main {
@@ -1358,7 +1358,7 @@ body {
     width: 0;
     height: 0;
     position: absolute;
-    right: 32%;
+    right: 42%;
     border-top: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid transparent;
