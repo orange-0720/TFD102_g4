@@ -149,4 +149,29 @@
     }
 }
 
-    
+//生產介紹表格小動畫    
+@mixin vagatable_fruit_table_animation {
+    animation-name:shake;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate-reverse;
+    transform: rotate(0deg);
+    @keyframes shake {
+      0%{
+        transform: rotate(0deg);
+      }
+      25%{
+        transform: rotate(10deg);
+      }
+      50%{
+        transform: rotate(-10deg);
+      }
+      70%{
+        transform: rotate(15deg);
+      }
+      100%{
+        transform: rotate(-20deg);
+      }
+    }
+}

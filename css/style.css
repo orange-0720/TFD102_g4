@@ -4954,6 +4954,8 @@ header .video iframe {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .farm_introduction_box .farm_introduction_scroll .farm_environment_box .introduction_box .introduction_para {
@@ -4961,13 +4963,11 @@ header .video iframe {
   border-radius: 30px;
   padding: 20px;
   margin-top: 20px;
+  width: 100%;
 }
 
-.farm_introduction_box .farm_introduction_scroll .farm_environment_box .introduction_box .introduction_para p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 580px;
+.farm_description_box {
+  margin-top: 100px;
 }
 
 .farm_description_box .farm_descript_item .farm_description_item_box {
@@ -4990,7 +4990,7 @@ header .video iframe {
   position: relative;
 }
 
-.farm_description_box .farm_descript_item .farm_description_item_box .farm_building_materials {
+.farm_description_box .farm_descript_item .farm_description_item_box .about_farm {
   max-width: 620px;
   background-color: #FFFFCF;
   padding: 20px;
@@ -5005,7 +5005,7 @@ header .video iframe {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 30px;
-  margin: 50px 0px;
+  margin: 100px 0px;
 }
 
 .farm_description_box .farm_descript_item .farm_description_item_box .farm_left {
@@ -5031,6 +5031,121 @@ header .video iframe {
 
 .farm_description_box .farm_descript_item .farm_description_item_box .farm_photo img {
   width: 100%;
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .farm_building_materials .farm_decoration_pic {
+  position: relative;
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .farm_building_materials .farm_decoration_pic img {
+  position: absolute;
+  width: 180px;
+  top: 0px;
+  z-index: -1;
+  -webkit-transform: translate(120px, 50%);
+          transform: translate(120px, 50%);
+  -webkit-animation: cute_animal;
+          animation: cute_animal;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+          animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@-webkit-keyframes cute_animal {
+  0% {
+    top: -80px;
+  }
+  50% {
+    top: -100px;
+  }
+  75% {
+    top: -230px;
+  }
+  100% {
+    top: -150px;
+  }
+}
+
+@keyframes cute_animal {
+  0% {
+    top: -80px;
+  }
+  50% {
+    top: -100px;
+  }
+  75% {
+    top: -230px;
+  }
+  100% {
+    top: -150px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .biodiversity .farm_decoration_pic {
+  position: relative;
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .biodiversity .farm_decoration_pic img {
+  position: absolute;
+  width: 150px;
+  top: -150px;
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .production_equipment .farm_decoration_pic {
+  position: relative;
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .production_equipment .farm_decoration_pic img {
+  position: absolute;
+  width: 180px;
+  top: -120px;
+  right: 100px;
+  z-index: -1;
+  -webkit-transform: translate(120px, 50%);
+          transform: translate(120px, 50%);
+  -webkit-animation: cute_animal;
+          animation: cute_animal;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+          animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes cute_animal {
+  0% {
+    top: -220px;
+  }
+  50% {
+    top: -150px;
+  }
+  75% {
+    top: -160px;
+  }
+  100% {
+    top: -130px;
+  }
+}
+
+.aboutus_footer_decoration_pic {
+  position: relative;
+}
+
+.aboutus_footer_decoration_pic img {
+  position: absolute;
+  bottom: -150px;
+  right: 120px;
+  z-index: 1;
 }
 
 .title_pic {
@@ -5143,7 +5258,7 @@ header .video iframe {
 }
 
 .promise_box {
-  margin-top: 100px;
+  margin: 100px 0px 250px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5252,6 +5367,18 @@ header .video iframe {
   width: 100%;
 }
 
+.product_introduction_footer_decoration_pic {
+  position: relative;
+}
+
+.product_introduction_footer_decoration_pic img {
+  width: 250px;
+  position: absolute;
+  bottom: -120px;
+  left: 40px;
+  z-index: 1;
+}
+
 .production_summary {
   margin-top: 50px;
   display: -webkit-box;
@@ -5314,6 +5441,20 @@ header .video iframe {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.production_summary .production_summary_para p:before {
+  content: "";
+  background-image: url("../images/farm/carrot.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  border: #91C359;
+  width: 15px;
+  height: 20px;
+  left: -22px;
+  top: 0;
 }
 
 .production_process_box {
@@ -5355,6 +5496,7 @@ header .video iframe {
 }
 
 .production_process_box .production_process .process_content_box {
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5436,6 +5578,76 @@ header .video iframe {
   border-radius: 30px;
   position: absolute;
   left: 0;
+  -webkit-animation-name: process_bar;
+          animation-name: process_bar;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes process_bar {
+  0% {
+    -webkit-transform: translate(0px);
+            transform: translate(0px);
+  }
+  10% {
+    -webkit-transform: translate(150px);
+            transform: translate(150px);
+  }
+  20% {
+    -webkit-transform: translate(300px);
+            transform: translate(300px);
+  }
+  30% {
+    -webkit-transform: translate(450px);
+            transform: translate(450px);
+  }
+  40% {
+    -webkit-transform: translate(600px);
+            transform: translate(600px);
+  }
+  50% {
+    -webkit-transform: translate(750px);
+            transform: translate(750px);
+  }
+  100% {
+    -webkit-transform: translate(908px);
+            transform: translate(908px);
+  }
+}
+
+@keyframes process_bar {
+  0% {
+    -webkit-transform: translate(0px);
+            transform: translate(0px);
+  }
+  10% {
+    -webkit-transform: translate(150px);
+            transform: translate(150px);
+  }
+  20% {
+    -webkit-transform: translate(300px);
+            transform: translate(300px);
+  }
+  30% {
+    -webkit-transform: translate(450px);
+            transform: translate(450px);
+  }
+  40% {
+    -webkit-transform: translate(600px);
+            transform: translate(600px);
+  }
+  50% {
+    -webkit-transform: translate(750px);
+            transform: translate(750px);
+  }
+  100% {
+    -webkit-transform: translate(908px);
+            transform: translate(908px);
+  }
 }
 
 .production_process_box .production_process .vagatable_process_box {
@@ -5452,15 +5664,51 @@ header .video iframe {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  max-width: 500px;
 }
 
 .production_process_box .production_process .vagatable_process_box .vagatable_process_content .vagatable_process_pic {
   width: 100%;
 }
 
+.production_process_box .production_process .vagatable_process_box .vagatable_process_content .vagatable_process_descript {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.production_process_box .production_process .vagatable_process_box .vagatable_process_content .vagatable_process_descript h3 {
+  position: relative;
+}
+
+.production_process_box .production_process .vagatable_process_box .vagatable_process_content .vagatable_process_descript h3:after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #FFBC53;
+  opacity: 50%;
+  bottom: -5px;
+}
+
+.production_process_box .production_process .vagatable_process_box .vagatable_process_content .vagatable_process_descript p {
+  padding: 10px 0px;
+}
+
 .vagatable_table {
   margin-top: 100px;
-  border: 1px solid #655959;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5494,6 +5742,7 @@ header .video iframe {
 }
 
 .vagatable_table .tb {
+  border: 3px solid #BBA881;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5506,11 +5755,10 @@ header .video iframe {
       -ms-flex-align: center;
           align-items: center;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
 }
 
 .vagatable_table .tb .row {
-  border: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5529,6 +5777,7 @@ header .video iframe {
 }
 
 .vagatable_table .tb .row .th {
+  border: 1px solid #BBA881;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5540,7 +5789,24 @@ header .video iframe {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  height: 100%;
   padding: 5px;
+  height: 30px;
+  border-collapse: collapse;
+}
+
+.vagatable_table .tb .row .tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
 .vagatable_table .tb .row .td {
@@ -5555,13 +5821,17 @@ header .video iframe {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  height: 100%;
+  padding: 5px;
+  height: 30px;
+  border: 1px solid #BBA881;
 }
 
-.vagatable_table .tb #cabbage .td {
+.vagatable_table .tb #cabbage .tr .td {
   position: relative;
 }
 
-.vagatable_table .tb #cabbage .td::after {
+.vagatable_table .tb #cabbage .tr .td::after {
   content: "";
   background-image: url("../images/farm/table/cabbage.png");
   background-repeat: no-repeat;
@@ -5569,13 +5839,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #chinese_cabbage .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #chinese_cabbage .tr .td {
   position: relative;
 }
 
-.vagatable_table .tb #chinese_cabbage .td::after {
+.vagatable_table .tb #chinese_cabbage .tr .td::after {
   content: "";
   background-image: url("../images/farm/table/chinese_cabbage.png");
   background-repeat: no-repeat;
@@ -5583,13 +5887,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #lettuce .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #lettuce .tr .td {
   position: relative;
 }
 
-.vagatable_table .tb #lettuce .td::after {
+.vagatable_table .tb #lettuce .tr .td::after {
   content: "";
   background-image: url("../images/farm/table/lettuce.png");
   background-repeat: no-repeat;
@@ -5597,13 +5935,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #carrot .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #carrot .tr .td {
   position: relative;
 }
 
-.vagatable_table .tb #carrot .td::after {
+.vagatable_table .tb #carrot .tr .td::after {
   content: "";
   background-image: url("../images/farm/table/carrot.png");
   background-repeat: no-repeat;
@@ -5611,13 +5983,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #white_radish .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #white_radish .tr .y {
   position: relative;
 }
 
-.vagatable_table .tb #white_radish .td::after {
+.vagatable_table .tb #white_radish .tr .y::after {
   content: "";
   background-image: url("../images/farm/table/white_radish.png");
   background-repeat: no-repeat;
@@ -5625,13 +6031,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #corn .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #corn .tr .td {
   position: relative;
 }
 
-.vagatable_table .tb #corn .td::after {
+.vagatable_table .tb #corn .tr .td::after {
   content: "";
   background-image: url("../images/farm/table/corn.png");
   background-repeat: no-repeat;
@@ -5639,13 +6079,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #tomato .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #tomato .tr .y {
   position: relative;
 }
 
-.vagatable_table .tb #tomato .td::after {
+.vagatable_table .tb #tomato .tr .y::after {
   content: "";
   background-image: url("../images/farm/table/tomato.png");
   background-repeat: no-repeat;
@@ -5653,13 +6127,47 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
-.vagatable_table .tb #sweet_potato .td {
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.vagatable_table .tb #sweet_potato .tr .y {
   position: relative;
 }
 
-.vagatable_table .tb #sweet_potato .td::after {
+.vagatable_table .tb #sweet_potato .tr .y::after {
   content: "";
   background-image: url("../images/farm/table/sweet_potato.png");
   background-repeat: no-repeat;
@@ -5667,6 +6175,548 @@ header .video iframe {
   position: absolute;
   width: 20px;
   height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.fruit_table h2 {
+  position: relative;
+}
+
+.fruit_table h2:after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #FFBC53;
+  opacity: 50%;
+  bottom: -5px;
+}
+
+.fruit_table .tb {
+  border: 3px solid #BBA881;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  flex-direction: column;
+  width: 70%;
+}
+
+.fruit_table .tb .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.fruit_table .tb .row .th {
+  border: 1px solid #BBA881;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  height: 30px;
+  border-collapse: collapse;
+}
+
+.fruit_table .tb .row .tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.fruit_table .tb .row .td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  height: 30px;
+  border: 1px solid #BBA881;
+}
+
+.fruit_table .tb #strawberry .tr .y {
+  position: relative;
+}
+
+.fruit_table .tb #strawberry .tr .y::after {
+  content: "";
+  background-image: url("../images/farm/table/strawberry.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 9px;
+  height: 12px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #mango .tr .y {
+  position: relative;
+}
+
+.fruit_table .tb #mango .tr .y::after {
+  content: "";
+  background-image: url("../images/farm/table/mango.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #orange .tr .y {
+  position: relative;
+}
+
+.fruit_table .tb #orange .tr .y::after {
+  content: "";
+  background-image: url("../images/farm/table/orange.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #cherry_tomato .tr .td {
+  position: relative;
+}
+
+.fruit_table .tb #cherry_tomato .tr .td::after {
+  content: "";
+  background-image: url("../images/farm/table/cherry_tomato.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #banana .tr .td {
+  position: relative;
+}
+
+.fruit_table .tb #banana .tr .td::after {
+  content: "";
+  background-image: url("../images/farm/table/banana.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #guava .tr .td {
+  position: relative;
+}
+
+.fruit_table .tb #guava .tr .td::after {
+  content: "";
+  background-image: url("../images/farm/table/guava.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #lemon .tr .y {
+  position: relative;
+}
+
+.fruit_table .tb #lemon .tr .y::after {
+  content: "";
+  background-image: url("../images/farm/table/lemon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.fruit_table .tb #persimmon .tr .y {
+  position: relative;
+}
+
+.fruit_table .tb #persimmon .tr .y::after {
+  content: "";
+  background-image: url("../images/farm/table/persimmon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  -webkit-animation-name: shake;
+          animation-name: shake;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+}
+
+.detail_introduce_box {
+  margin-top: 100px;
 }
 
 .detail_introduce_box .detail_introduce_content {
@@ -5728,6 +6778,11 @@ header .video iframe {
   border: 7px solid #91C359;
   width: 120px;
   height: 120px;
+  padding: 5px;
+}
+
+.detail_introduce_box .detail_introduce_content .detail_introduce_item_box .strawberry img {
+  padding: 15px 18px;
 }
 
 .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box {
@@ -5736,6 +6791,10 @@ header .video iframe {
   border-radius: 33px;
   padding: 20px;
   background-color: #fff;
+}
+
+.detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content {
+  max-width: 500px;
 }
 
 .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .detail_introduce_detail_pic img {
@@ -5756,16 +6815,21 @@ header .video iframe {
   margin-bottom: 10px;
 }
 
-.detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .vagatable_vertify_name p {
+.detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .vagatable_vertify_name p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .fruit_vertify_name p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .fruit_introduce .vagatable_vertify_name p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .fruit_introduce .fruit_vertify_name p {
   padding: 5px 0px 5px 15px;
 }
 
-.detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .vagatable_planting_conditions p {
+.detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .vagatable_planting_conditions p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .fruit_planting_conditions p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .fruit_introduce .vagatable_planting_conditions p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .fruit_introduce .fruit_planting_conditions p {
+  padding: 5px 0px 5px 15px;
+}
+
+.detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .vagatable_introduce .swetness p, .detail_introduce_box .detail_introduce_content .detail_introduce_detail_content_box .detail_introduce_detail_content .fruit_introduce .swetness p {
   padding: 5px 0px 5px 15px;
 }
 
 .farm_products_box {
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .farm_products_box .farm_products {
@@ -5828,6 +6892,18 @@ header .video iframe {
 .farm_products_box .farm_products .farm_products_item_box .farm_products_item img {
   max-width: 200px;
   max-height: 200px;
+}
+
+.vagatable_and_fruit_introduction_footer_decoration_pic {
+  position: relative;
+}
+
+.vagatable_and_fruit_introduction_footer_decoration_pic img {
+  width: 150px;
+  position: absolute;
+  bottom: -80px;
+  right: 110px;
+  z-index: 1;
 }
 
 .table {
