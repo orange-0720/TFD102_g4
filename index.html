@@ -172,7 +172,9 @@
     <!-- 購物車彈窗結束  -->
   </header>
 
+  <!-- 首頁本體 -->
   <div class="body_area">
+    <!-- 最新消息 -->
     <div class="news">
       <div class="news_title">
         <h2>最新消息</h2>
@@ -201,7 +203,7 @@
             <div class="news_card_text">
               <h4>蔬果知識小遊戲</h4>
               <p>
-                你對青菜水果的知識非常豐富嗎？戴上你的信心，歡迎你來挑戰～用知識賺取你的買菜購物金！
+                你對青菜水果的知識非常豐富嗎？帶上你的信心，歡迎你來挑戰～用知識賺取你的買菜購物金！
               </p>
               <h5>2021-07-01</h5>
             </div>
@@ -223,7 +225,7 @@
         </div>
       </div>
     </div>
-
+    <!-- 立即買 -->
     <section class="go_buy_all">
       <!-- 觸發點 -->
       <div id="keypoint"></div>
@@ -257,7 +259,7 @@
         </div>
       </div>
     </section>
-
+    <!-- 栽培方式 -->
     <div class="plant_methods">
       <div class="plant_title">
         <a href="">
@@ -265,11 +267,13 @@
         </a>
         <div class="text_underline"></div>
       </div>
-      <div class="plant_img_scroll">
-        <img src="./images/index/04.png" alt="">
+      <div class="marquee">
+        <div class="content">
+          <a href="#"><img src="./images/index/04.png"></a>
+        </div>
       </div>
     </div>
-
+    <!-- 農場體驗 -->
     <div class="farm_expr">
       <div class="farm_expr_title">
         <a href="">
@@ -312,7 +316,7 @@
       <img class="bg_img1" src="./images/index/07_01.svg" alt="">
       <img class="bg_img2" src="./images/index/07_02.svg" alt="">
     </div>
-
+    <!-- 關於我們 -->
     <div class="about_board">
       <div class="about_us">
         <h4 class="us_title1">想知道關於我們的故事嗎？</h4>
@@ -326,28 +330,60 @@
       </div>
       <div class="about_img_all">
         <div class="about_img1">
-          <img src="./images/index/06_cabbage.png" alt="">
+          <img src="./images/index/06_cabbage.png" />
+          <span class="about_text_hover">
+            <h4 class="title">高麗菜</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img2">
-          <img src="./images/index/06_carrot.png" alt="">
+          <img src="./images/index/06_carrot.png" />
+          <span class="about_text_hover">
+            <h4 class="title">胡蘿蔔</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img3">
-          <img src="./images/index/06_corn.png" alt="">
+          <img src="./images/index/06_corn.png" />
+          <span class="about_text_hover">
+            <h4 class="title">玉米</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img4">
-          <img src="./images/index/06_daikon.png" alt="">
+          <img src="./images/index/06_daikon.png" />
+          <span class="about_text_hover">
+            <h4 class="title">白蘿蔔</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img5">
-          <img src="./images/index/06_negi.png" alt="">
+          <img src="./images/index/06_negi.png" />
+          <span class="about_text_hover">
+            <h4 class="title">蔥</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img6">
-          <img src="./images/index/06_orange.png" alt="">
+          <img src="./images/index/06_orange.png" />
+          <span class="about_text_hover">
+            <h4 class="title">橘子</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img7">
-          <img src="./images/index/06_tomato.png" alt="">
+          <img src="./images/index/06_tomato.png" />
+          <span class="about_text_hover">
+            <h4 class="title">小番茄</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
         <div class="about_img8">
-          <img src="./images/index/06_yacon.png" alt="">
+          <img src="./images/index/06_yacon.png" />
+          <span class="about_text_hover">
+            <h4 class="title">地瓜</h4>
+            <h5 class="category">好吃好吃好吃好吃好吃好吃</h5>
+          </span>
         </div>
       </div>
     </div>
@@ -372,9 +408,11 @@
           網路接單為24小時</h5>
         <h5>※當日訂單最晚收到17:00</h5>
         <h5>(17:00後下單視為隔日下單)</h5>
-        <button class="mail_btn">
-          <img src="./images/mail.svg" alt="mail">MAIL
-        </button>
+        <div class="btn_pos">
+          <button class="mail_btn">
+            <img src="./images/mail.svg" alt="mail">MAIL
+          </button>
+        </div>
         <div class="footer_icon">
           <img src="./images/icon-fb.svg" alt="fb">
           <img src="./images/icon-line.svg" alt="line">
@@ -416,7 +454,6 @@
     });
 
     // 立即買
-
     var controller = new ScrollMagic.Controller();
     var buy_scroll = new TimelineMax();
     buy_scroll.fromTo(".buy_scroll", 1, { y: "-100%" }, { y: "0%", ease: Linear.easeNone })
@@ -426,10 +463,28 @@
       triggerElement: "#keypoint",
       offset: 50,
       triggerHook: 1,
-      duration: 450
-
+      duration: 450,
+      yoyo: true,
     }).setTween(buy_scroll).addTo(controller);
 
+
+    //跑馬燈 頁面載入就執行
+    ((marquee) => {
+      var speed = .1; // 速度 -- px每秒
+      var marquee = document.querySelector('.marquee');
+      var marqueeContent = marquee.querySelector('.content');
+      // 内容複製3份
+      marqueeContent.innerHTML = marqueeContent.innerHTML + marqueeContent.innerHTML + marqueeContent.innerHTML;
+      var contentWidth = marqueeContent.getBoundingClientRect().width;
+      if (contentWidth <= 0) { // 沒圖片就不會動
+        return;
+      }
+      // 内容複製3份，寬度除3
+      contentWidth = contentWidth / 3;
+      // 計算一次動畫要花多少時間
+      var onceTime = contentWidth / speed * 9000; //ms
+      marqueeContent.style.animationDuration = onceTime + "ms";
+    })()
   </script>
 
 </body>

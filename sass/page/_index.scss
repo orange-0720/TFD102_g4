@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Cabin);
 
+body {
+  overflow-x: hidden;
+}
+
 .body_area {
   width: 95%;
 
@@ -15,20 +19,45 @@
   }
 }
 
+@include mobile {
+  .body_area {
+    width: 100%;
+  }
+}
+
 .header {
   .title {
     .pic_index {
       height: 90vh;
       max-height: 1000px;
-      min-height: 500px;
-      height: 100vh;
+      min-height: 600px;
+    }
+  }
+}
+
+@include mobile {
+  .header {
+    .title {
+      padding-right: 0;
+      padding-left: 0;
+      height: 500px;
+
+      .pic_index {
+        height: 0;
+        margin: 0;
+        border-radius: 0;
+
+        img {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
 
 .news {
   // border: 1px solid red;
-  margin: 100px auto 50px auto;
+  margin: 50px auto 50px auto;
   width: 100%;
   max-width: 1920px;
   height: 600px;
@@ -92,89 +121,199 @@
   }
 }
 
-.go_buy_all {
-  padding-bottom: 100px;
-}
+@include mobile {
+  .news {
+    border: 1px solid red;
+    height: 500px;
 
-.go_buy {
-  overflow: hidden;
-  position: relative;
+    .news_board {
+      flex-direction: column;
 
-  .buy_scroll {
-    background-image: url("../../images/index/02_buy_scroll.png");
-    width: 100%;
-    height: 80vh;
-    max-height: 1000px;
-    min-height: 500px;
-    background-size: cover;
-  }
+      .news_board_card {
+        width: 100%;
+        margin: 0;
 
-  .go_buy_title {
-    position: absolute;
-    top: 80%;
-    left: 47%;
-  }
-}
+        .card_cover {
 
-.buy_item {
-  // border: 1px solid blue;
-  border-radius: 40px;
-  overflow: hidden;
-  width: 80%;
-  max-width: 1920px;
-  @include marginAuto();
-  height: 550px;
-  display: flex;
-  justify-content: center;
+          img {
+            width: 100%;
+            @include marginAuto();
+            border-radius: 15px;
 
+            &:hover {
+              transform: none;
+              transition: none;
+            }
+          }
+        }
 
-  .buy_card {
-    width: 10%;
-    flex: 1;
-    // border: 1px solid red;
-    transition-duration: 2s;
-    position: relative;
-
-    .buy_card_hover {
-      position: absolute;
-      top: 50%;
-      // left: 50%;
-      transform: translateY(-50%);
-      opacity: 0;
-      // border: 1px solid red;
-      width: 100%;
-      height: 100%;
-      transition-duration: 2s;
-
-      &:hover {
-        opacity: 1;
-      }
-
-      .buycard_img {
-        width: 60%;
-        position: absolute;
-        top: 50%;
-        left: 20%;
-        transform: translateY(-50%);
-
-        &:hover {
-          filter: brightness(0.6);
+        .news_card_text {
+          display: none;
         }
       }
     }
+  }
+}
 
-    &:hover {
-      flex: 3;
-      cursor: pointer;
+.go_buy_all {
+  padding-bottom: 100px;
+
+  .go_buy {
+    overflow: hidden;
+    position: relative;
+
+    .buy_scroll {
+      background-image: url("../../images/index/02_buy_scroll.png");
+      width: 100%;
+      height: 80vh;
+      max-height: 1000px;
+      min-height: 500px;
+      background-size: cover;
     }
 
-    .buycard_bg {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+    .go_buy_title {
+      position: absolute;
+      top: 80%;
+      left: 47%;
+    }
+  }
+
+  .buy_item {
+    // border: 1px solid blue;
+    border-radius: 40px;
+    overflow: hidden;
+    width: 80%;
+    max-width: 1920px;
+    @include marginAuto();
+    height: 550px;
+    display: flex;
+    justify-content: center;
+
+
+    .buy_card {
+      width: 10%;
+      flex: 1;
+      // border: 1px solid red;
+      transition-duration: 2s;
+      position: relative;
+
+      .buy_card_hover {
+        position: absolute;
+        top: 50%;
+        // left: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        // border: 1px solid red;
+        width: 100%;
+        height: 100%;
+        transition-duration: 2s;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        .buycard_img {
+          width: 60%;
+          position: absolute;
+          top: 50%;
+          left: 20%;
+          transform: translateY(-50%);
+
+          &:hover {
+            filter: brightness(0.6);
+          }
+        }
+      }
+
+      &:hover {
+        flex: 3;
+        cursor: pointer;
+      }
+
+      .buycard_bg {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 }
+
+@include mobile {
+  .go_buy_all {
+    padding-bottom: 100px;
+
+    .go_buy {
+      overflow: hidden;
+      position: relative;
+
+      .buy_scroll {
+        height: 300px;
+        min-height: 100px;
+        background-repeat: no-repeat;
+      }
+
+      .go_buy_title {
+        top: 65%;
+        left: 40%;
+      }
+    }
+
+    .buy_item {
+      border: 1px solid blue;
+      border-radius: 0;
+      width: 95%;
+      max-width: 1920px;
+      @include marginAuto();
+      height: 550px;
+      display: flex;
+      justify-content: center;
+
+
+      .buy_card {
+        width: 10%;
+        flex: 1;
+        // border: 1px solid red;
+        transition-duration: none;
+        position: relative;
+
+        .buy_card_hover {
+          position: absolute;
+          top: 50%;
+          // left: 50%;
+          transform: translateY(-50%);
+          // opacity: 1;
+          // border: 1px solid red;
+          width: 100%;
+          height: 100%;
+          transition-duration: none;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          .buycard_img {
+            display: none;
+
+            &:hover {
+              filter: none;
+            }
+          }
+        }
+
+        &:hover {
+          flex: 1;
+        }
+
+        .buycard_bg {
+          height: 80%;
+          width: 98%;
+        }
+      }
+    }
+  }
+}
+
 
 
 .plant_methods {
@@ -192,29 +331,36 @@
   }
 }
 
-.plant_img_scroll {
-  // border: 1px solid blue;
+.marquee {
   width: 100%;
   height: 510px;
+  line-height: 44px;
+  display: block;
+  margin: 0 auto;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  position: relative;
 
-  // animation: marquee 60s infinite linear;
-
-  img {
-    height: 100%;
-    // vertical-align: middle;
+  .content {
+    display: inline-block;
+    position: relative;
+    padding-right: 0px;
+    white-space: nowrap;
+    animation: kf-marque-animation 12s infinite linear;
   }
 }
 
-// @keyframes marquee {
-//   0% {
-//     transform: translateX(0);
-//   }
+@keyframes kf-marque-animation {
+  0% {
+    transform: translateX(0);
+  }
 
-//   100% {
-//     transform: translateX(-166.65%);
-//   }
-// }
+  100% {
+    transform: translateX(-33.3%);
+  }
+}
+
 
 .farm_expr {
   // border: 1px solid red;
@@ -297,6 +443,38 @@
   }
 }
 
+@include mobile {
+  .farm_expr {
+    border: 1px solid red;
+    width: 100%;
+    margin-bottom: 100px;
+    position: relative;
+
+    .farm_expr_title {
+      margin: 50px 0;
+
+      h2 {
+        text-align: center;
+      }
+    }
+
+    .farm_expr_board {
+      @include marginAuto();
+      flex-direction: column;
+
+      .farm_expr_card {
+        width: 50%;
+        @include marginAuto();
+
+        &:hover {
+          transform: none;
+          transition: none;
+        }
+      }
+    }
+  }
+}
+
 .about_board {
   // border: 1px solid red;
   width: 100%;
@@ -349,11 +527,12 @@
   }
 
   .about_img_all {
-
+    position: relative;
+    width: 100%;
+    height: 800px;
 
     @for $i from 1 through 8 {
       .about_img#{$i} {
-        // border: 1px solid blueviolet;
         width: 180px;
         height: 180px;
         position: absolute;
@@ -388,44 +567,285 @@
       }
     }
 
+    .about_text_hover {
+      z-index: 5;
+      width: 180px;
+      word-break: break-all;
+      display: none;
+      border-radius: 10px;
+      background-color: $brown;
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -15px;
+
+        border-top: 8px solid $brown;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid transparent;
+      }
+
+      .title {
+        color: $white;
+        padding: 20px;
+      }
+
+      .category {
+        color: $white;
+        padding: 0px 20px;
+        margin-bottom: 100px;
+      }
+    }
+
     .about_img1 {
       top: 0px;
       left: 500px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img2 {
       top: 290px;
       left: 150px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img3 {
       top: 290px;
       right: 150px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img4 {
       bottom: 0px;
       right: 500px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img5 {
       bottom: 100px;
       right: 250px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img6 {
       top: 50px;
       right: 250px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img7 {
       top: 50px;
       left: 250px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
     }
 
     .about_img8 {
       bottom: 100px;
       left: 250px;
+
+      &:hover .about_text_hover {
+        display: block;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .about_board {
+    border: 1px solid red;
+    height: 800px;
+    margin: 5% 0 10% 0;
+
+    .about_us {
+      width: 300px;
+      height: 300px;
+
+      .us_bg1 {
+        width: 105%;
+        top: 75px;
+      }
+
+      .us_bg2 {
+        width: 115%;
+        top: 150px;
+      }
+
+      .us_title1 {
+        top: 110px;
+        left: 45px;
+      }
+
+      .us_title2 {
+        top: 175px;
+        left: 110px;
+      }
+    }
+
+    .about_img_all {
+      position: relative;
+      width: 100%;
+      height: 800px;
+
+      @for $i from 1 through 8 {
+        .about_img#{$i} {
+          width: 130px;
+          height: 130px;
+          position: absolute;
+
+          img {
+            width: 100%;
+
+            &:hover {
+              animation: none;
+            }
+          }
+        }
+      }
+
+      .about_text_hover {
+        z-index: 5;
+        width: 180px;
+        word-break: break-all;
+        display: none;
+        border-radius: 10px;
+        background-color: $brown;
+        position: absolute;
+        top: -200px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 0;
+          height: 0;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -15px;
+
+          border-top: 8px solid $brown;
+          border-right: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-left: 8px solid transparent;
+        }
+
+        .title {
+          color: $white;
+          padding: 20px;
+        }
+
+        .category {
+          color: $white;
+          padding: 0px 20px;
+          margin-bottom: 100px;
+        }
+      }
+
+      .about_img1 {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img2 {
+        top: 35%;
+        left: 0px;
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img3 {
+        top: 40%;
+        right: 0px;
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img4 {
+        bottom: 15%;
+        right: 50%;
+        transform: translateX(50%);
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img5 {
+        bottom: 25%;
+        right: 5%;
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img6 {
+        top: 17%;
+        right: 8%;
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img7 {
+        top: 17%;
+        left: 8%;
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
+
+      .about_img8 {
+        bottom: 23%;
+        left: 10%;
+
+        &:hover .about_text_hover {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -441,5 +861,11 @@
     width: 200px;
     transform: scaleX(-1);
     z-index: 50;
+  }
+}
+
+@include mobile {
+  .index_animal {
+    display: none;
   }
 }
