@@ -1,0 +1,44 @@
+[
+    {
+        "image":"./images/fruit_box/599/banana.png",
+        "title":"香蕉",
+        "unit":"(250g)"
+    },
+    {
+        "image":"./images/fruit_box/599/carrot.png",
+        "title":"紅蘿蔔",
+        "unit":"1包(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/599/carrot.png",
+        "title":"青椒",
+        "unit":"2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/599/carrot.png",
+        "title":"酪 梨",
+        "unit":"2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/399/tomato.png",
+        
+        "title":"番茄",
+        "unit":"2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/399/orange.png",
+        "title":"橘子",
+        "unit":"2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/399/spinach.png",
+        "title":"空心菜",
+        "unit":"(250g)"
+    },
+    {
+        "image":"./images/fruit_box/399/strawberry.png",
+        "title":"草莓",
+        "unit":"1盒(約600g) \r\n 限購買一盒"
+
+    }
+]

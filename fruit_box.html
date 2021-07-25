@@ -9,12 +9,15 @@
   <link rel="icon" href="./images/logo-02.svg">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" href="./images/logo-02.svg">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="./js/jquery-3.6.0.js"></script>
 </head>
 
-<body>
-  <header class="header">      
+<body >
+  <div id ="app">
+  <header class="header">
     <!-- 手機板header -->
     <div class="fixed_top">
       <div class="fixed_top_logo">
@@ -77,112 +80,104 @@
         <h1>客製蔬果箱</h1>
       </div>
     </div>
-      <!-- 漢堡彈窗 -->
-      <div class="jump_hamburger_block">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
-        </a>
-        <div class="header_nav_block">
-          <div class="nav_block_contact">
-            <img src="./images/nav_block_pen.svg" >
-            聯絡我們
-          </div>
-          <div class="nav_block_log">
-            <img src="./images/nav_block_log.svg">
-            登入註冊
-          </div>
-          <div class="nav_right_block">
-            <div class="nav_active">
-              <a href="#">農村體驗</a>
-              <a href="#">預約去</a>
-            </div>
-            <div class="nav_buy_now">
-              <a href="#">立即買</a>
-              <a href="#">客製蔬果箱</a>
-              <a href="#">新鮮蔬果</a>
-            </div>
-            <div class="nav_knowledge">
-              <a href="#">蔬果知識小遊戲</a>
-            </div>
-          </div>
-          <div class="nav_left_block">
-            <div class="nav_about_us">
-              <a href="#">關於我們</a>
-              <a href="#">農場介紹</a>
-              <a href="#">生產介紹</a>
-            </div>
-            <div class="nav_QA">
-              <a href="#">問與答</a>
-            </div>
-          </div>
-          <img
-            src="./images/header_vegetable.svg"
-            alt="vegetable"
-            class="header_vegetable"
-          />
-          <img
-            src="./images/header_lemon.svg"
-            alt="vegetable"
-            class="header_lemon"
-          />
-          <img
-            src="./images/header_kiwi.svg"
-            alt="vegetable"
-            class="header_kiwi"
-          />
+    <!-- 漢堡彈窗 -->
+    <div class="jump_hamburger_block">
+      <a href="./index.html">
+        <img src="./images/logo.svg" alt="logo" />
+      </a>
+      <div class="header_nav_block">
+        <div class="nav_block_contact">
+          <img src="./images/nav_block_pen.svg">
+          聯絡我們
         </div>
+        <div class="nav_block_log">
+          <img src="./images/nav_block_log.svg">
+          登入註冊
+        </div>
+        <div class="nav_right_block">
+          <div class="nav_active">
+            <a href="#">農村體驗</a>
+            <a href="#">預約去</a>
+          </div>
+          <div class="nav_buy_now">
+            <a href="#">立即買</a>
+            <a href="#">客製蔬果箱</a>
+            <a href="#">新鮮蔬果</a>
+          </div>
+          <div class="nav_knowledge">
+            <a href="#">蔬果知識小遊戲</a>
+          </div>
+        </div>
+        <div class="nav_left_block">
+          <div class="nav_about_us">
+            <a href="#">關於我們</a>
+            <a href="#">農場介紹</a>
+            <a href="#">生產介紹</a>
+          </div>
+          <div class="nav_QA">
+            <a href="#">問與答</a>
+          </div>
+        </div>
+        <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable" />
+        <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon" />
+        <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi" />
       </div>
-      <!-- 漢堡彈窗結束 -->
+    </div>
+    <!-- 漢堡彈窗結束 -->
 
-      <!-- 聯絡我們彈窗 -->
-      <div class="index_contact_box">
-        <div class="black_block"></div>
-        <div class="cotanct_block">
-            <div class="contact_block_head">
-              <button class="contact_block_Xmark"></button>
-            </div>
-            <h2>聯絡我們</h2>
-            <div class="contact_search_bar">
-              <input type="text" id="order_search" placeholder="請輸入訂單編號">
-              <button class="search_icon">
-                <img src="./images/header_search_icon.svg" alt="search">
-              </button>
-            </div>
-            <h3>若有其他問題可以點擊下方按鈕寄信</h3>
-            <div class="mailto_block">
-              <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
-            </div>
+    <!-- 聯絡我們彈窗 -->
+    <div class="index_contact_box">
+      <div class="black_block"></div>
+      <div class="cotanct_block">
+        <div class="contact_block_head">
+          <button class="contact_block_Xmark"></button>
+        </div>
+        <h2>聯絡我們</h2>
+        <div class="contact_search_bar">
+          <input type="text" id="order_search" placeholder="請輸入訂單編號">
+          <button class="search_icon">
+            <img src="./images/header_search_icon.svg" alt="search">
+          </button>
+        </div>
+        <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+        <div class="mailto_block">
+          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
         </div>
       </div>
-      <!-- 聯絡我們彈窗結束 -->
+    </div>
+    <!-- 聯絡我們彈窗結束 -->
 
-      <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
-        <div class="incart_car_block">
-          <img src="./images/header_incart.svg" alt="">
-        </div>
-        <div class="cart_buy_list">
-          目前購物車空無一物
-        </div>
-        <div class="incart_total">
-          總和
-          <span>$0</span>
-        </div>
-        <div class="incart_checkout_block">
-          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
-        </div>
+    <!-- 購物車彈窗  -->
+    <div class="header_shopping_cart">
+      <div class="incart_car_block">
+        <img src="./images/header_incart.svg" alt="">
       </div>
-      <!-- 購物車彈窗結束  -->
+      <div class="cart_buy_list">
+        目前購物車空無一物
+      </div>
+      <div class="incart_total">
+        總和
+        <span>$0</span>
+      </div>
+      <div class="incart_checkout_block">
+        <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+      </div>
+    </div>
+    <!-- 購物車彈窗結束  -->
 
   </header>
 
-
+ 
   <!-- 價位按鈕 -->
   <div class="price_butten">
     <div class="box_price_butten">
-      <button>$399</button>
-      <button>$499</button>
-      <button>$599</button>
+      <button
+        v-for="price in priceList"
+        :key="`priceList-${price}`" 
+        @click="change_fruits(price)"
+      >
+         $ {{ price }}
+      </button>
     </div>
   </div>
 
@@ -193,48 +188,56 @@
     <!-- 移除選項 -->
     <div class="fruits_remove_menu">
       <div class="five_fruits">
-        <div class="fruit_1">
-          <button>x</button>
-          <img src="./images/fruit_box/399/avocado.png" id="avocado" width="100%">
+       
+        <div 
+          class="fruit_1" 
+          v-for="(goodbye, index) in delete_basket"
+          :key="`remove-${index}`"
+        >
+          <button
+            @click="green_remove(goodbye)"
+          >
+            x
+          </button>
+          <img
+            :src="goodbye.image"
+            width="100%"
+          >
+          <!-- //{{goodbye}} -->
+          
         </div>
-        <div class="fruit_2">
-          <button>x</button>
-          <img src="./images/fruit_box/399/carrot.png" id="carrot" width="100%">
-        </div>
-        <div class="fruit_3">
-          <button>x</button>
-          <img src="./images/fruit_box/399/orange.png" id="orange" width="100%">
-        </div>
-        <div class="fruit_4">
-          <button>x</button>
-          <img src="./images/fruit_box/399/pepper.png" id="orange" width="100%">
-        </div>
-        <div class="fruit_5">
-          <button>x</button>
-          <img src="./images/fruit_box/399/tomato.png" id="orange" width="100%">
-        </div>
+       
       </div>
     </div>
 
     <!-- 蔬菜箱 -->
-  
+
     <div class="fruits_basket" style="position:relative">
       <!-- 木箱 -->
       <img src="./images/fruit_box/box_1.png" id="wooden">
       <img src="./images/fruit_box/box.png" id="wooden_box">
 
-      <!-- 青菜蔬果定位放置 -->
-      <img src="./images/fruit_box/399/avocado.png" id="avocado">
-      <img src="./images/fruit_box/399/carrot.png" id="carrot">
-      <img src="./images/fruit_box/399/orange.png" id="orange">
-      <img src="./images/fruit_box/399/pepper.png" id="pepper">
-      <img src="./images/fruit_box/399/tomato.png" id="tomato">
-
-
+      <!-- 青菜蔬果放置 -->
+      <!-- <399> -->
+      <img src="./images/fruit_box/399/down/avocado_d.png" id="avocado" class="textHover" 
+      data-text="酪梨 2顆(約300g)">
+      <img src="./images/fruit_box/399/down/carrot_d.png" id="carrot"class="textHover"
+      data-text="紅蘿蔔 1包(約300g)">
+      <img src="./images/fruit_box/399/down/orange_d.png" id="orange" class="textHover"
+      data-text="橘子 2顆(約300g)">
+      <img src="./images/fruit_box/399/down/pepper_d.png" id="pepper" class="textHover"
+      data-text="青椒 2顆(約300g)">
+      <!-- <img src="./images/fruit_box/399/down/spinach_d.png" id="spinach"> -->
+      <img src="./images/fruit_box/399/down/tomato_d.png" id="tomato" class="textHover"
+      data-text="番茄 2顆(約300g)">
+      <!-- <img src="./images/fruit_box/399/down/salad_d.png" id="salad"> -->
+      <!-- <img src="./images/fruit_box/399/down/strawberry_d.png" id="strawberry"> -->
+      
+      <div id="theDiv"></div>
     </div>
 
     <!-- 刪除按鈕、確認 -->
-    <div class="fruits_check_butten">
+      <div class="fruits_check_butten">
       <button class="box_check">
         <img src="./images/fruit_box/check.svg" width="25px">
       </button>
@@ -253,75 +256,38 @@
     <!-- 三種金額 -->
 
     <div class="butten_check_price">
-      <button>$399</button>
-      <!-- 
-      <button>$499</button>
-      <button>$599</button> -->
+      $ {{ go_price }}
     </div>
 
 
     <!-- 八樣青菜選擇五樣青菜 -->
     <div class="fruits_basket">
-
-      <!-- 第一排 -->
       <div class="fruits_first_row">
-        <div class="fruits_items_one">
-         
-          <img src="./images/fruit_box/399/pepper.png" style="width: 68%">
-          <p>青椒</p>
-          <h5>2顆(約300g)</h5>
-        </div>
-
-        <div class="fruits_items_two">
-          <img src="./images/fruit_box/399/carrot.png" style="border:6px green solid">
-          <p>紅蘿蔔</p>
-          <h5>1包(約300g)</h5>
-        </div>
-        <div class="fruits_items_three">
-          <img src="./images/fruit_box/399/salad.png">
-          <p>青江菜</p>
-          <h5>(250g)</h5>
-        </div>
-
-        <div class="fruits_items_four">
-          <img src="./images/fruit_box/399/tomato.png" style="border:6px green solid">
-          <p>番茄</p>
-          <h5>2顆(約300g)</h5>
-        </div>
-      </div>
-      <!-- 第二排 -->
-      <div class="fruits_second_row">
-        <div class="fruits_items_five">
-          <img src="./images/fruit_box/399/avocado.png" style="border:6px green solid">
-          <p>酪 梨</p>
-          <h5>2顆(約300g)</h5>
-        </div>
-
-        <div class="fruits_items_six">
-          <img src="./images/fruit_box/399/strawberry.png">
-          <p>草莓</p>
-          <h5>1盒(約600g)</h5>
-          <h5>*限選一盒</h5>
-        </div>
-        <div class="fruits_items_seven">
-          <img src="./images/fruit_box/399/spinach.png">
-          <p>空心菜</p>
-          <h5>(250g)</h5>
-        </div>
-
-        <div class="fruits_items_eight">
-          <img src="./images/fruit_box/399/orange.png" style="border:6px green solid">
-          <p>橘子</p>
-          <h5>2顆(約300g)</h5>
-        </div>
-      </div>
-
-     
-      <!-- 文字替換 -->
-      <div class="product_directions">
-        <div class="select">
-          <h4>2-2.5kg 請選擇五樣</h4>
-        </div>
+        <!-- 選擇內部 -->
+          <div 
+            v-for="(fruit, index) in box" 
+            :key="`fruit_in_box-${index}`"
+            class="box"
+            @click="pull_basket(fruit.title)"
+          >
+            
+            <img
+              :src="fruit.image"
+              :class="{
+                'togborder': isActive(fruit.title)
+              }"
+            >
+            <p>{{fruit.title}}</p>
+            <h5>
+              <pre>{{fruit.unit}}</pre>
+            </h5>
+          </div>
+          <div class="product_directions">
+            <div class="select">
+              <h4>2-2.5kg 請選擇五樣</h4>
+            </div>
+          </div>
+        
       </div>
 
     </div>
@@ -373,17 +339,17 @@
         <div class="fruit_box_1">
           <div class="_mask"></div>
           <img src="./images/fruit_box/fruit_box.jpg" alt="商品圖片" />
-          <p class="product_name">防疫蔬果箱</p>
+          <p class="product_name"><i class="bi bi-cart4">&nbsp</i>防疫蔬果箱</p>
         </div>
 
         <div class="fruit_box_2">
           <div class="_mask"></div>
-          <p class="product_name">快樂蔬果箱</p>
+          <p class="product_name"><i class="bi bi-cart4">&nbsp</i>快樂蔬果箱</p>
           <img src="./images/fruit_box/fruit_box.jpg" alt="商品圖片" />
         </div>
         <div class="fruit_box_3">
           <div class="_mask"></div>
-          <p class="product_name">營養蔬果箱</p>
+          <p class="product_name"><i class="bi bi-cart4">&nbsp</i>營養蔬果箱</p>
           <img src="./images/fruit_box/fruit_box.jpg" alt="商品圖片" />
         </div>
       </div>
@@ -446,15 +412,112 @@
   <script src="./js/header.js"></script>
   <script>
 
-    $("#go_top").on("click", function (e) {
-      e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 750);
+    new Vue({
+      el: '#app',
+      data: {
+        box: [],
+        priceList: [399,499,599],
+        go_price: 399,
+        basket: [],
+        
+      },
+      computed: {
+        isActive () {
+          return (title) => {
+            return this.basket.includes(title)
+          }
+        },
+        delete_basket() {
+          let result = []
+          this.box.forEach(item => {
+            this.basket.forEach(title => {
+              if (item.title === title) {
+                result.push(item)
+              }
+            })
+          });
+          return result
+        }
+
+      },
+      methods: {
+        checkTitle(theTitle) {
+          return theTitle;
+        },
+        async change_fruits (price) {
+          this.go_price = price
+          switch (price) {
+            case 399:
+              data = './sass/page/_bookData.json'
+              break;
+            case 499:
+              data = './sass/page/_bookData_499.json'
+              break;
+            case 599:
+              data = './sass/page/_bookData_599.json'
+              break;
+          }
+          await $.getJSON(data)
+            .done(res => {
+              this.box = res
+            });
+        },
+        pull_basket (title) {
+          if (this.basket.length !== 5) {
+            const pick = this.box.find(item=>item.title === title)
+            this.basket.push(pick.title)
+          } else {
+            alert('不能超過五個')
+          }
+
+        },
+
+        //移除用filter塞選來做
+        green_remove (goodbye) {
+          this.basket = this.basket.filter((fruit) => fruit !== goodbye.title);
+        }
+        
+      },
+      mounted() {
+        //jQuery
+        this.change_fruits(this.go_price) //最後初始化樣子
+
+        // $.getJSON('./sass/page/_bookData.json').then(res => this.box = res);
+
+        // $.getJSON('./sass/page/_bookData_499.json').then(res => this.box = res);
+
+        // $.getJSON('./sass/page/_bookData_599.json').then(res => this.box = res);
+      },
     });
 
+  
+
+    //滑過出現商品資訊欄
+    $(function () {
+			
+			// mousemove 事件 要定義事件
+			$('.textHover').mousemove(function(e){
+				let theText = $(this).attr('data-text');
+
+				$('#theDiv').show().text(theText).css({
+					left:e.clientX + 15,
+					top:e.clientY + 15,
+				});
+			}).mouseout(function(){
+				$('#theDiv').hide();   //離開這個範圍藏起來
+			});
+
+        $("#go_top").on("click", function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+          scrollTop: 0
+        }, 750);
+      });
+
+		});		
 
   </script>
+  </div>
 </body>
 
 </html>
