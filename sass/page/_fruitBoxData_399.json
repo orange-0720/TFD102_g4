@@ -1,0 +1,55 @@
+[
+    {
+        "image":"./images/fruit_box/399/salad.png",
+        "title":"青江菜",
+        "unit":"(250g)",
+        "data-text":"青江菜 250g"
+    },
+    {
+        "image":"./images/fruit_box/399/carrot.png",
+        "title":"紅蘿蔔",
+        "unit":"1包(約300g)",
+        "data-text":"紅蘿蔔 1包(約300g)"
+        
+    },
+    {
+        "image":"./images/fruit_box/399/pepper.png",
+        "title":"青椒",
+        "unit":"2顆(約300g)",
+        "data-text":"青椒 2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/399/avocado.png",
+        "title":"酪 梨",
+        "unit":"2顆(約300g)",
+        "data-text":"酪梨 2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/399/tomato.png",
+        
+        "title":"番茄",
+        "unit":"2顆(約300g)",
+        "data-text":"番茄 2顆(約300g)"
+    },
+    {
+        "image":"./images/fruit_box/399/orange.png",
+        "title":"橘子",
+        "unit":"2顆(約300g)",
+        "data-text":"橘子 2顆(約300g)"
+
+    },
+    {
+        "image":"./images/fruit_box/399/spinach.png",
+        "title":"空心菜",
+        "unit":"(250g)",
+        "data-text":"空心菜 (250g)"
+        
+    },
+    {
+        "image":"./images/fruit_box/399/strawberry.png",
+        "title":"草莓",
+        "unit":"1盒(約600g) \n 限購買一盒",
+        "data-text":"草莓 1盒(約600g)"
+
+    }
+]

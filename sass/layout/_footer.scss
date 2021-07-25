@@ -22,6 +22,7 @@
       border: none;
       background: none;
       cursor: pointer;
+      top: 10%;
 
       img {
         width: 80%;
@@ -37,6 +38,7 @@
       width: 40%;
       line-height: 26px;
       padding-left: 5%;
+      margin-right: 10px;
 
       .mail_btn {
         margin: 10px 0;
@@ -54,7 +56,10 @@
       .footer_icon {
         width: 100%;
         padding-left: 5%;
-        margin-top: 20px;
+        margin: 20px 0;
+        display: flex;
+        padding-left: 0;
+        justify-content: center;
 
         img {
           padding: 0 5px;
@@ -72,6 +77,7 @@
       .right_main {
         border-left: 2px solid $brown;
         width: 50%;
+        height: 75%;
         display: flex;
         flex-direction: column;
         padding-top: 10px;
@@ -80,12 +86,14 @@
         a {
           @include a_link();
           margin: 5px;
+          padding: 8px 5px;
         }
       }
 
       .right_buy {
         border-left: 2px solid $brown;
         width: 50%;
+        height: 75%;
         display: flex;
         flex-direction: column;
         padding-top: 30px;
@@ -94,6 +102,171 @@
         a {
           @include a_link();
           margin: 5px;
+          padding: 8px 5px;
+        }
+      }
+    }
+  }
+}
+
+@include pad {
+  .footer_bg {
+    margin-top: 70px;
+    background-position: -300px;
+
+    .footer {
+      width: 95%;
+
+      .go_top {
+        top: 0;
+      }
+
+      .footer_logo {
+        margin-top: 50px;
+      }
+
+      .footer_center {
+        width: 50%;
+        line-height: 30px;
+        padding-left: 5%;
+        margin-right: 10px;
+
+        .mail_btn {
+          img {
+            width: 25px;
+            margin-right: 40px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .footer_right {
+        width: 40%;
+        display: flex;
+
+        .right_main {
+
+          a {
+            padding: 10px 5px;
+          }
+        }
+
+        .right_buy {
+
+          a {
+            padding: 10px 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .footer_bg {
+    background-image: url("../../images/footer_mobile.png");
+    background-position: -80px top;
+
+    .footer {
+      flex-direction: column;
+
+      .go_top {
+        right: 0;
+        top: -5%;
+
+        img {
+          width: 70%;
+        }
+      }
+
+      .footer_logo {
+        width: 100%;
+        @include marginAuto();
+      }
+
+      .footer_center {
+        width: 100%;
+        line-height: 26px;
+        padding-left: 5%;
+
+        h4 {
+          text-align: center;
+          font-size: 26px;
+          margin: 15px 0;
+        }
+
+        h5 {
+          padding-left: 15%;
+        }
+
+        .btn_pos {
+          margin-left: 18%;
+
+          .mail_btn {
+
+            img {
+              width: 25px;
+              margin-right: 40px;
+              margin-top: 5px;
+            }
+          }
+        }
+
+        .footer_icon {
+          display: flex;
+          padding-left: 0;
+          justify-content: center;
+        }
+      }
+
+      .footer_right {
+        width: 80%;
+        margin: 50px 30px;
+
+        .right_main {
+          border-left: 0;
+          padding-left: 0;
+          margin-left: 50px;
+
+          a {
+            margin-left: 50px;
+
+            &::before {
+              content: "";
+              display: inline-block;
+              width: 0;
+              height: 0;
+              position: absolute;
+              left: 20%;
+
+              border-top: 8px solid transparent;
+              border-right: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 8px solid $brown;
+            }
+          }
+        }
+
+        .right_buy {
+          border-left: 0;
+          margin-left: 50px;
+
+          a {
+
+            &::before {
+              content: "";
+              display: inline-block;
+              width: 0;
+              height: 0;
+              position: absolute;
+              right: 42%;
+
+              border-top: 8px solid transparent;
+              border-right: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 8px solid $brown;
+            }
+          }
         }
       }
     }

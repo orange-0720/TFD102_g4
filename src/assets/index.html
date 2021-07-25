@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>良耕野菜</title>
+  <link rel="icon" href="./images/logo-02.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- jquery -->
+  <script src="./js/jquery-3.6.0.js"></script>
+  <!-- gsap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <!-- scrollmagic -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+</head>
+
+<body>
+  <header class="header ">
+    <div class="menu_fixed">
+      <div class="icon">
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+        <div class="login">
+          <a href="./login.html">
+            <img src="./images/login_icon.svg" alt="login_icon" />
+          </a>
+        </div>
+        <div class="shop_car">
+          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+      </div>
+    </div>
+    <div class="menu">
+      <div class="logo_img">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+      </div>
+      <div class="page_list">
+        <a href="#">農村體驗</a>
+        <a href="./fruit_box.html">客製蔬果箱</a>
+        <a href="./game.html">蔬果知識小遊戲</a>
+        <a href="#">關於我們</a>
+        <a href="./q_a.html">問與答</a>
+        <a href="#">新鮮蔬果</a>
+      </div>
+    </div>
+    <div class="title">
+      <div class="title_btn">
+        <button class="comm_us">
+          聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+        </button>
+        <button class="buy_now">
+          立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+        </button>
+      </div>
+      <div class="title_pic pic_index">
+        <img src="./images/index/00_index.jpg" alt="index_pic" />
+      </div>
+      <div class="mouse_down">
+        <div class="mouse">
+        </div>
+        <p>Scroll</p>
+      </div>
+    </div>
+
+    <div class="jump_hamburger_block">
+      <a href="./index.html">
+        <img src="./images/logo.svg" alt="logo">
+      </a>
+      <div class="header_nav_block">
+        <div class="nav_right_block">
+          <div class="nav_active">
+            <a href="#">農村體驗</a>
+            <a href="#">預約去</a>
+          </div>
+          <div class="nav_buy_now">
+            <a href="#">立即買</a>
+            <a href="#">客製蔬果箱</a>
+            <a href="#">新鮮蔬果</a>
+          </div>
+          <div class="nav_knowledge">
+            <a href="#">蔬果知識小遊戲</a>
+          </div>
+        </div>
+        <div class="nav_left_block">
+          <div class="nav_about_us">
+            <a href="#">關於我們</a>
+            <a href="#">農場介紹</a>
+            <a href="#">生產介紹</a>
+          </div>
+          <div class="nav_QA">
+            <a href="#">問與答</a>
+          </div>
+        </div>
+        <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+        <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+        <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+      </div>
+    </div>
+  </header>
+  <div class="body_area">
+
+    <div class="news">
+      <div class="news_title">
+        <h2>最新消息</h2>
+        <div class="text_underline"></div>
+      </div>
+      <div class="news_board">
+        <div class="news_board_card">
+          <a href="">
+            <div class="card_cover"><img src="./images/index/01_1.jpg"></div>
+            <div class="news_card_text">
+              <h4>蔬果箱熱賣中</h4>
+              <p>客製蔬果箱新上市！三種價格任你選擇，心動那不如馬上行動～趕快來挑選妳自己獨一無二的蔬果箱吧！</p>
+              <h5>2021-07-01</h5>
+            </div>
+          </a>
+        </div>
+        <div class="news_board_card">
+          <a href="">
+            <div class="card_cover"><img src="./images/index/01_2.jpg"></div>
+            <div class="news_card_text">
+              <h4>蔬果知識小遊戲</h4>
+              <p>你對青菜水果的知識非常豐富嗎？戴上你的信心，歡迎你來挑戰～用知識賺取你的買菜購物金！</p>
+              <h5>2021-07-01</h5>
+            </div>
+          </a>
+        </div>
+        <div class="news_board_card">
+          <a href="">
+            <div class="card_cover"><img src="./images/index/01_3.jpg"></div>
+            <div class="news_card_text">
+              <h4>體驗活動快訊</h4>
+              <p>想親自體驗農活樂趣？那你不妨來這裡看看，總會有一種是你沒有嘗試過的精采體驗！</p>
+              <h5>2021-07-01</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="go_buy_all">
+      <!-- 觸發點 -->
+      <div id="keypoint"></div>
+      <div class="go_buy">
+        <div class="buy_scroll"></div>
+        <div class="go_buy_title">
+          <a href="">
+            <h2>立即買 ></h2>
+          </a>
+          <div class="text_underline"></div>
+        </div>
+      </div>
+      <div class="buy_item">
+        <div class="buy_card">
+          <div class="buy_card_hover">
+            <a href=""><img class="buycard_img" src="./images/index/03_05.png" alt=""></a>
+          </div>
+          <img class="buycard_bg" src="./images/index/03_01.jpg">
+        </div>
+        <div class="buy_card">
+          <div class="buy_card_hover"><img class="buycard_img" src="./images/index/03_06.png" alt=""></div>
+          <img class="buycard_bg" src="./images/index/03_02.jpg">
+        </div>
+        <div class="buy_card">
+          <div class="buy_card_hover"><img class="buycard_img" src="./images/index/03_07.png" alt=""></div>
+          <img class="buycard_bg" src="./images/index/03_03.jpg">
+        </div>
+        <div class="buy_card">
+          <div class="buy_card_hover"><img class="buycard_img" src="./images/index/03_08.png" alt=""></div>
+          <img class="buycard_bg" src="./images/index/03_04.jpg">
+        </div>
+      </div>
+    </section>
+
+    <div class="plant_methods">
+      <div class="plant_title">
+        <a href="">
+          <h2>栽培方式 ></h2>
+        </a>
+        <div class="text_underline"></div>
+      </div>
+      <a href="#">
+        <div class="plant_img_scroll">
+          <marquee behavior="alternate" scrollamount="2">
+            <img src="./images/index/04.png" class="ani_alter">
+          </marquee>
+
+        </div>
+      </a>
+    </div>
+    <div class="farm_expr">
+      <div class="farm_expr_title">
+        <a href="">
+          <h2>精選農村體驗 ></h2>
+        </a>
+        <div class="text_underline"></div>
+      </div>
+      <div class="farm_expr_board">
+        <div class="farm_expr_card">
+          <img src="./images/index/05_01.jpg">
+          <div class="farm_expr_text">
+            <h4>精選體驗一</h4>
+            <h5>精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一</h5>
+          </div>
+          <center><button class="farm_expr_btn">
+              <h5>詳細內容</h5>
+            </button></center>
+        </div>
+        <div class="farm_expr_card">
+          <img src="./images/index/05_02.jpg">
+          <div class="farm_expr_text">
+            <h4>精選體驗一</h4>
+            <h5>精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一</h5>
+          </div>
+          <center><button class="farm_expr_btn">
+              <h5>詳細內容</h5>
+            </button></center>
+        </div>
+        <div class="farm_expr_card">
+          <img src="./images/index/05_03.jpg">
+          <div class="farm_expr_text">
+            <h4>精選體驗一</h4>
+            <h5>精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一精選體驗一</h5>
+          </div>
+          <center><button class="farm_expr_btn">
+              <h5>詳細內容</h5>
+            </button></center>
+        </div>
+      </div>
+      <img class="bg_img1" src="./images/index/07_01.svg" alt="">
+      <img class="bg_img2" src="./images/index/07_02.svg" alt="">
+    </div>
+
+    <div class="about_board">
+      <div class="about_us">
+        <h4 class="us_title1">想知道關於我們的故事嗎？</h4>
+        <a href="">
+          <h2 class="us_title2">關於我們 >
+            <div class="text_underline"></div>
+          </h2>
+        </a>
+        <img class="us_bg1" src="./images/index/06_about_bg1.svg" alt="">
+        <img class="us_bg2" src="./images/index/06_about_bg2.svg" alt="">
+      </div>
+      <div class="about_img_all">
+        <div class="about_img1">
+          <img src="./images/index/06_cabbage.png" alt="">
+        </div>
+        <div class="about_img2">
+          <img src="./images/index/06_carrot.png" alt="">
+        </div>
+        <div class="about_img3">
+          <img src="./images/index/06_corn.png" alt="">
+        </div>
+        <div class="about_img4">
+          <img src="./images/index/06_daikon.png" alt="">
+        </div>
+        <div class="about_img5">
+          <img src="./images/index/06_negi.png" alt="">
+        </div>
+        <div class="about_img6">
+          <img src="./images/index/06_orange.png" alt="">
+        </div>
+        <div class="about_img7">
+          <img src="./images/index/06_tomato.png" alt="">
+        </div>
+        <div class="about_img8">
+          <img src="./images/index/06_yacon.png" alt="">
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="index_animal"><img src="./images/index/07_capybara.png" alt=""></div>
+  <footer class="footer_bg">
+    <div class="footer">
+      <button class="go_top" id="go_top">
+        <img src="./images/top.svg" alt="top">
+      </button>
+      <div class="footer_logo">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
+      </div>
+      <div class="footer_center">
+        <h4>電話:02-26938800</h4>
+        <h5>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
+        <h5>※農曆過年假期本農場也公休
+          網路接單為24小時</h5>
+        <h5>※當日訂單最晚收到17:00</h5>
+        <h5>(17:00後下單視為隔日下單)</h5>
+        <button class="mail_btn">
+          <img src="./images/mail.svg" alt="mail">MAIL
+        </button>
+        <div class="footer_icon">
+          <img src="./images/icon-fb.svg" alt="fb">
+          <img src="./images/icon-line.svg" alt="line">
+          <img src="./images/icon-ig.svg" alt="ig">
+        </div>
+      </div>
+      <div class="footer_right">
+        <div class="right_main">
+          <a href="#">首頁</a>
+          <a href="#">農村體驗</a>
+          <a href="#">蔬果知識小遊戲</a>
+          <a href="#">關於我們</a>
+          <a href="#">問與答</a>
+        </div>
+        <div class="right_buy">
+          <a href="#">客製蔬果箱</a>
+          <a href="#">蔬菜</a>
+          <a href="#">水果</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    // 控制HEADER裡的黃色NAV區塊
+    var menu = document.getElementsByClassName("menu")[0];
+    document.addEventListener("scroll", function () {
+      menu.style.top = (0 - (scrollY)) + "px";
+    });
+
+    // 漢堡選單
+    $('.ham').on("click", function () {
+      $('.jump_hamburger_block').fadeToggle();
+      $('.ham_top').toggleClass('ham_top_move');
+      $('.ham_middle').toggleClass('ham_middle_move')
+      $('.ham_bottom').toggleClass('ham_bottom_move');
+    })
+
+    // 回頁首
+    $("#go_top").on("click", function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, 750);
+    });
+
+    // 立即買
+
+    var controller = new ScrollMagic.Controller();
+    var buy_scroll = new TimelineMax();
+    buy_scroll.fromTo(".buy_scroll", 1, { y: "-100%" }, { y: "0%", ease: Linear.easeNone })
+
+    // scroll觸發事件
+    new ScrollMagic.Scene({
+      triggerElement: "#keypoint",
+      offset: 50,
+      triggerHook: 1,
+      duration: 450
+
+    }).setTween(buy_scroll).addTo(controller);
+
+  </script>
+</body>
+
+</html>
