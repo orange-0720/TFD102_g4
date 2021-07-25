@@ -1,0 +1,289 @@
+$padding_box:30px 0px;
+$padding_left:200px;
+$box_distance:100px , 0px;
+
+h1{
+    padding:20px 0px;
+    text-align: center;
+    font-weight: 700;
+}
+h2{
+    padding: 10px 0px;
+    text-align: center;
+    margin-bottom:20px;
+    font-weight: 700;
+}
+h3{
+    padding: 10px 0px;
+    font-weight: 700;
+}
+p{
+    line-height: 25px;
+}
+// 標題介紹的裝飾圖案
+.item_title{
+    position:relative;
+    padding-left:20px;
+}
+.item_title:before{
+    content:"";
+    background-image: url("/images/farm/aboutUs_title/straberry.png");
+    background-repeat: no-repeat;
+    background-size: 50% auto;
+    width:30px;
+    height:50%;
+    position:absolute;
+    left:0px;
+}
+header{
+    display: flex;
+    justify-content: center;
+
+    .video{
+        display: flex;
+        justify-content: center;
+        padding-left:$padding_left;
+        padding-top:30px;
+
+        iframe{
+            width:700px;
+            height:500px;
+        }
+    }
+}
+.about_us_box{
+    // border:1px solid red;
+    padding: $padding_box;
+    .about_us_content{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top:30px;
+       .about_us_title{
+        text-align: center;
+        display:flex;
+        h2{
+            position: relative;
+        }
+        h2:after{
+            @include underline();
+        }
+       }
+        .about_us_text{
+            max-width:800px;
+        }
+        .farm_managers_box{
+            // border:1px solid red;
+            display:flex;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: center;
+            width:100%;
+            max-width:1200px;
+            padding:$padding_box;
+            .farm_managers_items_box{
+                display:flex;
+                // border:1px solid blue;
+                position:relative;
+                .farm_managers_items{
+                    display:flex;
+                    flex-direction: column;
+                    padding:0px 10px;
+                    .manager_photo{
+                        img{
+                            width:100%;
+                            height:100%;
+                            border-radius: 50%;
+                            max-width: 130px;
+                        }                
+                    }
+                    .manager_name{
+                        text-align: center;
+                    }
+                }
+                .items_up{
+                    position:relative;
+                }
+                .items_down{
+                    position:relative;
+                    top:50px;
+                }
+            }
+        }
+    }
+}
+.farm_introduction_box{
+    display:flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    // border:1px solid red;
+    width:100%;
+    margin-top:50px;
+    h2{
+        position: relative;
+    }
+    h2:after{
+         @include underline();
+    }
+    .farm_introduction_scroll{
+        //border:1px solid red;
+        display:flex;
+        flex-direction: column;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        max-width:600px;
+            .farm_environment_box{
+                .introduction_box{
+                    .introduction_para{
+                        background-color: $bkc_yellow;
+                        border-radius: 30px;
+                        padding:20px;
+                        margin-top:20px;
+                        width: 100%;
+                    }
+                }
+            }
+    }
+}
+.farm_description_box{
+    margin-top:100px;
+    .farm_descript_item{
+        .farm_description_item_box{
+            width:100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: center;
+            position:relative;
+            .about_farm{
+                max-width:620px;
+                background-color: #FFFFCF;
+                //border:1px solid red;
+                padding:20px;
+                width:100%;
+                height: 100%;
+                flex-direction: column;
+                vertical-align: middle;
+                align-items: center;
+                border-radius: 30px;
+                margin:100px 0px;
+            }
+            .farm_left{
+                position:relative;
+                right:10%;
+            }
+            .farm_right{
+                position:relative;
+                left:10%;
+            }
+            .farm_photo{
+                flex-direction: column;
+                vertical-align: middle;
+                align-items: center;
+                img{
+                    width:100%;
+                }
+            }
+            //第一區-動物裝飾圖
+            .farm_building_materials{
+                .farm_decoration_pic{
+                    position:relative;
+                    img{
+                        position:absolute;
+                        //border:1px solid red;
+                        width:180px;
+                        top:0px;
+                        z-index: -1;
+                        transform:translate(120px, 50%);
+                        animation:cute_animal;
+                        animation-duration: 4s;
+                        animation-delay: 3s;
+                        animation-iteration-count:infinite;
+                        //animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+                        //animation-timing-function:all 5s cubic-bezier(0,.57,.67,.6);
+                        animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                        animation-direction:alternate-reverse;
+                    }
+                    @keyframes cute_animal {
+                        0% {
+                            top:-80px; 
+                          }
+                        50% {
+                            top:-100px; 
+                          }
+                        75%{
+                            top:-230px; 
+                        }  
+                        100% {
+                            top: -150px;
+                        }  
+                    }
+                }
+            }
+            //第二區-植物裝飾圖
+            .biodiversity{
+                .farm_decoration_pic{
+                    position:relative;
+                    img{
+                        position:absolute;
+                        width:150px;
+                        top:-150px;
+                    }
+                }
+            }
+            //第三區-動物裝飾圖
+            .production_equipment{
+                .farm_decoration_pic{
+                    position:relative;
+                    img{
+                        position:absolute;
+                        width:180px;
+                        top:-120px;
+                        right:100px;
+                        z-index: -1;
+                        transform:translate(120px, 50%);
+                        animation:cute_animal;
+                        animation-duration: 2s;
+                        animation-delay: 3s;
+                        animation-iteration-count:infinite;
+                        //animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+                        //animation-timing-function:all 5s cubic-bezier(0,.57,.67,.6);
+                        animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                        animation-direction:alternate-reverse;
+                    }
+                    @keyframes cute_animal {
+                        0% {
+                            top:-220px; 
+                          }
+                        50% {
+                            top:-150px; 
+                          }
+                        75%{
+                            top:-160px; 
+                        }  
+                        100% {
+                            top: -130px;
+                        }  
+                    }
+                }
+            }
+        }
+    }
+}
+//footer種樹裝飾圖
+.aboutus_footer_decoration_pic{
+    position:relative;
+    img{
+        position: absolute;
+        bottom:-150px;
+        right: 120px;
+        z-index: 1;
+    }
+}

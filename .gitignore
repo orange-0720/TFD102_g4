@@ -1,6 +1,8 @@
 node_modules
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 dist
 .vscode
 <<<<<<< HEAD
@@ -8,3 +10,4 @@ dist
 =======
 >>>>>>> origin/dev
 >>>>>>> Q&A
+>>>>>>> abd23f7c846035225897be81032b0c6e4760254d

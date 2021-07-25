@@ -94,6 +94,44 @@
         color: $brown;
     }
 }
+@mixin underline {
+    content:'';
+    width:100%;
+    height:10px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    background-color: #FFBC53;
+    opacity: 50%;
+    bottom:-5px;
+}
+@mixin farm_pic_box_size($w,$h){
+    max-width:$w;
+    max-height:$h;
+}
+
+@mixin box_distance ($top , $bottom){
+    margin-top: $top;
+    margin-bottom:$bottom;
+    
+}
+@mixin btn_small($x, $y:null) {
+    width: $x;
+    height: $y;
+    background-color: $darkgreen;
+    text-decoration: none;
+    @include border_radius();
+    border: 0;
+    color: $white;
+    font-size: $h4;
+    
+}
+@mixin boxpadding {
+    padding:0px 70px 0px 20px;
+}
+
+//RWD
 
 // RWD分界
 @mixin tablet {
@@ -112,5 +150,32 @@
 @mixin mobile {
     @media(max-width: 575px) {
         @content ;
+    }
+}
+
+//生產介紹表格小動畫    
+@mixin vagatable_fruit_table_animation {
+    animation-name:shake;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate-reverse;
+    transform: rotate(0deg);
+    @keyframes shake {
+      0%{
+        transform: rotate(0deg);
+      }
+      25%{
+        transform: rotate(10deg);
+      }
+      50%{
+        transform: rotate(-10deg);
+      }
+      70%{
+        transform: rotate(15deg);
+      }
+      100%{
+        transform: rotate(-20deg);
+      }
     }
 }

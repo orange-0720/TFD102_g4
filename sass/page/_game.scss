@@ -1,76 +1,22 @@
-// *{
-//  box-sizing: border-box;
-// }
-// body{
-//     margin: 0 auto;
-//     max-width: 1920px;
-//     width: 100%;
-// }
 
-    section#game_play_border{
-        width: 85%;
-        height: 1000px;
-        border-radius: 53px;
-        max-width: 1200px;
-        display: flex;
-        flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        position: relative;
-        @include marginAuto();
-        border: 20px solid #006c3e;
-        margin-bottom: 5vh;
-        margin-top: 5vh;
-        justify-content: space-around;
-        align-items: center;
-        .icon_1{
-            position: absolute;
-            top: -4%;
-            left: -4%;
-            width: 12vw;
-        }.icon_2{
-            position: absolute;
-            bottom: -4%;
-            left: -4%;
-            width: 12vw;
-        }.icon_3{
-            position: absolute;
-            bottom: -4%;
-            right: -4%;
-            width: 12vw;
-        }.icon_4{
-            position: absolute;
-            top: -5%;
-            right: -2%;
-            width: 7vw;
-        }#game_question{
-            margin-top: 12rem;
-            margin-bottom: 2rem;
-            height: 200px;
-            text-align: center;
-            padding: 4px;
-        }div.game_test{
-           
-            height: 200px; 
-            margin-top: 8rem;
-            display: flex;
-            #game_test{
-                width: 50vw;
-                height: 300px; 
-            }   
-        }
-        }
-
-        
-    
+     
+    // ==主標題==
     div#game_title{
-        height: 200pX;
+        height: 200px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        
+        align-items: center; 
+            @include mobile {
+                height: 150px;
+            } 
         h2.game_title{
             position: relative;
+            @include pad {
+                font-size: 40px;
+            }
+            @include mobile {
+                font-size: 32px;
+            }    
         }h2.game_title::after{
             content:"";
             color: $orange;
@@ -83,80 +29,265 @@
             background-color: #FFBA10;
             border-color: black;
             border-radius: 101px;
-            // border-style: solid;
+            @include pad {
+                width: 220px;
+                left: 2rem;
+                top:3rem;
+                opacity: 50%;
+            }@include mobile {
+                width: 180px;
+                left: 1rem;
+                top:2.5rem;      
+            }  
     }
     }
-    
-
-
+     
+//    ==數字圓框==
 
     div#game_decorate_testNumberCircle{
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
         // border: 1px solid red;
         position: absolute;
         border-radius: 50%;
-        top:-4rem;
+        top:-5rem;
         background-color:#B9F18C;
         display: flex;
         justify-content: center;
         align-items: center;
+        @include pad {
+            width: 120px;
+            height: 120px;
+            top:-4rem;
+        }@include mobile {
+            width: 100px;
+            height: 100px;
+            top:-4rem;   
+        }     
         h1#inside_testNumber{
             font-weight: bolder;
+            font-size: 3vw;
             color: white;
+            height: 50px;
+            text-align: center;
+            @include pad {
+                height: 30px;
+                font-size: 4vw;
+            }@include mobile {
+                font-size: 30px;
+            }    
         }
 }
  
 
-/* ===以上為邊框設計=== */
+// /* ===邊框設計=== */
+// section#game_bottom_part{
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     margin-top:2rem;
+//         .icon_11{
+//             width: 10vw;
+//             /* position:absolute; */
+//             margin-top: 2rem;
+//         }.blue{
+//             background-color: blue;
+//         }.green{
+//             background-color:$green;
+//         } button#submit{
+//             @include btn(200px,75px);
+//             font-size: $h3;
+//             font-weight: bolder;
+//             &:hover{
+//                 background-color: $red;
+//             }
+//         }
+//     }
+
+
+//    ==小遊戲背景圖==
+    body#game_page{
+        background-image: url(/images/game/bg_leaf.svg);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-attachment :fixed;
+    }
+
+    // ==小遊戲主欄位==
+    section#game_play_border{
+        width: 60%;
+        height: 1000px;
+        @include pad {
+            height: 700px;
+            width: 80%;
+        }
+        @include mobile {
+            height: 600px;
+        }
+        border-radius: 53px;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        @include marginAuto();
+        border: 20px solid #006c3e;
+        @include pad {
+            border: 8px solid #006c3e;
+        }
+        margin-bottom: 5vh;
+        margin-top: 5vh;
+        justify-content: space-around;
+        align-items: center;
+        .icon_1{
+            position: absolute;
+            top: -4%;
+            left: -4%;
+            width: 12vw;
+            @include pad {
+                display: none;
+            }
+        }.icon_2{
+            position: absolute;
+            bottom: -4%;
+            left: -4%;
+            width: 12vw;
+            @include pad {
+                display: none;
+            }
+        }.icon_3{
+            position: absolute;
+            bottom: -4%;
+            right: -4%;
+            width: 12vw;
+            @include pad {
+                display: none;
+            }
+        }.icon_4{
+            position: absolute;
+            top: -5%;
+            right: -2%;
+            width: 9vw;
+            @include pad {
+                width: 12vw;
+            }
+            @include mobile {
+                width: 18vw;
+                right: -3%;
+            }
+        }#count{
+            position: absolute;
+            top: 2%;
+            right: 3%;
+            color: white;
+            @include flex_center;
+            @include pad {
+                top: 1%;
+                right: 3%;
+            }  
+            @include mobile {
+                top: -.5%;
+                right: 2%;
+            }  
+            h1{
+               font-size: 3vw;
+               font-weight: bolder; 
+               @include mobile {
+                font-size: 30px;
+            }  
+            }           
+        }div.game_test{
+            height: 350px; 
+            margin-top: 16rem;
+            display: flex;
+            @include pad {
+                height: 250px;
+                margin-top: 12rem; 
+            }
+            @include mobile {
+                height: 200px;
+                margin-top: 8rem;
+             }
+            img#game_test{
+                width: 60vw;
+                // height: 300px; 
+                @include pad {
+                    width: 60vw;
+                    // height: 200px;
+                }@include mobile {
+                    width: 80vw;
+                    // height: 250px;
+                 }
+            }   
+        }#game_question{
+            margin-top: 6rem;
+            margin-bottom: 2rem;
+            height: 200px;
+            width: 80%;
+            text-align: center;
+            padding: 1rem;
+            @include pad {
+                height: 180px;
+                margin-top: 2rem;
+            }
+            @include mobile {
+                margin-top: 2rem;
+             }
+            h2{
+                line-height:4vh;
+                @include pad {
+                    font-size:26px;
+                    line-height:3vh;
+                }
+                @include mobile {
+                   font-size:20px ;
+                   text-align:justify;
+                }
+            }
+        }
+    }
+
+/* ===按鈕及農夫圖=== */
 #game_bottom_part{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:2rem;
+    margin-top: 2rem;
+        @include pad {
+            margin-top: 0rem;
+        }
         .icon_11{
-            width: 10vw;
-            /* position:absolute; */
+            width: 15vw;
             margin-top: 2rem;
-        }.blue{
-            background-color: blue;
+            @include pad {
+                width: 25vw;
+                margin-top: 1rem;
+            }
+            @include mobile {
+                width: 40vw;
+             }      
         }.green{
             background-color:$green;
         } button#submit{
-            // padding:5px 15px;
-            // color:white;
-            // border:none;
-            // cursor:pointer;
-            // max-width: 200px;
-            // font-size: 2rem;
-            // font-weight: bolder;
-            // margin-top: 4rem;
-            // @include border_radius();
-            @include btn(200px,75px);
-            font-size: $h3;
+            @include btn(240px,85px);
+            font-size: 28px;
             font-weight: bolder;
+            @include pad {
+                @include btn(175px,70px);
+                font-size: 24px;
+             } 
+            @include mobile {
+                @include btn(120px,45px);
+                font-size: 20px;
+                line-height: 20px;
+             } 
             &:hover{
                 background-color: $red;
             }
         }
     }
-/* ===以上為BUTTON=== */
-    // section#game_slideshow_step{
-    //     width:90%;
-    //     height: 350px;
-    //     margin: 0 auto;
-    //     max-width: 1200px;
-    //     margin-top: 1rem;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     div#game_slideshow{
-    //         width:100%;
-    //         height: 300px;
-    //         background-color: hotpink;
-    //     }
-    // }
 
     // ====以下為slider====
     section#game_slideshow_step{
@@ -165,43 +296,50 @@
         height: 350px;
         margin: 0 auto;
         max-width: 1200px;
-        margin-top: 1rem;
+        margin-top: 8rem;
         display: flex;
         justify-content:space-evenly;
         // align-items: center;
+        @include pad {
+            height: 250px;
+            margin-top: 7rem;
+            width:100%;
+        }@include mobile {
+            height: 200px;
+            margin-top: 5rem;
+        }   
         #game_slideshow{
             position: relative;
             overflow: hidden;
             height: 350px;
-            width:100%;
+            width:90%;
             @include border_radius;
             border-radius: 20px;
             box-shadow: 3px 3px 5px #ccc;
             // background-color: hotpink;
+            @include pad {
+                height: 200px;
+                border-radius: 0px;
+                width:100%;
+            } 
             img.game_slideshow{
                 position: absolute;
                 top:35px;
                 left:50%;
                 transform: translateX(-50%);
                 display: none;
+                @include pad {
+                    height: 150px;
+                    border-radius: 0px;
+                    top:0rem;
+                    margin-top: 1rem;
+                }@include mobile {
+                    height: 100px;
+                    margin-top: 3rem;
+                }  
             }
+        }
     }
-    
- }
 
-    #game_slideshow_2{
-        position: relative;
-        overflow: hidden;
-        height: 350px;
-        width:35%;
-        border-radius: 20px;
-        box-shadow: 3px 3px 5px #ccc;
 
-    img.game_slideshow_2{
-        position: absolute;
-        top:35px;
-        left:50%;
-        transform: translateX(-50%);
-        display: none;
-    }
-    }
+  
