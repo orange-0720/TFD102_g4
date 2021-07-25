@@ -187,9 +187,34 @@
       </div>
     </div>
     <div class="checkout_s2_shopping_detail">
-      <p>商品總金額<span>399</span>元</p>
+      <p>商品總金額
+        <span>399</span>元 
+      </p>
       <!-- 數字部分要用函數帶入 -->
-      <p class="checkout_s2_shopping_detail_total">共計1件商品</p>  
+      <p class="checkout_s2_shopping_detail_total">
+        共計1件商品
+        <img class="detail_icon_open" src="../images/checkout/plus_icon.svg">
+      </p>  
+      <div class="checkout_s2_detail">
+        <div class="checkout_shopping_detail_block">
+          <section class="checkout_shopping_detail_img">商品圖片</section>
+          <section class="checkout_shopping_detail_name">商品名稱</section>
+          <section class="checkout_shopping_detail_sum">數量</section>
+          <section class="checkout_shopping_detail_price">單價</section>
+          <section class="checkout_shopping_detail_total">小計</section>
+        </div>
+        <div class="checkout_shopping_product_detail">
+          <section class="checkout_shopping_product_detail_img">
+            <img src="./images/checkout/checkout_01.jpg">
+          </section>
+          <section class="checkout_shopping_product_detail_name">防疫蔬果箱</section>
+          <section class="checkout_shopping_product_detail_sum">
+            <input type="text" value="1" disabled>
+          </section>
+          <section class="checkout_shopping_product_detail_price">399</section>
+          <section class="checkout_shopping_product_detail_total">399</section>
+        </div>
+      </div>
     </div>
     <div class="chekout_s2_order_detail_block">
       <div class="checkout_s2_receiver_infro">
@@ -249,7 +274,7 @@
         </div>
         <div class=checkout_s2_deliver_infro_group>
           <label for="">預計到貨</label>
-          <input type="text" disabled value="防疫緣故，目前無法確定到貨時間">
+          <input type="text" disabled value="兩天後送達">
         </div>
       </div>
     </div>
@@ -270,56 +295,58 @@
         <button>返回購物車</button>
         <button @click="credit_confirm">提交訂單</button>
       </div>
-      <div class="credit_bkc" v-if="isShow" @click="credit_confirm"></div>
-      <div class="credit_form" v-if="isShow">
-        <h1>信用卡結帳系統</h1>
-        <div class="step_back_btn" @click="credit_confirm">
-          <img src="./images/checkout/X_mark.svg" alt="X">
-        </div>
-        <div class="credit_form_block">
-          <div class="credit_form_left_block">
-            <div class="credit_card_img">
-              <div class="left_block_name">
-                <p>Your Name:</p>
-                <p>{{card_name}}</p>
-              </div>
-              <div class="left_block_number">
-                <p>{{card_number}}</p>
-              </div>
-              <div class="left_block_other">
-                <section class="left_block_valid">
-                  Valid Thru<br>
-                  <span>{{card_valid}}</span>
-                </section>
-                <section class="left_block_security">
-                  Security Code<br>
-                  <span>{{card_security}}</span>
-                </section>
+      <div class="credit_bkc" v-if="isShow" @click="credit_confirm" >
+        <!-- @click="credit_confirm" 冒泡事件 -->
+        <div class="credit_form" v-if="isShow" @click="stopPropagation">
+          <h1>信用卡結帳系統</h1>
+          <div class="step_back_btn" @click="credit_confirm">
+            <img src="./images/checkout/X_mark.svg" alt="X">
+          </div>
+          <div class="credit_form_block">
+            <div class="credit_form_left_block">
+              <div class="credit_card_img">
+                <div class="left_block_name">
+                  <p>Your Name:</p>
+                  <p>{{card_name}}</p>
+                </div>
+                <div class="left_block_number">
+                  <p>{{card_number}}</p>
+                </div>
+                <div class="left_block_other">
+                  <section class="left_block_valid">
+                    Valid Thru
+                    <span>{{card_valid}}</span>
+                  </section>
+                  <section class="left_block_security">
+                    Security Code
+                    <span>{{card_security}}</span>
+                  </section>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="credit_form_right_block">
-            <section class="right_block_name">
-              <label>持有人名稱</label>
-              <input type="text" v-model="card_name" placeholder="王大明">
-            </section>
-            <section class="right_block_number">
-              <label>信用卡號</label>
-              <input type="text" v-model="card_number" >
-            </section>
-            <form class="right_block_other">
-              <section class="right_block_valid">
-                <label for="">有效期限</label>
-                <input type="text" v-model="card_valid" placeholder="08/21">
+            <div class="credit_form_right_block">
+              <section class="right_block_name">
+                <label>持有人名稱</label>
+                <input type="text" v-model="card_name" placeholder="王大明">
               </section>
-              <section class="right_block_security">
-                <label for="">安全碼</label>
-                <input type="text" v-model="card_security" >
+              <section class="right_block_number">
+                <label>信用卡號</label>
+                <input type="text" v-model="card_number" >
               </section>
-            </form>
+              <form class="right_block_other">
+                <section class="right_block_valid">
+                  <label for="">有效期限</label>
+                  <input type="text" v-model="card_valid" placeholder="08/21">
+                </section>
+                <section class="right_block_security">
+                  <label for="">安全碼</label>
+                  <input type="text" v-model="card_security" >
+                </section>
+              </form>
+            </div>
           </div>
+          <input type="submit" value="確認送出" class="credit_detail_confirm">
         </div>
-        <input type="submit" value="確認送出" class="credit_detail_confirm">
       </div>
     </div>
     <footer class="footer_bg">
@@ -379,7 +406,10 @@
         methods: {
           credit_confirm(){
             this.isShow = !this.isShow
-          }
+          },
+          stopPropagation(e){
+            e.stopPropagation();  
+          },
         },
       });
 

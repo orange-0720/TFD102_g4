@@ -3,15 +3,135 @@
     max-width: 1200px;
     @include marginAuto();
     background-color: $bkc_lightorange;
+    font-size: $h4;
     p{
+        width: 80%;
+        max-width: 400px;
+        @include marginAuto();
+        padding: 20px 0px 0px 0px;
         font-size: 20px;
-        padding: 10px 0px 10px 45%;
+        text-align: center;
     }
     .checkout_s2_shopping_detail_total{
-        background-image: url(../../images/checkout/plus_icon.svg);
-        background-repeat: no-repeat;
-        background-size: 20px;
-        background-position: 60% ,50% ;
+        vertical-align: top;
+        .detail_icon_open{
+            display: inline-block;
+            width: 20px;
+            vertical-align: top;
+            margin-left: 5%;
+        }
+    }  
+}
+
+@include tablet {
+    .checkout_s2_shopping_detail{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        background-color: $bkc_lightorange;
+        font-size: $h4;
+        p{
+            padding: 20px 0px 0px 0px;
+            font-size: 20px;
+        }
+        .checkout_s2_shopping_detail_total{
+            vertical-align: top;
+            .detail_icon_open{
+                display: inline-block;
+                width: 20px;
+                vertical-align: top;
+                margin-left: 5%;
+            }
+        }  
+    }
+}
+
+.checkout_s2_detail{
+    width: 100%;
+    .checkout_shopping_detail_block{
+        margin-top: 20px;
+        padding: 20px 0px;
+        background-color: $green;
+        color: $white;
+        width: 100%;
+        display: flex;
+        align-self: center;
+        font-size: $h3;
+        @include pad {
+            font-size: $h4;
+        }
+        @include mobile {
+            font-size: $h5;
+        }
+        .checkout_shopping_detail_img{
+            width: 25%;
+            text-align: center;
+        }
+        .checkout_shopping_detail_name{
+            width: 25%;
+            text-align: center;
+        }
+        .checkout_shopping_detail_sum{
+            width: 20%;
+            text-align: center;
+        }
+        .checkout_shopping_detail_price,
+        .checkout_shopping_detail_total{
+            width: 15%;
+            text-align: center;
+        }
+    }
+    .checkout_shopping_product_detail{
+        width: 100%;
+        max-width: 1200px;
+        padding: 30px 0px;
+        display: flex;
+        background-color: $white;
+        font-size: $h3;
+        @include pad {
+            font-size: $h4;
+        }
+        @include mobile {
+            font-size: $h5;
+        }
+        .checkout_shopping_product_detail_img{
+            width: 25%;
+            align-self: center;
+            text-align: center;
+            img{
+                width: 90%
+            }
+        }
+        .checkout_shopping_product_detail_name{
+            width: 25%;
+            align-self: center;
+            text-align: center;
+        }
+        .checkout_shopping_product_detail_sum{
+            width: 20%;
+            align-self: center;
+            text-align: center;
+            justify-content: center;
+            display: flex;
+            }
+            input{
+                width: 40%;
+                padding: 5px 0px;
+                text-align: center;
+                border: 1px solid $brown;
+            }
+        .checkout_shopping_product_detail_price,
+        .checkout_shopping_product_detail_total{
+            width: 15%;
+            align-self: center;
+            text-align: center;
+        }
+    }
+    .checkout_shopping_detail_keep_shopping{
+        margin-top: 10px;
+        @include a_link();
+        display: block;
+        text-align: right;
     }
 }
 
@@ -98,6 +218,173 @@
     }
 }
 
+@include tablet {
+    .chekout_s2_order_detail_block{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 70px;
+        display: flex;
+        .checkout_s2_receiver_infro{
+            width: 45%;
+            background-color: $white;
+            align-self: flex-start;
+            padding-bottom: 20px;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            .checkout_s2_receiver_infro_group{
+                margin-top: 10px;
+                padding: 10px 10%;
+                input{
+                    margin-top: 5px;
+                    display: block;
+                    width: 100%;
+                    padding: 5px;
+                    font-size: $h4;
+                }
+            }
+        }
+        .checkout_s2_deliver_infro{
+            width: 45%;
+            margin-left: 10%;
+            background-color: $white;
+            font-size: 0px;
+            align-self: flex-start;
+            padding-bottom: 20px;
+            h3{
+                font-size: $h3;
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            .checkout_s2_deliver_infro_check{
+                display: block;
+                margin: 10px 0px;
+                padding: 10px 10%;
+                font-size: $h4;
+            }
+            .checkout_s2_deliver_infro_group{
+                margin-top: 10px;
+                padding: 10px 10%;
+                font-size: 0px;
+                label{
+                    display: block;
+                    margin: 5px 0px;
+                    font-size: $h4;
+                }
+                input{
+                    margin-top: 5px;
+                    display: block;
+                    width: 100%;
+                    padding: 5px;
+                    font-size: $h4;
+                }
+                hr{
+                    margin-top:15px;
+                }
+                .checkout_s2_city{
+                    display: inline-block;
+                    width: 45%;
+                    padding: 5px;
+                    font-size: $h4;
+                }
+                .checkout_s2_area{
+                    margin-left: 10%;
+                }
+                p{
+                    font-size: $h4;
+                }
+            }
+        }
+    }
+}
+
+@include pad {
+    .chekout_s2_order_detail_block{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 70px;
+        display: block;
+        .checkout_s2_receiver_infro{
+            width: 90%;
+            @include marginAuto();
+            background-color: $white;
+            align-self: flex-start;
+            padding-bottom: 20px;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            .checkout_s2_receiver_infro_group{
+                margin-top: 10px;
+                padding: 10px 10%;
+                input{
+                    margin-top: 5px;
+                    display: block;
+                    width: 100%;
+                    padding: 5px;
+                    font-size: $h4;
+                }
+            }
+        }
+        .checkout_s2_deliver_infro{
+            width: 90%;
+            @include marginAuto();
+            margin-top: 30px;
+            background-color: $white;
+            font-size: 0px;
+            align-self: flex-start;
+            padding-bottom: 20px;
+            h3{
+                font-size: $h3;
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            .checkout_s2_deliver_infro_check{
+                display: block;
+                margin: 10px 0px;
+                padding: 10px 10%;
+                font-size: $h4;
+            }
+            .checkout_s2_deliver_infro_group{
+                margin-top: 10px;
+                padding: 10px 10%;
+                font-size: 0px;
+                label{
+                    display: block;
+                    margin: 5px 0px;
+                    font-size: $h4;
+                }
+                input{
+                    margin-top: 5px;
+                    display: block;
+                    width: 100%;
+                    padding: 5px;
+                    font-size: $h4;
+                }
+                hr{
+                    margin-top:15px;
+                }
+                .checkout_s2_city{
+                    display: inline-block;
+                    width: 45%;
+                    padding: 5px;
+                    font-size: $h4;
+                }
+                .checkout_s2_area{
+                    margin-left: 10%;
+                }
+                p{
+                    font-size: $h4;
+                }
+            }
+        }
+    }
+}
+
+
 .chekout_s2_order_other_block{
     width: 80%;
     max-width: 1200px;
@@ -137,6 +424,89 @@
     }
 }
 
+@include tablet {
+    .chekout_s2_order_other_block{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 0px;
+        display: flex;
+        .chekout_s2_order_other_block_note{
+            width: 45%;
+            background-color: $white;
+            align-self: flex-start;
+            padding-bottom: 20px;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            textarea{
+                display: block;
+                padding: 10px;
+                margin: 20px 10% 0px 10%;
+                width: 80%
+            }
+        }
+        .chekout_s2_order_other_block_pay{
+            width: 45%;
+            margin-left: 10%;
+            margin-top: 70px;
+            background-color: $white;
+            padding-bottom: 20px;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            p{
+                padding: 20px 0 0 10%;
+                font-size: $h3;
+            }
+        }
+    }
+}
+
+@include pad {
+    .chekout_s2_order_other_block{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 0px;
+        display: block;
+        .chekout_s2_order_other_block_note{
+            width: 90%;
+            @include marginAuto();
+            margin-top: 40px;
+            background-color: $white;
+            padding-bottom: 20px;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            textarea{
+                display: block;
+                padding: 10px;
+                margin: 20px 10% 0px 10%;
+                width: 80%
+            }
+        }
+        .chekout_s2_order_other_block_pay{
+            width: 90%;
+            @include marginAuto();
+            margin-top: 40px;
+            background-color: $white;
+            padding-bottom: 20px;
+            h3{
+                background-color: $bkc_lightorange;
+                padding: 10px 10%;
+            }
+            p{
+                padding: 20px 0 0 10%;
+                font-size: $h3;
+            }
+        }
+    }
+}
+
 .chekout_s2_order_privacy{
     width: 80%;
     max-width: 1200px;
@@ -157,25 +527,76 @@
     }
 }
 
+@include tablet {
+    .chekout_s2_order_privacy{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 70px;
+        font-size: 20px;
+        text-align: center;
+        span{
+            margin-left: 10px;
+        }
+        .chekout_s2_order_privacy_next{
+            button{
+                @include btn(200px);
+                padding: 10px;
+                margin: 50px 5%;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@include mobile {  //手機板
+    .chekout_s2_order_privacy{
+        width: 90%;
+        max-width: 1200px;
+        @include marginAuto();
+        margin-top: 40px;
+        font-size: 20px;
+        text-align: center;
+        span{
+            margin-left: 10px;
+        }
+        .chekout_s2_order_privacy_next{
+            button{
+                @include btn(50%);
+                padding: 10px;
+                margin: 30px auto;
+                font-size: 20px;
+                display: block;
+            }
+        }
+    }
+}
+
+
 .credit_bkc{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    padding-bottom: 50px;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
+    @include tablet {
+        z-index: 499;
+        overflow-y: scroll;
+    }
 }
 
+
 .credit_form{
-    position: fixed;
+    position: relative;
     z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
     padding: 60px 5%;
-    // height: 80vh;
     background-color: $bkc_yellow;
     .step_back_btn{
         position: absolute;
@@ -192,13 +613,18 @@
         display: flex;
         margin-top: 50px;
         .credit_form_left_block{
-            width: 50%;
+            // width: 50%;
+            flex: 1 1 50%;
             .credit_card_img{
+                width: 500px;
                 height: 350px;
                 background-image: url(../../images/checkout/credit_card.png);
                 background-repeat: no-repeat;
                 background-size: contain;
+                position: relative;
                 .left_block_name{
+                    // padding-top: 70px;
+                    // padding-left: 300px;
                     padding-top: 20%;
                     padding-left: 60%;
                     text-align: left;
@@ -250,7 +676,8 @@
             }
         }
         .credit_form_right_block{
-            width: 50%;
+            // width: 50%;
+            flex: 0 1 50%;
             padding:0 5%;
             text-align: left;
             .right_block_name{
@@ -300,5 +727,346 @@
     }
     .credit_detail_confirm{
         @include btn(30%);
+    }
+}
+
+@include tablet { 
+    .credit_form{
+        position: relative;
+        z-index: 500;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: auto;
+        padding: 30px 5%;
+        background-color: $bkc_yellow;
+        margin-bottom: 80px;
+        .step_back_btn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            img{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .credit_form_block{
+            display: block;
+            margin-top: 30px;
+            overflow-y: auto;
+            .credit_form_left_block{
+                width: 100%;
+                .credit_card_img{
+                    @include marginAuto();
+                    width: 500px;
+                    height: 350px;
+                    background-image: url(../../images/checkout/credit_card.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: relative;
+                    .left_block_name{
+                        padding-top: 70px;
+                        padding-left: 300px;
+                        text-align: left;
+                        p{
+                            font-size: $h4;
+                            color: black;
+                            padding: 5px 0px;
+                            &:last-child{
+                                font-size: $h3;
+                                padding-left: 5px;
+                                color:$font_color;
+                                min-height: 40px;
+                            }
+                        }
+                    }
+                    .left_block_number{
+                        text-align: left;
+                        padding-left: 50px;
+                        padding-top: 35px;
+                        margin-bottom: 10px;
+                        p{
+                            font-size: $h3;
+                            padding: 5px 0;
+                            min-height: 40px;
+                        }
+                    }
+                    .left_block_other{
+                        text-align: left;
+                        padding-left: 10%;
+                        .left_block_valid{
+                            color: black;
+                            font-size: $h5;
+                            display: inline-block;
+                            padding-bottom: 5px;
+                            vertical-align: top;
+                            span{
+                                display: block;
+                                color:$font_color;
+                                font-size: $h3;
+                                padding-top: 10px;
+                                margin: 0
+                            }
+                        }
+                        .left_block_security{
+                            margin-left: 70px;
+                        }
+                    }
+                }
+            }
+            .credit_form_right_block{
+                width: 80%;
+                @include marginAuto();
+                padding:0 5%;
+                text-align: left;
+                .right_block_name{
+                    width: 100%;
+                    margin-bottom: 20px;
+                    @include marginAuto();
+                    label{
+                        display: block;
+                        margin-bottom: 10px;
+                        font-size: $h3;
+                    }
+                    input{
+                        display: block;
+                        width: 100%;
+                        padding: 10px;
+                        font-size: $h3;
+                    }
+                }
+                .right_block_other{
+                    font-size: 0;
+                    display: flex;
+                    width: 100%;
+                    @include marginAuto();
+                    .right_block_valid{
+                        font-size: $h3;
+                        width: 40%;
+                        label{
+                            display: block;
+                            margin-bottom: 5px;
+                        }
+                        input{
+                            display: block;
+                            width: 100%;
+                            padding: 10px;
+                            font-size: $h3;
+                        }
+                    }
+                    .right_block_security{
+                        margin-left: 20%;
+                    }
+                }
+            }
+        }
+        .credit_detail_confirm{
+            margin-top: 50px;
+            @include btn(30%);
+        }
+    }
+}
+
+@include pad {   // 內含手機
+    .credit_form{
+        position: relative;
+        z-index: 500;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: auto;
+        padding: 30px 5%;
+        background-color: $bkc_yellow;
+        margin-bottom: 80px;
+        .step_back_btn{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            img{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .credit_form_block{
+            display: block;
+            margin-top: 30px;
+            overflow-y: auto;
+            .credit_form_left_block{
+                width: 100%;
+                .credit_card_img{
+                    @include marginAuto();
+                    width: 450px;
+                    height: 350px;
+                    background-image: url(../../images/checkout/credit_card.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: relative;
+                    @include mobile {
+                        width: 80%;
+                        height: auto;
+                        background-size: 100%;
+                    }
+                    .left_block_name{
+                        // padding-top: 70px;
+                        // padding-left: 300px;
+                        padding-top: 20%;
+                        padding-left: 60%;
+                        text-align: left;
+                        @include mobile {
+                            padding-top: 10%;
+                            padding-left: 55%;
+                        }
+                        p{
+                            font-size: $h4;
+                            color: black;
+                            padding: 5px 0px;
+                            @include mobile {
+                                font-size: $h5;
+                            }
+                            &:last-child{
+                                font-size: $h3;
+                                padding-left: 5px;
+                                color:$font_color;
+                                min-height: 40px;
+                                @include mobile {
+                                    font-size: $h4;
+                                    min-height: 30px;
+                                }
+                            }
+                        }
+                    }
+                    .left_block_number{
+                        text-align: left;
+                        padding-left: 10%;
+                        padding-top: 3%;
+                        margin-bottom: 10px;
+                        @include mobile {
+                            padding-top: 3%;
+                            padding-left: 30%;
+                            margin-bottom: 0px;
+                        }
+                        p{
+                            font-size: $h3;
+                            padding: 5px 0;
+                            min-height: 40px;
+                            @include mobile {
+                                font-size: $h4;
+                                min-height: 30px;
+                                padding: 0px;
+                            }
+                        }
+                    }
+                    .left_block_other{
+                        text-align: left;
+                        padding-left: 10%;
+                        .left_block_valid{
+                            color: black;
+                            font-size: $h5;
+                            display: inline-block;
+                            padding-bottom: 5px;
+                            vertical-align: top;
+                            @include mobile {
+                                display: block;
+                                margin-left: 30%;
+                                padding-bottom: 0px;
+                            }
+                            span{
+                                display: block;
+                                color:$font_color;
+                                font-size: $h3;
+                                padding-top: 10px;
+                                margin: 0;
+                                @include mobile {
+                                    font-size: $h5;
+                                    min-height: 26px;
+                                }
+                            }
+                        }
+                        .left_block_security{
+                            margin-left: 70px;
+                            @include mobile {
+                                margin-left: 0%;
+                                vertical-align: top;
+                                span{
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .credit_form_right_block{
+                width: 80%;
+                @include marginAuto();
+                padding:0 5%;
+                text-align: left;
+                @include mobile {
+                    margin-top: 30px;
+                }
+                .right_block_name{
+                    width: 100%;
+                    margin-bottom: 20px;
+                    @include marginAuto();
+                    label{
+                        display: block;
+                        margin-bottom: 10px;
+                        font-size: $h3;
+                    }
+                    input{
+                        display: block;
+                        width: 100%;
+                        padding: 10px;
+                        font-size: $h3;
+                    }
+                }
+                .right_block_other{
+                    font-size: 0;
+                    display: flex;
+                    width: 100%;
+                    @include marginAuto();
+                    @include mobile {
+                        display: block;
+                    }
+                    .right_block_valid{
+                        font-size: $h3;
+                        width: 40%;
+                        @include mobile {
+                            width: 100%;
+                            margin-bottom: 20px;
+                        }
+                        label{
+                            display: block;
+                            margin-bottom: 5px;
+                        }
+                        input{
+                            display: block;
+                            width: 100%;
+                            padding: 10px;
+                            font-size: $h3;
+                        }
+                    }
+                    .right_block_security{
+                        margin-left: 20%;
+                        @include mobile {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .credit_detail_confirm{
+            margin-top: 20px;
+            @include btn(30%);
+            @include mobile {
+                margin-top: 10px;
+                @include btn (50%);
+            }
+        }
     }
 }

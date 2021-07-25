@@ -211,42 +211,59 @@
       var change_to_log = document.getElementById('change_to_log');
       var signup_form = document.getElementsByClassName('signup_form')[0];
       let login_form = document.getElementsByClassName("login_form")[0];
+
       sign_btn.addEventListener("click", function (e) {
         e.preventDefault;
         let login_img = document.getElementById("login_img");
         let login_pic = document.getElementsByClassName("login_pic")[0];
-        form_block.classList.toggle("form_move");
-        login_pic.classList.toggle("pic_move");
 
-        if (form_block.classList.contains("form_move")) {
-          login_img.src =
-            "./images/login&out/logout_01.jpg";
-        } else {
-          login_img.src =
-            "./images/login&out/login_01.jpg";
-        }
-        if(login_form.style.display = 'block'){
-          login_form.style.display = 'none';
-          signup_form.style.display = 'block'
-        }
+
+        if(window.innerWidth >= 768){
+          form_block.classList.toggle("form_move");
+          login_pic.classList.toggle("pic_move");
+          if (form_block.classList.contains("form_move")) {
+            console.log('aaa')
+            login_img.src =
+              "./images/login&out/logout_01.jpg";
+          } else {
+            login_img.src =
+              "./images/login&out/login_01.jpg";
+          }
+          if(login_form.style.display = 'block'){
+            login_form.style.display = 'none';
+            signup_form.style.display = 'block';
+          }
+        }else{
+            $('.login_form').fadeToggle();
+            setTimeout(function(){
+              $('.signup_form').fadeToggle();
+            },500);
+          }
       });
       change_to_log.addEventListener('click', function(e){
         e.preventDefault;
         let login_img = document.getElementById("login_img");
         let login_pic = document.getElementsByClassName("login_pic")[0];
-        form_block.classList.toggle("form_move");
-        login_pic.classList.toggle("pic_move");
-
-        if (form_block.classList.contains("form_move")) {
-          login_img.src =
-            "./images/login&out/logout_01.jpg";
-        } else {
-          login_img.src =
-            "./images/login&out/login_01.jpg";
-        }
-        if(login_form.style.display = 'none'){
-          login_form.style.display = 'block';
-          signup_form.style.display = 'none';
+         
+        if(window.innerWidth >= 768){  
+          form_block.classList.toggle("form_move");
+          login_pic.classList.toggle("pic_move");
+          if (form_block.classList.contains("form_move")) {
+            login_img.src =
+              "./images/login&out/logout_01.jpg";
+          } else {
+            login_img.src =
+              "./images/login&out/login_01.jpg";
+          }
+          if(login_form.style.display = 'none'){
+            signup_form.style.display = 'none';
+            login_form.style.display = 'block'
+          }
+        }else{
+            setTimeout(function(){
+              $('.login_form').fadeToggle();
+            },500);
+            $('.signup_form').fadeToggle();
         }
       })
       
