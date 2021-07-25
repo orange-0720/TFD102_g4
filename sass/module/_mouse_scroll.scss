@@ -89,6 +89,22 @@ $animDuration: 5s;
   }
 }
 
+
+@include mobile {
+  .mouse_down {
+    p {
+      top: -250px;
+      left: 40%;
+    }
+
+    .mouse {
+      top: -280px;
+      left: 48%;
+    }
+  }
+}
+
+
 @keyframes colorSlide {
   0% {
     background-position: 0% 100%;
