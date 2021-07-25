@@ -1,1 +1,6 @@
 node_modules
+<<<<<<< HEAD
+=======
+dist
+.vscode
+>>>>>>> 70a68b68d509eb3e91a4c4b64efb6a382d23b3c0
