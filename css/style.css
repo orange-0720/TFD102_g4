@@ -5716,24 +5716,6 @@ section#game_slideshow_step #game_slideshow img.game_slideshow {
   }
 }
 
-h1 {
-  padding: 20px 0px;
-  text-align: center;
-  font-weight: 700;
-}
-
-h2 {
-  padding: 10px 0px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-h3 {
-  padding: 10px 0px;
-  font-weight: 700;
-}
-
 p {
   line-height: 25px;
 }
@@ -5783,6 +5765,12 @@ header .video iframe {
   padding: 30px 0px;
 }
 
+.about_us_box h1 {
+  padding: 20px 0px;
+  text-align: center;
+  font-weight: 700;
+}
+
 .about_us_box .about_us_content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5809,6 +5797,10 @@ header .video iframe {
 
 .about_us_box .about_us_content .about_us_title h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .about_us_box .about_us_content .about_us_title h2:after {
@@ -5903,6 +5895,10 @@ header .video iframe {
 
 .farm_introduction_box h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .farm_introduction_box h2:after {
@@ -5945,6 +5941,12 @@ header .video iframe {
   width: 100%;
 }
 
+.farm_introduction_box .farm_introduction_scroll .farm_environment_box .introduction_box .introduction_para h3 {
+  padding: 10px 0px;
+  font-weight: 700;
+  padding-left: 20px;
+}
+
 .farm_description_box {
   margin-top: 100px;
 }
@@ -5985,6 +5987,12 @@ header .video iframe {
           align-items: center;
   border-radius: 30px;
   margin: 100px 0px;
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_farm .farm_text h3 {
+  padding: 10px 0px;
+  font-weight: 700;
+  padding-left: 20px;
 }
 
 .farm_description_box .farm_descript_item .farm_description_item_box .farm_left {
@@ -6127,14 +6135,6 @@ header .video iframe {
   z-index: 1;
 }
 
-.title_pic {
-  background-image: url("../images/product_introduction/bg01.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-
 .production_box {
   margin-top: 50px;
   display: -webkit-box;
@@ -6175,7 +6175,7 @@ header .video iframe {
 }
 
 .production_box .production_item .about_vagatable_box {
-  background-image: url("../images/product_introduction/bg_vagatable.jpg");
+  background-image: url("../images/farm/product_introduction/bg_vagatable.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -6189,7 +6189,7 @@ header .video iframe {
 }
 
 .production_box .production_item .about_fruit_box {
-  background-image: url("../images/product_introduction/bg_fruit.jpg");
+  background-image: url("../images/farm/product_introduction/bg_fruit.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -6265,11 +6265,15 @@ header .video iframe {
           flex-direction: column;
 }
 
-.promise_box .promise_content .production_summary_title h2 {
+.promise_box .promise_content .promise_title h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-.promise_box .promise_content .production_summary_title h2:after {
+.promise_box .promise_content .promise_title h2:after {
   content: '';
   width: 100%;
   height: 10px;
@@ -6395,6 +6399,10 @@ header .video iframe {
 
 .production_summary .production_summary_para h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .production_summary .production_summary_para h2:after {
@@ -6459,6 +6467,10 @@ header .video iframe {
 
 .production_process_box .production_process h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .production_process_box .production_process h2:after {
@@ -6705,6 +6717,10 @@ header .video iframe {
 
 .vagatable_table h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .vagatable_table h2:after {
@@ -7209,6 +7225,10 @@ header .video iframe {
 
 .fruit_table h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .fruit_table h2:after {
@@ -7717,6 +7737,10 @@ header .video iframe {
 
 .detail_introduce_box .detail_introduce_content h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .detail_introduce_box .detail_introduce_content h2:after {
@@ -7830,6 +7854,10 @@ header .video iframe {
 
 .farm_products_box .farm_products h2 {
   position: relative;
+  padding: 10px 0px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .farm_products_box .farm_products h2:after {

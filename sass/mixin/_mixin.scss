@@ -179,3 +179,15 @@
       }
     }
 }
+
+@mixin farm_h2 {
+    padding: 10px 0px;
+    text-align: center;
+    margin-bottom:20px;
+    font-weight: 700;
+}
+
+@mixin farm_h3 {
+    padding: 10px 0px;
+    font-weight: 700;
+}
