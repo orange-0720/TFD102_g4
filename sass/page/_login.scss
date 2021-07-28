@@ -32,6 +32,8 @@ div.login_block{
             #login_btn{
                 @include btn(60%);
                 display: block;
+                @include marginAuto();
+                text-align: center;
                 &:focus{
                     outline: none;
                 }
