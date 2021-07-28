@@ -69,20 +69,29 @@
         </div>
         <div class="title_pic">
           <img
-            src="./images/shopping_page/shopping_page01.jpg"
+            src="./images/member/member_01.jpg"
             alt="checkout_pic"
             style="padding-bottom: 100px;"
           />
           <span class="bkc_black"></span>
-          <h1>商品一覽</h1>
+          <h1>會員中心</h1>
         </div>
       </div>
 
+      <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
         <a href="./index.html">
           <img src="./images/logo.svg" alt="logo" />
         </a>
         <div class="header_nav_block">
+          <div class="nav_block_contact">
+            <img src="./images/nav_block_pen.svg" >
+            聯絡我們
+          </div>
+          <div class="nav_block_log">
+            <img src="./images/nav_block_log.svg">
+            登入註冊
+          </div>
           <div class="nav_right_block">
             <div class="nav_active">
               <a href="#">農村體驗</a>
@@ -124,6 +133,8 @@
           />
         </div>
       </div>
+      <!-- 漢堡彈窗結束 -->
+      
       <div class="index_contact_box">
         <div class="black_block"></div>
         <div class="cotanct_block">
@@ -159,18 +170,18 @@
         </div>
       </div>
     </header>
-      <div class="member_logout_block">
+    <div class="member_logout_block">
         <button>登出<img src="./images/member/logout_icon.svg" alt=""></button>
         <h3>持有購物金:<span>0</span>元</h3>
-      </div>
-      <div class="member_block" id="member_block">
-          <div class="member_block_nav">
+    </div>
+    <div class="member_block" id="member_block">
+        <div class="member_block_nav">
               <div @click="show_member" class="member_detail">會員資料</div>
               <div @click="show_order" class="member_order">訂單查詢</div>
               <div @click="show_active" class="member_active">活動查詢</div>
               <div @click="show_message" class="member_message">留言板</div>
-          </div>
-          <div class="member_right_member" v-if="memberShow">
+        </div>
+        <div class="member_right_member" v-if="memberShow">
               <h3>會員資料</h3>
               <div class="member_right_detail">
                 <div class="member_pic_block">
@@ -204,30 +215,33 @@
                 <img src="./images/member/member_pen.svg" alt="筆">
                 編輯會員資料
               </button>
-          </div>
+        </div>
 
-          <div class="member_order_detail" v-if="orderShow">
+        <div class="member_order_detail" v-if="orderShow">
             <h3>訂單查詢</h3>
             <div class="member_order_block">
-              <div class="order_line">
-                <h4>下單時間</h4>
-                <h4>訂單編號</h4>
-                <h4>付款方式</h4>
-                <h4>訂單金額</h4>
-                <h4>配送狀態</h4>
-              </div>
-              <div class="order_inside_detail">
-                <h4>2021/09/01</h4>
-                <h4>A000001</h4>
-                <h4>信用卡</h4>
-                <h4>399</h4>
-                <h4>配送中</h4>
+              <div class="order_box">
+                <div class="order_line">
+                  <h4>下單時間</h4>
+                  <h4>訂單編號</h4>
+                  <h4>付款方式</h4>
+                  <h4>訂單金額</h4>
+                  <h4>配送狀態</h4>
+                </div>
+                <div class="order_inside_detail">
+                  <h4>2021/09/01</h4>
+                  <h4>A0001</h4>
+                  <h4>信用卡</h4>
+                  <h4>399</h4>
+                  <h4>配送中</h4>
+                </div>
               </div>
               <hr>
               <div @click="turn_on" class="show_order_detail">
                 訂單內容
                 <img class="member_arrow_icon" src="./images/member/member_arrow_icon.svg" alt="">
                 <div class="member_check_order_detail">
+                  <div class="check_order_box">
                     <div class="show_order_detail_block">
                       <section class="show_order_detail_img">商品圖片</section>
                       <section class="show_order_detail_name">商品名稱</section>
@@ -246,8 +260,9 @@
                       <section class="show_order_product_detail_price">399</section>
                       <section class="show_order_product_detail_total">399</section>
                     </div>
-                    <hr>
-                    <p class="show_order_total_price">總金額:<span>399</span></p>
+                  </div>
+                  <hr>
+                  <p class="show_order_total_price">總金額:<span>399</span></p>
                 </div>
               </div>
             </div>
@@ -256,19 +271,21 @@
           <div class="member_active_detail" v-if="activeShow">
             <h3>活動查詢</h3>
             <div class="member_active_block">
-              <div class="active_line">
-                <h4>預約編號</h4>
-                <h4>活動內容</h4>
-                <h4>預約日期</h4>
-                <h4>金額</h4>
-                <h4>人數</h4>
-              </div>
-              <div class="active_inside_detail">
-                <h4>B12345678</h4>
-                <h4>窯烤</h4>
-                <h4>2021/8/27</h4>
-                <h4>399</h4>
-                <h4>5</h4>
+              <div class="active_box">
+                <div class="active_line">
+                  <h4>預約編號</h4>
+                  <h4>活動內容</h4>
+                  <h4>預約日期</h4>
+                  <h4>金額</h4>
+                  <h4>人數</h4>
+                </div>
+                <div class="active_inside_detail">
+                  <h4>B12345678</h4>
+                  <h4>窯烤</h4>
+                  <h4>2021/8/27</h4>
+                  <h4>399</h4>
+                  <h4>5</h4>
+                </div>
               </div>
             </div>
           </div>
@@ -288,46 +305,7 @@
               </form>
             </div>
           </div>  
-      </div>
-
-      <div class="jump_hamburger_block">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo">
-        </a>
-        <div class="header_nav_block">
-          <div class="nav_right_block">
-            <div class="nav_active">
-              <a href="#">農村體驗</a>
-              <a href="#">預約去</a>
-            </div>
-            <div class="nav_buy_now">
-              <a href="#">立即買</a>
-              <a href="#">客製蔬果箱</a>
-              <a href="#">新鮮蔬果</a>
-            </div>
-            <div class="nav_knowledge">
-              <a href="#">蔬果知識小遊戲</a>
-            </div>
-          </div>
-          <div class="nav_left_block">
-            <div class="nav_about_us">
-              <a href="#">關於我們</a>
-              <a href="#">農場介紹</a>
-              <a href="#">生產介紹</a>
-            </div>
-            <div class="nav_QA">
-              <a href="#">問與答</a>
-            </div>
-          </div>
-          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
-          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
-          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
-        </div>
-      </div>
-    </header>
-
-
-
+    </div>
     <footer class="footer_bg">
       <img class="member_footer_img" src="./images/member/member_footer.svg" alt="for_footer">
       <div class="footer">

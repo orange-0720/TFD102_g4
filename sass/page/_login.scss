@@ -1,6 +1,7 @@
 div.login_block{
     width: 100%;
     margin-top: 80px;
+    margin-bottom: 80px;
     padding-left: 5%;
     padding-right: 20%;
     display: flex;
@@ -106,7 +107,7 @@ div.login_block{
 }
 @include tablet {
     div.login_block{
-        width: 80%;
+        width: 90%;
         margin-top: 60px;
         margin-bottom: 60px;
         @include marginAuto();
@@ -214,11 +215,118 @@ div.login_block{
         }
     }
 }
+@include pad {
+    div.login_block{
+        width: 80%;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        min-height: 450px;
+        @include marginAuto();
+        padding: 0;
+        display: block;
+        overflow: hidden;
+        .form_block{
+            width: 100%;
+            background-color: $white;
+            border:1px solid $brown;
+            padding: 20px 0px;
+            transition: 1s;
+            .login_form{
+                h2{
+                    text-align: center;
+                    margin-top: 5%;
+                }
+                input{
+                    display: block;
+                    margin: 40px auto;
+                    width: 60%;
+                    padding: 10px;
+                    &:focus{
+                        outline: 1px solid $brown;
+                    }
+                }
+                #login_btn{
+                    @include btn(60%);
+                    display: block;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                div.login_notice{
+                    margin-top: 10%;
+                    text-align: center;
+                    a{
+                        text-decoration: none;
+                        padding: 5px 10px;
+                        color:$brown;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .signup_form{
+                display: none;
+                h2{
+                    text-align: center;
+                    margin-top: 10px;
+                }
+                input{
+                    display: block;
+                    margin: 20px auto;
+                    width: 80%;
+                    padding: 10px;
+                    &:focus{
+                        outline: 1px solid $brown;
+                    }
+                }
+                label{
+                    display: block;
+                    margin: 0px auto;
+                    width: 80%;
+                    padding: 0px;
+                    text-align: center;
+                    input{
+                        display: inline-block;
+                        width:auto;
+                        outline: 0px;
+                        margin: 0px;
+                        
+                    }
+                }
+                #signup_btn{
+                    @include btn(60%);
+                    display: block;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                div.signin_notice{
+                    margin-top: 5%;
+                    text-align: center;
+                    a{
+                        text-decoration: none;
+                        padding: 5px 10px;
+                        color:$brown;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .login_pic{
+            display: none;
+        }
+    }   
+}
 
 .form_move{
-    transform: translate3d(150%,0,100px)
+    transform: translate3d(150%,0,100px);
 }
 
 .pic_move{
     transform: translate3d(-66.6%,0,100px);
+}
+
+.pad_move{
+    @include pad {
+        transform: translateY(-100%);
+    }
 }

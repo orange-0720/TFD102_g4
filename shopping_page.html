@@ -179,71 +179,76 @@
 
     <!-- 當頁內容開始 -->
     <div class="shopping_main_block">
+      <!-- 側邊欄開始 -->
       <div class="shopping_nav_block">
-        <h2>商品一覽</h2>
+        <h2 class="show_out_block">商品一覽</h2>
         <hr />
-        <div class="shopping_box_block">
-          <h3 class="shopping_box_slide">
-            蔬果箱
-            <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
-          </h3>
-          <div class="shopping_box_link">
-            <a href="#">防疫蔬果箱</a>
-            <a href="#">活力蔬果箱</a>
-            <a href="#">防癌蔬果箱</a>
+        <div class="show_box_block">
+          <div class="shopping_box_block">
+            <h3 class="shopping_box_slide">
+              蔬果箱
+              <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
+            </h3>
+            <div class="shopping_box_link">
+              <a href="#">防疫蔬果箱</a>
+              <a href="#">活力蔬果箱</a>
+              <a href="#">防癌蔬果箱</a>
+            </div>
           </div>
-        </div>
-        <div class="shopping_veg_block">
-          <h3 class="shopping_veg_slide">
-            蔬菜
-            <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
-          </h3>
-          <div class="shopping_veg_link">
-            <a href="#">高麗菜</a>
-            <a href="#">地瓜</a>
-            <a href="#">大番茄</a>
-            <a href="#">小白菜</a>
-            <a href="#">玉米</a>
-            <a href="#">紅蘿蔔</a>
-            <a href="#">白蘿蔔</a>
-            <a href="#">萵苣</a>
-            <a href="#">青椒</a>
-            <a href="#">甜椒</a>
-            <a href="#">青江菜</a>
-            <a href="#">地瓜葉</a>
-            <a href="#">A菜</a>
-            <a href="#">玉米筍</a>
-            <a href="#">南瓜</a>
-            <a href="#">小黃瓜</a>
-            <a href="#">洋蔥</a>
+          <div class="shopping_veg_block">
+            <h3 class="shopping_veg_slide">
+              蔬菜
+              <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
+            </h3>
+            <div class="shopping_veg_link">
+              <a href="#">高麗菜</a>
+              <a href="#">地瓜</a>
+              <a href="#">大番茄</a>
+              <a href="#">小白菜</a>
+              <a href="#">玉米</a>
+              <a href="#">紅蘿蔔</a>
+              <a href="#">白蘿蔔</a>
+              <a href="#">萵苣</a>
+              <a href="#">青椒</a>
+              <a href="#">甜椒</a>
+              <a href="#">青江菜</a>
+              <a href="#">地瓜葉</a>
+              <a href="#">A菜</a>
+              <a href="#">玉米筍</a>
+              <a href="#">南瓜</a>
+              <a href="#">小黃瓜</a>
+              <a href="#">洋蔥</a>
+            </div>
           </div>
-        </div>
-        <div class="shopping_fruit_block">
-          <h3 class="shopping_fruit_slide">
-            水果
-            <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
-          </h3>
-          <div class="shopping_fruit_link">
-            <a href="#">草莓</a>
-            <a href="#">小番茄</a>
-            <a href="#">甜橙</a>
-            <a href="#">芒果</a>
-            <a href="#">香蕉</a>
-            <a href="#">番石榴</a>
-            <a href="#">檸檬</a>
-            <a href="#">鳳梨</a>
-            <a href="#">柿子</a>
-            <a href="#">哈密瓜</a>
-            <a href="#">香瓜</a>
-            <a href="#">木瓜</a>
+          <div class="shopping_fruit_block">
+            <h3 class="shopping_fruit_slide">
+              水果
+              <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
+            </h3>
+            <div class="shopping_fruit_link">
+              <a href="#">草莓</a>
+              <a href="#">小番茄</a>
+              <a href="#">甜橙</a>
+              <a href="#">芒果</a>
+              <a href="#">香蕉</a>
+              <a href="#">番石榴</a>
+              <a href="#">檸檬</a>
+              <a href="#">鳳梨</a>
+              <a href="#">柿子</a>
+              <a href="#">哈密瓜</a>
+              <a href="#">香瓜</a>
+              <a href="#">木瓜</a>
+            </div>
           </div>
-        </div>
-        <div class="shopping_customer_block">
-          <h3>
-            <a href="#">客製蔬果箱</a>
-          </h3>
+          <div class="shopping_customer_block">
+            <h3>
+              <a href="#">客製蔬果箱</a>
+            </h3>
+          </div>
         </div>
       </div>
+      <!-- 側邊欄結束 -->
+
       <div class="shopping_page_list">
         <div class="shopping_product_block">
           <a href="#">
@@ -479,6 +484,14 @@
       $(".shopping_fruit_block").on("click", function () {
         $(".shopping_fruit_link").slideToggle();
       });
+
+      if(window.innerWidth <= 767){
+        $('.show_out_block').on('click',function(){
+          console.log('aaa');
+          $('.show_box_block').slideToggle();
+        })
+      }
+     
 
       // 回頁首
       $("#go_top").on("click", function (e) {
