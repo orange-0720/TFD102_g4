@@ -32,15 +32,17 @@
     </div>
     <div class="menu">
       <div class="logo_img">
-        <img src="./images/logo.svg" alt="logo" />
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
       </div>
       <div class="page_list">
-        <a href="#">農村體驗</a>
-        <a href="#">客製蔬果箱</a>
-        <a href="#">蔬果知識小遊戲</a>
-        <a href="#">關於我們</a>
-        <a href="#">問與答</a>
-        <a href="#">新鮮蔬果</a>
+        <a href="./event.html">農村體驗</a>
+        <a href="./fruit_box.html">客製蔬果箱</a>
+        <a href="./game.html">蔬果知識小遊戲</a>
+        <a href="./aboutUs.html">關於我們</a>
+        <a href="./q_a.html">問與答</a>
+        <a href="./shopping_page.html">新鮮蔬果</a>
       </div>
     </div>
     <div class="title">
@@ -53,16 +55,66 @@
         </a>
       </div>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/8DbthI6QxGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/cmY5IYFWsJ0?start=100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
+    <!-- 漢堡彈窗 -->
+    <div class="jump_hamburger_block">
+      <div class="hamburger_logo">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo">
+        </a>
+      </div>
+      <div class="header_nav_block">
+        <div class="nav_block_contact">
+          <img src="./images/nav_block_pen.svg" >
+          聯絡我們
+        </div>
+        <a class="nav_block_log" href="./login.html">
+          <img src="./images/nav_block_log.svg">
+          登入註冊
+        </a>          
+        <div class="nav_right_block">
+          <div class="nav_active">
+            <a href="./event.html">農村體驗</a>
+            <a href="./event_info.html">預約去</a>
+          </div>
+          <div class="nav_buy_now">
+            <a href="./shopping_page.html">立即買</a>
+            <a href="./fruit_box.html">客製蔬果箱</a>
+            <a href="./shopping_page.html">新鮮蔬果</a>
+          </div>
+          <div class="nav_knowledge">
+            <a href="./game.html">蔬果知識小遊戲</a>
+          </div>
+        </div>
+        <div class="nav_left_block">
+          <div class="nav_about_us">
+            <a href="./aboutUs.html">關於我們</a>
+            <a href="./aboutUs.html">農場介紹</a>
+            <a href="./product_introduction.html">生產介紹</a>
+          </div>
+          <div class="nav_QA">
+            <a href="./q_a.html">問與答</a>
+          </div>
+        </div>
+        <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+        <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+        <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+      </div>
+    </div>
+    <!-- 漢堡彈窗結束 -->
   </header>
 
   <div class="about_us_box">
+    <!-- 檸檬裝飾圖案 -->
+    <div class="bg_lemon_pic">
+      <img src="./images/farm/bg_lemon.png" alt="黃檸檬">
+    </div>
     <h1>農場介紹</h1>
     <div class="about_us_content">
       <div class="about_us_title">
-        <h2>農場的源起</h2>
+        <h2 class="farm_title_h2">農場的源起</h2>
       </div>
      
       <div class="about_us_text">
@@ -139,12 +191,11 @@
 
   <!-- 輪播 -->
   <div class="farm_introduction_box">
-    <h2>關於農場</h2>
+    <h2 class="farm_title_h2">關於農場</h2>
     <div class="farm_introduction_scroll">
       <div class="farm_environment_box">
         <div class="farm_photo">
           <img src=" ./images/farm/farm_scroll_01.jpg">
-          
         </div>
         <div class="introduction_box">
           <div class="introduction_para">
@@ -161,11 +212,12 @@
   <div class="farm_description_box">
     <div class="farm_descript_item">
       <div class="farm_description_item_box">
-
         <!-- 農場使用建材 -->
         <div class="about_farm farm_building_materials farm_left ">
           <!-- 裝飾小動物 -->
-          <div class="farm_decoration_pic"><img src="./images/farm/animal_alpaca_suri .png" alt="decoration_animal"></div>
+          <div class="farm_decoration_pic">
+            <img src="./images/farm/animal_alpaca_suri .png" alt="decoration_animal">
+          </div>
           <div class="farm_photo">
             <img src=" ./images/farm/farm01.jpg">
           </div>
@@ -225,12 +277,12 @@
       </div>
       <div class="footer_center">
         <h4>電話:02-26938800</h4>
-        <br>
-        <h4>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
-        <h4>※農曆過年假期本農場也公休
+
+        <h5>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
+        <h5>※農曆過年假期本農場也公休
           網路接單為24小時</h5>
-        <h4>※當日訂單最晚收到17:00</h5>
-        <h4>(17:00後下單視為隔日下單)</h5>
+        <h5>※當日訂單最晚收到17:00</h5>
+        <h5>(17:00後下單視為隔日下單)</h5>
         <button class="mail_btn">
           <img src="./images/mail.svg" alt="mail">MAIL
         </button>
@@ -255,10 +307,9 @@
         </div>
       </div>
     </div>
-
   </footer>
-
-
+  <script src="./js/header.js">
+  </script>
   <script>
 
     var menu = document.getElementsByClassName("menu")[0];
@@ -272,6 +323,7 @@
         scrollTop: 0
       }, 750);
     });
+
 
 
 

@@ -140,9 +140,6 @@
     font-size: $h4;
     
 }
-@mixin boxpadding {
-    padding:0px 70px 0px 20px;
-}
 
 //RWD
 
@@ -158,25 +155,23 @@
         @content ;
     }
 }
-
-
 @mixin mobile {
     @media(max-width: 575px) {
         @content ;
     }
 }
+
 @mixin const {
     @media(min-width: 992px){
         @content ;
     }
 }    
 
-
 //生產介紹表格小動畫    
 @mixin vagatable_fruit_table_animation {
     animation-name:shake;
-    animation-duration: 2s;
-    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-delay: .2s;
     animation-iteration-count:infinite;
     animation-direction:alternate-reverse;
     transform: rotate(0deg);
@@ -185,16 +180,31 @@
         transform: rotate(0deg);
       }
       25%{
-        transform: rotate(10deg);
+        transform: rotate(45deg);
       }
       50%{
-        transform: rotate(-10deg);
+        transform: rotate(-270deg);
       }
       70%{
-        transform: rotate(15deg);
+        transform: rotate(270deg);
+      }
+      80%{
+        transform: rotate(-45deg);
       }
       100%{
         transform: rotate(-20deg);
       }
     }
+}
+
+@mixin farm_h2 {
+    padding: 10px 0px;
+    text-align: center;
+    margin-bottom:20px;
+    font-weight: 700;
+}
+
+@mixin farm_h3 {
+    padding: 10px 0px;
+    font-weight: 700;
 }
