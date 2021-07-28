@@ -1438,9 +1438,6 @@ body {
   .footer_bg .footer .footer_center h5 {
     padding-left: 15%;
   }
-  .footer_bg .footer .footer_center .btn_pos {
-    margin-left: 18%;
-  }
   .footer_bg .footer .footer_center .btn_pos .mail_btn {
     margin-left: 60px;
   }
@@ -7057,7 +7054,7 @@ body {
   min-height: 350px;
   overflow: hidden;
   position: relative;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .header .index_title .pic_index div {
@@ -7625,6 +7622,10 @@ body {
 
 .farm_expr .farm_expr_board .farm_expr_card .farm_expr_btn:hover {
   background-color: #6b9837;
+}
+
+.farm_expr .farm_expr_board .farm_expr_card .farm_expr_btn h5 {
+  color: #FAF9EF;
 }
 
 .farm_expr .bg_img1 {
