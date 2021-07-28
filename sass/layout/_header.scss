@@ -637,7 +637,7 @@ body{
 
 .menu{
     width: 12%;
-    padding: 20px;
+    padding: 12px;
     position: fixed;
     right: 5%;
     top: 0;
@@ -656,7 +656,8 @@ body{
         }
     }
     .page_list{
-        a{
+        a{  
+            font-size: 16px;
             display: block;
             text-decoration: none;
             padding: 10px 0px 10px 10px;

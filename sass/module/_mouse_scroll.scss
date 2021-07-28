@@ -34,8 +34,8 @@ $animDuration: 5s;
 
   p {
     position: absolute;
-    top: -110px;
-    left: 805px;
+    top: -125px;
+    left: 106%;
     margin-top: 50px;
     font-family: "Cabin", sans-serif;
     letter-spacing: 12px;
@@ -49,8 +49,8 @@ $animDuration: 5s;
 
   .mouse {
     position: absolute;
-    top: -130px;
-    left: 850px;
+    top: -140px;
+    left: 111%;
     @include bgGradient;
     position: relative;
     width: $widthMouse;
@@ -89,16 +89,29 @@ $animDuration: 5s;
   }
 }
 
+@include pad {
+  .mouse_down {
+    p {
+      bottom: 0px;
+      left: 42%;
+    }
+
+    .mouse {
+      bottom: 0px;
+      left: 48%;
+    }
+  }
+}
 
 @include mobile {
   .mouse_down {
     p {
-      top: -250px;
+      top: 0px;
       left: 40%;
     }
 
     .mouse {
-      top: -280px;
+      top: -20px;
       left: 48%;
     }
   }
