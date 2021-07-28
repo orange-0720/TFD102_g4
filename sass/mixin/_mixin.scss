@@ -147,16 +147,6 @@
         @content ;
     }
 }
-<<<<<<< HEAD
-=======
-@mixin const {
-    @media(min-width: 992px){
-        @content ;
-    }
-}    
-
-
->>>>>>> 8cdeca339f4ac99b3cc52de59ff873ef3bce1fe9
 //生產介紹表格小動畫    
 @mixin vagatable_fruit_table_animation {
     animation-name:shake;
@@ -185,8 +175,6 @@
         transform: rotate(-20deg);
       }
     }
-<<<<<<< HEAD
-=======
 }
 
 @mixin farm_h2 {
@@ -199,5 +187,4 @@
 @mixin farm_h3 {
     padding: 10px 0px;
     font-weight: 700;
->>>>>>> linyen
 }
