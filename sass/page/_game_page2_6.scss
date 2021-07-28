@@ -210,7 +210,7 @@
             display: flex;
             @include pad {
                 height: 250px;
-                margin-top: 12rem; 
+                margin-top: 14rem; 
             }
             @include mobile {
                 height: 200px;
@@ -240,6 +240,7 @@
                 margin-top: 2rem;
             }
             @include mobile {
+                width: 90%;
                 margin-top: 2rem;
              }
             h2{
@@ -265,40 +266,38 @@
     margin-top: 2rem;
         @include pad {
             margin-top: 0rem;
-        }
-        .icon_11{
+        }.icon_11{
             width: 15vw;
             margin-top: 2rem;
             @include pad {
                 width: 25vw;
                 margin-top: 1rem;
-            }
-            @include mobile {
+            }@include mobile {
                 width: 40vw;
-             }      
-        }.green{
-            background-color:$green;
+             }         
         }div#game_answer{
-            @include flex_center;
-            }
-         button#submit_1{
+            @include flex_center;  
+         }button#submit_1{
             @include btn(240px,85px);
             font-size: 28px;
             font-weight: bolder;
             margin: 1rem;
             padding: 2px;
+            a{  
+                text-decoration: none;
+                color: $white;
+            }
             @include pad {
                 @include btn(175px,70px);
-                font-size: 24px;
-                padding: 2px;
-             } 
-            @include mobile {
-                @include btn(120px,45px);
                 font-size: 20px;
+                padding: 2px;
+            }@include mobile {
+                @include btn(130px,55px);
+                font-size: 14px;
                 margin: .5rem;
-                line-height: 20px;
-             } 
-            &:hover{
+                line-height: 15px;
+                padding: 1px;
+            }&:hover{
                 background-color: $red;
             }
         }button#submit_2{
@@ -307,103 +306,109 @@
             font-weight: bolder;
             margin: 1rem;
             padding: 2px;
+            a{  
+                text-decoration: none;
+                color: $white;
+            }
             @include pad {
                 @include btn(175px,70px);
                 font-size: 20px;
                 padding: 2px;
              } 
             @include mobile {
-                @include btn(120px,45px);
-                font-size: 20px;
+                @include btn(130px,55px);
+                font-size: 14px;
                 margin: .5rem;
-                line-height: 20px;
+                line-height: 15px;
+                padding: 1px;
              } 
             &:hover{
                 background-color: $red;
+            }a{
+                text-decoration: none;
+                color: $white;
             }
     }
 }
-// ==通關成功及失敗頁面的按鈕==
-#game_bottom_part_PassandDefeat{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-        @include pad {
-            margin-top: 0rem;
-        }
-        .icon_11{
-            width: 15vw;
-            margin-top: 2rem;
-            @include pad {
-                width: 25vw;
-                margin-top: 1rem;
-            }
-            @include mobile {
-                width: 40vw;
-             }      
-        }.green{
-            background-color:$green;
-        }div#game_answer{
-            display: flex;
-            flex-direction: column;
-            }
-         button#submit_1{
-            @include btn(320px,85px);
-            font-size: 28px;
-            font-weight: bolder;
-            margin: 1rem;
-            padding: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @include pad {
-                @include btn(175px,70px);
-                font-size: 24px;
-                padding: 2px;
-             } 
-            @include mobile {
-                @include btn(120px,45px);
-                font-size: 20px;
-                margin: .5rem;
-                line-height: 20px;
-             } 
-            &:hover{
-                background-color: $red;
-            }#rightArrow{
-                width: 1vw;
-                margin-left: 1vw; 
-            }
+// // ==通關成功及失敗頁面的按鈕==
+// #game_bottom_part_PassandDefeat{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     margin-top: 2rem;
+//         @include pad {
+//             margin-top: 0rem;
+//         }
+//         .icon_11{
+//             width: 15vw;
+//             margin-top: 2rem;
+//             @include pad {
+//                 width: 25vw;
+//                 margin-top: 1rem;
+//             }
+//             @include mobile {
+//                 width: 40vw;
+//              }      
+//         }div#game_answer{
+//             display: flex;
+//             flex-direction: column;
+//             }
+//          button#submit_1{
+//             @include btn(320px,85px);
+//             font-size: 28px;
+//             font-weight: bolder;
+//             margin: 1rem;
+//             padding: 2px;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             @include pad {
+//                 @include btn(175px,70px);
+//                 font-size: 24px;
+//                 padding: 2px;
+//              } 
+//             @include mobile {
+//                 @include btn(120px,45px);
+//                 font-size: 20px;
+//                 margin: .5rem;
+//                 line-height: 20px;
+//              } 
+//             &:hover{
+//                 background-color: $red;
+//             }#rightArrow{
+//                 width: 1vw;
+//                 margin-left: 1vw; 
+//             }
 
-        }button#submit_2{
-            @include btn(320px,85px);
-            font-size: 28px;
-            font-weight: bolder;
-            margin: 1rem;
-            padding: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @include pad {
-                @include btn(175px,70px);
-                font-size: 24px;
-                padding: 2px;
-             } 
-            @include mobile {
-                @include btn(120px,45px);
-                font-size: 20px;
-                margin: .5rem;
-                line-height: 20px;
-             } 
-            &:hover{
-                background-color: $red;
-            }#leftArrow{
-                width: 1vw;
-                margin-right: 1vw; 
-            }
-    }
-}
+//         }button#submit_2{
+//             @include btn(320px,85px);
+//             font-size: 28px;
+//             font-weight: bolder;
+//             margin: 1rem;
+//             padding: 2px;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             @include pad {
+//                 @include btn(175px,70px);
+//                 font-size: 24px;
+//                 padding: 2px;
+//              } 
+//             @include mobile {
+//                 @include btn(120px,45px);
+//                 font-size: 20px;
+//                 margin: .5rem;
+//                 line-height: 20px;
+//              } 
+//             &:hover{
+//                 background-color: $red;
+//             }#leftArrow{
+//                 width: 1vw;
+//                 margin-right: 1vw; 
+//             }
+//     }
+// }
 
 
 
@@ -420,7 +425,7 @@
         // align-items: center;
         @include pad {
             height: 250px;
-            margin-top: 7rem;
+            margin-top: 8rem;
             width:100%;
         }@include mobile {
             height: 200px;
