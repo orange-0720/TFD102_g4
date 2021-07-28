@@ -8618,7 +8618,7 @@ div.qa_item div.aside .sticky {
 
 div.qa_item div.aside .qa_list {
   line-height: 30px;
-  top: -5px;
+  margin-top: 40px;
 }
 
 div.qa_item div.aside .highlight {
@@ -14338,7 +14338,7 @@ aside#BackEnd_main .btn {
   height: 67px;
   width: 60%;
   margin-bottom: 10px;
-  font-size: 27px;
+  font-size: 20px;
 }
 
 aside#BackEnd_main .btn:hover {
