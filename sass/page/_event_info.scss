@@ -8,6 +8,10 @@
     padding: 0;
     width: 80%;
     max-width: 1200px;
+        h2{
+            text-align: center;
+            margin-bottom: 2%;
+        }
     .table_body{
         display: flex;
         @include pad{
@@ -29,11 +33,17 @@
                     background-color:#FAE7C3 ;
                     padding: 20px;
                     width: 200px;
+                    @include mobile{
+                        width: 40%;
+                    }
                     text-align: center;
                     border-radius: 8px;
                 }
                 input{
                     margin: 0 auto;
+                    @include mobile{
+                        width: 50%;
+                    }
                     // width: 200px;
                 }
                 select{
@@ -57,12 +67,32 @@
                     width: 200px;
                     text-align: center;
                     border-radius: 8px;
+                    @include mobile{
+                        width: 40%;
+                    }
                     // border-right:1px solid #C1C1C1;
                 }
                 em{
                     margin: 0 auto;
+                    text-align: center;
+                    @include mobile{
+                        width: 50%;
+                    }
+                    // padding: 20px;
                 }
             }
         }
     }
+}
+.event_info_btn{
+    margin: 20px auto;
+    width: 100%;
+    box-sizing: border-box;
+    // left: -40%;
+    text-align: center;
+        a{
+            @include btn(120px);
+            margin: 0 auto;
+            text-align: center;
+        }
 }

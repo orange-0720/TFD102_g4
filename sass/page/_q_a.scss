@@ -1,57 +1,123 @@
+@media (max-width: 767px){
+  div.qa_item div.aside ul {
+    
+      height: auto;
+      padding:20px;
+      position: absolute;
+      top:100%;
+      left:0;
+      width: 100%;
+  }
+  div.qa_item div.aside ul li{
+      top:auto;
+      bottom: auto;
+  }
+}
+
+
 div.qa_step {
   width: 80%;
   @include marginAuto();
   //display: flex;
   max-width: 1200px;
   div.notice {
-    width: 85%;
-    display: flex;
-    border-radius: 20px;
-    background-color: $bkc_yellow;
-
-    .light {
-      background-color: $yellow;
+      width: 85%;
+      display: flex;
       border-radius: 20px;
-    }
-    img {
-      width: 50px;
-      height: 50px;
-    }
+      background-color: $bkc_yellow;
+      
+      .light {
+        background-color: $yellow;
+        border-radius: 20px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+      }
 
-    h4 {
-      padding: 15px;
-      border-radius: 15px;
-    }
+      h4 {
+        padding: 15px;
+        border-radius: 15px;
+      }
   }
-.up{
-    width: 65%;
-    margin-left: 30%;
-    margin-top: -4%;
-    @include marginAuto();
-    h4{
-        line-height: 40px; 
-    }
-    
-}
-
-
+  .up{
+      width: 65%;
+      margin-left: 30%;
+      margin-top: -4%;
+      @include marginAuto();
+      h4{
+          line-height: 40px; 
+      }
+  }
 
 }
+
 
 div.qa_item {
   width: 80%;
   @include marginAuto();
   display: flex;
   flex-wrap: wrap;
-  //max-width: 1200px;
-
+    @include tablet {
+      width: 90%;
+    }
     div.aside {
-        width: 15%;
+        width: 18%;
         margin-top: 20px;
         padding: 15px 0px;
+        
+        @include pad {
+             width: 100%;
+             position: static;
+             border-radius: 8px;
+              .qa_list{
+                background-color: $darkgreen;
+                position: static;
+                border-radius: 8px;
+                height: 12vh;
+                background-image: url(../../images/shopping_page/shopping_ham.svg);
+                background-repeat: no-repeat;
+                background-position: top 50%  right 10%;
+                background-size: 50px;
+                cursor: pointer;
+                h4{
+                  color: $white;
+                  padding: 20px;
+                  margin-left: 0%;
+                  font-size: 26px;
+                }
+                
+              }
+
+              ul{
+                    display: none;
+                    background-color: $bkc_yellow;
+                    border-radius: 8px;
+                    height: 300px;
+                   
+                li{
+                    display: none;
+                    margin: 0 10%; 
+                    cursor: pointer;
+                    position: relative;
+                    border-bottom: 3px solid $brown;
+                    padding: 4px 5%;
+                }
+              }
+              
+               
+              .hr{
+                display: none;
+              }
+              
+
+        }
         .sticky {
             position: sticky;
-            top: 0;
+            top: 10px;
+            @include tablet {
+              top: 100px;
+        }
         }
         .qa_list {
             line-height: 30px;
@@ -71,13 +137,18 @@ div.qa_item {
 
         ul {
             margin-top: 5%;
-            top: 20px;
+            @include pad{
+              margin-top: 0%;
+            }
+
            li{
             cursor: pointer;
             @include a_link();
-            bottom: 20px;
             line-height: 30px;
-            top: 20px;
+            font-size: 18px;
+              a{
+                @include  a_link;
+              }
            }
            img{
                width: 25px;
@@ -86,14 +157,23 @@ div.qa_item {
            }
 
           :hover img{
-                display: block;
+                display: inline-block;
+                
            }
         }
   }
-
+  
+ 
   div.qa_problem {
     width: 70%;
     margin-top: 20px;
+    
+      @include tablet{
+        width: 85%;
+      }
+      @include pad{
+        margin-top: -20px;
+      }
 
     .qa_01 {
       width: 100%;
@@ -104,6 +184,8 @@ div.qa_item {
       color: $darkgreen;
       padding: 15px;
       display: flex;
+      line-height: 25px;
+      //position:relative;
     }
     p.answer {
       line-height: 25px;
@@ -136,24 +218,12 @@ div.qa_item {
       display: none;
     }
 
-    
-
     //Q&A icon
     img {
       width: 30px;
       height: 30px;
       margin-top: -8px;
     }
-
-    //另一種寫法
-    // p.question::before{
-    //     width: 20px;
-    //     height: 20px;
-    //     background-image:url(/images/q_a/Q_green.svg);
-    //     //content:url("/images/q&a/Q_green.svg " );
-    //     background-size :100% auto;
-    //     content:"";
-    // }
 
     // 下拉選單
 
@@ -162,6 +232,8 @@ div.qa_item {
       color: #78552b;
       content: "\f078";
       font-family: FontAwesome;
+      // position:absolute;
+      // right:60px;
     }
   }
 }
@@ -174,15 +246,87 @@ div.qa_item {
     width: 17%;
     z-index: 1;
     position: absolute;
+    @include tablet{
+      margin-top: -2%;
+    }
+    @include pad{
+      display: none;
+    }
   }
 }
 
 .kiwi {
-  width: 15%;
-  margin-left: 79%;
+  width: 12%;
+  margin-left: 82%;
   margin-top: 30%;
   position: absolute;
   img {
     position: relative;
   }
 }
+
+@include tablet{
+  div.qa_step{
+    display: none;
+      .up{
+        display: none;
+      }
+      
+  }
+  div.qa_item{
+    margin-top: -6%;
+    margin-left: 30px;
+
+    div.qa_problem{
+      width: 80%;
+    }
+  }
+  
+  .kiwi{
+    display: none;
+  }
+
+}
+
+@include pad {
+  
+  div.qa_item{
+    div.qa_problem {
+      width: 100%;
+    }
+  }
+
+  div.qa_item{
+    .aside{
+      width: 100%;
+      //display: none;
+      .qa_list{
+        width: 100%;
+        background-color: $bkc_yellow;
+        position: static;
+        border-radius: 8px;
+        h2{
+          padding: 30px;
+          margin-left: 0%;
+          background-color: $darkgreen;
+          color: $white;
+          border-radius: 8px;
+          background-image: url(../../images/shopping_page/shopping_ham.svg);
+          background-repeat: no-repeat;
+          background-position: top 50%  right 10%;
+          background-size: 50px;
+          cursor: pointer;
+        }
+        hr{
+            display: none;
+            
+        }
+      }
+    }
+
+  }
+
+
+
+}
+
