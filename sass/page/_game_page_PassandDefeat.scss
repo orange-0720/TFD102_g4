@@ -253,73 +253,7 @@
         }
     }
 
-/* ===按鈕及農夫圖=== */
-// #game_bottom_part{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     margin-top: 2rem;
-//         @include pad {
-//             margin-top: 0rem;
-//         }
-//         .icon_11{
-//             width: 15vw;
-//             margin-top: 2rem;
-//             @include pad {
-//                 width: 25vw;
-//                 margin-top: 1rem;
-//             }
-//             @include mobile {
-//                 width: 40vw;
-//              }      
-//         }.green{
-//             background-color:$green;
-//         }div#game_answer{
-//             @include flex_center;
-//             }
-//          button#submit_1{
-//             @include btn(240px,85px);
-//             font-size: 28px;
-//             font-weight: bolder;
-//             margin: 1rem;
-//             padding: 2px;
-//             @include pad {
-//                 @include btn(175px,70px);
-//                 font-size: 24px;
-//                 padding: 2px;
-//              } 
-//             @include mobile {
-//                 @include btn(120px,45px);
-//                 font-size: 20px;
-//                 margin: .5rem;
-//                 line-height: 20px;
-//              } 
-//             &:hover{
-//                 background-color: $red;
-//             }
-//         }button#submit_2{
-//             @include btn(240px,85px);
-//             font-size: 28px;
-//             font-weight: bolder;
-//             margin: 1rem;
-//             padding: 2px;
-//             @include pad {
-//                 @include btn(175px,70px);
-//                 font-size: 24px;
-//                 padding: 2px;
-//              } 
-//             @include mobile {
-//                 @include btn(120px,45px);
-//                 font-size: 20px;
-//                 margin: .5rem;
-//                 line-height: 20px;
-//              } 
-//             &:hover{
-//                 background-color: $red;
-//             }
-//     }
-// }
+
 // ==通關成功及失敗頁面的按鈕==
 #game_bottom_part_PassandDefeat{
     display: flex;
@@ -357,6 +291,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+                a{  
+                    text-decoration: none;
+                    color: $white;
+                }
             @include pad {
                 @include btn(220px,60px);
                 font-size: 22px;
@@ -398,6 +336,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            a{  
+                text-decoration: none;
+                color: $white;
+            }
             @include pad {
                 @include btn(220px,60px);
                 font-size: 22px;
