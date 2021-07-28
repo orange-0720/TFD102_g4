@@ -39,7 +39,7 @@ body {
       min-height: 350px;
       overflow: hidden;
       position: relative;
-      background-color: #000;
+      background-color: rgba(0, 0, 0, 0);
 
       div {
         width: 100%;
@@ -660,6 +660,9 @@ body {
       .farm_expr_btn {
         @include btn(50%);
         margin-bottom: 10px;
+        h5{
+          color:$white;
+        }
       }
     }
   }
