@@ -688,8 +688,13 @@ body{
 }
 
 .menu{
+<<<<<<< HEAD
     width: 170px;
     padding: 20px;
+=======
+    width: 12%;
+    padding: 12px;
+>>>>>>> dev
     position: fixed;
     right: 5%;
     top: 0;
@@ -708,7 +713,8 @@ body{
         }
     }
     .page_list{
-        a{
+        a{  
+            font-size: 16px;
             display: block;
             text-decoration: none;
             padding: 10px 0px 10px 10px;
