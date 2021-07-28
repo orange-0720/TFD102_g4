@@ -3,24 +3,246 @@
     display:flex;
     justify-content: space-around;
     width: 100%;
-    // border:1px solid red;
     .production_item{
         display:flex;
         justify-content: space-between;
-        // border:1px solid rgb(97, 16, 220);
         width: 100%;
         max-width:80%;
         height: 500px;
         .production_box{
             max-width:400px;
+            max-height:500px;
+            width: 100%;
             display:flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             vertical-align: middle;
+            overflow: hidden;
+            border-radius: 53px;
+            position:relative;
+            a{
+                display:block;
+                max-width:400px;
+                max-height:500px;
+                border-radius: 53px;
+                width: 100%;
+                height:100%;
+                position:absolute;
+            }
+            .production_box_entrance{
+                position: absolute;
+                pointer-events: none;
+                .vagatable_box_box ,  .fruit_box_box{
+                    img{
+                        width:160px;
+                        height:160px;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    .vagatable_box_pic , .fruit_box_pic{
+                        position:absolute;
+                        top:0;
+                        z-index: 1;
+                        .vagatable_box_pic_item , .fruit_box_pic_item{
+                            position:relative;
+                            top:0;
+                            img{
+                                width:40px;
+                                height:50px;
+                                position:absolute;
+                            }
+                        }
+                        //蔬菜、水果箱裡的東西
+                        .box01{
+                            left:10px;
+                        }
+                        .box02{
+                            left:40px;
+                        }
+                        .box03{
+                            left:60px;
+                        }
+                        .box04{
+                            left:90px;
+                        }
+                        .box05{
+                            left:20px;
+                        }
+                        .box06{
+                            left:40px;
+                        }
+                        .box07{
+                            left:70px;
+                        }
+                        .box08{
+                            left:100px;
+                        }
+                    }
+                    p{
+                        position: absolute;
+                        bottom:40px;
+                        left:50px;
+                        z-index: 3;
+                    }
+                }
+            }
+            // 點擊黃色箱子後彈跳小動畫
+            .production_box_entrance{
+                //綠花椰
+                .box01{
+                    animation: box01;
+                    animation-duration: 2s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box01 {
+                        0%{
+                            top:-40px;
+                        }
+                        100%{
+                            top:40px;
+                            left:30px;
+                        }
+                    }
+                }
+                //洋蔥
+                .box02{
+                    animation: box02;
+                    animation-duration: 2s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box02 {
+                        0%{
+                            top:-80px;
+                            left:30px;
+                        }
+                        100%{
+                            top:70px;
+                            left:30px;
+                        }
+                    }
+                }
+                //紅蘿蔔
+                .box03{
+                    animation: box03;
+                    animation-duration: 2s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box03 {
+                        0%{
+                            top:-100px;
+                            left:50px;
+                        }
+                        100%{
+                            top:100px;
+                            left:60px;
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+                //三角形果實
+                .box04{
+                    left:90px;
+                    animation: box04;
+                    animation-duration: 2s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box04 {
+                        0%{
+                            top:-100px;
+                        }
+                        70%{
+                            top:100px;
+                            left:80px;
+                        }
+                        100%{
+                            top:100px;
+                        }
+                    }
+                }
+                //番茄
+                .box05{
+                    left:20px;
+                    animation: box05;
+                    animation-duration: 2.5s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box05 {
+                        0%{
+                            top:-100px;
+                            left:60px;
+                        }
+                        70%{
+                            top:100px;
+                        }
+                        100%{
+                            top:100px;
+                            left:30px;
+                        }
+                    }
+                }
+                //黃色果實
+                .box06{
+                    left:40px;
+                    animation: box06;
+                    animation-duration: 2.8s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box06 {
+                        0%{
+                            top:-100px;
+                        }
+                        100%{
+                            top:30px;
+                            left:40px;
+                        }
+                    }
+                }
+                //綠色果實
+                .box07{
+                    left:70px;
+                    animation: box07;
+                    animation-duration: 2.5s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box07 {
+                        0%{
+                            top:-80px;
+                        }
+                        100%{
+                            top:30px;
+                            left:80px;
+                        }
+                    }
+                }
+                //鳳梨
+                .box08{
+                    left:100px;
+                    animation: box08;
+                    animation-duration: 2.5s;
+                    animation-delay: .2s;
+                    animation-iteration-count:infinite;
+                    animation-direction:alternate-reverse;
+                    @keyframes box08 {
+                        0%{
+                            top:-80px;
+                        }
+                        100%{
+                            top:30px;
+                            left:80px;
+                        }
+                    }
+                }
+            }
         }
         .adjust{
             width:80px;
-            // border:1px solid red;
         }
         .about_vagatable_box{
             background-image: url("../images/farm/product_introduction/bg_vagatable.jpg");
@@ -59,26 +281,10 @@
             top:-55px;
             right: 0;
         }
-        .production_box_entrance{
-          display:flex;
-        //   justify-content: center;
-          align-items: center;
-          justify-content: center;
-          vertical-align: middle;
-          width:100px;
-          height:150px;
-          text-align: center;
-          position: absolute;
-          p{
-            position: absolute;
-            padding-top:30px;
-          }
-        }
     }
 }
 .promise_box{
     margin: 100px 0px 250px 0px;
-    // border:1px solid red;
     display:flex;
     vertical-align: middle;
     align-items: center;
@@ -107,13 +313,16 @@
                 flex-direction: column;
                 justify-content: center;
                 width:100%;
-                margin-bottom:20px;
+                margin-bottom:50px;
                 padding:0 5%;
                 img{
                     width:100%;
                 }
                 p{
                     width:100%;
+                }
+                h3{
+                    @include farm_h3();
                 }
             }
             .promise_item{
@@ -133,6 +342,9 @@
                     }
                     p{
                         width:100%;
+                    }
+                    h3{
+                        @include farm_h3();
                     }
                 }
             }

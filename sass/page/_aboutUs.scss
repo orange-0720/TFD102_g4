@@ -1,15 +1,6 @@
 $padding_box:30px 0px;
-$padding_left:200px;
+//$padding_left:200px;
 $box_distance:100px , 0px;
-
-
-// .farm_title_h2{
-//     padding: 10px 0px;
-//     text-align: center;
-//     margin-bottom:20px;
-//     font-weight: 700;
-// }
-
 
 p{
     line-height: 25px;
@@ -32,49 +23,89 @@ p{
 header{
     display: flex;
     justify-content: center;
-
     .video{
+        width:100%;
         display: flex;
         justify-content: center;
-        padding-left:$padding_left;
+        vertical-align: middle;
+        align-items: center;
         padding-top:30px;
-
         iframe{
-            width:700px;
+            width:900px;
             height:500px;
+            padding:10px;
+            //RWD
+            @include tablet{
+                max-width: 900px;
+                max-height: 400px;
+                width:100%;
+            };
+            @include pad{
+                max-width: 600px;
+            };
+            @include mobile{
+                max-width: 500px;
+                height:320px;
+            };
         }
     }
 }
 .about_us_box{
+    position:relative;
+    width:100%;
+    // 檸檬裝飾圖
+    .bg_lemon_pic{
+        position:absolute;
+        left:160px;
+        top:10px;
+        img{
+            position:absolute;
+            width:150px;
+        }
+        @include pad{
+            left:15px;
+        };
+        @include mobile{
+            left:20px;
+            img{
+                width:80px;
+            }
+        };
+    }
     h1{
         padding:20px 0px;
         text-align: center;
         font-weight: 700;
     }
-    // border:1px solid red;
     padding: $padding_box;
     .about_us_content{
+        width:100%;
+        padding:10px;
         display:flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         margin-top:30px;
        .about_us_title{
-        text-align: center;
-        display:flex;
-        h2{
-            position: relative;
-            @include farm_h2();
+            text-align: center;
+            display:flex;
+            h2{
+                position: relative;
+                @include farm_h2();
+            }
+            h2:after{
+                @include underline();
+            }
         }
-        h2:after{
-            @include underline();
-        }
-       }
         .about_us_text{
             max-width:800px;
+            width:100%;
+            padding:0px 10px;
+            @include mobile{
+                max-width: 500px;
+            };
         }
         .farm_managers_box{
-            // border:1px solid red;
             display:flex;
             vertical-align: middle;
             align-items: center;
@@ -82,20 +113,29 @@ header{
             width:100%;
             max-width:1200px;
             padding:$padding_box;
+            flex-wrap: wrap;
             .farm_managers_items_box{
                 display:flex;
-                // border:1px solid blue;
                 position:relative;
                 .farm_managers_items{
                     display:flex;
                     flex-direction: column;
-                    padding:0px 10px;
+                    padding:10px;
                     .manager_photo{
                         img{
                             width:100%;
                             height:100%;
                             border-radius: 50%;
                             max-width: 130px;
+                            @include tablet{
+                                max-width: 100px;
+                            };
+                            @include pad{
+                                max-width: 90px;
+                            };
+                            @include mobile{
+                                max-width: 80px;
+                            };
                         }                
                     }
                     .manager_name{
@@ -108,10 +148,14 @@ header{
                 .items_down{
                     position:relative;
                     top:50px;
+                    @include tablet{
+                        top:0px;
+                    };
                 }
             }
         }
     }
+  
 }
 .farm_introduction_box{
     display:flex;
@@ -122,6 +166,9 @@ header{
     // border:1px solid red;
     width:100%;
     margin-top:50px;
+    @include tablet{
+        margin-top:0px;
+    }
     h2{
         position: relative;
         @include farm_h2();
@@ -139,6 +186,11 @@ header{
         width:100%;
         max-width:600px;
             .farm_environment_box{
+                .farm_photo{
+                    img{
+                        width:100%;
+                    }
+                }
                 .introduction_box{
                     .introduction_para{
                         background-color: $bkc_yellow;
@@ -146,6 +198,10 @@ header{
                         padding:20px;
                         margin-top:20px;
                         width: 100%;
+                        @include tablet{
+                            background-color:transparent;
+                            margin-top:0px;
+                        };
                         h3{
                             @include farm_h3();
                             padding-left:20px;
@@ -157,6 +213,9 @@ header{
 }
 .farm_description_box{
     margin-top:100px;
+    @include tablet{
+        margin-top:0px;
+    };
     .farm_descript_item{
         .farm_description_item_box{
             width:100%;
@@ -179,6 +238,11 @@ header{
                 align-items: center;
                 border-radius: 30px;
                 margin:100px 0px;
+                //border:1px solid red;
+                @include tablet{
+                    background-color:transparent;
+                    margin:0px;
+                };
                 .farm_text{
                     h3{
                         @include farm_h3();
@@ -189,10 +253,16 @@ header{
             .farm_left{
                 position:relative;
                 right:10%;
+                @include tablet{
+                    right:0px;
+                };
             }
             .farm_right{
                 position:relative;
                 left:10%;
+                @include tablet{
+                    left:0px;
+                };
             }
             .farm_photo{
                 flex-direction: column;
@@ -206,6 +276,9 @@ header{
             .farm_building_materials{
                 .farm_decoration_pic{
                     position:relative;
+                    @include tablet{
+                        display:none;
+                    };
                     img{
                         position:absolute;
                         //border:1px solid red;
@@ -242,6 +315,9 @@ header{
             .biodiversity{
                 .farm_decoration_pic{
                     position:relative;
+                    @include tablet{
+                        display:none;
+                    };
                     img{
                         position:absolute;
                         width:150px;
@@ -253,6 +329,9 @@ header{
             .production_equipment{
                 .farm_decoration_pic{
                     position:relative;
+                    @include tablet{
+                        display:none;
+                    };
                     img{
                         position:absolute;
                         width:180px;
@@ -294,7 +373,10 @@ header{
     img{
         position: absolute;
         bottom:-150px;
-        right: 120px;
+        right: 15%;
         z-index: 1;
+        @include tablet{
+            display:none;
+        }
     }
 }
