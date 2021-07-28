@@ -507,7 +507,7 @@ div.checkout_shopping_detail{
         width: 40%;
         margin-left: 10%;
         background-color: $white;
-        // padding-bottom: 30px; 
+        padding-bottom: 30px; 
         h3{
             background-color: $bkc_lightorange;
             padding: 10px 10%;
@@ -701,5 +701,15 @@ div.checkout_shopping_detail{
                 }
             }
         }
+    }
+}
+
+.checkout_footer_img{
+    position: absolute;
+    top: -15%;
+    left: 0%;
+    width: 200px;
+    @include tablet {
+        display: none;
     }
 }

@@ -488,23 +488,6 @@
                         text-align: center;
                         justify-content: center;
                         display: flex;
-                        button{
-                            display: inline-block;
-                            border: 1px solid $brown;
-                            width: 50px;
-                            height:50px;
-                            background-color: $bkc_lightorange;
-                            font-size: $h3;
-                            cursor: pointer;
-                            
-                        }
-                        input{
-                            width: calc(100% - 100px);
-                            text-align: center;
-                            padding: 10px;
-            
-                            border: 1px solid $brown;
-                        }
                     }
                     .show_order_product_detail_price,
                     .show_order_product_detail_total{
@@ -635,13 +618,6 @@
                             text-align: center;
                             justify-content: center;
                             display: flex;
-                            input{
-                                display: inline-block;
-                                width: 50%;
-                                text-align: center;
-                                padding: 10px;
-                                border: 1px solid $brown;
-                            }
                         }
                         .show_order_product_detail_price,
                         .show_order_product_detail_total{

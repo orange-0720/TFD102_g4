@@ -13,7 +13,6 @@
     font-size: $h4;
     transition: 0.5s;
     cursor: pointer;
-
     &:hover {
         background-color: darken($color: $green, $amount: 15);
     }
@@ -34,8 +33,6 @@
     &:hover {
         background-color: darken($color: $green, $amount: 15);
     }
-
-
 }
 
 //黃色按鈕
@@ -52,11 +49,27 @@
     z-index: 1;
     padding: 12px;
     margin-left: 10%;
-
 }
 
 
-
+@mixin hover_line(){
+    position: relative;
+    &:hover{
+        &::after{
+            width: 100%;
+        }
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background-color: yellow;
+        transition: 0.3s;
+    }
+}
 
 //圓角
 @mixin border_radius {

@@ -123,13 +123,6 @@ div.checkout_s3_order_detail{
             text-align: center;
             justify-content: center;
             display: flex;
-            input{
-                width: 50%;
-                text-align: center;
-                padding: 10px;
-
-                border: 1px solid $brown;
-            }
         }
         .checkout_s3_order_product_detail_price,
         .checkout_s3_order_product_detail_total{
@@ -144,7 +137,7 @@ div.checkout_s3_order_detail{
     }
     .order_total_price{
         padding: 20px 20px 20px 0px;
-        text-align: center;
+        text-align: right;
         background-color: $white;
     }
 }
@@ -212,12 +205,6 @@ div.checkout_s3_order_detail{
                 text-align: center;
                 justify-content: center;
                 display: flex;
-                input{
-                    width: 50%;
-                    text-align: center;
-                    padding: 10px;
-                    border: 1px solid $brown;
-                }
             }
             .checkout_s3_order_product_detail_price,
             .checkout_s3_order_product_detail_total{
