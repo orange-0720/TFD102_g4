@@ -48,15 +48,17 @@
       </div>
       <div class="menu">
         <div class="logo_img">
-          <img src="./images/logo.svg" alt="logo" />
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo" />
+          </a>
         </div>
         <div class="page_list">
-          <a href="#">農村體驗</a>
-          <a href="#">客製蔬果箱</a>
-          <a href="#">蔬果知識小遊戲</a>
-          <a href="#">關於我們</a>
-          <a href="#">問與答</a>
-          <a href="#">新鮮蔬果</a>
+          <a href="./event.html">農村體驗</a>
+          <a href="./fruit_box.html">客製蔬果箱</a>
+          <a href="./game.html">蔬果知識小遊戲</a>
+          <a href="./aboutUs.html">關於我們</a>
+          <a href="./q_a.html">問與答</a>
+          <a href="./shopping_page.html">新鮮蔬果</a>
         </div>
       </div>
       <div class="title">
@@ -64,9 +66,9 @@
           <button class="comm_us">
             聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
           </button>
-          <button class="buy_now">
+          <a class="buy_now" href="./shopping_page.html">
             立即買<img src="./images/buy_now.svg" width="25px" alt="" />
-          </button>
+          </a>
         </div>
         <div class="title_pic">
           <img
@@ -81,57 +83,47 @@
 
       <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
-        </a>
+        <div class="hamburger_logo">
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo">
+          </a>
+        </div>
         <div class="header_nav_block">
           <div class="nav_block_contact">
-            <img src="./images/nav_block_pen.svg" />
+            <img src="./images/nav_block_pen.svg" >
             聯絡我們
           </div>
-          <div class="nav_block_log">
-            <img src="./images/nav_block_log.svg" />
+          <a class="nav_block_log" href="./login.html">
+            <img src="./images/nav_block_log.svg">
             登入註冊
-          </div>
+          </a>          
           <div class="nav_right_block">
             <div class="nav_active">
-              <a href="#">農村體驗</a>
-              <a href="#">預約去</a>
+              <a href="./event.html">農村體驗</a>
+              <a href="./event_info.html">預約去</a>
             </div>
             <div class="nav_buy_now">
-              <a href="#">立即買</a>
-              <a href="#">客製蔬果箱</a>
-              <a href="#">新鮮蔬果</a>
+              <a href="./shopping_page.html">立即買</a>
+              <a href="./fruit_box.html">客製蔬果箱</a>
+              <a href="./shopping_page.html">新鮮蔬果</a>
             </div>
             <div class="nav_knowledge">
-              <a href="#">蔬果知識小遊戲</a>
+              <a href="./game.html">蔬果知識小遊戲</a>
             </div>
           </div>
           <div class="nav_left_block">
             <div class="nav_about_us">
-              <a href="#">關於我們</a>
-              <a href="#">農場介紹</a>
-              <a href="#">生產介紹</a>
+              <a href="./aboutUs.html">關於我們</a>
+              <a href="./aboutUs.html">農場介紹</a>
+              <a href="./product_introduction.html">生產介紹</a>
             </div>
             <div class="nav_QA">
-              <a href="#">問與答</a>
+              <a href="./q_a.html">問與答</a>
             </div>
           </div>
-          <img
-            src="./images/header_vegetable.svg"
-            alt="vegetable"
-            class="header_vegetable"
-          />
-          <img
-            src="./images/header_lemon.svg"
-            alt="vegetable"
-            class="header_lemon"
-          />
-          <img
-            src="./images/header_kiwi.svg"
-            alt="vegetable"
-            class="header_kiwi"
-          />
+          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
         </div>
       </div>
       <!-- 漢堡彈窗結束 -->
@@ -160,12 +152,17 @@
       </div>
       <!-- 聯絡我們彈窗結束 -->
 
-      <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
+       <!-- 購物車彈窗  -->
+       <div class="header_shopping_cart">
+        <button class="cart_close">
+          <img src="./images/checkout/X_mark.svg">
+        </button>
         <div class="incart_car_block">
-          <img src="./images/header_incart.svg" alt="" />
+          <img src="./images/header_incart.svg" alt="">
         </div>
-        <div class="cart_buy_list">目前購物車空無一物</div>
+        <div class="cart_buy_list">
+          目前購物車空無一物
+        </div>
         <div class="incart_total">
           總和
           <span>$0</span>
@@ -178,8 +175,10 @@
     </header>
 
     <!-- 當頁內容開始 -->
+    <div id="shopping_page">
     <div class="shopping_main_block">
       <!-- 側邊欄開始 -->
+      <img class="shopping_aside_pic" src="./images/shopping_page/shopping_side.svg" alt="aside">
       <div class="shopping_nav_block">
         <h2 class="show_out_block">商品一覽</h2>
         <hr />
@@ -190,9 +189,7 @@
               <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
             </h3>
             <div class="shopping_box_link">
-              <a href="#">防疫蔬果箱</a>
-              <a href="#">活力蔬果箱</a>
-              <a href="#">防癌蔬果箱</a>
+              <a href="#" v-for="box in boxs">{{box}}</a>
             </div>
           </div>
           <div class="shopping_veg_block">
@@ -201,23 +198,7 @@
               <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
             </h3>
             <div class="shopping_veg_link">
-              <a href="#">高麗菜</a>
-              <a href="#">地瓜</a>
-              <a href="#">大番茄</a>
-              <a href="#">小白菜</a>
-              <a href="#">玉米</a>
-              <a href="#">紅蘿蔔</a>
-              <a href="#">白蘿蔔</a>
-              <a href="#">萵苣</a>
-              <a href="#">青椒</a>
-              <a href="#">甜椒</a>
-              <a href="#">青江菜</a>
-              <a href="#">地瓜葉</a>
-              <a href="#">A菜</a>
-              <a href="#">玉米筍</a>
-              <a href="#">南瓜</a>
-              <a href="#">小黃瓜</a>
-              <a href="#">洋蔥</a>
+              <a href="#" v-for="veg in vegs">{{veg}}</a>
             </div>
           </div>
           <div class="shopping_fruit_block">
@@ -226,23 +207,12 @@
               <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
             </h3>
             <div class="shopping_fruit_link">
-              <a href="#">草莓</a>
-              <a href="#">小番茄</a>
-              <a href="#">甜橙</a>
-              <a href="#">芒果</a>
-              <a href="#">香蕉</a>
-              <a href="#">番石榴</a>
-              <a href="#">檸檬</a>
-              <a href="#">鳳梨</a>
-              <a href="#">柿子</a>
-              <a href="#">哈密瓜</a>
-              <a href="#">香瓜</a>
-              <a href="#">木瓜</a>
+              <a href="#" v-for="fruit in fruits">{{fruit}}</a>
             </div>
           </div>
           <div class="shopping_customer_block">
             <h3>
-              <a href="#">客製蔬果箱</a>
+              <a href="./fruit_box.html">客製蔬果箱</a>
             </h3>
           </div>
         </div>
@@ -250,150 +220,26 @@
       <!-- 側邊欄結束 -->
 
       <div class="shopping_page_list">
-        <div class="shopping_product_block">
-          <a href="#">
+
+        <!-- 資料庫撈出資料迴圈秀出 -->
+        <div class="shopping_product_block" v-for='item in products'>
+          <a href="./itemtest.html">
             <div class="shopping_product_pic">
               <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
+                :src="item.src"
+                :alt="item.id"
               />
-              <span class="shopping_product_incart"></span>
+              <span @click.prevent="incart" class="shopping_product_incart"></span>
             </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
+            <h4 class="shopping_product_name">{{item.name}}</h4>
             <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
+              {{item.intro}}
             </h5>
-            <h4 class="shopping_product_price">399元</h4>
+            <h4 class="shopping_product_price">{{item.price}}元</h4>
           </a>
         </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
-        <div class="shopping_product_block">
-          <a href="#">
-            <div class="shopping_product_pic">
-              <img
-                src="./images/shopping_page/shopping_fake.jpg"
-                alt="商品圖片"
-              />
-              <span class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">防疫蔬果箱</h4>
-            <h5 class="shopping_product_intro">
-              防疫期間推出，內含10種蔬果。 攜手度過本次疫情
-            </h5>
-            <h4 class="shopping_product_price">399元</h4>
-          </a>
-        </div>
+    
+        <!-- 換頁 -->
         <div class="shooping_change_page">
           <div class="change_page_block">
             <div class="circle_base_prev"></div>
@@ -426,15 +272,18 @@
         </div>
       </div>
     </div>
+    </div>
+
 
     <!-- 當頁內容結束 -->
     <footer class="footer_bg">
+      <img class="shopping_footer_img" src="./images/checkout/checkout_footer.svg" alt="for_footer">
       <div class="footer">
         <button class="go_top" id="go_top">
           <img src="./images/top.svg" alt="top" />
         </button>
         <div class="footer_logo">
-          <a href="#">
+          <a href="./index.html">
             <img src="./images/logo.svg" alt="logo" />
           </a>
         </div>
@@ -455,16 +304,16 @@
         </div>
         <div class="footer_right">
           <div class="right_main">
-            <a href="#">首頁</a>
-            <a href="#">農村體驗</a>
-            <a href="#">蔬果知識小遊戲</a>
-            <a href="#">關於我們</a>
-            <a href="#">問與答</a>
+            <a href="./index.html">首頁</a>
+            <a href="./event.html">農村體驗</a>
+            <a href="./game.html">蔬果知識小遊戲</a>
+            <a href="./aboutUs.html">關於我們</a>
+            <a href="./q_a.html">問與答</a>
           </div>
           <div class="right_buy">
-            <a href="#">客製蔬果箱</a>
-            <a href="#">蔬菜</a>
-            <a href="#">水果</a>
+            <a href="./fruit_box.html">客製蔬果箱</a>
+            <a href="./shopping_page.html">蔬菜</a>
+            <a href="./shopping_page.html">水果</a>
           </div>
         </div>
       </div>
@@ -472,7 +321,129 @@
 
     <script src="./js/header.js"></script>
     <script>
+
+      var shopping_page = new Vue({
+        el: "#shopping_page",
+        data:{
+          boxs:[
+            '防疫蔬果箱',
+            '活力蔬果箱',
+            '防果箱',
+          ],
+          vegs:[
+          '高麗菜',
+          '地瓜',
+          '大番茄',
+          '小白菜',
+          '玉米',
+          '紅蘿蔔',
+          '白蘿蔔',
+          '萵苣',
+          '青椒',
+          '甜椒',
+          '青江菜',
+          '地瓜葉',
+          'A菜',
+          '玉米筍',
+          '南瓜',
+          '小黃瓜',
+          '洋蔥',
+          ],
+          fruits:[
+            '草莓',
+            '小番茄',
+            '甜橙',
+            '芒果',
+            '香蕉',
+            '番石榴',
+            '檸檬',
+            '鳳梨',
+            '柿子',
+            '哈密瓜',
+            '香瓜',
+            '木瓜',
+          ],
+          products:[
+            {
+              id:1,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:2,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:3,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:4,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:5,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:6,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:7,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:8,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            },
+            {
+              id:9,
+              name:"防疫蔬果箱",
+              price:399,
+              src: "./images/shopping_page/shopping_fake.jpg",
+              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
+            }
+          ]
+        },
+        methods: {
+          incart(){
+            alert('已加入購物車')
+          }
+        },
+      })
       // 側邊攔展開
+      window.addEventListener('resize',function(){
+        if(window.innerWidth >= 768) {
+          $('.show_box_block').css("display",'block');  
+        }else{
+          $('.show_box_block').css("display",'none');  
+        }
+      })
+      
       $(".shopping_box_slide").on("click", function () {
         $(".shopping_box_link").slideToggle();
       });
@@ -485,12 +456,12 @@
         $(".shopping_fruit_link").slideToggle();
       });
 
-      if(window.innerWidth <= 767){
-        $('.show_out_block').on('click',function(){
-          console.log('aaa');
+      $('.show_out_block').on('click',function(){
+        if(window.innerWidth <= 767){
           $('.show_box_block').slideToggle();
-        })
-      }
+        }
+      })
+      
      
 
       // 回頁首

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./images/logo-02.svg">
     <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
     <header class="header">
@@ -49,15 +50,17 @@
       </div>
       <div class="menu">
         <div class="logo_img">
-          <img src="./images/logo.svg" alt="logo" />
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo" />
+          </a>
         </div>
         <div class="page_list">
-          <a href="#">農村體驗</a>
-          <a href="#">客製蔬果箱</a>
-          <a href="#">蔬果知識小遊戲</a>
-          <a href="#">關於我們</a>
-          <a href="#">問與答</a>
-          <a href="#">新鮮蔬果</a>
+          <a href="./event.html">農村體驗</a>
+          <a href="./fruit_box.html">客製蔬果箱</a>
+          <a href="./game.html">蔬果知識小遊戲</a>
+          <a href="./aboutUs.html">關於我們</a>
+          <a href="./q_a.html">問與答</a>
+          <a href="./shopping_page.html">新鮮蔬果</a>
         </div>
       </div>
       <div class="title">
@@ -65,66 +68,56 @@
           <button class="comm_us">
             聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
           </button>
-          <button class="buy_now">
+          <a class="buy_now" href="./shopping_page.html">
             立即買<img src="./images/buy_now.svg" width="25px" alt="" />
-          </button>
+          </a>
         </div>
       </div>
       <!-- 桌機板header 結束 -->
 
       <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
-        </a>
+        <div class="hamburger_logo">
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo">
+          </a>
+        </div>
         <div class="header_nav_block">
           <div class="nav_block_contact">
             <img src="./images/nav_block_pen.svg" >
             聯絡我們
           </div>
-          <div class="nav_block_log">
+          <a class="nav_block_log" href="./login.html">
             <img src="./images/nav_block_log.svg">
             登入註冊
-          </div>
+          </a>          
           <div class="nav_right_block">
             <div class="nav_active">
-              <a href="#">農村體驗</a>
-              <a href="#">預約去</a>
+              <a href="./event.html">農村體驗</a>
+              <a href="./event_info.html">預約去</a>
             </div>
             <div class="nav_buy_now">
-              <a href="#">立即買</a>
-              <a href="#">客製蔬果箱</a>
-              <a href="#">新鮮蔬果</a>
+              <a href="./shopping_page.html">立即買</a>
+              <a href="./fruit_box.html">客製蔬果箱</a>
+              <a href="./shopping_page.html">新鮮蔬果</a>
             </div>
             <div class="nav_knowledge">
-              <a href="#">蔬果知識小遊戲</a>
+              <a href="./game.html">蔬果知識小遊戲</a>
             </div>
           </div>
           <div class="nav_left_block">
             <div class="nav_about_us">
-              <a href="#">關於我們</a>
-              <a href="#">農場介紹</a>
-              <a href="#">生產介紹</a>
+              <a href="./aboutUs.html">關於我們</a>
+              <a href="./aboutUs.html">農場介紹</a>
+              <a href="./product_introduction.html">生產介紹</a>
             </div>
             <div class="nav_QA">
-              <a href="#">問與答</a>
+              <a href="./q_a.html">問與答</a>
             </div>
           </div>
-          <img
-            src="./images/header_vegetable.svg"
-            alt="vegetable"
-            class="header_vegetable"
-          />
-          <img
-            src="./images/header_lemon.svg"
-            alt="vegetable"
-            class="header_lemon"
-          />
-          <img
-            src="./images/header_kiwi.svg"
-            alt="vegetable"
-            class="header_kiwi"
-          />
+          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
         </div>
       </div>
       <!-- 漢堡彈窗結束 -->
@@ -152,7 +145,10 @@
        <!-- 聯絡我們彈窗結束 -->
 
        <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
+       <div class="header_shopping_cart">
+        <button class="cart_close">
+          <img src="./images/checkout/X_mark.svg">
+        </button>
         <div class="incart_car_block">
           <img src="./images/header_incart.svg" alt="">
         </div>
@@ -177,33 +173,59 @@
           <input type="password" placeholder="會員密碼" />
           <input type="submit" value="登入" id="login_btn" />
           <div class="login_notice">
-            <a id="signup_btn">立即登入</a>
+            <a id="signup_btn">立即註冊</a>
             <span>|</span>
-            <a href="#">忘記密碼</a>
+            <a class="pwd_btn">忘記密碼</a>
           </div>
         </form>
+
+        <!-- 忘記密碼 -->
+        <div class="pwd_block">
+          <div class="pwd_block_inside">
+            <h3>請輸入註冊信箱</h3>
+            <input class="pwd_resend" type="text">
+            <input class="pwd_resend_btn" type="submit" value="送出"/>
+            <button class="cancel_btn"><img src="./images/checkout/X_mark.svg" alt=""></button>
+          </div>
+        </div>
+        <!-- 忘記密碼 -->
+
         <form class="signup_form" action="#" method="POST">
           <h2>會員註冊</h2>
-          <input type="text" placeholder="註冊信箱">
-          <input type="text" placeholder="會員密碼">
-          <input type="text" placeholder="密碼確認">
-          <input type="text" placeholder="聯絡手機">
+          <input class="sign_email" type="text" placeholder="註冊信箱">
+          <input class="sign_pwd" type="password" placeholder="會員密碼">
+          <input class="pwd_confirm" type="password" placeholder="密碼確認">
+          <input class="sign_tel" type="text" placeholder="聯絡手機">
           <label>
             <input type="checkbox">
             我已閱讀並同意會員條款
           </label>
-          <input type="submit" value="註冊" id="signup_btn">
+          <input type="submit" value="註冊" id="sign_confirm_btn">
           <div class="signin_notice">
             <a id="change_to_log">已有帳號請按此登入</a>
           </div>
         </form>
       </div>
+      
+      <!-- 驗證碼彈窗 -->
+      <div class="sign_block">
+        <div class="sign_block_inside">
+          <h3>請輸入驗證碼</h3>
+          <input class="sign_confirm" type="text">
+          <input class="sign_send_btn" type="submit" value="送出"/>
+          <button class="sign_cancel_btn"><img src="./images/checkout/X_mark.svg" alt=""></button>
+        </div>
+      </div>
+      <!-- 驗證碼彈窗 -->
+
       <div class="login_pic">
         <img id="login_img" src="./images/login&out/login_01.jpg" alt="login_pic"/>
       </div>
     </div>
 
     <script src="./js/header.js"></script>
+
+
     <script>
       // 登入介面左右互換
       var form_block = document.getElementsByClassName('form_block')[0];
@@ -240,11 +262,12 @@
             },500);
           }
       });
+
       change_to_log.addEventListener('click', function(e){
         e.preventDefault;
         let login_img = document.getElementById("login_img");
         let login_pic = document.getElementsByClassName("login_pic")[0];
-         
+        
         if(window.innerWidth >= 768){  
           form_block.classList.toggle("form_move");
           login_pic.classList.toggle("pic_move");
@@ -267,6 +290,103 @@
         }
       })
       
+      // 忘記密碼彈窗
+      $('.pwd_btn').click(function(){
+        $('.pwd_block').fadeToggle();
+      })
+
+      $('.pwd_block').click(function(){
+        $('.pwd_block').fadeToggle();
+      })
+      
+      $('.cancel_btn').click(function(){
+        $('.pwd_block').fadeToggle();
+      })
+
+      $('.pwd_block_inside').click(e=>{
+        e.stopPropagation();
+      })
+
+      let pwd_resend_btn = document.getElementsByClassName("pwd_resend_btn")[0];
+      pwd_resend_btn.addEventListener("click", function () {
+        let val = document.getElementsByClassName("pwd_resend")[0].value;
+        if(val !== ""){
+          Email.send({
+            Host: "smtp.gmail.com",
+            Username: "goodvegetablebox@gmail.com",
+            Password: "tfd102g4",
+            To: val,
+            From: "良耕野菜<goodvegetablebox@gmail.com>",
+            Subject: "良耕野菜",
+            Body: "感謝您使用本網站，您的新密碼為11111111，請使用新密碼重新登入",
+          }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入'))
+          .then($('.pwd_block').fadeToggle());
+        }else{
+          alert('請輸入註冊信箱');
+        };
+      });
+      // 忘記密碼結束
+
+      // 註冊會員寄信
+
+      $('.sign_send_btn').click(function(){
+        $('.sign_block').fadeToggle();
+      })
+
+      $('.sign_block').click(function(){
+        $('.sign_block').fadeToggle();
+      })
+      
+      $('.sign_block_inside').click(e=>{
+        e.stopPropagation();
+      })
+
+      $('.sign_cancel_btn').click(function(){
+        $('.sign_block').fadeToggle();
+      })
+
+      let sign_confirm_btn = document.getElementById('sign_confirm_btn');
+      let sign_send_btn = document.getElementsByClassName('sign_send_btn')[0]
+      sign_confirm_btn.addEventListener('click', function(e){
+        e.preventDefault();
+        let sign_email = document.getElementsByClassName('sign_email')[0];
+        let sign_pwd = document.getElementsByClassName('sign_pwd')[0].value;
+        let pwd_confirm = document.getElementsByClassName('pwd_confirm')[0].value;
+        let sign_tel = document.getElementsByClassName('sign_tel')[0];
+        let val = sign_email.value;
+
+        if(val !== "" && val.search('@') != -1){
+          if(sign_pwd === pwd_confirm){
+            Email.send({
+              Host: "smtp.gmail.com",
+              Username: "goodvegetablebox@gmail.com",
+              Password: "tfd102g4",
+              To: val,
+              From: "良耕野菜<goodvegetablebox@gmail.com>",
+              Subject: "良耕野菜",
+              Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
+            }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
+            .then($('.sign_block').fadeToggle());
+          }else{
+            alert('請確認密碼是否相同')
+            document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
+            document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
+          }
+        }else{
+          alert('請輸入正確信箱');
+          sign_email.value = '';
+          sign_email.style.border = '3px solid red';
+        };
+      });
+
+      sign_send_btn.addEventListener('click', function(){
+        let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
+        if(sign_confirm.value == 11111111){
+          alert('註冊成功，為您跳轉首頁');
+          window.location.href = 'index.html';
+        }
+      })
+
     </script>
   </body>
 </html>

@@ -114,12 +114,6 @@
             justify-content: center;
             display: flex;
             }
-            input{
-                width: 40%;
-                padding: 5px 0px;
-                text-align: center;
-                border: 1px solid $brown;
-            }
         .checkout_shopping_product_detail_price,
         .checkout_shopping_product_detail_total{
             width: 15%;
@@ -150,6 +144,9 @@
             background-color: $bkc_lightorange;
             padding: 10px 10%;
         }
+        input{
+            border: 1px solid $brown;
+        }
         .checkout_s2_receiver_infro_group{
             margin-top: 10px;
             padding: 10px 10%;
@@ -158,6 +155,7 @@
                 display: block;
                 width: 100%;
                 padding: 5px;
+                font-size: $h4;
             }
             select{
                 @extend input
@@ -175,6 +173,9 @@
             font-size: $h3;
             background-color: $bkc_lightorange;
             padding: 10px 10%;
+        }
+        input{
+            border: 1px solid $brown;
         }
         .checkout_s2_deliver_infro_check{
             display: block;
@@ -401,10 +402,12 @@
             padding: 10px 10%;
         }
         textarea{
+            font-size: $h4;
             display: block;
             padding: 10px;
             margin: 20px 10% 0px 10%;
-            width: 80%
+            width: 80%;
+            border:1px solid $brown;
         }
     }
     .chekout_s2_order_other_block_pay{
@@ -579,7 +582,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
     @include tablet {
@@ -595,8 +598,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    padding: 60px 5%;
+    width: 80%;
+    padding: 20px 2%;
     background-color: $bkc_yellow;
     .step_back_btn{
         position: absolute;
@@ -618,6 +621,7 @@
             .credit_card_img{
                 width: 500px;
                 height: 350px;
+                @include marginAuto();
                 background-image: url(../../images/checkout/credit_card.png);
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -694,6 +698,7 @@
                     width: 100%;
                     padding: 10px;
                     font-size: $h3;
+                    border: 1px solid $brown;
                 }
             }
             .right_block_number{
@@ -716,6 +721,7 @@
                         width: 100%;
                         padding: 10px;
                         font-size: $h3;
+                        border: 1px solid $brown;
                     }
                 }
                 .right_block_security{
