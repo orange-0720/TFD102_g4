@@ -105,12 +105,10 @@ div.qa_item {
                 }
               }
               
-               
               .hr{
                 display: none;
               }
-              
-
+            
         }
         .sticky {
             position: sticky;
@@ -121,7 +119,7 @@ div.qa_item {
         }
         .qa_list {
             line-height: 30px;
-            top: -5px;
+            margin-top: 40px;;
         }
         .highlight{
             background-color: yellow;
