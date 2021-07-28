@@ -1,3 +1,24 @@
+.title_pic{
+    @include tablet{
+      display:none;
+    }
+}
+.production_introduction_title{
+    display:none;
+    @include tablet{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        h2{
+            position: relative;
+            @include farm_h2();
+        }
+        h2:after{
+            @include underline();
+        }
+      }
+}
 .production_box{
     margin-top:50px;
     display:flex;
@@ -9,6 +30,10 @@
         width: 100%;
         max-width:80%;
         height: 500px;
+        @include tablet{
+           
+            padding:10px;
+        };
         .production_box{
             max-width:400px;
             max-height:500px;
@@ -20,6 +45,17 @@
             overflow: hidden;
             border-radius: 53px;
             position:relative;
+            @include tablet{
+                margin:10px;
+                padding:10px;
+            };
+            @include mobile{
+               border:1px solid red;
+               max-height:400px;
+               margin:10px;
+               padding:0px;
+               
+            };
             a{
                 display:block;
                 max-width:400px;
@@ -243,6 +279,9 @@
         }
         .adjust{
             width:80px;
+            @include tablet{
+                width:0px;
+            };
         }
         .about_vagatable_box{
             background-image: url("../images/farm/product_introduction/bg_vagatable.jpg");
@@ -289,7 +328,11 @@
     vertical-align: middle;
     align-items: center;
     vertical-align: middle;
-   @include boxpadding;
+    padding:0px 70px 0px 20px;
+    @include tablet{
+        margin: 0px 0px 20px 0px;
+        padding:0px 10px 0px 10px;
+    };
     .promise_content{
         display:flex;
         justify-content: center;
@@ -305,6 +348,7 @@
             }
         }
         .promise_item_box{
+            //border:1px solid red;
             display:flex;
             align-items: center;
             flex-wrap: wrap;
@@ -315,6 +359,9 @@
                 width:100%;
                 margin-bottom:50px;
                 padding:0 5%;
+                @include tablet{
+                    padding:0 3%;
+                };
                 img{
                     width:100%;
                 }
@@ -332,10 +379,16 @@
                 justify-content: space-around;
                 width:100%;
                 flex-wrap: wrap;
-                // border:1px solid rgb(79, 19, 231);
+                //border:1px solid rgb(79, 19, 231);
+                @include tablet{
+                    padding:0 3%;
+                };
                 .promise_item_content{
                     margin-bottom:20px;
                     width:45%;
+                    @include tablet{
+                        width:100%;
+                    }
                     // border:1px solid rgb(79, 19, 231);
                     img{
                         width:100%;
@@ -360,5 +413,8 @@
         bottom:-120px;
         left: 40px;
         z-index: 1;
+    }
+    @include tablet{
+       display: none;
     }
 }
