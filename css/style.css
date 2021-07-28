@@ -1018,6 +1018,7 @@ body {
 }
 
 .menu .page_list a {
+  font-size: 16px;
   display: block;
   text-decoration: none;
   padding: 10px 0px 10px 10px;
@@ -1298,7 +1299,6 @@ body {
 
 .footer_bg .footer .footer_center .mail_btn img {
   width: 25px;
-  margin-right: 40px;
   margin-top: 5px;
 }
 
@@ -1385,9 +1385,11 @@ body {
     padding-left: 5%;
     margin-right: 10px;
   }
+  .footer_bg .footer .footer_center .mail_btn {
+    margin-left: 60px;
+  }
   .footer_bg .footer .footer_center .mail_btn img {
     width: 25px;
-    margin-right: 40px;
     margin-top: 5px;
   }
   .footer_bg .footer .footer_right {
@@ -1437,6 +1439,9 @@ body {
   }
   .footer_bg .footer .footer_center .btn_pos {
     margin-left: 18%;
+  }
+  .footer_bg .footer .footer_center .btn_pos .mail_btn {
+    margin-left: 60px;
   }
   .footer_bg .footer .footer_center .btn_pos .mail_btn img {
     width: 25px;
@@ -8476,6 +8481,21 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  div.qa_item div.aside ul {
+    height: auto;
+    padding: 20px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+  div.qa_item div.aside ul li {
+    top: auto;
+    bottom: auto;
+  }
+}
+
 div.qa_step {
   width: 80%;
   margin-left: auto;
@@ -8525,15 +8545,69 @@ div.qa_item {
   flex-wrap: wrap;
 }
 
+@media (max-width: 1199px) {
+  div.qa_item {
+    width: 90%;
+  }
+}
+
 div.qa_item div.aside {
-  width: 15%;
+  width: 18%;
   margin-top: 20px;
   padding: 15px 0px;
 }
 
+@media (max-width: 767px) {
+  div.qa_item div.aside {
+    width: 100%;
+    position: static;
+    border-radius: 8px;
+  }
+  div.qa_item div.aside .qa_list {
+    background-color: #008000;
+    position: static;
+    border-radius: 8px;
+    height: 12vh;
+    background-image: url(../../images/shopping_page/shopping_ham.svg);
+    background-repeat: no-repeat;
+    background-position: top 50%  right 10%;
+    background-size: 50px;
+    cursor: pointer;
+  }
+  div.qa_item div.aside .qa_list h4 {
+    color: #FAF9EF;
+    padding: 20px;
+    margin-left: 0%;
+    font-size: 26px;
+  }
+  div.qa_item div.aside ul {
+    display: none;
+    background-color: #FFF7D2;
+    border-radius: 8px;
+    height: 300px;
+  }
+  div.qa_item div.aside ul li {
+    display: none;
+    margin: 0 10%;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 3px solid #A07332;
+    padding: 4px 5%;
+  }
+  div.qa_item div.aside .hr {
+    display: none;
+  }
+}
+
 div.qa_item div.aside .sticky {
   position: sticky;
-  top: 0;
+  top: 10px;
+}
+
+@media (max-width: 1199px) {
+  div.qa_item div.aside .sticky {
+    top: 100px;
+  }
 }
 
 div.qa_item div.aside .qa_list {
@@ -8555,19 +8629,32 @@ div.qa_item div.aside .hr {
 
 div.qa_item div.aside ul {
   margin-top: 5%;
-  top: 20px;
+}
+
+@media (max-width: 767px) {
+  div.qa_item div.aside ul {
+    margin-top: 0%;
+  }
 }
 
 div.qa_item div.aside ul li {
   cursor: pointer;
   text-decoration: none;
   color: #A07332;
-  bottom: 20px;
   line-height: 30px;
-  top: 20px;
+  font-size: 18px;
 }
 
 div.qa_item div.aside ul li:link, div.qa_item div.aside ul li:visited {
+  color: #A07332;
+}
+
+div.qa_item div.aside ul li a {
+  text-decoration: none;
+  color: #A07332;
+}
+
+div.qa_item div.aside ul li a:link, div.qa_item div.aside ul li a:visited {
   color: #A07332;
 }
 
@@ -8578,12 +8665,24 @@ div.qa_item div.aside ul img {
 }
 
 div.qa_item div.aside ul :hover img {
-  display: block;
+  display: inline-block;
 }
 
 div.qa_item div.qa_problem {
   width: 70%;
   margin-top: 20px;
+}
+
+@media (max-width: 1199px) {
+  div.qa_item div.qa_problem {
+    width: 85%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.qa_item div.qa_problem {
+    margin-top: -20px;
+  }
 }
 
 div.qa_item div.qa_problem .qa_01 {
@@ -8596,6 +8695,7 @@ div.qa_item div.qa_problem .question {
   color: #008000;
   padding: 15px;
   display: flex;
+  line-height: 25px;
 }
 
 div.qa_item div.qa_problem p.answer {
@@ -8651,9 +8751,21 @@ div.qa_item div.qa_problem p.question::after {
   position: absolute;
 }
 
+@media (max-width: 1199px) {
+  .animal_huacaya img {
+    margin-top: -2%;
+  }
+}
+
+@media (max-width: 767px) {
+  .animal_huacaya img {
+    display: none;
+  }
+}
+
 .kiwi {
-  width: 15%;
-  margin-left: 79%;
+  width: 12%;
+  margin-left: 82%;
   margin-top: 30%;
   position: absolute;
 }
@@ -8662,16 +8774,92 @@ div.qa_item div.qa_problem p.question::after {
   position: relative;
 }
 
-.price_butten {
+@media (max-width: 1199px) {
+  div.qa_step {
+    display: none;
+  }
+  div.qa_step .up {
+    display: none;
+  }
+  div.qa_item {
+    margin-top: -6%;
+    margin-left: 30px;
+  }
+  div.qa_item div.qa_problem {
+    width: 80%;
+  }
+  .kiwi {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  div.qa_item div.qa_problem {
+    width: 100%;
+  }
+  div.qa_item .aside {
+    width: 100%;
+  }
+  div.qa_item .aside .qa_list {
+    width: 100%;
+    background-color: #FFF7D2;
+    position: static;
+    border-radius: 8px;
+  }
+  div.qa_item .aside .qa_list h2 {
+    padding: 30px;
+    margin-left: 0%;
+    background-color: #008000;
+    color: #FAF9EF;
+    border-radius: 8px;
+    background-image: url(../../images/shopping_page/shopping_ham.svg);
+    background-repeat: no-repeat;
+    background-position: top 50%  right 10%;
+    background-size: 50px;
+    cursor: pointer;
+  }
+  div.qa_item .aside .qa_list hr {
+    display: none;
+  }
+}
+
+.fruit_title h2 {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .fruit_title h2 {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .fruit_title .under_line {
+    border-top: 5px solid #ffbc53;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    opacity: 0.5;
+    padding-top: 50px;
+  }
+}
+
+.box_price_butten {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   max-width: 1200px;
-  cursor: pointer;
 }
 
-.price_butten button {
+.box_price_butten button {
+  margin-left: 15px;
+  font-weight: 700;
+}
+
+button {
   width: 100px;
   height: 50px;
   background-color: #008000;
@@ -8680,10 +8868,13 @@ div.qa_item div.qa_problem p.question::after {
   border: 0;
   color: #FAF9EF;
   font-size: 20px;
-  font-weight: 700;
   padding: none;
   font-size: 24px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #6b9837;
 }
 
 .butten_check .butten {
@@ -8707,26 +8898,44 @@ div.qa_item div.qa_problem p.question::after {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
   max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 575px) {
+  .fruits_box_two {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    max-width: 1200px;
+    width: 80%;
+  }
 }
 
 .fruits_box_two .fruits_remove_menu {
-  width: 8%;
+  width: 80%;
   background-color: #FFF7D2;
   margin-top: 2%;
   border-radius: 10px;
 }
 
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_remove_menu .fruits_remove_menu .five_fruits {
+    width: 60px;
+    height: 60vh;
+    background-color: #FFF7D2;
+  }
+}
+
 .fruits_box_two .fruits_remove_menu .five_fruits {
-  padding-top: 20px;
-  width: 76%;
+  padding-top: 10px;
   margin: auto;
+  display: flex;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits button {
-  width: 37%;
-  height: 30%;
+  width: 24px;
+  height: 24px;
   background-color: #008000;
   text-decoration: none;
   border-radius: 101px;
@@ -8734,40 +8943,58 @@ div.qa_item div.qa_problem p.question::after {
   color: #FAF9EF;
   font-size: 20px;
   cursor: pointer;
+  margin-left: 0;
 }
 
 .fruits_box_two .fruits_remove_menu .five_fruits .fruit_1 {
-  width: 100%;
-}
-
-.fruits_box_two .fruits_remove_menu .five_fruits .fruit_2 {
-  width: 100%;
-}
-
-.fruits_box_two .fruits_remove_menu .five_fruits .fruit_3 {
-  width: 100%;
-}
-
-.fruits_box_two .fruits_remove_menu .five_fruits .fruit_4 {
-  width: 100%;
-}
-
-.fruits_box_two .fruits_remove_menu .five_fruits .fruit_5 {
-  width: 100%;
+  width: 20%;
 }
 
 .fruits_box_two .fruits_basket {
-  width: 1000px;
-  margin-left: 5%;
-  margin-top: 20px;
+  text-align: center;
+}
+
+.fruits_box_two .fruits_basket img {
+  width: 800px;
+}
+
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_basket img {
+    width: 700px;
+  }
+}
+
+@media (max-width: 767px) {
+  .fruits_box_two .fruits_basket img {
+    width: 500px;
+  }
+}
+
+@media (max-width: 575px) {
+  .fruits_box_two .fruits_basket img {
+    width: 100%;
+  }
 }
 
 .fruits_box_two .fruits_check_butten {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-left: -4%;
   z-index: 1;
+  width: 80%;
+  max-width: 1200px;
+}
+
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_check_butten {
+    margin: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .fruits_box_two .fruits_check_butten {
+    margin: auto;
+  }
 }
 
 .fruits_box_two .fruits_check_butten button {
@@ -8778,10 +9005,9 @@ div.qa_item div.qa_problem p.question::after {
 
 .fruits_box_two .fruits_check_butten button.box_check {
   background-color: #008000;
-  height: 6vh;
-  width: 6vh;
+  height: 40px;
+  width: 40px;
   color: #008000;
-  margin-right: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -8792,61 +9018,26 @@ div.qa_item div.qa_problem p.question::after {
 
 .fruits_box_two .fruits_check_butten button.box_delete {
   background-color: #FFF353;
-  height: 6vh;
-  width: 6vh;
+  height: 40px;
+  width: 40px;
   border-radius: 10px;
   cursor: pointer;
+  margin-left: 15px;
 }
 
 .fruits_box_two .fruits_check_butten button.box_delete:hover {
   background-color: #ecc800;
 }
 
-.fruits_box_two .fruits_basket {
-  width: 70%;
-  position: relative;
-}
-
-.fruits_box_two .fruits_basket #wooden {
-  width: 79%;
-  top: 43%;
-  left: 15%;
-  z-index: 1;
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket #wooden_box {
-  width: 100%;
-  z-index: 0;
-  top: 24%;
-  left: 0%;
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket #avocado {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket #carrot {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket #orange {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket #pepper {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket #tomato {
-  left: 20px;
-  position: absolute;
-}
-
 .butten_check_price {
   width: 80%;
   margin-left: 16%;
+}
+
+@media (max-width: 575px) {
+  .butten_check_price {
+    margin-bottom: -30px;
+  }
 }
 
 .butten_check_price button {
@@ -8875,6 +9066,31 @@ div.qa_item div.qa_problem p.question::after {
   width: 80%;
   margin: auto;
   margin-top: -2%;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .select_fruits .fruits_first_row {
+    width: 100%;
+  }
+  .select_fruits .fruits_first_row .box img {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .select_fruits .fruits_first_row {
+    width: 100%;
+  }
+  .select_fruits .fruits_first_row .box img {
+    width: 100px;
+  }
+}
+
+@media (max-width: 575px) {
+  .select_fruits .fruits_first_row {
+    padding-top: 12%;
+  }
 }
 
 .select_fruits .fruits_first_row .box {
@@ -8905,23 +9121,36 @@ div.qa_item div.qa_problem p.question::after {
   margin-top: 6px;
 }
 
-.select_fruits .fruits_first_row .fruits_second_row {
-  height: 196px;
-}
-
 .select_fruits .fruits_first_row .fruits_items_one img {
   border: 6px green solid;
 }
 
 .product_directions {
   background-color: #FFF353;
-  padding: 7px 10%;
+  padding: 2% 4%;
+}
+
+@media (max-width: 767px) {
+  .product_directions {
+    padding: 0;
+    height: 40px;
+  }
+  .product_directions h4 {
+    padding: 10px;
+    text-align: center;
+  }
 }
 
 .product_directions .select {
-  width: 30%;
+  width: 34%;
   margin: auto;
   font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .product_directions .select {
+    width: 70%;
+  }
 }
 
 .free_give {
@@ -8959,6 +9188,8 @@ div.qa_item div.qa_problem p.question::after {
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
+  opacity: 0.5;
+  border-radius: 10px;
 }
 
 .free_give .free_give_people .free_all {
@@ -8985,6 +9216,12 @@ div.qa_item div.qa_problem p.question::after {
   margin-top: 4%;
 }
 
+@media (max-width: 575px) {
+  .fruit_box_board {
+    flex-direction: column;
+  }
+}
+
 .product_name {
   display: flex;
   justify-content: center;
@@ -9002,16 +9239,55 @@ div.qa_item div.qa_problem p.question::after {
   margin-left: 28%;
 }
 
+@media (max-width: 1199px) {
+  .product_name {
+    margin-left: 17%;
+  }
+}
+
+@media (max-width: 767px) {
+  .product_name {
+    font-size: 16px;
+    margin-left: 20%;
+  }
+}
+
+@media (max-width: 575px) {
+  .product_name {
+    justify-content: center;
+    margin-left: 26%;
+    font-size: 24px;
+  }
+}
+
 .fruit_box_1 {
   position: relative;
+}
+
+@media (max-width: 575px) {
+  .fruit_box_1 {
+    margin-bottom: 50px;
+  }
 }
 
 .fruit_box_2 {
   position: relative;
 }
 
+@media (max-width: 575px) {
+  .fruit_box_2 {
+    margin-bottom: 50px;
+  }
+}
+
 .fruit_box_3 {
   position: relative;
+}
+
+@media (max-width: 575px) {
+  .fruit_box_3 {
+    margin-bottom: 50px;
+  }
 }
 
 ._mask {
@@ -9061,6 +9337,12 @@ div.qa_item div.qa_problem p.question::after {
   margin-left: 5%;
   margin-top: 1%;
   z-index: 1;
+}
+
+@media (max-width: 1199px) {
+  .bg_fruit_box .ufo_ushi {
+    display: none;
+  }
 }
 
 .bg_fruit_box .bg_img2 {
