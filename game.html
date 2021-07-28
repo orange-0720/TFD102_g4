@@ -293,16 +293,16 @@
     <script>
       //暫時button js
       let button = document.querySelector("button#submit");
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function() {
         this.classList.remove("green");
         this.classList.add("blue");
       });
-      button.addEventListener("mouseleave", function () {
+      button.addEventListener("mouseleave", function() {
         this.classList.remove("blue");
         this.classList.add("green");
       });
       //Slider
-      $("#game_slideshow").each(function () {
+      $("#game_slideshow").each(function() {
         let slideImgs = $(this).find("img");
 
         let slideImgsCount = slideImgs.length;
@@ -336,7 +336,7 @@
       // })
 
       // 回頁首
-      $("#go_top").on("click", function (e) {
+      $("#go_top").on("click", function(e) {
         e.preventDefault();
         $("html, body").animate(
           {
