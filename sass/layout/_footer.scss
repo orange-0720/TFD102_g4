@@ -1,4 +1,4 @@
-@import '../mixin/mixin';
+@import "../mixin/mixin";
 
 .footer_bg {
   margin-top: 70px;
@@ -45,7 +45,7 @@
         cursor: pointer;
         @include btn(100%);
         max-width: 300px;
-        
+
         img {
           width: 25px;
           //margin-right: 40px;
@@ -136,8 +136,7 @@
           img {
             width: 25px;
             //margin-right: 40px;
-            margin-top: 5px; 
-           
+            margin-top: 5px;
           }
         }
       }
@@ -147,14 +146,12 @@
         display: flex;
 
         .right_main {
-
           a {
             padding: 10px 5px;
           }
         }
 
         .right_buy {
-
           a {
             padding: 10px 5px;
           }
@@ -202,8 +199,6 @@
         }
 
         .btn_pos {
-          margin-left: 18%;
-
           .mail_btn {
             margin-left: 60px;
             img {
@@ -254,7 +249,6 @@
           margin-left: 50px;
 
           a {
-
             &::before {
               content: "";
               display: inline-block;
