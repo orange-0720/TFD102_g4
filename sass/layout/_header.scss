@@ -30,6 +30,7 @@ body{
             .buy_now{
                 @include btn(220px);
                 margin-top: 20px;
+                text-align: center;
                 img{
                     margin-left: 10px;
                 }
