@@ -165,6 +165,12 @@
         @content ;
     }
 }
+@mixin const {
+    @media(min-width: 992px){
+        @content ;
+    }
+}    
+
 
 //生產介紹表格小動畫    
 @mixin vagatable_fruit_table_animation {

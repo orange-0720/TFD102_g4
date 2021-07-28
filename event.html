@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>良耕野菜</title>
-  <!-- <link rel="stylesheet" href="./css/header.css" /> -->
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/jquery-3.6.0.js"></script>
-
-  
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>良耕野菜-活動體驗</title>
+    <link rel="icon" href="./images/logo-02.svg" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
 
 <body>
   <header class="header">
@@ -40,7 +39,7 @@
           <div class="ham_bottom"></div>
         </div>
         <div class="login">
-          <a href="#">
+          <a href="./login.html">
             <img src="./images/login_icon.svg" alt="login_icon" />
           </a>
         </div>
@@ -51,15 +50,17 @@
     </div>
     <div class="menu">
       <div class="logo_img">
-        <img src="./images/logo.svg" alt="logo" />
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo" />
+        </a>
       </div>
       <div class="page_list">
-        <a href="#">農村體驗</a>
-        <a href="#">客製蔬果箱</a>
-        <a href="#">蔬果知識小遊戲</a>
-        <a href="#">關於我們</a>
-        <a href="#">問與答</a>
-        <a href="#">新鮮蔬果</a>
+        <a href="./event.html">農村體驗</a>
+        <a href="./fruit_box.html">客製蔬果箱</a>
+        <a href="./game.html">蔬果知識小遊戲</a>
+        <a href="./aboutUs.html">關於我們</a>
+        <a href="./q_a.html">問與答</a>
+        <a href="./shopping_page.html">新鮮蔬果</a>
       </div>
     </div>
     <div class="title">
@@ -72,58 +73,66 @@
         </button>
       </div>
       <div class="title_pic">
-        <img src="./images/q_a/q_a_01.jpg" alt="q&a_pic" />
+        <img
+          src="./images/member/member_01.jpg"
+          alt="checkout_pic"
+          style="padding-bottom: 100px;"
+        />
         <span class="bkc_black"></span>
-        <h1>體驗活動</h1>
+        <h1>活動體驗</h1>
       </div>
-      <!-- 公告 -->
+    </div>
+
       <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
-        </a>
+        <div class="hamburger_logo">
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo">
+          </a>
+        </div>
         <div class="header_nav_block">
           <div class="nav_block_contact">
-            <img src="./images/nav_block_pen.svg">
+            <img src="./images/nav_block_pen.svg" >
             聯絡我們
           </div>
-          <div class="nav_block_log">
+          <a class="nav_block_log" href="./login.html">
             <img src="./images/nav_block_log.svg">
             登入註冊
-          </div>
+          </a>          
           <div class="nav_right_block">
             <div class="nav_active">
-              <a href="#">農村體驗</a>
-              <a href="#">預約去</a>
+              <a href="./event.html">農村體驗</a>
+              <a href="./event_info.html">預約去</a>
             </div>
             <div class="nav_buy_now">
-              <a href="#">立即買</a>
-              <a href="#">客製蔬果箱</a>
-              <a href="#">新鮮蔬果</a>
+              <a href="./shopping_page.html">立即買</a>
+              <a href="./fruit_box.html">客製蔬果箱</a>
+              <a href="./shopping_page.html">新鮮蔬果</a>
             </div>
             <div class="nav_knowledge">
-              <a href="#">蔬果知識小遊戲</a>
+              <a href="./game.html">蔬果知識小遊戲</a>
             </div>
           </div>
           <div class="nav_left_block">
             <div class="nav_about_us">
-              <a href="#">關於我們</a>
-              <a href="#">農場介紹</a>
-              <a href="#">生產介紹</a>
+              <a href="./aboutUs.html">關於我們</a>
+              <a href="./aboutUs.html">農場介紹</a>
+              <a href="./product_introduction.html">生產介紹</a>
             </div>
             <div class="nav_QA">
-              <a href="#">問與答</a>
+              <a href="./q_a.html">問與答</a>
             </div>
           </div>
-          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable" />
-          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon" />
-          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi" />
+          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
         </div>
       </div>
       <!-- 漢堡彈窗結束 -->
-      <div class="index_contact_box">
-        <div class="black_block"></div>
-        <div class="cotanct_block">
+    
+    <div class="index_contact_box">
+      <div class="black_block"></div>
+      <div class="cotanct_block">
           <div class="contact_block_head">
             <button class="contact_block_Xmark"></button>
           </div>
@@ -138,23 +147,23 @@
           <div class="mailto_block">
             <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
           </div>
-        </div>
       </div>
-      <div class="header_shopping_cart">
-        <div class="incart_car_block">
-          <img src="./images/header_incart.svg" alt="">
-        </div>
-        <div class="cart_buy_list">
-          目前購物車空無一物
-        </div>
-        <div class="incart_total">
-          總和
-          <span>$0</span>
-        </div>
-        <div class="incart_checkout_block">
-          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
-        </div>
+    </div>
+    <div class="header_shopping_cart">
+      <div class="incart_car_block">
+        <img src="./images/header_incart.svg" alt="">
       </div>
+      <div class="cart_buy_list">
+        目前購物車空無一物
+      </div>
+      <div class="incart_total">
+        總和
+        <span>$0</span>
+      </div>
+      <div class="incart_checkout_block">
+        <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+      </div>
+    </div>
   </header>
 
   <section class="test">
@@ -164,15 +173,15 @@
                 <header>
                     <h2>摘採野菜體驗</h2>
                 </header>
-                <p>開催期間 2021年6月5日～2021年9月30日</p>
+                <p>活動期間 2021年6月5日～2021年9月30日</p>
                 <p>所要時間 約3.5時間〜</p>
                 <p>参加料金 300元</p>
                 <br>
                 <p>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！
                 </p>
                 <div>
-                    <button class="event_btn">詳細內容</button>
-                    <button class="event_btn">預約去</button>
+                  <!-- <a href=""><button class="event_btn">詳細內容</button></a> -->
+                  <a href="./event_info.html"><button class="event_btn">預約去</button></a>
                 </div>  
             </div>
             <div class="row_right">
@@ -196,15 +205,15 @@
                 <header>
                     <h2>摘採野菜體驗</h2>
                 </header>
-                <p>開催期間 2021年6月5日～2021年9月30日</p>
+                <p>活動期間 2021年6月5日～2021年9月30日</p>
                 <p>所要時間 約3.5時間〜</p>
                 <p>参加料金 300元</p>
                 <br>
                 <p>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！
                 </p>
                 <div>
-                    <button class="event_btn">詳細內容</button>
-                    <button class="event_btn">預約去</button>   
+                  <!-- <a href=""><button class="event_btn">詳細內容</button></a> -->
+                  <a href="./event_info.html"><button class="event_btn">預約去</button></a>
                 </div>
             </div>
         </div>
@@ -218,15 +227,15 @@
                 <header>
                     <h2>摘採野菜體驗</h2>
                 </header>
-                <p>開催期間 2021年6月5日～2021年9月30日</p>
+                <p>活動期間 2021年6月5日～2021年9月30日</p>
                 <p>所要時間 約3.5時間〜</p>
                 <p>参加料金 300元</p>
                 <br>
                 <p>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！
                 </p>
                 <div>
-                    <button class="event_btn">詳細內容</button>
-                    <button class="event_btn">預約去</button>   
+                  <!-- <a href=""><button class="event_btn">詳細內容</button></a> -->
+                  <a href="./event_info.html"><button class="event_btn">預約去</button></a>   
                 </div>
             </div>
             <div class="row_right">
@@ -237,34 +246,19 @@
         </div>
     </div>
   </section>
-
+  <div class="push_item">
+      <h2>良耕好物</h2>
+  </div>
   <div class="ProductList">
-    <div class="ProductList__item"></div>
-    <div class="ProductList__item"></div>
-    <div class="ProductList__item"></div>
-    <div class="ProductList__item"></div>
-    <div class="ProductList__item"></div>
-    <div class="ProductList__item"></div>
+    <a href=""><div class="ProductList__item" style="background-image: url(/images/product_introduction/bg_fruit.jpg);"></div></a>
+    <a href=""><div class="ProductList__item" style="background-image: url(/images/farm/fruit/s_persimmon.jpg);"></div></a>
+    <a href=""><div class="ProductList__item" style="background-image: url(/images/product_introduction/bg_fruit.jpg);"></div></a>
+    <a href=""><div class="ProductList__item" style="background-image: url(/images/farm/vagatable/s_onion.jpg);"></div></a>
+    <a href=""><div class="ProductList__item" style="background-image: url(/images/product_introduction/bg_fruit.jpg);"></div></a>
+    <a href=""><div class="ProductList__item" style="background-image: url(/images/farm/fruit/guava.jpg);"></div></a>
   </div>
 
 
-
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
-  <div>1</div>
 
 
 
@@ -316,23 +310,39 @@
   </footer>
 
 
+  <script src="./js/header.js"></script>
   <script>
-
-    var menu = document.getElementsByClassName("menu")[0];
-    document.addEventListener("scroll", function () {
-      menu.style.top = (0 - (scrollY)) + "px";
+    // 側邊攔展開
+    $(".shopping_box_slide").on("click", function () {
+      $(".shopping_box_link").slideToggle();
     });
 
+    $(".shopping_veg_block").on("click", function () {
+      $(".shopping_veg_link").slideToggle();
+    });
+
+    $(".shopping_fruit_block").on("click", function () {
+      $(".shopping_fruit_link").slideToggle();
+    });
+
+    if(window.innerWidth <= 767){
+      $('.show_out_block').on('click',function(){
+        console.log('aaa');
+        $('.show_box_block').slideToggle();
+      })
+    }
+   
+
+    // 回頁首
     $("#go_top").on("click", function (e) {
       e.preventDefault();
-      $('html, body').animate({
-        scrollTop: 0
-      }, 750);
+      $("html, body").animate(
+        {
+          scrollTop: 0,
+        },
+        750
+      );
     });
-
-
-
-
   </script>
 </body>
 
