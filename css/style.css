@@ -257,7 +257,7 @@ body {
   min-height: 100vh;
   max-height: 100%;
   padding-bottom: 30px;
-  z-index: 2;
+  z-index: 99;
   background-color: #FAF9EF;
   background-image: url(../../images/hambur_bkc_img.svg);
 }
@@ -11694,7 +11694,7 @@ div#game_title h2.game_title::after {
   position: absolute;
   left: -25px;
   top: 40px;
-  background-color: #FFBA10;
+  background-color: #ffba10;
   border-color: black;
   border-radius: 101px;
 }
@@ -11722,7 +11722,7 @@ div#game_decorate_testNumberCircle {
   position: absolute;
   border-radius: 50%;
   top: -5rem;
-  background-color: #B9F18C;
+  background-color: #b9f18c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11886,7 +11886,7 @@ section#game_play_border #count {
 
 @media (max-width: 575px) {
   section#game_play_border #count {
-    top: -.5%;
+    top: -0.5%;
     right: 2%;
   }
 }
@@ -11903,8 +11903,8 @@ section#game_play_border #count h1 {
 }
 
 section#game_play_border div.game_test {
-  height: 350px;
-  margin-top: 16rem;
+  height: 400px;
+  margin-top: 24rem;
   display: flex;
 }
 
