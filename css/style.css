@@ -8676,6 +8676,12 @@ header .video iframe {
   position: relative;
 }
 
+.farm_products_box .farm_products .farm_products_item_box .farm_products_item a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .farm_products_box .farm_products .farm_products_item_box .farm_products_item img {
   max-width: 200px;
   max-height: 200px;
