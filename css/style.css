@@ -7123,6 +7123,7 @@ body {
     display: block;
   }
   .header .index_title .pic_index img {
+    height: 100%;
     margin-bottom: 0;
   }
 }
@@ -8618,7 +8619,7 @@ div.qa_item div.aside .sticky {
 
 div.qa_item div.aside .qa_list {
   line-height: 30px;
-  top: -5px;
+  margin-top: 40px;
 }
 
 div.qa_item div.aside .highlight {
@@ -8840,6 +8841,7 @@ div.qa_item div.qa_problem p.question::after {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-top: 50px;
   }
   .fruit_title .under_line {
     border-top: 5px solid #ffbc53;
