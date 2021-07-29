@@ -112,21 +112,12 @@ div#game_decorate_testNumberCircle_2 {
 //     }
 
 //    ==小遊戲背景圖==
-<<<<<<< HEAD
     body#game_page{
         background-image: url(../images/game/bg_leaf.svg);
         background-repeat: no-repeat;
         background-position: bottom right;
         background-attachment :fixed;
     }
-=======
-body#game_page {
-  background-image: url(/images/game/bg_leaf.svg);
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-attachment: fixed;
-}
->>>>>>> dev
 
 // ==小遊戲主欄位==
 section#game_play_border {
