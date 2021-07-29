@@ -37,17 +37,17 @@
     }
   }
 
-  
-
-  button {
-    @include btn_small(100px, 50px);
-    padding: none;
-    font-size: $h3;
-    cursor: pointer;
-    &:hover {
-      background-color: darken($color: $green, $amount: 15);
-     
-  }
+  .box_price_butten{
+    button {
+      @include btn_small(100px, 50px);
+      padding: none;
+      font-size: $h3;
+      cursor: pointer;
+      &:hover {
+        background-color: darken($color: $green, $amount: 15);
+       
+    }
+  } 
 }
 
 

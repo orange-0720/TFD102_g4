@@ -1,9 +1,9 @@
 div.login_block{
     width: 100%;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     padding-left: 5%;
-    padding-right: 20%;
+    padding-right: 21%;
     display: flex;
     .form_block{
         width: 40%;
@@ -12,6 +12,7 @@ div.login_block{
         border:1px solid $brown;
         padding: 30px 0px;
         transition: 1s;
+        min-height: 475px;
         .login_form{
             h2{
                 text-align: center;
@@ -20,8 +21,10 @@ div.login_block{
             input{
                 display: block;
                 margin: 50px auto;
-                width: 60%;
+                width: 70%;
                 padding: 10px;
+                font-size: $h5;
+                border: 1px solid $brown;
                 &:focus{
                     outline: 1px solid $brown;
                 }
@@ -29,6 +32,8 @@ div.login_block{
             #login_btn{
                 @include btn(60%);
                 display: block;
+                @include marginAuto();
+                text-align: center;
                 &:focus{
                     outline: none;
                 }
@@ -53,8 +58,10 @@ div.login_block{
             input{
                 display: block;
                 margin: 20px auto;
-                width: 60%;
+                width: 70%;
                 padding: 10px;
+                font-size: 20px;
+                border: 1px solid $brown;
                 &:focus{
                     outline: 1px solid $brown;
                 }
@@ -62,7 +69,7 @@ div.login_block{
             label{
                 display: block;
                 margin: 0px auto;
-                width: 60%;
+                width: 70%;
                 padding: 10px;
                 text-align: center;
                 input{
@@ -73,7 +80,7 @@ div.login_block{
                     
                 }
             }
-            #signup_btn{
+            #sign_confirm_btn{
                 @include btn(60%);
                 display: block;
                 &:focus{
@@ -181,7 +188,7 @@ div.login_block{
                         
                     }
                 }
-                #signup_btn{
+                #sign_confirm_btn{
                     @include btn(80%);
                     display: block;
                     &:focus{
@@ -234,13 +241,14 @@ div.login_block{
             .login_form{
                 h2{
                     text-align: center;
-                    margin-top: 5%;
+                    margin-top: 40px;
                 }
                 input{
                     display: block;
-                    margin: 40px auto;
-                    width: 60%;
+                    margin: 50px auto;
+                    width: 70%;
                     padding: 10px;
+                    font-size: $h5;
                     &:focus{
                         outline: 1px solid $brown;
                     }
@@ -272,8 +280,9 @@ div.login_block{
                 input{
                     display: block;
                     margin: 20px auto;
-                    width: 80%;
+                    width: 70%;
                     padding: 10px;
+                    font-size: $h5;
                     &:focus{
                         outline: 1px solid $brown;
                     }
@@ -292,7 +301,7 @@ div.login_block{
                         
                     }
                 }
-                #signup_btn{
+                #sign_confirm_btn{
                     @include btn(60%);
                     display: block;
                     &:focus{
@@ -328,5 +337,115 @@ div.login_block{
 .pad_move{
     @include pad {
         transform: translateY(-100%);
+    }
+}
+
+.pwd_block{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    .pwd_block_inside{
+        width: 400px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px 0px;
+        background-color: $white;
+        @include mobile {
+            width: 80%
+        };
+        h3{
+            text-align: center;
+        }
+        .pwd_resend{
+            display: block;
+            width: 80%;
+            @include marginAuto();
+            margin-top: 30px;
+            padding: 10px;
+            border: 1px solid $brown;
+        }
+        .pwd_resend_btn{
+            @include btn(50%);
+            display: block;
+            margin-top: 30px;
+            @include marginAuto();
+        }
+        .cancel_btn{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: $white;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.sign_block{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    .sign_block_inside{
+        width: 400px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px 0px;
+        background-color: $white;
+        @include mobile {
+            width: 80%
+        };
+        h3{
+            text-align: center;
+        }
+        .sign_confirm{
+            display: block;
+            width: 80%;
+            @include marginAuto();
+            margin-top: 30px;
+            padding: 10px;
+            border: 1px solid $brown;
+        }
+        .sign_send_btn{
+            @include btn(50%);
+            display: block;
+            margin-top: 30px;
+            @include marginAuto();
+        }
+        .sign_cancel_btn{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 30px;
+            height: 30px;
+            background-color: $white;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            img{
+                max-width: 100%;
+            }
+        }
     }
 }
