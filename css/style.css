@@ -1386,10 +1386,10 @@ body {
     padding-left: 5%;
     margin-right: 10px;
   }
-  .footer_bg .footer .footer_center .mail_btn {
-    margin-left: 60px;
+  .footer_bg .footer .footer_center .btn_pos {
+    text-align: center;
   }
-  .footer_bg .footer .footer_center .mail_btn img {
+  .footer_bg .footer .footer_center .btn_pos .mail_btn img {
     width: 25px;
     margin-top: 5px;
   }
@@ -1438,8 +1438,12 @@ body {
   .footer_bg .footer .footer_center h5 {
     padding-left: 15%;
   }
+  .footer_bg .footer .footer_center .btn_pos {
+    text-align: center;
+  }
   .footer_bg .footer .footer_center .btn_pos .mail_btn {
-    margin-left: 60px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .footer_bg .footer .footer_center .btn_pos .mail_btn img {
     width: 25px;

@@ -131,12 +131,15 @@
         padding-left: 5%;
         margin-right: 10px;
 
-        .mail_btn {
-          margin-left: 60px;
-          img {
-            width: 25px;
-            //margin-right: 40px;
-            margin-top: 5px;
+        .btn_pos{
+          text-align: center;
+          .mail_btn {
+            // margin-left: 60px;
+            img {
+              width: 25px;
+              //margin-right: 40px;
+              margin-top: 5px;
+            }
           }
         }
       }
@@ -200,9 +203,10 @@
 
         .btn_pos {
           // margin-left: 18%;
-
+          text-align: center;
           .mail_btn {
-            margin-left: 60px;
+            // margin-left: 60px;
+            @include marginAuto();
             img {
               width: 25px;
               margin-right: 40px;
