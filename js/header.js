@@ -2,10 +2,10 @@
 // 固定header
 var menu = document.getElementsByClassName("menu")[0];
 document.addEventListener("scroll", function(){
-  console.log(window.scrollY);
-  // console.log(menu)
-  // console.log(menu_top);
-  console.log(menu.style.top)
+  // console.log(window.scrollY);
+  // // console.log(menu)
+  // // console.log(menu_top);
+  // console.log(menu.style.top)
   menu.style.top = (0 - (scrollY)) + "px";
 });
 

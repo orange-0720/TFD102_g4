@@ -2,7 +2,7 @@
 
 .footer_bg {
   margin-top: 70px;
-  background-image: url("../../images/footer.png");
+  background-image: url("../images/footer.png");
   width: 100%;
   background-position: -50px top;
   background-repeat: no-repeat;
@@ -163,7 +163,7 @@
 
 @include mobile {
   .footer_bg {
-    background-image: url("../../images/footer_mobile.png");
+    background-image: url("../images/footer_mobile.png");
     background-position: -80px top;
 
     .footer {
