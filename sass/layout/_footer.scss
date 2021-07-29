@@ -2,7 +2,7 @@
 
 .footer_bg {
   margin-top: 70px;
-  background-image: url("../../images/footer.png");
+  background-image: url("../images/footer.png");
   width: 100%;
   background-position: -50px top;
   background-repeat: no-repeat;
@@ -131,12 +131,15 @@
         padding-left: 5%;
         margin-right: 10px;
 
-        .mail_btn {
-          margin-left: 60px;
-          img {
-            width: 25px;
-            //margin-right: 40px;
-            margin-top: 5px;
+        .btn_pos{
+          text-align: center;
+          .mail_btn {
+            // margin-left: 60px;
+            img {
+              width: 25px;
+              //margin-right: 40px;
+              margin-top: 5px;
+            }
           }
         }
       }
@@ -163,7 +166,7 @@
 
 @include mobile {
   .footer_bg {
-    background-image: url("../../images/footer_mobile.png");
+    background-image: url("../images/footer_mobile.png");
     background-position: -80px top;
 
     .footer {
@@ -200,9 +203,10 @@
 
         .btn_pos {
           // margin-left: 18%;
-
+          text-align: center;
           .mail_btn {
-            margin-left: 60px;
+            // margin-left: 60px;
+            @include marginAuto();
             img {
               width: 25px;
               margin-right: 40px;
