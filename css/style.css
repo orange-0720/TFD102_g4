@@ -8840,6 +8840,7 @@ div.qa_item div.qa_problem p.question::after {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-top: 50px;
   }
   .fruit_title .under_line {
     border-top: 5px solid #ffbc53;
