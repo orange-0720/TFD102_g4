@@ -11853,7 +11853,7 @@ section#game_play_border .icon_4 {
   position: absolute;
   top: -5%;
   right: -2%;
-  width: 9vw;
+  width: 120px;
 }
 
 @media (max-width: 767px) {
@@ -11871,30 +11871,30 @@ section#game_play_border .icon_4 {
 
 section#game_play_border #count {
   position: absolute;
-  top: 2%;
-  right: 3%;
+  top: -1.5%;
+  right: 2%;
   color: white;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
   section#game_play_border #count {
-    top: 1%;
+    top: -1%;
     right: 3%;
   }
 }
 
 @media (max-width: 575px) {
   section#game_play_border #count {
-    top: -0.5%;
+    top: -1.8%;
     right: 2%;
   }
 }
 
 section#game_play_border #count h1 {
-  font-size: 3vw;
+  font-size: 36px;
   font-weight: bolder;
 }
 
@@ -12206,7 +12206,7 @@ div#game_title h2.game_title::after {
   position: absolute;
   left: -25px;
   top: 40px;
-  background-color: #FFBA10;
+  background-color: #ffba10;
   border-color: black;
   border-radius: 101px;
 }
@@ -12234,7 +12234,7 @@ div#game_decorate_testNumberCircle_2 {
   position: absolute;
   border-radius: 50%;
   top: -5rem;
-  background-color: #F42272;
+  background-color: #f42272;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12369,7 +12369,7 @@ section#game_play_border .icon_4 {
   position: absolute;
   top: -5%;
   right: -2%;
-  width: 9vw;
+  width: 120px;
 }
 
 @media (max-width: 767px) {
@@ -12387,30 +12387,30 @@ section#game_play_border .icon_4 {
 
 section#game_play_border #count {
   position: absolute;
-  top: 2%;
-  right: 3%;
+  top: -1.5%;
+  right: 2%;
   color: white;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
   section#game_play_border #count {
-    top: 1%;
+    top: -1%;
     right: 3%;
   }
 }
 
 @media (max-width: 575px) {
   section#game_play_border #count {
-    top: -.5%;
+    top: -1.8%;
     right: 2%;
   }
 }
 
 section#game_play_border #count h1 {
-  font-size: 3vw;
+  font-size: 40px;
   font-weight: bolder;
 }
 
@@ -12605,7 +12605,7 @@ section#game_play_border #game_question h2 {
     transition: 0.5s;
     cursor: pointer;
     font-size: 14px;
-    margin: .5rem;
+    margin: 0.5rem;
     line-height: 15px;
     padding: 1px;
   }
@@ -12686,7 +12686,7 @@ section#game_play_border #game_question h2 {
     transition: 0.5s;
     cursor: pointer;
     font-size: 14px;
-    margin: .5rem;
+    margin: 0.5rem;
     line-height: 15px;
     padding: 1px;
   }
@@ -12817,7 +12817,7 @@ div#game_title h2.game_title::after {
   position: absolute;
   left: -25px;
   top: 40px;
-  background-color: #FFBA10;
+  background-color: #ffba10;
   border-color: black;
   border-radius: 101px;
 }
@@ -12845,7 +12845,7 @@ div#game_decorate_testNumberCircle_2 {
   position: absolute;
   border-radius: 50%;
   top: -5rem;
-  background-color: #F42272;
+  background-color: #f42272;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12980,7 +12980,7 @@ section#game_play_border_PassandDefeat .icon_4 {
   position: absolute;
   top: -5%;
   right: -2%;
-  width: 9vw;
+  width: 120px;
 }
 
 @media (max-width: 767px) {
@@ -12998,12 +12998,12 @@ section#game_play_border_PassandDefeat .icon_4 {
 
 section#game_play_border_PassandDefeat #count {
   position: absolute;
-  top: 2%;
-  right: 3%;
+  top: -1.5%;
+  right: 2%;
   color: white;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
@@ -13015,7 +13015,7 @@ section#game_play_border_PassandDefeat #count {
 
 @media (max-width: 575px) {
   section#game_play_border_PassandDefeat #count {
-    top: -.5%;
+    top: -1.8%;
     right: 2%;
   }
 }
@@ -13085,7 +13085,7 @@ section#game_play_border_PassandDefeat #game_question {
 
 @media (max-width: 575px) {
   section#game_play_border_PassandDefeat #game_question {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -13223,7 +13223,7 @@ section#game_play_border_PassandDefeat #game_question h2 {
     transition: 0.5s;
     cursor: pointer;
     font-size: 16px;
-    margin: .5rem;
+    margin: 0.5rem;
     line-height: 20px;
     display: flex;
     align-items: center;
@@ -13324,7 +13324,7 @@ section#game_play_border_PassandDefeat #game_question h2 {
     transition: 0.5s;
     cursor: pointer;
     font-size: 16px;
-    margin: .5rem;
+    margin: 0.5rem;
     line-height: 20px;
     display: flex;
     align-items: center;
@@ -13463,7 +13463,7 @@ div#game_title_lottery h2.game_title::after {
   position: absolute;
   left: -25px;
   top: 40px;
-  background-color: #FFBA10;
+  background-color: #ffba10;
   border-color: black;
   border-radius: 101px;
 }
@@ -13491,7 +13491,7 @@ div#game_decorate_testNumberCircle_3 {
   position: absolute;
   border-radius: 50%;
   top: -5rem;
-  background-color: #F42272;
+  background-color: #f42272;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13531,102 +13531,6 @@ div#game_decorate_testNumberCircle_3 h1#inside_testNumber {
 @media (max-width: 575px) {
   div#game_decorate_testNumberCircle_3 h1#inside_testNumber {
     font-size: 24px;
-  }
-}
-
-@keyframes jumpOrange {
-  0% {
-    transform: translate(-50%, 230%);
-  }
-  50% {
-    transform: translate(-50%, 180%);
-  }
-  100% {
-    transform: translate(-50%, 230%);
-  }
-}
-
-@keyframes jumpPotato {
-  0% {
-    transform: translate(-110%, 210%) rotateZ(-20deg);
-  }
-  50% {
-    transform: translate(-110%, 160%) rotateZ(-20deg);
-  }
-  100% {
-    transform: translate(-110%, 210%) rotateZ(-20deg);
-  }
-}
-
-@keyframes jumpBeetroot {
-  0% {
-    transform: translate(70%, 120%) rotateZ(20deg);
-  }
-  50% {
-    transform: translate(70%, 70%) rotateZ(20deg);
-  }
-  100% {
-    transform: translate(70%, 120%) rotateZ(20deg);
-  }
-}
-
-@keyframes jumpPepper {
-  0% {
-    transform: translate(50%, 110%) rotateZ(10deg);
-  }
-  50% {
-    transform: translate(50%, 60%) rotateZ(10deg);
-  }
-  100% {
-    transform: translate(50%, 110%) rotateZ(10deg);
-  }
-}
-
-@keyframes jumpCabbage {
-  0% {
-    transform: translate(-20%, 160%) rotateZ(10deg);
-  }
-  50% {
-    transform: translate(-20%, 110%) rotateZ(10deg);
-  }
-  100% {
-    transform: translate(-20%, 160%) rotateZ(10deg);
-  }
-}
-
-@keyframes jumpOnion {
-  0% {
-    transform: translate(-170%, 200%) rotateZ(-20deg);
-  }
-  50% {
-    transform: translate(-170%, 150%) rotateZ(-20deg);
-  }
-  100% {
-    transform: translate(-170%, 200%) rotateZ(-20deg);
-  }
-}
-
-@keyframes jumpGreenapple {
-  0% {
-    transform: translate(-170%, 130%) rotateZ(-20deg);
-  }
-  50% {
-    transform: translate(-170%, 80%) rotateZ(-20deg);
-  }
-  100% {
-    transform: translate(-170%, 130%) rotateZ(-20deg);
-  }
-}
-
-@keyframes jumpPumpkin {
-  0% {
-    transform: translate(-90%, 160%) rotateZ(-10deg);
-  }
-  50% {
-    transform: translate(-90%, 110%) rotateZ(-10deg);
-  }
-  100% {
-    transform: translate(-90%, 160%) rotateZ(-10deg);
   }
 }
 
@@ -13721,7 +13625,7 @@ section#game_play_border_lottery .icon_4 {
   position: absolute;
   top: -5%;
   right: -2%;
-  width: 9vw;
+  width: 120px;
 }
 
 @media (max-width: 767px) {
@@ -13739,12 +13643,12 @@ section#game_play_border_lottery .icon_4 {
 
 section#game_play_border_lottery #count {
   position: absolute;
-  top: .6%;
-  right: 3%;
+  top: -1.5%;
+  right: 2%;
   color: white;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
@@ -13762,7 +13666,7 @@ section#game_play_border_lottery #count {
 }
 
 section#game_play_border_lottery #count h1 {
-  font-size: 3vw;
+  font-size: 40px;
   font-weight: bolder;
 }
 
@@ -13887,9 +13791,7 @@ section#game_play_border_lottery div.game_test_3 div#bowl img#orange {
   top: 0%;
   left: 50%;
   transform: translate(-50%, 230%);
-  animation-name: jumpOrange;
-  animation-duration: 3.5s;
-  animation-iteration-count: infinite;
+  animation: jumpOrange 3.5s infinite;
 }
 
 section#game_play_border_lottery div.game_test_3 div#bowl img#potato {
@@ -14008,6 +13910,110 @@ section#game_play_border_lottery #game_question {
   }
 }
 
+@keyframes jumpOrange {
+  0% {
+    transform: translate(-50%, 230%);
+  }
+  50% {
+    transform: translate(-50%, 180%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 230%);
+  }
+}
+
+@keyframes jumpPotato {
+  0% {
+    transform: translate(-110%, 210%) rotateZ(-20deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-110%, 160%) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(-110%, 210%) rotateZ(-20deg);
+  }
+}
+
+@keyframes jumpBeetroot {
+  0% {
+    transform: translate(70%, 120%) rotateZ(20deg);
+  }
+  50% {
+    transform: translate(70%, 70%) rotateZ(20deg);
+  }
+  100% {
+    transform: translate(70%, 120%) rotateZ(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes jumpPepper {
+  0% {
+    transform: translate(50%, 110%) rotateZ(10deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(50%, 60%) rotateZ(10deg);
+  }
+  100% {
+    transform: translate(50%, 110%) rotateZ(10deg);
+  }
+}
+
+@keyframes jumpCabbage {
+  0% {
+    transform: translate(-20%, 160%) rotateZ(10deg);
+  }
+  50% {
+    transform: translate(-20%, 110%) rotateZ(10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-20%, 160%) rotateZ(10deg);
+  }
+}
+
+@keyframes jumpOnion {
+  0% {
+    transform: translate(-170%, 200%) rotateZ(-20deg);
+  }
+  50% {
+    transform: translate(-170%, 150%) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(-170%, 200%) rotateZ(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes jumpGreenapple {
+  0% {
+    transform: translate(-170%, 130%) rotateZ(-20deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-170%, 80%) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(-170%, 130%) rotateZ(-20deg);
+  }
+}
+
+@keyframes jumpPumpkin {
+  0% {
+    transform: translate(-90%, 160%) rotateZ(-10deg);
+  }
+  50% {
+    transform: translate(-90%, 110%) rotateZ(-10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-90%, 160%) rotateZ(-10deg);
+  }
+}
+
 /* ===按鈕及農夫圖=== */
 #game_bottom_part_lottery {
   display: flex;
@@ -14027,6 +14033,7 @@ section#game_play_border_lottery #game_question {
 @media (max-width: 575px) {
   #game_bottom_part_lottery {
     margin-top: 4rem;
+    width: 370px;
   }
 }
 
@@ -14134,7 +14141,7 @@ section#game_play_border_lottery #game_question {
     transition: 0.5s;
     cursor: pointer;
     font-size: 16px;
-    margin: .5rem;
+    margin: 0.5rem;
     line-height: 20px;
     display: flex;
     align-items: center;
