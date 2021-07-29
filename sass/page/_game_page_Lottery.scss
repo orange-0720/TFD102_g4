@@ -177,7 +177,7 @@ div#game_decorate_testNumberCircle_3 {
 
 //    ==小遊戲背景圖==
 body#game_page {
-  background-image: url(/images/game/bg_leaf.svg);
+  background-image: url(./images/game/bg_leaf.svg);
   background-repeat: no-repeat;
   background-position: bottom right;
   background-attachment: fixed;
@@ -308,16 +308,21 @@ section#game_play_border_lottery {
         // height: 250px;
       }
     }
-  }
-
-
-
-//    ==小遊戲背景圖==
-    body#game_page{
-        background-image: url(../images/game/bg_leaf.svg);
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        background-attachment :fixed;
+    img#cooking_nabe_bottom {
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, 110%);
+      width: 450px;
+      z-index: -2;
+      @include pad {
+        width: 45vw;
+        // height: 200px;
+      }
+      @include mobile {
+        width: 55vw;
+        // height: 250px;
+      }
     }
     div#bowl {
       position: absolute;
@@ -458,7 +463,7 @@ section#game_play_border_lottery {
       }
     }
   }
-
+}
 
 /* ===按鈕及農夫圖=== */
 
