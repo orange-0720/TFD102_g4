@@ -171,7 +171,7 @@ section#game_play_border {
     position: absolute;
     top: -5%;
     right: -2%;
-    width: 9vw;
+    width: 120px;
     @include pad {
       width: 12vw;
     }
@@ -182,16 +182,18 @@ section#game_play_border {
   }
   #count {
     position: absolute;
-    top: 2%;
-    right: 3%;
+    top: -1.5%;
+    right: 2%;
     color: white;
-    @include flex_center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include pad {
-      top: 1%;
+      top: -1%;
       right: 3%;
     }
     @include mobile {
-      top: -0.5%;
+      top: -1.8%;
       right: 2%;
     }
     h1 {
