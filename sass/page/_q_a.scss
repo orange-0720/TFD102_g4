@@ -21,10 +21,10 @@ div.qa_step {
   //display: flex;
   max-width: 1200px;
   div.notice {
-      width: 85%;
-      display: flex;
-      border-radius: 20px;
-      background-color: $bkc_yellow;
+        width: 85%;
+        display: flex;
+        border-radius: 20px;
+        background-color: $bkc_yellow;
       
       .light {
         background-color: $yellow;
@@ -54,10 +54,10 @@ div.qa_step {
 
 
 div.qa_item {
-  width: 80%;
-  @include marginAuto();
-  display: flex;
-  flex-wrap: wrap;
+    width: 80%;
+    @include marginAuto();
+    display: flex;
+    flex-wrap: wrap;
     @include tablet {
       width: 90%;
     }
@@ -71,15 +71,15 @@ div.qa_item {
              position: static;
              border-radius: 8px;
               .qa_list{
-                background-color: $darkgreen;
-                position: static;
-                border-radius: 8px;
-                height: 12vh;
-                background-image: url(../../images/shopping_page/shopping_ham.svg);
-                background-repeat: no-repeat;
-                background-position: top 50%  right 10%;
-                background-size: 50px;
-                cursor: pointer;
+                  background-color: $darkgreen;
+                  position: static;
+                  border-radius: 8px;
+                  height: 12vh;
+                  background-image: url(../../images/shopping_page/shopping_ham.svg);
+                  background-repeat: no-repeat;
+                  background-position: top 50%  right 10%;
+                  background-size: 50px;
+                  cursor: pointer;
                 h4{
                   color: $white;
                   padding: 20px;
@@ -105,12 +105,10 @@ div.qa_item {
                 }
               }
               
-               
               .hr{
                 display: none;
               }
-              
-
+            
         }
         .sticky {
             position: sticky;
@@ -121,7 +119,7 @@ div.qa_item {
         }
         .qa_list {
             line-height: 30px;
-            top: -5px;
+            margin-top: 40px;;
         }
         .highlight{
             background-color: yellow;
@@ -142,10 +140,10 @@ div.qa_item {
             }
 
            li{
-            cursor: pointer;
-            @include a_link();
-            line-height: 30px;
-            font-size: 18px;
+              cursor: pointer;
+              @include a_link();
+              line-height: 30px;
+              font-size: 18px;
               a{
                 @include  a_link;
               }
@@ -165,8 +163,8 @@ div.qa_item {
   
  
   div.qa_problem {
-    width: 70%;
-    margin-top: 20px;
+      width: 70%;
+      margin-top: 20px;
     
       @include tablet{
         width: 85%;
@@ -176,16 +174,16 @@ div.qa_item {
       }
 
     .qa_01 {
-      width: 100%;
-      background-color: $white;
-      margin-top: 40px;
+        width: 100%;
+        background-color: $white;
+        margin-top: 40px;
     }
     .question {
-      color: $darkgreen;
-      padding: 15px;
-      display: flex;
-      line-height: 25px;
-      //position:relative;
+        color: $darkgreen;
+        padding: 15px;
+        display: flex;
+        line-height: 25px;
+        //position:relative;
     }
     p.answer {
       line-height: 25px;
@@ -301,21 +299,21 @@ div.qa_item {
       width: 100%;
       //display: none;
       .qa_list{
-        width: 100%;
-        background-color: $bkc_yellow;
-        position: static;
-        border-radius: 8px;
+            width: 100%;
+            background-color: $bkc_yellow;
+            position: static;
+            border-radius: 8px;
         h2{
-          padding: 30px;
-          margin-left: 0%;
-          background-color: $darkgreen;
-          color: $white;
-          border-radius: 8px;
-          background-image: url(../../images/shopping_page/shopping_ham.svg);
-          background-repeat: no-repeat;
-          background-position: top 50%  right 10%;
-          background-size: 50px;
-          cursor: pointer;
+            padding: 30px;
+            margin-left: 0%;
+            background-color: $darkgreen;
+            color: $white;
+            border-radius: 8px;
+            background-image: url(../../images/shopping_page/shopping_ham.svg);
+            background-repeat: no-repeat;
+            background-position: top 50%  right 10%;
+            background-size: 50px;
+            cursor: pointer;
         }
         hr{
             display: none;
@@ -325,8 +323,6 @@ div.qa_item {
     }
 
   }
-
-
 
 }
 
