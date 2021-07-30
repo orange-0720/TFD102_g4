@@ -16,7 +16,7 @@
 </head>
 
 <body >
-  <div id ="app">
+  <div id="app">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -76,58 +76,58 @@
             立即買<img src="./images/buy_now.svg" width="25px" alt="" />
           </a>
         </div>
-        <div class="title_pic">
+        <!-- <div class="title_pic">
           <img src="./images/fruit_box/box_banner.jpg" alt="box_pic" />
           <span class="bkc_black"></span>
           <h1>客製蔬果箱</h1>
+        </div> -->
+      </div>
+      <!-- 漢堡彈窗 -->
+      <div class="jump_hamburger_block">
+        <div class="hamburger_logo">
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo">
+          </a>
+        </div>
+        <div class="header_nav_block">
+          <div class="nav_block_contact">
+            <img src="./images/nav_block_pen.svg">
+            聯絡我們
+          </div>
+          <a class="nav_block_log" href="./login.html">
+            <img src="./images/nav_block_log.svg">
+            登入註冊
+          </a>
+          <div class="nav_right_block">
+            <div class="nav_active">
+              <a href="./event.html">農村體驗</a>
+              <a href="./event_info.html">預約去</a>
+            </div>
+            <div class="nav_buy_now">
+              <a href="./shopping_page.html">立即買</a>
+              <a href="./fruit_box.html">客製蔬果箱</a>
+              <a href="./shopping_page.html">新鮮蔬果</a>
+            </div>
+            <div class="nav_knowledge">
+              <a href="./game.html">蔬果知識小遊戲</a>
+            </div>
+          </div>
+          <div class="nav_left_block">
+            <div class="nav_about_us">
+              <a href="./aboutUs.html">關於我們</a>
+              <a href="./aboutUs.html">農場介紹</a>
+              <a href="./product_introduction.html">生產介紹</a>
+            </div>
+            <div class="nav_QA">
+              <a href="./q_a.html">問與答</a>
+            </div>
+          </div>
+          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
         </div>
       </div>
-     <!-- 漢堡彈窗 -->
-     <div class="jump_hamburger_block">
-      <div class="hamburger_logo">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo">
-        </a>
-      </div>
-      <div class="header_nav_block">
-        <div class="nav_block_contact">
-          <img src="./images/nav_block_pen.svg" >
-          聯絡我們
-        </div>
-        <a class="nav_block_log" href="./login.html">
-          <img src="./images/nav_block_log.svg">
-          登入註冊
-        </a>          
-        <div class="nav_right_block">
-          <div class="nav_active">
-            <a href="./event.html">農村體驗</a>
-            <a href="./event_info.html">預約去</a>
-          </div>
-          <div class="nav_buy_now">
-            <a href="./shopping_page.html">立即買</a>
-            <a href="./fruit_box.html">客製蔬果箱</a>
-            <a href="./shopping_page.html">新鮮蔬果</a>
-          </div>
-          <div class="nav_knowledge">
-            <a href="./game.html">蔬果知識小遊戲</a>
-          </div>
-        </div>
-        <div class="nav_left_block">
-          <div class="nav_about_us">
-            <a href="./aboutUs.html">關於我們</a>
-            <a href="./aboutUs.html">農場介紹</a>
-            <a href="./product_introduction.html">生產介紹</a>
-          </div>
-          <div class="nav_QA">
-            <a href="./q_a.html">問與答</a>
-          </div>
-        </div>
-        <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
-        <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
-        <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
-      </div>
-    </div>
-    <!-- 漢堡彈窗結束 -->
+      <!-- 漢堡彈窗結束 -->
 
       <!-- 聯絡我們彈窗 -->
       <div class="index_contact_box">
@@ -178,21 +178,6 @@
       <h2>客製化蔬果箱</h2>
       <div class="under_line"></div>
     </div>
-   
-
-
-    <!-- 價位按鈕 -->
-    
-    <div class="box_price_butten">
-      <button
-        v-for="price in priceList"
-        :key="`priceList-${price}`" 
-        @click="change_fruits(price)"
-      >
-        $ {{ price }}
-      </button>
-    </div>
-    
 
     <!-- 蔬果箱欄位 -->
 
@@ -200,25 +185,18 @@
 
       <!-- 移除選項 -->
       <div class="fruits_remove_menu">
+        <div class="choose_text">
+          <h4>已選擇商品</h4>
+        </div>
         <div class="five_fruits">
-        
-          <div 
-            class="fruit_1" 
-            v-for="(goodbye, index) in delete_basket"
-            :key="`remove-${index}`"
-          >
-            <button
-              @click="green_remove(goodbye)"
-            >
-            ×
+          <div class="fruit_1" v-for="(goodbye, index) in delete_basket" :key="`remove-${index}`">
+            <button @click="green_remove(goodbye)">
+              ×
             </button>
-            <img
-              :src="goodbye.image"
-              width="100%"
-            >
+            <img :src="goodbye.image" width="100%">
             <!-- //{{goodbye}} -->
           </div>
-        
+
         </div>
       </div>
 
@@ -226,9 +204,11 @@
 
       <div class="fruits_basket">
         <!-- 木箱 -->
-        <img src="./images/fruit_box/399/down/399_box.png" id="example">
-        <!-- <img src="./images/fruit_box/box_1.png" id="wooden">
-        <img src="./images/fruit_box/box.png" id="wooden_box"> -->
+        <!-- <img src="./images/fruit_box/399/down/399_box.png" id="example"> -->
+        <div class="outer_layer">
+            <img src="./images/fruit_box/box_1.png" id="wooden">
+            <img src="./images/fruit_box/box.png" id="wooden_box">
+        </div>
         <!-- 青菜蔬果放置 -->
         <!-- <399> -->
         <div class="399">
@@ -246,11 +226,11 @@
           <!-- <img src="./images/fruit_box/399/down/salad_d.png" id="salad"> -->
           <!-- <img src="./images/fruit_box/399/down/strawberry_d.png" id="strawberry"> -->
         </div>
-        
+
       </div>
 
       <!-- 刪除按鈕、確認 -->
-        <div class="fruits_check_butten">
+      <div class="fruits_check_butten">
         <button class="box_check">
           <img src="./images/fruit_box/check.svg" width="25px">
         </button>
@@ -259,13 +239,31 @@
         </button>
       </div>
     </div>
+    <!-- 價位按鈕 -->
+    <div class="price_all">
+      <div class="select_amount">
+        <h3>step 1.請選擇金額</h3>
+      </div>
 
+      <div class="box_price_butten">
+        <button v-for="price in priceList" :key="`priceList-$ {price}`"   @click="change_fruits(price)" 
+          id="id1"
+          style="color:white" onclick="changeColor()">
+          $ {{ price }}
+        </button>
+      </div>
+    </div>
     <!-- 選擇蔬果第二大欄 -->
     <div class="select_fruits">
 
+      <!-- 步驟2 -->
+      <div class="select_second">
+        <h3>step 2.選擇蔬果</h3>
+      </div>
       <!-- 三種金額 -->
 
       <div class="butten_check_price">
+
         <button>
           $ {{ go_price }}
         </button>
@@ -273,43 +271,34 @@
 
       <!-- 八樣青菜選擇五樣青菜 -->
       <div class="fruits_basket">
+
         <div class="fruits_first_row">
           <!-- 選擇內部 -->
-            <div 
-              v-for="(fruit, index) in box" 
-              :key="`fruit_in_box-${index}`"
-              class="box"
-              @click="pull_basket(fruit.title)"
-            >
-              
-              <img
-                :src="fruit.image"
-                :class="{
-                  'togborder': isActive(fruit.title)
-                }"
-              >
-              <p>{{fruit.title}}</p>
-              <h5>
-                <pre>{{fruit.unit}}</pre>
-              </h5>
-            </div>
+          <div v-for="(fruit, index) in box" :key="`fruit_in_box-${index}`" class="box"
+            @click="pull_basket(fruit.title)">
 
-            <div class="product_directions">
-              <div 
-                class="select"
-                >
-                  <h4> {{ weight}}</h4>
-              </div>
+            <img :src="fruit.image" :class="{
+                  'togborder': isActive(fruit.title)
+                }">
+            <p>{{fruit.title}}</p>
+            <h5>
+              <pre>{{fruit.unit}}</pre>
+            </h5>
+          </div>
+
+          <div class="product_directions">
+            <div class="select">
+              <h4> {{ weight}}</h4>
             </div>
-          
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
-    </div>
-
+  </div>
 
     <!-- 滿額贈 -->
     <div class="free_give">
