@@ -64,5 +64,10 @@
         div{
             margin: 2% auto;
             text-align: center;
+                img{
+                    @include mobile{
+                        width: 80%;
+                    }
+                }
         }
 }
