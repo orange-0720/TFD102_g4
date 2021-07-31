@@ -208,3 +208,12 @@
     padding: 10px 0px;
     font-weight: 700;
 }
+@mixin vagatable_and_fruit_table_line {
+    content:"";
+    background-image: none;
+    position:absolute;
+    width:100%;
+    width:26px;
+    height: 10px;
+    border-radius:30px; 
+}

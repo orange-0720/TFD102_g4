@@ -10,6 +10,7 @@
         justify-content: center;
         align-items: center;
         vertical-align: middle;
+        margin-top:20px;
         h2{
             position: relative;
             @include farm_h2();
@@ -20,21 +21,35 @@
       }
 }
 .production_box{
-    margin-top:50px;
+    margin:10px 0px 30px 0px;
     display:flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
+    height:100%;
+    @include tablet{
+        height:350px;
+    };
+    @include mobile{
+        margin:0px 0px 30px 0px;
+    };
     .production_item{
         display:flex;
-        justify-content: space-between;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         max-width:80%;
-        height: 500px;
+        @media(min-width: 1200px) {
+            height: 500px;
+        }
         @include tablet{
-           
-            padding:10px;
+            max-width:95%;
+        };
+        @include mobile{
+            flex-wrap: wrap;
         };
         .production_box{
+            margin:10px;
             max-width:400px;
             max-height:500px;
             width: 100%;
@@ -46,28 +61,42 @@
             border-radius: 53px;
             position:relative;
             @include tablet{
-                margin:10px;
+                display:flex;
                 padding:10px;
+                max-width:350px;
+                width:100%;
+            };
+            @include pad{
+                width:100%;
+                max-width:300px;
+                max-height:400px;
             };
             @include mobile{
-               //border:1px solid red;
-               max-height:400px;
-               margin:10px;
-               padding:0px;
-               
+               width:100%;
+               max-width:550px;
+               max-height:150px;
             };
             a{
                 display:block;
-                max-width:400px;
-                max-height:500px;
                 border-radius: 53px;
                 width: 100%;
                 height:100%;
                 position:absolute;
             }
+            .production_box_entrance_title{
+                display:none;
+                position:absolute;
+                color:#ffffff;
+                @include tablet{
+                    display:block;
+                }
+            }
             .production_box_entrance{
                 position: absolute;
                 pointer-events: none;
+                @include tablet{
+                    display:none;
+                };
                 .vagatable_box_box ,  .fruit_box_box{
                     img{
                         width:160px;
@@ -348,7 +377,6 @@
             }
         }
         .promise_item_box{
-            //border:1px solid red;
             display:flex;
             align-items: center;
             flex-wrap: wrap;
@@ -379,7 +407,6 @@
                 justify-content: space-around;
                 width:100%;
                 flex-wrap: wrap;
-                //border:1px solid rgb(79, 19, 231);
                 @include tablet{
                     padding:0 3%;
                 };
@@ -389,7 +416,6 @@
                     @include tablet{
                         width:100%;
                     }
-                    // border:1px solid rgb(79, 19, 231);
                     img{
                         width:100%;
                     }
