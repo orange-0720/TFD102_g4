@@ -432,7 +432,10 @@
           activeShow:false,
           messageShow:false,
 
-          your_question: ""
+          your_question: "",
+
+          active:[],
+
         },
         methods: {
           turn_on(){
@@ -492,6 +495,20 @@
             this.your_question = "";
 
           }
+        },
+        mounted() {
+          $.ajax({
+            method: 'POST',
+            url: 'php/getActive.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              shopping_page.active = response  
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            },
+          });
         },
       })
 

@@ -393,22 +393,21 @@
           }
         },
         mounted() {
-          $.getJSON('./js/products.json').then(res => this.products = res);
-          // $.ajax({
-          //   method: 'POST',
-          //   url: 'php/getProduct.php',
-          //   data:{},
-          //   dataType: 'json',
-          //   success: function(response) {
-          //     // response => this.products = response  
-          //     this.products = response;
-          //     console.log(this.products);
-
-          //   },
-          //   error: function(exception) {
-          //       alert("發生錯誤: " + exception.status);
-          //   },
-          // });
+          // $.getJSON('./js/products.json').then(res => this.products = res);
+          $.ajax({
+            method: 'POST',
+            url: 'php/getProduct.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              shopping_page.products = response  
+              // this.products = response;
+              // console.log(this.products);
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            },
+          });
           
         },
         computed: {
