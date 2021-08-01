@@ -84,97 +84,6 @@ div#game_decorate_testNumberCircle_3 {
   }
 }
 
-// ===蔬果動畫===
-
-@keyframes jumpOrange {
-  0% {
-    transform: translate(-50%, 230%);
-  }
-  50% {
-    transform: translate(-50%, 180%);
-  }
-  100% {
-    transform: translate(-50%, 230%);
-  }
-}
-@keyframes jumpPotato {
-  0% {
-    transform: translate(-110%, 210%) rotateZ(-20deg);
-  }
-  50% {
-    transform: translate(-110%, 160%) rotateZ(-20deg);
-  }
-  100% {
-    transform: translate(-110%, 210%) rotateZ(-20deg);
-  }
-}
-@keyframes jumpBeetroot {
-  0% {
-    transform: translate(70%, 120%) rotateZ(20deg);
-  }
-  50% {
-    transform: translate(70%, 70%) rotateZ(20deg);
-  }
-  100% {
-    transform: translate(70%, 120%) rotateZ(20deg);
-  }
-}
-@keyframes jumpPepper {
-  0% {
-    transform: translate(50%, 110%) rotateZ(10deg);
-  }
-  50% {
-    transform: translate(50%, 60%) rotateZ(10deg);
-  }
-  100% {
-    transform: translate(50%, 110%) rotateZ(10deg);
-  }
-}
-@keyframes jumpCabbage {
-  0% {
-    transform: translate(-20%, 160%) rotateZ(10deg);
-  }
-  50% {
-    transform: translate(-20%, 110%) rotateZ(10deg);
-  }
-  100% {
-    transform: translate(-20%, 160%) rotateZ(10deg);
-  }
-}
-@keyframes jumpOnion {
-  0% {
-    transform: translate(-170%, 200%) rotateZ(-20deg);
-  }
-  50% {
-    transform: translate(-170%, 150%) rotateZ(-20deg);
-  }
-  100% {
-    transform: translate(-170%, 200%) rotateZ(-20deg);
-  }
-}
-@keyframes jumpGreenapple {
-  0% {
-    transform: translate(-170%, 130%) rotateZ(-20deg);
-  }
-  50% {
-    transform: translate(-170%, 80%) rotateZ(-20deg);
-  }
-  100% {
-    transform: translate(-170%, 130%) rotateZ(-20deg);
-  }
-}
-@keyframes jumpPumpkin {
-  0% {
-    transform: translate(-90%, 160%) rotateZ(-10deg);
-  }
-  50% {
-    transform: translate(-90%, 110%) rotateZ(-10deg);
-  }
-  100% {
-    transform: translate(-90%, 160%) rotateZ(-10deg);
-  }
-}
-
 //    ==小遊戲背景圖==
 body#game_page {
   background-image: url(./images/game/bg_leaf.svg);
@@ -184,7 +93,7 @@ body#game_page {
 }
 
 // ==小遊戲主欄位==
-section#game_play_border_lottery {
+section.game_play_border_lottery {
   width: 60%;
   // height: 1500px;
   @include pad {
@@ -268,7 +177,7 @@ section#game_play_border_lottery {
       right: 2%;
     }
     h1 {
-      font-size: 3vw;
+      font-size: 40px;
       font-weight: bolder;
       @include mobile {
         font-size: 30px;
@@ -359,9 +268,9 @@ section#game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-50%, 230%);
-        animation-name: jumpOrange;
-        animation-duration: 3.5s;
-        animation-iteration-count: infinite;
+        animation: jumpOrange 3.5s infinite;
+        // animation-duration: 3.5s;
+        // animation-iteration-count: infinite;
       }
       img#potato {
         z-index: 7;
@@ -465,6 +374,105 @@ section#game_play_border_lottery {
   }
 }
 
+// ===蔬果動畫===
+
+@keyframes jumpOrange {
+  0% {
+    transform: translate(-50%, 230%);
+  }
+  50% {
+    transform: translate(-50%, 180%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 230%);
+  }
+}
+@keyframes jumpPotato {
+  0% {
+    transform: translate(-110%, 210%) rotateZ(-20deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-110%, 160%) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(-110%, 210%) rotateZ(-20deg);
+  }
+}
+@keyframes jumpBeetroot {
+  0% {
+    transform: translate(70%, 120%) rotateZ(20deg);
+  }
+  50% {
+    transform: translate(70%, 70%) rotateZ(20deg);
+  }
+  100% {
+    transform: translate(70%, 120%) rotateZ(20deg);
+    opacity: 0;
+  }
+}
+@keyframes jumpPepper {
+  0% {
+    transform: translate(50%, 110%) rotateZ(10deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(50%, 60%) rotateZ(10deg);
+  }
+  100% {
+    transform: translate(50%, 110%) rotateZ(10deg);
+  }
+}
+@keyframes jumpCabbage {
+  0% {
+    transform: translate(-20%, 160%) rotateZ(10deg);
+  }
+  50% {
+    transform: translate(-20%, 110%) rotateZ(10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-20%, 160%) rotateZ(10deg);
+  }
+}
+@keyframes jumpOnion {
+  0% {
+    transform: translate(-170%, 200%) rotateZ(-20deg);
+  }
+  50% {
+    transform: translate(-170%, 150%) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(-170%, 200%) rotateZ(-20deg);
+    opacity: 0;
+  }
+}
+@keyframes jumpGreenapple {
+  0% {
+    transform: translate(-170%, 130%) rotateZ(-20deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-170%, 80%) rotateZ(-20deg);
+  }
+  100% {
+    transform: translate(-170%, 130%) rotateZ(-20deg);
+  }
+}
+@keyframes jumpPumpkin {
+  0% {
+    transform: translate(-90%, 160%) rotateZ(-10deg);
+  }
+  50% {
+    transform: translate(-90%, 110%) rotateZ(-10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-90%, 160%) rotateZ(-10deg);
+  }
+}
+
 /* ===按鈕及農夫圖=== */
 
 #game_bottom_part_lottery {
@@ -479,6 +487,7 @@ section#game_play_border_lottery {
   }
   @include mobile {
     margin-top: 4rem;
+    width: 370px;
   }
   .icon_11 {
     width: 15vw;

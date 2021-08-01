@@ -166,8 +166,13 @@
 
 @include mobile {
   .footer_bg {
-    background-image: url("../images/footer_mobile.png");
-    background-position: -80px top;
+    background-image: url("../images/footer_mobile.png"), url("../images/footer_mobile2.png"),url("../images/footer_mobile2.png");
+    background-position: left 0 top 0,left 0 bottom 0px,left 0 bottom 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    
 
     .footer {
       flex-direction: column;
@@ -189,7 +194,7 @@
       .footer_center {
         width: 100%;
         line-height: 26px;
-        padding-left: 5%;
+        padding-left: 0%;
 
         h4 {
           text-align: center;
@@ -223,16 +228,18 @@
       }
 
       .footer_right {
-        width: 80%;
-        margin: 50px 30px;
+        width: 100%;
+        margin: 50px 0px;
 
         .right_main {
           border-left: 0;
           padding-left: 0;
-          margin-left: 50px;
+          margin-left: 20px;
+          padding-left: 0px;
+          width: 60%;
 
           a {
-            margin-left: 50px;
+            margin-left: 25px;
 
             &::before {
               content: "";
@@ -240,7 +247,7 @@
               width: 0;
               height: 0;
               position: absolute;
-              left: 20%;
+              left: 35px;
 
               border-top: 8px solid transparent;
               border-right: 8px solid transparent;
@@ -261,7 +268,8 @@
               width: 0;
               height: 0;
               position: absolute;
-              right: 42%;
+              right: 0px;
+              left:230px;
 
               border-top: 8px solid transparent;
               border-right: 8px solid transparent;
