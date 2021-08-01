@@ -156,7 +156,7 @@ body {
 
 .header .title .title_pic {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   margin-bottom: 5vh;
   margin-top: 30px;
   text-align: right;
@@ -175,7 +175,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .header .title .title_pic h1 {
@@ -184,7 +184,7 @@ body {
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 120px;
+  font-size: 100px;
   color: #FAF9EF;
 }
 
@@ -647,6 +647,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  position: fixed;
   background-color: #FAF9EF;
   width: 50%;
   padding-bottom: 50px;
@@ -993,7 +994,7 @@ body {
 
 .menu {
   width: 170px;
-  padding: 20px;
+  padding-bottom: 10px;
   position: fixed;
   right: 5%;
   top: 0;
@@ -1009,6 +1010,7 @@ body {
 
 .menu .logo_img {
   width: 100%;
+  padding: 20px;
   margin: 0 auto;
 }
 
@@ -1022,23 +1024,23 @@ body {
   font-size: 16px;
   display: block;
   text-decoration: none;
-  padding: 10px 0px 10px 10px;
+  padding: 10px 20px 10px 30px;
   margin-top: 10px;
   color: #A07332;
   position: relative;
 }
 
 .menu .page_list a:hover::after {
-  width: 100%;
+  width: 70%;
 }
 
 .menu .page_list a::after {
   content: '';
   position: absolute;
   bottom: 2px;
-  left: 0;
+  left: 10%;
   width: 0;
-  height: 5px;
+  height: 4px;
   background-color: yellow;
   transition: 0.3s;
 }
@@ -1229,6 +1231,13 @@ body {
 .cart_into {
   right: 0 !important;
   z-index: 101 !important;
+}
+
+.on_page {
+  background-image: url(../images/q_a/carrot.svg);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: top 45% left 1%;
 }
 
 .footer_bg {
@@ -7381,8 +7390,9 @@ div.checkout_s3_order_detail .order_total_price {
 }
 
 .member_message_detail .member_message_block .member_message_button {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 .member_message_detail .member_message_block .member_message_button #message_img {
@@ -7613,6 +7623,41 @@ div.checkout_s3_order_detail .order_total_price {
   }
 }
 
+.customer_message {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+  padding: 20px 0px;
+  display: flex;
+  align-content: center;
+}
+
+.customer_message .customer_message_left {
+  width: 25%;
+  align-self: center;
+}
+
+.customer_message .customer_message_left span {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background-color: #91C359;
+  text-align: center;
+  border-radius: 50%;
+  color: #FAF9EF;
+}
+
+.customer_message .customer_message_right {
+  width: 70%;
+  margin-left: 5%;
+  padding: 10px;
+  border: 1px solid #A07332;
+  align-self: center;
+  background-color: #fff;
+}
+
 .member_footer_img {
   position: absolute;
   top: -50%;
@@ -7622,6 +7667,216 @@ div.checkout_s3_order_detail .order_total_price {
 @media (max-width: 767px) {
   .member_footer_img {
     display: none;
+  }
+}
+
+.change_pwd_box {
+  display: none;
+}
+
+.change_pwd_box .pwd_black_block {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+
+.change_pwd_box .change_pwd_block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  background-color: #FAF9EF;
+  width: 50%;
+  padding-bottom: 50px;
+  border-radius: 25px;
+  overflow: hidden;
+  z-index: 4;
+}
+
+.change_pwd_box .change_pwd_block .pwd_block_head {
+  background-color: #FF9B2F;
+  padding: 10px 0px;
+}
+
+.change_pwd_box .change_pwd_block .pwd_block_head .pwd_block_Xmark {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 3%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #008000;
+  background-image: url(../images/header_X_mark.svg);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+}
+
+.change_pwd_box .change_pwd_block h2 {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.change_pwd_box .change_pwd_block .change_box {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.change_pwd_box .change_pwd_block .change_box input, .change_pwd_box .change_pwd_block .change_box .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .change_pwd_box .change_pwd_block .change_box select {
+  background-color: #FAF9EF;
+  width: 100%;
+  padding: 10px 10%;
+  margin: 5px 0px;
+  border: 1px solid #A07332;
+  border-radius: 45px;
+  outline: none;
+  font-size: 20px;
+  color: #A07332;
+}
+
+.change_pwd_box .change_pwd_block .change_send {
+  display: inline-block;
+  width: 50%;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.change_pwd_box .change_pwd_block .change_send:hover {
+  background-color: #6b9837;
+}
+
+@media (max-width: 1199px) {
+  .change_pwd_box {
+    display: none;
+  }
+  .change_pwd_box .pwd_black_block {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3;
+  }
+  .change_pwd_box .change_pwd_block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 120px;
+    transform: translateX(-50%);
+    background-color: #FAF9EF;
+    width: 80%;
+    padding-bottom: 30px;
+    border-radius: 25px;
+    overflow: hidden;
+    z-index: 4;
+  }
+  .change_pwd_box .change_pwd_block .pwd_block_head {
+    background-color: #FF9B2F;
+    padding: 10px 0px;
+  }
+  .change_pwd_box .change_pwd_block .pwd_block_head .pwd_block_Xmark {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 3%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 0;
+    background-color: #008000;
+    background-image: url(../images/header_X_mark.svg);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+  }
+  .change_pwd_box .change_pwd_block h2 {
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1199px) and (max-width: 767px) {
+  .change_pwd_box .change_pwd_block h2 {
+    padding: 15px 0px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .change_pwd_box .change_pwd_block .change_box {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1199px) and (max-width: 767px) {
+  .change_pwd_box .change_pwd_block .change_box {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .change_pwd_box .change_pwd_block .change_box input, .change_pwd_box .change_pwd_block .change_box .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .change_pwd_box .change_pwd_block .change_box select {
+    background-color: #FAF9EF;
+    width: 100%;
+    padding: 10px 10%;
+    margin: 5px 0px;
+    border: 1px solid #A07332;
+    border-radius: 45px;
+    outline: none;
+    font-size: 20px;
+    color: #A07332;
+  }
+  .change_pwd_box .change_pwd_block .change_send {
+    display: inline-block;
+    width: 50%;
+    background-color: #91C359;
+    text-decoration: none;
+    font-family: "huninn";
+    border-radius: 101px;
+    padding: 15px;
+    border: 0;
+    color: #FAF9EF;
+    font-size: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+  }
+  .change_pwd_box .change_pwd_block .change_send:hover {
+    background-color: #6b9837;
   }
 }
 
@@ -7668,6 +7923,7 @@ div.checkout_s3_order_detail .order_total_price {
   top: 50%;
   right: 10%;
   transform: translateY(-50%);
+  transition: 0.3s;
 }
 
 .shopping_main_block .shopping_nav_block .shopping_box_block .shopping_box_link {
@@ -7702,6 +7958,7 @@ div.checkout_s3_order_detail .order_total_price {
   top: 50%;
   right: 10%;
   transform: translateY(-50%);
+  transition: 0.3s;
 }
 
 .shopping_main_block .shopping_nav_block .shopping_veg_block .shopping_veg_link {
@@ -7736,6 +7993,7 @@ div.checkout_s3_order_detail .order_total_price {
   top: 50%;
   right: 10%;
   transform: translateY(-50%);
+  transition: 0.3s;
 }
 
 .shopping_main_block .shopping_nav_block .shopping_fruit_block .shopping_fruit_link {
@@ -7809,8 +8067,8 @@ div.checkout_s3_order_detail .order_total_price {
   right: 5%;
   border-radius: 50%;
   border: 1px solid #A07332;
-  width: 20%;
-  height: 20%;
+  width: 50px;
+  height: 50px;
   background-color: #FAF9EF;
   background-image: url(../images/shopping_page/shopping_incart.svg);
   background-repeat: no-repeat;
@@ -7993,8 +8251,8 @@ div.checkout_s3_order_detail .order_total_price {
     right: 5%;
     border-radius: 50%;
     border: 1px solid #A07332;
-    width: 20%;
-    height: 20%;
+    width: 50px;
+    height: 50px;
     background-color: #FAF9EF;
     background-image: url(../images/shopping_page/shopping_incart.svg);
     background-repeat: no-repeat;
@@ -8188,8 +8446,8 @@ div.checkout_s3_order_detail .order_total_price {
     right: 5%;
     border-radius: 50%;
     border: 1px solid #A07332;
-    width: 20%;
-    height: 20%;
+    width: 50px;
+    height: 50px;
     background-color: #FAF9EF;
     background-image: url(../images/shopping_page/shopping_incart.svg);
     background-repeat: no-repeat;
@@ -8490,6 +8748,10 @@ div.checkout_s3_order_detail .order_total_price {
   .shopping_aside_pic {
     display: none;
   }
+}
+
+.arrow_updown {
+  transform: translateY(-50%) rotate(180deg) !important;
 }
 
 @media (max-width: 767px) {
