@@ -977,8 +977,9 @@
             }
         }
         .member_message_button{
-            margin-top: 40px;
+            margin-top: 20px;
             text-align: center;
+            padding-bottom: 20px;
             #message_img{
                 display: none;
             }
@@ -1118,6 +1119,38 @@
     }
 }
 
+.customer_message{
+    width: 70%;
+    @include marginAuto();
+    font-size: $h3;
+    padding: 20px 0px;
+    display: flex;
+    align-content: center;
+    .customer_message_left{
+        width: 25%;      
+        align-self: center;   
+        span{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            background-color: $green;
+            text-align: center;
+            border-radius: 50%;
+            color: $white;
+        }
+    }
+    .customer_message_right{
+        width: 70%;
+        margin-left: 5%;
+        padding: 10px;
+        border: 1px solid $brown;
+        align-self: center;
+        background-color: #fff;
+    }
+}
+
+
 // 該頁footer 大圖
 .member_footer_img{
     position: absolute;
@@ -1127,3 +1160,158 @@
         display: none;
     }
 }
+
+
+// 變更密碼彈窗
+
+.change_pwd_box{
+    display: none;
+    .pwd_black_block{
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 3
+    }
+    .change_pwd_block{
+        @include abs_center();
+        position: fixed;
+        background-color: $white;
+        width: 50%;
+        padding-bottom: 50px;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 4;
+        .pwd_block_head{
+            background-color: $orange;
+            padding: 10px 0px;
+            .pwd_block_Xmark{
+                cursor: pointer;
+                display: inline-block;
+                margin-left: 3%;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 0;
+                background-color: $darkgreen;
+                background-image: url(../images/header_X_mark.svg);
+                background-repeat: no-repeat;
+                background-size: 60%;
+                background-position: center;
+            }
+        }
+        h2{
+            padding: 20px 0;
+            text-align: center;
+        }
+        .change_box{
+            width: 60%;
+            @include marginAuto();
+            position: relative;
+            overflow: hidden;
+            input{
+                background-color: $white;
+                width: 100%;
+                padding: 10px 10% ;
+                margin: 5px 0px;
+                border: 1px solid $brown;
+                border-radius: 45px;
+                outline: none;
+                font-size: $h4;
+                color: $font_color;
+            }
+        }
+        .change_send{
+            @include btn(50%);
+            display: block;
+            @include marginAuto();
+            margin-top: 30px;
+        }
+    }
+}
+
+@include tablet {
+    .change_pwd_box{
+        display: none;
+        .pwd_black_block{
+            position: fixed;
+            top: 0px;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 3
+        }
+        .change_pwd_block{
+            @include abs_center();
+            position: fixed;
+            top: 120px;
+            transform: translateX(-50%);
+            background-color: $white;
+            width: 80%;
+            padding-bottom: 30px;
+            border-radius: 25px;
+            overflow: hidden;
+            z-index: 4;
+            .pwd_block_head{
+                background-color: $orange;
+                padding: 10px 0px;
+                .pwd_block_Xmark{
+                    cursor: pointer;
+                    display: inline-block;
+                    margin-left: 3%;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    border: 0;
+                    background-color: $darkgreen;
+                    background-image: url(../images/header_X_mark.svg);
+                    background-repeat: no-repeat;
+                    background-size: 60%;
+                    background-position: center;
+                }
+            }
+            h2{
+                padding: 20px 0;
+                text-align: center;
+                @include pad {
+                    padding: 15px 0px;
+                    font-size: $h3;
+                }
+            }
+            .change_box{
+                width: 60%;
+                @include marginAuto();
+                position: relative;
+                overflow: hidden;
+                @include marginAuto();
+                position: relative;
+                overflow: hidden;
+                @include pad {
+                    width: 80%;
+                }
+                input{
+                    background-color: $white;
+                    width: 100%;
+                    padding: 10px 10% ;
+                    margin: 5px 0px;
+                    border: 1px solid $brown;
+                    border-radius: 45px;
+                    outline: none;
+                    font-size: $h4;
+                    color: $font_color;
+                }
+            }
+            .change_send{
+                @include btn(50%);
+                display: block;
+                @include marginAuto();
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+// 變更密碼彈窗結束
