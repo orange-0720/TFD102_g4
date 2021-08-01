@@ -1,128 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css"/>
-    <link rel="icon" href="./images/logo-02.svg">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>良耕野菜-後臺頁面</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="./images/logo-02.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>良耕野菜-後臺頁面</title>
 </head>
+
 <body id="backend_page">
-        <div class="container fluid">
-            <div class="row justify-content-end" id="BackEnd_header">
-            <h2 class="col offset-md-6">後台管理</h2>
-            <button type="button" class="btn btn-warning rounded-pill " id="logout">登出<span class="icon"><img src="./images/backend/Icon open-account-logout.png" alt=""></span></button>
-            </div>
-            <div class="row" id="BackEnd_main">
-                <!-- ==側邊攔== -->
-                <aside class="col-2 " id="BackEnd_main">
-                    <div class="row justify-content-center">
-                        <div class="BackEnd_logo text-center"><img src="./images/logo.svg" alt="" width="150px" id="logo"></div>
-                        <button type="button" class="btn btn-light rounded-pill">會員管理</button>
-                        <div class="w-100"></div>
-                        <button type="button" class="btn btn-light rounded-pill">商品管理</button>
-                        <div class="w-100"></div>
-                        <button type="button" class=" btn btn-light rounded-pill">訂單管理</button>
-                        <div class="w-100"></div>
-                        <button type="button" class=" btn btn-light rounded-pill">預約管理</button>
-                        <div class="w-100"></div>
-                        <button type="button" class=" btn btn-light rounded-pill">活動管理</button>
-                        <div class="w-100"></div>
-                        <button type="button" class=" btn btn-light rounded-pill">留言板管理</button>
-                  </div>
-                </aside>
-                  <section class="col-10 " id="main" >
-                      <div class="backend_search">
-                      <span class="icon"><i class="fa fa-search" ></i></span>
-                      <input type="text" class="rounded-pill" placeholder="Search..." >
-                      </div>
-                      <div class="backend_table">
-                          <div class="row  table-bordered" id="first-table">
-                              <div class="col  text-white font-weight-bolder">商品編號</div>
-                              <div class="col  text-white font-weight-bolder">商品名稱</div>
-                              <div class="col  text-white font-weight-bolder">商品價格</div>
-                              <div class="col  text-white font-weight-bolder">商品描述</div>
-                              <div class="col  text-white font-weight-bolder">上架日期</div>
-                              <div class="col  text-white font-weight-bolder">下架日期</div>
-                              <div class="col  text-white font-weight-bolder">狀態</div>
-                          </div>
-                          <div class="row  table-bordered" id="second-table">
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                          </div>
-                          <div class="row  table-bordered" id="third-table">
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                          </div>
-                          <div class="row  table-bordered" id="forth-table">
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                          </div>
-                          <div class="row  table-bordered" id="fifth-table">
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                          </div>
-                          <div class="row  table-bordered" id="sixth-table">
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                            <div class="col  "></div>
-                          </div>
-                     </div>
-                    <div class="row justify-content-center">
-                      <nav aria-label="Page navigation example " >
-                        <ul class="pagination">
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                            </a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">4</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
+  <div class="container fluid">
+    <div class="row justify-content-end" id="BackEnd_header">
+      <h2 class="col offset-md-5">後台管理</h2>
+      <button type="button" class="btn btn-warning rounded-pill " id="logout">登出<span class="icon"><img
+            src="./images/backend/Icon open-account-logout.png" alt=""></span></button>
+    </div>
+    <div class="row" id="BackEnd_main">
+      <!-- ==側邊攔== -->
+      <aside class="col-2 " id="BackEnd_main">
+        <div class="row justify-content-center">
+          <div class="BackEnd_logo text-center"><img src="./images/logo.svg" alt="" width="150px" id="logo"></div>
+          <button type="button" class="btn btn-light rounded-pill">會員管理</button>
+          <div class="w-100"></div>
+          <button type="button" class="btn btn-light rounded-pill">商品管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill">訂單管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill">預約管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill">活動管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill">留言板管理</button>
+        </div>
+      </aside>
+      <section class="col-10 " id="main">
+        <div class="backend_search">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input type="text" class="rounded-pill" placeholder="Search...">
+        </div>
+        <div class="backend_table">
+          <div class="row  table-bordered" id="first-table">
+            <div class="col  text-white font-weight-bolder">商品編號</div>
+            <div class="col  text-white font-weight-bolder">商品名稱</div>
+            <div class="col  text-white font-weight-bolder">商品價格</div>
+            <div class="col  text-white font-weight-bolder">商品描述</div>
+            <div class="col  text-white font-weight-bolder">上架日期</div>
+            <div class="col  text-white font-weight-bolder">下架日期</div>
+            <div class="col  text-white font-weight-bolder">狀態</div>
+            <div class="col  text-white font-weight-bolder">編輯</div>
           </div>
-                  </section>
+          <div class="row  table-bordered" id="second-table">
+            <div class="col  ">1</div>
+            <div class="col  ">2</div>
+            <div class="col  ">3</div>
+            <div class="col  ">4</div>
+            <div class="col  ">5</div>
+            <div class="col  ">6</div>
+            <div class="col  ">
+              <button type="button" class="btn btn-warning rounded-pill ">已上架</button>
             </div>
-                  
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/src/assets/backend.js"></script>
-    <script type="text/javascript" src="/src/main.js"></script>
+            <div class="col  ">
+              <button type="button" class="btn btn-warning rounded-pill ">編輯</button>
+            </div>
+          </div>
+          <div class="row  table-bordered" id="third-table">
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+          </div>
+          <div class="row  table-bordered" id="forth-table">
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+          </div>
+          <div class="row  table-bordered" id="fifth-table">
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+          </div>
+          <div class="row  table-bordered" id="sixth-table">
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+            <div class="col  "></div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <nav aria-label="Page navigation example ">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+    </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
+    <script type="text/javascript" src="/src/main.js"></script> -->
 </body>
+
 </html>
