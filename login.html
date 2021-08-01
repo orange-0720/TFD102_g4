@@ -9,7 +9,63 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./images/logo-02.svg">
     <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        //AJAX
+
+        //註冊
+        function doInsert(){
+            $.ajax({            
+                method: "POST",
+                url: "php/Insert.php",
+                data:{ 
+                    account: $('#sign_email').val(),
+                    pwd : $('#sign_pwd').val(),
+                    tel : $('#sign_tel').val(),
+                },            
+                dataType: "text",
+                success: function (response) {
+                        alert('註冊成功');
+                        window.location.href = './index.html';  
+                },
+                error: function(exception) {
+                    alert("發生錯誤: " + exception.status);
+                }
+            });
+        }
+
+        // 登入
+        function Login(){
+          $.ajax({
+            method: 'POST',
+            url: 'php/login.php',
+            data:{
+              account: $('#login_email').val(),
+              pwd : $('#login_pwd').val(),
+            },
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+                // response.forEach(function(item,i){
+                //   console.log(item['EMAIL']);
+                // })
+                if(response == 1){
+                    alert('登入成功');
+                    window.location.href = './member.html';  
+                }else{
+                    console.log(response)
+                    alert('查無會員')
+                }
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            },
+          })
+        }
+    </script>
+  </head>
+
   </head>
   <body>
     <header class="header">
@@ -171,10 +227,10 @@
       <div class="form_block">
         <form class="login_form" action="#" method="POST">
           <h2>會員登入</h2>
-          <input type="text" placeholder="註冊信箱" />
-          <input type="password" placeholder="會員密碼" />
-          <!-- <input type="submit" value="登入" id="login_btn" /> -->
-          <a href="./member.html" id="login_btn">登入</a>
+          <input type="text" placeholder="註冊信箱" id="login_email"/>
+          <input type="password" placeholder="會員密碼" id="login_pwd" />
+          <input type="button" value="登入" id="login_btn" />
+          <!-- <a href="./member.html" id="login_btn">登入</a> -->
           <div class="login_notice">
             <a id="signup_btn">立即註冊</a>
             <span>|</span>
@@ -193,21 +249,21 @@
         </div>
         <!-- 忘記密碼 -->
 
-        <form class="signup_form" action="#" method="POST">
+        <div class="signup_form">
           <h2>會員註冊</h2>
-          <input class="sign_email" type="text" placeholder="註冊信箱">
-          <input class="sign_pwd" type="password" placeholder="會員密碼">
+          <input class="sign_email" type="text" placeholder="註冊信箱" id="sign_email">
+          <input class="sign_pwd" type="password" placeholder="會員密碼" id="sign_pwd">
           <input class="pwd_confirm" type="password" placeholder="密碼確認">
-          <input class="sign_tel" type="text" placeholder="聯絡手機">
+          <input class="sign_tel" type="text" placeholder="09XX-XXX-XXX" id="sign_tel">
           <label>
             <input type="checkbox">
             我已閱讀並同意會員條款
           </label>
-          <input type="submit" value="註冊" id="sign_confirm_btn">
+          <input type="button" value="註冊" id="sign_confirm_btn">
           <div class="signin_notice">
             <a id="change_to_log">已有帳號請按此登入</a>
           </div>
-        </form>
+        </div>
       </div>
       
       <!-- 驗證碼彈窗 -->
@@ -227,169 +283,6 @@
     </div>
 
     <script src="./js/header.js"></script>
-
-
-    <script>
-      // 登入介面左右互換
-      var form_block = document.getElementsByClassName('form_block')[0];
-      var sign_btn = document.getElementById("signup_btn");
-      var change_to_log = document.getElementById('change_to_log');
-      var signup_form = document.getElementsByClassName('signup_form')[0];
-      let login_form = document.getElementsByClassName("login_form")[0];
-
-      sign_btn.addEventListener("click", function (e) {
-        e.preventDefault;
-        let login_img = document.getElementById("login_img");
-        let login_pic = document.getElementsByClassName("login_pic")[0];
-
-
-        if(window.innerWidth >= 768){
-          form_block.classList.toggle("form_move");
-          login_pic.classList.toggle("pic_move");
-          if (form_block.classList.contains("form_move")) {
-            console.log('aaa')
-            login_img.src =
-              "./images/login&out/logout_01.jpg";
-          } else {
-            login_img.src =
-              "./images/login&out/login_01.jpg";
-          }
-          if(login_form.style.display = 'block'){
-            login_form.style.display = 'none';
-            signup_form.style.display = 'block';
-          }
-        }else{
-            $('.login_form').fadeToggle();
-            setTimeout(function(){
-              $('.signup_form').fadeToggle();
-            },500);
-          }
-      });
-
-      change_to_log.addEventListener('click', function(e){
-        e.preventDefault;
-        let login_img = document.getElementById("login_img");
-        let login_pic = document.getElementsByClassName("login_pic")[0];
-        
-        if(window.innerWidth >= 768){  
-          form_block.classList.toggle("form_move");
-          login_pic.classList.toggle("pic_move");
-          if (form_block.classList.contains("form_move")) {
-            login_img.src =
-              "./images/login&out/logout_01.jpg";
-          } else {
-            login_img.src =
-              "./images/login&out/login_01.jpg";
-          }
-          if(login_form.style.display = 'none'){
-            signup_form.style.display = 'none';
-            login_form.style.display = 'block'
-          }
-        }else{
-            setTimeout(function(){
-              $('.login_form').fadeToggle();
-            },500);
-            $('.signup_form').fadeToggle();
-        }
-      })
-      
-      // 忘記密碼彈窗
-      $('.pwd_btn').click(function(){
-        $('.pwd_block').fadeToggle();
-      })
-
-      $('.pwd_block').click(function(){
-        $('.pwd_block').fadeToggle();
-      })
-      
-      $('.cancel_btn').click(function(){
-        $('.pwd_block').fadeToggle();
-      })
-
-      $('.pwd_block_inside').click(e=>{
-        e.stopPropagation();
-      })
-
-      let pwd_resend_btn = document.getElementsByClassName("pwd_resend_btn")[0];
-      pwd_resend_btn.addEventListener("click", function () {
-        let val = document.getElementsByClassName("pwd_resend")[0].value;
-        if(val !== ""){
-          Email.send({
-            Host: "smtp.gmail.com",
-            Username: "goodvegetablebox@gmail.com",
-            Password: "tfd102g4",
-            To: val,
-            From: "良耕野菜<goodvegetablebox@gmail.com>",
-            Subject: "良耕野菜",
-            Body: "感謝您使用本網站，您的新密碼為11111111，請使用新密碼重新登入",
-          }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入'))
-          .then($('.pwd_block').fadeToggle());
-        }else{
-          alert('請輸入註冊信箱');
-        };
-      });
-      // 忘記密碼結束
-
-      // 註冊會員寄信
-
-      $('.sign_send_btn').click(function(){
-        $('.sign_block').fadeToggle();
-      })
-
-      $('.sign_block').click(function(){
-        $('.sign_block').fadeToggle();
-      })
-      
-      $('.sign_block_inside').click(e=>{
-        e.stopPropagation();
-      })
-
-      $('.sign_cancel_btn').click(function(){
-        $('.sign_block').fadeToggle();
-      })
-
-      let sign_confirm_btn = document.getElementById('sign_confirm_btn');
-      let sign_send_btn = document.getElementsByClassName('sign_send_btn')[0]
-      sign_confirm_btn.addEventListener('click', function(e){
-        e.preventDefault();
-        let sign_email = document.getElementsByClassName('sign_email')[0];
-        let sign_pwd = document.getElementsByClassName('sign_pwd')[0].value;
-        let pwd_confirm = document.getElementsByClassName('pwd_confirm')[0].value;
-        let sign_tel = document.getElementsByClassName('sign_tel')[0];
-        let val = sign_email.value;
-
-        if(val !== "" && val.search('@') != -1){
-          if(sign_pwd === pwd_confirm){
-            Email.send({
-              Host: "smtp.gmail.com",
-              Username: "goodvegetablebox@gmail.com",
-              Password: "tfd102g4",
-              To: val,
-              From: "良耕野菜<goodvegetablebox@gmail.com>",
-              Subject: "良耕野菜",
-              Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
-            }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
-            .then($('.sign_block').fadeToggle());
-          }else{
-            alert('請確認密碼是否相同')
-            document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
-            document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
-          }
-        }else{
-          alert('請輸入正確信箱');
-          sign_email.value = '';
-          sign_email.style.border = '3px solid red';
-        };
-      });
-
-      sign_send_btn.addEventListener('click', function(){
-        let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
-        if(sign_confirm.value == 11111111){
-          alert('註冊成功，為您跳轉首頁');
-          window.location.href = 'index.html';
-        }
-      })
-
-    </script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

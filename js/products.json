@@ -1,0 +1,256 @@
+[
+    {   
+        "ID":"01",
+        "PRODUCT_NAME": "高麗菜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"02",
+        "PRODUCT_NAME": "地瓜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"03",
+        "PRODUCT_NAME": "大番茄",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"04",
+        "PRODUCT_NAME": "小白菜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"05",
+        "PRODUCT_NAME": "玉米",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"06",
+        "PRODUCT_NAME": "紅蘿蔔",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"07",
+        "PRODUCT_NAME": "白蘿蔔",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"08",
+        "PRODUCT_NAME": "萵苣",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"09",
+        "PRODUCT_NAME": "青椒",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"10",
+        "PRODUCT_NAME": "甜椒",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"11",
+        "PRODUCT_NAME": "青江菜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"12",
+        "PRODUCT_NAME": "地瓜葉",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"13",
+        "PRODUCT_NAME": "A菜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"14",
+        "PRODUCT_NAME": "玉米筍",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"15",
+        "PRODUCT_NAME": "南瓜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"16",
+        "PRODUCT_NAME": "小黃瓜",
+        "PRODUCT_TYPE_ID": "3",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"17",
+        "PRODUCT_NAME": "草莓",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"18",
+        "PRODUCT_NAME": "小番茄",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"19",
+        "PRODUCT_NAME": "柳丁",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"20",
+        "PRODUCT_NAME": "芒果",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"21",
+        "PRODUCT_NAME": "香蕉",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"22",
+        "PRODUCT_NAME": "芭樂",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"23",
+        "PRODUCT_NAME": "檸檬",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"24",
+        "PRODUCT_NAME": "鳳梨",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"25",
+        "PRODUCT_NAME": "柿子",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"26",
+        "PRODUCT_NAME": "哈密瓜",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"27",
+        "PRODUCT_NAME": "香瓜",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    },
+    {   
+        "ID":"28",
+        "PRODUCT_NAME": "木瓜",
+        "PRODUCT_TYPE_ID": "2",
+        "PRODUCT_PRICE": "100",
+        "PRODUCT_INFO": "好吃的高麗菜",
+        "PRODUCT_STATUS": "1",
+        "image":"./images/fruit_box/399/salad.png"
+    }
+
+
+]

@@ -45,12 +45,14 @@ div#game_title {
 //    ==數字圓框==
 
 div#game_decorate_testNumberCircle {
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 170px;
   // border: 1px solid red;
   position: absolute;
   border-radius: 50%;
-  top: -5rem;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #b9f18c;
   display: flex;
   justify-content: center;
@@ -58,7 +60,7 @@ div#game_decorate_testNumberCircle {
   @include pad {
     width: 120px;
     height: 120px;
-    top: -4rem;
+    top: 1rem;
   }
   @include mobile {
     width: 100px;
@@ -115,8 +117,14 @@ body#game_page {
   background-attachment: fixed;
 }
 
+// ==v-show的div外框==
+
+// div.page1 {
+//   position: relative;
+// }
+
 // ==小遊戲主欄位==
-section#game_play_border {
+section.game_play_border {
   width: 60%;
   height: 1000px;
   @include pad {
@@ -183,7 +191,7 @@ section#game_play_border {
   #count {
     position: absolute;
     top: -1.5%;
-    right: 2%;
+    right: 0%;
     color: white;
     display: flex;
     justify-content: center;
@@ -197,7 +205,7 @@ section#game_play_border {
       right: 2%;
     }
     h1 {
-      font-size: 3vw;
+      font-size: 36px;
       font-weight: bolder;
       @include mobile {
         font-size: 30px;
@@ -208,19 +216,21 @@ section#game_play_border {
     height: 400px;
     margin-top: 24rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
     @include pad {
       height: 250px;
-      margin-top: 12rem;
+      margin-top: 20rem;
     }
     @include mobile {
       height: 200px;
       margin-top: 8rem;
     }
     img#game_test {
-      width: 60vw;
+      width: 400px;
       // height: 300px;
       @include pad {
-        width: 60vw;
+        width: 50vw;
         // height: 200px;
       }
       @include mobile {
@@ -233,9 +243,11 @@ section#game_play_border {
     margin-top: 6rem;
     margin-bottom: 2rem;
     height: 200px;
-    width: 80%;
     text-align: center;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include pad {
       height: 180px;
       margin-top: 2rem;

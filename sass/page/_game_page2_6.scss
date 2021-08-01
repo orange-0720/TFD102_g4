@@ -55,6 +55,8 @@ div#game_decorate_testNumberCircle_2 {
   position: absolute;
   border-radius: 50%;
   top: -5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #f42272;
   display: flex;
   justify-content: center;
@@ -112,15 +114,15 @@ div#game_decorate_testNumberCircle_2 {
 //     }
 
 //    ==小遊戲背景圖==
-    body#game_page{
-        background-image: url(../images/game/bg_leaf.svg);
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        background-attachment :fixed;
-    }
+body#game_page {
+  background-image: url(../images/game/bg_leaf.svg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+}
 
 // ==小遊戲主欄位==
-section#game_play_border {
+section.game_play_border {
   width: 60%;
   height: 1000px;
   @include pad {
@@ -190,7 +192,7 @@ section#game_play_border {
   #count {
     position: absolute;
     top: -1.5%;
-    right: 2%;
+    right: 0%;
     color: white;
     display: flex;
     justify-content: center;
@@ -204,7 +206,7 @@ section#game_play_border {
       right: 2%;
     }
     h1 {
-      font-size: 3vw;
+      font-size: 40px;
       font-weight: bolder;
       @include mobile {
         font-size: 30px;
@@ -241,7 +243,6 @@ section#game_play_border {
     margin-bottom: 2rem;
     line-height: 2vh;
     height: 200px;
-    width: 80%;
     text-align: center;
     padding: 1rem;
     @include pad {

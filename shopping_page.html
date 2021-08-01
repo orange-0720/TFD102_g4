@@ -58,7 +58,7 @@
           <a href="./game.html">蔬果知識小遊戲</a>
           <a href="./aboutUs.html">關於我們</a>
           <a href="./q_a.html">問與答</a>
-          <a href="./shopping_page.html">新鮮蔬果</a>
+          <a class="on_page" href="./shopping_page.html">新鮮蔬果</a>
         </div>
       </div>
       <div class="title">
@@ -176,102 +176,105 @@
 
     <!-- 當頁內容開始 -->
     <div id="shopping_page">
-    <div class="shopping_main_block">
-      <!-- 側邊欄開始 -->
-      <img class="shopping_aside_pic" src="./images/shopping_page/shopping_side.svg" alt="aside">
-      <div class="shopping_nav_block">
-        <h2 class="show_out_block">商品一覽</h2>
-        <hr />
-        <div class="show_box_block">
-          <div class="shopping_box_block">
-            <h3 class="shopping_box_slide">
-              蔬果箱
-              <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
-            </h3>
-            <div class="shopping_box_link">
-              <a href="#" v-for="box in boxs">{{box}}</a>
+      <div class="shopping_main_block">
+        <!-- 側邊欄開始 -->
+        <img class="shopping_aside_pic" src="./images/shopping_page/shopping_side.svg" alt="aside">
+        <div class="shopping_nav_block">
+          <h2 class="show_out_block">商品一覽</h2>
+          <hr />
+          <div class="show_box_block">
+            <div class="shopping_box_block">
+              <h3 class="shopping_box_slide">
+                蔬果箱
+                <img class="shopping_aside_arrow" src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
+              </h3>
+              <div class="shopping_box_link">
+                <a href="#" v-for="box in boxs">{{box}}</a>
+              </div>
+            </div>
+            <div class="shopping_veg_block">
+              <h3 class="shopping_veg_slide">
+                蔬菜
+                <img class="shopping_aside_arrow" src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
+              </h3>
+              <div class="shopping_veg_link">
+                <a href="#" v-for="veg in vegs">{{veg}}</a>
+              </div>
+            </div>
+            <div class="shopping_fruit_block">
+              <h3 class="shopping_fruit_slide">
+                水果
+                <img 
+                  class="shopping_aside_arrow"
+                  src="./images/shopping_page/shopping_arrow_icon.svg"
+                  />
+              </h3>
+              <div class="shopping_fruit_link">
+                <a href="#" v-for="fruit in fruits">{{fruit}}</a>
+              </div>
+            </div>
+            <div class="shopping_customer_block">
+              <h3>
+                <a href="./fruit_box.html">客製蔬果箱</a>
+              </h3>
             </div>
           </div>
-          <div class="shopping_veg_block">
-            <h3 class="shopping_veg_slide">
-              蔬菜
-              <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
-            </h3>
-            <div class="shopping_veg_link">
-              <a href="#" v-for="veg in vegs">{{veg}}</a>
-            </div>
+        </div>
+        <!-- 側邊欄結束 -->
+
+        <div class="shopping_page_list">
+
+          <!-- 資料庫撈出資料迴圈秀出 -->
+          <div class="shopping_product_block" v-for='(item,index) in page_products'>
+            <a href="./itemtest.html">
+              <div class="shopping_product_pic">
+                <img
+                  :src="item.image"
+                  :alt="item.ID"
+                />
+                <span @click.prevent="incart(index)" class="shopping_product_incart"></span>
+              </div>
+              <h4 class="shopping_product_name">{{item.PRODUCT_NAME}}</h4>
+              <h5 class="shopping_product_intro">
+                {{item.PRODUCT_INFO}}
+              </h5>
+              <h4 class="shopping_product_price">{{item.PRODUCT_PRICE}}元</h4>
+            </a>
           </div>
-          <div class="shopping_fruit_block">
-            <h3 class="shopping_fruit_slide">
-              水果
-              <img src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
-            </h3>
-            <div class="shopping_fruit_link">
-              <a href="#" v-for="fruit in fruits">{{fruit}}</a>
+      
+          <!-- 換頁 -->
+          <div class="shooping_change_page">
+            <div class="change_page_block">
+              <div class="circle_base_prev"></div>
+              <div class="page_prev" @click="prevPage">
+                <img
+                  src="./images/shopping_page/shopping_prev_arrow.svg"
+                  alt="上一頁"
+                />
+              </div>
+              <div class="shopping_page_01" @click="move_page(1)">
+                1
+              </div>
+              <div class="shopping_page_02" @click="move_page(2)">
+                2
+              </div>
+              <div class="shopping_page_03" @click="move_page(3)">
+                3
+              </div>
+              <div class="shopping_page_04" @click="move_page(4)">
+                4
+              </div>
+              <div class="page_next" @click="nextPage">
+                <img
+                  src="./images/shopping_page/shopping_prev_arrow.svg"
+                  alt="下一頁"
+                />
+              </div>
+              <div class="circle_base_next"></div>
             </div>
-          </div>
-          <div class="shopping_customer_block">
-            <h3>
-              <a href="./fruit_box.html">客製蔬果箱</a>
-            </h3>
           </div>
         </div>
       </div>
-      <!-- 側邊欄結束 -->
-
-      <div class="shopping_page_list">
-
-        <!-- 資料庫撈出資料迴圈秀出 -->
-        <div class="shopping_product_block" v-for='item in products'>
-          <a href="./itemtest.html">
-            <div class="shopping_product_pic">
-              <img
-                :src="item.src"
-                :alt="item.id"
-              />
-              <span @click.prevent="incart" class="shopping_product_incart"></span>
-            </div>
-            <h4 class="shopping_product_name">{{item.name}}</h4>
-            <h5 class="shopping_product_intro">
-              {{item.intro}}
-            </h5>
-            <h4 class="shopping_product_price">{{item.price}}元</h4>
-          </a>
-        </div>
-    
-        <!-- 換頁 -->
-        <div class="shooping_change_page">
-          <div class="change_page_block">
-            <div class="circle_base_prev"></div>
-            <div class="page_prev">
-              <img
-                src="./images/shopping_page/shopping_prev_arrow.svg"
-                alt="上一頁"
-              />
-            </div>
-            <div class="shopping_page_01">
-              <a href="#">1</a>
-            </div>
-            <div class="shopping_page_02">
-              <a href="#">2</a>
-            </div>
-            <div class="shopping_page_03">
-              <a href="#">3</a>
-            </div>
-            <div class="shopping_page_04">
-              <a href="#">4</a>
-            </div>
-            <div class="page_next">
-              <img
-                src="./images/shopping_page/shopping_prev_arrow.svg"
-                alt="下一頁"
-              />
-            </div>
-            <div class="circle_base_next"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
 
 
@@ -327,6 +330,8 @@
       var shopping_page = new Vue({
         el: "#shopping_page",
         data:{
+          page: 1,
+          limit: 9,
           boxs:[
             '防疫蔬果箱',
             '活力蔬果箱',
@@ -365,78 +370,80 @@
             '香瓜',
             '木瓜',
           ],
-          products:[
-            {
-              id:1,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:2,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:3,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:4,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:5,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:6,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:7,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:8,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            },
-            {
-              id:9,
-              name:"防疫蔬果箱",
-              price:399,
-              src: "./images/shopping_page/shopping_fake.jpg",
-              intro: '防疫期間推出，內含10種蔬果。 攜手度過本次疫情',
-            }
-          ]
+          products:[]
         },
         methods: {
-          incart(){
-            alert('已加入購物車')
+          incart(index){
+            alert('已加入購物車');
+            console.log(this.products[index]);
+          },
+          move_page(index){
+            this.page = index;
+            console.log(this.products)
+          },
+          prevPage(){
+            if(this.page != 1){
+              this.page -= 1;
+            }
+          },
+          nextPage(){
+            if(this.page != 4){
+              this.page += 1;
+            }
           }
         },
-      })
+        mounted() {
+          $.getJSON('./js/products.json').then(res => this.products = res);
+          // $.ajax({
+          //   method: 'POST',
+          //   url: 'php/getProduct.php',
+          //   data:{},
+          //   dataType: 'json',
+          //   success: function(response) {
+          //     // response => this.products = response  
+          //     this.products = response;
+          //     console.log(this.products);
+
+          //   },
+          //   error: function(exception) {
+          //       alert("發生錯誤: " + exception.status);
+          //   },
+          // });
+          
+        },
+        computed: {
+          // products(){
+          //   $.ajax({
+          //     method: 'POST',
+          //     url: 'php/getProduct.php',
+          //     data:{},
+          //     dataType: 'json',
+          //     success: function(response) {
+          //       // response => this.products = response
+          //       console.log(response)
+          //       return response
+          //     },
+          //     error: function(exception) {
+          //         alert("發生錯誤: " + exception.status);
+          //     },
+          //   });
+          // },
+          page_products(){
+            const last_index = this.page * (this.limit -1);
+            const first_index = (this.page -1) * (this.limit -1);
+            const page_product = [];
+            for(let i = first_index; i < this.products.length; i++){
+              if(last_index < i) break;
+              page_product.push(this.products[i]);
+            }
+            return page_product;
+          },
+        },
+      });
+
+
+      // VUE 結束
+
       // 側邊攔展開
       window.addEventListener('resize',function(){
         if(window.innerWidth >= 768) {
@@ -464,7 +471,19 @@
         }
       })
       
+      $('.shopping_veg_slide').click(function(){
+        $('.shopping_veg_slide > img').toggleClass('arrow_updown');
+      })
      
+      $('.shopping_box_slide').click(function(){
+        $('.shopping_box_slide > img').toggleClass('arrow_updown');
+      })
+
+      $(".shopping_fruit_slide").on("click", function () {
+         $('.shopping_fruit_slide > img').toggleClass('arrow_updown');
+      });
+
+
 
       // 回頁首
       $("#go_top").on("click", function (e) {
