@@ -93,7 +93,7 @@ body#game_page {
 }
 
 // ==小遊戲主欄位==
-section#game_play_border_lottery {
+section.game_play_border_lottery {
   width: 60%;
   // height: 1500px;
   @include pad {
