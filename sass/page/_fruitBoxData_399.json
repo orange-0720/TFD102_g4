@@ -1,37 +1,42 @@
 [
     {
+        "id":1,
         "image":"./images/fruit_box/399/salad.png",
         "title":"青江菜",
         "unit":"(250g)",
         "data-text":"青江菜 250g"
     },
     {
+        "id":2,
         "image":"./images/fruit_box/399/carrot.png",
         "title":"紅蘿蔔",
         "unit":"1包(約300g)",
         "data-text":"紅蘿蔔 1包(約300g)"
         
     },
-    {
+    {   
+        "id":3,
         "image":"./images/fruit_box/399/pepper.png",
         "title":"青椒",
         "unit":"2顆(約300g)",
         "data-text":"青椒 2顆(約300g)"
     },
-    {
+    {   
+        "id":4,
         "image":"./images/fruit_box/399/avocado.png",
         "title":"酪 梨",
         "unit":"2顆(約300g)",
         "data-text":"酪梨 2顆(約300g)"
     },
     {
+        "id":5,
         "image":"./images/fruit_box/399/tomato.png",
-        
         "title":"番茄",
         "unit":"2顆(約300g)",
         "data-text":"番茄 2顆(約300g)"
     },
     {
+        "id":6,
         "image":"./images/fruit_box/399/orange.png",
         "title":"橘子",
         "unit":"2顆(約300g)",
@@ -39,6 +44,7 @@
 
     },
     {
+        "id":7,
         "image":"./images/fruit_box/399/spinach.png",
         "title":"空心菜",
         "unit":"(250g)",
@@ -46,6 +52,7 @@
         
     },
     {
+        "id":8,
         "image":"./images/fruit_box/499/babycorn.png",
         "title":"玉米筍",
         "unit":"2顆(約300g)"
