@@ -51,39 +51,39 @@
           </div>
         </div>
       </div>
-     
-    <div class="menu">
-      <div class="logo_img">
-        <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
-        </a>
+      <div class="menu">
+        <div class="logo_img">
+          <a href="./index.html">
+            <img src="./images/logo.svg" alt="logo" />
+          </a>
+        </div>
+        <div class="page_list">
+          <a href="./event.html">農村體驗</a>
+          <a href="./fruit_box.html">客製蔬果箱</a>
+          <a href="./game.html">蔬果知識小遊戲</a>
+          <a href="./aboutUs.html">關於我們</a>
+          <a href="./q_a.html">問與答</a>
+          <a href="./shopping_page.html">新鮮蔬果</a>
+        </div>
       </div>
-      <div class="page_list">
-        <a href="./event.html">農村體驗</a>
-        <a href="./fruit_box.html">客製蔬果箱</a>
-        <a href="./game.html">蔬果知識小遊戲</a>
-        <a href="./aboutUs.html">關於我們</a>
-        <a href="./q_a.html">問與答</a>
-        <a href="./shopping_page.html">新鮮蔬果</a>
-      </div>
-    </div>
-    <div class="title">
-      <div class="title_btn">
-        <button class="comm_us">
-          聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
-        </button>
-        <a class="buy_now">
-          立即買<img src="./images/buy_now.svg" width="25px" alt="" />
-        </a>
-      </div>
-      <div class="title_pic">
-        <img
-          src="./images/member/member_01.jpg"
-          alt="checkout_pic"
-          style="padding-bottom: 100px;"
-        />
-        <span class="bkc_black"></span>
-        <h1>蔬果知識小遊戲</h1>
+      <div class="title">
+        <div class="title_btn">
+          <button class="comm_us">
+            聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+          </button>
+          <a class="buy_now" href="./shopping_page.html">
+            立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          </a>
+        </div>
+        <div class="title_pic">
+          <img
+            src="./images/member/member_01.jpg"
+            alt="checkout_pic"
+            style="padding-bottom: 100px"
+          />
+          <span class="bkc_black"></span>
+          <h1>蔬果知識小遊戲</h1>
+        </div>
       </div>
 
       <!-- 漢堡彈窗 -->
@@ -166,6 +166,7 @@
           </div>
         </div>
       </div>
+
       <!-- 購物車彈窗  -->
       <div class="header_shopping_cart">
         <button class="cart_close">
@@ -189,7 +190,7 @@
     <div id="game_title_lottery">
       <h2 class="game_title">蔬果知識小遊戲-轉蛋趣</h2>
     </div>
-    <section id="game_play_border_lottery">
+    <section class="game_play_border_lottery">
       <div id="game_decorate_testNumberCircle_3">
         <h1 id="inside_testNumber">會員扭蛋</h1>
       </div>
@@ -233,7 +234,7 @@
             <img src="./images/game/rightArrow.svg" alt="" id="rightArrow" />
           </button>
           <span id="submit_1"
-            ><img src="./images/game/cooking_otama.png" alt=""
+            ><img src="./images/game/cooking_otama.png" alt="" id="start"
           /></span>
         </div>
         <img
@@ -245,7 +246,6 @@
       <!-- 用js去寫換圖 -->
       <!-- button在外層直接換內層 -->
     </section>
-   
 
     <section id="game_slideshow_step_lottery">
       <div id="game_slideshow">
@@ -294,7 +294,7 @@
           <h5>(17:00後下單視為隔日下單)</h5>
           <div class="btn_pos">
             <button class="mail_btn">
-              <img src="./images/mail.svg" alt="mail">MAIL
+              <img src="./images/mail.svg" alt="mail" />MAIL
             </button>
           </div>
           <div class="footer_icon">
@@ -332,6 +332,17 @@
       //           this.classList.remove("blue");
       //           this.classList.add("green");
       //       })
+
+      //湯勺點擊動畫
+      $("button#submit_1").mousedown(function() {
+        $("img#start").css("transform", "scale(1.5)");
+        return false;
+      });
+
+      $("button#submit_1").click(function() {
+        $("img#start").css("transform", "rotate(0.8turn)");
+        return false;
+      });
       //Slider
       $("#game_slideshow").each(function() {
         let slideImgs = $(this).find("img");
@@ -350,21 +361,6 @@
           currentIndex = nextIndex;
         }
       });
-
-      //     // ====以下為共用====
-      //     // 控制HEADER裡的黃色NAV區塊
-      // var menu = document.getElementsByClassName("menu")[0];
-      // document.addEventListener("scroll", function () {
-      //   menu.style.top = (0 - (scrollY)) + "px";
-      // });
-
-      // // 漢堡選單
-      // $('.ham').on("click", function () {
-      //   $('.jump_hamburger_block').fadeToggle();
-      //   $('.ham_top').toggleClass('ham_top_move');
-      //   $('.ham_middle').toggleClass('ham_middle_move')
-      //   $('.ham_bottom').toggleClass('ham_bottom_move');
-      // })
 
       // 回頁首
       $("#go_top").on("click", function(e) {
