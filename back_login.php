@@ -20,11 +20,11 @@
         <form method="post" onsubmit="return false;">
           <div class="form_group">
             <label for="username" class="form_label">User name</label>
-            <input type="text" />
+            <input class="back_input" type="text" />
             <label for="password" class="form_label">Password</label>
-            <input type="text" />
+            <input class="back_input" type="text" />
           </div>
-          <button id="login" type="submit">Login</button>
+          <button class="back_login" id="login" type="submit">Login</button>
         </form>
       </div>
     </div>
