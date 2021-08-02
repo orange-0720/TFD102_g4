@@ -10,6 +10,7 @@
     <link rel="icon" href="./images/logo-02.svg" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
   <body id="game_page">
     <header class="header">
@@ -187,146 +188,239 @@
       <h2 class="game_title">蔬果知識小遊戲</h2>
     </div>
     <!-- vue範圍開始 -->
-    <section id="game_play_border">
-      <div id="game_decorate_testNumberCircle">
-        <h1 id="inside_testNumber">開始</h1>
-      </div>
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-      <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" />
-      <div id="count"><h1>10</h1></div>
-      <div class="game_test">
-        <img src="./images/game/game_img_Avocado.svg" alt="" id="game_test" />
-      </div>
-      <div id="game_question">
-        <h2>
-          腦力激盪，測試蔬果知識!
-          <br />5題答對才能挑戰扭蛋獲取購物金，準備好了嗎?
-        </h2>
-      </div>
-      <div id="game_bottom_part">
-        <button type="submit" id="submit" class="green" @click="show_Page2">
-          <a href="game_page2.html">遊戲開始</a>
-        </button>
-        <img
-          src="./images/game/game_img_Farmer.svg"
-          alt=""
-          class="decorate icon_11"
-        />
-      </div>
-    <!-- ===VUE第二頁第一題=== -->
-    
-      <div id="game_decorate_testNumberCircle_2" v-if="page2Show">
-        <h1 id="inside_testNumber">1</h1>
-      </div>
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-      <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" />
-      <div id="count"><h1>10</h1></div>
-      <div class="game_test_2">
-        <img src="./images/game/game_tomato.svg" alt="" id="game_test" />
-      </div>
-      <div id="game_question">
-        <h2>番茄最重要的營養素為?</h2>
-      </div>
-      <div id="game_bottom_part">
-        <div id="game_answer">
-          <button type="submit" id="submit_1" class="green" @click="show_Page3>
-            <a href="game_page3.html">茄紅素</a>
-          </button>
-          <button type="submit" id="submit_2" class="green" @click="show_Page3>
-            <a href="game_page3.html">蛋白質</a>
-          </button>
+    <section class="game_play_border" id="test_block">
+      <div class="page1" v-show="page1show">
+        <div id="game_decorate_testNumberCircle">
+          <h1 id="inside_testNumber">開始</h1>
         </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
         <img
-          src="./images/game/game_img_Farmer.svg"
+          src="./images/game/game_img_Tomato.png"
           alt=""
-          class="decorate icon_11"
+          class="game icon_4"
         />
+        <div id="count">
+          <h1>10秒</h1>
+        </div>
+        <div class="game_test">
+          <img src="./images/game/game_img_Avocado.svg" alt="" id="game_test" />
+        </div>
+        <div id="game_question">
+          <h2>
+            腦力激盪，測試蔬果知識!
+            <br />5題答對才能挑戰扭蛋獲取購物金，準備好了嗎?
+          </h2>
+        </div>
+        <div id="game_bottom_part">
+          <button type="submit" id="submit" @click="show_Page2">
+            遊戲開始
+          </button>
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+          />
+        </div>
+      </div>
+      <!-- ===VUE第二頁第一題=== -->
+      <div class="page2" V-show="page2show">
+        <div id="game_decorate_testNumberCircle_2">
+          <h1 id="inside_testNumber">1</h1>
+        </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
+        <img
+          src="./images/game/game_img_Tomato.png"
+          alt=""
+          class="game icon_4"
+        />
+        <div id="count"><h1>{{time+"秒"}}</h1></div>
+        <div class="game_test_2">
+          <img src="./images/game/game_tomato.svg" alt="" id="game_test" />
+        </div>
+        <div id="game_question">
+          <h2>番茄最重要的營養素為?</h2>
+        </div>
+        <div id="game_bottom_part">
+          <div id="game_answer">
+            <button type="submit" id="submit_1" @click="show_Page3" value="1">
+              茄紅素
+            </button>
+            <button type="submit" id="submit_2" @click="show_Page3" value="0">
+              蛋白質
+            </button>
+          </div>
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+          />
+        </div>
       </div>
       <!-- ===VUE第三頁第二題=== -->
-      <div id="game_decorate_testNumberCircle_2" v-if="page3Show">
-        <h1 id="inside_testNumber">2</h1>
-      </div>
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-      <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" />
-      <div id="count"><h1>10</h1></div>
-      <div class="game_test_2">
-        <img
-          src="./images/game/game_img_cabage_real.svg"
-          alt=""
-          id="game_test"
-        />
-      </div>
-      <div id="game_question">
-        <h2>為什麼同一品種的高麗菜有尖頭與平頭兩種外觀?</h2>
-      </div>
-      <div id="game_bottom_part">
-        <div id="game_answer">
-          <button type="submit" id="submit_1" class="green" @click="show_Page4>
-            <a href="game_page4.html">運送過程<br />被擠壓到</a>
-          </button>
-          <button type="submit" id="submit_2" class="green" @click="show_Page4>
-            <a href="game_page4.html">溫度影響<br />花芽分化</a>
-          </button>
+      <div class="page3" V-show="page3show">
+        <div id="game_decorate_testNumberCircle_2">
+          <h1 id="inside_testNumber">2</h1>
         </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
         <img
-          src="./images/game/game_img_Farmer.svg"
+          src="./images/game/game_img_Tomato.png"
           alt=""
-          class="decorate icon_11"
+          class="game icon_4"
         />
-      </div>
-       <!-- ===VUE第四頁第三題=== -->
-       <div id="game_decorate_testNumberCircle_2" v-if="page4Show">
-        <h1 id="inside_testNumber">3</h1>
-      </div>
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-      <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" />
-      <div id="count"><h1>10</h1></div>
-      <div class="game_test_2">
-        <img src="./images/game/game_img_onion.svg" alt="" id="game_test" />
-      </div>
-      <div id="game_question">
-        <h2>洋蔥的種植方式為以下何者?</h2>
-      </div>
-      <div id="game_bottom_part">
-        <div id="game_answer">
-          <button type="submit" id="submit_1" class="green"  @click="show_Page5>
-            <a href="game_page5.html">水耕</a>
-          </button>
-          <button type="submit" id="submit_2" class="green"  @click="show_Page5>
-            <a href="game_page5.html">土耕</a>
-          </button>
+        <div id="count"><h1>{{time+"秒"}}</h1></div>
+        <div class="game_test_2">
+          <img
+            src="./images/game/game_img_cabage_real.svg"
+            alt=""
+            id="game_test"
+          />
         </div>
-        <img
-          src="./images/game/game_img_Farmer.svg"
-          alt=""
-          class="decorate icon_11"
-        />
+        <div id="game_question">
+          <h2>為什麼同一品種的高麗菜有尖頭與平頭兩種外觀?</h2>
+        </div>
+        <div id="game_bottom_part">
+          <div id="game_answer">
+            <button type="submit" id="submit_1" @click="show_Page4">
+              運送過程<br />被擠壓到
+            </button>
+            <button type="submit" id="submit_2" @click="show_Page4">
+              溫度影響<br />花芽分化
+            </button>
+          </div>
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+          />
+        </div>
       </div>
+      <!-- ===VUE第四頁第三題=== -->
+      <div class="page4" V-show="page4show">
+        <div id="game_decorate_testNumberCircle_2">
+          <h1 id="inside_testNumber">3</h1>
+        </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
+        <img
+          src="./images/game/game_img_Tomato.png"
+          alt=""
+          class="game icon_4"
+        />
+        <div id="count"><h1>{{time+"秒"}}</h1></div>
+        <div class="game_test_2">
+          <img src="./images/game/game_img_onion.svg" alt="" id="game_test" />
+        </div>
+        <div id="game_question">
+          <h2>洋蔥的種植方式為以下何者?</h2>
+        </div>
+        <div id="game_bottom_part">
+          <div id="game_answer">
+            <button type="submit" id="submit_1" @click="show_Page5">
+              水耕
+            </button>
+            <button type="submit" id="submit_2" @click="show_Page5">
+              土耕
+            </button>
+          </div>
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+          />
+        </div>
+      </div>
+
       <!-- ===VUE第五頁第四題=== -->
+      <div class="page5" V-show="page5show">
+        <div id="game_decorate_testNumberCircle_2">
+          <h1 id="inside_testNumber">4</h1>
+        </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
+        <img
+          src="./images/game/game_img_Tomato.png"
+          alt=""
+          class="game icon_4"
+        />
+        <div id="count"><h1>{{time+"秒"}}</h1></div>
+        <div class="game_test_2">
+          <img src="./images/game/game_img_potato.svg" alt="" id="game_test" />
+        </div>
+        <div id="game_question">
+          <h2>本產馬鈴薯為一年幾獲?</h2>
+        </div>
+        <div id="game_bottom_part">
+          <div id="game_answer">
+            <button type="submit" id="submit_1" @click="show_Page6">
+              一年一穫
+            </button>
+            <button type="submit" id="submit_2" @click="show_Page6">
+              一年兩穫
+            </button>
+          </div>
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+          />
+        </div>
+      </div>
 
-
-
-
-
-
-
-      
-
+      <!-- ===VUE第六頁第五題=== -->
+      <div class="page6" V-show="page6show">
+        <div id="game_decorate_testNumberCircle_2">
+          <h1 id="inside_testNumber">5</h1>
+        </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
+        <img
+          src="./images/game/game_img_Tomato.png"
+          alt=""
+          class="game icon_4"
+        />
+        <div id="count"><h1>{{time+"秒"}}</h1></div>
+        <div class="game_test_2">
+          <img
+            src="./images/game/game_img_whiteRadish.svg"
+            alt=""
+            id="game_test"
+          />
+        </div>
+        <div id="game_question">
+          <h2>如何挑到好吃的白蘿蔔?</h2>
+        </div>
+        <div id="game_bottom_part">
+          <div id="game_answer">
+            <button type="submit" id="submit_1" @click="show_Page6">
+              底部根鬚很多的
+            </button>
+            <button type="submit" id="submit_2" @click="show_Page6">
+              聲音厚實、表皮硬
+            </button>
+          </div>
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+          />
+        </div>
+      </div>
       <!-- 用js去寫換圖 -->
       <!-- button在外層直接換內層 -->
     </section>
 
+    <!-- ==輪波圖== -->
 
-    <!-- ===輪撥圖=== -->
-    <section id="game_slideshow_step">
+    <section id="game_slideshow_step_lottery">
       <div id="game_slideshow">
         <img
           src="./images/game/game_scroll_1.png"
@@ -374,7 +468,7 @@
           <h5>(17:00後下單視為隔日下單)</h5>
           <div class="btn_pos">
             <button class="mail_btn">
-              <img src="./images/mail.svg" alt="mail">MAIL
+              <img src="./images/mail.svg" alt="mail" />MAIL
             </button>
           </div>
           <div class="footer_icon">
@@ -402,17 +496,152 @@
 
     <script src="./js/header.js"></script>
     <script>
-      //暫時button js
-      // let button = document.querySelector("button#submit");
-      // button.addEventListener("click", function() {
-      //   this.classList.remove("green");
-      //   this.classList.add("blue");
-      // });
-      // button.addEventListener("mouseleave", function() {
-      //   this.classList.remove("blue");
-      //   this.classList.add("green");
-      // });
-      //Slider
+      var test_block = new Vue({
+        el: "#test_block",
+        data: {
+          page1show: true,
+          page2show: false,
+          page3show: false,
+          page4show: false,
+          page5show: false,
+          page6show: false,
+          currentshow: "",
+          timer: null,
+          time: 10,
+        },
+        methods: {
+          show_Page2() {
+            this.page1show = false;
+            this.page2show = true;
+            this.page3show = false;
+            this.page4show = false;
+            this.page5show = false;
+            this.page6show = false;
+          },
+          show_Page3() {
+            this.page1show = false;
+            this.page2show = false;
+            this.page3show = true;
+            this.page4show = false;
+            this.page5show = false;
+            this.page6show = false;
+          },
+          show_Page4() {
+            this.page1show = false;
+            this.page2show = false;
+            this.page3show = false;
+            this.page4show = true;
+            this.page5show = false;
+            this.page6show = false;
+          },
+          show_Page5() {
+            this.page1show = false;
+            this.page2show = false;
+            this.page3show = false;
+            this.page4show = false;
+            this.page5show = true;
+            this.page6show = false;
+          },
+          show_Page6() {
+            this.page1show = false;
+            this.page2show = false;
+            this.page3show = false;
+            this.page4show = false;
+            this.page5show = false;
+            this.page6show = true;
+          },
+          show_PageCurrent() {
+            this.page1show = false;
+            this.page2show = false;
+            this.page3show = false;
+            this.page4show = false;
+            this.page5show = false;
+            this.page6show = true;
+          },
+          countdown() {
+            this.time--;
+            if (this.time == 0) {
+              clearInterval(this.timer);
+              // show_Page3();
+              // continue;
+            }
+          },
+          beforeDestroy() {
+            clearInterval(this.timer);
+          },
+          // computed: {
+          //   counttotal: function() {
+          //     let sum = 0;
+          //     this;
+          //   },
+          // },
+        },
+        mounted() {
+          this.timer = setInterval(this.countdown, 1000);
+        },
+        //監聽倒數完畢
+        // watch: {
+        //   time: function(newValue, oldValue) {
+        //     if(newValue=='0'){
+        //       for(let i=1;i<=6;i++){
+        //         this.page+[i]+show="true";
+        //       }
+
+        //     }
+        //   },
+        // },
+      });
+
+      //==番茄鐘計時功能==
+
+      // //==計時函數引入==
+      // function getTimeRemaining(endtime) {
+      //   var t = Date.parse(endtime) - Date.now();
+      //   var seconds = Math.floor((t / 1000) % 60);
+      //   var minutes = Math.floor((t / 1000 / 60) % 60);
+      //   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      //   var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      //   return {
+      //     total: t,
+      //     days: days,
+      //     hours: hours,
+      //     minutes: minutes,
+      //     seconds: seconds,
+      //   };
+      // }
+      // (this).find("img");
+
+      //   let slideImgsCount = slideImgs.length;
+      //   let currentIndex //==先初始化鬧鐘==
+      // function initialClock(id, endtime) {
+      //   var clock = document.getElementById(id);
+
+      //   //==顯示剩餘時間==
+      //   function updateClock() {
+      //     var t = getTimeRemaining(endtime);
+      //     clock.innerHTML = (t.seconds + "秒").slice(-2);
+
+      //     if (t.total <= 0) {
+      //       clearInterval(timeinterval);
+      //       //要寫入切換頁面用vue!!!!
+      //     }
+      //   }
+      //   updateClock();
+      //   // 每秒自动更新
+      //   var timeinterval = setInterval(updateClock, 1000);
+      // }
+      // //開始調用函數
+      // //計時一分鐘
+      // function setDeadline(seconds) {
+      //   var deadline = seconds * 1000;
+      //   return new Date(Date.parse(new Date()) + deadline);
+      // }
+
+      // var deadline = setDeadline(10);
+      // initialClock("timer", deadline);
+      // // ==倒數計時結束==
+
+      //==Slider==
       $("#game_slideshow").each(function() {
         let slideImgs = $(this).find("img");
 

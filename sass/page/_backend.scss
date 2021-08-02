@@ -1,7 +1,7 @@
-body#backend_page {
-  // height: 1200px;
-  margin-top: 200px;
-  background-image: url(./images/game/bg_leaf.svg);
+#backend_page {
+  // height: 800px;
+  // margin-top: 200px;
+  background-image: url("../images/backround.jpg");
   background-repeat: no-repeat;
   background-position: bottom right;
   background-attachment: fixed;
@@ -10,7 +10,7 @@ body#backend_page {
 div.container {
   height: fit-content;
   max-width: 1920px;
-  height: 1200px;
+  // height: 1200px;
   width: 95%;
   margin: 0 auto;
 }
@@ -23,7 +23,7 @@ header.row {
 div#BackEnd_header {
   margin-top: 40px;
   button#logout {
-    @include btn(200px, 60px);
+    @include btn(150px, 50px);
     margin-bottom: 20px;
     font-size: 27px;
     padding: 2px;
@@ -65,11 +65,13 @@ aside#BackEnd_main {
     }
   }
   .btn {
-    height: 67px;
-    width: 60%;
+    height: 50px;
+    width: 90%;
     margin-bottom: 10px;
     font-size: 20px;
+    border:none;
     &:hover {
+      border:none;
       background-color: $yellow;
     }
   }
@@ -91,8 +93,8 @@ div.backend_search {
 }
 
 section#main {
-  height: 650px;
-  width: 1302px;
+  // height: 650px;
+  // width: 1302px;
   background-color: white;
 
   input.rounded-pill {
@@ -108,27 +110,27 @@ section#main {
     #first-table {
       margin-top: 10px;
       background-color: $green;
-      font-size: 27px;
+      font-size: $h4;
     }
     #second-table {
       background-color: $bkc_yellow;
-      font-size: 27px;
+      font-size: $h5;
     }
     #third-table {
       background-color: white;
-      font-size: 27px;
+      font-size: $h5;
     }
     #forth-table {
       background-color: $bkc_yellow;
-      font-size: 27px;
+      font-size: $h5;
     }
     #fifth-table {
       background-color: white;
-      font-size: 27px;
+      font-size: $h5;
     }
     #sixth-table {
       background-color: $bkc_yellow;
-      font-size: 27px;
+      font-size: $h5;
     }
     .table-bordered {
       height: 90px;
@@ -144,4 +146,33 @@ a.page-link {
   &:hover {
     background-color: $green;
   }
+}
+
+.pill_type{
+  width: 80px;
+}
+
+.pill_type_new{
+  position: absolute;
+  width: 100px;
+  right:15px;
+  top:15px;
+}
+
+
+// .msg_text .res_text{
+//   font-size: .8rem;
+//   letter-spacing: 1px;
+// }
+
+// textarea{
+//   border-radius: 5px;
+//   border: 1px solid #ccc;
+//   box-shadow: 1px 1px 1px #999;
+// }
+
+.msg_content{
+  display : inline-block;
+  width: 100%;
+  text-overflow : ellipsis;
 }

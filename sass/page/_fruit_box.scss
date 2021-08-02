@@ -1,58 +1,67 @@
-  //手機版標題
-  
-  .fruit_title{
-    h2{
-      display: none;
-    }
-      @include pad {
-        h2 {
-              display: block;
-              width: 80%;
-              @include marginAuto();
-              text-align: center;
-              padding-top: 50px;
-          }
+//手機版標題
 
-        .under_line {
-          border-top: 5px solid #ffbc53;
-          width: 120px;
-          @include marginAuto();
-          margin-top: 5px;
-          opacity:0.5;
-          padding-top: 50px;
-      }
-      }
-
-  }
-
-
-  //價格欄位
-  .box_price_butten {
+.fruit_title {
+  h2 {
+    display: block;
     width: 80%;
     @include marginAuto();
+    text-align: center;
+    padding-top: 50px;
+  }
+  .under_line {
+    border-top: 5px solid #ffbc53;
+    width: 120px;
+    @include marginAuto();
+    margin-top: 5px;
+    opacity: 0.5;
+    //padding-top: 50px;
+  }
+}
+
+//價位按鈕
+.price_all {
+  max-width: 1000px;
+  width: 80%;
+  @include marginAuto();
+
+  .select_amount {
+    width: 200px;
+    max-width: 1000px;
+    padding: 20px 0 20px 0;
+    margin: auto;
+  }
+
+  .box_price_butten {
+    width: 300px;
     display: flex;
-    max-width: 1200px;  
-    button{
+    max-width: 1200px;
+    margin: auto;
+    button {
       margin-left: 15px;
       font-weight: 700;
     }
-  }
-
-  .box_price_butten{
-    button {
-      @include btn_small(100px, 50px);
-      padding: none;
-      font-size: $h3;
-      cursor: pointer;
-      &:hover {
-        background-color: darken($color: $green, $amount: 15);
-       
+    @include mobile {
+      width: 100%;
     }
-  } 
+    .id1 {
+      background-color: #91c359;
+    }
+  }
 }
 
+.box_price_butten {
+  button {
+    @include btn_small(100px, 50px);
+    padding: none;
+    font-size: $h3;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($color: $green, $amount: 15);
+    }
+  }
+}
 
-.butten_check .butten{
+.butten_check .butten {
   @include btn_yellow(100px, 50px);
   font-weight: 700;
   padding: none;
@@ -61,83 +70,331 @@
 
 //蔬果箱欄位
 .fruits_box_two {
-    width: 80%;
-    @include marginAuto();
+  width: 80%;
+  @include marginAuto();
+  max-width: 800px;
+  @include tablet {
+    //width: 100%;
+  }
+  @include mobile {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
     max-width: 1200px;
-    @include tablet{
-      //width: 100%;
-    }
-    @include mobile{
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 3%;
-      max-width: 1200px;
-      width: 80%;
-    }
+    width: 80%;
+  }
 
   flex-wrap: wrap;
   // 蔬菜箱移除選項
   .fruits_remove_menu {
     //border: 1px solid purple;
-    width: 80%;
-    //height: 80px;
+    width: 40%;
     background-color: $bkc_yellow;
     margin-top: 2%;
     border-radius: 10px;
-   
+    .choose_text {
+      padding: 10px;
+    }
 
-    @include tablet{
-      .fruits_remove_menu{
-        .five_fruits{
-          width: 60px;
-          height: 60vh;
-          background-color: $bkc_yellow;
-        }
+    @include tablet {
+      width: 60%;
+      .five_fruits {
+        width: 100%;
+        background-color: $bkc_yellow;
+      }
+      @include pad {
+        width: 80%;
       }
     }
-    // 左側黃色移除選項 
+
+    // 左側黃色移除選項
     .five_fruits {
       //border: 1px solid black;
-        padding-top: 10px;
-        margin: auto;
-        display: flex;
+      padding-top: 10px;
+      margin: auto;
+      display: flex;
+      padding: 10px;
+
       button {
         @include btn_small(24px, 24px);
         cursor: pointer;
         margin-left: 0;
       }
 
-      .fruit_1{
-          width:20%;
-      }
-
-      @include mobile{
-
+      .fruit_1 {
+        width: 20%;
       }
     }
   }
+  //移除蔬果動畫
+    .delete_basket-active,
+    .delete_basket-leave-active,
+    .delete_basket-move {
+      transition: opacity 0.7s, transform 0.8s;
+    }
+
+    .delete_basket-enter-from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .delete_basket-leave-to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  
+  //進入動畫
+
+  
+  .cc_box-enter-active{
+    animation:  0.5s;
+  }
+  .cc-leave-active {
+    animation:  0.5s;
+  }
+
+  @keyframes intobox {
+    from{
+      transform: translateY(-100%);
+    }
+    to{
+      transform: translateY(0px);
+    }
+  }
+
+
 
   // 蔬菜箱整體
   .fruits_basket {
     text-align: center;
-    img{
-      //border: 1px solid orange;
-        width: 800px;
-        // margin-left: 5%;
-        // margin-top: 20px;
-    //寫三種1000PX 700PX 300PX 可以寫死
+    width: 70%;
+    z-index: 0;
+
+    .outer_layer {
+      border: 1px solid orange;
+      width: 730px;
+      height: 500px;
+      position: relative;
+
       @include tablet {
-        width: 700px;
-      }
-     @include pad {
-          width: 500px;
+        width: 132%;
       }
 
-      @include mobile{
-          width: 100%;
+      // margin-top: 20px;
+      #wooden {
+        width: 100%;
+        top: 24%;
+        left: 0%;
+        z-index: 1;
+        position: absolute;
+      }
+
+      #wooden_box {
+        width: 100%;
+        top: 24%;
+        left: 0%;
+        z-index: -1;
+        position: absolute;
+      }
+
+      // ==== 399價位 =====
+      #avocado {
+        z-index: 0;
+        position: absolute;
+      }
+
+      #carrot {
+        z-index: 0;
+        position: absolute;
+      }
+
+      #orange {
+        position: absolute;
+      }
+
+      #pepper {
+        position: absolute;
+      }
+
+      #tomato {
+        left: 20px;
+        position: absolute;
+      }
+
+      #salad {
+        position: absolute;
+      }
+
+      #spinach {
+        position: absolute;
+      }
+
+      #babycorn {
+        position: absolute;
+        z-index: 0;
+      }
+
+      // ==== 499價位 =====
+
+      #lemon {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #w_salad {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #babycorn {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #radish {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #cucumber {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #salad {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #persimmon {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #onion {
+        position: absolute;
+        z-index: 0;
+      }
+
+      // ==== 599價位 =====
+
+      #banana {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #corn {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #pumpkin {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #salad {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #guava {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #cabbage {
+        position: absolute;
+        z-index: 0;
+      }
+
+      #strawberry {
+        position: absolute;
+        z-index: 0;
+      }
+
+      //寫三種1000PX 700PX 300PX 可以寫死
+
+      @include tablet {
+        //399
+        #avocado img,
+        #carrot img,
+        #orange img,
+        #pepper img,
+        #tomato img,
+        #salad img,
+        #spinach img,
+        #babycorn {
+          width: 90%;
+          margin-top: 20px;
+        }
+
+        //499
+        #lemon img,
+        #w_salad img,
+        #onion img,
+        #radish_d img,
+        #cucumber img,
+        #persimmon img {
+          width: 90%;
+          margin-top: 20px;
+        }
+
+        //599
+
+        #banana img,
+        #corn img,
+        #pumpkin img,
+        #salad img,
+        #guava img,
+        #cabbage img {
+          width: 90%;
+          margin-top: 20px;
+        }
+      }
+
+      @include pad {
+        width: 150%;
+        //height: 40vh;
+        height: 400px;
+
+        //399
+        #avocado img,
+        #carrot img,
+        #orange img,
+        #pepper img,
+        #tomato img,
+        #salad img,
+        #spinach img,
+        #babycorn img {
+          width: 80%;
+        }
+
+        //499
+        #lemon img,
+        #w_salad img,
+        #onion img,
+        #radish_d img,
+        #cucumber img,
+        #persimmon img {
+          width: 80%;
+        }
+
+        //599
+        #banana img,
+        #corn img,
+        #pumpkin img,
+        #salad img,
+        #guava img,
+        #cabbage img {
+          width: 80%;
+        }
+      }
+
+      @include mobile {
+        width: 144%;
+        height: 30vh;
       }
     }
-    
   }
   // 按鈕
   .fruits_check_butten {
@@ -148,17 +405,12 @@
     width: 80%;
     max-width: 1200px;
 
-    @include tablet{
+    @include tablet {
       margin: auto;
     }
 
-    @include pad{
-      //margin-left: -11%;
-    }
-
-    @include mobile{
+    @include mobile {
       margin: auto;
-      
     }
     button {
       outline: none;
@@ -173,7 +425,8 @@
       color: $darkgreen;
       border-radius: 10px;
       cursor: pointer;
-      &:hover{
+      z-index: 1;
+      &:hover {
         background-color: darken($color: $green, $amount: 15);
       }
     }
@@ -186,92 +439,31 @@
       border-radius: 10px;
       cursor: pointer;
       margin-left: 15px;
-      &:hover{
-        background-color: darken($color:#ffe139, $amount: 15);
+      z-index: 1;
+      &:hover {
+        background-color: darken($color: #ffe139, $amount: 15);
       }
     }
-   
   }
-
-  // 蔬菜箱內部 尚未使用
-  // .fruits_basket {
-  //   width: 70%;
-  //   position: relative;
-    
-  //   #wooden {
-  //     width: 79%;
-  //     top: 43%;
-  //     left: 15%;
-  //     z-index: 1;
-  //     position: absolute;
-  //   }
-
-  //   #wooden_box {
-  //     width: 100%;
-  //     z-index: 0;
-  //     top: 24%;
-  //     left: 0%;
-  //     position: absolute;
-  //   }
-  //   // 399價位
-
-  //   #avocado {
-  //     position: absolute;
-  //   }
-
-  //   #carrot {
-  //     position: absolute;
-  //   }
-
-  //   #orange {
-  //     position: absolute;
-  //   }
-
-  //   #pepper {
-  //     position: absolute;
-  //   }
-
-  //   #tomato {
-  //     left: 20px;
-  //     position: absolute;
-  //   }
-
-  //   // 未使用
-  //   // #salad {
-  //   //   position: absolute;
-     
-  //   // }
-
-  //   // #spinach {
-  //   //   position: absolute;
-     
-  //   // }
-
-  //   // #strawberry {
-  //   //   position: absolute;
-  //   // }
-
-  // }
 }
 
-.butten_check_price{
+.butten_check_price {
   width: 80%;
   margin-left: 16%;
-  @include mobile{
+  @include mobile {
     margin-bottom: -30px;
   }
-    button{
-      width: 100px;
-      height: 50px;
-      background-color: $darkgreen;
-      text-decoration: none;
-      @include border_radius();
-      border: 0;
-      color: $white;
-      font-size:26px;
-      font-weight:700;
-    }
-    
+  button {
+    width: 100px;
+    height: 50px;
+    background-color: $darkgreen;
+    text-decoration: none;
+    @include border_radius();
+    border: 0;
+    color: $white;
+    font-size: 26px;
+    font-weight: 700;
+  }
 }
 
 // 選擇蔬果第二大欄
@@ -281,7 +473,14 @@
   //border: 1px solid red;
   max-width: 1200px;
   width: 80%;
-  
+
+  .select_second {
+    width: 60%;
+    max-width: 1000px;
+    padding: 0 0 20px 0;
+    margin-left: 12%;
+  }
+
   // 選擇蔬果細項
   .fruits_first_row {
     border: 3px dashed $brown;
@@ -290,31 +489,29 @@
     margin: auto;
     margin-top: -2%;
     text-align: center;
-      @include tablet{
-        width: 100%;
-          .box{
-            img{
-              width: 120px;
-            }
-          }
-        }
-
-      @include pad{
-        width: 100%;
-        .box{
-          img{
-            width: 100px;
-          }
+    @include tablet {
+      width: 100%;
+      .box {
+        img {
+          width: 120px;
         }
       }
+    }
 
-      @include mobile{
-        padding-top: 12%;
+    @include pad {
+      width: 100%;
+      .box {
+        img {
+          width: 100px;
+        }
       }
+    }
 
-    
-    .box
-     {
+    @include mobile {
+      padding-top: 12%;
+    }
+
+    .box {
       display: inline-block;
       margin: 10px;
       margin-top: 40px;
@@ -322,57 +519,53 @@
       text-align: center;
       cursor: pointer;
       margin: 2%;
-      &:hover{
-        opacity: 0.8
+      &:hover {
+        opacity: 0.8;
       }
       img {
-        border-radius:50% ;
+        border-radius: 50%;
         margin: 5%;
-        border:4px $brown dashed;
+        border: 4px $brown dashed;
       }
 
-      .togborder{
-        border:6px green solid;
+      .togborder {
+        border: 6px green solid;
       }
 
       h5 {
         margin-top: 6px;
       }
-
     }
 
-    
-    .fruits_items_one img{
-      border:6px green solid;
+    .fruits_items_one img {
+      border: 6px green solid;
     }
-
   }
 }
 
 //  幾kg文字替換
 
 .product_directions {
-    background-color: $yellow;
-    padding: 2% 4%;
+  background-color: $yellow;
+  padding: 2% 4%;
 
-  @include pad{
-        padding: 0;
-        height: 40px;
-  
-    h4{
-        padding: 10px;
-        text-align: center;
-      
+  @include pad {
+    padding: 0;
+    height: 40px;
+
+    h4 {
+      padding: 10px;
+      text-align: center;
     }
   }
 
   //border: 1px solid red;
   .select {
-        width: 34%;
-        margin: auto;
-        font-weight: 500;
-    @include pad{
-       width: 70%;
+    width: 34%;
+    margin: auto;
+    font-weight: 500;
+    @include pad {
+      width: 70%;
     }
   }
 }
@@ -403,147 +596,142 @@
       }
     }
     .under_line {
-        border-top: 5px solid #ffbc53;
-        width: 120px;
-        @include marginAuto();
-        margin-top: 5px;
-        opacity:0.5;
-        border-radius: 10px;
+      border-top: 5px solid #ffbc53;
+      width: 120px;
+      @include marginAuto();
+      margin-top: 5px;
+      opacity: 0.5;
+      border-radius: 10px;
     }
 
-    .free_all{
-        display: flex;
-        margin-top: 40px;
-        p {
-            @include btn_yellow(100px,50px);
-          }     
+    .free_all {
+      display: flex;
+      margin-top: 40px;
+      p {
+        @include btn_yellow(100px, 50px);
+      }
     }
   }
 }
 
 //下方蔬果單品 滑過出現字
-.fruit_box_board{
+.fruit_box_board {
   display: flex;
   margin-top: 4%;
-  
-  @include mobile{
+  @include mobile {
     flex-direction: column;
   }
 }
 
-.product_name{
+.product_name {
   display: flex;
   justify-content: center;
   font-size: $h3;
   //margin-top: 20px;
 }
-.product_name{
-    transition:.5s;
-    position: absolute;
-    cursor: pointer;
-    margin: 0;
-    color: white;
-    bottom: 45%;
-    opacity: 0;
-    margin-left: 28%;
+.product_name {
+  transition: 0.5s;
+  position: absolute;
+  cursor: pointer;
+  margin: 0;
+  color: white;
+  bottom: 45%;
+  opacity: 0;
+  margin-left: 28%;
 
-    @include tablet{
-      margin-left: 17%;
-    }
+  @include tablet {
+    margin-left: 17%;
+  }
 
-    @include pad{
-      font-size: 16px;
-      margin-left: 20%;
-    }
+  @include pad {
+    font-size: 16px;
+    margin-left: 20%;
+  }
 
-    @include mobile{
-      justify-content: center;
-      margin-left: 26%;
-      font-size: $h3;
-    }
+  @include mobile {
+    justify-content: center;
+    margin-left: 26%;
+    font-size: $h2;
+  }
 }
-.fruit_box_1{
+.fruit_box_1 {
   position: relative;
-  @include mobile{
+  @include mobile {
     margin-bottom: 50px;
   }
 }
 
-.fruit_box_2{
+.fruit_box_2 {
   position: relative;
-  @include mobile{
+  @include mobile {
     margin-bottom: 50px;
   }
 }
 
-.fruit_box_3{
+.fruit_box_3 {
   position: relative;
-  @include mobile{
+  @include mobile {
     margin-bottom: 50px;
   }
 }
 
-
-._mask{
+._mask {
   width: 80%;
   height: 100%;
-  background-color:#00000087;
+  background-color: #00000087;
   margin-left: 10%;
   position: absolute;
   top: 0;
   left: 0;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   opacity: 0;
 }
 
-
-
 // hover效果
 
-.fruit_box_1:hover ._mask{
+.fruit_box_1:hover ._mask {
   opacity: 1;
 }
 
-.fruit_box_2:hover ._mask{
+.fruit_box_2:hover ._mask {
   opacity: 1;
 }
 
-.fruit_box_3:hover ._mask{
+.fruit_box_3:hover ._mask {
   opacity: 1;
 }
-.fruit_box_1:hover p{
+.fruit_box_1:hover p {
   opacity: 1;
 }
-.fruit_box_2:hover p{
+.fruit_box_2:hover p {
   opacity: 1;
 }
-.fruit_box_3:hover p{
+.fruit_box_3:hover p {
   opacity: 1;
 }
-
 
 // 插圖&背景
 
-.bg_fruit_box{
+.bg_fruit_box {
   position: relative;
-  .ufo_ushi{
-        position: absolute;
-        width: 13%;
-        margin-left: 5%;
-        margin-top: 1%;
-        z-index: 1;
-      @include tablet{
-        display: none;
-      }
+  .ufo_ushi {
+    position: absolute;
+    width: 13%;
+    margin-left: 5%;
+    margin-top: 1%;
+    z-index: 1;
+    @include tablet {
+      display: none;
     }
+  }
 
-    .bg_img2 {
-      width: 14%;
-      position: absolute;
-      margin-top: -48%;
-      left: 0%;
-      z-index: -100;
-      transform:scaleX(-1);
-    }
+  .bg_img2 {
+    width: 14%;
+    position: absolute;
+    margin-top: -48%;
+    left: 0%;
+    z-index: -100;
+    transform: scaleX(-1);
+  }
 }

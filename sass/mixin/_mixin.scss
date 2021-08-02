@@ -56,16 +56,16 @@
     position: relative;
     &:hover{
         &::after{
-            width: 100%;
+            width: 70%;
         }
     }
     &::after{
         content: '';
         position: absolute;
         bottom: 2px;
-        left: 0;
+        left: 10%;
         width: 0;
-        height: 5px;
+        height: 4px;
         background-color: yellow;
         transition: 0.3s;
     }
@@ -207,4 +207,12 @@
 @mixin farm_h3 {
     padding: 10px 0px;
     font-weight: 700;
+}
+@mixin vagatable_and_fruit_table_line {
+    content:"";
+    background-image: none;
+    position:absolute;
+    width:16px;
+    height:16px;
+    border-radius:50%; 
 }

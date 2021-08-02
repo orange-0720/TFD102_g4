@@ -93,7 +93,7 @@ body#game_page {
 }
 
 // ==小遊戲主欄位==
-section#game_play_border_lottery {
+section.game_play_border_lottery {
   width: 60%;
   // height: 1500px;
   @include pad {
@@ -190,7 +190,7 @@ section#game_play_border_lottery {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: 16rem;
+    // margin-top: 16rem;
     z-index: 10;
     @include pad {
       // height: 250px;
@@ -345,7 +345,7 @@ section#game_play_border_lottery {
     }
   }
   #game_question {
-    margin-top: 1rem;
+    // margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 32px;
     height: 100px;
@@ -586,7 +586,7 @@ section#game_slideshow_step_lottery {
   height: 350px;
   margin: 0 auto;
   max-width: 1200px;
-  margin-top: 20vh;
+  margin-top: 6rem;
   display: flex;
   justify-content: space-evenly;
   // align-items: center;

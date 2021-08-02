@@ -6,8 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>良耕野菜-會員中心</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./images/logo-02.svg">
     <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      function Logout(){
+        $.ajax({
+          method:'POST',
+          url:'php/Logout.php',
+          dataType: 'text',
+          data:{},
+          success : function(response) {
+            console.log(response);
+            if(response == 1) {
+              alert('已為您登出，並跳轉首頁')
+              window.location.href = './index.html';
+            }
+          },
+          error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+          },
+        })
+      };
+
+      function getActive(){
+        $ajax({
+          method:'POST',
+          url:'php/getActive.php',
+          dataType: 'json',
+          success: function(response){
+            console.log(response);
+          },
+          error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+          },
+        })
+      }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -172,7 +208,7 @@
     <!-- 本頁內容 -->
 
     <div class="member_logout_block">
-        <button>登出<img src="./images/member/logout_icon.svg" alt=""></button>
+        <button onclick="Logout()">登出<img src="./images/member/logout_icon.svg" alt=""></button>
         <h3>持有購物金:<span>0</span>元</h3>
     </div>
 
@@ -185,26 +221,45 @@
             <div @click="show_message" class="member_message">留言板</div>
         </div>
         <div class="member_right_member" v-if="memberShow">
-              <h3>會員資料</h3>
-              <div class="member_right_detail">
-                <div class="member_pic_block">
-                  <img src="./images/member/member_fake_img.svg" alt="大頭照">
-                  <button class="member_pwd_change"><img src="./images/member/member_pen.svg" alt="pen">變更密碼</button>
-                </div>
-                <!-- 會員資料印出 -->
-                <div class="member_detail_info">
-                  <div v-for="detail in details" :class="detail.class">
-                    {{detail.title}}:
-                    <input type="text" :placeholder="detail.holder" :disabled="onChange">
-                  </div>
-                </div> 
-              </div>
-              <button class="member_change_detail" @click="changeWord">
-                <img src="./images/member/member_pen.svg" alt="筆">
-                <span>編輯會員資料</span>
+          <h3>會員資料</h3>
+          <div class="member_right_detail">
+            <div class="member_pic_block">
+              <img src="./images/member/member_fake_img.svg" alt="大頭照">
+              <button class="member_pwd_change" @click="show_up">
+                <img src="./images/member/member_pen.svg" alt="pen">變更密碼
               </button>
+            </div>
+            <!-- 會員資料印出 -->
+            <div class="member_detail_info">
+              <div v-for="detail in details" :class="detail.class">
+                {{detail.title}}:
+                <input type="text" :placeholder="detail.holder" :disabled="onChange">
+              </div>
+            </div> 
+          </div>
+          <button class="member_change_detail" @click="changeWord">
+            <img src="./images/member/member_pen.svg" alt="筆">
+            <span>編輯會員資料</span>
+          </button>
+        </div>
+        <!-- 變更密碼彈窗 -->
+        <div class="change_pwd_box" >
+          <div class="pwd_black_block" @click="show_up"></div>
+          <div class="change_pwd_block">
+              <div class="pwd_block_head">
+                <button class="pwd_block_Xmark" @click="show_up"></button>
+              </div>
+              <h2>變更密碼</h2>
+              <div class="change_box">
+                <input type="text" id="old_pwd1" placeholder="請輸入原本密碼">
+                <input type="text" id="old_pwd2" placeholder="請再次輸入">
+                <input type="text" id="new_pwd" placeholder="請輸入新密碼">
+              </div>
+              <input type="button" class="change_send" value="確認變更">
+          </div>
         </div>
 
+        <!-- 訂單開始 -->
         <div class="member_order_detail" v-if="orderShow">
             <h3>訂單查詢</h3>
             <div class="member_order_block">
@@ -282,15 +337,15 @@
             <h3>留言板</h3>
             <div class="member_message_block">
               <div class="message_line">良耕野菜</div>
-              <form class="message_inside_detail">
-                <h3>目前尚未收到您的任何訊息</h4>
-                <textarea rows="5" placeholder="請寫下您的疑問"></textarea>
+              <div class="message_inside_detail">
+                <h3 class="no_message">目前尚未收到您的任何訊息</h3>
+                <textarea class="your_question" rows="5" placeholder="請寫下您的疑問" v-model="your_question"></textarea>
                 <div class="member_message_button">
                   <input type="file" id="message_img">
                   <label for="message_img">加入圖片</label>
-                  <input type="submit" value="傳送" id="message_submit">
+                  <input type="button" value="傳送" id="message_submit" @click ='send_message'>
                 </div>
-              </form>
+              </div>
             </div>
           </div>  
     </div>
@@ -369,8 +424,6 @@
             '人數'
           ],
 
-
-
           onChange:true,
 
           isActive: false,
@@ -378,6 +431,8 @@
           orderShow:false,
           activeShow:false,
           messageShow:false,
+
+          your_question: ""
         },
         methods: {
           turn_on(){
@@ -416,6 +471,26 @@
             }else{
               $('.member_change_detail > span').text('編輯會員資料')
             }
+          },
+          show_up(){
+            $('.change_pwd_box').fadeToggle();
+            console.log('aaa')
+          },
+          send_message(){
+            let val = $('.your_question').val();
+            $('.no_message').fadeOut();
+            $('.message_inside_detail').prepend(
+              `<div class="customer_message">
+                    <div class="customer_message_left">
+                      <span>會員</span>
+                    </div>
+                    <div class="customer_message_right">
+                      ${this.your_question}    
+                    </div>       
+                </div>
+            `);
+            this.your_question = "";
+
           }
         },
       })
