@@ -10,9 +10,13 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" href="./images/logo-02.svg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="./js/jquery-3.6.0.js"></script>
+  <!-- Animate.css  -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <!-- Aos  -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
 </head>
 
 <body>
@@ -189,8 +193,8 @@
             <button @click="green_remove(goodbye)">
               ×
             </button>
-            <img :src="goodbye.img_src" width="100%">
-            {{goodbye}}
+            <img :src="goodbye.image" width="100%">
+            <!-- {{goodbye}} -->
           </div>
 
         </div>
@@ -199,27 +203,29 @@
       <!-- 蔬菜箱 -->
 
       <div class="fruits_basket">
-        <!-- 木箱 -->
 
+        <!-- 木箱 -->
         <div class="outer_layer">
           <img src="./images/fruit_box/box_1.png" id="wooden">
 
-          <transition-group tag="div" class="img_src" name="delete_basket">
-            <div v-for="(item, index) in delete_basket" class="img_src" :id="item.id" :key="`item_in_img-${index}`">
-
-              <img :src="item.img_src">
-              {{ go_item }}
-
+          <transition-group tag="div" class="img_src" name="fruits">
+            <div v-for="(item, index) in picture_in_box" 
+            class="img_src" 
+            :id="item.id" 
+            :key="`item_in_img-${index}`"
+            style="position: absolute"
+            >
+              <img :src="item.img_src" 
+              class="animate__animated animate__backInDown">
+              <!-- {{ go_item }} -->
             </div>
           </transition-group>
           <img src="./images/fruit_box/box.png" id="wooden_box">
         </div>
 
-
-
       </div>
 
-      <!-- 刪除按鈕、確認 -->
+      <!-- 刪除按鈕、確認 @click="check" @click="bye"-->
       <div class="fruits_check_butten">
         <button class="box_check">
           <img src="./images/fruit_box/check.svg" width="25px">
@@ -229,6 +235,9 @@
         </button>
       </div>
     </div>
+
+    <!-- 按確認購買 跳購買視窗 -->
+
     <!-- 價位按鈕 -->
     <div class="price_all">
       <div class="select_amount">
@@ -236,11 +245,14 @@
       </div>
 
       <div class="box_price_butten">
-        <button v-for="price in priceList" :key="`priceList-$ {price}`" @click="change_fruits(price)"
-          style="color:white" :class="{
+        <button v-for="price in priceList" 
+         :key="`priceList-${price}`" 
+         @click="change_fruits(price)" style="color:white"
+          :class="{
              'id1': price === go_price  
             }">
           $ {{ price }}
+
         </button>
       </div>
     </div>
@@ -252,7 +264,6 @@
         <h3>step 2.選擇蔬果</h3>
       </div>
       <!-- 三種金額 -->
-
       <div class="butten_check_price">
         <button>
           $ {{ go_price }}
@@ -262,70 +273,83 @@
       <!-- 八樣青菜選擇五樣青菜 -->
       <div class="fruits_basket">
 
-
         <div class="fruits_first_row">
           <!-- 選擇內部 -->
+          <div v-for="(fruit, index) in box" 
+            :key="`fruit_in_box-${index}`" 
+            class="box" @click="pull_basket(fruit.id)"
+           >
+            <img :src="fruit.image" :class="{
+              'togborder': isActive(fruit.id)
+            }">
 
-         
-
-            <div v-for="(fruit, index) in box" :key="`fruit_in_box-${index}`" class="box"
-              @click="pull_basket(fruit.title)">
-            
-              <img :src="fruit.image"  :class="{
-                    'togborder': isActive(fruit.title)
-                  }">
-                  
-            
-
-              <p>{{fruit.title}}</p>
-              <h5>
-                <pre>{{fruit.unit}}</pre>
-              </h5>
-            </div>
-          
-
-            <div class="product_directions">
-
-              <h4> {{ weight[go_price] }}</h4>
-
-            </div>
+            <p>{{fruit.title}}</p>
+            <h5>
+              <pre>{{fruit.unit}}</pre>
+            </h5>
+          </div>
+          <!-- {{ basket }} -->
+          <div class="product_directions">
+            <h4> {{ weight[go_price] }}</h4>
+          </div>
         </div>
         <!-- {{go_weight}} -->
       </div>
-
     </div>
 
-  </div>
+    <!-- 滿額贈 -->
+    <div class="free_give">
+      <template>
+        <div class="free_give_people">
+          <div class="free_title">
+            <h3>滿額贈</h3>
+          </div>
+          <div class="under_line"></div>
 
-  </div>
+          <div class="free_all" style="display: flex">
+            <!-- 商品贈品 -->
 
-  <!-- 滿額贈 -->
-  <div class="free_give">
+          <div data-aos="zoom-in"data-aos-easing="6000" style="display: flex">
+              <div v-show="go_price === 399">
+                <div class="garlic">
+                  <p>$399贈</p>
+                  <img src="./images/fruit_box/give/garlic.png">
+                </div>
+              </div>
 
-    <div class="free_give_people">
-      <div class="free_title">
-        <h3>滿額贈</h3>
-      </div>
-      <div class="under_line"></div>
-
-      <div class="free_all">
-        <div class="garlic">
-          <p>$399贈</p>
-          <div class="garlic"><img src="./images/fruit_box/give/garlic.png"></div>
+              <div v-show="go_price === 499" style="display: contents">
+                <div class="garlic">
+                  <p>$499贈</p>
+                  <img src="./images/fruit_box/give/garlic.png">
+                </div>
+                <div class="ginger">
+                  <p>$499贈</p>
+                  <img src="./images/fruit_box/give/ginger.png">
+                </div>
+              </div>
+              <div v-show="go_price === 599" style="display: contents">
+                <div class="garlic">
+                  <p>$599贈</p>
+                  <img src="./images/fruit_box/give/garlic.png">
+                </div>
+                <div class="ginger">
+                  <p>$599贈</p>
+                  <div class="ginger">
+                    <img src="./images/fruit_box/give/ginger.png">
+                  </div>
+                </div>
+                <div class="leek">
+                  <p>$599贈</p>
+                  <div class="leek">
+                    <img src="./images/fruit_box/give/leek.png">
+                  </div>
+                </div>
+              </div>
+          </div>
+          
         </div>
-
-        <div class="ginger">
-          <!-- <p>$499贈</p>
-          <div class="ginger"><img src="./images/fruit_box/give/ginger.png"></div>
-        </div>
-        
-        <div class="leek">
-          <p>$599贈</p>
-          <div class="leek"><img src="./images/fruit_box/give/leek.png"></div> -->
-        </div>
-      </div>
-
     </div>
+    </template>
   </div>
 
 
@@ -420,7 +444,7 @@
         </div>
       </div>
     </div>
-
+    </div>
   </footer>
 
 
@@ -442,200 +466,212 @@
         fruits_item: [
           //399
           {
-            img_src: "./images/fruit_box/399/down/carrot_d.png",
-            id: "carrot",
-            title: "紅蘿蔔"
-          },
-
-          {
-            img_src: "./images/fruit_box/399/down/orange_d.png",
-            id: "orange",
-            title: "橘子"
-          },
-
-          {
-            img_src: "./images/fruit_box/399/down/pepper_d.png",
-            id: "pepper",
-            title: "青椒"
-          },
-
-          {
-            img_src: "./images/fruit_box/399/down/tomato_d.png",
-            id: "tomato",
-            title: "番茄"
-          },
-
-          {
-            img_src: "./images/fruit_box/399/down/spinach_d.png",
-            id: "spinach",
-            title: "空心菜"
-          },
-
-          {
-            img_src: "./images/fruit_box/399/down/babycorn_d.png",
-            id: "babycorn",
-            title: "玉米筍"
-          },
-
-          {
+            id: 1,
             img_src: "./images/fruit_box/399/down/salad_d.png",
-            id: "salad",
             title: "青江菜",
           },
 
           {
+            id: 2,
+            img_src: "./images/fruit_box/399/down/carrot_d.png",
+            title: "紅蘿蔔"
+          },
+
+          {
+            id: 3,
+            img_src: "./images/fruit_box/399/down/pepper_d.png",
+            title: "青椒"
+          },
+
+          {
+            id: 4,
             img_src: "./images/fruit_box/399/down/avocado_d.png",
-            id: "avocado",
             title: "酪 梨",
+          },
+
+          {
+            id: 5,
+            img_src: "./images/fruit_box/399/down/tomato_d.png",
+            title: "番茄"
+          },
+
+          {
+            id: 6,
+            img_src: "./images/fruit_box/399/down/orange_d.png",
+            title: "橘子"
+          },
+
+          {
+            id: 7,
+            img_src: "./images/fruit_box/399/down/spinach_d.png",
+            title: "空心菜"
+          },
+
+          {
+            id: 8,
+            img_src: "./images/fruit_box/399/down/babycorn_d.png",
+            title: "玉米筍"
           },
 
           //499
 
           {
+            id: 9,
             img_src: "./images/fruit_box/499/down/lemon_d.png",
-            id: "lemon",
             title: "檸檬",
           },
 
           {
+            id: 10,
             img_src: "./images/fruit_box/499/down/w_salad_d.png",
-            id: "w_salad",
             title: "小白菜",
           },
 
           {
+            id: 11,
             img_src: "./images/fruit_box/499/down/onion_d.png",
-            id: "onion",
             title: "洋蔥",
           },
 
-          // {
-          //   img_src: "./images/fruit_box/499/down/babycorn_d.png",
-          //   id: "babycorn",
-          //   title: "玉米筍",
-          // },
+          {
+            id: 12,
+            img_src: "./images/fruit_box/499/down/babycorn_d.png",
+            title: "玉米筍",
+          },
 
           {
+            id: 13,
             img_src: "./images/fruit_box/499/down/radish_d.png",
-            id: "radish_d",
             title: "白蘿蔔",
           },
 
           {
+            id: 14,
             img_src: "./images/fruit_box/499/down/cucumber_d.png",
-            id: "cucumber",
             title: "胡瓜",
           },
 
-          // {
-          //   img_src: "./images/fruit_box/399/down/salad_d.png",
-          //   id: "salad",
-          //   title: "青江菜",
-          // },
+          {
+            id: 15,
+            img_src: "./images/fruit_box/399/down/salad_d.png",
+            title: "青江菜",
+          },
 
           {
+            id: 16,
             img_src: "./images/fruit_box/499/down/persimmon_d.png",
-            id: "persimmon",
             title: "柿子",
           },
 
           //599
 
           {
+            id: 17,
             img_src: "./images/fruit_box/599/down/banana_d.png",
-            id: "banana",
             title: "香蕉",
           },
 
           {
+            id: 18,
             img_src: "./images/fruit_box/599/down/corn_d.png",
-            id: "corn",
             title: "玉米",
           },
 
           {
+            id: 19,
             img_src: "./images/fruit_box/599/down/pumpkin_d.png",
-            id: "pumpkin",
             title: "南瓜",
           },
 
           {
+            id: 20,
             img_src: "./images/fruit_box/599/down/salad_d.png",
-            id: "salad",
             title: "地瓜葉",
           },
 
           {
+            id: 21,
             img_src: "./images/fruit_box/599/down/guava_d.png",
-            id: "guava",
             title: "芭樂",
           },
 
           {
+            id: 22,
             img_src: "./images/fruit_box/599/down/strawberry_d.png",
-            id: "strawberry",
             title: "草莓",
           },
 
           {
+            id: 23,
             img_src: "./images/fruit_box/599/down/cabbage_d.png",
-            id: "cabbage",
             title: "高麗菜",
           },
 
-          // {
-          //   img_src: "./images/fruit_box/599/down/tomato_d.png",
-          //   id: "tomato",
-          //   title: "番茄",
-          // },
+          {
+            id: 24,
+            img_src: "./images/fruit_box/599/down/tomato_d.png",
+            title: "番茄",
+          },
 
 
         ],
-        free_all: [],
-        // data(){
-        //   return{
-        //     isShow:true
-        //   }
-        // },
-        //go_item: "399",
+        showfree: 399
 
       },
       computed: {
         isActive() {
-          return (title) => {
-            return this.basket.includes(title)
+          return (id) => {
+            return this.basket.includes(id)
           }
         },
-
         delete_basket() {
           let result = []
-          this.fruits_item.forEach(item => {
-            this.basket.forEach(title => {
-              if (item.title === title) {
+          this.box.forEach(item => {
+            this.basket.forEach(id => {
+              if (item.id === id) {
                 result.push(item)
               }
             })
           });
           return result
-        }
-
+        },
+        picture_in_box() {
+          let result = []
+          this.fruits_item.forEach(item => {
+            this.basket.forEach(id => {
+              if (item.id === id) {
+                result.push(item)
+              }
+            })
+          });
+          return result
+        },
       },
+      async mounted() {
+        await $.getJSON('./js/_d_fruitBoxData__399.json')
+        $.getJSON('./js/_d_fruitBoxData__499.json')
+        $.getJSON('./js/_d_fruitBoxData__599.json')
+          .done(res => {
+            this.fruits_item = res
+          })
+      },
+
       methods: {
         checkTitle(theTitle) {
           return theTitle;
         },
         async change_fruits(price) {
           this.go_price = price
-
+          this.showfree = price
           switch (price) {
             case 399:
-              data = './sass/page/_fruitBoxData_399.json'
+              data = './js/_fruitBoxData_399.json'
               break;
             case 499:
-              data = './sass/page/_fruitBoxData_499.json'
+              data = './js/_fruitBoxData_499.json'
               break;
             case 599:
-              data = './sass/page/_fruitBoxData_599.json'
+              data = './js/_fruitBoxData_599.json'
               break;
           }
           await $.getJSON(data)
@@ -643,43 +679,18 @@
               this.box = res
             });
         },
-
-
-        //輸出json
-        // async fruits_item(item) {
-        //   this.go_item = item
-
-        //   switch (item) {
-        //     case 399:
-        //       data = './sass/page/_d_fruitBoxData_399.json'
-        //       break;
-        //     case 499:
-        //       data = './sass/page/_d_fruitBoxData_499.json'
-        //       break;
-        //     case 599:
-        //       data = './sass/page/_d_fruitBoxData_599.json'
-        //       break;
-        //   }
-        //   await $.getJSON(data)
-        //     .done(res => {
-        //       this.box = res
-        //     });
-        // },
-
-
-        pull_basket(title) {
+        pull_basket(id) {
           if (this.basket.length !== 5) {
-            const pick = this.box.find(item => item.title === title)
-            this.basket.push(pick.title)//push推進去
+            const pick = this.box.find(item => item.id === id)
+            this.basket.push(pick.id)
           } else {
             alert('不能超過五個')
           }
-
         },
 
         //移除用filter塞選來做
         green_remove(goodbye) {
-          this.basket = this.basket.filter((fruit) => fruit !== goodbye.title);
+          this.basket = this.basket.filter((fruit) => fruit !== goodbye.id);
         }
 
       },
@@ -687,11 +698,10 @@
         //jQuery 輸出
         this.change_fruits(this.go_price)
 
-        this.fruits_item(this.go_item)
+        //this.fruits_item(this.go_item)
 
       },
     });
-
 
     //往上css
     $("#go_top").on("click", function (e) {
@@ -702,10 +712,15 @@
     });
 
 
+
   </script>
 
   <script src="./js/header.js"></script>
-  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
