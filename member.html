@@ -15,16 +15,17 @@
         $.ajax({
           method:'POST',
           url:'php/Logout.php',
-          dataType: 'text',
+          dataType: 'json',
           data:{},
           success : function(response) {
             console.log(response);
             if(response == 1) {
-              alert('已為您登出，並跳轉首頁')
+              alert('已為您登出，並跳轉首頁');
               window.location.href = './index.html';
             }
           },
           error: function(exception) {
+              console.log(exception);
               alert("發生錯誤: " + exception.status);
           },
         })
@@ -42,7 +43,7 @@
               alert("發生錯誤: " + exception.status);
           },
         })
-      }
+      };
     </script>
   </head>
   <body>
@@ -231,9 +232,21 @@
             </div>
             <!-- 會員資料印出 -->
             <div class="member_detail_info">
-              <div v-for="detail in details" :class="detail.class">
-                {{detail.title}}:
-                <input type="text" :placeholder="detail.holder" :disabled="onChange">
+              <div class="member_info_name">
+                姓名:
+                <input type="text" :disabled="onChange" v-model="member_name">
+              </div>
+              <div class="member_info_hb">
+                生日:
+                <input type="text" placeholder="1992/05/27" :disabled="onChange" v-model="member_hb">
+              </div>
+              <div class="member_info_phone">
+                手機:
+                <input type="text" :disabled="onChange" v-model="member_phone">
+              </div>
+              <div class="member_info_address">
+                地址:
+                <input type="text" :disabled="onChange" v-model="member_address">
               </div>
             </div> 
           </div>
@@ -255,7 +268,7 @@
                 <input type="text" id="old_pwd2" placeholder="請再次輸入">
                 <input type="text" id="new_pwd" placeholder="請輸入新密碼">
               </div>
-              <input type="button" class="change_send" value="確認變更">
+              <input type="button" class="change_send" value="確認變更" @click="change_pwd">
           </div>
         </div>
 
@@ -322,12 +335,12 @@
                 </div>
 
                 <!-- 撈出資料庫資料並秀出 使用v-for製造多個訂單資訊 -->
-                <div class="active_inside_detail">
-                  <h4>B12345678</h4>
-                  <h4>窯烤</h4>
-                  <h4>2021/8/27</h4>
+                <div class="active_inside_detail" v-for="item in actives">
+                  <h4>{{item.ACTIVITY_ID}}</h4>
+                  <h4>{{item.APPOINTMENT_ID}}</h4>
+                  <h4>{{item.START_DATE}}</h4>
                   <h4>399</h4>
-                  <h4>5</h4>
+                  <h4>{{item.PEOPLE_NUM}}</h4>
                 </div>
               </div>
             </div>
@@ -409,13 +422,11 @@
       var member_block = new Vue({
         el:"#member_block",
         data:{
-          details:[
-            {title:'姓名', class:'member_info_name',holder:''},
-            {title:'郵件', class:'member_info_mail',holder:''},
-            {title:'生日', class:'member_info_hb', holder:'1992/05/27'},
-            {title:'電話', class:'member_info_phone',holder:''},
-            {title:'地址', class:'member_info_address',holder:''},
-          ],
+          member_name:"",
+          member_hb:"",
+          member_phone:"",
+          member_address:"",
+
           active_line:[
             '預約編號',
             '活動內容',
@@ -434,7 +445,7 @@
 
           your_question: "",
 
-          active:[],
+          actives:[],
 
         },
         methods: {
@@ -471,8 +482,11 @@
             this.onChange = !this.onChange;
             if(this.onChange == false){
               $('.member_change_detail > span').text('儲存變更');
+              $('.member_detail_info input').css('background-color', '#FFF')
             }else{
-              $('.member_change_detail > span').text('編輯會員資料')
+              $('.member_change_detail > span').text('編輯會員資料');
+              $('.member_detail_info input').css('background-color', '#FFF7D2');
+              this.change_detail();
             }
           },
           show_up(){
@@ -493,23 +507,92 @@
                 </div>
             `);
             this.your_question = "";
-
+          },
+          change_detail(){
+            $.ajax({
+              method:'POST',
+              url:'php/change_detail.php',
+              data:{
+                name: this.member_name,
+                hb: this.member_hb,
+                phone: this.member_phone,
+                address: this.member_address,
+              },
+              dataType: 'json',
+              success: function(response){
+                if(response == 1){
+                  alert('會員資料更新完成');
+                }
+              },
+              error: function(exception) {
+                  alert("發生錯誤: " + exception.status);
+                  console.log(exception)
+              },
+            })
+          },
+          change_pwd(){
+            if($('#old_pwd1').val() == $('#old_pwd2').val()){
+              $.ajax({
+                method:'POST',
+                url:'php/change_pwd.php',
+                data:{
+                  old_pwd: $('#old_pwd1').val(),
+                  new_pwd: $('#new_pwd').val(),
+                },
+                dataType: 'json',
+                success: function(response){
+                  if(response == 1){
+                    alert('密碼變更完成');
+                  }else{
+                    alert('密碼錯誤');
+                  }
+                },
+                error: function(exception) {
+                    alert("發生錯誤: " + exception.status);
+                    console.log(exception)
+                },
+              })
+            }else{
+              alert('請確認兩次密碼是否相同')
+            }
           }
         },
+        
         mounted() {
+          // 串接活動
           $.ajax({
             method: 'POST',
             url: 'php/getActive.php',
             data:{},
             dataType: 'json',
             success: function(response) {
-              shopping_page.active = response  
+              member_block.actives = response;
+              console.log(response);
             },
             error: function(exception) {
                 alert("發生錯誤: " + exception.status);
             },
-          });
-        },
+          }),
+          $.ajax({
+            method: 'POST',
+            url: 'php/getMember.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              console.log(response);
+              response.forEach(function(index,i){
+                member_block.member_name = index['NAME'];
+                member_block.member_hb = index['PHONE'];
+                member_block.member_phone = index['PHONE'];
+                member_block.member_address = index['ADDRESS'];
+              })
+            },
+            error: function(exception) {
+                console.log(exception);
+                alert("發生錯誤: " + exception.status);
+            },
+          })
+        }
       })
 
     </script>

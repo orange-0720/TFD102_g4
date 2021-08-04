@@ -161,11 +161,11 @@
           <img src="./images/header_incart.svg" alt="">
         </div>
         <div class="cart_buy_list">
-          目前購物車空無一物
+          <span class="cart_nothing">目前購物車空無一物</span>
         </div>
         <div class="incart_total">
           總和
-          <span>$0</span>
+          <span class="cart_total_price">0</span>元
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
@@ -229,7 +229,7 @@
             <a href="./itemtest.html">
               <div class="shopping_product_pic">
                 <img
-                  :src="item.image"
+                  :src="item.PRODUCT_IMG"
                   :alt="item.ID"
                 />
                 <span @click.prevent="incart(index)" class="shopping_product_incart"></span>
@@ -370,12 +370,62 @@
             '香瓜',
             '木瓜',
           ],
-          products:[]
+          products:[],
+          totalPrice:0,
         },
         methods: {
+          // 購物車功能
           incart(index){
-            alert('已加入購物車');
             console.log(this.products[index]);
+            console.log(this.products[index].PRODUCT_NAME);
+            product_name = this.products[index].PRODUCT_NAME;
+            product_price = parseInt(this.products[index].PRODUCT_PRICE);
+            product_img = this.products[index].PRODUCT_IMG;
+            product_value = 1;
+            let item_id = Date.now();
+            alert('已加入購物車')
+            $('.cart_nothing').fadeOut();
+            $('.cart_buy_list').append(
+              `
+                <div class="cart_inside_item" data-id="${item_id}">
+                  <div class="cart_item_img">
+                    <img src="${product_img}"/>  
+                  </div>
+                  <div class="cart_item_name">${product_name}</div>
+                  <div class="cart_item_number">
+                    <button>-</button>
+                    <input type="text" value="${product_value}"/ disabled>
+                    <button>+</button>
+                  </div>
+                  <div class="cart_item_price">${product_price}</div>
+                  <div class="cart_item_delete">
+                    <img src="./images/checkout/delete_icon.svg"/>  
+                  </div>
+                </div>
+              `
+            );
+            this.totalPrice += product_price;
+            // $('.cart_total_price').html('');
+            $('.cart_total_price').html(shopping_page.totalPrice);
+
+            let cart_item = {
+                item_id: item_id,
+                item_img: product_img,
+                item_name: product_name,
+                item_number: product_value,
+                item_price: product_price,
+            };
+            let cart_items = JSON.parse(localStorage.getItem("cart_items"));
+            if (cart_items) {
+                // 若存在
+                console.log('已存在')
+                cart_items.unshift(cart_item);
+            } else {
+                // 若不存在
+                console.log('不存在')
+                cart_items = [cart_item];
+            }
+            localStorage.setItem("cart_items", JSON.stringify(cart_items));
           },
           move_page(index){
             this.page = index;
@@ -401,8 +451,6 @@
             dataType: 'json',
             success: function(response) {
               shopping_page.products = response  
-              // this.products = response;
-              // console.log(this.products);
             },
             error: function(exception) {
                 alert("發生錯誤: " + exception.status);
@@ -411,22 +459,6 @@
           
         },
         computed: {
-          // products(){
-          //   $.ajax({
-          //     method: 'POST',
-          //     url: 'php/getProduct.php',
-          //     data:{},
-          //     dataType: 'json',
-          //     success: function(response) {
-          //       // response => this.products = response
-          //       console.log(response)
-          //       return response
-          //     },
-          //     error: function(exception) {
-          //         alert("發生錯誤: " + exception.status);
-          //     },
-          //   });
-          // },
           page_products(){
             const last_index = this.page * (this.limit -1);
             const first_index = (this.page -1) * (this.limit -1);
@@ -494,6 +526,35 @@
           750
         );
       });
+
+      // 購物車測試
+      $('.cart_buy_list').on('click','.cart_item_delete',function(e){
+        let delete_price = e.target.parentElement.previousElementSibling;
+        let current_price = $('.cart_total_price').text()
+        let total_price = parseInt(current_price) - parseInt(delete_price);
+        console.log(current_price);
+        console.log(delete_price);
+        console.log(total_price);
+        console.log($(e.target).parent('div'));
+        if(confirm('確定刪除此商品?')){
+          $(e.target).parent().parent('div').fadeOut();
+          // $('.cart_total_price').text() = parseInt(current_price) - parseInt(delete_price); 
+
+          let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
+          let cart_items = JSON.parse(localStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+          let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
+
+          cart_items.forEach(function(cart, i){
+              if(this_id != cart.item_id){
+                updated_cart_items.push(cart);
+              }
+          });
+
+          // 回存至 localStorage
+          localStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
+        }
+
+      })
     </script>
   </body>
 </html>
