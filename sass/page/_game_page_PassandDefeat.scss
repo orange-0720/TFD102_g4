@@ -49,8 +49,8 @@ div#game_title {
 //    ==數字圓框==
 
 div#game_decorate_testNumberCircle_2 {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   // border: 1px solid red;
   position: absolute;
   border-radius: 50%;
@@ -62,14 +62,14 @@ div#game_decorate_testNumberCircle_2 {
   justify-content: center;
   align-items: center;
   @include pad {
-    width: 120px;
-    height: 120px;
-    top: -4rem;
+    width: 100px;
+    height: 100px;
+    top: 0rem;
   }
   @include mobile {
     width: 100px;
     height: 100px;
-    top: -4rem;
+    top: 0rem;
   }
   h1#inside_testNumber {
     font-weight: bolder;
@@ -79,7 +79,7 @@ div#game_decorate_testNumberCircle_2 {
     text-align: center;
     @include pad {
       height: 30px;
-      font-size: 4vw;
+      font-size: 5vw;
     }
     @include mobile {
       font-size: 30px;
@@ -122,7 +122,7 @@ body#game_page {
 }
 
 // ==小遊戲主欄位==
-section.game_play_border_PassandDefeat {
+section#game_play_border_PassandDefeat {
   width: 60%;
   height: 1100px;
   @include pad {
@@ -215,21 +215,23 @@ section.game_play_border_PassandDefeat {
   }
   div.game_test_2 {
     height: 350px;
-    // margin-top: 22rem;
+    margin-top: 8rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
     @include pad {
       height: 250px;
-      margin-top: 8rem;
+      margin-top: 6rem;
     }
     @include mobile {
       height: 200px;
       margin-top: 8rem;
     }
     img#game_test {
-      width: 60vw;
+      width: 400px;
       // height: 300px;
       @include pad {
-        width: 60vw;
+        width: 50vw;
         // height: 200px;
       }
       @include mobile {
@@ -253,7 +255,8 @@ section.game_play_border_PassandDefeat {
       margin-top: 0.5rem;
     }
     h2 {
-      line-height: 1.5;
+      line-height: 28px;
+      font-size: 28px;
       @include pad {
         font-size: 26px;
       }

@@ -246,10 +246,10 @@
         </div>
         <div id="game_bottom_part">
           <div id="game_answer">
-            <button type="submit" id="submit_1" @click="show_Page3" value="1">
+            <button type="submit" id="submit_1" @click="show_Page3(20)">
               茄紅素
             </button>
-            <button type="submit" id="submit_2" @click="show_Page3" value="0">
+            <button type="submit" id="submit_2" @click="show_Page3(0)">
               蛋白質
             </button>
           </div>
@@ -286,10 +286,10 @@
         </div>
         <div id="game_bottom_part">
           <div id="game_answer">
-            <button type="submit" id="submit_1" @click="show_Page4">
+            <button type="submit" id="submit_1" @click="show_Page4(0)">
               運送過程<br />被擠壓到
             </button>
-            <button type="submit" id="submit_2" @click="show_Page4">
+            <button type="submit" id="submit_2" @click="show_Page4(20)">
               溫度影響<br />花芽分化
             </button>
           </div>
@@ -322,10 +322,10 @@
         </div>
         <div id="game_bottom_part">
           <div id="game_answer">
-            <button type="submit" id="submit_1" @click="show_Page5">
+            <button type="submit" id="submit_1" @click="show_Page5(0)">
               水耕
             </button>
-            <button type="submit" id="submit_2" @click="show_Page5">
+            <button type="submit" id="submit_2" @click="show_Page5(20)">
               土耕
             </button>
           </div>
@@ -359,10 +359,10 @@
         </div>
         <div id="game_bottom_part">
           <div id="game_answer">
-            <button type="submit" id="submit_1" @click="show_Page6">
+            <button type="submit" id="submit_1" @click="show_Page6(20)">
               一年一穫
             </button>
-            <button type="submit" id="submit_2" @click="show_Page6">
+            <button type="submit" id="submit_2" @click="show_Page6(0)">
               一年兩穫
             </button>
           </div>
@@ -400,10 +400,10 @@
         </div>
         <div id="game_bottom_part">
           <div id="game_answer">
-            <button type="submit" id="submit_1" @click="show_Page6">
+            <button type="submit" id="submit_1" @click="show_Page7(0)">
               底部根鬚很多的
             </button>
-            <button type="submit" id="submit_2" @click="show_Page6">
+            <button type="submit" id="submit_2" @click="show_Page7(20)">
               聲音厚實、表皮硬
             </button>
           </div>
@@ -508,6 +508,7 @@
           currentshow: "",
           timer: null,
           time: 10,
+          point: 0,
         },
         methods: {
           show_Page2() {
@@ -517,68 +518,88 @@
             this.page4show = false;
             this.page5show = false;
             this.page6show = false;
+            this.time = 10;
+            // this.point += grade;
+            // console.log(typeof grade);
+            //一開始沒有帶值，如果給他值會帶入object
+            this.countdown();
           },
-          show_Page3() {
+          show_Page3(grade) {
             this.page1show = false;
             this.page2show = false;
             this.page3show = true;
             this.page4show = false;
             this.page5show = false;
             this.page6show = false;
+            this.time = 10;
+            this.point = this.point + grade;
+            console.log(this.point);
           },
-          show_Page4() {
+          show_Page4(grade) {
             this.page1show = false;
             this.page2show = false;
             this.page3show = false;
             this.page4show = true;
             this.page5show = false;
             this.page6show = false;
+            this.time = 10;
+            this.point += grade;
+            console.log(this.point);
           },
-          show_Page5() {
+          show_Page5(grade) {
             this.page1show = false;
             this.page2show = false;
             this.page3show = false;
             this.page4show = false;
             this.page5show = true;
             this.page6show = false;
+            this.time = 10;
+            this.point += grade;
+            console.log(this.point);
           },
-          show_Page6() {
+          show_Page6(grade) {
             this.page1show = false;
             this.page2show = false;
             this.page3show = false;
             this.page4show = false;
             this.page5show = false;
             this.page6show = true;
+            this.time = 10;
+            this.point += grade;
+            console.log(this.point);
           },
-          show_PageCurrent() {
+          show_Page7(grade) {
             this.page1show = false;
             this.page2show = false;
             this.page3show = false;
             this.page4show = false;
             this.page5show = false;
             this.page6show = true;
+            this.time = 10;
+            this.point += grade;
+            console.log(this.point);
+            if (this.point == 100) {
+              window.location.href = "game_page_pass.html";
+            } else {
+              window.location.href = "game_page_defeat.html";
+            }
           },
           countdown() {
-            this.time--;
-            if (this.time == 0) {
-              clearInterval(this.timer);
-              // show_Page3();
-              // continue;
-            }
+            setInterval(function() {
+              test_block.time--;
+              if (test_block.time == 0) {
+                window.location.href = "game_page_defeat.html";
+                // clearInterval(this.timer);
+              }
+            }, 1000);
           },
           beforeDestroy() {
             clearInterval(this.timer);
           },
-          // computed: {
-          //   counttotal: function() {
-          //     let sum = 0;
-          //     this;
-          //   },
-          // },
         },
-        mounted() {
-          this.timer = setInterval(this.countdown, 1000);
-        },
+        // mounted() {
+        //   this.timer = setInterval(this.countdown, 1000);
+        // },
         //監聽倒數完畢
         // watch: {
         //   time: function(newValue, oldValue) {
