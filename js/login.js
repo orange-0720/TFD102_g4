@@ -1,5 +1,6 @@
 //  ajax結束
 
+
 // 登入介面左右互換
 var form_block = document.getElementsByClassName('form_block')[0];
 var sign_btn = document.getElementById("signup_btn");
@@ -82,21 +83,13 @@ e.stopPropagation();
 
 let pwd_resend_btn = document.getElementsByClassName("pwd_resend_btn")[0];
 pwd_resend_btn.addEventListener("click", function () {
-let val = document.getElementsByClassName("pwd_resend")[0].value;
-if(val !== ""){
-    Email.send({
-    Host: "smtp.gmail.com",
-    Username: "goodvegetablebox@gmail.com",
-    Password: "tfd102g4",
-    To: val,
-    From: "良耕野菜<goodvegetablebox@gmail.com>",
-    Subject: "良耕野菜",
-    Body: "感謝您使用本網站，您的新密碼為11111111，請使用新密碼重新登入",
-    }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入'))
-    .then($('.pwd_block').fadeToggle());
-}else{
-    alert('請輸入註冊信箱');
-};
+    let val = document.getElementsByClassName("pwd_resend")[0].value;
+    if(val !== ""){
+        forget_pwd();
+        
+    }else{
+        alert('請輸入註冊信箱');
+    };
 });
 // 忘記密碼結束
 
@@ -207,16 +200,3 @@ document.getElementById('login_btn').addEventListener('click', function(){
         $('#login_email').css('border','3px solid red')
     }
 })
-
-
-// $('#login_email').on(blur, IsEmail(this.value));
-
-
-function IsEmail(email) {
-  var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  if(!regex.test(email)) {
-    return false;
-  }else{
-    return true;
-  }
-}

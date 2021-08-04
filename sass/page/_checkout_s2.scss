@@ -517,7 +517,7 @@
     margin-top: 70px;
     font-size: 20px;
     text-align: center;
-    span{
+    label{
         margin-left: 10px;
     }
     .chekout_s2_order_privacy_next{
@@ -538,7 +538,7 @@
         margin-top: 70px;
         font-size: 20px;
         text-align: center;
-        span{
+        label{
             margin-left: 10px;
         }
         .chekout_s2_order_privacy_next{
@@ -560,7 +560,7 @@
         margin-top: 40px;
         font-size: 20px;
         text-align: center;
-        span{
+        label{
             margin-left: 10px;
         }
         .chekout_s2_order_privacy_next{
@@ -616,26 +616,63 @@
         display: flex;
         margin-top: 50px;
         .credit_form_left_block{
-            // width: 50%;
             flex: 1 1 50%;
-            .credit_card_img{
-                width: 500px;
-                height: 350px;
+            position: relative;
+            &:hover{
+                .credit_card_img_front{
+                    transform: rotateY(180deg);
+                }
+                .credit_card_img_back{
+                    transform: rotateY(0deg);
+                }
+            }
+            .credit_card_img_front{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                backface-visibility: hidden;
+                transition: 0.6s;
+                transform-style: preserve-3d;
                 @include marginAuto();
-                background-image: url(../images/checkout/credit_card.png);
-                background-repeat: no-repeat;
-                background-size: contain;
-                position: relative;
+                .card_img{
+                    position: absolute;
+                    max-width: 100%;
+                    max-height: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    backface-visibility: hidden;
+                    transition: 0.6s;
+                    transform-style: preserve-3d;
+                    @include marginAuto();
+                }
                 .left_block_name{
-                    // padding-top: 70px;
-                    // padding-left: 300px;
-                    padding-top: 20%;
-                    padding-left: 60%;
+                    padding-top: 18%;
+                    padding-left: 30%;
                     text-align: left;
                     p{
                         font-size: $h4;
                         color: black;
                         padding: 5px 0px;
+                        &:last-child{
+                            font-size: $h3;
+                            padding-left: 10%;
+                            color:$font_color;
+                            min-height: 40px;
+                        }
+                    }
+                }
+                .left_block_number{
+                    text-align: left;
+                    padding-left: 30%;
+                    padding-top: 2%;
+                    margin-bottom: 10px;
+                    p{
+                        font-size: $h4;
+                        color: black;
+                        padding: 5px 0;
                         &:last-child{
                             font-size: $h3;
                             padding-left: 5px;
@@ -644,18 +681,48 @@
                         }
                     }
                 }
-                .left_block_number{
+            }
+            .credit_card_img_back{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                backface-visibility: hidden;
+                transition: 0.6s;
+                transform-style: preserve-3d;
+                transform: rotateY(-180deg);
+                @include marginAuto();
+                .card_img{
+                    position: absolute;
+                    max-width: 100%;
+                    max-height: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    backface-visibility: hidden;
+                    transition: 0.6s;
+                    transform-style: preserve-3d;
+                    @include marginAuto();
+                }
+                .left_block_name{
+                    padding-top: 18%;
+                    padding-left: 30%;
                     text-align: left;
-                    padding-left: 10%;
-                    padding-top: 7%;
-                    margin-bottom: 10px;
                     p{
-                        font-size: $h3;
-                        padding: 5px 0;
-                        min-height: 40px;
+                        font-size: $h4;
+                        color: black;
+                        padding: 5px 0px;
+                        &:last-child{
+                            font-size: $h3;
+                            padding-left: 20px;
+                            color:$font_color;
+                            min-height: 40px;
+                        }
                     }
                 }
                 .left_block_other{
+                    padding-top: 10%;
                     text-align: left;
                     padding-left: 10%;
                     .left_block_valid{
@@ -733,6 +800,7 @@
     }
     .credit_detail_confirm{
         @include btn(30%);
+        margin-top: 40px;
     }
 }
 
@@ -764,26 +832,26 @@
             margin-top: 30px;
             overflow-y: auto;
             .credit_form_left_block{
-                width: 100%;
-                .credit_card_img{
+                width: 60%;
+                @include marginAuto();
+                padding: 0 5%;
+                height: 350px;
+                .credit_card_img_front{
                     @include marginAuto();
-                    width: 500px;
-                    height: 350px;
-                    background-image: url(../images/checkout/credit_card.png);
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
                     .left_block_name{
-                        padding-top: 70px;
-                        padding-left: 300px;
+                        padding-top: 14%;
+                        padding-left: 30%;
                         text-align: left;
                         p{
                             font-size: $h4;
                             color: black;
                             padding: 5px 0px;
                             &:last-child{
-                                font-size: $h3;
-                                padding-left: 5px;
+                                font-size: $h4;
+                                padding-left: 10%;
                                 color:$font_color;
                                 min-height: 40px;
                             }
@@ -791,36 +859,28 @@
                     }
                     .left_block_number{
                         text-align: left;
-                        padding-left: 50px;
-                        padding-top: 35px;
+                        padding-left: 30%;
+                        padding-top: 0%;
                         margin-bottom: 10px;
                         p{
-                            font-size: $h3;
-                            padding: 5px 0;
-                            min-height: 40px;
-                        }
-                    }
-                    .left_block_other{
-                        text-align: left;
-                        padding-left: 10%;
-                        .left_block_valid{
+                            font-size: $h4;
                             color: black;
-                            font-size: $h5;
-                            display: inline-block;
-                            padding-bottom: 5px;
-                            vertical-align: top;
-                            span{
-                                display: block;
+                            padding: 5px 0;
+                            &:last-child{
+                                font-size: $h4;
+                                padding-left: 5px;
                                 color:$font_color;
-                                font-size: $h3;
-                                padding-top: 10px;
-                                margin: 0
+                                min-height: 40px;
                             }
                         }
-                        .left_block_security{
-                            margin-left: 70px;
-                        }
                     }
+                }
+                .credit_card_img_back{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                 }
             }
             .credit_form_right_block{
@@ -880,9 +940,9 @@
     .credit_form{
         position: relative;
         z-index: 500;
-        top: 80px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         width: 90%;
         height: auto;
         padding: 30px 5%;
@@ -904,107 +964,36 @@
             margin-top: 30px;
             overflow-y: auto;
             .credit_form_left_block{
-                width: 100%;
-                .credit_card_img{
+                width: 90%;
+                @include marginAuto();
+                height: 300px;
+                @include mobile {
+                    display: none;
+                    height: 240px
+                }
+                .credit_card_img_front{
                     @include marginAuto();
                     width: 450px;
-                    height: 350px;
-                    background-image: url(../images/checkout/credit_card.png);
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    position: relative;
+                    height: 330px;
+                    left: 0%;
                     @include mobile {
-                        width: 80%;
-                        height: auto;
-                        background-size: 100%;
+                        width: 100%;
+                        height: 250px;
                     }
-                    .left_block_name{
-                        // padding-top: 70px;
-                        // padding-left: 300px;
-                        padding-top: 20%;
-                        padding-left: 60%;
-                        text-align: left;
-                        @include mobile {
-                            padding-top: 10%;
-                            padding-left: 55%;
-                        }
-                        p{
-                            font-size: $h4;
-                            color: black;
-                            padding: 5px 0px;
-                            @include mobile {
-                                font-size: $h5;
-                            }
-                            &:last-child{
-                                font-size: $h3;
-                                padding-left: 5px;
-                                color:$font_color;
-                                min-height: 40px;
-                                @include mobile {
-                                    font-size: $h4;
-                                    min-height: 30px;
-                                }
-                            }
-                        }
+                   
+                }
+                .credit_card_img_back{
+                    width: 450px;
+                    height: 330px;
+                    position: absolute;
+                    @include marginAuto();
+                    top: 0;
+                    left: 0%;
+                    @include mobile {
+                        width: 100%;
+                        height: 250px;
                     }
-                    .left_block_number{
-                        text-align: left;
-                        padding-left: 10%;
-                        padding-top: 3%;
-                        margin-bottom: 10px;
-                        @include mobile {
-                            padding-top: 3%;
-                            padding-left: 30%;
-                            margin-bottom: 0px;
-                        }
-                        p{
-                            font-size: $h3;
-                            padding: 5px 0;
-                            min-height: 40px;
-                            @include mobile {
-                                font-size: $h4;
-                                min-height: 30px;
-                                padding: 0px;
-                            }
-                        }
-                    }
-                    .left_block_other{
-                        text-align: left;
-                        padding-left: 10%;
-                        .left_block_valid{
-                            color: black;
-                            font-size: $h5;
-                            display: inline-block;
-                            padding-bottom: 5px;
-                            vertical-align: top;
-                            @include mobile {
-                                display: block;
-                                margin-left: 30%;
-                                padding-bottom: 0px;
-                            }
-                            span{
-                                display: block;
-                                color:$font_color;
-                                font-size: $h3;
-                                padding-top: 10px;
-                                margin: 0;
-                                @include mobile {
-                                    font-size: $h5;
-                                    min-height: 26px;
-                                }
-                            }
-                        }
-                        .left_block_security{
-                            margin-left: 70px;
-                            @include mobile {
-                                margin-left: 0%;
-                                vertical-align: top;
-                                span{
-                                    display: inline-block;
-                                }
-                            }
-                        }
-                    }
+                    
                 }
             }
             .credit_form_right_block{

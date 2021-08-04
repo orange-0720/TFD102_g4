@@ -9,6 +9,7 @@
 // layout
 @import './sass/layout/header';
 @import './sass/layout/footer';
+@import './sass/layout/shopping_cart';
 
 // page
 @import './sass/page/index';
@@ -37,3 +38,6 @@
 
 // module
 @import './sass/module/mouse_scroll';
+
+//entrance
+@import './sass/page/entrance';
