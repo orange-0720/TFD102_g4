@@ -9188,12 +9188,6 @@ div.qa_item div.qa_problem p.question::after {
   font-weight: 700;
 }
 
-@media (max-width: 575px) {
-  .price_all .box_price_butten {
-    width: 100%;
-  }
-}
-
 .price_all .box_price_butten .id1 {
   background-color: #91c359;
 }
@@ -9218,7 +9212,6 @@ div.qa_item div.qa_problem p.question::after {
 
 .butten_check .butten {
   width: 80px;
-  height: 40px;
   background-color: #FFF353;
   text-decoration: none;
   border-radius: 101px;
@@ -9302,37 +9295,20 @@ div.qa_item div.qa_problem p.question::after {
   width: 20%;
 }
 
-.fruits_box_two .delete_basket-active,
-.fruits_box_two .delete_basket-leave-active,
-.fruits_box_two .delete_basket-move {
-  transition: opacity 0.7s, transform 0.8s;
+.fruits_box_two .fruits-active,
+.fruits_box_two .fruits-leave-active,
+.fruits_box_two .fruits-move {
+  transition: opacity 0.9s, transform 0.8s;
 }
 
-.fruits_box_two .delete_basket-enter-from {
+.fruits_box_two .fruits-enter-from {
   opacity: 0;
   transform: translateY(20px);
 }
 
-.fruits_box_two .delete_basket-leave-to {
+.fruits_box_two .fruits-leave-to {
   opacity: 0;
   transform: translateY(-20px);
-}
-
-.fruits_box_two .cc_box-enter-active {
-  animation: 0.5s;
-}
-
-.fruits_box_two .cc-leave-active {
-  animation: 0.5s;
-}
-
-@keyframes intobox {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0px);
-  }
 }
 
 .fruits_box_two .fruits_basket {
@@ -9342,7 +9318,6 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_basket .outer_layer {
-  border: 1px solid orange;
   width: 730px;
   height: 500px;
   position: relative;
@@ -9370,144 +9345,8 @@ div.qa_item div.qa_problem p.question::after {
   position: absolute;
 }
 
-.fruits_box_two .fruits_basket .outer_layer #avocado {
-  z-index: 0;
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #carrot {
-  z-index: 0;
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #orange {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #pepper {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #tomato {
-  left: 20px;
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #salad {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #spinach {
-  position: absolute;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #babycorn {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #lemon {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #w_salad {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #babycorn {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #radish {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #cucumber {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #salad {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #persimmon {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #onion {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #banana {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #corn {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #pumpkin {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #salad {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #guava {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #cabbage {
-  position: absolute;
-  z-index: 0;
-}
-
-.fruits_box_two .fruits_basket .outer_layer #strawberry {
-  position: absolute;
-  z-index: 0;
-}
-
 @media (max-width: 1199px) {
-  .fruits_box_two .fruits_basket .outer_layer #avocado img,
-  .fruits_box_two .fruits_basket .outer_layer #carrot img,
-  .fruits_box_two .fruits_basket .outer_layer #orange img,
-  .fruits_box_two .fruits_basket .outer_layer #pepper img,
-  .fruits_box_two .fruits_basket .outer_layer #tomato img,
-  .fruits_box_two .fruits_basket .outer_layer #salad img,
-  .fruits_box_two .fruits_basket .outer_layer #spinach img,
-  .fruits_box_two .fruits_basket .outer_layer #babycorn {
-    width: 90%;
-    margin-top: 20px;
-  }
-  .fruits_box_two .fruits_basket .outer_layer #lemon img,
-  .fruits_box_two .fruits_basket .outer_layer #w_salad img,
-  .fruits_box_two .fruits_basket .outer_layer #onion img,
-  .fruits_box_two .fruits_basket .outer_layer #radish_d img,
-  .fruits_box_two .fruits_basket .outer_layer #cucumber img,
-  .fruits_box_two .fruits_basket .outer_layer #persimmon img {
-    width: 90%;
-    margin-top: 20px;
-  }
-  .fruits_box_two .fruits_basket .outer_layer #banana img,
-  .fruits_box_two .fruits_basket .outer_layer #corn img,
-  .fruits_box_two .fruits_basket .outer_layer #pumpkin img,
-  .fruits_box_two .fruits_basket .outer_layer #salad img,
-  .fruits_box_two .fruits_basket .outer_layer #guava img,
-  .fruits_box_two .fruits_basket .outer_layer #cabbage img {
+  .fruits_box_two .fruits_basket .outer_layer img {
     width: 90%;
     margin-top: 20px;
   }
@@ -9518,38 +9357,29 @@ div.qa_item div.qa_problem p.question::after {
     width: 150%;
     height: 400px;
   }
-  .fruits_box_two .fruits_basket .outer_layer #avocado img,
-  .fruits_box_two .fruits_basket .outer_layer #carrot img,
-  .fruits_box_two .fruits_basket .outer_layer #orange img,
-  .fruits_box_two .fruits_basket .outer_layer #pepper img,
-  .fruits_box_two .fruits_basket .outer_layer #tomato img,
-  .fruits_box_two .fruits_basket .outer_layer #salad img,
-  .fruits_box_two .fruits_basket .outer_layer #spinach img,
-  .fruits_box_two .fruits_basket .outer_layer #babycorn img {
-    width: 80%;
-  }
-  .fruits_box_two .fruits_basket .outer_layer #lemon img,
-  .fruits_box_two .fruits_basket .outer_layer #w_salad img,
-  .fruits_box_two .fruits_basket .outer_layer #onion img,
-  .fruits_box_two .fruits_basket .outer_layer #radish_d img,
-  .fruits_box_two .fruits_basket .outer_layer #cucumber img,
-  .fruits_box_two .fruits_basket .outer_layer #persimmon img {
-    width: 80%;
-  }
-  .fruits_box_two .fruits_basket .outer_layer #banana img,
-  .fruits_box_two .fruits_basket .outer_layer #corn img,
-  .fruits_box_two .fruits_basket .outer_layer #pumpkin img,
-  .fruits_box_two .fruits_basket .outer_layer #salad img,
-  .fruits_box_two .fruits_basket .outer_layer #guava img,
-  .fruits_box_two .fruits_basket .outer_layer #cabbage img {
-    width: 80%;
+  .fruits_box_two .fruits_basket .outer_layer img {
+    width: 100%;
   }
 }
 
 @media (max-width: 575px) {
   .fruits_box_two .fruits_basket .outer_layer {
     width: 144%;
-    height: 30vh;
+    height: 300px;
+  }
+  .fruits_box_two .fruits_basket .outer_layer #wooden {
+    width: 110%;
+    top: 80px;
+    left: -6%;
+  }
+  .fruits_box_two .fruits_basket .outer_layer #wooden_box {
+    width: 110%;
+    top: 80px;
+    left: -6%;
+  }
+  .fruits_box_two .fruits_basket .outer_layer .img_src {
+    width: 100%;
+    margin-top: 10px;
   }
 }
 
@@ -9571,6 +9401,12 @@ div.qa_item div.qa_problem p.question::after {
 @media (max-width: 575px) {
   .fruits_box_two .fruits_check_butten {
     margin: auto;
+  }
+}
+
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_check_butten {
+    margin-top: 40px;
   }
 }
 
@@ -9785,7 +9621,6 @@ div.qa_item div.qa_problem p.question::after {
 
 .free_give .free_give_people .free_all p {
   width: 80px;
-  height: 40px;
   background-color: #FFF353;
   text-decoration: none;
   border-radius: 101px;
@@ -16356,5 +16191,285 @@ input.back_input, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .ch
   90% {
     color: #ffffff;
   }
+}
+
+.entrance {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  flex-direction: column;
+  position: relative;
+}
+
+.entrance .logo_box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+}
+
+.entrance .logo_box .logo_pic {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+.entrance .logo_box .logo_pic a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.entrance .logo_box .logo_pic img {
+  width: 50%;
+}
+
+.entrance .entrance_box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  vertical-align: middle;
+  flex-direction: row;
+  position: relative;
+  padding-top: 10px;
+}
+
+.entrance .entrance_box .entrance_item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  display: inline;
+  justify-content: space-around;
+  width: 280px;
+  height: 220px;
+  margin: 0px 40px;
+}
+
+.entrance .entrance_box .entrance_item:hover {
+  color: #ffffff;
+}
+
+.entrance .entrance_box .entrance_item a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.entrance .entrance_box .entrance_item img {
+  position: absolute;
+  width: 280px;
+  height: 220px;
+}
+
+.entrance .entrance_box .entrance_item p {
+  display: inline-block;
+  position: absolute;
+  top: 48%;
+  left: 40%;
+  font-size: 24px;
+}
+
+.entrance .entrance_box .front_end {
+  position: relative;
+}
+
+.entrance .entrance_box .front_end:after {
+  content: "";
+  position: absolute;
+  background-image: url("../images/entrance/man.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 80px;
+  top: -65px;
+  left: 40%;
+  z-index: -1;
+}
+
+.entrance .entrance_box .back_end {
+  position: relative;
+}
+
+.entrance .entrance_box .back_end:after {
+  content: "";
+  position: absolute;
+  background-image: url("../images/entrance/woman.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 80px;
+  top: -70px;
+  left: 45%;
+  z-index: -1;
+}
+
+.entrance .pic_box1 {
+  position: absolute;
+  bottom: -180px;
+  left: 20px;
+}
+
+.entrance .pic_box1 img {
+  width: 140px;
+}
+
+.entrance .pic_box2 {
+  position: absolute;
+  bottom: -170px;
+  left: 100px;
+  transform: rotate(-10deg);
+}
+
+.entrance .pic_box2 img {
+  width: 100px;
+}
+
+.entrance .pic_box3 {
+  position: absolute;
+  bottom: -170px;
+  left: 170px;
+  transform: rotate(60deg);
+}
+
+.entrance .pic_box3 img {
+  width: 120px;
+}
+
+.entrance .pic_box4 {
+  position: absolute;
+  bottom: -170px;
+  left: 270px;
+  animation-name: rotate_fruit;
+  animation-duration: 3s;
+  animation-delay: .2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  transform: rotate(0deg);
+}
+
+.entrance .pic_box4 img {
+  width: 100px;
+}
+
+@keyframes rotate_fruit {
+  0% {
+    transform: rotate(0deg);
+    left: 210px;
+  }
+  10% {
+    transform: rotate(20deg);
+    left: 230px;
+  }
+  15% {
+    transform: rotate(30deg);
+    left: 250px;
+  }
+  20% {
+    transform: rotate(50deg);
+    left: 260px;
+  }
+  25% {
+    transform: rotate(60deg);
+    left: 280px;
+  }
+  30% {
+    transform: rotate(80deg);
+    left: 300px;
+  }
+  35% {
+    transform: rotate(100deg);
+    left: 320px;
+  }
+  40% {
+    transform: rotate(120deg);
+    left: 350px;
+  }
+  45% {
+    transform: rotate(150deg);
+    left: 380px;
+  }
+  50% {
+    transform: rotate(160deg);
+    left: 400px;
+  }
+  55% {
+    transform: rotate(180deg);
+    left: 410px;
+  }
+  60% {
+    transform: rotate(200deg);
+    left: 430px;
+  }
+  65% {
+    transform: rotate(220deg);
+    left: 450px;
+  }
+  70% {
+    transform: rotate(240deg);
+    left: 470px;
+  }
+  75% {
+    transform: rotate(260deg);
+    left: 490px;
+  }
+  80% {
+    transform: rotate(280deg);
+    left: 520px;
+  }
+  85% {
+    transform: rotate(320deg);
+    left: 540px;
+  }
+  90% {
+    transform: rotate(340deg);
+    left: 560px;
+  }
+  95% {
+    transform: rotate(350deg);
+    left: 570px;
+  }
+  100% {
+    transform: rotate(360deg);
+    left: 580px;
+  }
+}
+
+.entrance .pic_box5 {
+  position: absolute;
+  top: 10px;
+  right: 60px;
+}
+
+.entrance .pic_box5 img {
+  width: 120px;
+}
+
+.entrance .pic_box6 {
+  position: absolute;
+  bottom: -120px;
+  right: 100px;
+}
+
+.entrance .pic_box6 img {
+  width: 80px;
+}
+
+.entrance .pic_box7 {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+}
+
+.entrance .pic_box7 img {
+  width: 250px;
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */
