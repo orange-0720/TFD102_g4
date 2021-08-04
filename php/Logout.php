@@ -3,9 +3,11 @@
 
     //清空session
     clearSession();
+    mem
 
-    if(isset($_SESSION)){
-        echo json_encode(1);
-    };
+    echo json_encode(1);
+    // if(!isset($_SESSION)){
+    //     echo json_encode(1);
+    // };
     
 ?>

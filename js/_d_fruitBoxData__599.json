@@ -1,49 +1,49 @@
 [
   {
-    "img_src": "./images/fruit_box/399/down/carrot_d.png",
-    "id": "carrot",
-    "title": "紅蘿蔔"
+    "id": 17,
+    "img_src": "./images/fruit_box/499/down/banana_d.png",
+    "title": "香蕉"
   },
 
   {
-    "img_src": "./images/fruit_box/399/down/orange_d.png",
-    "id": "orange",
-    "title": "橘子"
+    "id": 18,
+    "img_src": "./images/fruit_box/599/corn_d.png",
+    "title": "玉米"
   },
 
   {
+    "id": 19,
     "img_src": "./images/fruit_box/399/down/pepper_d.png",
-    "id": "pepper",
     "title": "青椒"
   },
 
   {
+    "id": 20,
     "img_src": "./images/fruit_box/399/down/tomato_d.png",
-    "id": "tomato",
     "title": "番茄"
   },
 
   {
+    "id": 21,
     "img_src": "./images/fruit_box/399/down/spinach_d.png",
-    "id": "spinach",
     "title": "空心菜"
   },
 
   {
+    "id": 22,
     "img_src": "./images/fruit_box/399/down/babycorn_d.png",
-    "id": "babycorn",
     "title": "玉米筍"
   },
 
   {
+    "id": 23,
     "img_src": "./images/fruit_box/399/down/salad_d.png",
-    "id": "salad",
     "title": "青江菜"
   },
 
   {
+    "id": 24,
     "img_src": "./images/fruit_box/399/down/avocado_d.png",
-    "id": "avocado",
     "title": "酪 梨"
   }
 ]
