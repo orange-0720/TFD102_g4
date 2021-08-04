@@ -4,7 +4,7 @@
         //MySQL相關資訊
         $db_host = "127.0.0.1";
         $db_user = "root";
-        $db_pass = "apple905";
+        $db_pass = "password";
         $db_select = "pdo";
     
         //建立資料庫連線物件

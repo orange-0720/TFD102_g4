@@ -41,7 +41,7 @@
       font-weight: 700;
     }
     @include mobile {
-      width: 100%;
+      
     }
     .id1 {
       background-color: #91c359;
@@ -127,41 +127,22 @@
     }
   }
   //移除蔬果動畫
-    .delete_basket-active,
-    .delete_basket-leave-active,
-    .delete_basket-move {
-      transition: opacity 0.7s, transform 0.8s;
+    .fruits-active,
+    .fruits-leave-active,
+    .fruits-move {
+      transition: opacity 0.9s, transform 0.8s;
     }
 
-    .delete_basket-enter-from {
+    .fruits-enter-from {
       opacity: 0;
       transform: translateY(20px);
     }
-    .delete_basket-leave-to {
+    .fruits-leave-to {
       opacity: 0;
       transform: translateY(-20px);
     }
   
-  //進入動畫
-
   
-  .cc_box-enter-active{
-    animation:  0.5s;
-  }
-  .cc-leave-active {
-    animation:  0.5s;
-  }
-
-  @keyframes intobox {
-    from{
-      transform: translateY(-100%);
-    }
-    to{
-      transform: translateY(0px);
-    }
-  }
-
-
 
   // 蔬菜箱整體
   .fruits_basket {
@@ -170,7 +151,7 @@
     z-index: 0;
 
     .outer_layer {
-      border: 1px solid orange;
+      //border: 1px solid orange;
       width: 730px;
       height: 500px;
       position: relative;
@@ -178,7 +159,6 @@
       @include tablet {
         width: 132%;
       }
-
       // margin-top: 20px;
       #wooden {
         width: 100%;
@@ -196,203 +176,39 @@
         position: absolute;
       }
 
-      // ==== 399價位 =====
-      #avocado {
-        z-index: 0;
-        position: absolute;
-      }
-
-      #carrot {
-        z-index: 0;
-        position: absolute;
-      }
-
-      #orange {
-        position: absolute;
-      }
-
-      #pepper {
-        position: absolute;
-      }
-
-      #tomato {
-        left: 20px;
-        position: absolute;
-      }
-
-      #salad {
-        position: absolute;
-      }
-
-      #spinach {
-        position: absolute;
-      }
-
-      #babycorn {
-        position: absolute;
-        z-index: 0;
-      }
-
-      // ==== 499價位 =====
-
-      #lemon {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #w_salad {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #babycorn {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #radish {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #cucumber {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #salad {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #persimmon {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #onion {
-        position: absolute;
-        z-index: 0;
-      }
-
-      // ==== 599價位 =====
-
-      #banana {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #corn {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #pumpkin {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #salad {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #guava {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #cabbage {
-        position: absolute;
-        z-index: 0;
-      }
-
-      #strawberry {
-        position: absolute;
-        z-index: 0;
-      }
-
-      //寫三種1000PX 700PX 300PX 可以寫死
-
       @include tablet {
-        //399
-        #avocado img,
-        #carrot img,
-        #orange img,
-        #pepper img,
-        #tomato img,
-        #salad img,
-        #spinach img,
-        #babycorn {
-          width: 90%;
-          margin-top: 20px;
-        }
-
-        //499
-        #lemon img,
-        #w_salad img,
-        #onion img,
-        #radish_d img,
-        #cucumber img,
-        #persimmon img {
-          width: 90%;
-          margin-top: 20px;
-        }
-
-        //599
-
-        #banana img,
-        #corn img,
-        #pumpkin img,
-        #salad img,
-        #guava img,
-        #cabbage img {
+       img{
           width: 90%;
           margin-top: 20px;
         }
       }
-
       @include pad {
         width: 150%;
         //height: 40vh;
         height: 400px;
-
-        //399
-        #avocado img,
-        #carrot img,
-        #orange img,
-        #pepper img,
-        #tomato img,
-        #salad img,
-        #spinach img,
-        #babycorn img {
-          width: 80%;
-        }
-
-        //499
-        #lemon img,
-        #w_salad img,
-        #onion img,
-        #radish_d img,
-        #cucumber img,
-        #persimmon img {
-          width: 80%;
-        }
-
-        //599
-        #banana img,
-        #corn img,
-        #pumpkin img,
-        #salad img,
-        #guava img,
-        #cabbage img {
-          width: 80%;
+        img {
+          width: 100%;
         }
       }
 
       @include mobile {
         width: 144%;
-        height: 30vh;
+        height: 300px;
+        #wooden{
+          width: 110%;
+          top:80px;
+          left: -6%;
+        }
+        #wooden_box {
+          width: 110%;
+          top:80px;
+          left: -6%;
+        }
+        .img_src{
+          width: 100%;
+          margin-top: 10px;
+
+        }
       }
     }
   }
@@ -410,7 +226,11 @@
     }
 
     @include mobile {
-      margin: auto;
+      margin: auto;  
+    }
+
+    @include tablet{
+      margin-top: 40px;
     }
     button {
       outline: none;
@@ -577,7 +397,7 @@
   display: flex;
   margin-top: 70px;
   @include marginAuto();
-
+  
   .free_title {
     display: flex;
   }
@@ -735,3 +555,6 @@
     transform: scaleX(-1);
   }
 }
+
+
+

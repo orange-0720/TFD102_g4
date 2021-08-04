@@ -1,0 +1,51 @@
+[
+  {
+    "id":1,
+    "img_src": "./images/fruit_box/399/down/salad_d.png",
+    "title": "青江菜"
+  },
+  
+  {
+    "id":2,
+    "img_src": "./images/fruit_box/399/down/carrot_d.png",
+    "title": "紅蘿蔔"
+  },
+
+  {
+    "id":3,
+    "img_src": "./images/fruit_box/399/down/pepper_d.png",
+    "title": "青椒"
+  },
+
+  {
+    "id":4,
+    "img_src": "./images/fruit_box/399/down/avocado_d.png",
+    "title": "酪 梨"
+  },
+
+  {
+    "id":5,
+    "img_src": "./images/fruit_box/399/down/tomato_d.png",
+    "title": "番茄"
+  },
+
+  {
+    "id":6,
+    "img_src": "./images/fruit_box/399/down/orange_d.png",
+    "title": "橘子"
+  },
+
+  {
+    "id":7,
+    "img_src": "./images/fruit_box/399/down/spinach_d.png",
+    "title": "空心菜"
+  },
+
+  {
+    "id":8,
+    "img_src": "./images/fruit_box/399/down/babycorn_d.png",
+    "title": "玉米筍"
+  }
+
+
+]
