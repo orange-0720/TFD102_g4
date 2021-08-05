@@ -625,15 +625,17 @@ body{
 
 // 購物車
 .header_shopping_cart{
-    width: 250px;
+    width: 500px;
     padding: 20px;
     background-color: $white;
     border: 2px solid $brown;
     position: fixed;
     right: -1000px;
-    top: 70%;
-    transform: translateY(-50%);
+    top: 0%;
+    height: 350px;
+    // transform: translateY(-50%);
     transition: 0.5s;
+    overflow-y: auto;
     @include tablet {
         top: 50%;
     }
@@ -885,7 +887,7 @@ body{
 
 
 .cart_into{
-    right:0 !important;
+    right:5% !important;
     z-index: 101 !important;
 }
 

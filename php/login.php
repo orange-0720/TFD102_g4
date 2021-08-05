@@ -53,7 +53,9 @@
 
             //導回產品頁        
             // echo json_encode($data); 
+            // echo json_encode($_SESSION['MemberID]);
             echo json_encode(1); 
+
 
     
         }else{

@@ -58,9 +58,9 @@ div#game_decorate_testNumberCircle {
   justify-content: center;
   align-items: center;
   @include pad {
-    width: 120px;
-    height: 120px;
-    top: 1rem;
+    width: 100px;
+    height: 100px;
+    top: 0rem;
   }
   @include mobile {
     width: 100px;
@@ -75,7 +75,7 @@ div#game_decorate_testNumberCircle {
     text-align: center;
     @include pad {
       height: 30px;
-      font-size: 4vw;
+      font-size: 5vw;
     }
     @include mobile {
       font-size: 30px;
@@ -128,7 +128,7 @@ section.game_play_border {
   width: 60%;
   height: 1000px;
   @include pad {
-    height: 700px;
+    height: 600px;
     width: 80%;
   }
   @include mobile {
@@ -207,6 +207,9 @@ section.game_play_border {
     h1 {
       font-size: 36px;
       font-weight: bolder;
+      @include pad {
+        font-size: 28px;
+      }
       @include mobile {
         font-size: 30px;
       }
@@ -220,7 +223,7 @@ section.game_play_border {
     justify-content: center;
     @include pad {
       height: 250px;
-      margin-top: 20rem;
+      margin-top: 14rem;
     }
     @include mobile {
       height: 200px;
@@ -249,8 +252,9 @@ section.game_play_border {
     justify-content: center;
     align-items: center;
     @include pad {
-      height: 180px;
-      margin-top: 2rem;
+      height: 120px;
+      margin-top: 0rem;
+      margin-bottom: 0rem;
     }
     @include mobile {
       margin-top: 2rem;

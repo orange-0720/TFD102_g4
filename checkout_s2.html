@@ -239,15 +239,15 @@
           <h3>訂購人資料</h3>
           <div class="checkout_s2_receiver_infro_group">
             <label for="">訂購人名稱</label>
-            <input type="text" />
+            <input type="text" class="receiver_name" />
           </div>
           <div class="checkout_s2_receiver_infro_group">
             <label for="">電子郵件</label>
-            <input type="text" />
+            <input type="text" class="receiver_email" />
           </div>
           <div class="checkout_s2_receiver_infro_group">
             <label for="">聯絡電話(手機)</label>
-            <input type="text" />
+            <input type="text" class="receiver_phone" />
           </div>
           <div class="checkout_s2_receiver_infro_group">
             <label for="">性別</label>
@@ -261,29 +261,29 @@
         <div class="checkout_s2_deliver_infro">
           <h3>收件人資料</h3>
           <div class="checkout_s2_deliver_infro_check">
-            <input type="checkbox" name="deliver" />
-            <label for="deliver"> 收件人資料同訂購人資訊</label>
+            <input type="checkbox" id="deliver_box" v-model="theSame" />
+            <label for="deliver_box"> 收件人資料同訂購人資訊</label>
           </div>
           <div class="checkout_s2_deliver_infro_group">
             <label for="">收件人名稱</label>
-            <input type="text" />
+            <input type="text" class="deliver_name" />
           </div>
           <div class="checkout_s2_deliver_infro_group">
             <label for="">收件人手機</label>
-            <input type="text" />
+            <input type="text" class="deliver_phone" />
             <hr />
           </div>
           <div class="checkout_s2_deliver_infro_group">
             <label for="">送貨地址</label>
             <select class="checkout_s2_city"  v-model="mainArea">
               <option disabled>請選擇縣市</option>
-              <option v-for="(place,key) in area_data" :value="place.id">{{place.name}}</option>
+              <option v-for="(place,key) in area_data" :value="place.name">{{place.name}}</option>
             </select>
             <select class="checkout_s2_area" v-model="subArea">
               <option disabled>請選擇分區</option>
               <option v-for="area in area_arr">{{area}}</option>
             </select>
-            <input type="text" />
+            <input type="text" v-model="address" />
             <hr />
           </div>
           <div class="checkout_s2_deliver_infro_group">
@@ -304,9 +304,10 @@
         </div>
       </div>
       <div class="chekout_s2_order_privacy">
-        <input type="checkbox" /><span>我已同意網站服務條款及隱私權</span>
+        <input type="checkbox" id="checkout_privacy" v-model="privacy"/>
+        <label for="checkout_privacy">我已同意網站服務條款及隱私權</label>
         <div class="chekout_s2_order_privacy_next">
-          <button>返回購物車</button>
+          <button onclick=window.location.href='checkout.html'>返回購物車</button>
           <button @click="credit_confirm">提交訂單</button>
         </div>
         <div class="credit_bkc" v-if="isShow" @click="credit_confirm">
@@ -318,13 +319,22 @@
             </div>
             <div class="credit_form_block">
               <div class="credit_form_left_block">
-                <div class="credit_card_img">
+                <div class="credit_card_img_front">
+                  <img class="card_img" src="./images/checkout/credit_card.png">
                   <div class="left_block_name">
-                    <p>Your Name:</p>
+                    <p>cardholder Name:</p>
                     <p>{{card_name}}</p>
                   </div>
                   <div class="left_block_number">
+                    <p>card number</p>
                     <p>{{card_number}}</p>
+                  </div>
+                </div>
+                <div class="credit_card_img_back">
+                  <img class="card_img" src="./images/checkout/credit_card.png">
+                  <div class="left_block_name">
+                    <p>cardholder Name:</p>
+                    <p>{{card_name}}</p>
                   </div>
                   <div class="left_block_other">
                     <section class="left_block_valid">
@@ -341,11 +351,11 @@
               <div class="credit_form_right_block">
                 <section class="right_block_name">
                   <label>持有人名稱</label>
-                  <input type="text" v-model="card_name" placeholder="王大明" />
+                  <input type="text" v-model="card_name" placeholder="王大明" @focus="turn_front"  />
                 </section>
                 <section class="right_block_number">
                   <label>信用卡號</label>
-                  <input type="text" v-model="card_number" />
+                  <input type="text" v-model="card_number" oninput = "value=value.replace(/[^\d]/g,'')" @focus="turn_front" />
                 </section>
                 <form class="right_block_other">
                   <section class="right_block_valid">
@@ -354,11 +364,13 @@
                       type="text"
                       v-model="card_valid"
                       placeholder="08/21"
+                      oninput = "value=value.replace(/[^\d]/g,'')"
+                      @focus = "turn_back"
                     />
                   </section>
                   <section class="right_block_security">
                     <label for="">安全碼</label>
-                    <input type="text" v-model="card_security" />
+                      <input type="text"  v-model="card_security" oninput = "value=value.replace(/[^\d]/g,'')" @focus = "turn_back" />
                   </section>
                 </form>
               </div>
@@ -421,7 +433,7 @@
 
     <script src="./js/header.js"></script>
     <script>
-      var vm = new Vue({
+      var shopping2_detail  = new Vue({
         el: "#shopping2_detail",
         data: {
           isShow: false,
@@ -429,7 +441,10 @@
           card_number: "",
           card_valid: "",
           card_security: "",
+          theSame:false, // 訂購資訊相同
+          privacy:false, // 隱私
 
+          address:"",
           mainArea:'請選擇縣市',
           subArea:'請選擇分區',
           area_arr:[],
@@ -931,10 +946,20 @@
         methods: {
           credit_confirm() {
             this.isShow = !this.isShow;
+            let total_address = this.mainArea + this.subArea + this.address;
+            console.log(total_address);
           },
           stopPropagation(e) {
             e.stopPropagation();
           },
+          turn_front(){
+            $('.credit_card_img_front').css('transform', 'rotateY(0deg)')
+            $('.credit_card_img_back').css('transform', 'rotateY(-180deg)')
+          },
+          turn_back(){
+            $('.credit_card_img_front').css('transform', 'rotateY(180deg)')
+            $('.credit_card_img_back').css('transform', 'rotateY(0deg)')
+          }
         },
         watch:{
           mainArea: function(newArea, oldArea){
@@ -942,11 +967,22 @@
                 this.area_arr = [];
             }else{
                 const tempItem = this.area_data.find( typeItem  =>{
-                    return typeItem.id == newArea;
+                    return typeItem.name == newArea;
                 });
                 this.area_arr =  tempItem.area;
             }
-          } 
+          },
+          theSame: function(){
+            if(this.theSame == true){
+              let name = $('.receiver_name').val();
+              let phone = $('.receiver_phone').val();
+              $('.deliver_name').val(name);
+              $('.deliver_phone').val(phone);
+            }else{
+              $('.deliver_name').val('');
+              $('.deliver_phone').val('');
+            }
+          }
         }
       });
 
