@@ -1,0 +1,184 @@
+#backend_page {
+  // height: 800px;
+  // margin-top: 200px;
+  background-image: url("../assets/images/backround.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+}
+
+div.container {
+  height: fit-content;
+  max-width: 1920px;
+  // height: 1200px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+header.row {
+  height: 100px;
+}
+
+// ==標題及登出按鈕==
+div#BackEnd_header {
+  margin-top: 40px;
+
+  button#logout {
+    @include btn(150px, 50px);
+    margin-bottom: 20px;
+    font-size: 27px;
+    padding: 2px;
+  }
+
+  span {
+    text-align: 60;
+    margin-left: 5px;
+    margin-bottom: 10px;
+
+    img {
+      width: 20px;
+    }
+  }
+
+  h2 {
+    font-weight: bolder;
+    color: $darkgreen;
+    font-size: 36px;
+  }
+}
+
+div#BackEnd_main {
+  height: 700px;
+
+  .row {
+    height: 80px;
+  }
+}
+
+// ==側邊攔==
+aside#BackEnd_main {
+
+  // height: 400px;
+  // display: flex;
+  // flex-direction: column;
+  div.BackEnd_logo {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 5px;
+
+    img#logo {
+      max-width: 80%;
+      padding: 5px;
+    }
+  }
+
+  .btn {
+    height: 50px;
+    width: 90%;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border: none;
+
+    &:hover {
+      border: none;
+      background-color: $yellow;
+    }
+  }
+}
+
+  // 該頁面按鈕更改顏色顯示
+  .back_hover {
+    background-color: $yellow !important;
+  }
+
+// ==搜尋輸入==
+div.backend_search {
+  position: relative;
+  border: none;
+
+  .icon {
+    position: absolute;
+    top: 20%;
+    left: 1%;
+    z-index: 1;
+    color: #4f5b66;
+  }
+}
+
+section#main {
+  height: 600px;
+  background-color: white;
+
+  input.rounded-pill {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  input.rounded-pill:focus {
+    outline: none;
+  }
+
+  .table_scroll {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .tr_color {
+    background-color: $green;
+    color: $white;
+  }
+
+  .tr_text {
+    white-space: nowrap;
+  }
+
+  .col_set {
+    padding: 0;
+    text-align: center;
+    // line-height: 90px;
+  }
+
+  tbody>tr:nth-child(odd) {
+    background-color: rgb(255, 229, 144);
+  }
+
+  tbody>tr:nth-child(even) {
+    background-color: $white;
+  }
+}
+
+a.page-link {
+  &:hover {
+    background-color: $green;
+  }
+}
+
+.pill_type {
+  width: 80px;
+}
+
+.pill_type_new {
+  position: absolute;
+  width: 100px;
+  right: 15px;
+  top: 10px;
+}
+
+
+// .msg_text .res_text{
+//   font-size: .8rem;
+//   letter-spacing: 1px;
+// }
+
+// textarea{
+//   border-radius: 5px;
+//   border: 1px solid #ccc;
+//   box-shadow: 1px 1px 1px #999;
+// }
+
+// .msg_content {
+//   display: inline-block;
+//   width: 100%;
+//   text-overflow: ellipsis;
+// }
