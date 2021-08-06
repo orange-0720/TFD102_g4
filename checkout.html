@@ -188,26 +188,21 @@
       <div class="checkout_shopping_detail">
         <h3>購物車明細</h3>
         <div class="checkout_shopping_detail_block">
-          <section class="checkout_shopping_detail_img">商品圖片</section>
-          <section class="checkout_shopping_detail_name">商品名稱</section>
-          <section class="checkout_shopping_detail_sum">數量</section>
-          <section class="checkout_shopping_detail_price">單價</section>
-          <section class="checkout_shopping_detail_total">小計</section>
-          <section class="checkout_shopping_detail_delete">刪除</section>
+          <section v-for="item in detail_block" :class="item.class">{{item.name}}</section>
         </div>
-        <div class="checkout_shopping_product_detail">
+        <div class="checkout_shopping_product_detail" v-for="(item,index) in cart_item">
           <section class="checkout_shopping_product_detail_img">
-            <img src="./images/checkout/checkout_01.jpg">
+            <img :src="item.item_img">
           </section>
-          <section class="checkout_shopping_product_detail_name">防疫蔬果箱</section>
+          <section class="checkout_shopping_product_detail_name">{{item.item_name}}</section>
           <section class="checkout_shopping_product_detail_sum">
-            <button>-</button>
-            <input type="text" value="1">
-            <button>+</button>
+            <button @click="minus_number(index)">-</button>
+            <input type="text" :value="item.item_number" disabled>
+            <button　@click="plus_number(index)">+</button>
           </section>
-          <section class="checkout_shopping_product_detail_price">399</section>
-          <section class="checkout_shopping_product_detail_total">399</section>
-          <section class="checkout_shopping_product_detail_delete">
+          <section class="checkout_shopping_product_detail_price">{{item.unit_price}}</section>
+          <section class="checkout_shopping_product_detail_total">{{item.total_price}}</section>
+          <section class="checkout_shopping_product_detail_delete" @click="delete_this(index)">
             <img src="./images/checkout/delete_icon.svg" alt="">
           </section>
 
@@ -331,6 +326,17 @@
       var checkout1 = new Vue({
         el:'#checkout1',
         data: {
+          detail_block:[
+            {class:'checkout_shopping_detail_img',name:'商品圖片'},
+            {class:'checkout_shopping_detail_name',name:'商品名稱'},
+            {class:'checkout_shopping_detail_sum',name:'數量'},
+            {class:'checkout_shopping_detail_price',name:'單價'},
+            {class:'checkout_shopping_detail_total',name:'小計'},
+            {class:'checkout_shopping_detail_delete',name:'刪除'},          
+          ],
+          cart_item:[
+
+          ],
           citys:[
             "臺北市",
             "新北市",
@@ -355,7 +361,85 @@
             '新竹市',
             '嘉義市',
           ]
-        }
+        },
+        methods: {
+          delete_this(index){
+            alert(index);
+            console.log(this.cart_item[index]);
+            let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
+            if(confirm('是否確認刪除')){
+              this.cart_item.splice(index,1);
+              // 清除sesstion_storage裡的資料
+              
+
+              let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+              let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
+              
+              cart_items.forEach(function(cart, i){
+                  if(this_id != cart.item_id){
+                  updated_cart_items.push(cart);
+                  }
+              });
+              console.log(updated_cart_items);
+              // 回存至 localStorage
+              sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
+
+              if(updated_cart_items.length == 0){
+                alert('購物車內已無商品，將為您跳轉首頁');
+                window.location.href = 'index.html';
+              }; 
+            }
+          },
+          plus_number(index){
+            let new_number = this.cart_item[index].item_number + 1;
+            let new_total_price = this.cart_item[index].unit_price * new_number;
+            let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
+            console.log(new_total_price);
+            console.log(new_number);
+
+            let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+            cart_items.forEach(function(cart, i){
+              if(this_id == cart.item_id){
+                  console.log(cart.item_name);
+                  cart.item_number = new_number;
+                  cart.total_price = new_total_price;
+              }
+            });
+            // 回存至 localStorage
+            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+            this.cart_item = cart_items;
+          },
+          minus_number(index){
+            if(this.cart_item[index].item_number > 1){
+              let new_number = this.cart_item[index].item_number - 1;
+              let new_total_price = this.cart_item[index].unit_price * new_number;
+              let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
+              console.log(new_total_price);
+              console.log(new_number);
+  
+              let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+              cart_items.forEach(function(cart, i){
+                if(this_id == cart.item_id){
+                    console.log(cart.item_name);
+                    cart.item_number = new_number;
+                    cart.total_price = new_total_price;
+                }
+              });
+              // 回存至 localStorage
+              sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+  
+              this.cart_item = cart_items;
+            }
+          }
+        },
+        mounted() {
+          let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+          if(cart_items){
+            this.cart_item = cart_items;
+          }
+          console.log(this.cart_item);
+        },
       })
 
       // 回頁首

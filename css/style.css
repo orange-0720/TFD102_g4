@@ -1571,6 +1571,10 @@ body {
   width: 30%;
 }
 
+.show_down {
+  display: none;
+}
+
 body {
   overflow-x: hidden;
 }

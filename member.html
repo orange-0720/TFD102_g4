@@ -30,20 +30,6 @@
           },
         })
       };
-
-      function getActive(){
-        $ajax({
-          method:'POST',
-          url:'php/getActive.php',
-          dataType: 'json',
-          success: function(response){
-            console.log(response);
-          },
-          error: function(exception) {
-              alert("發生錯誤: " + exception.status);
-          },
-        })
-      };
     </script>
   </head>
   <body>
@@ -275,7 +261,7 @@
         <!-- 訂單開始 -->
         <div class="member_order_detail" v-if="orderShow">
             <h3>訂單查詢</h3>
-            <div class="member_order_block">
+            <div class="member_order_block" v-for="order in orders">
               <div class="order_box">
                 <div class="order_line">
                   <h4>下單時間</h4>
@@ -285,11 +271,11 @@
                   <h4>配送狀態</h4>
                 </div>
                 <div class="order_inside_detail">
-                  <h4>2021/09/01</h4>
-                  <h4>A0001</h4>
-                  <h4>信用卡</h4>
-                  <h4>399</h4>
-                  <h4>配送中</h4>
+                  <h4>{{order.ADD_DATE}}</h4>
+                  <h4>{{order.ORDER_ID}}</h4>
+                  <h4>{{order.PAYMENT}}</h4>
+                  <h4>{{order.TOTAL_PRICE}}</h4>
+                  <h4>{{order.ORDER_STATUS}}</h4>
                 </div>
               </div>
               <hr>
@@ -320,7 +306,7 @@
                     </div>
                   </div>
                   <hr>
-                  <p class="show_order_total_price">總金額:<span>399</span></p>
+                  <p class="show_order_total_price">總金額:<span>{{order.TOTAL_PRICE}}</span></p>
                 </div>
               </div>
             </div>
@@ -338,7 +324,7 @@
                 <div class="active_inside_detail" v-for="item in actives">
                   <h4>{{item.ACTIVITY_ID}}</h4>
                   <h4>{{item.APPOINTMENT_ID}}</h4>
-                  <h4>{{item.START_DATE}}</h4>
+                  <h4>{{item.APPOINTMENT_DATE}}</h4>
                   <h4>399</h4>
                   <h4>{{item.PEOPLE_NUM}}</h4>
                 </div>
@@ -446,7 +432,7 @@
           your_question: "",
 
           actives:[],
-
+          orders:[],
         },
         methods: {
           turn_on(){
@@ -545,6 +531,7 @@
                     alert('密碼變更完成');
                   }else{
                     alert('密碼錯誤');
+                    console.log(response)
                   }
                 },
                 error: function(exception) {
@@ -571,8 +558,10 @@
             },
             error: function(exception) {
                 alert("發生錯誤: " + exception.status);
+                console.log(exception)
             },
           }),
+          // 取得會員資料
           $.ajax({
             method: 'POST',
             url: 'php/getMember.php',
@@ -588,8 +577,26 @@
               })
             },
             error: function(exception) {
-                console.log(exception);
-                alert("發生錯誤: " + exception.status);
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
+            },
+          }),
+          // 取得訂單資訊
+          $.ajax({
+            method: 'POST',
+            url: 'php/getOrder.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              console.log(response);
+              response.forEach(function(index,i){
+                member_block.orders = response;
+                console.log(response)
+              })
+            },
+            error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
             },
           })
         }
