@@ -9037,9 +9037,7 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .happy_buy .contact_block .img_pic {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 30vh;
   margin: auto;
 }
 
@@ -11943,9 +11941,9 @@ div#game_decorate_testNumberCircle {
 
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle {
-    width: 120px;
-    height: 120px;
-    top: 1rem;
+    width: 100px;
+    height: 100px;
+    top: 0rem;
   }
 }
 
@@ -11968,7 +11966,7 @@ div#game_decorate_testNumberCircle h1#inside_testNumber {
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle h1#inside_testNumber {
     height: 30px;
-    font-size: 4vw;
+    font-size: 5vw;
   }
 }
 
@@ -12004,7 +12002,7 @@ section.game_play_border {
 
 @media (max-width: 767px) {
   section.game_play_border {
-    height: 700px;
+    height: 600px;
     width: 80%;
   }
 }
@@ -12109,6 +12107,12 @@ section.game_play_border #count h1 {
   font-weight: bolder;
 }
 
+@media (max-width: 767px) {
+  section.game_play_border #count h1 {
+    font-size: 28px;
+  }
+}
+
 @media (max-width: 575px) {
   section.game_play_border #count h1 {
     font-size: 30px;
@@ -12126,7 +12130,7 @@ section.game_play_border div.game_test {
 @media (max-width: 767px) {
   section.game_play_border div.game_test {
     height: 250px;
-    margin-top: 20rem;
+    margin-top: 14rem;
   }
 }
 
@@ -12165,8 +12169,9 @@ section.game_play_border #game_question {
 
 @media (max-width: 767px) {
   section.game_play_border #game_question {
-    height: 180px;
-    margin-top: 2rem;
+    height: 120px;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
   }
 }
 
@@ -12443,8 +12448,8 @@ div#game_title h2.game_title::after {
 }
 
 div#game_decorate_testNumberCircle_2 {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   position: absolute;
   border-radius: 50%;
   top: -1rem;
@@ -12458,9 +12463,9 @@ div#game_decorate_testNumberCircle_2 {
 
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle_2 {
-    width: 120px;
-    height: 120px;
-    top: -4rem;
+    width: 100px;
+    height: 100px;
+    top: 0rem;
   }
 }
 
@@ -12483,7 +12488,7 @@ div#game_decorate_testNumberCircle_2 h1#inside_testNumber {
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle_2 h1#inside_testNumber {
     height: 30px;
-    font-size: 4vw;
+    font-size: 5vw;
   }
 }
 
@@ -12519,12 +12524,12 @@ section.game_play_border {
 
 @media (max-width: 767px) {
   section.game_play_border {
-    height: 700px;
+    height: 600px;
     width: 80%;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   section.game_play_border {
     height: 600px;
   }
@@ -12626,8 +12631,14 @@ section.game_play_border #count {
 }
 
 section.game_play_border #count h1 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bolder;
+}
+
+@media (max-width: 767px) {
+  section.game_play_border #count h1 {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -12640,6 +12651,8 @@ section.game_play_border div.game_test_2 {
   height: 350px;
   margin-top: 14rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -12657,12 +12670,12 @@ section.game_play_border div.game_test_2 {
 }
 
 section.game_play_border div.game_test_2 img#game_test {
-  width: 60vw;
+  width: 400px;
 }
 
 @media (max-width: 767px) {
   section.game_play_border div.game_test_2 img#game_test {
-    width: 60vw;
+    width: 50vw;
   }
 }
 
@@ -12682,8 +12695,9 @@ section.game_play_border #game_question {
 
 @media (max-width: 767px) {
   section.game_play_border #game_question {
-    height: 180px;
-    margin-top: 2rem;
+    height: 120px;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
   }
 }
 
@@ -13056,8 +13070,8 @@ div#game_title h2.game_title::after {
 }
 
 div#game_decorate_testNumberCircle_2 {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   position: absolute;
   border-radius: 50%;
   top: -1rem;
@@ -13071,9 +13085,9 @@ div#game_decorate_testNumberCircle_2 {
 
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle_2 {
-    width: 120px;
-    height: 120px;
-    top: -4rem;
+    width: 100px;
+    height: 100px;
+    top: 0rem;
   }
 }
 
@@ -13081,7 +13095,7 @@ div#game_decorate_testNumberCircle_2 {
   div#game_decorate_testNumberCircle_2 {
     width: 100px;
     height: 100px;
-    top: -4rem;
+    top: 0rem;
   }
 }
 
@@ -13096,7 +13110,7 @@ div#game_decorate_testNumberCircle_2 h1#inside_testNumber {
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle_2 h1#inside_testNumber {
     height: 30px;
-    font-size: 4vw;
+    font-size: 5vw;
   }
 }
 
@@ -13113,7 +13127,7 @@ body#game_page {
   background-attachment: fixed;
 }
 
-section.game_play_border_PassandDefeat {
+section#game_play_border_PassandDefeat {
   width: 60%;
   height: 1100px;
   border-radius: 53px;
@@ -13131,31 +13145,31 @@ section.game_play_border_PassandDefeat {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat {
+  section#game_play_border_PassandDefeat {
     height: 900px;
     width: 80%;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat {
+  section#game_play_border_PassandDefeat {
     height: 600px;
   }
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat {
+  section#game_play_border_PassandDefeat {
     border: 8px solid #006c3e;
   }
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat {
+  section#game_play_border_PassandDefeat {
     margin-top: 5rem;
   }
 }
 
-section.game_play_border_PassandDefeat .icon_1 {
+section#game_play_border_PassandDefeat .icon_1 {
   position: absolute;
   top: -4%;
   left: -4%;
@@ -13163,12 +13177,12 @@ section.game_play_border_PassandDefeat .icon_1 {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat .icon_1 {
+  section#game_play_border_PassandDefeat .icon_1 {
     display: none;
   }
 }
 
-section.game_play_border_PassandDefeat .icon_2 {
+section#game_play_border_PassandDefeat .icon_2 {
   position: absolute;
   bottom: -4%;
   left: -4%;
@@ -13176,12 +13190,12 @@ section.game_play_border_PassandDefeat .icon_2 {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat .icon_2 {
+  section#game_play_border_PassandDefeat .icon_2 {
     display: none;
   }
 }
 
-section.game_play_border_PassandDefeat .icon_3 {
+section#game_play_border_PassandDefeat .icon_3 {
   position: absolute;
   bottom: -4%;
   right: -4%;
@@ -13189,12 +13203,12 @@ section.game_play_border_PassandDefeat .icon_3 {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat .icon_3 {
+  section#game_play_border_PassandDefeat .icon_3 {
     display: none;
   }
 }
 
-section.game_play_border_PassandDefeat .icon_4 {
+section#game_play_border_PassandDefeat .icon_4 {
   position: absolute;
   top: -5%;
   right: -2%;
@@ -13202,19 +13216,19 @@ section.game_play_border_PassandDefeat .icon_4 {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat .icon_4 {
+  section#game_play_border_PassandDefeat .icon_4 {
     width: 12vw;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat .icon_4 {
+  section#game_play_border_PassandDefeat .icon_4 {
     width: 18vw;
     right: -3%;
   }
 }
 
-section.game_play_border_PassandDefeat #count {
+section#game_play_border_PassandDefeat #count {
   position: absolute;
   top: -1.5%;
   right: 2%;
@@ -13225,66 +13239,69 @@ section.game_play_border_PassandDefeat #count {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat #count {
+  section#game_play_border_PassandDefeat #count {
     top: -1%;
     right: 3%;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat #count {
+  section#game_play_border_PassandDefeat #count {
     top: -1.8%;
     right: 2%;
   }
 }
 
-section.game_play_border_PassandDefeat #count h1 {
+section#game_play_border_PassandDefeat #count h1 {
   font-size: 3vw;
   font-weight: bolder;
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat #count h1 {
+  section#game_play_border_PassandDefeat #count h1 {
     font-size: 30px;
   }
 }
 
-section.game_play_border_PassandDefeat div.game_test_2 {
+section#game_play_border_PassandDefeat div.game_test_2 {
   height: 350px;
+  margin-top: 8rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat div.game_test_2 {
+  section#game_play_border_PassandDefeat div.game_test_2 {
     height: 250px;
-    margin-top: 8rem;
+    margin-top: 6rem;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat div.game_test_2 {
+  section#game_play_border_PassandDefeat div.game_test_2 {
     height: 200px;
     margin-top: 8rem;
   }
 }
 
-section.game_play_border_PassandDefeat div.game_test_2 img#game_test {
-  width: 60vw;
+section#game_play_border_PassandDefeat div.game_test_2 img#game_test {
+  width: 400px;
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat div.game_test_2 img#game_test {
-    width: 60vw;
+  section#game_play_border_PassandDefeat div.game_test_2 img#game_test {
+    width: 50vw;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat div.game_test_2 img#game_test {
+  section#game_play_border_PassandDefeat div.game_test_2 img#game_test {
     width: 80vw;
   }
 }
 
-section.game_play_border_PassandDefeat #game_question {
+section#game_play_border_PassandDefeat #game_question {
   line-height: 4vh;
   height: 150px;
   width: 80%;
@@ -13293,30 +13310,31 @@ section.game_play_border_PassandDefeat #game_question {
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat #game_question {
+  section#game_play_border_PassandDefeat #game_question {
     height: 180px;
     margin-top: 2rem;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat #game_question {
+  section#game_play_border_PassandDefeat #game_question {
     margin-top: 0.5rem;
   }
 }
 
-section.game_play_border_PassandDefeat #game_question h2 {
-  line-height: 1.5;
+section#game_play_border_PassandDefeat #game_question h2 {
+  line-height: 28px;
+  font-size: 28px;
 }
 
 @media (max-width: 767px) {
-  section.game_play_border_PassandDefeat #game_question h2 {
+  section#game_play_border_PassandDefeat #game_question h2 {
     font-size: 26px;
   }
 }
 
 @media (max-width: 575px) {
-  section.game_play_border_PassandDefeat #game_question h2 {
+  section#game_play_border_PassandDefeat #game_question h2 {
     font-size: 16px;
     text-align: justify;
   }
@@ -13702,11 +13720,11 @@ div#game_title_lottery h2.game_title::after {
 }
 
 div#game_decorate_testNumberCircle_3 {
-  width: 190px;
-  height: 190px;
+  width: 160px;
+  height: 160px;
   position: absolute;
   border-radius: 50%;
-  top: -5rem;
+  top: -6rem;
   background-color: #f42272;
   display: flex;
   justify-content: center;
@@ -13731,22 +13749,20 @@ div#game_decorate_testNumberCircle_3 {
 
 div#game_decorate_testNumberCircle_3 h1#inside_testNumber {
   font-weight: bolder;
-  font-size: 2vw;
+  font-size: 28px;
   color: white;
-  height: 50px;
-  text-align: center;
+  line-height: 28px;
 }
 
 @media (max-width: 767px) {
   div#game_decorate_testNumberCircle_3 h1#inside_testNumber {
-    height: 30px;
-    font-size: 4vw;
+    font-size: 24px;
   }
 }
 
 @media (max-width: 575px) {
   div#game_decorate_testNumberCircle_3 h1#inside_testNumber {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -13759,6 +13775,7 @@ body#game_page {
 
 section.game_play_border_lottery {
   width: 60%;
+  height: 100%;
   border-radius: 53px;
   max-width: 1200px;
   display: flex;
@@ -13775,7 +13792,6 @@ section.game_play_border_lottery {
 
 @media (max-width: 767px) {
   section.game_play_border_lottery {
-    height: 1150px;
     width: 80%;
   }
 }
@@ -13841,7 +13857,7 @@ section.game_play_border_lottery .icon_4 {
   position: absolute;
   top: -5%;
   right: -2%;
-  width: 120px;
+  width: 12vw;
 }
 
 @media (max-width: 767px) {
@@ -13857,52 +13873,19 @@ section.game_play_border_lottery .icon_4 {
   }
 }
 
-section.game_play_border_lottery #count {
-  position: absolute;
-  top: -1.5%;
-  right: 2%;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (max-width: 767px) {
-  section.game_play_border_lottery #count {
-    top: -1%;
-    right: 3%;
-  }
-}
-
-@media (max-width: 575px) {
-  section.game_play_border_lottery #count {
-    top: -1.8%;
-    right: 2%;
-  }
-}
-
-section.game_play_border_lottery #count h1 {
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-@media (max-width: 575px) {
-  section.game_play_border_lottery #count h1 {
-    font-size: 30px;
-  }
-}
-
 section.game_play_border_lottery div.game_test_3 {
-  height: 700px;
+  height: 500px;
   width: 500px;
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: 8rem;
   z-index: 10;
 }
 
 @media (max-width: 767px) {
   section.game_play_border_lottery div.game_test_3 {
+    height: 450px;
     margin-top: 10rem;
     width: 100%;
   }
@@ -13920,7 +13903,7 @@ section.game_play_border_lottery div.game_test_3 img#cooking_nabe_top {
   top: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px;
+  width: 350px;
   z-index: 0;
 }
 
@@ -13941,7 +13924,7 @@ section.game_play_border_lottery div.game_test_3 img#cooking_nabe_bottom {
   top: 0%;
   left: 50%;
   transform: translate(-50%, 110%);
-  width: 450px;
+  width: 350px;
   z-index: -2;
 }
 
@@ -13962,8 +13945,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl {
   top: 0%;
   left: 50%;
   transform: translate(-50%, 10%);
-  width: 420px;
-  height: 420px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background-color: #fae7c3;
   border: 10px solid rgba(195, 250, 197, 0.5);
@@ -13985,18 +13968,18 @@ section.game_play_border_lottery div.game_test_3 div#bowl {
 }
 
 section.game_play_border_lottery div.game_test_3 div#bowl img {
-  width: 80px;
+  width: 60px;
 }
 
 @media (max-width: 767px) {
   section.game_play_border_lottery div.game_test_3 div#bowl img {
-    width: 60px;
+    width: 50px;
   }
 }
 
 @media (max-width: 575px) {
   section.game_play_border_lottery div.game_test_3 div#bowl img {
-    width: 37.5px;
+    width: 32px;
   }
 }
 
@@ -14006,7 +13989,9 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#orange {
   top: 0%;
   left: 50%;
   transform: translate(-50%, 230%);
-  animation: jumpOrange 3.5s infinite;
+  animation-delay: 2s;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
 }
 
 section.game_play_border_lottery div.game_test_3 div#bowl img#potato {
@@ -14015,7 +14000,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#potato {
   top: 0%;
   left: 50%;
   transform: translate(-110%, 210%) rotateZ(-20deg);
-  animation-name: jumpPotato;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14026,7 +14011,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#Beetroot {
   top: 0%;
   left: 50%;
   transform: translate(70%, 120%) rotateZ(20deg);
-  animation-name: jumpBeetroot;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14037,7 +14022,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#onion {
   top: 0%;
   left: 50%;
   transform: translate(-170%, 200%) rotateZ(-20deg);
-  animation-name: jumpOnion;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14048,7 +14033,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#cabbage {
   top: 0%;
   left: 50%;
   transform: translate(-20%, 160%) rotateZ(10deg);
-  animation-name: jumpCabbage;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14059,7 +14044,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#pepper {
   top: 0%;
   left: 50%;
   transform: translate(50%, 110%) rotateZ(10deg);
-  animation-name: jumpPepper;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14070,7 +14055,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#pumpkin {
   top: 0%;
   left: 50%;
   transform: translate(-90%, 160%) rotateZ(-10deg);
-  animation-name: jumpPumpkin;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14081,7 +14066,7 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#greenapple {
   top: 0%;
   left: 50%;
   transform: translate(-170%, 130%) rotateZ(-20deg);
-  animation-name: jumpGreenapple;
+  animation-delay: 2s;
   animation-duration: 3.5s;
   animation-iteration-count: infinite;
 }
@@ -14091,7 +14076,7 @@ section.game_play_border_lottery #game_question {
   line-height: 32px;
   height: 100px;
   width: 65%;
-  text-align: center;
+  text-align: justify;
   padding: 1rem;
   z-index: 10;
 }
@@ -14110,6 +14095,11 @@ section.game_play_border_lottery #game_question {
   }
 }
 
+section.game_play_border_lottery #game_question h2 {
+  font-size: 28px;
+  line-height: 28px;
+}
+
 @media (max-width: 767px) {
   section.game_play_border_lottery #game_question h2 {
     font-size: 26px;
@@ -14121,6 +14111,157 @@ section.game_play_border_lottery #game_question {
   section.game_play_border_lottery #game_question h2 {
     font-size: 16px;
     text-align: justify;
+  }
+}
+
+#lottery_result {
+  width: 60%;
+  height: 200px;
+  background-color: #A07332;
+  border-radius: 50px;
+}
+
+#lottery_result h1 {
+  line-height: 200px;
+  text-align: center;
+  width: 100%;
+  color: #FAF9EF;
+}
+
+div#get_coin {
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+div#get_coin button#submit_12 {
+  display: inline-block;
+  width: 220px;
+  height: 65px;
+  background-color: #91C359;
+  text-decoration: none;
+  font-family: "huninn";
+  border-radius: 101px;
+  padding: 15px;
+  border: 0;
+  color: #FAF9EF;
+  font-size: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bolder;
+  background-color: #FFF353;
+  top: 0%;
+  left: 20%;
+  position: absolute;
+  transform: translate(-90%, -60%);
+  color: #A07332;
+  margin: 1rem;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div#get_coin button#submit_12:hover {
+  background-color: #6b9837;
+}
+
+@media (max-width: 767px) {
+  div#get_coin button#submit_12 {
+    display: inline-block;
+    width: 160px;
+    height: 60px;
+    background-color: #91C359;
+    text-decoration: none;
+    font-family: "huninn";
+    border-radius: 101px;
+    padding: 15px;
+    border: 0;
+    color: #FAF9EF;
+    font-size: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #FFF353;
+    color: #A07332;
+    transform: translate(-110%, -60%);
+    font-size: 22px;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div#get_coin button#submit_12:hover {
+    background-color: #6b9837;
+  }
+}
+
+@media (max-width: 575px) {
+  div#get_coin button#submit_12 {
+    display: inline-block;
+    width: 120px;
+    height: 35px;
+    background-color: #91C359;
+    text-decoration: none;
+    font-family: "huninn";
+    border-radius: 101px;
+    padding: 15px;
+    border: 0;
+    color: #FAF9EF;
+    font-size: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0.5rem;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div#get_coin button#submit_12:hover {
+    background-color: #6b9837;
+  }
+}
+
+div#get_coin button#submit_12:hover {
+  background-color: #FF5B3B;
+}
+
+div#get_coin button#submit_12 #rightArrow {
+  width: 1vw;
+  margin-left: 1vw;
+}
+
+@media (max-width: 767px) {
+  div#get_coin button#submit_12 #rightArrow {
+    width: 15px;
+    margin-left: 5px;
+  }
+}
+
+div#get_coin span#submit_12 {
+  z-index: 10;
+  top: -10%;
+  left: 30%;
+  position: absolute;
+  transform: translate(20%, -60%);
+}
+
+div#get_coin span#submit_12 img#pig {
+  width: 220px;
+}
+
+@media (max-width: 767px) {
+  div#get_coin span#submit_12 img#pig {
+    width: 180px;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  div#get_coin span#submit_12 img#pig {
+    width: 100px;
   }
 }
 
@@ -14277,7 +14418,7 @@ section.game_play_border_lottery #game_question {
   position: relative;
 }
 
-#game_bottom_part_lottery button#submit_1 {
+#game_bottom_part_lottery button#submit_11 {
   display: inline-block;
   width: 220px;
   height: 65px;
@@ -14306,12 +14447,12 @@ section.game_play_border_lottery #game_question {
   justify-content: center;
 }
 
-#game_bottom_part_lottery button#submit_1:hover {
+#game_bottom_part_lottery button#submit_11:hover {
   background-color: #6b9837;
 }
 
 @media (max-width: 767px) {
-  #game_bottom_part_lottery button#submit_1 {
+  #game_bottom_part_lottery button#submit_11 {
     display: inline-block;
     width: 160px;
     height: 60px;
@@ -14334,13 +14475,13 @@ section.game_play_border_lottery #game_question {
     align-items: center;
     justify-content: center;
   }
-  #game_bottom_part_lottery button#submit_1:hover {
+  #game_bottom_part_lottery button#submit_11:hover {
     background-color: #6b9837;
   }
 }
 
 @media (max-width: 575px) {
-  #game_bottom_part_lottery button#submit_1 {
+  #game_bottom_part_lottery button#submit_11 {
     display: inline-block;
     width: 120px;
     height: 35px;
@@ -14361,28 +14502,28 @@ section.game_play_border_lottery #game_question {
     align-items: center;
     justify-content: center;
   }
-  #game_bottom_part_lottery button#submit_1:hover {
+  #game_bottom_part_lottery button#submit_11:hover {
     background-color: #6b9837;
   }
 }
 
-#game_bottom_part_lottery button#submit_1:hover {
+#game_bottom_part_lottery button#submit_11:hover {
   background-color: #FF5B3B;
 }
 
-#game_bottom_part_lottery button#submit_1 #rightArrow {
+#game_bottom_part_lottery button#submit_11 #rightArrow {
   width: 1vw;
   margin-left: 1vw;
 }
 
 @media (max-width: 767px) {
-  #game_bottom_part_lottery button#submit_1 #rightArrow {
+  #game_bottom_part_lottery button#submit_11 #rightArrow {
     width: 15px;
     margin-left: 5px;
   }
 }
 
-#game_bottom_part_lottery span#submit_1 {
+#game_bottom_part_lottery span#submit_11 {
   z-index: 10;
   top: 0%;
   left: 30%;
@@ -14390,21 +14531,37 @@ section.game_play_border_lottery #game_question {
   transform: translate(20%, -60%) rotateZ(100deg);
 }
 
-#game_bottom_part_lottery span#submit_1 img {
-  width: 280px;
+#game_bottom_part_lottery span#submit_11 img {
+  width: 220px;
+  transition-duration: 3s;
 }
 
 @media (max-width: 767px) {
-  #game_bottom_part_lottery span#submit_1 img {
-    width: 200px;
+  #game_bottom_part_lottery span#submit_11 img {
+    width: 180px;
     margin-top: 1rem;
   }
 }
 
 @media (max-width: 575px) {
-  #game_bottom_part_lottery span#submit_1 img {
-    width: 120px;
+  #game_bottom_part_lottery span#submit_11 img {
+    width: 100px;
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 8s ease;
+}
+
+.v-enter,
+.v-leave {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
 }
 
 section#game_slideshow_step_lottery {

@@ -14,6 +14,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body id="game_page">
     <header class="header">
@@ -187,95 +192,126 @@
       <!-- 購物車彈窗結束  -->
     </header>
 
-    <div id="game_title_lottery">
-      <h2 class="game_title">蔬果知識小遊戲-轉蛋趣</h2>
-    </div>
-    <section class="game_play_border_lottery">
-      <div id="game_decorate_testNumberCircle_3">
-        <h1 id="inside_testNumber">會員扭蛋</h1>
+    <div id="app">
+      <div id="game_title_lottery">
+        <h2 class="game_title">蔬果知識小遊戲-轉蛋趣</h2>
       </div>
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-      <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" />
-      <div id="count"><h1>10</h1></div>
-      <div class="game_test_3">
-        <img src="./images/game/cooking_nabe_top.png" id="cooking_nabe_top" />
-        <div id="bowl">
-          <img src="./images/game/lottery_Beetroot.svg" alt="" id="Beetroot" />
-          <img src="./images/game/lottery_Bell pepper.svg" alt="" id="pepper" />
-          <img
-            src="./images/game/lottery_Chinese cabbage.svg"
-            alt=""
-            id="cabbage"
-          />
-          <img src="./images/game/lottery_onion.svg" alt="" id="onion" />
-          <img
-            src="./images/game/lottery_greenapple.svg"
-            alt=""
-            id="greenapple"
-          />
-          <img src="./images/game/lottery_orange.svg" alt="" id="orange" />
-          <img src="./images/game/lottery_potato.svg" alt="" id="potato" />
-          <img src="./images/game/lottery_pumpkin.svg" alt="" id="pumpkin" />
-        </div>
-        <img
-          src="./images/game/cooking_nabe_bottom.png"
-          id="cooking_nabe_bottom"
-        />
-      </div>
-      <div id="game_question">
-        <h2>會員每日小確幸 <br />點擊湯勺，撈出今日會員限定購物金</h2>
-      </div>
-      <div id="game_bottom_part_lottery">
-        <div id="game_answer">
-          <button type="submit" id="submit_1">
-            <div id="action1">點擊</div>
-            <img src="./images/game/rightArrow.svg" alt="" id="rightArrow" />
-          </button>
-          <span id="submit_1"
-            ><img src="./images/game/cooking_otama.png" alt="" id="start"
-          /></span>
-        </div>
-        <img
-          src="./images/game/game_img_Farmer.svg"
-          alt=""
-          class="decorate icon_11"
-        />
-      </div>
-      <!-- 用js去寫換圖 -->
-      <!-- button在外層直接換內層 -->
-    </section>
 
-    <section id="game_slideshow_step_lottery">
-      <div id="game_slideshow">
-        <img
-          src="./images/game/game_scroll_1.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="./images/game/game_scroll_2.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="./images/game/game_scroll_3.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="./images/game/game_scroll_4.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="./images/game/game_scroll_5.png"
-          class="game_slideshow"
-          alt=""
-        />
-      </div>
-    </section>
+      <section class="game_play_border_lottery">
+        <div id="game_decorate_testNumberCircle_3">
+          <h1 id="inside_testNumber">會員扭蛋</h1>
+        </div>
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
+        <img src="./images/game/cabage_group.svg" alt="" class="game icon_4" />
+        <div class="game_test_3">
+          <transition>
+            <img
+              src="./images/game/cooking_nabe_top.png"
+              id="cooking_nabe_top"
+              v-show="resultShow"
+              class="animate__animated animate__bounce animate__infinite	infinite"
+              style="left: 16%;"
+            />
+          </transition>
+          <div
+            id="bowl"
+            class="animate__animated animate__pulse animate__infinite	infinite"
+            style="left:21.5%;top:15%;"
+          >
+            <img
+              src="./images/game/lottery_Beetroot.svg"
+              alt=""
+              id="Beetroot"
+            />
+            <img
+              src="./images/game/lottery_Bell pepper.svg"
+              alt=""
+              id="pepper"
+            />
+            <img
+              src="./images/game/lottery_Chinese cabbage.svg"
+              alt=""
+              id="cabbage"
+            />
+            <img src="./images/game/lottery_onion.svg" alt="" id="onion" />
+            <img
+              src="./images/game/lottery_greenapple.svg"
+              alt=""
+              id="greenapple"
+            />
+            <img src="./images/game/lottery_orange.svg" alt="" id="orange" />
+            <img src="./images/game/lottery_potato.svg" alt="" id="potato" />
+            <img src="./images/game/lottery_pumpkin.svg" alt="" id="pumpkin" />
+          </div>
+          <transition>
+            <img
+              src="./images/game/cooking_nabe_bottom.png"
+              id="cooking_nabe_bottom"
+              v-show="resultShow"
+              class="animate__animated animate__bounce animate__infinite	infinite"
+              style="left: 16%;top:50% ;"
+            />
+          </transition>
+        </div>
+        <div id="game_question">
+          <h2>會員每日小確幸 <br />點擊湯勺，撈出今日會員限定購物金</h2>
+        </div>
+
+        <transition>
+          <div id="lottery_result" v-show="isShow">
+            <h1>恭喜你獲得200元購物金</h1>
+          </div>
+        </transition>
+
+        <div id="game_bottom_part_lottery">
+          <transition>
+            <div id="game_answer" v-show="resultShow">
+              <button type="submit" id="submit_11" @click="show_result">
+                <div id="action1">點擊</div>
+                <img
+                  src="./images/game/rightArrow.svg"
+                  alt=""
+                  id="rightArrow"
+                />
+              </button>
+              <span id="submit_11"
+                ><img src="./images/game/cooking_otama.png" alt="" id="start"
+              /></span>
+            </div>
+          </transition>
+          <transition>
+            <div id="get_coin" v-show="isShow">
+              <button type="submit" id="submit_12" @click=" show_coin">
+                <div id="action1">點擊查看購物金</div>
+                <img
+                  src="./images/game/rightArrow.svg"
+                  alt=""
+                  id="rightArrow"
+                />
+              </button>
+              <span id="submit_12"
+                ><img
+                  src="./images/game/money_kinbut_texta.png"
+                  alt=""
+                  id="pig"
+                  class="animate__animated animate__headShake animate__repeat-2 2	"
+              /></span>
+            </div>
+          </transition>
+
+          <img
+            src="./images/game/game_img_Farmer.svg"
+            alt=""
+            class="decorate icon_11"
+            style="top: 0%;left:30%"
+          />
+        </div>
+        <!-- 用js去寫換圖 -->
+        <!-- button在外層直接換內層 -->
+      </section>
+    </div>
     <footer class="footer_bg">
       <div class="footer">
         <button class="go_top" id="go_top">
@@ -322,27 +358,59 @@
 
     <script src="./js/header.js"></script>
     <script>
-      // //暫時button js
-      //   let button=document.querySelector("button#submit");
-      //   button.addEventListener("click",function(){
-      //       this.classList.remove("green");
-      //       this.classList.add("blue");
-      //   })
-      //   button.addEventListener("mouseleave",function(){
-      //           this.classList.remove("blue");
-      //           this.classList.add("green");
-      //       })
+      //vue區域
+      var app = new Vue({
+        el: "#app",
+        data: {
+          isShow: false,
+          resultShow: true,
+        },
+        methods: {
+          show_result() {
+            this.isShow = true;
+            this.resultShow = false;
+            $("#game_bottom_part_lottery").css("margin-top", "30px");
+            $("div.game_test_3")
+              .css("height", "400px")
+              .css("margin-top", "6rem");
+          },
+          show_coin() {
+            window.location.href = "member.html";
+          },
+        },
+      });
 
       //湯勺點擊動畫
-      $("button#submit_1").mousedown(function() {
-        $("img#start").css("transform", "scale(1.5)");
+      $("button#submit_11").mousedown(function() {
+        $("img#start").css(
+          "transform",
+          " scale(1.5) rotate(1.8turn) rotate(2.4turn) "
+        );
         return false;
       });
 
-      $("button#submit_1").click(function() {
-        $("img#start").css("transform", "rotate(0.8turn)");
+      $("button#submit_11").click(function() {
+        $("#game_question").css("display", "none");
         return false;
       });
+
+      $("button#submit_11").click(function() {
+        $("#bowl").addClass(
+          "animate__animated animate__bounce animate__infinite	infinite"
+        );
+        $("#bowl").css("left", "20%");
+        // $("#bowl img").css("animation", "none");
+        $("img#orange").css("animation-name", "jumpOrange");
+        $("img#potato").css("animation-name", "jumpPotato");
+        $("img#Beetroot").css("animation-name", "jumpBeetroot");
+        $("img#onion").css("animation-name", "jumpOnion");
+        $("img#cabbage").css("animation-name", "jumpCabbage");
+        $("img#pepper").css("animation-name", "jumpPepper");
+        $("img#pumpkin").css("animation-name", "jumpPumpkin");
+        $("img#greenapple").css("animation-name", " jumpGreenapple");
+        return false;
+      });
+
       //Slider
       $("#game_slideshow").each(function() {
         let slideImgs = $(this).find("img");

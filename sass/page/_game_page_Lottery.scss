@@ -48,12 +48,12 @@ div#game_title_lottery {
 //    ==數字圓框==
 
 div#game_decorate_testNumberCircle_3 {
-  width: 190px;
-  height: 190px;
+  width: 160px;
+  height: 160px;
   // border: 1px solid red;
   position: absolute;
   border-radius: 50%;
-  top: -5rem;
+  top: -6rem;
   background-color: #f42272;
   display: flex;
   justify-content: center;
@@ -70,16 +70,15 @@ div#game_decorate_testNumberCircle_3 {
   }
   h1#inside_testNumber {
     font-weight: bolder;
-    font-size: 2vw;
+    font-size: 28px;
     color: white;
-    height: 50px;
-    text-align: center;
+    line-height: 28px;
     @include pad {
-      height: 30px;
-      font-size: 4vw;
+      // height: 30px;
+      font-size: 24px;
     }
     @include mobile {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }
@@ -95,9 +94,9 @@ body#game_page {
 // ==小遊戲主欄位==
 section.game_play_border_lottery {
   width: 60%;
-  // height: 1500px;
+  height: 100%;
   @include pad {
-    height: 1150px;
+    // height:50px;
     width: 80%;
   }
   @include mobile {
@@ -151,7 +150,7 @@ section.game_play_border_lottery {
     position: absolute;
     top: -5%;
     right: -2%;
-    width: 120px;
+    width: 12vw;
     @include pad {
       width: 12vw;
     }
@@ -160,40 +159,40 @@ section.game_play_border_lottery {
       right: -3%;
     }
   }
-  #count {
-    position: absolute;
-    top: -1.5%;
-    right: 2%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include pad {
-      top: -1%;
-      right: 3%;
-    }
-    @include mobile {
-      top: -1.8%;
-      right: 2%;
-    }
-    h1 {
-      font-size: 40px;
-      font-weight: bolder;
-      @include mobile {
-        font-size: 30px;
-      }
-    }
-  }
+  // #count {
+  //   position: absolute;
+  //   top: -1.5%;
+  //   right: 2%;
+  //   color: white;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   @include pad {
+  //     top: -1%;
+  //     right: 3%;
+  //   }
+  //   @include mobile {
+  //     top: -1.8%;
+  //     right: 2%;
+  //   }
+  //   h1 {
+  //     font-size: 40px;
+  //     font-weight: bolder;
+  //     @include mobile {
+  //       font-size: 30px;
+  //     }
+  //   }
+  // }
   div.game_test_3 {
-    height: 700px;
+    height: 500px;
     width: 500px;
     display: flex;
     flex-direction: column;
     position: relative;
-    // margin-top: 16rem;
+    margin-top: 8rem;
     z-index: 10;
     @include pad {
-      // height: 250px;
+      height: 450px;
       margin-top: 10rem;
       width: 100%;
     }
@@ -206,7 +205,7 @@ section.game_play_border_lottery {
       top: 0%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 450px;
+      width: 350px;
       z-index: 0;
       @include pad {
         width: 45vw;
@@ -222,7 +221,7 @@ section.game_play_border_lottery {
       top: 0%;
       left: 50%;
       transform: translate(-50%, 110%);
-      width: 450px;
+      width: 350px;
       z-index: -2;
       @include pad {
         width: 45vw;
@@ -238,8 +237,8 @@ section.game_play_border_lottery {
       top: 0%;
       left: 50%;
       transform: translate(-50%, 10%);
-      width: 420px;
-      height: 420px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
       background-color: #fae7c3;
       border: 10px solid rgba(195, 250, 197, 0.5);
@@ -253,13 +252,13 @@ section.game_play_border_lottery {
         height: 200px;
       }
       img {
-        width: 80px;
+        width: 60px;
 
         @include pad {
-          width: 60px;
+          width: 50px;
         }
         @include mobile {
-          width: 37.5px;
+          width: 32px;
         }
       }
       img#orange {
@@ -268,9 +267,10 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-50%, 230%);
-        animation: jumpOrange 3.5s infinite;
-        // animation-duration: 3.5s;
-        // animation-iteration-count: infinite;
+        // animation: jumpOrange;
+        animation-delay: 2s;
+        animation-duration: 3.5s;
+        animation-iteration-count: infinite;
       }
       img#potato {
         z-index: 7;
@@ -278,7 +278,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-110%, 210%) rotateZ(-20deg);
-        animation-name: jumpPotato;
+        // animation: jumpPotato;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -288,7 +289,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(70%, 120%) rotateZ(20deg);
-        animation-name: jumpBeetroot;
+        // animation: jumpBeetroot;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -298,7 +300,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-170%, 200%) rotateZ(-20deg);
-        animation-name: jumpOnion;
+        // animation: jumpOnion;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -308,7 +311,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-20%, 160%) rotateZ(10deg);
-        animation-name: jumpCabbage;
+        // animation: jumpCabbage;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -318,7 +322,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(50%, 110%) rotateZ(10deg);
-        animation-name: jumpPepper;
+        // animation: jumpPepper;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -328,7 +333,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-90%, 160%) rotateZ(-10deg);
-        animation-name: jumpPumpkin;
+        // animation: jumpPumpkin;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -338,7 +344,8 @@ section.game_play_border_lottery {
         top: 0%;
         left: 50%;
         transform: translate(-170%, 130%) rotateZ(-20deg);
-        animation-name: jumpGreenapple;
+        // animation: jumpGreenapple;
+        animation-delay: 2s;
         animation-duration: 3.5s;
         animation-iteration-count: infinite;
       }
@@ -350,7 +357,7 @@ section.game_play_border_lottery {
     line-height: 32px;
     height: 100px;
     width: 65%;
-    text-align: center;
+    text-align: justify;
     padding: 1rem;
     z-index: 10;
     @include pad {
@@ -362,6 +369,8 @@ section.game_play_border_lottery {
       width: 75%;
     }
     h2 {
+      font-size: 28px;
+      line-height: 28px;
       @include pad {
         font-size: 26px;
         text-align: justify;
@@ -369,6 +378,95 @@ section.game_play_border_lottery {
       @include mobile {
         font-size: 16px;
         text-align: justify;
+      }
+    }
+  }
+}
+// ===中獎彈窗===
+#lottery_result {
+  width: 60%;
+  height: 200px;
+  background-color: $brown;
+  border-radius: 50px;
+  h1 {
+    line-height: 200px;
+    text-align: center;
+    width: 100%;
+    color: $white;
+  }
+}
+//==中獎選項彈窗按鈕==
+div#get_coin {
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  button#submit_12 {
+    @include btn(220px, 65px);
+    font-size: 24px;
+    font-weight: bolder;
+    background-color: $yellow;
+    top: 0%;
+    left: 20%;
+    position: absolute;
+    transform: translate(-90%, -60%);
+    color: $brown;
+    margin: 1rem;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include pad {
+      @include btn(160px, 60px);
+      background-color: $yellow;
+      color: $brown;
+      transform: translate(-110%, -60%);
+      font-size: 22px;
+      padding: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @include mobile {
+      @include btn(120px, 35px);
+      font-size: 16px;
+      margin: 0.5rem;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &:hover {
+      background-color: $red;
+    }
+    #rightArrow {
+      width: 1vw;
+      margin-left: 1vw;
+      @include pad {
+        width: 15px;
+        margin-left: 5px;
+      }
+    }
+    #action1 {
+      @include pad {
+        // width: 170px;
+      }
+    }
+  }
+  span#submit_12 {
+    z-index: 10;
+    top: -10%;
+    left: 30%;
+    position: absolute;
+    transform: translate(20%, -60%);
+    img#pig {
+      width: 220px;
+      @include pad {
+        width: 180px;
+        margin-top: 1rem;
+      }
+      @include mobile {
+        width: 100px;
       }
     }
   }
@@ -508,7 +606,7 @@ section.game_play_border_lottery {
     // justify-content: center;
     position: relative;
   }
-  button#submit_1 {
+  button#submit_11 {
     @include btn(220px, 65px);
     font-size: 24px;
     font-weight: bolder;
@@ -560,23 +658,40 @@ section.game_play_border_lottery {
       }
     }
   }
-  span#submit_1 {
+  span#submit_11 {
     z-index: 10;
     top: 0%;
     left: 30%;
     position: absolute;
     transform: translate(20%, -60%) rotateZ(100deg);
     img {
-      width: 280px;
+      width: 220px;
+      transition-duration: 3s;
       @include pad {
-        width: 200px;
+        width: 180px;
         margin-top: 1rem;
       }
       @include mobile {
-        width: 120px;
+        width: 100px;
       }
     }
   }
+}
+
+// ===vue過場動畫===
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 8s ease;
+}
+
+.v-enter,
+.v-leave {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
 }
 
 // ====以下為slider====
