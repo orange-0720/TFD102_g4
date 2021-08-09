@@ -10,7 +10,34 @@
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
-  <body>
+  <script>
+    function ifMember(){
+      $.ajax({
+            method: 'POST',
+            url: 'php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.login').click(function(){
+                  window.location.href = 'member.html';
+                });
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+      });  
+    }
+  </script>
+  <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -37,7 +64,7 @@
             <div class="ham_bottom"></div>
           </div>
           <div class="login">
-            <a href="./login.html">
+            <a>
               <img src="./images/login_icon.svg" alt="login_icon" />
             </a>
           </div>
@@ -48,7 +75,7 @@
       </div>
       <div class="menu">
         <div class="logo_img">
-          <a href="./index.html">
+          <a>
             <img src="./images/logo.svg" alt="logo" />
           </a>
         </div>
@@ -95,7 +122,7 @@
           </div>
           <a class="nav_block_log" href="./login.html">
             <img src="./images/nav_block_log.svg">
-            登入註冊
+            <span>登入註冊</span>
           </a>          
           <div class="nav_right_block">
             <div class="nav_active">
@@ -189,7 +216,7 @@
                 <img class="shopping_aside_arrow" src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
               </h3>
               <div class="shopping_box_link">
-                <a href="#" v-for="box in boxs">{{box}}</a>
+                <a v-for="(box,index) in boxs" @click.stop="box_page(index)">{{box.PRODUCT_NAME}}</a>
               </div>
             </div>
             <div class="shopping_veg_block">
@@ -198,7 +225,7 @@
                 <img class="shopping_aside_arrow" src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
               </h3>
               <div class="shopping_veg_link">
-                <a href="#" v-for="veg in vegs">{{veg}}</a>
+                <a v-for="(veg,index) in vegs" @click.stop="veg_page(index)">{{veg.PRODUCT_NAME}}</a>
               </div>
             </div>
             <div class="shopping_fruit_block">
@@ -210,7 +237,7 @@
                   />
               </h3>
               <div class="shopping_fruit_link">
-                <a href="#" v-for="fruit in fruits">{{fruit}}</a>
+                <a v-for="(fruit,index) in fruits" @click.stop="fruit_page(index)">{{fruit.PRODUCT_NAME}}</a>
               </div>
             </div>
             <div class="shopping_customer_block">
@@ -221,22 +248,20 @@
           </div>
         </div>
         <!-- 側邊欄結束 -->
-
-        <div class="shopping_page_list">
-
+        <div class="shopping_page_list" v-if="go_in">
           <!-- 資料庫撈出資料迴圈秀出 -->
           <div class="shopping_product_block" v-for='(item,index) in page_products'>
-            <a href="./itemtest.html">
+            <a @click.prevent="go_in_page(index)">
               <div class="shopping_product_pic">
                 <img
                   :src="item.PRODUCT_IMG"
                   :alt="item.ID"
                 />
-                <span @click.prevent="incart(index)" class="shopping_product_incart"></span>
+                <span @click.stop="incart(index)" class="shopping_product_incart"></span>
               </div>
               <h4 class="shopping_product_name">{{item.PRODUCT_NAME}}</h4>
               <h5 class="shopping_product_intro">
-                {{item.PRODUCT_INFO}}
+                {{item.PRODUCT_SHORTINFO}}
               </h5>
               <h4 class="shopping_product_price">{{item.PRODUCT_PRICE}}元</h4>
             </a>
@@ -274,6 +299,76 @@
             </div>
           </div>
         </div>
+        <!-- 一覽結束 -->
+
+        <!-- 進入商品內頁 -->
+        <div class="shopping_page_list" v-else>
+          <div class="card_wapper">
+            <div class="go_back_btn" @click="go_back_page">
+              <img src="./images/checkout/X_mark.svg">
+              返回一覽表
+            </div>
+            <div class="card"  v-for ="(item,index)  in inside_page">
+                <div class="products_imgs">
+                  <!-- <img :src="./images/item/小蔬加雞腿.png" width="100%" id="ProductImg"> -->
+                  <img :src="item.PRODUCT_IMG" width="100%" id="ProductImg">
+                  <div class="small-img-row">
+                      <div class="small-img-col" v-for="pic in inside_img">
+                          <img :src="pic" width="100%" class="small-img">
+                      </div>
+                  </div>
+                </div>
+                <div class="products_content">
+                    <h2 class = "product_title">{{item.PRODUCT_NAME}}</h2>
+                    <br>
+                    <div class = "product-price">
+                      <p class = "last-price">價錢: <span>{{item.PRODUCT_PRICE}}元</span></p>
+                      <p class = "new-price">數量: <span><input type = "number" min = "1" value = "1"></span></p>
+                    </div>
+        
+                  <div class = "product-detail">
+                    <br>
+                    <h2>商品內容</h2>
+                    <br>
+                    <p> 良耕野菜有機農場自產野菜</p>
+                    <br>
+                    <ul>
+                      <li>{{item.PRODUC_LONGINFO}}</li><br>
+                      <li>※ 因皆為每日新鮮採購，若品項有缺貨會選其他當季蔬菜替補</li>
+                    </ul>
+                    <br>
+                  </div>
+                  <div class = "purchase-info">
+                    <a @click="inside_cart(index)">加入購物車 </a>
+                    <a href="">結帳去</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- <div class="card_wapper_2">
+            <h3>商品詳細說明</h3>
+            <div class="card_content">
+              <ul>
+                <li>適合對象：一般3~4人小家庭</li>
+                <br>
+                <li>配送內容：當季新鮮蔬果，會依產期配送6~8種葉菜及2~3種果菜</li>
+                <br>
+                <li>蔬果項目：近期的蔬菜配送內容，依照季節配送</li>
+                <br>
+                <li>付款方式：信用卡、貨到付款</li>
+                <br>
+                <li>運送方式：冷藏宅配服務(免運費)</li>
+              </ul>
+            </div>
+            <h3>商品圖片</h3>
+            <div><img src="./images/item/S__56893488.png" alt=""></div>
+            <div><img src="./images/item/小蔬加雞腿.png" alt=""></div>
+            <div><img src="./images/item/1152_G_1456771861418.png" alt=""></div>
+          </div> -->
+        </div>
+      </div>
+
+
       </div>
     </div>
 
@@ -324,6 +419,7 @@
       </div>
     </footer>
 
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script>
 
@@ -332,46 +428,16 @@
         data:{
           page: 1,
           limit: 9,
-          boxs:[
-            '防疫蔬果箱',
-            '活力蔬果箱',
-            '防果箱',
-          ],
-          vegs:[
-          '高麗菜',
-          '地瓜',
-          '大番茄',
-          '小白菜',
-          '玉米',
-          '紅蘿蔔',
-          '白蘿蔔',
-          '萵苣',
-          '青椒',
-          '甜椒',
-          '青江菜',
-          '地瓜葉',
-          'A菜',
-          '玉米筍',
-          '南瓜',
-          '小黃瓜',
-          '洋蔥',
-          ],
-          fruits:[
-            '草莓',
-            '小番茄',
-            '甜橙',
-            '芒果',
-            '香蕉',
-            '番石榴',
-            '檸檬',
-            '鳳梨',
-            '柿子',
-            '哈密瓜',
-            '香瓜',
-            '木瓜',
-          ],
+          boxs:[],
+          vegs:[],
+          fruits:[],
           products:[],
           totalPrice:0,
+
+          go_in:true,
+          inside_page:[],
+          inside_img:[],
+
         },
         methods: {
           // 購物車功能
@@ -393,9 +459,9 @@
                   </div>
                   <div class="cart_item_name">${product_name}</div>
                   <div class="cart_item_number">
-                    <button>-</button>
+                    <button class="number_minus">-</button>
                     <input type="text" value="${product_value}"/ disabled>
-                    <button>+</button>
+                    <button class="number_plus">+</button>
                   </div>
                   <div class="cart_item_price">${product_price}</div>
                   <div class="cart_item_delete">
@@ -404,28 +470,98 @@
                 </div>
               `
             );
-            this.totalPrice += product_price;
-            // $('.cart_total_price').html('');
-            $('.cart_total_price').html(shopping_page.totalPrice);
+            
 
             let cart_item = {
                 item_id: item_id,
                 item_img: product_img,
                 item_name: product_name,
-                item_number: product_value,
-                item_price: product_price,
+                item_number: parseInt(product_value),
+                unit_price : parseInt(product_price),
+                total_price: parseInt(product_price),
             };
-            let cart_items = JSON.parse(localStorage.getItem("cart_items"));
+            let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
             if (cart_items) {
                 // 若存在
                 console.log('已存在')
                 cart_items.unshift(cart_item);
+
+                let count_price = 0;
+                cart_items.forEach(function(cart, i){
+                    count_price += parseInt(cart.total_price)
+                });
+
+                $('.cart_total_price').text(count_price);
+
             } else {
                 // 若不存在
                 console.log('不存在')
                 cart_items = [cart_item];
+                this.totalPrice += product_price;
+                $('.cart_total_price').html(shopping_page.totalPrice);
             }
-            localStorage.setItem("cart_items", JSON.stringify(cart_items));
+            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+          },
+          inside_cart(index){
+            console.log(this.inside_page[index]);
+            console.log(this.inside_page[index].PRODUCT_NAME);
+            product_name = this.inside_page[index].PRODUCT_NAME;
+            product_price = parseInt(this.inside_page[index].PRODUCT_PRICE);
+            product_img = this.inside_page[index].PRODUCT_IMG;
+            product_value = 1;
+            let item_id = Date.now();
+            alert('已加入購物車')
+            $('.cart_nothing').fadeOut();
+            $('.cart_buy_list').append(
+              `
+                <div class="cart_inside_item" data-id="${item_id}">
+                  <div class="cart_item_img">
+                    <img src="${product_img}"/>  
+                  </div>
+                  <div class="cart_item_name">${product_name}</div>
+                  <div class="cart_item_number">
+                    <button class="number_minus">-</button>
+                    <input type="text" value="${product_value}"/ disabled>
+                    <button class="number_plus">+</button>
+                  </div>
+                  <div class="cart_item_price">${product_price}</div>
+                  <div class="cart_item_delete">
+                    <img src="./images/checkout/delete_icon.svg"/>  
+                  </div>
+                </div>
+              `
+            );
+            
+            let cart_item = {
+                item_id: item_id,
+                item_img: product_img,
+                item_name: product_name,
+                item_number: parseInt(product_value),
+                unit_price : parseInt(product_price),
+                total_price: parseInt(product_price),
+            };
+            let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+            if (cart_items) {
+                // 若存在
+                console.log('已存在')
+                cart_items.unshift(cart_item);
+
+                let count_price = 0;
+                cart_items.forEach(function(cart, i){
+                    count_price += parseInt(cart.total_price)
+                });
+
+                $('.cart_total_price').text(count_price);
+
+            } else {
+                // 若不存在
+                console.log('不存在')
+                cart_items = [cart_item];
+                this.totalPrice += product_price;
+                $('.cart_total_price').html(shopping_page.totalPrice);
+
+            }
+            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
           },
           move_page(index){
             this.page = index;
@@ -440,6 +576,54 @@
             if(this.page != 4){
               this.page += 1;
             }
+          },
+          go_in_page(index){
+            this.go_in = false;
+            console.log(this.inside_page.length);
+            if(this.inside_page.length == 0){
+              this.inside_page.push(this.products[index]);
+            }else{
+              this.inside_page.spice(0,1);
+              this.inside_page.push(this.products[index]);
+            }
+          },
+          box_page(index){
+            this.go_in = false;
+            console.log(this.boxs);
+            if(this.inside_page.length == 0){
+              this.inside_page.push(this.boxs[index]);
+            }else{
+              this.inside_page=[];
+              this.inside_page.push(this.boxs[index]);
+            }
+          },
+          veg_page(index){
+            this.go_in = false;
+            console.log(this.vegs);
+            if(this.inside_page.length == 0){
+              this.inside_page.push(this.vegs[index]);
+            }else{
+              this.inside_page=[];
+              this.inside_page.push(this.vegs[index]);
+            }
+          },
+          fruit_page(index){
+            this.go_in = false;
+            console.log(this.fruits);
+            if(this.inside_page.length == 0){
+              this.inside_page.push(this.fruits[index]);
+            }else{
+              alert('aaa');
+              this.inside_page=[];
+              console.log(this.inside_page);
+              this.inside_page.push(this.fruits[index]);
+              console.log(this.inside_page);
+            }
+          },
+          go_back_page(){
+            this.go_in = true;
+            console.log(this.inside_page);
+            this.inside_page.spice(0,1);
           }
         },
         mounted() {
@@ -450,9 +634,20 @@
             data:{},
             dataType: 'json',
             success: function(response) {
-              shopping_page.products = response  
+              shopping_page.products = response;
+              console.log(response);
+              response.forEach(function(index, i){
+                if(index['PRODUCT_TYPE_ID'] == 3){
+                  shopping_page.vegs.push(index);
+                }else if(index['PRODUCT_TYPE_ID'] == 2){
+                  shopping_page.fruits.push(index);
+                }else{
+                  shopping_page.boxs.push(index);
+                }
+              });
             },
             error: function(exception) {
+                console.log(exception)
                 alert("發生錯誤: " + exception.status);
             },
           });
@@ -526,35 +721,6 @@
           750
         );
       });
-
-      // 購物車測試
-      $('.cart_buy_list').on('click','.cart_item_delete',function(e){
-        let delete_price = e.target.parentElement.previousElementSibling;
-        let current_price = $('.cart_total_price').text()
-        let total_price = parseInt(current_price) - parseInt(delete_price);
-        console.log(current_price);
-        console.log(delete_price);
-        console.log(total_price);
-        console.log($(e.target).parent('div'));
-        if(confirm('確定刪除此商品?')){
-          $(e.target).parent().parent('div').fadeOut();
-          // $('.cart_total_price').text() = parseInt(current_price) - parseInt(delete_price); 
-
-          let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
-          let cart_items = JSON.parse(localStorage.getItem("cart_items"));    // 從 localStorage 取得資料
-          let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
-
-          cart_items.forEach(function(cart, i){
-              if(this_id != cart.item_id){
-                updated_cart_items.push(cart);
-              }
-          });
-
-          // 回存至 localStorage
-          localStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
-        }
-
-      })
     </script>
   </body>
 </html>

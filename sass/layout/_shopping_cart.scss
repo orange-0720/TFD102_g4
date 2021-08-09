@@ -45,3 +45,19 @@
         }
     }
 }
+
+.show_down{
+    display: none;
+}
+
+.fruit_box_list{
+    width: 100%;
+    .fruit_box_inside{
+        width: 100%;
+        display: flex;
+        align-content: flex-start;
+        text-align: center;
+        font-size: $h5;
+        margin: 10px 0px;
+    }
+}

@@ -8,8 +8,13 @@
 
     //---------------------------------------------------
 
+    // 取得目前會員ID
+    include("./Lib/Member.php");
+    getMemberID();
+    $memberID = $_SESSION['MemberID'];
+
     //建立SQL
-    $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER WHERE CUSTOMER_ID = 1 and PWD = ? and QUALIFY = 1";
+    $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER WHERE CUSTOMER_ID = $memberID and PWD = ? and QUALIFY = 1";
 
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     $statement = $pdo->prepare($sql);
@@ -20,7 +25,7 @@
     $data = $statement->fetchAll();
     
     if($data >= 1){
-        $sql = "UPDATE `tfd102-g4`.`CUSTOMER` SET PWD = ? WHERE (`CUSTOMER_ID` = '1');";
+        $sql = "UPDATE `tfd102-g4`.`CUSTOMER` SET PWD = ? WHERE CUSTOMER_ID = $memberID";
         //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $new_pwd);
