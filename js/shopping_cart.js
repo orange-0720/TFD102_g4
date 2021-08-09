@@ -1,12 +1,10 @@
 
 function shopping_cart(){
-    console.log('aa');
     let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
     if(cart_items){
-        $('.cart_nothing').fadeIn();
+        $('.cart_nothing').fadeOut();
         let cart_items_list = [];
         cart_items.forEach(function(cart, i){
-            console.log()
             cart_items_list += 
             `
                 <div class="cart_inside_item" data-id="${cart.item_id}">
@@ -47,11 +45,10 @@ $('.cart_buy_list').on('click','.cart_item_delete',function(e){
         if($('.cart_inside_item').length == 1){
         $('.cart_nothing').fadeIn();
         $('cart_total_price').html(0);
+        sessionStorage.removeItem('cart_items');
         }
         $(e.target).parent().parent('div.cart_inside_item').fadeOut().remove();
         $('.cart_total_price').text(total_price);
-    
-    
     
         // 清除sesstion_storage裡的資料
         let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id

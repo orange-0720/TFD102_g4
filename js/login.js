@@ -143,36 +143,49 @@ sign_confirm_btn.addEventListener('click', function(e){
     let pwd_confirm = document.getElementsByClassName('pwd_confirm')[0].value;
     let sign_tel = document.getElementsByClassName('sign_tel')[0].value;
     let val = sign_email.value;
-
+    let sign_agree = document.getElementById('sign_agree');
     $('.sign_email').css('border', '1px solid #A07332');
     $('.sign_pwd').css('border', '1px solid #A07332');
     $('.pwd_confirm').css('border', '1px solid #A07332');
     $('.sign_tel').css('border', '1px solid #A07332');
 
-    if(val !== "" && val.search('@') != -1 && val.search(`.`) != -1){
-        if(sign_pwd === pwd_confirm){
-            if(sign_tel.length == 10){
-                Email.send({
-                    Host: "smtp.gmail.com",
-                    Username: "goodvegetablebox@gmail.com",
-                    Password: "tfd102g4",
-                    To: val,
-                    From: "良耕野菜<goodvegetablebox@gmail.com>",
-                    Subject: "良耕野菜",
-                    Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
-                }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
-                .then($('.sign_block').fadeToggle());
+    let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+    let partten = /^09[0-9]{8}$/;
+
+    if(val.search(emailRule) != -1){
+        if(sign_pwd.length <= 8 && pwd_confirm.length <= 8){
+            if(sign_pwd === pwd_confirm){
+                if(partten.test(sign_tel)){
+                    if(sign_agree.checked){
+                        Email.send({
+                            Host: "smtp.gmail.com",
+                            Username: "goodvegetablebox@gmail.com",
+                            Password: "tfd102g4",
+                            To: val,
+                            From: "良耕野菜<goodvegetablebox@gmail.com>",
+                            Subject: "良耕野菜",
+                            Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
+                        }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
+                        .then($('.sign_block').fadeToggle());
+                    }else{
+                        alert('請確認是否勾選會員條款')
+                    }
+                }else{
+                    alert('請輸入正確手機格式');
+                    document.getElementsByClassName('sign_tel')[0].style.border = '3px solid red';
+                }
             }else{
-                alert('請輸入正確電話格式');
-                document.getElementsByClassName('sign_tel')[0].style.border = '3px solid red';
+            alert('請確認密碼是否相同')
+            document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
+            document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
             }
         }else{
-        alert('請確認密碼是否相同')
-        document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
-        document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
+            alert('密碼需超過八位數');
+            document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
+            document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
         }
     }else{
-        alert('請輸入正確信箱');
+        alert('信箱格式不正確，請確認');
         sign_email.value = '';
         sign_email.style.border = '3px solid red';
     };

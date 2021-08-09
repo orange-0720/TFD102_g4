@@ -108,6 +108,7 @@
         margin-left: 5%;
         display: flex;
         flex-wrap: wrap;
+        align-self: flex-start;
         .shopping_product_block{
             width: calc((100% - 90px) / 3);
             margin: 0px 15px 40px 15px;
@@ -157,6 +158,97 @@
                     margin: 20px 0px;
                 }
             }
+        }
+
+        // 商品內頁
+        .card_wapper{
+            box-shadow: 0px 0px 5px 5px #D6D6D6;
+            padding: 50px 1% 20px 1px;
+            width: 100%;
+            position: relative;
+                .go_back_btn{
+                    position: absolute;
+                    top: 1%;
+                    right: 1%;
+                    vertical-align: middle;
+                    line-height: 30px;
+                    transition: 0.5s;
+                    img{
+                        display: block;
+                        text-align: center;
+                        @include marginAuto();
+                        width: 30px;
+                    }
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+                .card{
+                    display: flex;
+                    justify-content: space-between;
+                    @include tablet{
+                        flex-direction: column;
+                    }
+                    // flex-wrap: wrap;
+                        .products_imgs{
+                            width: 50%;
+                            align-items: center;
+                            transition: all 0.5s ease;
+                            @include tablet{
+                                width: 100%;
+                            }
+                                .small-img-row{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    flex-wrap: wrap;
+                                        .small-img-col{
+                                            flex-basis: 24%;
+                                            cursor: pointer;
+                                        }
+                                }
+                        }
+                        .products_content{
+                            width: 45%;
+                            @include tablet{
+                                width: 100%;
+                            }
+                            .purchase-info{
+                                text-align: center;
+                                a{
+                                    @include btn(130px);
+                                    margin: 0 10px;
+                                    text-align: center;
+                                }
+                            }
+        
+                        }
+                }
+        }
+        .card_wapper_2{
+            box-shadow: 0px 0px 5px 5px #D6D6D6;
+            width: 100%;
+            height: auto;
+            padding: 1%;
+            // border: 1px solid crimson;
+            margin-top: 5%;
+            text-align: center;
+                .card_content{
+                    width: 70%;
+                    text-align:justify;
+                    // border: 1px solid olivedrab;
+                    margin: 2% auto;
+                    // border: #888888;
+                    // box-shadow: 0px 1px 5px 7px #D6D6D6;;
+                }
+                div{
+                    margin: 2% auto;
+                    text-align: center;
+                        img{
+                            @include mobile{
+                                width: 80%;
+                            }
+                        }
+                }
         }
     }
 }
@@ -716,6 +808,12 @@
         }
     }
 }
+
+
+// 商品內頁開始
+
+
+
 
 .shopping_footer_img{
     position: absolute;

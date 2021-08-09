@@ -11,7 +11,7 @@
    
        //建立SQL
        // $sql = "INSERT INTO member(Name, PWD, CreateDate) VALUES ('".$account."', '".$pwd."', NOW())";
-       $sql = "INSERT INTO `tfd102-g4`.CUSTOMER(EMAIL, PWD, PHONE , QUALIFY, ADD_DATE, STATUS) VALUES (?, ?, ?, 1, NOW(), 1)";
+       $sql = "INSERT INTO `tfd102-g4`.CUSTOMER(EMAIL, PWD, PHONE , QUALIFY, ADD_DATE, STATUS,DISCOUNT) VALUES (?, ?, ?, 1, NOW(), 1,0)";
    
    
        //執行

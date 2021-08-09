@@ -9,9 +9,35 @@
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    
   </head>
-  <body onload="shopping_cart()">
+  <script>
+    function ifMember(){
+      $.ajax({
+            method: 'POST',
+            url: 'php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.login').click(function(){
+                  window.location.href = 'member.html';
+                });
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+      });  
+    }
+  </script>
+  <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -38,7 +64,7 @@
             <div class="ham_bottom"></div>
           </div>
           <div class="login">
-            <a href="./login.html">
+            <a>
               <img src="./images/login_icon.svg" alt="login_icon" />
             </a>
           </div>
@@ -49,7 +75,7 @@
       </div>
       <div class="menu">
         <div class="logo_img">
-          <a href="./index.html">
+          <a>
             <img src="./images/logo.svg" alt="logo" />
           </a>
         </div>
@@ -96,7 +122,7 @@
           </div>
           <a class="nav_block_log" href="./login.html">
             <img src="./images/nav_block_log.svg">
-            登入註冊
+            <span>登入註冊</span>
           </a>          
           <div class="nav_right_block">
             <div class="nav_active">
@@ -231,7 +257,7 @@
                   :src="item.PRODUCT_IMG"
                   :alt="item.ID"
                 />
-                <span @click.prevent="incart(index)" class="shopping_product_incart"></span>
+                <span @click.stop="incart(index)" class="shopping_product_incart"></span>
               </div>
               <h4 class="shopping_product_name">{{item.PRODUCT_NAME}}</h4>
               <h5 class="shopping_product_intro">
@@ -277,63 +303,67 @@
 
         <!-- 進入商品內頁 -->
         <div class="shopping_page_list" v-else>
-            <div class="card_wapper">
-              <div class="card"  v-for ="(item,index)  in inside_page">
-                  <div class="products_imgs">
-                    <!-- <img :src="./images/item/小蔬加雞腿.png" width="100%" id="ProductImg"> -->
-                    <img :src="item.PRODUCT_IMG" width="100%" id="ProductImg">
-                    <div class="small-img-row">
-                        <div class="small-img-col" v-for="pic in inside_img">
-                            <img :src="pic" width="100%" class="small-img">
-                        </div>
-                    </div>
-                  </div>
-                  <div class="products_content">
-                      <h2 class = "product_title">{{item.PRODUCT_NAME}}</h2>
-                      <br>
-                      <div class = "product-price">
-                        <p class = "last-price">價錢: <span>{{item.PRODUCT_PRICE}}元</span></p>
-                        <p class = "new-price">數量: <span><input type = "number" min = "1" value = "1"></span></p>
-                      </div>
-          
-                    <div class = "product-detail">
-                      <br>
-                      <h2>商品內容</h2>
-                      <br>
-                      <p> 良耕野菜有機農場自產野菜</p>
-                      <br>
-                      <ul>
-                        <li>{{item.PRODUC_LONGINFO}}</li><br>
-                        <li>※ 因皆為每日新鮮採購，若品項有缺貨會選其他當季蔬菜替補</li>
-                      </ul>
-                      <br>
-                    </div>
-                    <div class = "purchase-info">
-                      <a @click="inside_cart(index)">加入購物車 </a>
-                      <a href="">結帳去</a>
-                    </div>
-                  </div>
-              </div>
+          <div class="card_wapper">
+            <div class="go_back_btn" @click="go_back_page">
+              <img src="./images/checkout/X_mark.svg">
+              返回一覽表
             </div>
+            <div class="card"  v-for ="(item,index)  in inside_page">
+                <div class="products_imgs">
+                  <!-- <img :src="./images/item/小蔬加雞腿.png" width="100%" id="ProductImg"> -->
+                  <img :src="item.PRODUCT_IMG" width="100%" id="ProductImg">
+                  <div class="small-img-row">
+                      <div class="small-img-col" v-for="pic in inside_img">
+                          <img :src="pic" width="100%" class="small-img">
+                      </div>
+                  </div>
+                </div>
+                <div class="products_content">
+                    <h2 class = "product_title">{{item.PRODUCT_NAME}}</h2>
+                    <br>
+                    <div class = "product-price">
+                      <p class = "last-price">價錢: <span>{{item.PRODUCT_PRICE}}元</span></p>
+                      <p class = "new-price">數量: <span><input type = "number" min = "1" value = "1"></span></p>
+                    </div>
+        
+                  <div class = "product-detail">
+                    <br>
+                    <h2>商品內容</h2>
+                    <br>
+                    <p> 良耕野菜有機農場自產野菜</p>
+                    <br>
+                    <ul>
+                      <li>{{item.PRODUC_LONGINFO}}</li><br>
+                      <li>※ 因皆為每日新鮮採購，若品項有缺貨會選其他當季蔬菜替補</li>
+                    </ul>
+                    <br>
+                  </div>
+                  <div class = "purchase-info">
+                    <a @click="inside_cart(index)">加入購物車 </a>
+                    <a href="">結帳去</a>
+                  </div>
+                </div>
+            </div>
+          </div>
           <!-- <div class="card_wapper_2">
-              <h3>商品詳細說明</h3>
-              <div class="card_content">
-                <ul>
-                  <li>適合對象：一般3~4人小家庭</li>
-                  <br>
-                  <li>配送內容：當季新鮮蔬果，會依產期配送6~8種葉菜及2~3種果菜</li>
-                  <br>
-                  <li>蔬果項目：近期的蔬菜配送內容，依照季節配送</li>
-                  <br>
-                  <li>付款方式：信用卡、貨到付款</li>
-                  <br>
-                  <li>運送方式：冷藏宅配服務(免運費)</li>
-                </ul>
-              </div>
-              <h3>商品圖片</h3>
-              <div><img src="./images/item/S__56893488.png" alt=""></div>
-              <div><img src="./images/item/小蔬加雞腿.png" alt=""></div>
-              <div><img src="./images/item/1152_G_1456771861418.png" alt=""></div>
+            <h3>商品詳細說明</h3>
+            <div class="card_content">
+              <ul>
+                <li>適合對象：一般3~4人小家庭</li>
+                <br>
+                <li>配送內容：當季新鮮蔬果，會依產期配送6~8種葉菜及2~3種果菜</li>
+                <br>
+                <li>蔬果項目：近期的蔬菜配送內容，依照季節配送</li>
+                <br>
+                <li>付款方式：信用卡、貨到付款</li>
+                <br>
+                <li>運送方式：冷藏宅配服務(免運費)</li>
+              </ul>
+            </div>
+            <h3>商品圖片</h3>
+            <div><img src="./images/item/S__56893488.png" alt=""></div>
+            <div><img src="./images/item/小蔬加雞腿.png" alt=""></div>
+            <div><img src="./images/item/1152_G_1456771861418.png" alt=""></div>
           </div> -->
         </div>
       </div>
@@ -389,6 +419,7 @@
       </div>
     </footer>
 
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script>
 
@@ -501,7 +532,6 @@
               `
             );
             
-
             let cart_item = {
                 item_id: item_id,
                 item_img: product_img,
@@ -529,6 +559,7 @@
                 cart_items = [cart_item];
                 this.totalPrice += product_price;
                 $('.cart_total_price').html(shopping_page.totalPrice);
+
             }
             sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
           },
@@ -588,6 +619,11 @@
               this.inside_page.push(this.fruits[index]);
               console.log(this.inside_page);
             }
+          },
+          go_back_page(){
+            this.go_in = true;
+            console.log(this.inside_page);
+            this.inside_page.spice(0,1);
           }
         },
         mounted() {
@@ -685,11 +721,6 @@
           750
         );
       });
-      
-
-
-
     </script>
-    <script src="./js/shopping_cart.js"></script>
   </body>
 </html>

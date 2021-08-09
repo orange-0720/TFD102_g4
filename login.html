@@ -70,7 +70,7 @@
             dataType: 'json',
             success: function(response) {
                 console.log(response);
-                if(response == 1){
+                if(response === 'yes'){
                     Email.send({
                     Host: "smtp.gmail.com",
                     Username: "goodvegetablebox@gmail.com",
@@ -79,7 +79,7 @@
                     From: "良耕野菜<goodvegetablebox@gmail.com>",
                     Subject: "良耕野菜",
                     Body: "感謝您使用本網站，您的新密碼為11111111，請使用新密碼重新登入",
-                    }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入'))
+                    }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入。並請至會員中心更改密碼'))
                     .then($('.pwd_block').fadeToggle());
                 }else{
                     console.log(response)
@@ -90,7 +90,7 @@
                 alert("發生錯誤: " + exception.status);
             },
           })
-        }
+        };
     </script>
   </head>
 
@@ -237,11 +237,11 @@
           <img src="./images/header_incart.svg" alt="">
         </div>
         <div class="cart_buy_list">
-          目前購物車空無一物
+          <span class="cart_nothing">目前購物車空無一物</span>
         </div>
         <div class="incart_total">
           總和
-          <span>$0</span>
+          <span class="cart_total_price">0</span>元
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
@@ -287,7 +287,7 @@
             <input class="sign_tel" type="text" placeholder="09XX-XXX-XXX" id="sign_tel">
           </form>
           <label>
-            <input type="checkbox">
+            <input type="checkbox" id="sign_agree">
             我已閱讀並同意會員條款
           </label>
           <input type="button" value="註冊" id="sign_confirm_btn">
@@ -313,6 +313,7 @@
       </div>
     </div>
 
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/login.js"></script>
   </body>
