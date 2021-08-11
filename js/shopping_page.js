@@ -4,7 +4,7 @@ let shopping_page = {
     <div class="shopping_page_list">
         <!-- 資料庫撈出資料迴圈秀出 -->
         <div class="shopping_product_block" v-for='(item,index) in page_products'>
-            <router-link to="/shopping_inside_page">
+            <a @click="push_into(index)">
                 <div class="shopping_product_pic">
                 <img
                     :src="item.PRODUCT_IMG"
@@ -17,39 +17,28 @@ let shopping_page = {
                     {{item.PRODUCT_SHORTINFO}}
                 </h5>
                 <h4 class="shopping_product_price">{{item.PRODUCT_PRICE}}元</h4>
-            </router-link>
+            </a>
         </div>
 
         <!-- 換頁 -->
         <div class="shooping_change_page">
-        <div class="change_page_block">
-            <div class="circle_base_prev"></div>
-            <div class="page_prev" @click="prevPage">
-            <img
-                src="./images/shopping_page/shopping_prev_arrow.svg"
-                alt="上一頁"
-            />
+            <div class="change_page_block">
+                <div class="page_prev" @click="prevPage">
+                    <img
+                        src="./images/shopping_page/shopping_prev_arrow.svg"
+                        alt="上一頁"
+                    />
+                </div>
+                <div class="shopping_page" v-for="(page,index) in pages" @click="move_page(index)">
+                    {{page.num}}
+                </div>
+                <div class="page_next" @click="nextPage">
+                    <img
+                        src="./images/shopping_page/shopping_prev_arrow.svg"
+                        alt="下一頁"
+                    />
+                </div>
             </div>
-            <div class="shopping_page_01" @click="move_page(1)">
-            1
-            </div>
-            <div class="shopping_page_02" @click="move_page(2)">
-            2
-            </div>
-            <div class="shopping_page_03" @click="move_page(3)">
-            3
-            </div>
-            <div class="shopping_page_04" @click="move_page(4)">
-            4
-            </div>
-            <div class="page_next" @click="nextPage">
-            <img
-                src="./images/shopping_page/shopping_prev_arrow.svg"
-                alt="下一頁"
-            />
-            </div>
-            <div class="circle_base_next"></div>
-        </div>
         </div>
     </div>
     `,
@@ -58,11 +47,16 @@ let shopping_page = {
             page: 1,
             limit: 9,
             products:[],
+            pages:[
+                {num:1},
+                {num:2},
+                {num:3},
+            ]
         }
     },
     methods: {
         move_page(index){
-            this.page = index;
+            this.page = index + 1;
             console.log(this.page);
         },
         prevPage(){
@@ -131,11 +125,19 @@ let shopping_page = {
                 // 若不存在
                 console.log('不存在')
                 cart_items = [cart_item];
-                this.totalPrice += product_price;
-                $('.cart_total_price').html(shopping_page.totalPrice);
+                let price_now = parseInt($('.cart_total_price').text());
+                console.log(price_now);
+                let new_price = price_now + product_price;
+                $('.cart_total_price').html(new_price);
             }
             sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
         },
+        push_into(index){
+            let product_id = this.page_products[index].PRODUCT_ID;
+            product_id --;
+            console.log(product_id);
+            router.push({path:`/shopping_inside_page/${product_id}`});
+        }
     },
     computed: {
         page_products(){
@@ -283,23 +285,41 @@ let shopping_inside_page = {
                     count_price += parseInt(cart.total_price)
                 });
 
-                $('.cart_total_price').text(count_price);
+                let price_now = parseInt($('.cart_total_price').text());
+                let new_price = price_now + product_price;
+                $('.cart_total_price').html(new_price);
 
             } else {
                 // 若不存在
                 console.log('不存在')
                 cart_items = [cart_item];
-                this.totalPrice += product_price;
-                $('.cart_total_price').html(shopping_page.totalPrice);
+                let price_now = parseInt($('.cart_total_price').text());
+                console.log(price_now);
+                let new_price = price_now + product_price;
+                $('.cart_total_price').html(new_price);
             }
             sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
         },
     },
+    watch:{
+    
+    },
+    mounted(){
+        console.log(this.$route.params.id);
+        let index = this.$route.params.id;
+        console.log(index);
+        axios.post('php/getProduct.php').then(res =>{
+            console.log(res.data[index]);
+            this.inside_page = [res.data[index]];
+        });
+        console.log(this.inside_page);
+    },
 };
 
 const routes = [
+    {path:'/', redirect:'shopping_page'},
     {path:'/shopping_page',name:'shopping_page',component: shopping_page},
-    {path:'/shopping_inside_page/:item', component: shopping_inside_page},
+    {path:'/shopping_inside_page/:id', component: shopping_inside_page},
 ];
 
 const router = new VueRouter({
