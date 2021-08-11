@@ -9,8 +9,37 @@
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+      function ifMember(){
+        $.ajax({
+              method: 'POST',
+              url: 'php/ifMember.php',
+              data:{},
+              dataType: 'text',
+              success: function(response) {
+                console.log(response);
+                if(response == 'yes'){
+                  $('.nav_block_log > span').text('會員中心');
+                  $('.login').click(function(){
+                    window.location.href = 'member.html';
+                  });
+                }else{
+                  $('.login').click(function(){
+                    window.location.href = 'login.html';
+                  });
+                }
+              },
+              error: function(exception) {
+                  console.log(exception)
+                  alert("發生錯誤: " + exception.status);
+              },
+        });  
+      }
+    </script>
   </head>
-  <body>
+  <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -37,7 +66,7 @@
             <div class="ham_bottom"></div>
           </div>
           <div class="login">
-            <a href="./login.html">
+            <a>
               <img src="./images/login_icon.svg" alt="login_icon" />
             </a>
           </div>
@@ -48,7 +77,7 @@
       </div>
       <div class="menu">
         <div class="logo_img">
-          <a href="./index.html">
+          <a>
             <img src="./images/logo.svg" alt="logo" />
           </a>
         </div>
@@ -95,7 +124,7 @@
           </div>
           <a class="nav_block_log" href="./login.html">
             <img src="./images/nav_block_log.svg">
-            登入註冊
+            <span>登入註冊</span>
           </a>          
           <div class="nav_right_block">
             <div class="nav_active">
@@ -135,7 +164,7 @@
           <div class="contact_block_head">
             <button class="contact_block_Xmark"></button>
           </div>
-          <h2>聯絡我們</h2>
+          <h3>聯絡我們</h3>
           <div class="contact_search_bar">
             <input type="text" id="order_search" placeholder="請輸入訂單編號" />
             <button class="search_icon">
@@ -159,6 +188,7 @@
         </button>
         <div class="incart_car_block">
           <img src="./images/header_incart.svg" alt="">
+          <h5>Shop Cart</h5>
         </div>
         <div class="cart_buy_list">
           <span class="cart_nothing">目前購物車空無一物</span>
@@ -166,19 +196,25 @@
         <div class="incart_total">
           總和
           <span class="cart_total_price">0</span>元
+          <!-- 手機板結帳去  -->
+          <a class="incart_checkout_btn_mobile" href="./checkout.html"><h5>結帳去</h5></a>
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
         </div>
       </div>
       <!-- 購物車彈窗結束  -->
+
+      <!-- 滾輪  -->
+      <div class="scrollbar" id="style-6">
+        <div class="force-overflow"></div>
+      </div>
     </header>
 
     <!-- 當頁內容開始 -->
-    <div id="shopping_page">
+    <div id="shopping_page1">
       <div class="shopping_main_block">
         <!-- 側邊欄開始 -->
-        <img class="shopping_aside_pic" src="./images/shopping_page/shopping_side.svg" alt="aside">
         <div class="shopping_nav_block">
           <h2 class="show_out_block">商品一覽</h2>
           <hr />
@@ -189,7 +225,7 @@
                 <img class="shopping_aside_arrow" src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
               </h3>
               <div class="shopping_box_link">
-                <a href="#" v-for="box in boxs">{{box}}</a>
+                <a v-for="(box,index) in boxs" @click.stop="box_push_into(index)">{{box.PRODUCT_NAME}}</a>
               </div>
             </div>
             <div class="shopping_veg_block">
@@ -198,7 +234,7 @@
                 <img class="shopping_aside_arrow" src="./images/shopping_page/shopping_arrow_icon.svg" alt="" />
               </h3>
               <div class="shopping_veg_link">
-                <a href="#" v-for="veg in vegs">{{veg}}</a>
+                <a v-for="(veg,index) in vegs" @click.stop="veg_push_into(index)">{{veg.PRODUCT_NAME}}</a>
               </div>
             </div>
             <div class="shopping_fruit_block">
@@ -210,7 +246,7 @@
                   />
               </h3>
               <div class="shopping_fruit_link">
-                <a href="#" v-for="fruit in fruits">{{fruit}}</a>
+                <a v-for="(fruit,index) in fruits" @click.stop="fruit_push_into(index)">{{fruit.PRODUCT_NAME}}</a>
               </div>
             </div>
             <div class="shopping_customer_block">
@@ -221,59 +257,7 @@
           </div>
         </div>
         <!-- 側邊欄結束 -->
-
-        <div class="shopping_page_list">
-
-          <!-- 資料庫撈出資料迴圈秀出 -->
-          <div class="shopping_product_block" v-for='(item,index) in page_products'>
-            <a href="./itemtest.html">
-              <div class="shopping_product_pic">
-                <img
-                  :src="item.PRODUCT_IMG"
-                  :alt="item.ID"
-                />
-                <span @click.prevent="incart(index)" class="shopping_product_incart"></span>
-              </div>
-              <h4 class="shopping_product_name">{{item.PRODUCT_NAME}}</h4>
-              <h5 class="shopping_product_intro">
-                {{item.PRODUCT_INFO}}
-              </h5>
-              <h4 class="shopping_product_price">{{item.PRODUCT_PRICE}}元</h4>
-            </a>
-          </div>
-      
-          <!-- 換頁 -->
-          <div class="shooping_change_page">
-            <div class="change_page_block">
-              <div class="circle_base_prev"></div>
-              <div class="page_prev" @click="prevPage">
-                <img
-                  src="./images/shopping_page/shopping_prev_arrow.svg"
-                  alt="上一頁"
-                />
-              </div>
-              <div class="shopping_page_01" @click="move_page(1)">
-                1
-              </div>
-              <div class="shopping_page_02" @click="move_page(2)">
-                2
-              </div>
-              <div class="shopping_page_03" @click="move_page(3)">
-                3
-              </div>
-              <div class="shopping_page_04" @click="move_page(4)">
-                4
-              </div>
-              <div class="page_next" @click="nextPage">
-                <img
-                  src="./images/shopping_page/shopping_prev_arrow.svg"
-                  alt="下一頁"
-                />
-              </div>
-              <div class="circle_base_next"></div>
-            </div>
-          </div>
-        </div>
+        <router-view></router-view>
       </div>
     </div>
 
@@ -324,160 +308,55 @@
       </div>
     </footer>
 
+    <!-- <script src="./js/right_nav_bar.js"></script> -->
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/shopping_page.js"></script>
     <script>
-
-      var shopping_page = new Vue({
-        el: "#shopping_page",
+      let shopping_page1 = new Vue({
+        el:'#shopping_page1',
+        router,
         data:{
-          page: 1,
-          limit: 9,
-          boxs:[
-            '防疫蔬果箱',
-            '活力蔬果箱',
-            '防果箱',
-          ],
-          vegs:[
-          '高麗菜',
-          '地瓜',
-          '大番茄',
-          '小白菜',
-          '玉米',
-          '紅蘿蔔',
-          '白蘿蔔',
-          '萵苣',
-          '青椒',
-          '甜椒',
-          '青江菜',
-          '地瓜葉',
-          'A菜',
-          '玉米筍',
-          '南瓜',
-          '小黃瓜',
-          '洋蔥',
-          ],
-          fruits:[
-            '草莓',
-            '小番茄',
-            '甜橙',
-            '芒果',
-            '香蕉',
-            '番石榴',
-            '檸檬',
-            '鳳梨',
-            '柿子',
-            '哈密瓜',
-            '香瓜',
-            '木瓜',
-          ],
-          products:[],
-          totalPrice:0,
+          boxs:[],
+          vegs:[],
+          fruits:[],
         },
         methods: {
-          // 購物車功能
-          incart(index){
-            console.log(this.products[index]);
-            console.log(this.products[index].PRODUCT_NAME);
-            product_name = this.products[index].PRODUCT_NAME;
-            product_price = parseInt(this.products[index].PRODUCT_PRICE);
-            product_img = this.products[index].PRODUCT_IMG;
-            product_value = 1;
-            let item_id = Date.now();
-            alert('已加入購物車')
-            $('.cart_nothing').fadeOut();
-            $('.cart_buy_list').append(
-              `
-                <div class="cart_inside_item" data-id="${item_id}">
-                  <div class="cart_item_img">
-                    <img src="${product_img}"/>  
-                  </div>
-                  <div class="cart_item_name">${product_name}</div>
-                  <div class="cart_item_number">
-                    <button>-</button>
-                    <input type="text" value="${product_value}"/ disabled>
-                    <button>+</button>
-                  </div>
-                  <div class="cart_item_price">${product_price}</div>
-                  <div class="cart_item_delete">
-                    <img src="./images/checkout/delete_icon.svg"/>  
-                  </div>
-                </div>
-              `
-            );
-            this.totalPrice += product_price;
-            // $('.cart_total_price').html('');
-            $('.cart_total_price').html(shopping_page.totalPrice);
-
-            let cart_item = {
-                item_id: item_id,
-                item_img: product_img,
-                item_name: product_name,
-                item_number: product_value,
-                item_price: product_price,
-            };
-            let cart_items = JSON.parse(localStorage.getItem("cart_items"));
-            if (cart_items) {
-                // 若存在
-                console.log('已存在')
-                cart_items.unshift(cart_item);
-            } else {
-                // 若不存在
-                console.log('不存在')
-                cart_items = [cart_item];
-            }
-            localStorage.setItem("cart_items", JSON.stringify(cart_items));
+          box_push_into(index){
+            var product_id = parseInt(this.boxs[index].PRODUCT_ID);
+            product_id --;
+            router.push({path:`/shopping_inside_page/${product_id}`});
           },
-          move_page(index){
-            this.page = index;
-            console.log(this.products)
+          veg_push_into(index){
+            var product_id = parseInt(this.vegs[index].PRODUCT_ID);
+            product_id --;
+            router.push({path:`/shopping_inside_page/${product_id}`});
           },
-          prevPage(){
-            if(this.page != 1){
-              this.page -= 1;
-            }
-          },
-          nextPage(){
-            if(this.page != 4){
-              this.page += 1;
-            }
+          fruit_push_into(index){
+            var product_id = parseInt(this.fruits[index].PRODUCT_ID);
+            product_id --;
+            router.push({path:`/shopping_inside_page/${product_id}`});
           }
         },
         mounted() {
-          // $.getJSON('./js/products.json').then(res => this.products = res);
-          $.ajax({
-            method: 'POST',
-            url: 'php/getProduct.php',
-            data:{},
-            dataType: 'json',
-            success: function(response) {
-              shopping_page.products = response  
-            },
-            error: function(exception) {
-                alert("發生錯誤: " + exception.status);
-            },
-          });
-          
-        },
-        computed: {
-          page_products(){
-            const last_index = this.page * (this.limit -1);
-            const first_index = (this.page -1) * (this.limit -1);
-            const page_product = [];
-            for(let i = first_index; i < this.products.length; i++){
-              if(last_index < i) break;
-              page_product.push(this.products[i]);
-            }
-            return page_product;
-          },
+          axios.post('php/getProduct.php').then(res =>{
+            let response = res.data;
+            response.forEach(function(index, i){
+                if(index['PRODUCT_TYPE_ID'] == 3){
+                  shopping_page1.vegs.push(index);
+                }else if(index['PRODUCT_TYPE_ID'] == 2){
+                  shopping_page1.fruits.push(index);
+                }else{
+                  shopping_page1.boxs.push(index);
+                }
+            });
+          })
         },
       });
 
-
-      // VUE 結束
-
       // 側邊攔展開
       window.addEventListener('resize',function(){
-        if(window.innerWidth >= 768) {
+        if(window.innerWidth >= 992) {
           $('.show_box_block').css("display",'block');  
         }else{
           $('.show_box_block').css("display",'none');  
@@ -497,7 +376,7 @@
       });
 
       $('.show_out_block').on('click',function(){
-        if(window.innerWidth <= 767){
+        if(window.innerWidth <= 992){
           $('.show_box_block').slideToggle();
         }
       })
@@ -526,35 +405,6 @@
           750
         );
       });
-
-      // 購物車測試
-      $('.cart_buy_list').on('click','.cart_item_delete',function(e){
-        let delete_price = e.target.parentElement.previousElementSibling;
-        let current_price = $('.cart_total_price').text()
-        let total_price = parseInt(current_price) - parseInt(delete_price);
-        console.log(current_price);
-        console.log(delete_price);
-        console.log(total_price);
-        console.log($(e.target).parent('div'));
-        if(confirm('確定刪除此商品?')){
-          $(e.target).parent().parent('div').fadeOut();
-          // $('.cart_total_price').text() = parseInt(current_price) - parseInt(delete_price); 
-
-          let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
-          let cart_items = JSON.parse(localStorage.getItem("cart_items"));    // 從 localStorage 取得資料
-          let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
-
-          cart_items.forEach(function(cart, i){
-              if(this_id != cart.item_id){
-                updated_cart_items.push(cart);
-              }
-          });
-
-          // 回存至 localStorage
-          localStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
-        }
-
-      })
     </script>
   </body>
 </html>

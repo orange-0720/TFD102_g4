@@ -49,8 +49,8 @@ div#game_title {
 //    ==數字圓框==
 
 div#game_decorate_testNumberCircle_2 {
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   // border: 1px solid red;
   position: absolute;
   border-radius: 50%;
@@ -124,7 +124,7 @@ body#game_page {
 // ==小遊戲主欄位==
 section#game_play_border_PassandDefeat {
   width: 60%;
-  height: 1100px;
+  height: 700px;
   @include pad {
     height: 900px;
     width: 80%;
@@ -176,45 +176,56 @@ section#game_play_border_PassandDefeat {
       display: none;
     }
   }
-  .icon_4 {
-    position: absolute;
-    top: -5%;
-    right: -2%;
-    width: 120px;
-    @include pad {
-      width: 12vw;
-    }
-    @include mobile {
-      width: 18vw;
-      right: -3%;
-    }
-  }
+  // .icon_4 {
+  //   position: absolute;
+  //   top: -5%;
+  //   right: -2%;
+  //   width: 120px;
+  //   @include pad {
+  //     width: 12vw;
+  //   }
+  //   @include mobile {
+  //     width: 18vw;
+  //     right: -3%;
+  //   }
+  // }
   #count {
     position: absolute;
-    top: -1.5%;
-    right: 2%;
+    top: -8.5%;
+    right: -4%;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fade-in 0.5s linear;
+    background-image: url("../images/game/game_img_Tomato.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 150px;
+    width: 150px;
+    background-size: 120px 96px;
     @include pad {
-      top: -1%;
-      right: 3%;
+      top: -8.5%;
+      // right: 3%;
     }
     @include mobile {
-      top: -1.8%;
-      right: 2%;
+      background-size: 90px 72px;
+      top: -4.8%;
+      right: -6%;
     }
     h1 {
-      font-size: 3vw;
+      font-size: 28px;
       font-weight: bolder;
+      @include pad {
+        font-size: 24px;
+      }
       @include mobile {
-        font-size: 30px;
+        font-size: 20px;
       }
     }
   }
   div.game_test_2 {
-    height: 350px;
+    height: 300px;
     margin-top: 8rem;
     display: flex;
     align-items: center;
@@ -228,14 +239,15 @@ section#game_play_border_PassandDefeat {
       margin-top: 8rem;
     }
     img#game_test {
-      width: 400px;
+      width: 300px;
+      animation: fade-in 0.5s linear;
       // height: 300px;
       @include pad {
         width: 50vw;
         // height: 200px;
       }
       @include mobile {
-        width: 80vw;
+        width: 60vw;
         // height: 250px;
       }
     }
@@ -243,7 +255,7 @@ section#game_play_border_PassandDefeat {
   #game_question {
     // margin-top: 3rem;
     line-height: 4vh;
-    height: 150px;
+    height: 120px;
     width: 80%;
     text-align: center;
     padding: 1rem;
@@ -255,14 +267,16 @@ section#game_play_border_PassandDefeat {
       margin-top: 0.5rem;
     }
     h2 {
-      line-height: 28px;
-      font-size: 28px;
+      line-height: 4rem;
+      font-size: 26px;
+      // animation: up 0.5s ease-in 1s;
       @include pad {
-        font-size: 26px;
+        font-size: 20px;
       }
       @include mobile {
         font-size: 16px;
-        text-align: justify;
+        text-align: center;
+        line-height: 2rem;
       }
     }
   }
@@ -274,13 +288,13 @@ section#game_play_border_PassandDefeat {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   @include pad {
     margin-top: 0rem;
   }
   .icon_11 {
-    width: 15vw;
-    margin-top: 2rem;
+    width: 11vw;
+    margin-top: 1rem;
     @include pad {
       width: 25vw;
       margin-top: 1rem;
@@ -289,9 +303,6 @@ section#game_play_border_PassandDefeat {
       width: 40vw;
     }
   }
-  .green {
-    background-color: $green;
-  }
   div#game_answer {
     display: flex;
     flex-direction: column;
@@ -299,10 +310,10 @@ section#game_play_border_PassandDefeat {
     justify-content: center;
   }
   button#submit_1 {
-    @include btn(320px, 85px);
+    @include btn(320px, 65px);
     font-size: 28px;
     font-weight: bolder;
-    margin: 1rem;
+    margin: 0.3rem;
     padding: 2px;
     display: flex;
     align-items: center;
@@ -321,7 +332,7 @@ section#game_play_border_PassandDefeat {
     }
     @include mobile {
       @include btn(170px, 45px);
-      font-size: 16px;
+      font-size: 14px;
       margin: 0.5rem;
       line-height: 20px;
       display: flex;
@@ -333,7 +344,7 @@ section#game_play_border_PassandDefeat {
     }
     #rightArrow {
       width: 1vw;
-      margin-left: 1vw;
+      margin-left: 5px;
       @include pad {
         width: 15px;
         margin-left: 5px;
@@ -346,10 +357,10 @@ section#game_play_border_PassandDefeat {
     }
   }
   button#submit_2 {
-    @include btn(320px, 85px);
+    @include btn(320px, 65px);
     font-size: 28px;
     font-weight: bolder;
-    margin: 1rem;
+    margin: 0.3rem;
     padding: 2px;
     display: flex;
     align-items: center;
@@ -367,8 +378,8 @@ section#game_play_border_PassandDefeat {
       justify-content: center;
     }
     @include mobile {
-      @include btn(190px, 45px);
-      font-size: 16px;
+      @include btn(170px, 45px);
+      font-size: 14px;
       margin: 0.5rem;
       line-height: 20px;
       display: flex;
@@ -380,7 +391,7 @@ section#game_play_border_PassandDefeat {
     }
     #leftArrow {
       width: 1vw;
-      margin-left: 1vw;
+      margin-right: 5px;
       @include pad {
         width: 15px;
         margin-right: 5px;

@@ -9,7 +9,34 @@
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
-  <body>
+  <script>
+    function ifMember(){
+      $.ajax({
+            method: 'POST',
+            url: 'php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.login').click(function(){
+                  window.location.href = 'member.html';
+                });
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+      });  
+    }
+  </script>
+  <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -146,7 +173,7 @@
        <!-- 聯絡我們彈窗結束 -->
 
        <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
+       <div class="header_shopping_cart">
         <button class="cart_close">
           <img src="./images/checkout/X_mark.svg">
         </button>
@@ -154,11 +181,11 @@
           <img src="./images/header_incart.svg" alt="">
         </div>
         <div class="cart_buy_list">
-          目前購物車空無一物
+          <span class="cart_nothing">目前購物車空無一物</span>
         </div>
         <div class="incart_total">
           總和
-          <span>$0</span>
+          <span class="cart_total_price">0</span>元
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
@@ -188,29 +215,42 @@
       <div class="checkout_shopping_detail">
         <h3>購物車明細</h3>
         <div class="checkout_shopping_detail_block">
-          <section class="checkout_shopping_detail_img">商品圖片</section>
-          <section class="checkout_shopping_detail_name">商品名稱</section>
-          <section class="checkout_shopping_detail_sum">數量</section>
-          <section class="checkout_shopping_detail_price">單價</section>
-          <section class="checkout_shopping_detail_total">小計</section>
-          <section class="checkout_shopping_detail_delete">刪除</section>
+          <section v-for="item in detail_block" :class="item.class">{{item.name}}</section>
         </div>
-        <div class="checkout_shopping_product_detail">
+        <!-- 一般商品 -->
+        <div class="checkout_shopping_product_detail" v-for="(item,index) in cart_item">
           <section class="checkout_shopping_product_detail_img">
-            <img src="./images/checkout/checkout_01.jpg">
+            <img :src="item.item_img">
           </section>
-          <section class="checkout_shopping_product_detail_name">防疫蔬果箱</section>
+          <section class="checkout_shopping_product_detail_name">{{item.item_name}}</section>
           <section class="checkout_shopping_product_detail_sum">
-            <button>-</button>
-            <input type="text" value="1">
-            <button>+</button>
+            <button @click="minus_number(index)">-</button>
+            <input type="text" :value="item.item_number" disabled>
+            <button　@click="plus_number(index)">+</button>
           </section>
-          <section class="checkout_shopping_product_detail_price">399</section>
-          <section class="checkout_shopping_product_detail_total">399</section>
-          <section class="checkout_shopping_product_detail_delete">
+          <section class="checkout_shopping_product_detail_price">{{item.unit_price}}</section>
+          <section class="checkout_shopping_product_detail_total">{{item.total_price}}</section>
+          <section class="checkout_shopping_product_detail_delete" @click="delete_this(index)">
             <img src="./images/checkout/delete_icon.svg" alt="">
           </section>
+        </div>
 
+        <!-- 客製化商品 -->
+        <div class="checkout_shopping_product_detail" v-for="(item,index) in fruit_boxs"> 
+          <section class="checkout_shopping_product_detail_img">
+            <img :src="item.item_img">
+          </section>
+          <section class="checkout_shopping_product_detail_name">{{item.item_name}}</section>
+          <section class="checkout_shopping_product_detail_sum">
+            <button @click="box_minus(index)">-</button>
+            <input type="text" :value="item.item_number" disabled>
+            <button　@click="box_plus(index)">+</button>
+          </section>
+          <section class="checkout_shopping_product_detail_price">{{item.unit_price}}</section>
+          <section class="checkout_shopping_product_detail_total">{{item.total_price}}</section>
+          <section class="checkout_shopping_product_detail_delete" @click="delete_box(index)">
+            <img src="./images/checkout/delete_icon.svg" alt="">
+          </section>
         </div>
         <a class="checkout_shopping_detail_keep_shopping" href="./shopping_page.html">繼續購物</a>
       </div>
@@ -233,8 +273,9 @@
           </section>
           <section class="checkout_sending_intro">
             <p>配送說明</p>
-            <p style="line-height: 1.2;">
+            <p style="line-height: 1.3;">
               目前僅能以線上刷卡付款，落實無接觸外送！<br>
+              防疫期間，免運費!!!!<br>
               ------------<br>
               ▌到貨須知<br>
               
@@ -262,17 +303,18 @@
         <div class="checkout_shopping_checkform_orderblock">
           <h3>訂單資訊</h3>
           <section>
-            <p>商品小記: <span>399</span></p>
-            <p>本次運費: <span>0</span></p>
-            <p>使用購物金</p>
+            <p>商品小記: <span>{{shopping_charge}}</span></p>
+            <p>本次運費: <span>{{deliver_fee}}</span></p>
+            <button @click="cuppon">點我使用購物金</button>
+            <div class="cuppon_money">使用金額:
+              <input type="text" v-model="cuppon_money" @blur="final_money">元
+            </div>
             <hr>
-            <p class="checkout_shopping_checkform_orderblock_total">本次合計: <span>399</span></p>
+            <p class="checkout_shopping_checkform_orderblock_total">本次合計: <span>{{shopping_charge}}</span></p>
           </section>
           
-          <a href="./checkout_s2.html">直接前往結帳</a>
-          <a href="./login.html">登入會員</a>
-          <a href="./login.html">註冊會員</a>
-          <a href="./shopping_page.html">繼續購物</a>
+          <a v-for="link in links" :href="link.link" @click="save_cuppon">{{link.name}}</a>
+        
         </div>
       </div>
     </div>
@@ -325,12 +367,31 @@
   
     </footer>
 
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script>
 
       var checkout1 = new Vue({
         el:'#checkout1',
         data: {
+          detail_block:[
+            {class:'checkout_shopping_detail_img',name:'商品圖片'},
+            {class:'checkout_shopping_detail_name',name:'商品名稱'},
+            {class:'checkout_shopping_detail_sum',name:'數量'},
+            {class:'checkout_shopping_detail_price',name:'單價'},
+            {class:'checkout_shopping_detail_total',name:'小計'},
+            {class:'checkout_shopping_detail_delete',name:'刪除'},          
+          ],
+          cart_item:[],
+          fruit_boxs:[],
+          deliver_fee:0,
+          shopping_charge:0,
+          cuppon_money:'',
+          links:[
+            {link:'./checkout_s2.html',name:'直接前往結帳',click:'save_coppon'},
+            {link:'./login.html',name:'登入/註冊'},
+            {link:'./shopping_page.html',name:'繼續購物'},
+          ],
           citys:[
             "臺北市",
             "新北市",
@@ -355,7 +416,223 @@
             '新竹市',
             '嘉義市',
           ]
-        }
+        },
+        methods: {
+          delete_this(index){
+            let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
+            if(confirm('是否確認刪除')){
+              let total_price = this.cart_item[index].total_price;
+              this.shopping_charge -= total_price;
+              this.cart_item.splice(index,1);
+              // 清除sesstion_storage裡的資料
+              
+              let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+              let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));
+              if(cart_items.length == 1){
+                sessionStorage.removeItem('cart_items')
+                if(!fruit_boxs){  
+                  alert('購物車內已無商品，將為您跳轉首頁');
+                  window.location.href = 'index.html';
+                }
+              }else{
+                let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
+                
+                cart_items.forEach(function(cart, i){
+                    if(this_id != cart.item_id){
+                    updated_cart_items.push(cart);
+                    }
+                });
+                console.log(updated_cart_items);
+                // 回存至 localStorage
+                sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
+              }
+            }
+          },
+          plus_number(index){
+            let new_number = this.cart_item[index].item_number + 1;
+            let unit_price = this.cart_item[index].unit_price;
+            let new_total_price = unit_price * new_number;
+            let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
+            console.log(new_total_price);
+            console.log(new_number);
+
+            let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+            cart_items.forEach(function(cart, i){
+              if(this_id == cart.item_id){
+                  console.log(cart.item_name);
+                  cart.item_number = new_number;
+                  cart.total_price = new_total_price;
+              }
+            });
+            // 回存至 localStorage
+            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+            this.cart_item = cart_items;
+
+            this.shopping_charge += unit_price;
+          },
+          minus_number(index){
+            if(this.cart_item[index].item_number > 1){
+              let new_number = this.cart_item[index].item_number - 1;
+              let unit_price = this.cart_item[index].unit_price;
+              let new_total_price = unit_price * new_number;
+              let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
+              console.log(new_total_price);
+              console.log(new_number);
+  
+              let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
+              cart_items.forEach(function(cart, i){
+                if(this_id == cart.item_id){
+                    console.log(cart.item_name);
+                    cart.item_number = new_number;
+                    cart.total_price = new_total_price;
+                }
+              });
+              // 回存至 localStorage
+              sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+  
+              this.cart_item = cart_items;
+
+              this.shopping_charge -= unit_price;
+              
+            }
+          },
+
+          // 客製化商品
+          delete_box(index){
+            let this_id = this.fruit_boxs[index].item_id;  //找出該項目的item_id
+            if(confirm('是否確認刪除')){
+              let total_price = this.fruit_boxs[index].total_price;
+              this.shopping_charge -= total_price;
+              this.fruit_boxs.splice(index,1);
+
+              // 清除sesstion_storage裡的資料
+              
+              let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));   // 從 localStorage 取得資料
+              let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+              if(fruit_boxs.length == 1){
+                sessionStorage.removeItem('fruit_boxs')
+                if(!cart_items){  
+                  alert('購物車內已無商品，將為您跳轉首頁');
+                  window.location.href = 'index.html';
+                }
+              }else{
+                let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
+                
+                fruit_boxs.forEach(function(box, i){
+                    if(this_id != box.item_id){
+                    updated_cart_items.push(box);
+                    }
+                });
+                console.log(updated_cart_items);
+                // 回存至 localStorage
+                sessionStorage.setItem("fruit_boxs", JSON.stringify(updated_cart_items));
+              }
+            }
+          },
+          box_plus(index){
+            let new_number = this.fruit_boxs[index].item_number + 1;
+            let unit_price = this.fruit_boxs[index].unit_price;
+            let new_total_price = unit_price * new_number;
+            let this_id = this.fruit_boxs[index].item_id;  //找出該項目的item_id
+            console.log(new_total_price);
+            console.log(new_number);
+
+            let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
+            fruit_boxs.forEach(function(box, i){
+              if(this_id == box.item_id){
+                  console.log(box.item_name);
+                  box.item_number = new_number;
+                  box.total_price = new_total_price;
+              }
+            });
+            // 回存至 localStorage
+            sessionStorage.setItem("fruit_boxs", JSON.stringify(fruit_boxs));
+
+            this.fruit_boxs = fruit_boxs;
+
+            let shopping_charge = 0;
+            fruit_boxs.forEach(function(box, i){
+              shopping_charge += box.total_price;
+              return shopping_charge
+            })
+            this.shopping_charge += unit_price;
+          },
+          box_minus(index){
+            if(this.fruit_boxs[index].item_number > 1){
+              let new_number = this.fruit_boxs[index].item_number - 1;
+              let unit_price = this.fruit_boxs[index].unit_price;
+              let new_total_price = unit_price * new_number;
+              let this_id = this.fruit_boxs[index].item_id;  //找出該項目的item_id
+              console.log(new_total_price);
+              console.log(new_number);
+  
+              let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
+              fruit_boxs.forEach(function(box, i){
+                if(this_id == box.item_id){
+                    console.log(box.item_name);
+                    box.item_number = new_number;
+                    box.total_price = new_total_price;
+                }
+              });
+              // 回存至 localStorage
+              sessionStorage.setItem("fruit_boxs", JSON.stringify(fruit_boxs));
+  
+              this.fruit_boxs = fruit_boxs;
+
+              let shopping_charge = 0;
+              fruit_boxs.forEach(function(box, i){
+                shopping_charge += box.total_price;
+                return shopping_charge
+              })
+              this.shopping_charge -= unit_price;
+              
+            }
+          },
+          cuppon(){
+            $('.cuppon_money').fadeToggle();
+          },
+          final_money(){
+            this.shopping_charge -= this.cuppon_money;
+          },
+          save_cuppon(){
+            let cuppon_box =[];
+            if(this.cuppon_money != 0){
+              cuppon_box.push(this.cuppon_money)
+              sessionStorage.setItem("cuppon_box", JSON.stringify(cuppon_box));
+            }else{
+              console.log('aaa');
+            }
+          }
+        },
+        computed:{
+
+        },
+        mounted() {
+
+          let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+          if(cart_items){
+            this.cart_item = cart_items;
+            let cart_charge = 0;
+            cart_items.forEach(function(cart, i){
+              cart_charge += cart.total_price;
+            })
+
+            this.shopping_charge += cart_charge;
+          }
+      
+          let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));
+          if(fruit_boxs){
+            this.fruit_boxs = fruit_boxs;
+            console.log(fruit_boxs);
+            let cart_charge = 0;
+            fruit_boxs.forEach(function(cart, i){
+              cart_charge += cart.total_price;
+            })
+
+            this.shopping_charge += cart_charge;
+          }
+        },
       })
 
       // 回頁首

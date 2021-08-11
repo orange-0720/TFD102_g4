@@ -15,10 +15,6 @@
     />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
   </head>
   <body id="game_page">
     <header class="header">
@@ -212,13 +208,11 @@
               id="cooking_nabe_top"
               v-show="resultShow"
               class="animate__animated animate__bounce animate__infinite	infinite"
-              style="left: 16%;"
             />
           </transition>
           <div
             id="bowl"
             class="animate__animated animate__pulse animate__infinite	infinite"
-            style="left:21.5%;top:15%;"
           >
             <img
               src="./images/game/lottery_Beetroot.svg"
@@ -251,7 +245,6 @@
               id="cooking_nabe_bottom"
               v-show="resultShow"
               class="animate__animated animate__bounce animate__infinite	infinite"
-              style="left: 16%;top:50% ;"
             />
           </transition>
         </div>
@@ -283,8 +276,8 @@
           </transition>
           <transition>
             <div id="get_coin" v-show="isShow">
-              <button type="submit" id="submit_12" @click=" show_coin">
-                <div id="action1">點擊查看購物金</div>
+              <button type="submit" id="submit_12" @click="get_coin(200)">
+                <div id="action1">查看購物金</div>
                 <img
                   src="./images/game/rightArrow.svg"
                   alt=""
@@ -296,7 +289,7 @@
                   src="./images/game/money_kinbut_texta.png"
                   alt=""
                   id="pig"
-                  class="animate__animated animate__headShake animate__repeat-2 2	"
+                  class="animate__animated animate__headShake animate__infinite	"
               /></span>
             </div>
           </transition>
@@ -312,6 +305,39 @@
         <!-- button在外層直接換內層 -->
       </section>
     </div>
+
+    <!-- ==輪波圖== -->
+
+    <section id="game_slideshow_step_lottery">
+      <div id="game_slideshow">
+        <img
+          src="./images/game/game_scroll_1.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_2.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_3.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_4.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_5.png"
+          class="game_slideshow"
+          alt=""
+        />
+      </div>
+    </section>
+
     <footer class="footer_bg">
       <div class="footer">
         <button class="go_top" id="go_top">
@@ -369,13 +395,33 @@
           show_result() {
             this.isShow = true;
             this.resultShow = false;
-            $("#game_bottom_part_lottery").css("margin-top", "30px");
+            $("#game_slideshow_step_lottery").css("height", "350px");
+            $("#game_bottom_part_lottery").css("margin-top", "20px");
             $("div.game_test_3")
               .css("height", "400px")
               .css("margin-top", "6rem");
           },
-          show_coin() {
-            window.location.href = "member.html";
+          get_coin(money) {
+            $.ajax({
+              //jQuery-AJAX語法
+              method: "POST", //方式
+              url: "php/get_discount.php", //API伺服器
+              data: {
+                money: money,
+              },
+              dataType: "text", //傳送的不是JSON檔，用TEXT型態就可以了
+              success: function(response) {
+                //response是由php回傳
+                //更新html內容
+                console.log(response);
+                window.location.href = "member.html";
+                alert("購物金已存入!");
+              },
+              error: function(exception) {
+                //error是代表AJAX response的error
+                console.log(exception);
+              },
+            });
           },
         },
       });
@@ -391,6 +437,11 @@
 
       $("button#submit_11").click(function() {
         $("#game_question").css("display", "none");
+        $(".game_test_3").css("height", "30vh");
+        $(".game_test_3").css("margin-top", "9vh");
+        $(".game_test_3").css("margin-bottom", "10vh");
+        $("#game_bottom_part_lottery").css("height", "150px");
+        $(".icon_11").css("display", "none");
         return false;
       });
 
@@ -398,7 +449,10 @@
         $("#bowl").addClass(
           "animate__animated animate__bounce animate__infinite	infinite"
         );
-        $("#bowl").css("left", "20%");
+
+        // $("#bowl").css("left", "13%");
+        // $("#bowl").css("height", "220px");
+        // $("#bowl").css("width", "220px");
         // $("#bowl img").css("animation", "none");
         $("img#orange").css("animation-name", "jumpOrange");
         $("img#potato").css("animation-name", "jumpPotato");

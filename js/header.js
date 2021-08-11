@@ -1,3 +1,4 @@
+shopping_cart();
 
 // 固定header
 var menu = document.getElementsByClassName("menu")[0];

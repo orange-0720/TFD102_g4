@@ -59,6 +59,19 @@
         <h1>商品一覽</h1>
       </div>
     </div>
+<<<<<<< HEAD
+=======
+    <div class="not_buy">
+      <div class="black_black" @click="go_up">
+      </div>
+      <div class="contact_block">
+        <button class="want_block_Xmark" @click="go_up"></button>
+
+
+        <input type="button" class="change_send" value="確認">
+      </div>
+    </div>
+>>>>>>> dev
 
     <div class="jump_hamburger_block">
       <a href="./index.html">
@@ -94,6 +107,11 @@
         <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi" />
       </div>
     </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dev
   </header>
   <style>
     body {
@@ -132,6 +150,7 @@
   <button id="demo3">Demo 3
 
   </button>
+<<<<<<< HEAD
 
  
 
@@ -144,6 +163,40 @@
       dangerMode: true
     });
 });
+=======
+  <button id="demo5">Demo 5</button>
+
+
+  <script>
+    document.getElementById("demo3").addEventListener("click", function () {
+      swal({
+        title: "Are you sure?",
+        img_src: "./images/fruit_box/cart/399_cart.png",
+        buttons: true,
+        dangerMode: true
+      });
+    });
+
+    document.getElementById("demo5").addEventListener("click", function () {
+      swal({
+        text: "您確定要刪除嗎?",
+        buttons: {
+          A: {
+            text: "確定刪除",
+            value: "已刪除"
+          },
+          B: {
+            text: "取消刪除",
+            value: "已取消刪除"
+          },
+
+        }
+      }).then((value) => {
+        swal(`${value}`);
+      });
+    });
+
+>>>>>>> dev
 
 
     // 回頁首

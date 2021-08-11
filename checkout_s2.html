@@ -6,10 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>良耕野菜-結帳頁面</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./images/logo-02.svg">
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
-  <body>
+  <script>
+    function ifMember(){
+      $.ajax({
+            method: 'POST',
+            url: 'php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.login').click(function(){
+                  window.location.href = 'member.html';
+                });
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+      });  
+    }
+  </script>
+  <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -167,11 +195,11 @@
           <img src="./images/header_incart.svg" alt="">
         </div>
         <div class="cart_buy_list">
-          目前購物車空無一物
+          <span class="cart_nothing">目前購物車空無一物</span>
         </div>
         <div class="incart_total">
           總和
-          <span>$0</span>
+          <span class="cart_total_price">0</span>元
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
@@ -198,10 +226,11 @@
     </div>
     <div id="shopping2_detail">
       <div class="checkout_s2_shopping_detail">
-        <p>商品總金額 <span>399</span>元</p>
+        <p>商品總金額 <span>{{total_money}}</span>元</p>
+        <p>(已扣購物金 <span>{{cuppon_money}}</span>元)</p>
         <!-- 數字部分要用函數帶入 -->
         <p class="checkout_s2_shopping_detail_total">
-          共計1件商品
+          共計{{total_item}}件商品
           <img
             class="detail_icon_open"
             src="./images/checkout/plus_icon.svg"
@@ -209,27 +238,40 @@
         </p>
         <div class="checkout_s2_detail">
           <div class="checkout_shopping_detail_block">
-            <section class="checkout_shopping_detail_img">商品圖片</section>
-            <section class="checkout_shopping_detail_name">商品名稱</section>
-            <section class="checkout_shopping_detail_sum">數量</section>
-            <section class="checkout_shopping_detail_price">單價</section>
-            <section class="checkout_shopping_detail_total">小計</section>
+            <section v-for="detail in block_details" :class="detail.class">{{detail.name}}</section>
           </div>
-          <div class="checkout_shopping_product_detail">
+          <div class="checkout_shopping_product_detail" v-for="(item,index) in cart_items">
             <section class="checkout_shopping_product_detail_img">
-              <img src="./images/checkout/checkout_01.jpg" />
+              <img :src="item.item_img" />
             </section>
             <section class="checkout_shopping_product_detail_name">
-              防疫蔬果箱
+              {{item.item_name}}
             </section>
             <section class="checkout_shopping_product_detail_sum">
-              1
+              {{item.item_number}}
             </section>
             <section class="checkout_shopping_product_detail_price">
-              399
+              {{item.unit_price}}
             </section>
             <section class="checkout_shopping_product_detail_total">
-              399
+              {{item.total_price}}
+            </section>
+          </div>
+          <div class="checkout_shopping_product_detail" v-for="(item,index) in fruit_boxs">
+            <section class="checkout_shopping_product_detail_img">
+              <img :src="item.item_img" />
+            </section>
+            <section class="checkout_shopping_product_detail_name">
+              {{item.item_name}}
+            </section>
+            <section class="checkout_shopping_product_detail_sum">
+              {{item.item_number}}
+            </section>
+            <section class="checkout_shopping_product_detail_price">
+              {{item.unit_price}}
+            </section>
+            <section class="checkout_shopping_product_detail_total">
+              {{item.total_price}}
             </section>
           </div>
         </div>
@@ -237,17 +279,9 @@
       <div class="chekout_s2_order_detail_block">
         <div class="checkout_s2_receiver_infro">
           <h3>訂購人資料</h3>
-          <div class="checkout_s2_receiver_infro_group">
-            <label for="">訂購人名稱</label>
-            <input type="text" class="receiver_name" />
-          </div>
-          <div class="checkout_s2_receiver_infro_group">
-            <label for="">電子郵件</label>
-            <input type="text" class="receiver_email" />
-          </div>
-          <div class="checkout_s2_receiver_infro_group">
-            <label for="">聯絡電話(手機)</label>
-            <input type="text" class="receiver_phone" />
+          <div class="checkout_s2_receiver_infro_group" v-for="item in receiver_detail">
+            <label >{{item.name}}</label>
+            <input type="text" :class="item.class" />
           </div>
           <div class="checkout_s2_receiver_infro_group">
             <label for="">性別</label>
@@ -276,14 +310,14 @@
           <div class="checkout_s2_deliver_infro_group">
             <label for="">送貨地址</label>
             <select class="checkout_s2_city"  v-model="mainArea">
-              <option disabled>請選擇縣市</option>
+              <option disabled selected>請選擇縣市</option>
               <option v-for="(place,key) in area_data" :value="place.name">{{place.name}}</option>
             </select>
             <select class="checkout_s2_area" v-model="subArea">
-              <option disabled>請選擇分區</option>
+              <option disabled selected>請選擇分區</option>
               <option v-for="area in area_arr">{{area}}</option>
             </select>
-            <input type="text" v-model="address" />
+            <input type="text" v-model="address" placeholder="請輸入詳細地址"/>
             <hr />
           </div>
           <div class="checkout_s2_deliver_infro_group">
@@ -295,7 +329,7 @@
       <div class="chekout_s2_order_other_block">
         <div class="chekout_s2_order_other_block_note">
           <h3>訂單備註</h3>
-          <textarea rows="5" placeholder="有甚麼想告知我們的嗎??"></textarea>
+          <textarea rows="5" placeholder="有甚麼想告知我們的嗎??" v-model="note"></textarea>
         </div>
         <div class="chekout_s2_order_other_block_pay">
           <h3>付款方式</h3>
@@ -312,7 +346,7 @@
         </div>
         <div class="credit_bkc" v-if="isShow" @click="credit_confirm">
           <!-- @click="credit_confirm" 冒泡事件 -->
-          <div class="credit_form" v-if="isShow" @click="stopPropagation">
+          <div class="credit_form" v-if="isShow" @click.stop>
             <h1>信用卡結帳系統</h1>
             <div class="step_back_btn" @click="credit_confirm">
               <img src="./images/checkout/X_mark.svg" alt="X" />
@@ -380,7 +414,7 @@
               value="確認送出"
               class="credit_detail_confirm"
             /> -->
-            <a class="credit_detail_confirm" href="./checkout_s3.html">確認送出</a>
+            <a class="credit_detail_confirm" @click.prevent="order_make" href="./checkout_s3.html">確認送出</a>
           </div>
         </div>
       </div>
@@ -431,12 +465,33 @@
       </div>
     </footer>
 
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script>
       var shopping2_detail  = new Vue({
         el: "#shopping2_detail",
         data: {
-          isShow: false,
+          total_money:'', //總金額
+          total_item:'',  //總件數
+          cuppon_money:0, //購物金
+          block_details:[
+            {class:"checkout_shopping_detail_img", name:'商品圖片'},
+            {class:"checkout_shopping_detail_name", name:'商品名稱'},
+            {class:"checkout_shopping_detail_sum", name:'數量'},
+            {class:"checkout_shopping_detail_price", name:'單價'},
+            {class:"checkout_shopping_detail_total", name:'小計'},
+          ],
+          cart_items:[],  //存放購物詳細資訊
+          fruit_boxs:[],
+          receiver_detail:[
+            {name:'訂購人名稱', class:'receiver_name'},
+            {name:'電子郵件', class:'receiver_email'},
+            {name:'聯絡電話(手機)', class:'receiver_phone'},
+
+          ],
+          note:'',
+          
+          isShow: false,  //信用卡彈窗
           card_name: "",
           card_number: "",
           card_valid: "",
@@ -444,9 +499,9 @@
           theSame:false, // 訂購資訊相同
           privacy:false, // 隱私
 
-          address:"",
           mainArea:'請選擇縣市',
           subArea:'請選擇分區',
+          address:'',
           area_arr:[],
           area_data : [
             { 
@@ -945,12 +1000,32 @@
         },
         methods: {
           credit_confirm() {
-            this.isShow = !this.isShow;
-            let total_address = this.mainArea + this.subArea + this.address;
-            console.log(total_address);
-          },
-          stopPropagation(e) {
-            e.stopPropagation();
+            if($('.receiver_name').val() != '' || $('.receiver_email').val() != '' || $('.receiver_phone').val() !='' || $('.deliver_name').val() !='' || $('.deliver_phone').val() !="" || this.mainArea != '請選擇縣市' || this.subArea != '請選擇分區' || this.address !=''){
+              var strEmail = $('.receiver_email').val();
+              
+              emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+            
+              if(strEmail.search(emailRule)!= -1){
+                  console.log('ok')
+                  let partten = /^09[0-9]{8}$/;
+                  if(partten.test($('.receiver_phone').val())){
+                    if(partten.test($('.deliver_phone').val())){
+                      this.isShow = !this.isShow;
+                    }else{
+                      alert('收貨人手機格式錯誤')
+                      ('.deliver_phone').val().focus();
+                    }
+                  }else{
+                    alert('訂貨人手機格式錯誤');
+                    $('.receiver.phone').focus();
+                  }
+              }else{
+                  alert('信箱格式錯誤，請確認');
+                  $('.receiver_email').focus();
+              }
+            }else{
+              alert('請填妥所有訂單所需之資訊');
+            }
           },
           turn_front(){
             $('.credit_card_img_front').css('transform', 'rotateY(0deg)')
@@ -959,6 +1034,38 @@
           turn_back(){
             $('.credit_card_img_front').css('transform', 'rotateY(180deg)')
             $('.credit_card_img_back').css('transform', 'rotateY(0deg)')
+          },
+          order_make(){
+            $.ajax({
+            method: 'POST',
+            url: 'php/orderMake.php',
+            data:{
+              EMAIL: $('.receiver_email').val(),
+              PHONE: $('.receiver_phone').val(),
+              RECIPIENT: $('.deliver_name').val(),
+              ORDER_PHONE: $('.deliver_phone').val(),
+              CITY: this.mainArea,
+              AREA: this.subArea,
+              ADDRESS: this.address,
+              TOTAL_PRICE: this.total_money,
+              REMARKS: this.note,
+              discount: this.cuppon_money,
+
+            },
+            dataType: 'text',
+            success: function(response) {
+              if(response == 'yes'){
+                window.location.href='checkout_s3.html'
+              }else{
+                alert('錯誤');
+                console.log(response);
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+          });
           }
         },
         watch:{
@@ -983,7 +1090,36 @@
               $('.deliver_phone').val('');
             }
           }
-        }
+        },
+        mounted() {
+          let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+          let cuppon_box = JSON.parse(sessionStorage.getItem('cuppon_box'));
+          let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));
+          let total_money = 0
+          if(cart_items){
+            this.cart_items = cart_items;
+            cart_items.forEach(function(cart, i){
+              total_money += cart.total_price;
+              return total_money;
+            })
+          }
+          if(cuppon_box){
+            this.cuppon_money = parseInt(cuppon_box);
+          }else{
+            this.cuppon_money = 0;
+          }
+          if(fruit_boxs){
+            this.fruit_boxs = fruit_boxs;
+            fruit_boxs.forEach(function(box, i){
+              total_money += box.total_price;
+            })
+          }
+          console.log(this.fruit_boxs);
+          
+          this.total_money = total_money;
+          this.total_money -= this.cuppon_money;
+          this.total_item = cart_items.length + fruit_boxs.length;
+        },
       });
 
       $("#go_top").on("click", function (e) {

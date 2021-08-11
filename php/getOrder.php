@@ -6,10 +6,12 @@
     //建立SQL語法
 
     include("./Lib/Member.php");
+    getMemberID();
+    $memberID = $_SESSION['MemberID'];
 
     // 從$_SETTION抓出顧客ID，透過顧客ID撈出此顧客的活動預約。
     // $sql = "SELECT * FROM `tfd102-g4`.ORDER WHERE CUSTOMER_ID = $_SESSION(memberID)";
-    $sql = "SELECT * FROM `tfd102-g4`.ORDER WHERE CUSTOMER_ID = 1";
+    $sql = "SELECT * FROM `tfd102-g4`.ORDER WHERE CUSTOMER_ID = $memberID";
 
 
 

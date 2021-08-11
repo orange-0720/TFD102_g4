@@ -80,7 +80,7 @@
         $_SESSION["MemberEMAIL"] = $memberEMAIL; 
 
         //Table 'CUSTOMER'裡的PWD欄位值
-        $_SESSION["MemberPWD"] = $memberPWD; 
+        $_SESSION["MemberID"] = $memberID; 
         
     }
 

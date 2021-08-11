@@ -41,7 +41,7 @@
       font-weight: 700;
     }
     @include mobile {
-      
+      width: 250px;
     }
     .id1 {
       background-color: #91c359;
@@ -164,7 +164,7 @@
         width: 100%;
         top: 24%;
         left: 0%;
-        z-index: 1;
+        z-index: 0;
         position: absolute;
       }
 
@@ -172,14 +172,17 @@
         width: 100%;
         top: 24%;
         left: 0%;
-        z-index: -1;
+        z-index: -3;
         position: absolute;
       }
-
+      .img_src{
+        z-index: -2;
+      }
       @include tablet {
        img{
           width: 90%;
           margin-top: 20px;
+          z-index: -2;
         }
       }
       @include pad {
@@ -193,7 +196,7 @@
 
       @include mobile {
         width: 144%;
-        height: 300px;
+        height: 260px;
         #wooden{
           width: 110%;
           top:80px;
@@ -554,7 +557,173 @@
     z-index: -100;
     transform: scaleX(-1);
   }
+
+
+  button {
+    display: block;
+    margin: 20px;
+    padding: 10px 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #4ebeba;
+    border: none;
+    border-radius: 5px;
+
+  }
+
+  button:hover {
+    cursor: pointer;
+    transition: .5s;
+    box-shadow: 0 0 5px 1px #fff;
+  }
 }
 
+//結帳彈窗 還沒rwd
 
+.happy_buy{
+  display: none;
+  .black_black{
+      position: fixed;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1
+  }
+  .contact_block{
+      @include abs_center();
+      position: fixed;
+      background-color: $white;
+      width: 30%;
+      padding-bottom: 50px;
+      border-radius: 25px;
+      overflow: hidden;
+      z-index: 4;
+        .want_block_Xmark{
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 3%;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 0;
+            background-color: $darkgreen;
+            background-image: url(/images/header_X_mark.svg);
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+            margin-top: 20px;
+        }
 
+      h4{
+          padding: 20px 0;
+          text-align: center;
+      }
+      .img_pic{
+        width: 30vh;
+        margin: auto;
+       
+        img{
+          margin: auto;
+        }  
+      }
+       
+      input{
+          background-color: $white;
+          width: 100%;
+          padding: 10px 10% ;
+          margin: 5px 0px;
+          border: 1px solid $brown;
+          border-radius: 45px;
+          outline: none;
+          font-size: $h4;
+          color: $font_color;
+      }
+      
+      .change_send{
+          @include btn(50%);
+          display: block;
+          @include marginAuto();
+          margin-top: 30px;
+      }
+  }
+}
+
+//刪除蔬菜箱 彈窗結束
+.not_buy{
+  display: none;
+  .black_black{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1
+}
+.contact_block{
+    @include abs_center();
+    position: fixed;
+    background-color: $white;
+    width: 30%;
+    padding-bottom: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+    z-index: 4;
+      .want_block_Xmark{
+          cursor: pointer;
+          display: inline-block;
+          margin-left: 3%;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 0;
+          background-color: $darkgreen;
+          background-image: url(/images/header_X_mark.svg);
+          background-repeat: no-repeat;
+          background-size: 60%;
+          background-position: center;
+          margin-top: 20px;
+      }
+
+    h4{
+        padding: 20px 0;
+        text-align: center;
+    }
+    .img_pic{
+      width: 30vh;
+      margin: auto;
+     
+      img{
+        margin: auto;
+      }  
+    }
+     
+    input{
+        background-color: $white;
+        width: 100%;
+        padding: 10px 10% ;
+        margin: 5px 0px;
+        border: 1px solid $brown;
+        border-radius: 45px;
+        outline: none;
+        font-size: $h4;
+        color: $font_color;
+    }
+    
+    .change_send{
+        @include btn(50%);
+        display: block;
+        @include marginAuto();
+        margin-top: 30px;
+    }
+  }
+}
+// .box_list{
+//   display: flex;
+//   align-items: center;
+//   .box_name{
+//     margin: 10px;
+//   }
+// }

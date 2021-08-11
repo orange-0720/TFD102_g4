@@ -30,23 +30,34 @@
           },
         })
       };
-
-      function getActive(){
-        $ajax({
-          method:'POST',
-          url:'php/getActive.php',
-          dataType: 'json',
-          success: function(response){
-            console.log(response);
-          },
-          error: function(exception) {
-              alert("發生錯誤: " + exception.status);
-          },
-        })
-      };
+      function ifMember(){
+        $.ajax({
+              method: 'POST',
+              url: 'php/ifMember.php',
+              data:{},
+              dataType: 'text',
+              success: function(response) {
+                console.log(response);
+                if(response == 'yes'){
+                  $('.nav_block_log > span').text('會員中心');
+                  $('.login').click(function(){
+                    window.location.href = 'member.html';
+                  });
+                }else{
+                  $('.login').click(function(){
+                    window.location.href = 'login.html';
+                  });
+                }
+              },
+              error: function(exception) {
+                  console.log(exception)
+                  alert("發生錯誤: " + exception.status);
+              },
+        });  
+      }
     </script>
   </head>
-  <body>
+  <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -184,8 +195,8 @@
         </div>
       </div>
 
-      <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
+       <!-- 購物車彈窗  -->
+       <div class="header_shopping_cart">
         <button class="cart_close">
           <img src="./images/checkout/X_mark.svg">
         </button>
@@ -193,11 +204,11 @@
           <img src="./images/header_incart.svg" alt="">
         </div>
         <div class="cart_buy_list">
-          目前購物車空無一物
+          <span class="cart_nothing">目前購物車空無一物</span>
         </div>
         <div class="incart_total">
           總和
-          <span>$0</span>
+          <span class="cart_total_price">0</span>元
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
@@ -210,7 +221,7 @@
 
     <div class="member_logout_block">
         <button onclick="Logout()">登出<img src="./images/member/logout_icon.svg" alt=""></button>
-        <h3>持有購物金:<span>0</span>元</h3>
+        <h3>持有購物金:<span class="discount_money">0</span>元</h3>
     </div>
 
     <!-- vue範圍開始 -->
@@ -275,7 +286,7 @@
         <!-- 訂單開始 -->
         <div class="member_order_detail" v-if="orderShow">
             <h3>訂單查詢</h3>
-            <div class="member_order_block">
+            <div class="member_order_block" v-for="(order,index) in orders">
               <div class="order_box">
                 <div class="order_line">
                   <h4>下單時間</h4>
@@ -285,25 +296,21 @@
                   <h4>配送狀態</h4>
                 </div>
                 <div class="order_inside_detail">
-                  <h4>2021/09/01</h4>
-                  <h4>A0001</h4>
-                  <h4>信用卡</h4>
-                  <h4>399</h4>
-                  <h4>配送中</h4>
+                  <h4>{{order.ADD_DATE}}</h4>
+                  <h4>{{order.ORDER_ID}}</h4>
+                  <h4>{{order.PAYMENT}}</h4>
+                  <h4>{{order.TOTAL_PRICE}}</h4>
+                  <h4>{{order.ORDER_STATUS}}</h4>
                 </div>
               </div>
               <hr>
-              <div @click="turn_on" class="show_order_detail">
+              <div @click="turn_on(index)" class="show_order_detail" :id="index">
                 訂單內容
                 <img class="member_arrow_icon" src="./images/member/member_arrow_icon.svg" alt="">
                 <div class="member_check_order_detail">
                   <div class="check_order_box">
                     <div class="show_order_detail_block">
-                      <section class="show_order_detail_img">商品圖片</section>
-                      <section class="show_order_detail_name">商品名稱</section>
-                      <section class="show_order_detail_sum">數量</section>
-                      <section class="show_order_detail_price">單價</section>
-                      <section class="show_order_detail_total">小計</section>
+                      <section v-for="detail in block_details" :class="detail.class">{{detail.name}}</section>
                     </div>
 
                     <!-- 訂單內容迴圈出現 -->
@@ -320,7 +327,7 @@
                     </div>
                   </div>
                   <hr>
-                  <p class="show_order_total_price">總金額:<span>399</span></p>
+                  <p class="show_order_total_price">總金額:<span>{{order.TOTAL_PRICE}}</span></p>
                 </div>
               </div>
             </div>
@@ -338,7 +345,7 @@
                 <div class="active_inside_detail" v-for="item in actives">
                   <h4>{{item.ACTIVITY_ID}}</h4>
                   <h4>{{item.APPOINTMENT_ID}}</h4>
-                  <h4>{{item.START_DATE}}</h4>
+                  <h4>{{item.APPOINTMENT_DATE}}</h4>
                   <h4>399</h4>
                   <h4>{{item.PEOPLE_NUM}}</h4>
                 </div>
@@ -408,6 +415,7 @@
       </div>
     </footer>
     
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script>
       // 回頁首
@@ -446,13 +454,20 @@
           your_question: "",
 
           actives:[],
-
+          orders:[],
+          block_details:[
+            {class:'show_order_detail_img', name:'商品圖片'},
+            {class:'show_order_detail_name', name:'商品名稱'},
+            {class:'show_order_detail_sum', name:'數量'},
+            {class:'show_order_detail_price', name:'單價'},
+            {class:'show_order_detail_total', name:'小計'},
+          ],
         },
         methods: {
-          turn_on(){
-            let arrow = document.getElementsByClassName('member_arrow_icon')[0];
-            arrow.classList.toggle('turn_on');
-            $('.member_check_order_detail').slideToggle();
+          turn_on(index){
+            let order_item = document.getElementsByClassName('show_order_detail')[index];
+            $(order_item).children('.member_arrow_icon').toggleClass('turn_on');
+            $(order_item).children('.member_check_order_detail').slideToggle();
           },
           show_member(){
             this.memberShow = true;
@@ -545,6 +560,7 @@
                     alert('密碼變更完成');
                   }else{
                     alert('密碼錯誤');
+                    console.log(response)
                   }
                 },
                 error: function(exception) {
@@ -571,8 +587,10 @@
             },
             error: function(exception) {
                 alert("發生錯誤: " + exception.status);
+                console.log(exception)
             },
           }),
+          // 取得會員資料&購物金
           $.ajax({
             method: 'POST',
             url: 'php/getMember.php',
@@ -585,11 +603,30 @@
                 member_block.member_hb = index['PHONE'];
                 member_block.member_phone = index['PHONE'];
                 member_block.member_address = index['ADDRESS'];
+                $('.discount_money').text(index['DISCOUNT']);
               })
             },
             error: function(exception) {
-                console.log(exception);
-                alert("發生錯誤: " + exception.status);
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
+            },
+          }),
+          // 取得訂單資訊
+          $.ajax({
+            method: 'POST',
+            url: 'php/getOrder.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              console.log(response);
+              response.forEach(function(index,i){
+                member_block.orders = response;
+                console.log(response)
+              })
+            },
+            error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
             },
           })
         }
