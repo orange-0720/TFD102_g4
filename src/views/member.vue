@@ -2,38 +2,8 @@
   <div>
     <header class="header">
       
-      <div class="menu_fixed">
-        <div class="icon">
-          <div class="ham">
-            <div class="ham_top"></div>
-            <div class="ham_middle"></div>
-            <div class="ham_bottom"></div>
-          </div>
-          <div class="login">
-            <a href="./login.html">
-              <img src="@/assets/images/login_icon.svg" alt="login_icon" />
-            </a>
-          </div>
-          <div class="shop_car">
-            <img src="@/assets/images/shopping_cart.svg" alt="shopping_cart" />
-          </div>
-        </div>
-      </div>
-      <div class="menu">
-        <div class="logo_img">
-          <a href="./index.html">
-            <img src="@/assets/images/logo.svg" alt="logo" />
-          </a>
-        </div>
-        <div class="page_list">
-          <a href="./event.html">農村體驗</a>
-          <a href="./fruit_box.html">客製蔬果箱</a>
-          <a href="./game.html">蔬果知識小遊戲</a>
-          <a href="./aboutUs.html">關於我們</a>
-          <a href="./q_a.html">問與答</a>
-          <a href="./shopping_page.html">新鮮蔬果</a>
-        </div>
-      </div>
+
+
       <div class="title">
         <div class="title_btn">
           <button class="comm_us">
