@@ -17,10 +17,36 @@
   <!-- Aos  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
 </head>
+<script>
+  function ifMember(){
+    $.ajax({
+          method: 'POST',
+          url: 'php/ifMember.php',
+          data:{},
+          dataType: 'text',
+          success: function(response) {
+            console.log(response);
+            if(response == 'yes'){
+              $('.nav_block_log > span').text('會員中心');
+              $('.login').click(function(){
+                window.location.href = 'member.html';
+              });
+            }else{
+              $('.login').click(function(){
+                window.location.href = 'login.html';
+              });
+            }
+          },
+          error: function(exception) {
+              console.log(exception)
+              alert("發生錯誤: " + exception.status);
+          },
+    });  
+  }
+</script>
 
-<body>
+<body onload="ifMember()">
   <header class="header">
     <!-- 手機板header -->
     <div class="fixed_top"></div>
@@ -52,29 +78,30 @@
           立即買<img src="./images/buy_now.svg" width="25px" alt="" />
         </a>
       </div>
-
     </div>
     <!-- 漢堡彈窗 -->
     <div class="jump_hamburger_block"></div>
     <!-- 漢堡彈窗結束 -->
 
-    <!-- 聯絡我們彈窗 -->
-    <div class="index_contact_box">
+     <!-- 聯絡我們彈窗 -->
+     <div class="index_contact_box">
       <div class="black_block"></div>
       <div class="cotanct_block">
         <div class="contact_block_head">
           <button class="contact_block_Xmark"></button>
         </div>
-        <h2>聯絡我們</h2>
+        <h3>聯絡我們</h3>
         <div class="contact_search_bar">
-          <input type="text" id="order_search" placeholder="請輸入訂單編號">
+          <input type="text" id="order_search" placeholder="請輸入訂單編號" />
           <button class="search_icon">
-            <img src="./images/header_search_icon.svg" alt="search">
+            <img src="./images/header_search_icon.svg" alt="search" />
           </button>
         </div>
-        <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+        <h4>若有其他問題可以點擊下方按鈕寄信</h4>
         <div class="mailto_block">
-          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
+            >寄送問題</a
+          >
         </div>
       </div>
     </div>
@@ -82,12 +109,37 @@
 
     <!-- 購物車彈窗  -->
     <div class="header_shopping_cart">
-      
+      <div class="header_shopping_cart">
+        <div class="black_black"></div>
+        <div class="cart_cotanct_block">
+          <button class="cart_close" >
+            <img src="./images/checkout/X_mark.svg">
+          </button>
+          <div class="incart_car_block">
+            <img src="./images/header_incart.svg" alt=""><h5>Shop Cart</h5>
+          </div>
+          <div class="cart_buy_list">
+            <span class="cart_nothing">目前購物車空無一物</span>
+          </div>
+          <div class="incart_total">
+            總和
+            <span class="cart_total_price">0</span>元
+            <!-- 手機板結帳去  -->
+            <a class="incart_checkout_btn_mobile" href="./checkout.html"><h5>結帳去</h5></a>
+          </div>
+          <div class="incart_checkout_block">
+            <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- 購物車彈窗結束  -->
+    <!-- 右側滾輪 -->
     <div class="scrollbar" id="style-6">
       <div class="force-overflow"></div>
     </div>
+    
+
   </header>
   <div id="app">
     <!-- 標題 -->
@@ -163,24 +215,6 @@
     </div>
     <!-- 確認購買視窗結束 -->
 
-<<<<<<< HEAD
-    <!-- 按確認購買 購買視窗 -->
-    <div class="happy_buy">
-      <div class="black_black"></div>
-      <div class="contact_block">
-
-
-
-
-        
-      </div>
-
-
-    </div>
-
-    <!-- 按確認刪除 刪除視窗 -->
-
-=======
     <!-- 刪除蔬菜箱移除彈窗 -->
     <div class="not_buy">
       <div class="black_black" @click="not_buy">
@@ -198,7 +232,6 @@
       </div>
     </div>
     <!-- 刪除蔬菜箱移除彈窗結束 -->
->>>>>>> dev
 
     <!-- 價位按鈕 -->
     <div class="price_all">
@@ -646,12 +679,6 @@
           this.basket = this.basket.filter((fruit) => fruit !== goodbye.id);
         },
 
-<<<<<<< HEAD
-        // del(){
-
-        // }
-
-=======
         //打勾按鈕
         go_up() {
           if(this.basket.length < 5){
@@ -778,7 +805,6 @@
         close_up(){
           $('.happy_buy').fadeToggle();
         }
->>>>>>> dev
       },
       
       mounted() {
@@ -808,8 +834,7 @@
         scrollTop: 0
       }, 750);
     });
-
-
+    
   </script>
   <script src="./js/shopping_cart.js"></script>
   <script src="./js/header.js"></script>
