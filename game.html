@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body id="game_page">
     <header class="header">
@@ -196,18 +200,13 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-        <img
-          src="./images/game/game_img_Tomato.png"
-          alt=""
-          class="game icon_4"
-        />
         <div id="count">
           <h1>10秒</h1>
         </div>
         <div class="game_test">
           <img src="./images/game/game_img_Avocado.svg" alt="" id="game_test" />
         </div>
-        <div id="game_question">
+        <div id="game_question" class="animate__animated animate__bounceInDown">
           <h2>
             腦力激盪，測試蔬果知識!
             <br />5題答對才能挑戰扭蛋獲取購物金，準備好了嗎?
@@ -232,16 +231,11 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-        <img
-          src="./images/game/game_img_Tomato.png"
-          alt=""
-          class="game icon_4"
-        />
         <div id="count"><h1>{{time+"秒"}}</h1></div>
         <div class="game_test_2">
           <img src="./images/game/game_tomato.svg" alt="" id="game_test" />
         </div>
-        <div id="game_question">
+        <div id="game_question" class="animate__animated animate__bounceInDown">
           <h2>番茄最重要的營養素為?</h2>
         </div>
         <div id="game_bottom_part">
@@ -268,11 +262,6 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-        <img
-          src="./images/game/game_img_Tomato.png"
-          alt=""
-          class="game icon_4"
-        />
         <div id="count"><h1>{{time+"秒"}}</h1></div>
         <div class="game_test_2">
           <img
@@ -281,7 +270,7 @@
             id="game_test"
           />
         </div>
-        <div id="game_question">
+        <div id="game_question" class="animate__animated animate__bounceInDown">
           <h2>為什麼同一品種的高麗菜有尖頭與平頭兩種外觀?</h2>
         </div>
         <div id="game_bottom_part">
@@ -308,16 +297,11 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-        <img
-          src="./images/game/game_img_Tomato.png"
-          alt=""
-          class="game icon_4"
-        />
         <div id="count"><h1>{{time+"秒"}}</h1></div>
         <div class="game_test_2">
           <img src="./images/game/game_img_onion.svg" alt="" id="game_test" />
         </div>
-        <div id="game_question">
+        <div id="game_question" class="animate__animated animate__bounceInDown">
           <h2>洋蔥的種植方式為以下何者?</h2>
         </div>
         <div id="game_bottom_part">
@@ -345,16 +329,11 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-        <img
-          src="./images/game/game_img_Tomato.png"
-          alt=""
-          class="game icon_4"
-        />
         <div id="count"><h1>{{time+"秒"}}</h1></div>
         <div class="game_test_2">
           <img src="./images/game/game_img_potato.svg" alt="" id="game_test" />
         </div>
-        <div id="game_question">
+        <div id="game_question" class="animate__animated animate__bounceInDown">
           <h2>本產馬鈴薯為一年幾獲?</h2>
         </div>
         <div id="game_bottom_part">
@@ -382,11 +361,6 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-        <img
-          src="./images/game/game_img_Tomato.png"
-          alt=""
-          class="game icon_4"
-        />
         <div id="count"><h1>{{time+"秒"}}</h1></div>
         <div class="game_test_2">
           <img
@@ -395,7 +369,7 @@
             id="game_test"
           />
         </div>
-        <div id="game_question">
+        <div id="game_question" class="animate__animated animate__bounceInDown">
           <h2>如何挑到好吃的白蘿蔔?</h2>
         </div>
         <div id="game_bottom_part">
@@ -420,7 +394,7 @@
 
     <!-- ==輪波圖== -->
 
-    <section id="game_slideshow_step_lottery">
+    <section id="game_slideshow_step">
       <div id="game_slideshow">
         <img
           src="./images/game/game_scroll_1.png"

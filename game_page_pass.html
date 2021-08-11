@@ -10,6 +10,10 @@
     <link rel="icon" href="./images/logo-02.svg" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/jquery-3.6.0.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body id="game_page">
     <header class="header">
@@ -192,14 +196,14 @@
       <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
       <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
       <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
-      <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" />
-      <div id="count"><h1>10</h1></div>
+      <!-- <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" /> -->
+      <div id="count"><h1>時間到!</h1></div>
       <div class="game_test_2">
         <img src="./images/game/game_img_Tomato.svg" alt="" id="game_test" />
       </div>
-      <div id="game_question">
+      <div id="game_question" class="animate__animated animate__bounceInDown">
         <h2>
-          恭喜你!<br />通過了蔬菜們的考驗<br />請註冊會員，或登入會員進行扭蛋遊戲
+          恭喜!通過了蔬菜們的考驗<br />請註冊會員，或登入會員進行扭蛋遊戲
         </h2>
       </div>
       <div id="game_bottom_part_PassandDefeat">
@@ -208,10 +212,10 @@
             <div id="action1"><a href="member.html">註冊會員</a></div>
             <img src="./images/game/rightArrow.svg" alt="" id="rightArrow" />
           </button>
-          <button type="submit" id="submit_2" class="green">
+          <button type="submit" id="submit_2" class="green" onclick="doCheck()">
             <img src="./images/game/leftArrow.svg" alt="" id="leftArrow" />
             <div id="action1">
-              <a href="game_page_lotteryStart.html">登入會員，扭蛋去</a>
+              登入會員，扭蛋去
             </div>
           </button>
         </div>
@@ -302,16 +306,41 @@
 
     <script src="./js/header.js"></script>
     <script>
-      //暫時button js
-      // let button=document.querySelector("button#submit");
-      // button.addEventListener("click",function(){
-      //     this.classList.remove("green");
-      //     this.classList.add("blue");
-      // })
-      // button.addEventListener("mouseleave",function(){
-      //         this.classList.remove("blue");
-      //         this.classList.add("green");
-      //     })
+      //AJAX 確認會員資格
+      function doCheck(){
+        // alert('aaa');
+        $.ajax({//jQuery-AJAX語法            
+            method: 'POST',//方式
+            url: 'php/check_member.php',//API伺服器  
+            data:{},
+            dataType: 'text', //傳送的不是JSON檔，用TEXT型態就可以了       
+            success: function (response) {//response是由php回傳
+                //更新html內容
+                if(response=="yes"){
+                  window.location.href ='./game_page_lotteryStart.html';
+                  alert("親愛的會員，歡迎你小試身手來轉蛋");  
+                }else if(response=="used"){    
+                  // (response=no)
+                 window.location.href ='./shopping_page.html';
+                 alert("您尚有購物金未使用，請購物"); 
+                }else{
+                  window.location.href ='./login.html';
+                  alert("請先登入會員"); 
+                }
+                
+            },
+            error: function(exception) {//error是代表AJAX response的error
+                console.log(exception);
+            }
+        });
+
+      }
+
+
+
+
+
+
       //Slider
       $("#game_slideshow").each(function() {
         let slideImgs = $(this).find("img");
