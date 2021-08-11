@@ -227,7 +227,7 @@
     <div id="shopping2_detail">
       <div class="checkout_s2_shopping_detail">
         <p>商品總金額 <span>{{total_money}}</span>元</p>
-        <p>(已扣購物金 <span>{{cuppon_money[0]}}</span>元)</p>
+        <p>(已扣購物金 <span>{{cuppon_money}}</span>元)</p>
         <!-- 數字部分要用函數帶入 -->
         <p class="checkout_s2_shopping_detail_total">
           共計{{total_item}}件商品
@@ -241,6 +241,23 @@
             <section v-for="detail in block_details" :class="detail.class">{{detail.name}}</section>
           </div>
           <div class="checkout_shopping_product_detail" v-for="(item,index) in cart_items">
+            <section class="checkout_shopping_product_detail_img">
+              <img :src="item.item_img" />
+            </section>
+            <section class="checkout_shopping_product_detail_name">
+              {{item.item_name}}
+            </section>
+            <section class="checkout_shopping_product_detail_sum">
+              {{item.item_number}}
+            </section>
+            <section class="checkout_shopping_product_detail_price">
+              {{item.unit_price}}
+            </section>
+            <section class="checkout_shopping_product_detail_total">
+              {{item.total_price}}
+            </section>
+          </div>
+          <div class="checkout_shopping_product_detail" v-for="(item,index) in fruit_boxs">
             <section class="checkout_shopping_product_detail_img">
               <img :src="item.item_img" />
             </section>
@@ -465,6 +482,7 @@
             {class:"checkout_shopping_detail_total", name:'小計'},
           ],
           cart_items:[],  //存放購物詳細資訊
+          fruit_boxs:[],
           receiver_detail:[
             {name:'訂購人名稱', class:'receiver_name'},
             {name:'電子郵件', class:'receiver_email'},
@@ -1076,22 +1094,31 @@
         mounted() {
           let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
           let cuppon_box = JSON.parse(sessionStorage.getItem('cuppon_box'));
+          let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));
+          let total_money = 0
           if(cart_items){
             this.cart_items = cart_items;
+            cart_items.forEach(function(cart, i){
+              total_money += cart.total_price;
+              return total_money;
+            })
           }
           if(cuppon_box){
-            this.cuppon_money = cuppon_box;
+            this.cuppon_money = parseInt(cuppon_box);
+          }else{
+            this.cuppon_money = 0;
           }
-
-          let total_money = 0
-          cart_items.forEach(function(cart, i){
-            total_money += cart.total_price;
-            return total_money;
-          })
-
+          if(fruit_boxs){
+            this.fruit_boxs = fruit_boxs;
+            fruit_boxs.forEach(function(box, i){
+              total_money += box.total_price;
+            })
+          }
+          console.log(this.fruit_boxs);
+          
           this.total_money = total_money;
           this.total_money -= this.cuppon_money;
-          this.total_item = cart_items.length;
+          this.total_item = cart_items.length + fruit_boxs.length;
         },
       });
 

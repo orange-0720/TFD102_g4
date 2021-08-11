@@ -83,22 +83,21 @@ $(".jump_hamburger_block").append(`
 //購物車彈窗
 
 $(".header_shopping_cart").append(`
-    
     <button class="cart_close">
-    <img src="./images/checkout/X_mark.svg">
+      <img src="./images/checkout/X_mark.svg">
     </button>
     <div class="incart_car_block">
-    <img src="./images/header_incart.svg" alt="">
+      <img src="./images/header_incart.svg" alt="">
     </div>
     <div class="cart_buy_list">
-    <span class="cart_nothing">目前購物車空無一物</span>
+      <span class="cart_nothing">目前購物車空無一物</span>
     </div>
     <div class="incart_total">
-    總和
-    <span class="cart_total_price">0</span>元
+      總和
+      <span class="cart_total_price">0</span>元
     </div>
     <div class="incart_checkout_block">
-    <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+      <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
     </div>
     
 `);

@@ -17,6 +17,7 @@
   <!-- Aos  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -81,7 +82,6 @@
 
     <!-- 購物車彈窗  -->
     <div class="header_shopping_cart">
-      <div class="black_black" ></div>
       
     </div>
     <!-- 購物車彈窗結束  -->
@@ -150,7 +150,7 @@
       <div class="black_black">
       </div>
         <div class="contact_block">
-          <button  class="want_block_Xmark" @click.stop="go_up">
+          <button  class="want_block_Xmark" @click="close_up">
           </button>   
           <h4>
             您的客製蔬果箱 ${{ go_price }} 已加入購物車
@@ -158,7 +158,7 @@
           <div class="img_pic">
              <img :src="`./images/fruit_box/cart/${ go_price }_cart.png`" width="200px" >
           </div>
-          <input type="button" class="change_send" value="確認" @click.stop="go_up()">
+          <input type="button" class="change_send" value="確認" @click="close_up">
         </div>
     </div>
     <!-- 確認購買視窗結束 -->
@@ -376,6 +376,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="./js/right_nav_bar.js"></script>
   <script>
     new Vue({
       el: '#app',
@@ -637,17 +639,36 @@
                 }
               })
             })
+            switch(this.go_price){
+              case 399:
+                product_name.push('洋蔥(贈品)');
+                break;
+              case 499:
+                product_name.push('洋蔥(贈品)');
+                product_name.push('薑(贈品)');
+                break;
+              case 599:
+                product_name.push('洋蔥(贈品)');
+                product_name.push('薑(贈品)');
+                product_name.push('蔥(贈品)');
+            }
+
             let unit_price = this.go_price; //單價
             let item_img = `./images/fruit_box/cart/${ this.go_price }_cart.png` //照片
             let item_number = 1;  // 數量
             let item_name = `客製蔬果箱${this.go_price}` // 商品名稱
             let item_id = Date.now();
-            let total_price = item_number * unit_price
+            let total_price = item_number * unit_price;
+
+            let product_name_list=[];
+            product_name.forEach(function(index,i){
+              product_name_list += `<li>${index}</li>`
+            })
 
             $('.cart_nothing').fadeOut();
             $('.cart_buy_list').append(
               `
-                <div class="fruit_box_list" data-id="${item_id}">
+                <div class="cart_inside_item" data-id="${item_id}">
                   <div class="fruit_box_inside">
                     <div class="fruit_box_img">
                       <img src="${item_img}"/>  
@@ -663,7 +684,12 @@
                       <img src="./images/checkout/delete_icon.svg"/>  
                     </div>
                   </div>
-                  <div>
+                  <div class="fruit_detail">
+                    <img class="cart_arrow" src="./images/shopping_page/shopping_arrow_icon.svg"/>
+                    <ul>
+                      ${product_name_list}
+                    </ul>
+                  </div>
                 </div>
               `
             );
@@ -689,14 +715,18 @@
                 fruit_boxs.forEach(function(box, i){
                     count_price += parseInt(box.total_price)
                 });
-                count_price += parseInt($('cart_total_price').text());
-                $('.cart_total_price').text(count_price);
+                console.log(typeof(count_price));
+                let cart_price_now = parseInt($('.cart_total_price').html());
+                count_price += cart_price_now;
+                $('.cart_total_price').html(count_price);
 
             } else {
                 // 若不存在
                 console.log('不存在')
                 fruit_boxs = [fruit_box];
-                $('.cart_total_price').html(this.go_price);
+                let price_now = parseInt($('.cart_total_price').text());
+                let new_price = price_now + total_price;
+                $('.cart_total_price').html(new_price);
             }
             sessionStorage.setItem("fruit_boxs", JSON.stringify(fruit_boxs));
             this.basket = [];
@@ -716,6 +746,9 @@
           $('.not_buy').fadeToggle();
             this.basket = []
         },
+        close_up(){
+          $('.happy_buy').fadeToggle();
+        }
       },
       
       mounted() {
@@ -751,7 +784,7 @@
   <script src="./js/shopping_cart.js"></script>
   <script src="./js/header.js"></script>
   <!-- <script src="js/header_cart.js"></script> -->
-  <script src="./js/right_nav_bar.js"></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
