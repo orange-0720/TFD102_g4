@@ -18,8 +18,35 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+<script>
+  function ifMember(){
+    $.ajax({
+          method: 'POST',
+          url: 'php/ifMember.php',
+          data:{},
+          dataType: 'text',
+          success: function(response) {
+            console.log(response);
+            if(response == 'yes'){
+              $('.nav_block_log > span').text('會員中心');
+              $('.login').click(function(){
+                window.location.href = 'member.html';
+              });
+            }else{
+              $('.login').click(function(){
+                window.location.href = 'login.html';
+              });
+            }
+          },
+          error: function(exception) {
+              console.log(exception)
+              alert("發生錯誤: " + exception.status);
+          },
+    });  
+  }
+</script>
 
-<body>
+<body onload="ifMember()">
   <header class="header">
     <!-- 手機板header -->
     <div class="fixed_top"></div>
@@ -51,29 +78,30 @@
           立即買<img src="./images/buy_now.svg" width="25px" alt="" />
         </a>
       </div>
-
     </div>
     <!-- 漢堡彈窗 -->
     <div class="jump_hamburger_block"></div>
     <!-- 漢堡彈窗結束 -->
 
-    <!-- 聯絡我們彈窗 -->
-    <div class="index_contact_box">
+     <!-- 聯絡我們彈窗 -->
+     <div class="index_contact_box">
       <div class="black_block"></div>
       <div class="cotanct_block">
         <div class="contact_block_head">
           <button class="contact_block_Xmark"></button>
         </div>
-        <h2>聯絡我們</h2>
+        <h3>聯絡我們</h3>
         <div class="contact_search_bar">
-          <input type="text" id="order_search" placeholder="請輸入訂單編號">
+          <input type="text" id="order_search" placeholder="請輸入訂單編號" />
           <button class="search_icon">
-            <img src="./images/header_search_icon.svg" alt="search">
+            <img src="./images/header_search_icon.svg" alt="search" />
           </button>
         </div>
-        <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+        <h4>若有其他問題可以點擊下方按鈕寄信</h4>
         <div class="mailto_block">
-          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
+            >寄送問題</a
+          >
         </div>
       </div>
     </div>
@@ -81,13 +109,37 @@
 
     <!-- 購物車彈窗  -->
     <div class="header_shopping_cart">
-      <div class="black_black" ></div>
-      
+      <div class="header_shopping_cart">
+        <div class="black_black"></div>
+        <div class="cart_cotanct_block">
+          <button class="cart_close" >
+            <img src="./images/checkout/X_mark.svg">
+          </button>
+          <div class="incart_car_block">
+            <img src="./images/header_incart.svg" alt=""><h5>Shop Cart</h5>
+          </div>
+          <div class="cart_buy_list">
+            <span class="cart_nothing">目前購物車空無一物</span>
+          </div>
+          <div class="incart_total">
+            總和
+            <span class="cart_total_price">0</span>元
+            <!-- 手機板結帳去  -->
+            <a class="incart_checkout_btn_mobile" href="./checkout.html"><h5>結帳去</h5></a>
+          </div>
+          <div class="incart_checkout_block">
+            <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- 購物車彈窗結束  -->
+    <!-- 右側滾輪 -->
     <div class="scrollbar" id="style-6">
       <div class="force-overflow"></div>
     </div>
+    
+
   </header>
   <div id="app">
     <!-- 標題 -->
@@ -150,7 +202,7 @@
       <div class="black_black">
       </div>
         <div class="contact_block">
-          <button  class="want_block_Xmark" @click.stop="go_up">
+          <button  class="want_block_Xmark" @click="close_up">
           </button>   
           <h4>
             您的客製蔬果箱 ${{ go_price }} 已加入購物車
@@ -158,7 +210,7 @@
           <div class="img_pic">
              <img :src="`./images/fruit_box/cart/${ go_price }_cart.png`" width="200px" >
           </div>
-          <input type="button" class="change_send" value="確認" @click.stop="go_up()">
+          <input type="button" class="change_send" value="確認" @click="close_up">
         </div>
     </div>
     <!-- 確認購買視窗結束 -->
@@ -376,6 +428,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="./js/right_nav_bar.js"></script>
   <script>
     new Vue({
       el: '#app',
@@ -588,12 +642,16 @@
           switch (price) {
             case 399:
               data = './js/_fruitBoxData_399.json'
+              this.delete_basket=[];
+              //this.fruits_item=[];
               break;
             case 499:
               data = './js/_fruitBoxData_499.json'
+              this.delete_basket=[];
               break;
             case 599:
               data = './js/_fruitBoxData_599.json'
+              this.delete_basket=[];
               break;
           }
           await $.getJSON(data)
@@ -637,17 +695,36 @@
                 }
               })
             })
+            switch(this.go_price){
+              case 399:
+                product_name.push('洋蔥(贈品)');
+                break;
+              case 499:
+                product_name.push('洋蔥(贈品)');
+                product_name.push('薑(贈品)');
+                break;
+              case 599:
+                product_name.push('洋蔥(贈品)');
+                product_name.push('薑(贈品)');
+                product_name.push('蔥(贈品)');
+            }
+
             let unit_price = this.go_price; //單價
             let item_img = `./images/fruit_box/cart/${ this.go_price }_cart.png` //照片
             let item_number = 1;  // 數量
             let item_name = `客製蔬果箱${this.go_price}` // 商品名稱
             let item_id = Date.now();
-            let total_price = item_number * unit_price
+            let total_price = item_number * unit_price;
+
+            let product_name_list=[];
+            product_name.forEach(function(index,i){
+              product_name_list += `<li>${index}</li>`
+            })
 
             $('.cart_nothing').fadeOut();
             $('.cart_buy_list').append(
               `
-                <div class="fruit_box_list" data-id="${item_id}">
+                <div class="cart_inside_item" data-id="${item_id}">
                   <div class="fruit_box_inside">
                     <div class="fruit_box_img">
                       <img src="${item_img}"/>  
@@ -663,7 +740,12 @@
                       <img src="./images/checkout/delete_icon.svg"/>  
                     </div>
                   </div>
-                  <div>
+                  <div class="fruit_detail">
+                    <img class="cart_arrow" src="./images/shopping_page/shopping_arrow_icon.svg"/>
+                    <ul>
+                      ${product_name_list}
+                    </ul>
+                  </div>
                 </div>
               `
             );
@@ -689,14 +771,18 @@
                 fruit_boxs.forEach(function(box, i){
                     count_price += parseInt(box.total_price)
                 });
-                count_price += parseInt($('cart_total_price').text());
-                $('.cart_total_price').text(count_price);
+                console.log(typeof(count_price));
+                let cart_price_now = parseInt($('.cart_total_price').html());
+                count_price += cart_price_now;
+                $('.cart_total_price').html(count_price);
 
             } else {
                 // 若不存在
                 console.log('不存在')
                 fruit_boxs = [fruit_box];
-                $('.cart_total_price').html(this.go_price);
+                let price_now = parseInt($('.cart_total_price').text());
+                let new_price = price_now + total_price;
+                $('.cart_total_price').html(new_price);
             }
             sessionStorage.setItem("fruit_boxs", JSON.stringify(fruit_boxs));
             this.basket = [];
@@ -716,6 +802,9 @@
           $('.not_buy').fadeToggle();
             this.basket = []
         },
+        close_up(){
+          $('.happy_buy').fadeToggle();
+        }
       },
       
       mounted() {
@@ -745,13 +834,12 @@
         scrollTop: 0
       }, 750);
     });
-
-
+    
   </script>
   <script src="./js/shopping_cart.js"></script>
   <script src="./js/header.js"></script>
   <!-- <script src="js/header_cart.js"></script> -->
-  <script src="./js/right_nav_bar.js"></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

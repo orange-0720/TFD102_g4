@@ -15,12 +15,8 @@
     />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
   </head>
-  <body id="game_page">
+  <body id="game_page" onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
       <div class="fixed_top">
@@ -105,7 +101,7 @@
           </div>
           <a class="nav_block_log" href="./login.html">
             <img src="./images/nav_block_log.svg" />
-            登入註冊
+            <span>登入註冊</span>
           </a>
           <div class="nav_right_block">
             <div class="nav_active">
@@ -150,20 +146,21 @@
       </div>
       <!-- 漢堡彈窗結束 -->
 
+      <!-- 聯絡我們彈窗 -->
       <div class="index_contact_box">
         <div class="black_block"></div>
         <div class="cotanct_block">
           <div class="contact_block_head">
             <button class="contact_block_Xmark"></button>
           </div>
-          <h2>聯絡我們</h2>
+          <h3>聯絡我們</h3>
           <div class="contact_search_bar">
             <input type="text" id="order_search" placeholder="請輸入訂單編號" />
             <button class="search_icon">
               <img src="./images/header_search_icon.svg" alt="search" />
             </button>
           </div>
-          <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+          <h4>若有其他問題可以點擊下方按鈕寄信</h4>
           <div class="mailto_block">
             <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
               >寄送問題</a
@@ -171,6 +168,7 @@
           </div>
         </div>
       </div>
+      <!-- 聯絡我們彈窗結束 -->
 
       <!-- 購物車彈窗  -->
       <div class="header_shopping_cart">
@@ -189,7 +187,36 @@
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
         </div>
       </div>
+      <!-- 購物車彈窗  -->
+      <div class="header_shopping_cart">
+        <button class="cart_close">
+          <img src="./images/checkout/X_mark.svg" />
+        </button>
+        <div class="incart_car_block">
+          <img src="./images/header_incart.svg" alt="" />
+          <h5>Shop Cart</h5>
+        </div>
+        <div class="cart_buy_list">
+          <span class="cart_nothing">目前購物車空無一物</span>
+        </div>
+        <div class="incart_total">
+          總和
+          <span class="cart_total_price">0</span>元
+          <!-- 手機板結帳去  -->
+          <a class="incart_checkout_btn_mobile" href="./checkout.html"
+            ><h5>結帳去</h5></a
+          >
+        </div>
+        <div class="incart_checkout_block">
+          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+        </div>
+      </div>
       <!-- 購物車彈窗結束  -->
+
+      <!-- 滾輪  -->
+      <div class="scrollbar" id="style-6">
+        <div class="force-overflow"></div>
+      </div>
     </header>
 
     <div id="app">
@@ -212,13 +239,11 @@
               id="cooking_nabe_top"
               v-show="resultShow"
               class="animate__animated animate__bounce animate__infinite	infinite"
-              style="left: 16%;"
             />
           </transition>
           <div
             id="bowl"
             class="animate__animated animate__pulse animate__infinite	infinite"
-            style="left:21.5%;top:15%;"
           >
             <img
               src="./images/game/lottery_Beetroot.svg"
@@ -251,7 +276,6 @@
               id="cooking_nabe_bottom"
               v-show="resultShow"
               class="animate__animated animate__bounce animate__infinite	infinite"
-              style="left: 16%;top:50% ;"
             />
           </transition>
         </div>
@@ -283,8 +307,8 @@
           </transition>
           <transition>
             <div id="get_coin" v-show="isShow">
-              <button type="submit" id="submit_12" @click=" show_coin">
-                <div id="action1">點擊查看購物金</div>
+              <button type="submit" id="submit_12" @click="get_coin(200)">
+                <div id="action1">查看購物金</div>
                 <img
                   src="./images/game/rightArrow.svg"
                   alt=""
@@ -296,7 +320,7 @@
                   src="./images/game/money_kinbut_texta.png"
                   alt=""
                   id="pig"
-                  class="animate__animated animate__headShake animate__repeat-2 2	"
+                  class="animate__animated animate__headShake animate__infinite	"
               /></span>
             </div>
           </transition>
@@ -312,6 +336,39 @@
         <!-- button在外層直接換內層 -->
       </section>
     </div>
+
+    <!-- ==輪波圖== -->
+
+    <section id="game_slideshow_step_lottery">
+      <div id="game_slideshow">
+        <img
+          src="./images/game/game_scroll_1.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_2.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_3.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_4.png"
+          class="game_slideshow"
+          alt=""
+        />
+        <img
+          src="./images/game/game_scroll_5.png"
+          class="game_slideshow"
+          alt=""
+        />
+      </div>
+    </section>
+
     <footer class="footer_bg">
       <div class="footer">
         <button class="go_top" id="go_top">
@@ -355,7 +412,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="./js/shopping_cart.js"></script>
     <script src="./js/header.js"></script>
     <script>
       //vue區域
@@ -369,13 +426,33 @@
           show_result() {
             this.isShow = true;
             this.resultShow = false;
-            $("#game_bottom_part_lottery").css("margin-top", "30px");
+            $("#game_slideshow_step_lottery").css("height", "350px");
+            $("#game_bottom_part_lottery").css("margin-top", "20px");
             $("div.game_test_3")
               .css("height", "400px")
               .css("margin-top", "6rem");
           },
-          show_coin() {
-            window.location.href = "member.html";
+          get_coin(money) {
+            $.ajax({
+              //jQuery-AJAX語法
+              method: "POST", //方式
+              url: "php/get_discount.php", //API伺服器
+              data: {
+                money: money,
+              },
+              dataType: "text", //傳送的不是JSON檔，用TEXT型態就可以了
+              success: function(response) {
+                //response是由php回傳
+                //更新html內容
+                console.log(response);
+                window.location.href = "member.html";
+                alert("購物金已存入!");
+              },
+              error: function(exception) {
+                //error是代表AJAX response的error
+                console.log(exception);
+              },
+            });
           },
         },
       });
@@ -391,6 +468,11 @@
 
       $("button#submit_11").click(function() {
         $("#game_question").css("display", "none");
+        $(".game_test_3").css("height", "30vh");
+        $(".game_test_3").css("margin-top", "9vh");
+        $(".game_test_3").css("margin-bottom", "10vh");
+        $("#game_bottom_part_lottery").css("height", "150px");
+        $(".icon_11").css("display", "none");
         return false;
       });
 
@@ -398,7 +480,10 @@
         $("#bowl").addClass(
           "animate__animated animate__bounce animate__infinite	infinite"
         );
-        $("#bowl").css("left", "20%");
+
+        // $("#bowl").css("left", "13%");
+        // $("#bowl").css("height", "220px");
+        // $("#bowl").css("width", "220px");
         // $("#bowl img").css("animation", "none");
         $("img#orange").css("animation-name", "jumpOrange");
         $("img#potato").css("animation-name", "jumpPotato");
@@ -430,6 +515,32 @@
         }
       });
 
+      //檢查會員登入
+      function ifMember() {
+        $.ajax({
+          method: "POST",
+          url: "php/ifMember.php",
+          data: {},
+          dataType: "text",
+          success: function(response) {
+            console.log(response);
+            if (response == "yes") {
+              $(".nav_block_log > span").text("會員中心");
+              $(".login").click(function() {
+                window.location.href = "member.html";
+              });
+            } else {
+              $(".login").click(function() {
+                window.location.href = "login.html";
+              });
+            }
+          },
+          error: function(exception) {
+            console.log(exception);
+            alert("發生錯誤: " + exception.status);
+          },
+        });
+      }
       // 回頁首
       $("#go_top").on("click", function(e) {
         e.preventDefault();

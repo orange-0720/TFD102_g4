@@ -13,7 +13,7 @@
   <script src="./js/jquery-3.6.0.js"></script>
 </head>
 
-<body>
+<body onload="ifMember()">
   <header class="header">
     <!-- 手機板header -->
     <div class="fixed_top">
@@ -93,7 +93,7 @@
         </div>
         <a class="nav_block_log" href="./login.html">
           <img src="./images/nav_block_log.svg">
-          登入註冊
+          <span>登入註冊</span>
         </a>          
         <div class="nav_right_block">
           <div class="nav_active">
@@ -125,25 +125,29 @@
       </div>
     </div>
     <!-- 漢堡彈窗結束 -->
-      <div class="index_contact_box">
-        <div class="black_block"></div>
-        <div class="cotanct_block">
-          <div class="contact_block_head">
-            <button class="contact_block_Xmark"></button>
-          </div>
-          <h2>聯絡我們</h2>
-          <div class="contact_search_bar">
-            <input type="text" id="order_search" placeholder="請輸入訂單編號">
-            <button class="search_icon">
-              <img src="./images/header_search_icon.svg" alt="search">
-            </button>
-          </div>
-          <h3>若有其他問題可以點擊下方按鈕寄信</h3>
-          <div class="mailto_block">
-            <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
-          </div>
+     <!-- 聯絡我們彈窗 -->
+     <div class="index_contact_box">
+      <div class="black_block"></div>
+      <div class="cotanct_block">
+        <div class="contact_block_head">
+          <button class="contact_block_Xmark"></button>
+        </div>
+        <h3>聯絡我們</h3>
+        <div class="contact_search_bar">
+          <input type="text" id="order_search" placeholder="請輸入訂單編號" />
+          <button class="search_icon">
+            <img src="./images/header_search_icon.svg" alt="search" />
+          </button>
+        </div>
+        <h4>若有其他問題可以點擊下方按鈕寄信</h4>
+        <div class="mailto_block">
+          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
+            >寄送問題</a
+          >
         </div>
       </div>
+    </div>
+    <!-- 聯絡我們彈窗結束 -->
        <!-- 購物車彈窗  -->
        <div class="header_shopping_cart">
         <button class="cart_close">
@@ -151,21 +155,54 @@
         </button>
         <div class="incart_car_block">
           <img src="./images/header_incart.svg" alt="">
+          <h5>Shop Cart</h5>
         </div>
         <div class="cart_buy_list">
-          目前購物車空無一物
+          <span class="cart_nothing">目前購物車空無一物</span>
         </div>
         <div class="incart_total">
           總和
-          <span>$0</span>
+          <span class="cart_total_price">0</span>元
+          <!-- 手機板結帳去  -->
+          <a class="incart_checkout_btn_mobile" href="./checkout.html"><h5>結帳去</h5></a>
         </div>
         <div class="incart_checkout_block">
           <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
         </div>
       </div>
       <!-- 購物車彈窗結束  -->
+      <!-- 滾輪  -->
+      <div class="scrollbar" id="style-6">
+        <div class="force-overflow"></div>
+      </div>
   </header>
-
+  <script>
+    function ifMember(){
+      $.ajax({
+            method: 'POST',
+            url: 'php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.login').click(function(){
+                  window.location.href = 'member.html';
+                });
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+      });  
+    }
+  </script>
   <!-- 插圖-水果 -->
   <div class="kiwi">
     <img src="./images/q_a/kiwi.svg" alt="kiwi" />
@@ -414,6 +451,8 @@
     var scroll = new SmoothScroll('a[href*="#"]',{offset:100});
   </script>
   <script src="./js/header.js"></script>
+  <script src="./js/shopping_cart.js"></script>
+  <script src="./js/header.js"></script>
   <script>
 
     //下拉選單
@@ -442,8 +481,6 @@
           $('ul,li').slideToggle();
         })
       }
-
-
   </script>
 </body>
 

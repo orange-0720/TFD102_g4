@@ -578,7 +578,7 @@
   }
 }
 
-//結帳彈窗 還沒rwd
+//結帳彈窗 
 
 .happy_buy{
   display: none;
@@ -589,7 +589,10 @@
       width: 100%;
       min-height: 100vh;
       background-color: rgba(0, 0, 0, 0.7);
-      z-index: 1
+      z-index: 1;
+      @include tablet{
+        height: 100%;
+      }
   }
   .contact_block{
       @include abs_center();
@@ -600,6 +603,14 @@
       border-radius: 25px;
       overflow: hidden;
       z-index: 4;
+        @include tablet{
+          top: 59%;
+          width: 50%;
+        }
+        @include mobile{
+          width: 90%;
+        }
+        
         .want_block_Xmark{
             cursor: pointer;
             display: inline-block;
@@ -617,13 +628,14 @@
         }
 
       h4{
-          padding: 20px 0;
+          padding: 20px 20px;
           text-align: center;
       }
       .img_pic{
-        width: 30vh;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
         margin: auto;
-       
         img{
           margin: auto;
         }  
@@ -660,7 +672,8 @@
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1
+    z-index: 1;
+    height: 100%;
 }
 .contact_block{
     @include abs_center();
@@ -686,10 +699,18 @@
           background-position: center;
           margin-top: 20px;
       }
+      @include pad{
+        width: 60%;
+        top: 62%;
+      }
 
     h4{
         padding: 20px 0;
         text-align: center;
+        @include mobile{
+          padding: 20px 20px;
+          line-height: 31px;
+        }
     }
     .img_pic{
       width: 30vh;
@@ -720,10 +741,3 @@
     }
   }
 }
-// .box_list{
-//   display: flex;
-//   align-items: center;
-//   .box_name{
-//     margin: 10px;
-//   }
-// }
