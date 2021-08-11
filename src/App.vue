@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HeaderMobile/>
+    <Header/>
     <router-view />
     <Footer/>
   </div>
 </template>
 <script>
-import HeaderMobile from "@/components/HeaderMobile.vue";
+import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 export default {
   components: {
-    HeaderMobile,
+    Header,
     Footer
   },
 
