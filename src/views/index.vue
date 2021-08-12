@@ -1,42 +1,6 @@
 <template>
   <div class="index">
     <header class="header ">
-  
-      
-
-
-      <div class="title index_title">
-        <div class="title_btn">
-          <button class="comm_us">
-            聯絡我們 <img src="@/assets/images/cotact_us.svg" width="25px" alt="" />
-          </button>
-          <a class="buy_now" href="./shopping_page.html">
-            立即買<img src="@/assets/images/buy_now.svg" width="25px" alt="" />
-          </a>
-        </div>
-        <div class="title_pic pic_index">
-          <div>
-            <img src="@/assets/images/index/00_index.jpg" />
-          </div>
-          <div>
-            <img src="@/assets/images/index/00_index2.jpg" />
-          </div>
-          <div>
-            <img src="@/assets/images/index/00_index3.jpg" />
-          </div>
-          <div>
-            <img src="@/assets/images/index/00_index4.jpg" />
-          </div>
-          <div>
-            <img src="@/assets/images/index/00_index5.jpg" />
-          </div>
-        </div>
-        <div class="mouse_down">
-          <div class="mouse"></div>
-          <p>Scroll</p>
-        </div>
-      </div>
-
       <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
         <div class="hamburger_logo">

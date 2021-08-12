@@ -1,28 +1,6 @@
 <template>
   <div>
     <header class="header">
-
-
-      <div class="title">
-        <div class="title_btn">
-          <button class="comm_us">
-            聯絡我們 <img src="@/assets/images/cotact_us.svg" width="25px" alt="" />
-          </button>
-          <a class="buy_now">
-            立即買<img src="@/assets/images/buy_now.svg" width="25px" alt="" />
-          </a>
-        </div>
-        <div class="title_pic">
-          <img
-            src="@/assets/images/shopping_page/shopping_page01.jpg"
-            alt="checkout_pic"
-            style="padding-bottom: 100px"
-          />
-          <span class="bkc_black"></span>
-          <h1>活動預約</h1>
-        </div>
-      </div>
-
       <!-- 漢堡彈窗 -->
       <div class="jump_hamburger_block">
         <div class="hamburger_logo">
