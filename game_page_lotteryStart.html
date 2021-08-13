@@ -15,6 +15,34 @@
     />
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      //檢查會員登入
+      function ifMember() {
+        $.ajax({
+          method: "POST",
+          url: "php/ifMember.php",
+          data: {},
+          dataType: "text",
+          success: function(response) {
+            console.log(response);
+            if (response == "yes") {
+              $(".nav_block_log > span").text("會員中心");
+              $(".login").click(function() {
+                window.location.href = "member.html";
+              });
+            } else {
+              $(".login").click(function() {
+                window.location.href = "login.html";
+              });
+            }
+          },
+          error: function(exception) {
+            console.log(exception);
+            alert("發生錯誤: " + exception.status);
+          },
+        });
+      }
+    </script>
   </head>
   <body id="game_page" onload="ifMember()">
     <header class="header">
@@ -232,12 +260,15 @@
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
         <img src="./images/game/cabage_group.svg" alt="" class="game icon_4" />
-        <div class="game_test_3">
+        <div
+          class="game_test_3"
+          :style="randomNumber !== null ? 'height:400px':'' ?'margin-top:6rem':'' "
+        >
           <transition>
             <img
               src="./images/game/cooking_nabe_top.png"
               id="cooking_nabe_top"
-              v-show="resultShow"
+              v-show="randomNumber === null"
               class="animate__animated animate__bounce animate__infinite	infinite"
             />
           </transition>
@@ -274,7 +305,7 @@
             <img
               src="./images/game/cooking_nabe_bottom.png"
               id="cooking_nabe_bottom"
-              v-show="resultShow"
+              v-show="randomNumber === null"
               class="animate__animated animate__bounce animate__infinite	infinite"
             />
           </transition>
@@ -283,15 +314,22 @@
           <h2>會員每日小確幸 <br />點擊湯勺，撈出今日會員限定購物金</h2>
         </div>
 
-        <transition>
-          <div id="lottery_result" v-show="isShow">
-            <h1>恭喜你獲得200元購物金</h1>
-          </div>
-        </transition>
+        <!-- <transition> -->
+        <div id="lottery_result" v-show="randomNumber !== null" class="stage">
+          <figure class="ball">
+            <h1>
+              恭喜你獲得購物金<span id="numbers">{{randomNumber+"元"}}</span>
+            </h1>
+          </figure>
+        </div>
+        <!-- </transition> -->
 
-        <div id="game_bottom_part_lottery">
+        <div
+          id="game_bottom_part_lottery"
+          :style="randomNumber !== null ? 'margin-top:20px':'' "
+        >
           <transition>
-            <div id="game_answer" v-show="resultShow">
+            <div id="game_answer" v-show="randomNumber === null">
               <button type="submit" id="submit_11" @click="show_result">
                 <div id="action1">點擊</div>
                 <img
@@ -306,8 +344,9 @@
             </div>
           </transition>
           <transition>
-            <div id="get_coin" v-show="isShow">
-              <button type="submit" id="submit_12" @click="get_coin(200)">
+            <div id="get_coin" v-show="randomNumber">
+              <button type="submit" id="submit_12" @click="get_coin()">
+                <!-- <button type="submit" id="submit_12" @click="get_coin(200)"> -->
                 <div id="action1">查看購物金</div>
                 <img
                   src="./images/game/rightArrow.svg"
@@ -339,7 +378,10 @@
 
     <!-- ==輪波圖== -->
 
-    <section id="game_slideshow_step_lottery">
+    <section
+      id="game_slideshow_step_lottery"
+      :style="randomNumber !== null ? 'height:350px':'' "
+    >
       <div id="game_slideshow">
         <img
           src="./images/game/game_scroll_1.png"
@@ -419,26 +461,27 @@
       var app = new Vue({
         el: "#app",
         data: {
-          isShow: false,
-          resultShow: true,
+          randomNumber: null, //預設null，根據數據的狀態去綁定一些地方
         },
         methods: {
-          show_result() {
-            this.isShow = true;
-            this.resultShow = false;
-            $("#game_slideshow_step_lottery").css("height", "350px");
-            $("#game_bottom_part_lottery").css("margin-top", "20px");
-            $("div.game_test_3")
-              .css("height", "400px")
-              .css("margin-top", "6rem");
+          getRandom(min, max) {
+            //樂透數字產生，把程式分開寫比較好閱讀
+            return Math.floor(Math.random() * (max - min + 1)) + min;
           },
-          get_coin(money) {
+          final_result() {
+            //樂透數字區間,把程式分開寫比較好閱讀
+            this.randomNumber = this.getRandom(100, 200);
+          },
+          show_result() {
+            this.final_result();
+          },
+          get_coin() {
             $.ajax({
               //jQuery-AJAX語法
               method: "POST", //方式
               url: "php/get_discount.php", //API伺服器
               data: {
-                money: money,
+                money: this.randomNumber,
               },
               dataType: "text", //傳送的不是JSON檔，用TEXT型態就可以了
               success: function(response) {
@@ -456,6 +499,7 @@
           },
         },
       });
+      //==VUE區域==
 
       //湯勺點擊動畫
       $("button#submit_11").mousedown(function() {
@@ -515,32 +559,6 @@
         }
       });
 
-      //檢查會員登入
-      function ifMember() {
-        $.ajax({
-          method: "POST",
-          url: "php/ifMember.php",
-          data: {},
-          dataType: "text",
-          success: function(response) {
-            console.log(response);
-            if (response == "yes") {
-              $(".nav_block_log > span").text("會員中心");
-              $(".login").click(function() {
-                window.location.href = "member.html";
-              });
-            } else {
-              $(".login").click(function() {
-                window.location.href = "login.html";
-              });
-            }
-          },
-          error: function(exception) {
-            console.log(exception);
-            alert("發生錯誤: " + exception.status);
-          },
-        });
-      }
       // 回頁首
       $("#go_top").on("click", function(e) {
         e.preventDefault();
