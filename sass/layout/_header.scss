@@ -515,6 +515,33 @@ body{
                  line-height: 1.5;
             }
         }
+        .order_find{
+            width: 80%;
+            display: none;
+            @include marginAuto();
+            margin-top: 30px;
+            .order_line{
+                width: 100%;
+                display:flex;
+                h4{
+                    padding: 15px 0px;
+                    margin: 0;
+                    width: 25%;
+                    text-align: center;
+                    background-color: $bkc_lightorange;
+                }
+            }
+            .order_inside_detail{
+                width: 100%;
+                display:flex;
+                h4{
+                    padding: 15px 0px;
+                    width: 25%;
+                    text-align: center;
+                }
+            }
+        }
+
         .mailto_block{
             @include marginAuto();
             text-align: center;
@@ -628,118 +655,141 @@ body{
 }
 
 // 購物車
-.header_shopping_cart{
+.cart_bk {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s .3s;
+    &.-active{
+        transition: opacity .3s;
+        opacity:1;
+        pointer-events: auto;
+    }
+}
+.header_shopping_cart {
     width: 450px;
     padding: 20px;
     background-color: $white;
-    //border: 2px solid $brown;
     position: fixed;
     right: -1000px;
     top: 0%;
     height: 100%;
     border-radius: 10px;
     z-index: -1;
-    // transform: translateY(-50%);
     box-shadow: 0px 3px 4px #ced1d4;
-    transition: 0.5s;
+    transition: .5s; //動畫結束
     overflow-y: auto;
+
+    &.cart_into {
+        transition: 0.3s .3s;
+        right: 5%;
+        z-index: 101;
+        @include tablet {
+        right: 0%;
+        }
+    }
     @include tablet {
-        top: 100px;
-        height:60%;
+    top: 100px;
+    height: 60%;
     }
     @include mobile {
-        top: 70px;
-        width: 100%;
-        height: 38vh;
-        .incart_car_block{
-            width: 200px;
-        }
+    top: 70px;
+    width: 100%;
+    height: 38vh;
+    .incart_car_block {
+        width: 200px;
     }
-    .cart_close{
-        position: absolute;
-        right: 25px;
+    }
+    .cart_close {
+    position: absolute;
+    right: 25px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: $white;
+    border: 0px;
+    outline: 0px;
+    cursor: pointer;
+    img {
+        max-width: 100%;
+    }
+    }
+    .incart_car_block {
+    img {
+        margin-left: 10px;
         display: inline-block;
-        width: 30px;
-        height: 30px;
-        background-color: $white;
-        border: 0px;
-        outline: 0px;
-        cursor: pointer;
-        img{
-            max-width: 100%;
-        }
     }
-    .incart_car_block{
-        img{
-            margin-left: 10px;
-            display: inline-block;
-        }
     }
-    .cart_buy_list{
-        text-align: center;
-        margin: 10px 0px;
-        border-top: 2px dotted $brown;
-        border-bottom: 2px dotted $brown;
-        padding: 30px 0px;
-        font-size: $h4;
+    .cart_buy_list {
+    text-align: center;
+    margin: 10px 0px;
+    border-top: 2px dotted $brown;
+    border-bottom: 2px dotted $brown;
+    padding: 30px 0px;
+    font-size: $h4;
     }
-    .incart_total{
-        margin: 20px 0px;
-        text-align: center;
-        font-size: $h4;
-        span{
-            margin-left: 30%;
-        }
+    .incart_total {
+    margin: 20px 0px;
+    text-align: center;
+    font-size: $h4;
+    span {
+        margin-left: 30%;
     }
-    .incart_car_block{
+    }
+    .incart_car_block {
+    display: flex;
+
+    img {
+        margin-left: 10px;
+        display: inline-block;
+    }
+    h5 {
+        justify-content: center;
+        align-items: center;
         display: flex;
-        
-       img{
-           margin-left: 10px;
-           display: inline-block;
-       }
-       h5{
-           justify-content: center; 
-           align-items: center; 
-           display: flex;
-           padding: 10px;
-       }
-   }
-   .incart_checkout_block{
-        width: 100%;
-        margin-top: 20px;
-        text-align: center;
-        .incart_checkout_btn{
-            @include btn(100%);
-            background-color: $yellow;
-            color: $font_color;
-            border-radius: 10px;
-            &:hover{
-                background-color: lighten($yellow, 20);
-            }
-        }
-        @include mobile{
-            display: none;
+        padding: 10px;
+    }
+    }
+    .incart_checkout_block {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    .incart_checkout_btn {
+        @include btn(100%);
+        background-color: $yellow;
+        color: $font_color;
+        border-radius: 10px;
+        &:hover {
+        background-color: lighten($yellow, 20);
         }
     }
-    .incart_checkout_btn_mobile{
+    @include mobile {
+        display: none;
+    }
+    }
+    .incart_checkout_btn_mobile {
         width: 100%;
         margin-top: 20px;
         text-align: center;
-        display:none;
-        @include mobile{
-            display:inline-block;
+        display: none;
+        @include mobile {
+            display: inline-block;
             margin-left: 30px;
             @include btn_small(92px, 28px);
             background-color: $yellow;
             color: $font_color;
             padding: 6px 6px;
-            &:hover{
-                background-color: lighten($yellow, 20);
+            &:hover {
+            background-color: lighten($yellow, 20);
             }
-        }   
+        }
     }
 }
+
 
 /* scrollbar 修改 */
 ::-webkit-scrollbar {
@@ -822,6 +872,7 @@ body{
             margin: 20px auto;
             width: 100%;
             cursor: pointer;
+            position: relative;
             a{
                 display: inline-block;
                 width: 100%;
@@ -836,6 +887,7 @@ body{
             margin: 20px auto;
             width: 100%;
             cursor: pointer;
+            position: relative;
             img{
                 width: 50%;
                 margin: 0 25%;
@@ -966,4 +1018,31 @@ body{
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: top 45% left 1%;
+}
+
+.buy_num{
+    display: none;
+    @include abs_center();
+    top: 35%;
+    left: 55%;
+    z-index: 3;
+    font-size: $h5;
+    color: $yellow;
+}
+
+@keyframes cart_move{
+    0%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.cart_move{
+    animation-name: cart_move;
+    animation-timing-function: ease;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
 }

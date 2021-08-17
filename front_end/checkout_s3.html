@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>良耕野菜-結帳頁面</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../images/logo-02.svg">
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body onload="ifMember()">
+    <header class="header">
+      <!-- 手機板header -->
+      <div class="fixed_top"></div>
+      <!-- 手機板header結束 -->
+      <div class="menu_fixed"></div>
+
+      <div class="menu">
+        <div class="logo_img">
+          <a href="./index.html">
+            <img src="../images/logo.svg" alt="logo" />
+          </a>
+        </div>
+        <div class="page_list">
+          <a href="./event.html">農村體驗</a>
+          <a href="./fruit_box.html">客製蔬果箱</a>
+          <a href="./game.html">蔬果知識小遊戲</a>
+          <a href="./aboutUs.html">關於我們</a>
+          <a href="./q_a.html">問與答</a>
+          <a href="./shopping_page.html">新鮮蔬果</a>
+        </div>
+      </div>
+      <div class="title">
+        <div class="title_btn">
+          <button class="comm_us">
+            聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
+          </button>
+          <a class="buy_now">
+            立即買<img src="../images/buy_now.svg" width="25px" alt="" />
+          </a>
+        </div>
+        <div class="title_pic">
+          <img src="../images/checkout/checkout_01.jpg" alt="checkout_pic" />
+          <span class="bkc_black"></span>
+          <h1>結帳頁面</h1>
+        </div>
+      </div>
+
+      <!-- 漢堡彈窗 -->
+      <div class="jump_hamburger_block"></div>
+      <!-- 漢堡彈窗結束 -->
+
+      <!-- 聯絡我們彈窗 -->
+      <div class="index_contact_box"></div>
+      <!-- 聯絡我們彈窗結束 -->
+
+      <!-- 購物車彈窗  -->
+      <div class="cart_bk"></div>
+      <div class="header_shopping_cart"></div>
+      <!-- 購物車彈窗結束  -->
+
+      <div class="scrollbar" id="style-6">
+        <div class="force-overflow"></div>
+      </div>
+
+    </header>
+    <div class="checkout_shopping_step">
+      <div class="first_step">
+        <section>1</section>
+        <p>購物車明細</p>
+      </div>
+      <span class="step_line"></span>
+      <div class="second_step">
+        <section>2</section>
+        <p>聯絡人資料</p>
+      </div>
+      <span class="step_line"></span>
+      <div class="third_step">
+        <section class="step_on">3</section>
+        <p>訂單完成</p>
+      </div>
+    </div>
+    <div class="checkout_s3_ordercheck">
+      <img src="../images/checkout/checkout_s3_01.svg" alt="order_check">
+      <h2>訂單完成</h2>
+    </div>
+    <div id="checkout_s3">
+      <div class="checkout_s3_order_num_block">
+        <span class="order_num">訂單編號</span>
+        <span class="order_num_detail">{{order_id}}</span>
+      </div>
+      <div class="checkout_s3_order_num_block">
+        <span class="order_num">訂單金額</span>
+        <span class="order_num_detail">{{order_price}}元</span>
+      </div>
+      <div class="checkout_s3_order_num_block">
+        <span class="order_num">使用購物金</span>
+        <span class="order_num_detail">{{order_discount}}元</span>
+      </div>
+  
+      <div class="checkout_s3_order_detail">
+        <h3>訂單明細</h3>
+        <div class="checkout_s3_order_detail_block">
+          <section v-for="detail in block_details" :class="detail.class">{{detail.name}}</section>
+        </div>
+        <div class="checkout_s3_order_product_detail" v-for="(item,index) in order_items">
+          <section class="checkout_s3_order_product_detail_img">
+            <img :src="item.PRODUCT_OUT_IMG" />
+          </section>
+          <section class="checkout_s3_order_product_detail_name">
+            {{item.PRODUCT_NAME}}
+          </section>
+          <section class="checkout_s3_order_product_detail_sum">
+            {{item.QUANTITY}}
+          </section>
+          <section class="checkout_s3_order_product_detail_price">
+            {{item.PRODUCT_PRICE}}
+          </section>
+          <section class="checkout_s3_order_product_detail_total">
+            {{item.ORDER_DETAIL_PRICE}}
+          </section>
+        </div>
+        <div class="checkout_s3_order_product_detail" v-for="(box,index) in order_box">
+          <section class="checkout_s3_order_product_detail_img">
+            <img :src="box.CUSTOM_MADE_IMG" />
+          </section>
+          <section class="checkout_s3_order_product_detail_name">
+            {{box.CUSTOM_MADE_NAME}}
+          </section>
+          <section class="checkout_s3_order_product_detail_sum">
+            {{box.QUANTITY}}
+          </section>
+          <section class="checkout_s3_order_product_detail_price">
+            {{box.CUSTOM_MADE_PRICE}}
+          </section>
+          <section class="checkout_s3_order_product_detail_total">
+            {{box.ORDER_DETAIL_PRICE}}
+          </section>
+        </div>
+      </div>
+  
+      <div class="checkout_s3_other_product">
+        <h2>其他熱銷商品</h2>
+        <div class="product_link_block">
+          <a href="./shopping_page.html#/shopping_inside_page/0">
+            <img src="../images/checkout/tomato.svg" alt="">
+          </a>
+          <a href="./itemtest.html">
+            <img src="../images/checkout/cabbage.svg" alt="">
+          </a>
+          <a href="./itemtest.html">
+            <img src="../images/checkout/corn.svg" alt="">
+          </a>
+        </div>
+        <a class="order_keep_shopping" href="#">繼續購物</a>
+      </div>
+    </div>
+
+
+    <footer class="footer_bg">
+      <img class="checkout_footer_img" src="../images/checkout/checkout_footer.svg" alt="for_footer">
+      <div class="footer">
+        <button class="go_top" id="go_top">
+          <img src="../images/top.svg" alt="top" />
+        </button>
+        <div class="footer_logo">
+          <a href="./index.html">
+            <img src="../images/logo.svg" alt="logo" />
+          </a>
+        </div>
+        <div class="footer_center">
+          <h4>電話:02-26938800</h4>
+          <h5>營業時間: 星期二至星期日(10:00 - 17:00)</h5>
+          <h5>※農曆過年假期本農場也公休 網路接單為24小時</h5>
+          <h5>※當日訂單最晚收到17:00</h5>
+          <h5>(17:00後下單視為隔日下單)</h5>
+          <div class="btn_pos">
+            <button class="mail_btn">
+              <img src="../images/mail.svg" alt="mail">MAIL
+            </button>
+          </div>
+          <div class="footer_icon">
+            <img src="../images/icon-fb.svg" alt="fb" />
+            <img src="../images/icon-line.svg" alt="line" />
+            <img src="../images/icon-ig.svg" alt="ig" />
+          </div>
+        </div>
+        <div class="footer_right">
+          <div class="right_main">
+            <a href="./index.html">首頁</a>
+            <a href="./event.html">農村體驗</a>
+            <a href="./game.html">蔬果知識小遊戲</a>
+            <a href="./aboutUs.html">關於我們</a>
+            <a href="./q_a.html">問與答</a>
+          </div>
+          <div class="right_buy">
+            <a href="./fruit_box.html">客製蔬果箱</a>
+            <a href="./shopping_page.html">蔬菜</a>
+            <a href="./shopping_page.html">水果</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/right_nav_bar.js"></script>
+    <script src="../js/shopping_cart.js"></script>
+    <script src="../js/header.js"></script>
+
+    <script>
+      var checkout_s3 = new Vue({
+        el: "#checkout_s3",
+        data:{
+          order_id:'',
+          order_price:'',
+          order_discount:'',
+          block_details:[
+            {class:"checkout_s3_order_detail_img", name:'商品圖片'},
+            {class:"checkout_s3_order_detail_name", name:'商品名稱'},
+            {class:"checkout_s3_order_detail_sum", name:'數量'},
+            {class:"checkout_s3_order_detail_price", name:'單價'},
+            {class:"checkout_s3_order_detail_total", name:'小計'},
+          ],
+          order_items:[],
+          order_box:[]
+        },
+        
+        methods: {
+          
+        },
+        
+        mounted() {
+          // 抓訂單ID
+          $.ajax({
+            method: 'POST',
+            url: '../php/Order_id.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              console.log(response);
+              
+              checkout_s3.order_id = response[0]['ORDER_ID'];
+              checkout_s3.order_price = response[0]['ORDER_PRICE'];
+              checkout_s3.order_discount = response[0]['DISCOUNT'];
+            },
+            error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
+            },
+          });
+
+          // 撈一般訂單
+          $.ajax({
+            method: 'POST',
+            url: '../php/orderDetail.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              checkout_s3.order_items = response;
+              console.log(response);
+            },
+            error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
+            },
+          })
+
+          // 撈客製訂單 
+          $.ajax({
+            method: 'POST',
+            url: '../php/orderCustom.php',
+            data:{},
+            dataType: 'json',
+            success: function(response) {
+              console.log(response);
+              checkout_s3.order_box = response;
+            },
+            error: function(exception) {
+              alert("發生錯誤: " + exception.status);
+              console.log(exception);
+            },
+          })
+        },
+      });
+
+
+      $("#go_top").on("click", function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+          scrollTop: 0
+        }, 750);
+      });
+      
+    </script>
+  </body>
+</html>

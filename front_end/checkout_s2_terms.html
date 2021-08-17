@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>良耕野菜-服務條款及隱私權</title>
+  <link rel="icon" href="../images/logo-02.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../images/logo-02.svg">
+  <script src="../js/jquery-3.6.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+
+
+
+<body>
+  <header class="header">
+    <!-- 手機板header -->
+    <div class="fixed_top">
+      <div class="fixed_top_logo">
+        <a href="./index.html">
+          <img src="./images/fixed_top_logo.svg" alt="top_logo">
+        </a>
+      </div>
+      <div class="shop_car" onclick="showbg();">
+        <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+      </div>
+      <div class="ham">
+        <div class="ham_top"></div>
+        <div class="ham_middle"></div>
+        <div class="ham_bottom"></div>
+      </div>
+    </div>
+    <!-- 手機板header結束 -->
+    <!-- 桌機板header -->
+    <div class="menu_fixed">
+      <div class="icon">
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+        <div class="login">
+          <a href="./login.html">
+            <img src="./images/login_icon.svg" alt="login_icon" />
+          </a>
+        </div>
+        <div class="shop_car" onclick="showbg();">
+          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- 桌機板header 結束 -->
+
+    <!-- 漢堡彈窗 -->
+    <div class="jump_hamburger_block">
+      <div class="hamburger_logo">
+        <a href="./index.html">
+          <img src="./images/logo.svg" alt="logo">
+        </a>
+      </div>
+      <div class="header_nav_block">
+        <div class="nav_block_contact">
+          <img src="./images/nav_block_pen.svg">
+          聯絡我們
+        </div>
+        <a class="nav_block_log" href="./login.html">
+          <img src="./images/nav_block_log.svg">
+          登入註冊
+        </a>
+        <div class="nav_right_block">
+          <div class="nav_active">
+            <a href="./event.html">農村體驗</a>
+            <a href="./event_info.html">預約去</a>
+          </div>
+          <div class="nav_buy_now">
+            <a href="./shopping_page.html">立即買</a>
+            <a href="./fruit_box.html">客製蔬果箱</a>
+            <a href="./shopping_page.html">新鮮蔬果</a>
+          </div>
+          <div class="nav_knowledge">
+            <a href="./game.html">蔬果知識小遊戲</a>
+          </div>
+        </div>
+        <div class="nav_left_block">
+          <div class="nav_about_us">
+            <a href="./aboutUs.html">關於我們</a>
+            <a href="./aboutUs.html">農場介紹</a>
+            <a href="./product_introduction.html">生產介紹</a>
+          </div>
+          <div class="nav_QA">
+            <a href="./q_a.html">問與答</a>
+          </div>
+        </div>
+        <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+        <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
+        <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+      </div>
+    </div>
+    <!-- 漢堡彈窗結束 -->
+
+    <!-- 聯絡我們彈窗 -->
+    <div class="index_contact_box">
+      <div class="black_block"></div>
+      <div class="cotanct_block">
+        <div class="contact_block_head">
+          <button class="contact_block_Xmark"></button>
+        </div>
+        <h2>聯絡我們</h2>
+        <div class="contact_search_bar">
+          <input type="text" id="order_search" placeholder="請輸入訂單編號">
+          <button class="search_icon">
+            <img src="./images/header_search_icon.svg" alt="search">
+          </button>
+        </div>
+        <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+        <div class="mailto_block">
+          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+        </div>
+      </div>
+    </div>
+    <!-- 聯絡我們彈窗結束 -->
+
+    <!-- 購物車彈窗  -->
+    <div class="cart_bk">
+      <div class="header_shopping_cart">
+        <div class="header_shopping_cart">
+          <div class="cart_cotanct_block">
+            <button class="cart_close" onclick="closebg();">
+              <img src="./images/checkout/X_mark.svg">
+            </button>
+            <div class="incart_car_block">
+              <img src="./images/header_incart.svg" alt="">
+              <h5>Shop Cart</h5>
+            </div>
+            <div class="cart_buy_list">
+              <span class="cart_nothing">目前購物車空無一物</span>
+            </div>
+            <div class="incart_total">
+              總和
+              <span class="cart_total_price">0</span>元
+              <!-- 手機板結帳去  -->
+              <a class="incart_checkout_btn_mobile" href="./checkout.html">
+                <h5>結帳去</h5>
+              </a>
+            </div>
+            <div class="incart_checkout_block">
+              <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+
+
+  <div class="membership">
+    <div class="form_block">
+      <div class="text">
+        <h3>條款與細則</h3>
+        <h4>【商店細項與政策】</h4>
+        <ul>
+          <li>◾ &nbsp當您於結帳購物車時點選我同意服務條款和退換貨政策，即表示您已知悉並同意此約定條款之全部內容。本店將依照個人資料保護法令相關規定保護您的個人資料，並遵守商店隱私權保護政策。
+          </li>
+        </ul>
+
+        <h4>【使用者隱私權保護聲明】</h4>
+        <ul>
+          <li>◾ &nbsp良耕野菜所經營的相關網站相當重視您的隱私權保護，依中華民國個人資料保護法與本聲明來使用、保管，並加強維護您的隱私權。</li>
+          <li>◾&nbsp凡是於良耕野菜相關網站留下之顧客資料，聲明為收集、利用、管理使用</li>
+          <li>◾ &nbsp在此告知您，網際網路是公開平台，請勿直接在網路上透露您的個人資料，您的個人資料很可能被他人蒐集與利用，特別是網路上公開發言的場合，如聊天室、留言版，更應該注意避免發表關於您的個人身份、電子信箱、帳號密碼等相關資訊。
+          </li>
+        </ul>
+
+        <h4>【使用者資料】</h4>
+        <ul>
+          <li>◾ &nbsp當您瀏覽良耕野菜官方網站時，不會主動要求輸入個人資料</li>
+          <li>◾&nbsp當您完成購物流程或參加其他活動時，網站會要求您登錄個人資料，以便完成交易與相關服務。</li>
+          <li>◾&nbsp在登記您的會員資料時請確認資料的準確性，良耕野菜不會承擔您資料中的不準確或不完整造成之損害或錯誤，此將自行承擔負責。
+          </li>
+          <li>◾ &nbsp當您瀏覽良耕野菜官方網站時，不會主動要求輸入個人資料</li>
+          <li>◾&nbsp請妥善保管您的個人會員帳號及密碼，不要任意交給任何人使用，良耕野菜不會承擔任何的不當使用之責任。</li>
+          <li>◾&nbsp除事先說明或依台灣法律規定外，abito不會擅自將您的個人資料提供給第三者或作為其他目的之用。</li>
+        </ul>
+
+        <h4>【與第三人共用個人資料之政策】</h4>
+        <ul>
+          <li>◾ &nbsp 本網站絕不會提供、交換、出租或出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。 前項但書之情形包括不限於：1.經由您書面同意。2.法律明文規定。3.為免除您生命、身體、自由或財產上之危險。 4.與公務機關或學術研究機構合作，基於公共利益為統計或學術研究而有必要，且資料經過提供者處理或蒐集著依其揭露方式無從識別特定之當事人。 5.當您在網站的行為，違反服務條款或可能損害或妨礙網站與其他使用者權益或導致任何人遭受損害時，經網站管理單位研析揭露您的個人資料是為了辨識、聯絡或採取法律行動所必要者。 6.有利於您的權益。 7.本網站委託廠商協助蒐集、處理或利用您的個人資料時，將對委外廠商或個人善盡監督管理之責。</li>
+        </ul>
+
+        <h4>【隱私權保護政策修訂】</h4>
+        <ul>
+          <li>◾ &nbsp本公司有權隨時修改本隱私政策及本網站各項內容之權利，將於網站同一位置公告更改聲明外，不會再對會員進行個別通知。若您對本隱私權保護政策有任何問題或不同意該等變更或修改，可利用電子郵件 abito.official.tw@gmail.com 直接與本公司聯繫或停止使用本網站服務。
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    
+  </div>
+  <div class="null"></div>
+  <script src="./js/shopping_cart.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/login.js"></script>
+</body>
+
+</html>

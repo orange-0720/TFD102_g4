@@ -3,7 +3,7 @@
     max-width: 1200px;
     @include marginAuto();
     text-align: right;
-    margin-top: 70px;
+    margin-top: 30px;
     button{
         @include btn(220px);
         img{
@@ -144,6 +144,8 @@
                 font-size: $h4;
                 .member_info_name{
                     input{
+                        border: 2px solid $brown;
+                        outline: none;
                         display: inline-block;
                         width: 70%;
                         margin-left: 10px;
@@ -153,10 +155,10 @@
                         color:$font_color
                     }
                 }
-                .member_info_mail{
+                .member_info_name{
                     @extend .member_info_name
                 }
-                .member_info_hb{
+                .member_info_mail{
                     @extend .member_info_name
                 }
                 .member_info_phone{
@@ -262,7 +264,7 @@
                 @include btn(40%);
                 @include marginAuto();
                 display: block;
-                margin-top: 10px;
+                margin-top: 40px;
                 img{
                     vertical-align: top;
                 }
@@ -347,6 +349,8 @@
                     font-size: $h5;
                     .member_info_name{
                         input{
+                            border: 2px solid $brown;
+                            outline: none;
                             display: inline-block;
                             width: 100%;
                             margin-left: 0px;
@@ -366,7 +370,7 @@
                 @include marginAuto();
                 padding: 10px 0px;
                 display: block;
-                margin-top: 10px;
+                margin-top: 40px;
                 font-size: $h5;
                 img{
                     vertical-align: top;
@@ -474,7 +478,7 @@
                         align-self: center;
                         text-align: center;
                         img{
-                            width: 90%
+                            width: 70%
                         }
                     }
                     .show_order_product_detail_name{
@@ -604,7 +608,7 @@
                             align-self: center;
                             text-align: center;
                             img{
-                                width: 90%
+                                width: 70%
                             }
                         }
                         .show_order_product_detail_name{

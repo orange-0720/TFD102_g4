@@ -5,7 +5,7 @@
         $db_host = "127.0.0.1";
         $db_user = "root";
         $db_pass = "apple905";
-        $db_select = "pdo";
+        $db_select = `tfd102-g4`;
     
         //建立資料庫連線物件
         $dsn = "mysql:host=".$db_host.";dbname=".$db_select;

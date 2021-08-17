@@ -5,78 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>良耕野菜-結帳頁面</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" href="./images/logo-02.svg">
-    <script src="./js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../images/logo-02.svg">
+    <script src="../js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
-  <script>
-    function ifMember(){
-      $.ajax({
-            method: 'POST',
-            url: 'php/ifMember.php',
-            data:{},
-            dataType: 'text',
-            success: function(response) {
-              console.log(response);
-              if(response == 'yes'){
-                $('.nav_block_log > span').text('會員中心');
-                $('.login').click(function(){
-                  window.location.href = 'member.html';
-                });
-              }else{
-                $('.login').click(function(){
-                  window.location.href = 'login.html';
-                });
-              }
-            },
-            error: function(exception) {
-                console.log(exception)
-                alert("發生錯誤: " + exception.status);
-            },
-      });  
-    }
-  </script>
   <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
-      <div class="fixed_top">
-        <div class="fixed_top_logo">
-          <a href="./index.html">
-            <img src="./images/fixed_top_logo.svg" alt="top_logo" />
-          </a>
-        </div>
-        <div class="shop_car">
-          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
-        </div>
-        <div class="ham">
-          <div class="ham_top"></div>
-          <div class="ham_middle"></div>
-          <div class="ham_bottom"></div>
-        </div>
-      </div>
+      <div class="fixed_top"></div>
       <!-- 手機板header結束 -->
-      <div class="menu_fixed">
-        <div class="icon">
-          <div class="ham">
-            <div class="ham_top"></div>
-            <div class="ham_middle"></div>
-            <div class="ham_bottom"></div>
-          </div>
-          <div class="login">
-            <a href="./login.html">
-              <img src="./images/login_icon.svg" alt="login_icon" />
-            </a>
-          </div>
-          <div class="shop_car">
-            <img src="./images/shopping_cart.svg" alt="shopping_cart" />
-          </div>
-        </div>
-      </div>
+      <div class="menu_fixed"></div>
+
       <div class="menu">
         <div class="logo_img">
           <a href="./index.html">
-            <img src="./images/logo.svg" alt="logo" />
+            <img src="../images/logo.svg" alt="logo" />
           </a>
         </div>
         <div class="page_list">
@@ -91,121 +35,36 @@
       <div class="title">
         <div class="title_btn">
           <button class="comm_us">
-            聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+            聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
           </button>
-          <a class="buy_now" href="./shopping_page.html">
-            立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          <a class="buy_now">
+            立即買<img src="../images/buy_now.svg" width="25px" alt="" />
           </a>
         </div>
         <div class="title_pic">
-          <img src="./images/checkout/checkout_01.jpg" alt="checkout_pic" />
+          <img src="../images/checkout/checkout_01.jpg" alt="checkout_pic" />
           <span class="bkc_black"></span>
           <h1>結帳頁面</h1>
         </div>
       </div>
+
       <!-- 漢堡彈窗 -->
-      <div class="jump_hamburger_block">
-        <div class="hamburger_logo">
-          <a href="./index.html">
-            <img src="./images/logo.svg" alt="logo">
-          </a>
-        </div>
-        <div class="header_nav_block">
-          <div class="nav_block_contact">
-            <img src="./images/nav_block_pen.svg" />
-            聯絡我們
-          </div>
-          <div class="nav_block_log">
-            <img src="./images/nav_block_log.svg" />
-            登入註冊
-          </div>
-          <div class="nav_right_block">
-            <div class="nav_active">
-              <a href="./event.html">農村體驗</a>
-              <a href="./event_info.html">預約去</a>
-            </div>
-            <div class="nav_buy_now">
-              <a href="./shopping_page.html">立即買</a>
-              <a href="./fruit_box.html">客製蔬果箱</a>
-              <a href="./shopping_page.html">新鮮蔬果</a>
-            </div>
-            <div class="nav_knowledge">
-              <a href="./q_a.html">蔬果知識小遊戲</a>
-            </div>
-          </div>
-          <div class="nav_left_block">
-            <div class="nav_about_us">
-              <a href="./aboutUs.html">關於我們</a>
-              <a href="./aboutUs.html">農場介紹</a>
-              <a href="./product_introduction.html">生產介紹</a>
-            </div>
-            <div class="nav_QA">
-              <a href="./q_a.html">問與答</a>
-            </div>
-          </div>
-          <img
-            src="./images/header_vegetable.svg"
-            alt="vegetable"
-            class="header_vegetable"
-          />
-          <img
-            src="./images/header_lemon.svg"
-            alt="vegetable"
-            class="header_lemon"
-          />
-          <img
-            src="./images/header_kiwi.svg"
-            alt="vegetable"
-            class="header_kiwi"
-          />
-        </div>
-      </div>
+      <div class="jump_hamburger_block"></div>
       <!-- 漢堡彈窗結束 -->
 
       <!-- 聯絡我們彈窗 -->
-      <div class="index_contact_box">
-        <div class="black_block"></div>
-        <div class="cotanct_block">
-          <div class="contact_block_head">
-            <button class="contact_block_Xmark"></button>
-          </div>
-          <h2>聯絡我們</h2>
-          <div class="contact_search_bar">
-            <input type="text" id="order_search" placeholder="請輸入訂單編號" />
-            <button class="search_icon">
-              <img src="./images/header_search_icon.svg" alt="search" />
-            </button>
-          </div>
-          <h3>若有其他問題可以點擊下方按鈕寄信</h3>
-          <div class="mailto_block">
-            <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
-              >寄送問題</a
-            >
-          </div>
-        </div>
-      </div>
-      <!-- 聯絡我們彈窗結束 -->
+      <div class="index_contact_box"></div>
+       <!-- 聯絡我們彈窗結束 -->
 
-       <!-- 購物車彈窗  -->
-       <div class="header_shopping_cart">
-        <button class="cart_close">
-          <img src="./images/checkout/X_mark.svg">
-        </button>
-        <div class="incart_car_block">
-          <img src="./images/header_incart.svg" alt="">
-        </div>
-        <div class="cart_buy_list">
-          <span class="cart_nothing">目前購物車空無一物</span>
-        </div>
-        <div class="incart_total">
-          總和
-          <span class="cart_total_price">0</span>元
-        </div>
-        <div class="incart_checkout_block">
-          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
-        </div>
-      </div>
+      <!-- 購物車彈窗  -->
+      <div class="cart_bk"></div>
+      <div class="header_shopping_cart"></div>
       <!-- 購物車彈窗結束  -->
+
+      <div class="scrollbar" id="style-6">
+        <div class="force-overflow"></div>
+      </div>
+
     </header>
 
     <div class="checkout_shopping_step">
@@ -233,7 +92,7 @@
           共計{{total_item}}件商品
           <img
             class="detail_icon_open"
-            src="./images/checkout/plus_icon.svg"
+            src="../images/checkout/plus_icon.svg"
           />
         </p>
         <div class="checkout_s2_detail">
@@ -285,7 +144,7 @@
           </div>
           <div class="checkout_s2_receiver_infro_group">
             <label for="">性別</label>
-            <select>
+            <select v-model="gender">
               <option value="男">男</option>
               <option value="女" selected>女</option>
               <option value="其他">其他</option>
@@ -339,7 +198,7 @@
       </div>
       <div class="chekout_s2_order_privacy">
         <input type="checkbox" id="checkout_privacy" v-model="privacy"/>
-        <label for="checkout_privacy">我已同意網站服務條款及隱私權</label>
+        <label for="checkout_privacy">我已同意<a href="./checkout_s2_terms.html" target="_blank">網站服務條款及隱私權</a></label>
         <div class="chekout_s2_order_privacy_next">
           <button onclick=window.location.href='checkout.html'>返回購物車</button>
           <button @click="credit_confirm">提交訂單</button>
@@ -349,12 +208,12 @@
           <div class="credit_form" v-if="isShow" @click.stop>
             <h1>信用卡結帳系統</h1>
             <div class="step_back_btn" @click="credit_confirm">
-              <img src="./images/checkout/X_mark.svg" alt="X" />
+              <img src="../images/checkout/X_mark.svg" alt="X" />
             </div>
             <div class="credit_form_block">
               <div class="credit_form_left_block">
                 <div class="credit_card_img_front">
-                  <img class="card_img" src="./images/checkout/credit_card.png">
+                  <img class="card_img" src="../images/checkout/credit_card.png">
                   <div class="left_block_name">
                     <p>cardholder Name:</p>
                     <p>{{card_name}}</p>
@@ -365,7 +224,7 @@
                   </div>
                 </div>
                 <div class="credit_card_img_back">
-                  <img class="card_img" src="./images/checkout/credit_card.png">
+                  <img class="card_img" src="../images/checkout/credit_card.png">
                   <div class="left_block_name">
                     <p>cardholder Name:</p>
                     <p>{{card_name}}</p>
@@ -399,12 +258,19 @@
                       v-model="card_valid"
                       placeholder="08/21"
                       oninput = "value=value.replace(/[^\d]/g,'')"
+                      maxlength="5"
                       @focus = "turn_back"
+                      @input = 'addChart'
                     />
                   </section>
                   <section class="right_block_security">
                     <label for="">安全碼</label>
-                      <input type="text"  v-model="card_security" oninput = "value=value.replace(/[^\d]/g,'')" @focus = "turn_back" />
+                      <input 
+                        type="text"  
+                        v-model="card_security"
+                        maxlength="3" 
+                        oninput = "value=value.replace(/[^\d]/g,'')" 
+                        @focus = "turn_back" />
                   </section>
                 </form>
               </div>
@@ -421,14 +287,14 @@
     </div>
 
     <footer class="footer_bg">
-      <img class="checkout_footer_img" src="./images/checkout/checkout_footer.svg" alt="for_footer">
+      <img class="checkout_footer_img" src="../images/checkout/checkout_footer.svg" alt="for_footer">
       <div class="footer">
         <button class="go_top" id="go_top">
-          <img src="./images/top.svg" alt="top" />
+          <img src="../images/top.svg" alt="top" />
         </button>
         <div class="footer_logo">
           <a href="./index.html">
-            <img src="./images/logo.svg" alt="logo" />
+            <img src="../images/logo.svg" alt="logo" />
           </a>
         </div>
         <div class="footer_center">
@@ -439,13 +305,13 @@
           <h5>(17:00後下單視為隔日下單)</h5>
           <div class="btn_pos">
             <button class="mail_btn">
-              <img src="./images/mail.svg" alt="mail">MAIL
+              <img src="../images/mail.svg" alt="mail">MAIL
             </button>
           </div>
           <div class="footer_icon">
-            <img src="./images/icon-fb.svg" alt="fb" />
-            <img src="./images/icon-line.svg" alt="line" />
-            <img src="./images/icon-ig.svg" alt="ig" />
+            <img src="../images/icon-fb.svg" alt="fb" />
+            <img src="../images/icon-line.svg" alt="line" />
+            <img src="../images/icon-ig.svg" alt="ig" />
           </div>
         </div>
         <div class="footer_right">
@@ -465,14 +331,16 @@
       </div>
     </footer>
 
-    <script src="./js/shopping_cart.js"></script>
-    <script src="./js/header.js"></script>
+    <script src="../js/right_nav_bar.js"></script>
+    <script src="../js/shopping_cart.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/is_min.js"></script>
     <script>
       var shopping2_detail  = new Vue({
         el: "#shopping2_detail",
         data: {
           total_money:'', //總金額
-          total_item:'',  //總件數
+          total_item:0,  //總件數
           cuppon_money:0, //購物金
           block_details:[
             {class:"checkout_shopping_detail_img", name:'商品圖片'},
@@ -997,35 +865,89 @@
               area:["南竿鄉", "北竿鄉", "莒光鄉", "東引鄉"]
             }
           ],
+          gender:'女',
         },
         methods: {
           credit_confirm() {
-            if($('.receiver_name').val() != '' || $('.receiver_email').val() != '' || $('.receiver_phone').val() !='' || $('.deliver_name').val() !='' || $('.deliver_phone').val() !="" || this.mainArea != '請選擇縣市' || this.subArea != '請選擇分區' || this.address !=''){
-              var strEmail = $('.receiver_email').val();
-              
-              emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+          //   let answer = 0;
+
+          //   if($('.receiver_name').val() != ''){
+          //     answer ++ ;
+          //   }else{
+          //     $('.receiver_name').addClass('error');
+          //   }
+
+          //   if($('.receiver_email').val() != ''){
+          //     let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+          //     let strEmail = $('.receiver_email').val();
+          //     if(strEmail.search(emailRule)!= -1){
+          //       answer ++;
+          //     }else{
+          //       $('.receiver_email').addClass('error');
+          //     }
+          //   }else{
+          //     $('.receiver_email').addClass('error');
+          //   }
+
+          //   if($('.receiver_phone').val() !=''){
+          //     let partten = /^09[0-9]{8}$/;
+          //     if(partten.test($('.receiver_phone').val()) == true){
+          //       answer ++
+          //     }else{
+          //       $('.receiver_phone').addClass('error');
+          //     }
+          //   }else{
+          //     $('.receiver_phone').addClass('error');
+          //   }
             
-              if(strEmail.search(emailRule)!= -1){
-                  console.log('ok')
-                  let partten = /^09[0-9]{8}$/;
-                  if(partten.test($('.receiver_phone').val())){
-                    if(partten.test($('.deliver_phone').val())){
-                      this.isShow = !this.isShow;
-                    }else{
-                      alert('收貨人手機格式錯誤')
-                      ('.deliver_phone').val().focus();
-                    }
-                  }else{
-                    alert('訂貨人手機格式錯誤');
-                    $('.receiver.phone').focus();
-                  }
-              }else{
-                  alert('信箱格式錯誤，請確認');
-                  $('.receiver_email').focus();
-              }
-            }else{
-              alert('請填妥所有訂單所需之資訊');
-            }
+          //   if($('.deliver_name').val() !=''){
+          //     answer ++;
+          //   }else{
+          //     $('.deliver_name').addClass('error');
+          //   }
+
+          //   if($('.deliver_phone').val() !=""){
+          //     let partten = /^09[0-9]{8}$/;
+          //     if(partten.test($('.deliver_phone').val()) == true){
+          //       answer ++
+          //     }else{
+          //       $('.deliver_phone').addClass('error');
+          //     }
+          //   }else{
+          //     $('.deliver_phone').addClass('error');
+          //   }
+
+          //   if(this.mainArea != '請選擇縣市'){
+          //     answer ++
+          //   }else{
+          //     $('.checkout_s2_city').addClass('error')
+          //   }
+
+          //   if(this.subArea != '請選擇分區'){
+          //     answer ++
+          //   }else{
+          //     $('.checkout_s2_area').addClass('error')
+          //   }
+
+          //   if(this.address !=''){
+          //     answer ++;
+          //   }else{
+          //     $('.checkout_s2_area ~ input').addClass('error')
+          //   };
+            
+          //   if(this.privacy == true){
+          //     answer ++;
+          //   }else{
+          //     $('.chekout_s2_order_privacy > label').addClass('error');
+          //   }
+
+          //   if(answer == 9){
+              this.isShow = !this.isShow;
+          //   }else{
+          //     alert('請填妥紅框內容或確認內容是否有誤')
+          //   }
+
+          //   console.log(answer);
           },
           turn_front(){
             $('.credit_card_img_front').css('transform', 'rotateY(0deg)')
@@ -1035,37 +957,82 @@
             $('.credit_card_img_front').css('transform', 'rotateY(180deg)')
             $('.credit_card_img_back').css('transform', 'rotateY(0deg)')
           },
+          addChart(){
+            console.log('aaa');
+            let text = $('.right_block_valid > input').val();
+            function insert(str, index, value) {
+                return str.substr(0, index) + value + str.substr(index);
+            }
+            if(text.length == 4){
+              text = insert(text, 2, '/');
+            }
+            this.card_valid = text;
+          },
           order_make(){
-            $.ajax({
-            method: 'POST',
-            url: 'php/orderMake.php',
-            data:{
-              EMAIL: $('.receiver_email').val(),
-              PHONE: $('.receiver_phone').val(),
-              RECIPIENT: $('.deliver_name').val(),
-              ORDER_PHONE: $('.deliver_phone').val(),
-              CITY: this.mainArea,
-              AREA: this.subArea,
-              ADDRESS: this.address,
-              TOTAL_PRICE: this.total_money,
-              REMARKS: this.note,
-              discount: this.cuppon_money,
+            let result = 0;
+            if(this.card_name != ""){
+              result ++;
+            }else{
+              $('.right_block_name > input').addClass('error');
+            }
 
-            },
-            dataType: 'text',
-            success: function(response) {
-              if(response == 'yes'){
-                window.location.href='checkout_s3.html'
-              }else{
-                alert('錯誤');
-                console.log(response);
-              }
-            },
-            error: function(exception) {
-                console.log(exception)
-                alert("發生錯誤: " + exception.status);
-            },
-          });
+            if(is.creditCard(this.card_number)){
+              result ++;
+            }else{
+              $('.right_block_number > input').addClass('error');
+            }
+
+            if(this.valid != ''){
+              result ++;
+            }else{
+              $('.right_block_valid > input').addClass('error');
+            }
+            
+            if(this.card_security != ''){
+              result ++;
+            }else{
+              $('.right_block_security > input').addClass('error');
+            }
+
+            if(result == 4){
+              $.ajax({
+                method: 'POST',
+                url: '../php/orderMake.php',
+                data:{
+                  EMAIL: $('.receiver_email').val(),
+                  PHONE: $('.receiver_phone').val(),
+                  RECIPIENT: $('.deliver_name').val(),
+                  ORDER_PHONE: $('.deliver_phone').val(),
+                  buyer: $('.receiver_name').val(),
+                  CITY: this.mainArea,
+                  AREA: this.subArea,
+                  ADDRESS: this.address,
+                  TOTAL_PRICE: this.total_money,
+                  REMARKS: this.note,
+                  discount: this.cuppon_money,
+                  cart_items: this.cart_items,
+                  fruit_boxs: this.fruit_boxs,
+                  gender: this.gender
+                },
+                dataType: 'json',
+                success: function(response) {
+                  console.log(response)
+                  if(response == 'yes'){
+                    sessionStorage.clear();
+                    window.location.href='checkout_s3.html'
+                  }else{
+                    alert('錯誤');
+                    console.log(response);
+                  }
+                },
+                error: function(exception) {
+                    console.log(exception)
+                    alert("發生錯誤: " + exception.status);
+                },
+              });
+            }else{
+              alert('請確認填寫的資訊是否正確');
+            }
           }
         },
         watch:{
@@ -1102,6 +1069,7 @@
               total_money += cart.total_price;
               return total_money;
             })
+            this.total_item += cart_items.length;
           }
           if(cuppon_box){
             this.cuppon_money = parseInt(cuppon_box);
@@ -1113,14 +1081,33 @@
             fruit_boxs.forEach(function(box, i){
               total_money += box.total_price;
             })
+            this.total_item += fruit_boxs.length;
           }
           console.log(this.fruit_boxs);
           
           this.total_money = total_money;
           this.total_money -= this.cuppon_money;
-          this.total_item = cart_items.length + fruit_boxs.length;
         },
       });
+
+
+      $('.checkout_s2_shopping_detail_total').click(function(){
+        $('.checkout_s2_detail').slideToggle();
+        $('.detail_icon_open').toggleClass('.detail_icon_close');
+        if($('.detail_icon_open').hasClass('.detail_icon_close')){
+          $('.detail_icon_open').attr('src', '../images/checkout/minus_icon.svg')
+        }else{
+          $('.detail_icon_open').attr('src', '../images/checkout/plus_icon.svg')
+        }
+      })
+      
+      $('input').focus(function(){
+        $(this).removeClass('error');
+      })
+
+      $('select').focus(function(){
+        $(this).removeClass('error');
+      })
 
       $("#go_top").on("click", function (e) {
         e.preventDefault();
