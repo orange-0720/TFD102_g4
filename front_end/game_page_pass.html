@@ -5,21 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="/game.css"> -->
-    <link rel="icon" href="./images/logo-02.svg" />
+    <link rel="icon" href="../images/logo-02.svg" />
     <title>良耕野菜-小知識通關頁面</title>
-    <link rel="icon" href="./images/logo-02.svg" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="../images/logo-02.svg" />
+    <link rel="stylesheet" href="../css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>  
       //判斷是否登入
       function ifMember(){
         $.ajax({
               method: 'POST',
-              url: 'php/ifMember.php',
+              url: '../php/ifMember.php',
               data:{},
               dataType: 'text',
               success: function(response) {
@@ -29,10 +30,17 @@
                   $('.login').click(function(){
                     window.location.href = 'member.html';
                   });
+                  $('#submit_1').css("display","none");
+                  $('#action2').css("display","none");
+                  $('#submit_2ifLogin').css("display","block");
+                  $('#ifnotlogin').css("display","none");
+                  $('#iflogin').css("display","block");
                 }else{
                   $('.login').click(function(){
                     window.location.href = 'login.html';
                   });
+                  $('#iflogin').css("display","none");
+                  $('#action2ifLogin').css("display","none");
                 }
               },
               error: function(exception) {
@@ -41,6 +49,8 @@
               },
         });  
       }
+
+    
     </script> 
   </head>
   <body id="game_page" onload="ifMember()">
@@ -49,11 +59,11 @@
       <div class="fixed_top">
         <div class="fixed_top_logo">
           <a href="./index.html">
-            <img src="./images/fixed_top_logo.svg" alt="top_logo" />
+            <img src="../images/fixed_top_logo.svg" alt="top_logo" />
           </a>
         </div>
         <div class="shop_car">
-          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+          <img src="../images/shopping_cart.svg" alt="shopping_cart" />
         </div>
         <div class="ham">
           <div class="ham_top"></div>
@@ -71,11 +81,11 @@
           </div>
           <div class="login">
             <a href="./login.html">
-              <img src="./images/login_icon.svg" alt="login_icon" />
+              <img src="../images/login_icon.svg" alt="login_icon" />
             </a>
           </div>
           <div class="shop_car">
-            <img src="./images/shopping_cart.svg" alt="shopping_cart" />
+            <img src="../images/shopping_cart.svg" alt="shopping_cart" />
           </div>
         </div>
       </div>
@@ -83,7 +93,7 @@
     <div class="menu">
       <div class="logo_img">
         <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
+          <img src="../images/logo.svg" alt="logo" />
         </a>
       </div>
       <div class="page_list">
@@ -98,15 +108,15 @@
     <div class="title">
       <div class="title_btn">
         <button class="comm_us">
-          聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+          聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
         </button>
         <a class="buy_now">
-          立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          立即買<img src="../images/buy_now.svg" width="25px" alt="" />
         </a>
       </div>
       <div class="title_pic">
         <img
-          src="./images/member/member_01.jpg"
+          src="../images/member/member_01.jpg"
           alt="checkout_pic"
           style="padding-bottom: 100px;"
         />
@@ -118,16 +128,16 @@
             <div class="jump_hamburger_block">
               <div class="hamburger_logo">
                 <a href="./index.html">
-                  <img src="./images/logo.svg" alt="logo">
+                  <img src="../images/logo.svg" alt="logo">
                 </a>
               </div>
               <div class="header_nav_block">
                 <div class="nav_block_contact">
-                  <img src="./images/nav_block_pen.svg" >
+                  <img src="../images/nav_block_pen.svg" >
                   聯絡我們
                 </div>
                 <a class="nav_block_log" href="./login.html">
-                  <img src="./images/nav_block_log.svg">
+                  <img src="../images/nav_block_log.svg">
                   <span>登入註冊</span>
                 </a>          
                 <div class="nav_right_block">
@@ -154,9 +164,9 @@
                     <a href="./q_a.html">問與答</a>
                   </div>
                 </div>
-                <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
-                <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
-                <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+                <img src="../images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+                <img src="../images/header_lemon.svg" alt="vegetable" class="header_lemon">
+                <img src="../images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
               </div>
             </div>
             <!-- 漢堡彈窗結束 -->
@@ -172,7 +182,7 @@
         <div class="contact_search_bar">
           <input type="text" id="order_search" placeholder="請輸入訂單編號" />
           <button class="search_icon">
-            <img src="./images/header_search_icon.svg" alt="search" />
+            <img src="../images/header_search_icon.svg" alt="search" />
           </button>
         </div>
         <h3>若有其他問題可以點擊下方按鈕寄信</h3>
@@ -188,10 +198,10 @@
      <!-- 購物車彈窗  -->
      <div class="header_shopping_cart">
       <button class="cart_close">
-        <img src="./images/checkout/X_mark.svg">
+        <img src="../images/checkout/X_mark.svg">
       </button>
       <div class="incart_car_block">
-        <img src="./images/header_incart.svg" alt="">
+        <img src="../images/header_incart.svg" alt="">
         <h5>Shop Cart</h5>
       </div>
       <div class="cart_buy_list">
@@ -219,38 +229,42 @@
     <div id="game_title">
       <h2 class="game_title">蔬果知識小遊戲</h2>
     </div>
-    <section id="game_play_border_PassandDefeat">
+    <section class="game_play_border_PassandDefeat" id="test_block">
       <div id="game_decorate_testNumberCircle_2">
-        <h1 id="inside_testNumber">過關</h1>
+        <h1 id="inside_testNumber">{{testNumber}}</h1>
       </div>
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="./images/game/cabage_group.svg" alt="" class="game icon_3" />
+      <img src="../images/game/cabage_group.svg" alt="" class="game icon_1" />
+      <img src="../images/game/cabage_group.svg" alt="" class="game icon_2" />
+      <img src="../images/game/cabage_group.svg" alt="" class="game icon_3" />
       <!-- <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" /> -->
-      <div id="count"><h1>時間到!</h1></div>
+      <div id="count"><h1>{{time}}</h1></div>
       <div class="game_test_2">
-        <img src="./images/game/game_img_Tomato.svg" alt="" id="game_test" />
+        <img src="../images/game/game_img_Tomato.svg" alt="" id="game_test" />
       </div>
       <div id="game_question" class="animate__animated animate__bounceInDown">
-        <h2>
-          恭喜!通過了蔬菜們的考驗<br />請註冊會員，或登入會員進行扭蛋遊戲
+        <h2 id="ifnotlogin" v-html="ifnotlogin">
+        </h2>
+        <h2 id="iflogin" v-html="ifnotlogin">
         </h2>
       </div>
       <div id="game_bottom_part_PassandDefeat">
         <div id="game_answer">
-          <button type="submit" id="submit_1" class="green">
-            <div id="action1"><a href="member.html">註冊會員</a></div>
-            <img src="./images/game/rightArrow.svg" alt="" id="rightArrow" />
+          <button type="submit" id="submit_1" >
+            <div id="action1"><a href="member.html">{{signmember}}</a></div>
+            <img src="../images/game/rightArrow.svg" alt="" id="rightArrow" />
           </button>
-          <button type="submit" id="submit_2" class="green" onclick="doCheck()">
-            <img src="./images/game/leftArrow.svg" alt="" id="leftArrow" />
-            <div id="action1">
-              登入會員，扭蛋去
+          <button type="submit" id="submit_2"  onclick="doCheck()">
+            <img src="../images/game/leftArrow.svg" alt="" id="leftArrow" />
+            <div id="action2">
+              {{action2}}
+            </div>
+            <div id="action2ifLogin">
+              {{action2ifLogin}}
             </div>
           </button>
         </div>
         <img
-          src="./images/game/game_img_Farmer.svg"
+          src="../images/game/game_img_Farmer.svg"
           alt=""
           class="decorate icon_11"
         />
@@ -264,27 +278,27 @@
     <section id="game_slideshow_step_PassandDefeat">
       <div id="game_slideshow">
         <img
-          src="./images/game/game_scroll_1.png"
+          src="../images/game/game_scroll_1.png"
           class="game_slideshow"
           alt=""
         />
         <img
-          src="./images/game/game_scroll_2.png"
+          src="../images/game/game_scroll_2.png"
           class="game_slideshow"
           alt=""
         />
         <img
-          src="./images/game/game_scroll_3.png"
+          src="../images/game/game_scroll_3.png"
           class="game_slideshow"
           alt=""
         />
         <img
-          src="./images/game/game_scroll_4.png"
+          src="../images/game/game_scroll_4.png"
           class="game_slideshow"
           alt=""
         />
         <img
-          src="./images/game/game_scroll_5.png"
+          src="../images/game/game_scroll_5.png"
           class="game_slideshow"
           alt=""
         />
@@ -293,11 +307,11 @@
     <footer class="footer_bg">
       <div class="footer">
         <button class="go_top" id="go_top">
-          <img src="./images/top.svg" alt="top" />
+          <img src="../images/top.svg" alt="top" />
         </button>
         <div class="footer_logo">
           <a href="./index.html">
-            <img src="./images/logo.svg" alt="logo" />
+            <img src="../images/logo.svg" alt="logo" />
           </a>
         </div>
         <div class="footer_center">
@@ -308,13 +322,13 @@
           <h5>(17:00後下單視為隔日下單)</h5>
           <div class="btn_pos">
             <button class="mail_btn">
-              <img src="./images/mail.svg" alt="mail">MAIL
+              <img src="../images/mail.svg" alt="mail">MAIL
             </button>
           </div>
           <div class="footer_icon">
-            <img src="./images/icon-fb.svg" alt="fb" />
-            <img src="./images/icon-line.svg" alt="line" />
-            <img src="./images/icon-ig.svg" alt="ig" />
+            <img src="../images/icon-fb.svg" alt="fb" />
+            <img src="../images/icon-line.svg" alt="line" />
+            <img src="../images/icon-ig.svg" alt="ig" />
           </div>
         </div>
         <div class="footer_right">
@@ -333,43 +347,102 @@
         </div>
       </div>
     </footer>
-    <script src="./js/shopping_cart.js"></script>
-    <script src="./js/header.js"></script>
+    <script src="../js/shopping_cart.js"></script>
+    <script src="../js/header.js"></script>
     <script>
-      //AJAX 確認會員資格
-      function doCheck(){
-        // alert('aaa');
-        $.ajax({//jQuery-AJAX語法            
-            method: 'POST',//方式
-            url: 'php/check_member.php',//API伺服器  
-            data:{},
-            dataType: 'text', //傳送的不是JSON檔，用TEXT型態就可以了       
-            success: function (response) {//response是由php回傳
-                //更新html內容
-                if(response=="yes"){
-                  window.location.href ='./game_page_lotteryStart.html';
-                  alert("親愛的會員，歡迎你小試身手來轉蛋");  
-                }else if(response=="used"){    
-                  // (response=no)
-                 window.location.href ='./shopping_page.html';
-                 alert("您尚有購物金未使用，請購物"); 
-                }else{
-                  window.location.href ='./login.html';
-                  alert("請先登入會員"); 
-                }
+
+      var test_block=new Vue({
+        el: "#test_block",
+        data:{
+          isBtnDisabled:true,
+          testNumber:'通關',
+          time:'時間到',
+          ifnotlogin:' 恭喜!通過了蔬菜們的考驗。請註冊會員，或登入會員進行扭蛋遊戲',
+          iflogin:'恭喜!通過了蔬菜們的考驗。請進行扭蛋遊戲!',
+          signmember:'註冊會員',
+          action2:'登入會員，扭蛋去',
+          action2ifLogin:' 會員扭蛋去',
+
+        },
+        methods:{
+          //AJAX 確認會員資格
+           doCheck(){
+                $.ajax({//jQuery-AJAX語法            
+                    method: 'POST',//方式
+                    url: '../php/check_member.php',//API伺服器  
+                    data:{},
+                    dataType: 'text', //傳送的不是JSON檔，用TEXT型態就可以了       
+                    success: function (response) {//response是由php回傳
+                        //更新html內容
+                        if(response=="yes"){
+                          // location.href ='./game_page_lotteryStart.html';   
+                          let site_now = JSON.parse(sessionStorage.getItem("site_now"));
+                              if(site_now){
+                                site_now = [];
+                                site_now.push('./game_page_lotteryStart.html');
+                                alert("親愛的會員，歡迎你小試身手來轉蛋");  
+                              }else{
+                                sessionStorage.setItem('site_now', JSON.stringify(location.href));
+                              }
+                        }else if(response=="used"){    
+                          // (response=no)
+                        location.href ='./shopping_page.html';
+                        alert("您尚有購物金未使用，請購物"); 
+                        }else{
+                          location.href ='./login.html';
+                          alert("請先登入會員"); 
+                        }
+                        
+                    },
+                    error: function(exception) {//error是代表AJAX response的error
+                        console.log(exception);
+                    }
+                });
+               }
+        }
+
+      });
+
+
+
+
+      // //AJAX 確認會員資格
+      // function doCheck(){
+      //   // alert('aaa');
+      //   $.ajax({//jQuery-AJAX語法            
+      //       method: 'POST',//方式
+      //       url: '../php/check_member.php',//API伺服器  
+      //       data:{},
+      //       dataType: 'text', //傳送的不是JSON檔，用TEXT型態就可以了       
+      //       success: function (response) {//response是由php回傳
+      //           //更新html內容
+      //           if(response=="yes"){
+      //             // location.href ='./game_page_lotteryStart.html';   
+      //             let site_now = JSON.parse(sessionStorage.getItem("site_now"));
+      //                 if(site_now){
+      //                   site_now = [];
+      //                   site_now.push('./game_page_lotteryStart.html');
+      //                   alert("親愛的會員，歡迎你小試身手來轉蛋");  
+      //                 }else{
+      //                   sessionStorage.setItem('site_now', JSON.stringify(location.href));
+      //                 }
+      //           }else if(response=="used"){    
+      //             // (response=no)
+      //            location.href ='./shopping_page.html';
+      //            alert("您尚有購物金未使用，請購物"); 
+      //           }else{
+      //             location.href ='./login.html';
+      //             alert("請先登入會員"); 
+      //           }
                 
-            },
-            error: function(exception) {//error是代表AJAX response的error
-                console.log(exception);
-            }
-        });
+      //       },
+      //       error: function(exception) {//error是代表AJAX response的error
+      //           console.log(exception);
+      //       }
+      //   });
 
-      }
-
-
-
-
-
+      // }
+        //判斷是否會員，如果是直接進入扭蛋頁
 
       //Slider
       $("#game_slideshow").each(function() {

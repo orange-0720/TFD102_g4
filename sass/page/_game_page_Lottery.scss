@@ -445,7 +445,6 @@ section.game_play_border_lottery {
         text-align: center;
         font-size: 40px;
         color: $text_underline;
-        // opacity: 0;
         animation: numberShow 1.5s reverse;
         // &:before {
         //   content: "?";
@@ -453,6 +452,9 @@ section.game_play_border_lottery {
         //   transform: translateX(-25%);
         //   animation: numberShow 0.1s 1.5s forwards;
         // }
+        @include mobile {
+          font-size: 24px;
+        }
       }
     }
   }
