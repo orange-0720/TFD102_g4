@@ -16,71 +16,14 @@
     />
     <script src="../js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script>
-      //判斷是否登入
-      function ifMember() {
-        $.ajax({
-          method: "POST",
-          url: "php/ifMember.php",
-          data: {},
-          dataType: "text",
-          success: function(response) {
-            console.log(response);
-            if (response == "yes") {
-              $(".nav_block_log > span").text("會員中心");
-              $(".login").click(function() {
-                window.location.href = "member.html";
-              });
-            } else {
-              $(".login").click(function() {
-                window.location.href = "login.html";
-              });
-            }
-          },
-          error: function(exception) {
-            console.log(exception);
-            alert("發生錯誤: " + exception.status);
-          },
-        });
-      }
-    </script>
   </head>
   <body id="game_page" onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
-      <div class="fixed_top">
-        <div class="fixed_top_logo">
-          <a href="./index.html">
-            <img src="../images/fixed_top_logo.svg" alt="top_logo" />
-          </a>
-        </div>
-        <div class="shop_car">
-          <img src="../images/shopping_cart.svg" alt="shopping_cart" />
-        </div>
-        <div class="ham">
-          <div class="ham_top"></div>
-          <div class="ham_middle"></div>
-          <div class="ham_bottom"></div>
-        </div>
-      </div>
+      <div class="fixed_top"></div>
       <!-- 手機板header結束 -->
-      <div class="menu_fixed">
-        <div class="icon">
-          <div class="ham">
-            <div class="ham_top"></div>
-            <div class="ham_middle"></div>
-            <div class="ham_bottom"></div>
-          </div>
-          <div class="login">
-            <a href="./login.html">
-              <img src="../images/login_icon.svg" alt="login_icon" />
-            </a>
-          </div>
-          <div class="shop_car">
-            <img src="../images/shopping_cart.svg" alt="shopping_cart" />
-          </div>
-        </div>
-      </div>
+      <div class="menu_fixed"></div>
+
       <div class="menu">
         <div class="logo_img">
           <a href="./index.html">
@@ -90,7 +33,7 @@
         <div class="page_list">
           <a href="./event.html">農村體驗</a>
           <a href="./fruit_box.html">客製蔬果箱</a>
-          <a href="./game.html">蔬果知識小遊戲</a>
+          <a class="on_page" href="./game.html">蔬果知識小遊戲</a>
           <a href="./aboutUs.html">關於我們</a>
           <a href="./q_a.html">問與答</a>
           <a href="./shopping_page.html">新鮮蔬果</a>
@@ -117,112 +60,16 @@
       </div>
 
       <!-- 漢堡彈窗 -->
-      <div class="jump_hamburger_block">
-        <div class="hamburger_logo">
-          <a href="./index.html">
-            <img src="../images/logo.svg" alt="logo" />
-          </a>
-        </div>
-        <div class="header_nav_block">
-          <div class="nav_block_contact">
-            <img src="../images/nav_block_pen.svg" />
-            聯絡我們
-          </div>
-          <a class="nav_block_log" href="./login.html">
-            <img src="../images/nav_block_log.svg" />
-            <span>登入註冊</span>
-          </a>
-          <div class="nav_right_block">
-            <div class="nav_active">
-              <a href="./event.html">農村體驗</a>
-              <a href="./event_info.html">預約去</a>
-            </div>
-            <div class="nav_buy_now">
-              <a href="./shopping_page.html">立即買</a>
-              <a href="./fruit_box.html">客製蔬果箱</a>
-              <a href="./shopping_page.html">新鮮蔬果</a>
-            </div>
-            <div class="nav_knowledge">
-              <a href="./game.html">蔬果知識小遊戲</a>
-            </div>
-          </div>
-          <div class="nav_left_block">
-            <div class="nav_about_us">
-              <a href="./aboutUs.html">關於我們</a>
-              <a href="./aboutUs.html">農場介紹</a>
-              <a href="./product_introduction.html">生產介紹</a>
-            </div>
-            <div class="nav_QA">
-              <a href="./q_a.html">問與答</a>
-            </div>
-          </div>
-          <img
-            src="../images/header_vegetable.svg"
-            alt="vegetable"
-            class="header_vegetable"
-          />
-          <img
-            src="../images/header_lemon.svg"
-            alt="vegetable"
-            class="header_lemon"
-          />
-          <img
-            src="../images/header_kiwi.svg"
-            alt="vegetable"
-            class="header_kiwi"
-          />
-        </div>
-      </div>
+      <div class="jump_hamburger_block"></div>
       <!-- 漢堡彈窗結束 -->
 
       <!-- 聯絡我們彈窗 -->
-      <div class="index_contact_box">
-        <div class="black_block"></div>
-        <div class="cotanct_block">
-          <div class="contact_block_head">
-            <button class="contact_block_Xmark"></button>
-          </div>
-          <h3>聯絡我們</h3>
-          <div class="contact_search_bar">
-            <input type="text" id="order_search" placeholder="請輸入訂單編號" />
-            <button class="search_icon">
-              <img src="../images/header_search_icon.svg" alt="search" />
-            </button>
-          </div>
-          <h3>若有其他問題可以點擊下方按鈕寄信</h3>
-          <div class="mailto_block">
-            <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
-              >寄送問題</a
-            >
-          </div>
-        </div>
-      </div>
+      <div class="index_contact_box"></div>
       <!-- 聯絡我們彈窗結束 -->
 
       <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
-        <button class="cart_close">
-          <img src="../images/checkout/X_mark.svg" />
-        </button>
-        <div class="incart_car_block">
-          <img src="../images/header_incart.svg" alt="" />
-          <h5>Shop Cart</h5>
-        </div>
-        <div class="cart_buy_list">
-          <span class="cart_nothing">目前購物車空無一物</span>
-        </div>
-        <div class="incart_total">
-          總和
-          <span class="cart_total_price">0</span>元
-          <!-- 手機板結帳去  -->
-          <a class="incart_checkout_btn_mobile" href="./checkout.html"
-            ><h5>結帳去</h5></a
-          >
-        </div>
-        <div class="incart_checkout_block">
-          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
-        </div>
-      </div>
+      <div class="cart_bk"></div>
+      <div class="header_shopping_cart"></div>
       <!-- 購物車彈窗結束  -->
 
       <!-- 滾輪  -->
@@ -341,6 +188,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="../js/right_nav_bar.js"></script>
     <script src="../js/shopping_cart.js"></script>
     <script src="../js/header.js"></script>
     <script>
