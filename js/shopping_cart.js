@@ -122,10 +122,9 @@ $('.cart_buy_list').on('click','.cart_item_delete',function(e){
             $(e.target).closest('div.cart_inside_item').fadeOut().remove();
             $('.cart_total_price').text(total_price);
 
-            let num_now = parseInt($('.buy_num').text())
-            console.log(num_now);
-            let new_num = num_now -1;
-            $('.buy_num').text(new_num)
+            let nums = $('.cart_inside_item').length;
+            $('.buy_num').text(nums);
+            $('.shop_car').addClass('cart_move');
         
             // 清除sesstion_storage裡的資料
             let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
@@ -170,9 +169,9 @@ $('.cart_buy_list').on('click','.fruit_box_delete',function(e){
             $(e.target).closest('div.cart_inside_item').fadeOut().remove();
             $('.cart_total_price').text(total_price);
         
-            let num_now = parseInt($('.buy_num').text())
-            let new_num = num_now -1;
-            $('.buy_num').text(new_num)
+            let nums = $('.cart_inside_item').length;
+            $('.buy_num').text(nums);
+            $('.shop_car').addClass('cart_move');
 
             // 清除sesstion_storage裡的資料
             let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
