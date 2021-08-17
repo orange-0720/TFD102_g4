@@ -169,20 +169,19 @@
       </div>
     <!-- 購物車彈窗結束  -->
   </header>
-
-  <section class="test">
+  <div id="event_block">
+  <section class="test" v-for="event in events">
     <div class="test_container">
         <div class="test_row">
             <div class="row_left">
                 <header>
-                    <h2>摘採野菜體驗</h2>
+                    <h2>{{event.ACTIVITY_NAME}}</h2>
                 </header>
-                <p>活動期間 2021年6月5日～2021年9月30日</p>
-                <p>所要時間 約3.5時間〜</p>
-                <p>参加料金 300元</p>
+                <p>活動期間 {{event.ACTIVITY_DATE}}</p>
+                <p>所要時間 {{event.ACTIVITY_TIME}}</p>
+                <p>参加金額 {{event.ACTIVITY_PRICE}}元</p>
                 <br>
-                <p>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！
-                </p>
+                <p>{{event.ACTIVITY_INFO}}</p>
                 <div>
                   <!-- <a href=""><button class="event_btn">詳細內容</button></a> -->
                   <a href="./event_info.html"><button class="event_btn">預約去</button></a>
@@ -196,60 +195,7 @@
         </div>
     </div>
   </section>
-
-  <section class="test">
-    <div class="test_container">
-        <div class="test_row">
-            <div class="row_right">
-                <span class="row_img">
-                    <img src="./images/event/large_ph_newopen_03.jpg" alt="" />
-                </span>
-            </div>
-            <div class="row_left">
-                <header>
-                    <h2>摘採野菜體驗</h2>
-                </header>
-                <p>活動期間 2021年6月5日～2021年9月30日</p>
-                <p>所要時間 約3.5時間〜</p>
-                <p>参加料金 300元</p>
-                <br>
-                <p>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！
-                </p>
-                <div>
-                  <!-- <a href=""><button class="event_btn">詳細內容</button></a> -->
-                  <a href="./event_info.html"><button class="event_btn">預約去</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-
-  <section class="test">
-    <div class="test_container">
-        <div class="test_row">
-            <div class="row_left">
-                <header>
-                    <h2>摘採野菜體驗</h2>
-                </header>
-                <p>活動期間 2021年6月5日～2021年9月30日</p>
-                <p>所要時間 約3.5時間〜</p>
-                <p>参加料金 300元</p>
-                <br>
-                <p>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！
-                </p>
-                <div>
-                  <!-- <a href=""><button class="event_btn">詳細內容</button></a> -->
-                  <a href="./event_info.html"><button class="event_btn">預約去</button></a>   
-                </div>
-            </div>
-            <div class="row_right">
-                <span class="row_img">
-                    <img src="./images/event/large_ph_newopen_03.jpg" alt="" />
-                </span>
-            </div>
-        </div>
-    </div>
-  </section>
+  </div>
   <div class="push_item">
       <h2>良耕好物</h2>
   </div>
@@ -347,6 +293,57 @@
         750
       );
     });
+
+    var event_block = new Vue({
+      el:"#event_block",
+      data:{
+        events:[],
+      },
+
+
+      mounted() {
+        $.ajax({
+            method: 'POST',
+            url:'php/getACTIVITY.php',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+              event_block.events = response;
+              // console.log(response);
+              // console.log(event_block.event)
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+                console.log(exception)
+            },
+          })
+      },
+      methods: {
+        test(){
+        console.log(this.event[index]);
+        }
+      },
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </script>
 </body>
 

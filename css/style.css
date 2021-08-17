@@ -14552,7 +14552,7 @@ body#game_page {
   background-attachment: fixed;
 }
 
-section#game_play_border_PassandDefeat {
+section.game_play_border_PassandDefeat {
   width: 60%;
   height: 700px;
   border-radius: 53px;
@@ -14570,31 +14570,31 @@ section#game_play_border_PassandDefeat {
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat {
+  section.game_play_border_PassandDefeat {
     height: 900px;
     width: 80%;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat {
+  section.game_play_border_PassandDefeat {
     height: 600px;
   }
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat {
+  section.game_play_border_PassandDefeat {
     border: 8px solid #006c3e;
   }
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat {
+  section.game_play_border_PassandDefeat {
     margin-top: 5rem;
   }
 }
 
-section#game_play_border_PassandDefeat .icon_1 {
+section.game_play_border_PassandDefeat .icon_1 {
   position: absolute;
   top: -4%;
   left: -4%;
@@ -14602,12 +14602,12 @@ section#game_play_border_PassandDefeat .icon_1 {
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat .icon_1 {
+  section.game_play_border_PassandDefeat .icon_1 {
     display: none;
   }
 }
 
-section#game_play_border_PassandDefeat .icon_2 {
+section.game_play_border_PassandDefeat .icon_2 {
   position: absolute;
   bottom: -4%;
   left: -4%;
@@ -14615,12 +14615,12 @@ section#game_play_border_PassandDefeat .icon_2 {
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat .icon_2 {
+  section.game_play_border_PassandDefeat .icon_2 {
     display: none;
   }
 }
 
-section#game_play_border_PassandDefeat .icon_3 {
+section.game_play_border_PassandDefeat .icon_3 {
   position: absolute;
   bottom: -4%;
   right: -4%;
@@ -14628,12 +14628,12 @@ section#game_play_border_PassandDefeat .icon_3 {
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat .icon_3 {
+  section.game_play_border_PassandDefeat .icon_3 {
     display: none;
   }
 }
 
-section#game_play_border_PassandDefeat #count {
+section.game_play_border_PassandDefeat #count {
   position: absolute;
   top: -8.5%;
   right: -4%;
@@ -14651,37 +14651,37 @@ section#game_play_border_PassandDefeat #count {
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat #count {
+  section.game_play_border_PassandDefeat #count {
     top: -8.5%;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat #count {
+  section.game_play_border_PassandDefeat #count {
     background-size: 90px 72px;
     top: -4.8%;
     right: -6%;
   }
 }
 
-section#game_play_border_PassandDefeat #count h1 {
+section.game_play_border_PassandDefeat #count h1 {
   font-size: 28px;
   font-weight: bolder;
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat #count h1 {
+  section.game_play_border_PassandDefeat #count h1 {
     font-size: 24px;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat #count h1 {
+  section.game_play_border_PassandDefeat #count h1 {
     font-size: 20px;
   }
 }
 
-section#game_play_border_PassandDefeat div.game_test_2 {
+section.game_play_border_PassandDefeat div.game_test_2 {
   height: 300px;
   margin-top: 8rem;
   display: flex;
@@ -14690,72 +14690,75 @@ section#game_play_border_PassandDefeat div.game_test_2 {
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat div.game_test_2 {
+  section.game_play_border_PassandDefeat div.game_test_2 {
     height: 250px;
     margin-top: 6rem;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat div.game_test_2 {
+  section.game_play_border_PassandDefeat div.game_test_2 {
     height: 200px;
     margin-top: 8rem;
   }
 }
 
-section#game_play_border_PassandDefeat div.game_test_2 img#game_test {
+section.game_play_border_PassandDefeat div.game_test_2 img#game_test {
   width: 300px;
   animation: fade-in 0.5s linear;
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat div.game_test_2 img#game_test {
+  section.game_play_border_PassandDefeat div.game_test_2 img#game_test {
     width: 50vw;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat div.game_test_2 img#game_test {
+  section.game_play_border_PassandDefeat div.game_test_2 img#game_test {
     width: 60vw;
   }
 }
 
-section#game_play_border_PassandDefeat #game_question {
+section.game_play_border_PassandDefeat #game_question {
   line-height: 4vh;
   height: 120px;
-  width: 80%;
+  width: 50%;
   text-align: center;
   padding: 1rem;
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat #game_question {
-    height: 180px;
+  section.game_play_border_PassandDefeat #game_question {
+    height: 140px;
     margin-top: 2rem;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat #game_question {
+  section.game_play_border_PassandDefeat #game_question {
+    width: 70%;
     margin-top: 0.5rem;
   }
 }
 
-section#game_play_border_PassandDefeat #game_question h2 {
-  line-height: 4rem;
+section.game_play_border_PassandDefeat #game_question h2 {
+  line-height: 3rem;
   font-size: 26px;
+  text-align: justify;
 }
 
 @media (max-width: 767px) {
-  section#game_play_border_PassandDefeat #game_question h2 {
+  section.game_play_border_PassandDefeat #game_question h2 {
     font-size: 20px;
+    line-height: 2rem;
   }
 }
 
 @media (max-width: 575px) {
-  section#game_play_border_PassandDefeat #game_question h2 {
+  section.game_play_border_PassandDefeat #game_question h2 {
     font-size: 16px;
-    text-align: center;
+    text-align: justify;
     line-height: 2rem;
   }
 }
@@ -15405,8 +15408,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#orange {
   top: 0%;
   left: 50%;
   transform: translate(-50%, 230%);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15416,8 +15419,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#potato {
   top: 0%;
   left: 50%;
   transform: translate(-110%, 210%) rotateZ(-20deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15427,8 +15430,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#Beetroot {
   top: 0%;
   left: 50%;
   transform: translate(70%, 120%) rotateZ(20deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15438,8 +15441,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#onion {
   top: 0%;
   left: 50%;
   transform: translate(-170%, 200%) rotateZ(-20deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15449,8 +15452,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#cabbage {
   top: 0%;
   left: 50%;
   transform: translate(-20%, 160%) rotateZ(10deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15460,8 +15463,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#pepper {
   top: 0%;
   left: 50%;
   transform: translate(50%, 110%) rotateZ(10deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15471,8 +15474,8 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#pumpkin {
   top: 0%;
   left: 50%;
   transform: translate(-90%, 160%) rotateZ(-10deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
@@ -15482,20 +15485,21 @@ section.game_play_border_lottery div.game_test_3 div#bowl img#greenapple {
   top: 0%;
   left: 50%;
   transform: translate(-170%, 130%) rotateZ(-20deg);
-  animation-delay: 2s;
-  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
 }
 
 section.game_play_border_lottery #game_question {
   margin-bottom: 1rem;
+  height: 200px;
+  border-radius: 10px;
   width: 65%;
   text-align: justify;
   padding: 1rem;
   z-index: 10;
   height: 120px;
   background-color: #FAF9EF;
-  border: 6px solid #fff353;
 }
 
 @media (max-width: 767px) {
@@ -15537,7 +15541,11 @@ section.game_play_border_lottery #game_question h2 {
   width: 70%;
   height: 200px;
   background-color: #FAF9EF;
-  border: 6px solid #fff353;
+  border-radius: 10px;
+  perspective: 800px;
+  perspective-origin: 50% 50%;
+  display: inline-block;
+  animation: ballRoll 2s ease-out;
 }
 
 @media (max-width: 767px) {
@@ -15555,7 +15563,28 @@ section.game_play_border_lottery #game_question h2 {
   }
 }
 
-#lottery_result h1 {
+#lottery_result figure {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: ballGrow 2s ease-out forwards;
+  transform: scale(0.5);
+}
+
+#lottery_result figure:after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translateX(-80px) translateY(-90px) skewX(-20deg);
+}
+
+#lottery_result figure h1 {
   line-height: 200px;
   text-align: center;
   width: 100%;
@@ -15563,7 +15592,7 @@ section.game_play_border_lottery #game_question h2 {
 }
 
 @media (max-width: 767px) {
-  #lottery_result h1 {
+  #lottery_result figure h1 {
     height: 150px;
     font-size: 24px;
     line-height: 140px;
@@ -15571,10 +15600,24 @@ section.game_play_border_lottery #game_question h2 {
 }
 
 @media (max-width: 575px) {
-  #lottery_result h1 {
+  #lottery_result figure h1 {
     height: 120px;
     font-size: 18px;
     line-height: 120px;
+  }
+}
+
+#lottery_result figure h1 span#numbers {
+  width: 20%;
+  text-align: center;
+  font-size: 40px;
+  color: #FFBC53;
+  animation: numberShow 1.5s reverse;
+}
+
+@media (max-width: 575px) {
+  #lottery_result figure h1 span#numbers {
+    font-size: 24px;
   }
 }
 
@@ -15732,6 +15775,44 @@ div#get_coin span#submit_12 img#pig {
 @media (max-width: 575px) {
   div#get_coin span#submit_12 img#pig {
     width: 100px;
+  }
+}
+
+@keyframes ballGrow {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ballRoll {
+  0%,
+  20%,
+  50% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+  10%,
+  35%,
+  75% {
+    transform: translateY(10%) rotateX(170deg) scale(0.4);
+  }
+  11%,
+  36%,
+  76% {
+    transform: translateY(-10%) rotateX(-170deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes numberShow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -16240,6 +16321,10 @@ section#game_slideshow_step_lottery #game_slideshow img.game_slideshow {
 .test {
   display: block;
   margin: 40px auto;
+}
+
+.test:nth-child(even) .row_left {
+  order: 2;
 }
 
 .test .test_container {

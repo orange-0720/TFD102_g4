@@ -173,14 +173,14 @@
       </div>
     <!-- 購物車彈窗結束  -->
   </header>
-
+  <div id="event_info_block">
     <div class="table">
       <h2>活動表單</h2>
         <div class="table_body">
             <div class="table_left">
                 <div>
                     <span>希望日期</span>
-                    <input type="datetime-local" accept="middle">
+                    <input type="date" accept="middle" v-model="date">
                 </div>
                 <div>
                     <span>姓名</span>
@@ -196,17 +196,17 @@
                 </div>
                 <div>
                     <span>報名活動</span>
-                    <select>
-                    <option>請選擇活動</option>
-                    <option>Dog</option>
-                    <option>Cat</option>
-                    <option>Hamster</option>
-                </select>
+                    <select v-model="select">
+                      <option disabled value="">請選擇活動</option>
+                      <option id="ACTIVITY_SELECT" v-for="event in events" :value="event">{{event.ACTIVITY_NAME}}</option>
+                    <!-- <option>Cat</option>
+                    <option>Hamster</option> -->
+                  </select>
                 </div>
                 <div>
                     <span>人數</span>                    
                     <select>
-                    <option>請選擇人數</option>
+                    <option >請選擇人數</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -222,15 +222,15 @@
                 </div>
                 <div>
                     <span>舉辦期間</span>
-                    <em>5月到7月中</em>
+                    <em>{{select.ACTIVITY_DATE || '選擇活動顯示日期'}}</em>
                 </div>
                 <div>
                     <span>花費時間</span>
-                    <em>2個小時</em>
+                    <em>{{select.ACTIVITY_TIME || '選擇活動顯示時間'}}</em>
                 </div>
                 <div>
                     <span>價錢</span>
-                    <em>250元</em>
+                    <em>{{select.ACTIVITY_PRICE || '選擇活動顯示金額'}}</em>
                 </div>
                 <div>
                     <span>突發狀況</span>
@@ -244,6 +244,7 @@
         </div>
     </div>
     <div class="event_info_btn"><a href="">送出</a></div>
+  </div>
 
     <footer class="footer_bg">
       <div class="footer">
@@ -322,6 +323,40 @@
           750
         );
       });
+
+      var event_info_block = new Vue({
+        el:"#event_info_block",
+        data:{
+          events:[],
+          select: "",
+          date: new Date().toISOString().substr(0, 10),
+        },
+
+        methods: {
+          selectVal : function(e){
+            
+          }
+        },
+
+        mounted() {
+        $.ajax({
+            method: 'POST',
+            url:'php/getACTIVITY.php',
+            data: {},
+            dataType: 'json',
+            success: function(response) {
+              event_info_block.events = response;
+              // console.log(response);
+              // console.log(event_block.event)
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+                console.log(exception)
+            },
+          })
+          
+      },
+    })
     </script>
 </body>
 
