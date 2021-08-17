@@ -94,6 +94,7 @@
       </div>
       <div id="game_question" class="animate__animated animate__bounceInDown">
         <h2 id="defeat" v-html="defeat"></h2>
+        <div id="finalscore">{{"總計"+finalscore+"分"}}</div>
       </div>
       <div id="game_bottom_part_PassandDefeat">
         <div id="game_answer">
@@ -202,6 +203,17 @@
           defeat: "好可惜!購買蔬果、預約體驗農場-增加蔬果小知識再來挑戰吧!",
           goShopping: "組裝你的蔬菜箱",
           goReserve: "預約體驗農場",
+          finalscore: "",
+        },
+        beforeMount() {
+          // 讀取實際分數;
+          let final_score = JSON.parse(sessionStorage.getItem("total"));
+          console.log(final_score);
+          this.finalscore = final_score;
+          //this綁定data=變數，將資料傳入
+        },
+        unmounted() {
+          sessionStorage.clear("total");
         },
       });
 
@@ -222,8 +234,6 @@
           currentIndex = nextIndex;
         }
       });
-
-      // 讀取實際分數;
 
       //     // ====以下為共用====
       //     // 控制HEADER裡的黃色NAV區塊

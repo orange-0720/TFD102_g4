@@ -126,7 +126,7 @@ section.game_play_border_PassandDefeat {
   width: 60%;
   height: 700px;
   @include pad {
-    height: 900px;
+    height: 740px;
     width: 80%;
   }
   @include mobile {
@@ -243,7 +243,7 @@ section.game_play_border_PassandDefeat {
       animation: fade-in 0.5s linear;
       // height: 300px;
       @include pad {
-        width: 50vw;
+        width: 40vw;
         // height: 200px;
       }
       @include mobile {
@@ -259,7 +259,9 @@ section.game_play_border_PassandDefeat {
     width: 50%;
     text-align: center;
     padding: 1rem;
+    position: relative;
     @include pad {
+      width: 50%;
       height: 140px;
       margin-top: 2rem;
     }
@@ -280,6 +282,28 @@ section.game_play_border_PassandDefeat {
         font-size: 16px;
         text-align: justify;
         line-height: 2rem;
+      }
+    }
+    div#finalscore {
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      top: 55%;
+      right: -25%;
+      font-size: 48px;
+      color: $text_underline;
+      border-radius: 10px;
+      @include pad {
+        width: 70%;
+        height: 30%;
+        font-size: 32px;
+        top: 65%;
+        right: 5%;
+      }
+      @include mobile {
+        font-size: 24px;
+        top: 60%;
+        right: -25%;
       }
     }
   }
@@ -313,7 +337,7 @@ section.game_play_border_PassandDefeat {
     justify-content: center;
   }
   button#submit_1 {
-    @include btn(320px, 65px);
+    @include btn(320px, 55px);
     font-size: 28px;
     font-weight: bolder;
     margin: 0.3rem;
@@ -360,7 +384,7 @@ section.game_play_border_PassandDefeat {
     }
   }
   button#submit_2 {
-    @include btn(320px, 65px);
+    @include btn(320px, 55px);
     font-size: 28px;
     font-weight: bolder;
     margin: 0.3rem;

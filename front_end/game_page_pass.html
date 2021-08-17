@@ -240,16 +240,16 @@
                 }
             });
           },
-          goLogin(){
-            let site_now = JSON.parse(sessionStorage.getItem("site_now"));
-            if(site_now){
-              site_now = [];
-              site_now.push(location.href);  
-            }else{
-              sessionStorage.setItem('site_now', JSON.stringify(location.href));
+            goLogin(){
+              let site_now = JSON.parse(sessionStorage.getItem("site_now"));
+              if(site_now){
+                  site_now = [];
+                  site_now.push(location.href);  
+              }else{
+                sessionStorage.setItem('site_now', JSON.stringify(location.href));
+              }
+              location.href = './login.html';
             }
-            location.href = './login.html';
-          }
         }
 
       });
