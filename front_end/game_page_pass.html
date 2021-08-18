@@ -78,19 +78,19 @@
   </header>
 
     <div id="game_title">
-      <h2 class="game_title">蔬果知識小遊戲</h2>
+        <h2 class="game_title">蔬果知識小遊戲</h2>
     </div>
     <section class="game_play_border_PassandDefeat" id="test_block">
       <div id="game_decorate_testNumberCircle_2">
-        <h1 id="inside_testNumber">{{testNumber}}</h1>
+          <h1 id="inside_testNumber">{{testNumber}}</h1>
       </div>
-      <img src="../images/game/cabage_group.svg" alt="" class="game icon_1" />
-      <img src="../images/game/cabage_group.svg" alt="" class="game icon_2" />
-      <img src="../images/game/cabage_group.svg" alt="" class="game icon_3" />
+          <img src="../images/game/cabage_group.svg" alt="" class="game icon_1" />
+          <img src="../images/game/cabage_group.svg" alt="" class="game icon_2" />
+          <img src="../images/game/cabage_group.svg" alt="" class="game icon_3" />
       <!-- <img src="./images/game/game_img_Tomato.png" alt="" class="game icon_4" /> -->
       <div id="count"><h1>{{time}}</h1></div>
       <div class="game_test_2">
-        <img src="../images/game/game_img_Tomato.svg" alt="" id="game_test" />
+          <img src="../images/game/game_img_Tomato.svg" alt="" id="game_test" />
       </div>
       <div id="game_question" class="animate__animated animate__bounceInDown">
         <h2 id="ifnotlogin" v-html="ifnotlogin">
@@ -100,19 +100,19 @@
       </div>
       <div id="game_bottom_part_PassandDefeat">
         <div id="game_answer">
-          <button type="submit" id="submit_1" @click="goLogin()" >
-            <div id="action1">{{signmember}}</div>
-            <img src="../images/game/rightArrow.svg" alt="" id="rightArrow" />
-          </button>
-          <button type="submit" id="submit_2">
-            <img src="../images/game/leftArrow.svg" alt="" id="leftArrow" />
-            <div id="action2" @click="goLogin()">
-              {{action2}}
-            </div>
-            <div id="action2ifLogin" @click="doCheck()">
-              {{action2ifLogin}}
-            </div>
-          </button>
+            <button type="submit" id="submit_1" @click="goLogin()" >
+                <div id="action1">{{signmember}}</div>
+                <img src="../images/game/rightArrow.svg" alt="" id="rightArrow" />
+            </button>
+            <button type="submit" id="submit_2">
+                <img src="../images/game/leftArrow.svg" alt="" id="leftArrow" />
+                <div id="action2" @click="goLogin()">
+                  {{action2}}
+                </div>
+                <div id="action2ifLogin" @click="doCheck()">
+                  {{action2ifLogin}}
+                </div>
+            </button>
         </div>
         <img
           src="../images/game/game_img_Farmer.svg"
@@ -127,33 +127,33 @@
       
 
     <section id="game_slideshow_step_PassandDefeat">
-      <div id="game_slideshow">
-        <img
-          src="../images/game/game_scroll_1.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="../images/game/game_scroll_2.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="../images/game/game_scroll_3.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="../images/game/game_scroll_4.png"
-          class="game_slideshow"
-          alt=""
-        />
-        <img
-          src="../images/game/game_scroll_5.png"
-          class="game_slideshow"
-          alt=""
-        />
-      </div>
+        <div id="game_slideshow">
+            <img
+              src="../images/game/game_scroll_1.png"
+              class="game_slideshow"
+              alt=""
+            />
+            <img
+              src="../images/game/game_scroll_2.png"
+              class="game_slideshow"
+              alt=""
+            />
+            <img
+              src="../images/game/game_scroll_3.png"
+              class="game_slideshow"
+              alt=""
+            />
+            <img
+              src="../images/game/game_scroll_4.png"
+              class="game_slideshow"
+              alt=""
+            />
+            <img
+              src="../images/game/game_scroll_5.png"
+              class="game_slideshow"
+              alt=""
+            />
+        </div>
     </section>
     <footer class="footer_bg">
       <div class="footer">
@@ -240,16 +240,16 @@
                 }
             });
           },
-          goLogin(){
-            let site_now = JSON.parse(sessionStorage.getItem("site_now"));
-            if(site_now){
-              site_now = [];
-              site_now.push(location.href);  
-            }else{
-              sessionStorage.setItem('site_now', JSON.stringify(location.href));
+            goLogin(){
+              let site_now = JSON.parse(sessionStorage.getItem("site_now"));
+              if(site_now){
+                  site_now = [];
+                  site_now.push(location.href);  
+              }else{
+                sessionStorage.setItem('site_now', JSON.stringify(location.href));
+              }
+              location.href = './login.html';
             }
-            location.href = './login.html';
-          }
         }
 
       });
@@ -339,26 +339,26 @@
               success: function(response) {
                 console.log(response);
                 if(response == 'yes'){
-                  $('.nav_block_log > span').text('會員中心');
-                  $('.login').click(function(){
-                    window.location.href = 'member.html';
-                  });
-                  $('#submit_1').css("display","none");
-                  $('#action2').css("display","none");
-                  $('#submit_2ifLogin').css("display","block");
-                  $('#ifnotlogin').css("display","none");
-                  $('#iflogin').css("display","block");
+                    $('.nav_block_log > span').text('會員中心');
+                    $('.login').click(function(){
+                      window.location.href = 'member.html';
+                    });
+                    $('#submit_1').css("display","none");
+                    $('#action2').css("display","none");
+                    $('#submit_2ifLogin').css("display","block");
+                    $('#ifnotlogin').css("display","none");
+                    $('#iflogin').css("display","block");
                 }else{
-                  $('.login').click(function(){
-                    window.location.href = 'login.html';
-                  });
-                  $('#iflogin').css("display","none");
-                  $('#action2ifLogin').css("display","none");
+                    $('.login').click(function(){
+                      window.location.href = 'login.html';
+                    });
+                    $('#iflogin').css("display","none");
+                    $('#action2ifLogin').css("display","none");
                 }
               },
               error: function(exception) {
-                  console.log(exception)
-                  alert("發生錯誤: " + exception.status);
+                    console.log(exception)
+                    alert("發生錯誤: " + exception.status);
               },
         });  
       }
