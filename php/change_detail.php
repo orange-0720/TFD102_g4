@@ -1,7 +1,6 @@
 <?php
 
        $name = htmlspecialchars($_POST['name']);
-       $hb = htmlspecialchars($_POST['hb']);
        $phone = htmlspecialchars($_POST['phone']);
        $address = htmlspecialchars($_POST['address']);
 

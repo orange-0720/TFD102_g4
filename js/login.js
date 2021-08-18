@@ -20,10 +20,10 @@ if(window.innerWidth >= 768){
     if (form_block.classList.contains("form_move")) {
     console.log('aaa')
     login_img.src =
-        "./images/login&out/logout_01.jpg";
+        "../images/login&out/logout_01.jpg";
     } else {
     login_img.src =
-        "./images/login&out/login_01.jpg";
+        "../images/login&out/login_01.jpg";
     }
     if(login_form.style.display = 'block'){
     login_form.style.display = 'none';
@@ -152,43 +152,65 @@ sign_confirm_btn.addEventListener('click', function(e){
     let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
     let partten = /^09[0-9]{8}$/;
 
-    if(val.search(emailRule) != -1){
-        if(sign_pwd.length <= 8 && pwd_confirm.length <= 8){
-            if(sign_pwd === pwd_confirm){
-                if(partten.test(sign_tel)){
-                    if(sign_agree.checked){
-                        Email.send({
-                            Host: "smtp.gmail.com",
-                            Username: "goodvegetablebox@gmail.com",
-                            Password: "tfd102g4",
-                            To: val,
-                            From: "良耕野菜<goodvegetablebox@gmail.com>",
-                            Subject: "良耕野菜",
-                            Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
-                        }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
-                        .then($('.sign_block').fadeToggle());
-                    }else{
-                        alert('請確認是否勾選會員條款')
-                    }
-                }else{
-                    alert('請輸入正確手機格式');
-                    document.getElementsByClassName('sign_tel')[0].style.border = '3px solid red';
-                }
-            }else{
-            alert('請確認密碼是否相同')
-            document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
-            document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
-            }
-        }else{
-            alert('密碼需超過八位數');
-            document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
-            document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
-        }
-    }else{
-        alert('信箱格式不正確，請確認');
+    let answer = 0;
+    if(val.search(emailRule) === -1){
         sign_email.value = '';
         sign_email.style.border = '3px solid red';
-    };
+        $('#sign_email_fail').show(); 
+    }else{
+        answer ++;
+    }
+    
+    // alert(sign_pwd.length);
+    // alert(pwd_confirm.length);
+    // alert(sign_pwd);
+    // alert(pwd_confirm);
+    if(sign_pwd.length <= 8 && pwd_confirm.length <= 8){
+        //alert('密碼需超過八位數')
+        $('#sign_pwd_fail').show();
+        $('#pwd_confirm_fail').show();
+        document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
+        document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
+    }else{
+        answer ++;
+    }
+    if(sign_pwd != pwd_confirm){
+        //alert('請確認密碼是否相同')
+        $('#pwd_confirm_fail').show();
+        $('#sign_pwd_fail').show();
+        document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
+        document.getElementsByClassName('pwd_confirm')[0].style.border = '3px solid red';
+    }else{
+        answer ++;
+    }
+    
+    if(partten.test(sign_tel) != true ){
+        //alert('請輸入正確手機格式');
+        document.getElementsByClassName('sign_tel')[0].style.border = '3px solid red';
+        $('#sign_tel_fail').show(); 
+    }else{
+        answer ++;
+    }
+
+    if(sign_agree.checked){
+        answer ++;
+    }else{
+        alert('請確認是否勾選會員條款')
+    }
+
+    if(answer == 5){
+        Email.send({
+            Host: "smtp.gmail.com",
+            Username: "goodvegetablebox@gmail.com",
+            Password: "tfd102g4",
+            To: val,
+            From: "良耕野菜<goodvegetablebox@gmail.com>",
+            Subject: "良耕野菜",
+            Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
+        }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
+        .then($('.sign_block').fadeToggle());
+    }
+
 });
 
 // 驗證碼輸入並執行撈資料庫資料
@@ -202,14 +224,18 @@ sign_send_btn.addEventListener('click', function(){
 // 判斷登入表單不能為空
 document.getElementById('login_btn').addEventListener('click', function(){
     if($('#login_email').val() != ''){
+        $('#email_fail').hide();
+        $('#pwd_fail').hide();
         if($('#login_pwd').val() !=''){
             Login();
         }else{
-            alert('請輸入密碼');
             $('#login_pwd').css('border','3px solid red');
+            
         }
     }else{
-        alert('信箱不能為空')
-        $('#login_email').css('border','3px solid red')
+        $('#login_email').css('border','3px solid red');
+        $('#login_pwd').css('border','3px solid red');
+        $('#email_fail').show();
+        $('#pwd_fail').show();
     }
 })

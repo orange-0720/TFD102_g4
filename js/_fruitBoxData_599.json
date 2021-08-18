@@ -1,49 +1,49 @@
 [
     {
         "id":17,
-        "image":"./images/fruit_box/599/banana.png",
+        "image":"../images/fruit_box/599/banana.png",
         "title":"香蕉",
         "unit":"(250g)"
     },
     {
         "id":18,
-        "image":"./images/fruit_box/599/corn.png",
+        "image":"../images/fruit_box/599/corn.png",
         "title":"玉米",
         "unit":"3根(共約600g)"
     },
     {
         "id":19,
-        "image":"./images/fruit_box/599/pumpkin.png",
+        "image":"../images/fruit_box/599/pumpkin.png",
         "title":"南瓜",
         "unit":"1顆(約2kg)"
     },
     {
         "id":20,
-        "image":"./images/fruit_box/599/salad.png",
+        "image":"../images/fruit_box/599/salad.png",
         "title":"地瓜葉",
         "unit":"(250g)"
     },
     {
         "id":21,
-        "image":"./images/fruit_box/599/guava.png",
+        "image":"../images/fruit_box/599/guava.png",
         "title":"芭樂",
         "unit":"2顆(約600g)"
     },
     {
         "id":22,
-        "image":"./images/fruit_box/599/strawberry.png",
+        "image":"../images/fruit_box/599/strawberry.png",
         "title":"草莓",
         "unit":"1盒(約600g)"
     },
     {
         "id":23,
-        "image":"./images/fruit_box/599/cabbage.png",
+        "image":"../images/fruit_box/599/cabbage.png",
         "title":"高麗菜",
         "unit":"(1000g)"
     },
     {
         "id":24,
-        "image":"./images/fruit_box/599/tomato.png",
+        "image":"../images/fruit_box/599/tomato.png",
         "title":"番茄",
         "unit":"2顆(約300g)"
 

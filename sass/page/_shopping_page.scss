@@ -168,92 +168,111 @@
         // 商品內頁
         .card_wapper{
             box-shadow: 0px 0px 5px 5px #D6D6D6;
-            padding: 50px 1% 20px 1px;
+            padding: 50px 1% 20px 1%;
             width: 100%;
             position: relative;
-                .go_back_btn{
-                    position: absolute;
-                    top: 1%;
-                    right: 1%;
-                    vertical-align: middle;
-                    line-height: 30px;
-                    transition: 0.5s;
-                    img{
-                        display: block;
-                        text-align: center;
-                        @include marginAuto();
-                        width: 30px;
-                    }
-                    &:hover{
-                        transform: scale(1.1);
-                    }
-                }
-                .card{
-                    display: flex;
-                    justify-content: space-between;
-                    @include tablet{
-                        flex-direction: column;
-                    }
-                    // flex-wrap: wrap;
-                        .products_imgs{
-                            width: 50%;
-                            align-items: center;
-                            transition: all 0.5s ease;
-                            @include tablet{
-                                width: 100%;
-                            }
-                                .small-img-row{
-                                    display: flex;
-                                    justify-content: space-between;
-                                    flex-wrap: wrap;
-                                        .small-img-col{
-                                            flex-basis: 24%;
-                                            cursor: pointer;
-                                        }
-                                }
-                        }
-                        .products_content{
-                            width: 45%;
-                            @include tablet{
-                                width: 100%;
-                            }
-                            .purchase-info{
-                                text-align: center;
-                                a{
-                                    @include btn(130px);
-                                    margin: 0 10px;
-                                    text-align: center;
-                                }
-                            }
-        
-                        }
-                }
-        }
-        .card_wapper_2{
-            box-shadow: 0px 0px 5px 5px #D6D6D6;
-            width: 100%;
-            height: auto;
-            padding: 1%;
-            // border: 1px solid crimson;
-            margin-top: 5%;
-            text-align: center;
-                .card_content{
-                    width: 70%;
-                    text-align:justify;
-                    // border: 1px solid olivedrab;
-                    margin: 2% auto;
-                    // border: #888888;
-                    // box-shadow: 0px 1px 5px 7px #D6D6D6;;
-                }
-                div{
-                    margin: 2% auto;
+            @include tablet{
+                padding: 80px 1% 20px 1%;
+            }
+            .go_back_btn{
+                position: absolute;
+                top: 1%;
+                right: 1%;
+                vertical-align: middle;
+                line-height: 30px;
+                transition: 0.5s;
+                img{
+                    display: block;
                     text-align: center;
-                        img{
-                            @include mobile{
-                                width: 80%;
+                    @include marginAuto();
+                    width: 30px;
+                }
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+            .card{
+                display: flex;
+                justify-content: space-between;
+                @include tablet{
+                    flex-direction: column;
+                }
+                .products_imgs{
+                    width: 50%;
+                    align-items: center;
+                    text-align: center;
+                    transition: all 0.5s ease;
+                    @include tablet{
+                        width: 100%;
+                    }
+                    #ProductImg{
+                        width: 75%;
+                    }
+                    .small-img-row{
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 20px 0px;
+                        flex-wrap: wrap;
+                        @include tablet{
+                            padding: 0 5%;
+                        }
+                        .small-img-col{
+                            flex-basis: 24%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .products_content{
+                    width: 45%;
+                    @include tablet{
+                        width: 100%;
+                        padding: 0 5%;
+                    }
+                    h2{
+                        margin-bottom: 20px;
+                    }
+                    .product_price{
+                        font-size: $h4;
+                        .last_price{
+                            margin: 20px 0px;
+                        }
+                        .new_price{
+                            vertical-align: top;
+                            margin: 20px 0px;
+                            .inside_value{
+                                vertical-align: top;
+                                width: 20%;
+                                font-size: $h4;
+                                font-family: "huninn";
+                                color: $font_color;
                             }
                         }
+                    }
+                    .product_detail{
+                        h2{
+                            margin: 30px 0px;
+                        }
+                        ul{
+                            margin: 20px 0px;
+                            font-size: $h4;
+                            li{
+                                margin: 5px 0px;
+                                line-height: 1.5em;
+                            }
+                        }
+                    }
+                    .purchase_info{
+                        font-size: 0;
+                        text-align: center;
+                        a{
+                            font-size: $h4;
+                            @include btn(40%);
+                            margin: 0 5%;
+                            text-align: center;
+                        }
+                    }
                 }
+            }
         }
     }
 }
@@ -678,12 +697,12 @@
                 position: relative;
                 background-color: $white;
                 border: 1px solid $brown;
-                border-left: 0;
                 img{
                     display: inline-block;
-                    width: 30px;
+                    width: 50%;
+                    @include abs_center();
                     height: 50px;
-                    transform: rotate(90deg);
+                    transform: translate(-50%, -50%) rotate(90deg);
                 }
             }
             .shopping_page{
@@ -711,15 +730,12 @@
                 background-color: $white;
                 border: 1px solid $brown;
                 border-left: 0;
-                border-right: 0;
                 img{
                     display: inline-block;
-                    width: 30px;
+                    width: 50%;
+                    @include abs_center();
                     height: 50px;
-                    transform: translateX(10px) rotate(-90deg);
-                    @include mobile {
-                        transform: translateX(0px) rotate(-90deg);
-                    }
+                    transform: translate(-50%, -50%) rotate(-90deg);
                 }
             }
         }
@@ -758,4 +774,50 @@
 .on_this_page{
     background-color: $green;
     color: $white;
+}
+
+// 結帳彈窗
+.item_buy{
+    display: none;
+    .black_black{
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 49;
+        @include tablet{
+          height: 100%;
+        }
+    }
+    .shopping_item_block{
+        @include abs_center();
+        position: fixed;
+        background-color: $white;
+        width: 30%;
+        padding: 30px 0px;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 50;
+        @include tablet{
+            top: 59%;
+            width: 50%;
+        }
+        @include mobile{
+            
+        }
+
+        h4{
+            padding: 20px 20px;
+            text-align: center;
+        }
+         
+        .close_up{
+            @include btn(50%);
+            display: block;
+            @include marginAuto();
+            margin-top: 30px;
+        }
+    }
 }

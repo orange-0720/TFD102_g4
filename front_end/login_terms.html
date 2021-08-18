@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>良耕野菜-會員條款與隱私權政策</title>
+  <link rel="icon" href="../images/logo-02.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../images/logo-02.svg">
+  <script src="../js/jquery-3.6.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    //AJAX
+
+    //註冊
+    function doInsert() {
+      $.ajax({
+        method: "POST",
+        url: "../php/Insert.php",
+        data: {
+          account: $('#sign_email').val(),
+          pwd: $('#sign_pwd').val(),
+          tel: $('#sign_tel').val(),
+        },
+        dataType: "text",
+        success: function (response) {
+          alert('註冊成功');
+          window.location.href = './index.html';
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        }
+      });
+    }
+
+    // 登入
+    function Login() {
+      $.ajax({
+        method: 'POST',
+        url: '../php/login.php',
+        data: {
+          account: $('#login_email').val(),
+          pwd: $('#login_pwd').val(),
+        },
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+          if (response == 1) {
+            alert('登入成功');
+            window.location.href = './member.html';
+          } else {
+            console.log(response)
+            alert('查無會員')
+          }
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    };
+    function forget_pwd() {
+      $.ajax({
+        method: 'POST',
+        url: '../php/forget_pwd.php',
+        data: {
+          account: $('#pwd_resend').val(),
+        },
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+          if (response === 'yes') {
+            Email.send({
+              Host: "smtp.gmail.com",
+              Username: "goodvegetablebox@gmail.com",
+              Password: "tfd102g4",
+              To: $('#pwd_resend').val(),
+              From: "良耕野菜<goodvegetablebox@gmail.com>",
+              Subject: "良耕野菜",
+              Body: "感謝您使用本網站，您的新密碼為11111111，請使用新密碼重新登入",
+            }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入。並請至會員中心更改密碼'))
+              .then($('.pwd_block').fadeToggle());
+          } else {
+            console.log(response)
+            alert('查無此信箱')
+          }
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    };
+  </script>
+</head>
+
+
+
+<body>
+  <header class="header">
+    <!-- 手機板header -->
+    <div class="fixed_top">
+      <div class="fixed_top_logo">
+        <a href="./index.html">
+          <img src="../images/fixed_top_logo.svg" alt="top_logo">
+        </a>
+      </div>
+      <div class="shop_car" onclick="showbg();">
+        <img src="../images/shopping_cart.svg" alt="shopping_cart" />
+      </div>
+      <div class="ham">
+        <div class="ham_top"></div>
+        <div class="ham_middle"></div>
+        <div class="ham_bottom"></div>
+      </div>
+    </div>
+    <!-- 手機板header結束 -->
+    <!-- 桌機板header -->
+    <div class="menu_fixed">
+      <div class="icon">
+        <div class="ham">
+          <div class="ham_top"></div>
+          <div class="ham_middle"></div>
+          <div class="ham_bottom"></div>
+        </div>
+        <div class="login">
+          <a href="./login.html">
+            <img src="../images/login_icon.svg" alt="login_icon" />
+          </a>
+        </div>
+        <div class="shop_car" onclick="showbg();">
+          <img src="../images/shopping_cart.svg" alt="shopping_cart" />
+        </div>
+      </div>
+    </div>
+    
+    <!-- 桌機板header 結束 -->
+
+    <!-- 漢堡彈窗 -->
+    <div class="jump_hamburger_block">
+      <div class="hamburger_logo">
+        <a href="./index.html">
+          <img src="../images/logo.svg" alt="logo">
+        </a>
+      </div>
+      <div class="header_nav_block">
+        <div class="nav_block_contact">
+          <img src="../images/nav_block_pen.svg">
+          聯絡我們
+        </div>
+        <a class="nav_block_log" href="./login.html">
+          <img src="../images/nav_block_log.svg">
+          登入註冊
+        </a>
+        <div class="nav_right_block">
+          <div class="nav_active">
+            <a href="./event.html">農村體驗</a>
+            <a href="./event_info.html">預約去</a>
+          </div>
+          <div class="nav_buy_now">
+            <a href="./shopping_page.html">立即買</a>
+            <a href="./fruit_box.html">客製蔬果箱</a>
+            <a href="./shopping_page.html">新鮮蔬果</a>
+          </div>
+          <div class="nav_knowledge">
+            <a href="./game.html">蔬果知識小遊戲</a>
+          </div>
+        </div>
+        <div class="nav_left_block">
+          <div class="nav_about_us">
+            <a href="./aboutUs.html">關於我們</a>
+            <a href="./aboutUs.html">農場介紹</a>
+            <a href="./product_introduction.html">生產介紹</a>
+          </div>
+          <div class="nav_QA">
+            <a href="./q_a.html">問與答</a>
+          </div>
+        </div>
+        <img src="../images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
+        <img src="../images/header_lemon.svg" alt="vegetable" class="header_lemon">
+        <img src="../images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
+      </div>
+    </div>
+    <!-- 漢堡彈窗結束 -->
+
+    <!-- 聯絡我們彈窗 -->
+    <div class="index_contact_box">
+      <div class="black_block"></div>
+      <div class="cotanct_block">
+        <div class="contact_block_head">
+          <button class="contact_block_Xmark"></button>
+        </div>
+        <h2>聯絡我們</h2>
+        <div class="contact_search_bar">
+          <input type="text" id="order_search" placeholder="請輸入訂單編號">
+          <button class="search_icon">
+            <img src="../images/header_search_icon.svg" alt="search">
+          </button>
+        </div>
+        <h3>若有其他問題可以點擊下方按鈕寄信</h3>
+        <div class="mailto_block">
+          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com">寄送問題</a>
+        </div>
+      </div>
+    </div>
+    <!-- 聯絡我們彈窗結束 -->
+
+    <!-- 購物車彈窗  -->
+    <div class="cart_bk">
+      <div class="header_shopping_cart">
+        <div class="header_shopping_cart">
+          <div class="cart_cotanct_block">
+            <button class="cart_close" onclick="closebg();">
+              <img src="../images/checkout/X_mark.svg">
+            </button>
+            <div class="incart_car_block">
+              <img src="../images/header_incart.svg" alt="">
+              <h5>Shop Cart</h5>
+            </div>
+            <div class="cart_buy_list">
+              <span class="cart_nothing">目前購物車空無一物</span>
+            </div>
+            <div class="incart_total">
+              總和
+              <span class="cart_total_price">0</span>元
+              <!-- 手機板結帳去  -->
+              <a class="incart_checkout_btn_mobile" href="./checkout.html">
+                <h5>結帳去</h5>
+              </a>
+            </div>
+            <div class="incart_checkout_block">
+              <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+
+
+  <div class="membership">
+    <div class="form_block">
+      <div class="text">
+        <h3>會員條款與隱私權政策</h3>
+        <h4>【會員服務條款】</h4>
+        <ul>
+          <li>◾ &nbsp本會員服務條款所稱之「會員」，為依照本站所定之加入會員程序加入完成並通過認證者。</li>
+          <li>◾&nbsp 當您使用本站服務時，即表示您同意及遵守本服務條款的規定事項及相關法律之規定。</li>
+          <li>◾ &nbsp本站保留有審核加入會員資格之權利，另外已加入會員者，本站亦保留有解除其會員資格之權利。</li>
+          <li>◾ &nbsp本會員服務條款之修訂，適用於所有會員，當本站修訂本服務條款時，將於本站上公告。</li>
+        </ul>
+
+        <h4>【會員】</h4>
+        <ul>
+          <li>◾ &nbsp使用本站所提供之會員服務時，於加入會員時所登錄之帳號及密碼使用之。</li>
+          <li>◾&nbsp 會員須善盡帳號及密碼的使用與管理之責任。對於使用該會員之帳號及密碼(無關於會員本身或其他人)利用本站服務所造成或衍生之所有行為及結果，會員須自行負擔全部責任。</li>
+          <li>◾ &nbsp會員之帳號及密碼遺失，或發現無故遭第三者盜用時，應立即通知本站連絡掛失，因未即時通知，導致本站無法有效防止及修改時，所造成的所有損失，會員應自負全責。</li>
+          <li>◾ &nbsp盜用第三者會員之帳號及密碼，導致第三者或本公司遭其他第三人或行政機關之調查或追訴時，第三者會員或本公司有權向您請求損害賠償，包括但不限於訴訟費用、律師費及商譽損失等。</li>
+        </ul>
+
+        <h4>【會員登錄資料】</h4>
+        <ul>
+          <li>◾ &nbsp會員登錄資料須提供您本人正確、最新及完整的資料。</li>
+          <li>◾&nbsp 會員登錄資料不得有偽造、不實等之情事(EX如個人資料及信用卡資料)，一經發現本公司可拒絕其加入會員資格之權利。並得以暫停或終止其會員資格，若違反中華民國相關法律，亦將依法追究。</li>
+          <li>◾ &nbsp會員基本資料(EX:住址，電話及其他登錄資料)有變更時，請不定期更新相關個人資料，確保其正確及完整性。若您提供的資料有錯誤或不符等現象，本網站有權暫停或終止您的帳號，並拒絕您繼續使用本服務。</li>
+          <li>◾ &nbsp未經會員本人同意，本公司原則上不會將涉及個人隱私之資料開示給第三者，唯資料共用原則…等不在此限(請參閱本站「隱私權保護聲明」相關規定)。</li>
+          <li>◾&nbsp 會員應妥善保管密碼，不可將密碼洩露或提供給他人知道或使用；以同一個會員身分證字號和密碼使用本服務所進行的所有行為，都將被認為是該會員本人和密碼持有人的行為。</li>
+          <li>◾ &nbsp會員如果發現或懷疑有第三人使用其會員身分證字號或密碼，應該立即通知本公司，採取必要的防範措施。但上述通知不得解釋為本公司對會員負有任何形式之賠償或補償之責任或義務。</li>
+        </ul>
+        <h4>【帳號及個人資料隱私保護】</h4>
+        <ul>
+          <li>◾ &nbsp 為保障您的隱私及安全，您的帳號資料會用密碼保護。</li>
+          <li>◾&nbsp 當您要編輯會員資料等部分擁有個人資料及隱私頁面時，本網站會要求您輸入帳號識別資料確認身分。</li>
+          <li>◾ &nbsp為確保您的帳號及個人資料安全無虞，本網站除了致力推廣各項安全機制外，同時也請您務必要定期更新您的作業系統並注意防毒。</li>
+
+      </div>
+    </div>
+    
+  </div>
+  <div class="null"></div>
+  <script>
+    //購物車彈窗bg
+    function showbg() {
+      $(".cart_bk").addClass('-active')
+    }
+    function closebg() {
+      $(".cart_bk").removeClass('-active')
+    }
+  </script>
+  <script src="../js/shopping_cart.js"></script>
+  <!-- <script src="../js/header.js"></script> -->
+  <!-- <script src="../js/login.js"></script> -->
+</body>
+
+</html>

@@ -4,6 +4,10 @@ function shopping_cart(){
     let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));
     if(cart_items || fruit_boxs){
         $('.cart_nothing').fadeOut();
+        $('.incart_checkout_btn').attr('href', './checkout.html');
+        $('.incart_checkout_btn').html('結帳去');
+        $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
+        $('.incart_checkout_btn_mobile').html('結帳去');
         if(cart_items){
             let cart_items_list = [];
             cart_items.forEach(function(cart, i){
@@ -21,7 +25,7 @@ function shopping_cart(){
                       </div>
                       <div class="cart_item_price">${cart.total_price}</div>
                       <div class="cart_item_delete">
-                        <img src="./images/checkout/delete_icon.svg"/>  
+                        <img src="../images/checkout/delete_icon.svg"/>  
                       </div>
                     </div>
                 `
@@ -47,7 +51,7 @@ function shopping_cart(){
                 })
                 fruit_boxs_list += 
                 `
-                <div class="fruit_box_list" data-id="${box.item_id}">
+                <div class="cart_inside_item" data-id="${box.item_id}">
                     <div class="fruit_box_inside">
                     <div class="fruit_box_img">
                         <img src="${box.item_img}"/>  
@@ -60,11 +64,11 @@ function shopping_cart(){
                     </div>
                     <div class="fruit_box_price">${box.total_price}</div>
                     <div class="fruit_box_delete">
-                        <img src="./images/checkout/delete_icon.svg"/>  
+                        <img src="../images/checkout/delete_icon.svg"/>  
                     </div>
                     </div>
                     <div class="fruit_detail">
-                    <img class="cart_arrow" src="./images/shopping_page/shopping_arrow_icon.svg"/>
+                    <img class="cart_arrow" src="../images/shopping_page/shopping_arrow_icon.svg"/>
                     <ul>
                         ${product_name_list}
                     </ul>
@@ -82,6 +86,13 @@ function shopping_cart(){
             $('.cart_total_price').html(count_price);
             $('.cart_buy_list').append(fruit_boxs_list);
         }
+
+        $('.buy_num').fadeIn();
+        let nums = $('.cart_inside_item').length;
+        console.log(nums);
+        $('.buy_num').text(nums);
+        $('.shop_car').addClass('cart_move');
+        
     }
 };
 
@@ -94,12 +105,26 @@ $('.cart_buy_list').on('click','.cart_item_delete',function(e){
         if($('.cart_inside_item').length <= 1){
         $('.cart_nothing').fadeIn();
         $('.cart_total_price').html(0);
+        $('.incart_checkout_btn').attr('href', './shopping_page.html');
+        $('.incart_checkout_btn').html('購物去');
+        $('.incart_checkout_btn_mobile').attr('href', './shopping_page.html');
+        $('.incart_checkout_btn_mobile').html('購物去');
+
         $(e.target).closest('div.cart_inside_item').fadeOut().remove();
         sessionStorage.removeItem('cart_items');
         sessionStorage.removeItem('fruit_boxs');
+        
+        $('.buy_num').fadeOut();
+        $('.buy_num').text(0);
+        $('.shop_car').removeClass('cart_move');
+
         }else{
             $(e.target).closest('div.cart_inside_item').fadeOut().remove();
             $('.cart_total_price').text(total_price);
+
+            let nums = $('.cart_inside_item').length;
+            $('.buy_num').text(nums);
+            $('.shop_car').addClass('cart_move');
         
             // 清除sesstion_storage裡的資料
             let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
@@ -115,7 +140,6 @@ $('.cart_buy_list').on('click','.cart_item_delete',function(e){
             // 回存至 localStorage
             sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
         }
-
     }
 })
 
@@ -125,16 +149,30 @@ $('.cart_buy_list').on('click','.fruit_box_delete',function(e){
     let current_price = $('.cart_total_price').text();
     let total_price = parseInt(current_price) - parseInt(delete_price);
     if(confirm('確定刪除此商品?')){
-        console.log($('.cart_inside_item').length);
+        console.log($('div.cart_inside_item').length);
         if($('.cart_inside_item').length <= 1){
             $(e.target).closest('div.cart_inside_item').fadeOut().remove();
             $('.cart_nothing').fadeIn();
             $('.cart_total_price').text(0);
+            $('.incart_checkout_btn').attr('href', './shopping_page.html');
+            $('.incart_checkout_btn').html('購物去');
+            $('.incart_checkout_btn_mobile').attr('href', './shopping_page.html');
+            $('.incart_checkout_btn_mobile').html('購物去');
             sessionStorage.removeItem('fruit_boxs');
+
+            // 刪除購物車數字
+            $('.buy_num').fadeOut();
+            $('.buy_num').text(0);
+            $('.shop_car').removeClass('cart_move');
+
         }else{
             $(e.target).closest('div.cart_inside_item').fadeOut().remove();
             $('.cart_total_price').text(total_price);
         
+            let nums = $('.cart_inside_item').length;
+            $('.buy_num').text(nums);
+            $('.shop_car').addClass('cart_move');
+
             // 清除sesstion_storage裡的資料
             let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
             let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
@@ -152,9 +190,6 @@ $('.cart_buy_list').on('click','.fruit_box_delete',function(e){
     }
 })
 
-
-    
-    
 //點擊增加
 $('.cart_buy_list').on('click','.number_plus',function(e){
     let current_number = parseInt($(e.target).siblings('input').val());
@@ -233,10 +268,93 @@ $('.cart_buy_list').on('click','.number_minus',function(e){
     });
     
     let price_now = parseInt($('.cart_total_price').text());
-    let new_price = price_now + this_item_price;
+    let new_price = price_now - this_item_price;
     $('.cart_total_price').html(new_price);
 })
 
+
+//點擊增加(客製)
+$('.cart_buy_list').on('click','.fruit_box_plus',function(e){
+    let current_number = parseInt($(e.target).siblings('input').val());
+    
+    let item_money = parseInt($(e.target).parent().next().html());
+    $(e.target).siblings('input').val(current_number + 1)
+    
+    let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
+    let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
+    fruit_boxs.forEach(function(box, i){
+        if(this_id == box.item_id){
+            return this_item_price = box.unit_price;
+        }
+    });
+    $(e.target).parent().next().html(item_money + this_item_price);
+    
+    console.log(this_id)
+    // storage裡更新數量
+    let new_number = parseInt($(e.target).siblings('input').val());
+    let new_money = $(e.target).parent().next().html();
+    fruit_boxs.forEach(function(box, i){
+        if(this_id == box.item_id){
+            console.log(box.item_name);
+            box.item_number = new_number;
+            box.total_price = new_money;
+        }
+    });
+    // 回存至 localStorage
+    sessionStorage.setItem("fruit_boxs", JSON.stringify(fruit_boxs));
+    
+    let count_price = 0;
+    fruit_boxs.forEach(function(box, i){
+        count_price += parseInt(box.total_price);
+    });
+
+    let price_now = parseInt($('.cart_total_price').text());
+    let new_price = price_now + this_item_price;
+    $('.cart_total_price').html(new_price);
+
+})
+    
+//點擊減少(客製)
+$('.cart_buy_list').on('click','.fruit_box_minus',function(e){
+    let current_number = parseInt($(e.target).siblings('input').val());
+    
+    let item_money = parseInt($(e.target).parent().next().html());
+    let this_id = $(e.target).closest('div.cart_inside_item').attr("data-id");  //找出該項目的item_id
+    let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
+    fruit_boxs.forEach(function(box, i){
+        if(this_id == box.item_id){
+            return this_item_price = box.unit_price;
+        }
+    });
+    
+    if(current_number == 1){
+        alert('僅剩一個囉')
+    }else{
+        $(e.target).siblings('input').val(current_number -1 )
+        $(e.target).parent().next().html(item_money - this_item_price);
+    }
+    
+    // storage裡更新數量
+    let new_number = parseInt($(e.target).siblings('input').val());
+    let new_money = $(e.target).parent().next().html();
+    fruit_boxs.forEach(function(box, i){
+        if(this_id == box.item_id){
+            box.item_number = new_number;
+            box.total_price = new_money;
+        }
+    });
+    // 回存至 localStorage
+    sessionStorage.setItem("fruit_boxs", JSON.stringify(fruit_boxs));
+    
+    let count_price = 0;
+    fruit_boxs.forEach(function(box, i){
+        count_price += parseInt(box.total_price)
+    });
+    
+    let price_now = parseInt($('.cart_total_price').text());
+    let new_price = price_now - this_item_price;
+    $('.cart_total_price').html(new_price);
+})
 
 $('.cart_buy_list').on('click','.fruit_detail',function(e){
     console.log(e.target);

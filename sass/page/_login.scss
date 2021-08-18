@@ -5,6 +5,7 @@ div.login_block{
     padding-left: 5%;
     padding-right: 21%;
     display: flex;
+    
     .form_block{
         width: 40%;
         background-color: #40904a;
@@ -13,6 +14,7 @@ div.login_block{
         padding: 15px 0px;
         transition: 1s;
         min-height: 475px;
+       
         .login_form{
             h3{
                 text-align: center;
@@ -21,7 +23,7 @@ div.login_block{
             }
             input{
                 display: block;
-                margin: 40px auto;
+                margin: 30px auto;
                 width: 70%;
                 padding: 10px;
                 font-size: $h5;
@@ -57,7 +59,27 @@ div.login_block{
                     color: white;
                 }
             }
+            #email_fail,#pwd_fail {
+                display: flex;
+                width: 70%;
+                align-items: center;
+                margin: auto;
+                margin-top: -5%;
+                img{
+                     width: 45px;
+                     height: 45px;
+                     display: inline;
+                     padding: 2px;
+                }
+                 h5{
+                     color: white;
+                     margin-right: auto;
+                 }
+            }
+           
+            
         }
+        
         .signup_form{
             display: none;
             color: white;
@@ -118,7 +140,29 @@ div.login_block{
                     cursor: pointer;
                 }
             }
+            #sign_email_fail,#sign_pwd_fail,#pwd_confirm_fail,#sign_tel_fail,#sign_pwd_fail{
+                display: flex;
+                width: 70%;
+                align-items: center;
+                margin: auto;
+                margin-top: -5%;
+                img{
+                     width: 45px;
+                     height: 45px;
+                     display: inline;
+                     padding: 2px;
+                }
+                 h5{
+                     color: white;
+                     margin-right: auto;
+                 }
+            }
+
+            a{
+                color: yellow;
+            }
         }
+        
     }
     .login_pic{
         width: 60%;
@@ -458,7 +502,7 @@ div.login_block{
         };
         h3{
             text-align: center;
-            color: white;
+            //color: white;
         }
         .sign_confirm{
             display: block;
@@ -497,14 +541,12 @@ div.login_block{
     width: 220px;
 }
 
-//無法更新
-// .signup_form input[type="text"]:focus, .signup_form input[type="password"]:focus {
-//     border-color: 2px solid #beffd8;
-//     width: 280px;
-//     transition: 0.5s;
-// }
 
 .login_block input[type="text"], .login_block input[type="password"] {
     border: 2px solid #64fda1;
-    width: 220px;
+    transition: 0.5s;
+    &:focus{
+        border: 2px solid #beffd8;
+        transform: scale(1.1);
+    }
 }

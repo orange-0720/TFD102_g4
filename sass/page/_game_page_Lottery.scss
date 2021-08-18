@@ -269,8 +269,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(-50%, 230%);
         // animation: jumpOrange;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#potato {
@@ -280,8 +280,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(-110%, 210%) rotateZ(-20deg);
         // animation: jumpPotato;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#Beetroot {
@@ -291,8 +291,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(70%, 120%) rotateZ(20deg);
         // animation: jumpBeetroot;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#onion {
@@ -302,8 +302,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(-170%, 200%) rotateZ(-20deg);
         // animation: jumpOnion;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#cabbage {
@@ -313,8 +313,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(-20%, 160%) rotateZ(10deg);
         // animation: jumpCabbage;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#pepper {
@@ -324,8 +324,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(50%, 110%) rotateZ(10deg);
         // animation: jumpPepper;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#pumpkin {
@@ -335,8 +335,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(-90%, 160%) rotateZ(-10deg);
         // animation: jumpPumpkin;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
       img#greenapple {
@@ -346,8 +346,8 @@ section.game_play_border_lottery {
         left: 50%;
         transform: translate(-170%, 130%) rotateZ(-20deg);
         // animation: jumpGreenapple;
-        animation-delay: 2s;
-        animation-duration: 3.5s;
+        animation-delay: 0.5s;
+        animation-duration: 1.5s;
         animation-iteration-count: infinite;
       }
     }
@@ -355,14 +355,14 @@ section.game_play_border_lottery {
   #game_question {
     // margin-top: 1rem;
     margin-bottom: 1rem;
-
+    height: 200px;
+    border-radius: 10px;
     width: 65%;
     text-align: justify;
     padding: 1rem;
     z-index: 10;
     height: 120px;
     background-color: $white;
-    border: 6px solid rgb(255, 243, 83);
     @include pad {
       height: 100px;
       margin-top: 2rem;
@@ -392,10 +392,12 @@ section.game_play_border_lottery {
   width: 70%;
   height: 200px;
   background-color: $white;
-  // border-radius: 50px;
-  border: 6px solid rgb(255, 243, 83);
-  // background-color: #f42272;
-
+  border-radius: 10px;
+  perspective: 800px;
+  perspective-origin: 50% 50%;
+  display: inline-block;
+  animation: ballRoll 2s ease-out;
+  //初始大小
   @include pad {
     height: 150px;
     text-align: center;
@@ -405,23 +407,61 @@ section.game_play_border_lottery {
     width: 80%;
     text-align: center;
   }
-  h1 {
-    line-height: 200px;
-    text-align: center;
+  figure {
+    display: inline-block;
+    position: relative;
     width: 100%;
-    color: $brown;
-    @include pad {
-      height: 150px;
-      font-size: 24px;
-      line-height: 140px;
+    height: 100%;
+    border-radius: 50%;
+    animation: ballGrow 2s ease-out forwards;
+    transform: scale(0.5);
+    &:after {
+      content: ""; //行內後置偽元素
+      position: absolute;
+      top: 5%;
+      left: 10%;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      transform: translateX(-80px) translateY(-90px) skewX(-20deg);
     }
-    @include mobile {
-      height: 120px;
-      font-size: 18px;
-      line-height: 120px;
+    h1 {
+      line-height: 200px;
+      text-align: center;
+      width: 100%;
+      color: $brown;
+      @include pad {
+        height: 150px;
+        font-size: 24px;
+        line-height: 140px;
+      }
+      @include mobile {
+        height: 120px;
+        font-size: 18px;
+        line-height: 120px;
+      }
+      span#numbers {
+        width: 20%;
+        text-align: center;
+        font-size: 40px;
+        color: $text_underline;
+        animation: numberShow 1.5s reverse;
+        // &:before {
+        //   content: "?";
+        //   position: absolute;
+        //   transform: translateX(-25%);
+        //   animation: numberShow 0.1s 1.5s forwards;
+        // }
+        @include mobile {
+          font-size: 24px;
+        }
+      }
     }
   }
 }
+
+//中獎彈窗結束
+
 //==中獎選項彈窗按鈕==
 div#get_coin {
   margin-top: 2rem;
@@ -504,6 +544,43 @@ div#get_coin {
         width: 100px;
       }
     }
+  }
+}
+
+// ===中獎樂透動畫===
+@keyframes ballGrow {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes ballRoll {
+  0%,
+  20%,
+  50% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+  10%,
+  35%,
+  75% {
+    transform: translateY(10%) rotateX(170deg) scale(0.4);
+  }
+  11%,
+  36%,
+  76% {
+    transform: translateY(-10%) rotateX(-170deg) scale(0.3);
+    opacity: 0;
+  }
+}
+@keyframes numberShow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

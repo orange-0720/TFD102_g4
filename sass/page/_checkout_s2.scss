@@ -48,6 +48,7 @@
 
 .checkout_s2_detail{
     width: 100%;
+    display: none;
     .checkout_shopping_detail_block{
         margin-top: 20px;
         padding: 20px 0px;
@@ -1064,4 +1065,9 @@
             }
         }
     }
+}
+
+
+.detail_icon_close{
+    
 }
