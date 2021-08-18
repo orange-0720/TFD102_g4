@@ -129,6 +129,12 @@ let shopping_page = {
 
                 $('.cart_total_price').text(count_price);
 
+                $('.buy_num').fadeIn();
+                let nums = $('.cart_inside_item').length;
+                console.log(nums);
+                $('.buy_num').text(nums);
+                $('.shop_car').addClass('cart_move');
+
             } else {
                 // 若不存在
                 console.log('不存在')
@@ -137,6 +143,12 @@ let shopping_page = {
                 console.log(price_now);
                 let new_price = price_now + product_price;
                 $('.cart_total_price').html(new_price);
+
+                $('.buy_num').fadeIn();
+                let nums = $('.cart_inside_item').length;
+                console.log(nums);
+                $('.buy_num').text(nums);
+                $('.shop_car').addClass('cart_move');
             }
             sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
         },
