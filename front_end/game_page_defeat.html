@@ -94,7 +94,7 @@
       </div>
       <div id="game_question" class="animate__animated animate__bounceInDown">
         <h2 id="defeat" v-html="defeat"></h2>
-        <div id="finalscore">{{"總計"+finalscore+"分"}}</div>
+        <div id="finalscore">{{"積分"+finalscore+"分"}}</div>
       </div>
       <div id="game_bottom_part_PassandDefeat">
         <div id="game_answer">
@@ -210,10 +210,13 @@
           let final_score = JSON.parse(sessionStorage.getItem("total"));
           console.log(final_score);
           this.finalscore = final_score;
-          //this綁定data=變數，將資料傳入
+          //this綁定data=變數，將變數傳入data
+          // 這裡的 this 代表『Vue instance』裡面唯一的finalscore
         },
-        unmounted() {
-          sessionStorage.clear("total");
+        destroyed() {
+          sessionStorage.removeItem("total");
+          console.log("123");
+          //為什麼清不掉
         },
       });
 
