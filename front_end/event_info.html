@@ -6,56 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>良耕野菜-活動預約</title>
-  <link rel="icon" href="./images/logo-02.svg" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <script src="./js/jquery-3.6.0.js"></script>
+  <link rel="icon" href="../images/logo-02.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/jquery-3.6.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <style>
+    .appoinment_name{
+      outline: crimson;
+      /* background-color: black; */
+    }
+    .appoinment_name_OK {
+      background-color: black;
+    }
+  </style>
 </head>
 
-<body>
+
+<body onload="ifMember()">
   <header class="header">
     <!-- 手機板header -->
-    <div class="fixed_top">
-      <div class="fixed_top_logo">
-        <a href="./index.html">
-          <img src="./images/fixed_top_logo.svg" alt="top_logo">
-        </a>
-      </div>
-      <div class="shop_car">
-        <img src="./images/shopping_cart.svg" alt="shopping_cart" />
-      </div>
-      <div class="ham">
-        <div class="ham_top"></div>
-        <div class="ham_middle"></div>
-        <div class="ham_bottom"></div>
-      </div>
-    </div>
-    <!-- 手機板header結束 -->      
-    <div class="menu_fixed">
-      <div class="icon">
-        <div class="ham">
-          <div class="ham_top"></div>
-          <div class="ham_middle"></div>
-          <div class="ham_bottom"></div>
-        </div>
-        <div class="login">
-          <a href="./login.html">
-            <img src="./images/login_icon.svg" alt="login_icon" />
-          </a>
-        </div>
-        <div class="shop_car">
-          <img src="./images/shopping_cart.svg" alt="shopping_cart" />
-        </div>
-      </div>
-    </div>
+    <div class="fixed_top"></div>
+    <!-- 手機板header結束 -->
+    <div class="menu_fixed"></div>
+
     <div class="menu">
       <div class="logo_img">
         <a href="./index.html">
-          <img src="./images/logo.svg" alt="logo" />
+          <img src="../images/logo.svg" alt="logo" />
         </a>
       </div>
       <div class="page_list">
-        <a href="./event.html">農村體驗</a>
+        <a class="on_page" href="./event.html">農村體驗</a>
         <a href="./fruit_box.html">客製蔬果箱</a>
         <a href="./game.html">蔬果知識小遊戲</a>
         <a href="./aboutUs.html">關於我們</a>
@@ -66,194 +47,128 @@
     <div class="title">
       <div class="title_btn">
         <button class="comm_us">
-          聯絡我們 <img src="./images/cotact_us.svg" width="25px" alt="" />
+          聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
         </button>
         <a class="buy_now">
-          立即買<img src="./images/buy_now.svg" width="25px" alt="" />
+          立即買<img src="../images/buy_now.svg" width="25px" alt="" />
         </a>
       </div>
       <div class="title_pic">
         <img
-          src="./images/shopping_page/shopping_page01.jpg"
+          src="../images/shopping_page/shopping_page01.jpg"
           alt="checkout_pic"
           style="padding-bottom: 100px"
         />
         <span class="bkc_black"></span>
-        <h1>活動預約</h1>
+        <h1>活動體驗</h1>
       </div>
     </div>
 
     <!-- 漢堡彈窗 -->
-      <div class="jump_hamburger_block">
-        <div class="hamburger_logo">
-          <a href="./index.html">
-            <img src="./images/logo.svg" alt="logo">
-          </a>
-        </div>
-        <div class="header_nav_block">
-          <div class="nav_block_contact">
-            <img src="./images/nav_block_pen.svg" >
-            聯絡我們
-          </div>
-          <a class="nav_block_log" href="./login.html">
-            <img src="./images/nav_block_log.svg">
-            登入註冊
-          </a>          
-          <div class="nav_right_block">
-            <div class="nav_active">
-              <a href="./event.html">農村體驗</a>
-              <a href="./event_info.html">預約去</a>
-            </div>
-            <div class="nav_buy_now">
-              <a href="./shopping_page.html">立即買</a>
-              <a href="./fruit_box.html">客製蔬果箱</a>
-              <a href="./shopping_page.html">新鮮蔬果</a>
-            </div>
-            <div class="nav_knowledge">
-              <a href="./game.html">蔬果知識小遊戲</a>
-            </div>
-          </div>
-          <div class="nav_left_block">
-            <div class="nav_about_us">
-              <a href="./aboutUs.html">關於我們</a>
-              <a href="./aboutUs.html">農場介紹</a>
-              <a href="./product_introduction.html">生產介紹</a>
-            </div>
-            <div class="nav_QA">
-              <a href="./q_a.html">問與答</a>
-            </div>
-          </div>
-          <img src="./images/header_vegetable.svg" alt="vegetable" class="header_vegetable">
-          <img src="./images/header_lemon.svg" alt="vegetable" class="header_lemon">
-          <img src="./images/header_kiwi.svg" alt="vegetable" class="header_kiwi">
-        </div>
-      </div>
+    <div class="jump_hamburger_block"></div>
     <!-- 漢堡彈窗結束 -->
 
     <!-- 聯絡我們彈窗 -->
-    <div class="index_contact_box">
-      <div class="black_block"></div>
-      <div class="cotanct_block">
-        <div class="contact_block_head">
-          <button class="contact_block_Xmark"></button>
-        </div>
-        <h2>聯絡我們</h2>
-        <div class="contact_search_bar">
-          <input type="text" id="order_search" placeholder="請輸入訂單編號" />
-          <button class="search_icon">
-            <img src="./images/header_search_icon.svg" alt="search" />
-          </button>
-        </div>
-        <h3>若有其他問題可以點擊下方按鈕寄信</h3>
-        <div class="mailto_block">
-          <a class="contact_mailto" href="mailto:goodvegetablebox@gmail.com"
-            >寄送問題</a
-          >
-        </div>
-      </div>
-    </div>
+    <div class="index_contact_box"></div>
     <!-- 聯絡我們彈窗結束 -->
 
     <!-- 購物車彈窗  -->
-      <div class="header_shopping_cart">
-        <button class="cart_close">
-          <img src="./images/checkout/X_mark.svg" />
-        </button>
-        <div class="incart_car_block">
-          <img src="./images/header_incart.svg" alt="" />
-        </div>
-        <div class="cart_buy_list">目前購物車空無一物</div>
-        <div class="incart_total">
-          總和
-          <span>$0</span>
-        </div>
-        <div class="incart_checkout_block">
-          <a class="incart_checkout_btn" href="./checkout.html">結帳去</a>
-        </div>
-      </div>
+    <div class="cart_bk"></div>
+    <div class="header_shopping_cart"></div>
     <!-- 購物車彈窗結束  -->
-  </header>
-  <div id="event_info_block">
-    <div class="table">
-      <h2>活動表單</h2>
-        <div class="table_body">
-            <div class="table_left">
-                <div>
-                    <span>希望日期</span>
-                    <input type="date" accept="middle" v-model="date">
-                </div>
-                <div>
-                    <span>姓名</span>
-                    <input type="text">
-                </div>
-                <div>
-                    <span>電話</span>
-                    <input type="text">
-                </div>
-                <div>
-                    <span>電子郵件</span>
-                    <input type="email">
-                </div>
-                <div>
-                    <span>報名活動</span>
-                    <select v-model="select">
-                      <option disabled value="">請選擇活動</option>
-                      <option id="ACTIVITY_SELECT" v-for="event in events" :value="event">{{event.ACTIVITY_NAME}}</option>
-                    <!-- <option>Cat</option>
-                    <option>Hamster</option> -->
-                  </select>
-                </div>
-                <div>
-                    <span>人數</span>                    
-                    <select>
-                    <option >請選擇人數</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </select>
-                </div>
-            </div>
-            <div class="table_right">
-                <div>
-                    <span>集合場地</span>
-                    <em>台北市</em>
-                </div>
-                <div>
-                    <span>舉辦期間</span>
-                    <em>{{select.ACTIVITY_DATE || '選擇活動顯示日期'}}</em>
-                </div>
-                <div>
-                    <span>花費時間</span>
-                    <em>{{select.ACTIVITY_TIME || '選擇活動顯示時間'}}</em>
-                </div>
-                <div>
-                    <span>價錢</span>
-                    <em>{{select.ACTIVITY_PRICE || '選擇活動顯示金額'}}</em>
-                </div>
-                <div>
-                    <span>突發狀況</span>
-                    <em>其活動視天氣做更動</em>
-                </div>
-                <div>
-                    <span>衣著</span>
-                    <em>請穿適合活動的衣物及鞋子</em>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="event_info_btn"><a href="">送出</a></div>
-  </div>
 
+    <!-- 滾輪  -->
+    <div class="scrollbar" id="style-6">
+      <div class="force-overflow"></div>
+    </div>
+
+  </header>
+    <div id="event_info_block">
+      <div class="table">
+        <h2>活動表單</h2>
+          <div class="table_body">
+              <div class="table_left"> 
+                  <div>
+                      <span>希望日期</span>
+                      <input class="appoinment_date" type="date" accept="middle" v-model="date" @blur='checkdate'>
+                  </div>
+                  <div>
+                      <span>姓名</span>
+                      <input class="appoinment_name" type="text" v-model="name" @blur='checkname' placeholder="請輸入你的姓名">
+                  </div>
+                  <div>
+                      <span>電話</span>
+                      <input class="appoinment_phone" type="text" v-model="phone" @blur='checkphone' placeholder="請輸入你的電話"/> 
+                  </div>
+                  <div>
+                      <span>電子郵件</span>
+                      <input class="appoinment_email" type="email" v-model="email" @blur='checkemail' placeholder="請輸入你的E-MAIL">
+                  </div>
+                  <div>
+                      <span>報名活動</span>
+                      <select  v-model="select" @blur='checkevent'>
+                        <option disabled value="">請選擇活動</option>
+                        <option 
+                        id="ACTIVITY_SELECT" 
+                        v-for="event in events" 
+                        :value="event">{{event.ACTIVITY_NAME}}
+                        </option>
+                    </select>
+                  </div>
+                  <div>
+                      <span>人數</span>                    
+                      <select class="appoinment_pepolenum" v-model="pepolenum" @blur='checkpeople'>
+                      <option disabled value="">請選擇人數</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="table_right">
+                  <div>
+                      <span>集合場地</span>
+                      <em>台北市</em>
+                  </div>
+                  <div>
+                      <span>舉辦期間</span>
+                      <em>{{select.ACTIVITY_DATE || '選擇活動顯示日期'}}</em>
+                  </div>
+                  <div>
+                      <span>花費時間</span>
+                      <em>{{select.ACTIVITY_TIME || '選擇活動顯示時間'}}</em>
+                  </div>
+                  <div>
+                      <span>價錢</span>
+                      <em>{{select.ACTIVITY_PRICE || '選擇活動顯示金額'}}</em>
+                  </div>
+                  <div>
+                      <span>突發狀況</span>
+                      <em>其活動視天氣做更動</em>
+                  </div>
+                  <div>
+                      <span>衣著</span>
+                      <em>請穿適合活動的衣物及鞋子</em>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="event_info_btn">
+        <a href=""  
+        @click.prevent="apponintment_make()"
+        >送出</a>
+      </div>
+    </div>
     <footer class="footer_bg">
       <div class="footer">
         <button class="go_top" id="go_top">
-          <img src="./images/top.svg" alt="top" />
+          <img src="../images/top.svg" alt="top" />
         </button>
         <div class="footer_logo">
           <a href="./index.html">
-            <img src="./images/logo.svg" alt="logo" />
+            <img src="../images/logo.svg" alt="logo" />
           </a>
         </div>
         <div class="footer_center">
@@ -264,13 +179,13 @@
           <h5>(17:00後下單視為隔日下單)</h5>
           <div class="btn_pos">
             <button class="mail_btn">
-              <img src="./images/mail.svg" alt="mail">MAIL
+              <img src="../images/mail.svg" alt="mail">MAIL
             </button>
           </div>
           <div class="footer_icon">
-            <img src="./images/icon-fb.svg" alt="fb" />
-            <img src="./images/icon-line.svg" alt="line" />
-            <img src="./images/icon-ig.svg" alt="ig" />
+            <img src="../images/icon-fb.svg" alt="fb" />
+            <img src="../images/icon-line.svg" alt="line" />
+            <img src="../images/icon-ig.svg" alt="ig" />
           </div>
         </div>
         <div class="footer_right">
@@ -289,8 +204,10 @@
         </div>
       </div>
     </footer>
-
-    <script src="./js/header.js"></script>
+    <script src="../js/right_nav_bar.js"></script>
+    <script src="../js/shopping_cart.js"></script>
+    <script src="../js/header.js"></script>
+    
     <script>
       // 側邊攔展開
       $(".shopping_box_slide").on("click", function () {
@@ -312,7 +229,7 @@
         })
       }
      
-
+      
       // 回頁首
       $("#go_top").on("click", function (e) {
         e.preventDefault();
@@ -328,20 +245,102 @@
         el:"#event_info_block",
         data:{
           events:[],
-          select: "",
           date: new Date().toISOString().substr(0, 10),
+          select: "",
+          pepolenum:"",
+          name:"",
+          email:"",
+          phone:"",
+          pass_member: false,
+          pass_name: false,
+          pass_phone: false,
+          pass_email: false,
+          pass_event: false,
+          pass_people: false,
         },
-
         methods: {
-          selectVal : function(e){
-            
+          checkdate(){
+
+          },
+          checkname(){
+            if(this.name == ''){
+              alert('請填寫姓名');
+            }else{
+              this.pass_name = true
+            }
+          },
+          checkphone(){
+            const phonerule = /^09[0-9]{8}$/;
+            if(this.phone == ''){
+            alert('請填寫電話');
+              }else if (!phonerule.test(this.phone)){
+                alert('請填寫正確電話格式');
+            }else{
+              this.pass_phone = true
+            }
+          },
+          checkemail(){
+            const emailrule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+            if(this.email == ''){
+            alert('請填寫電子郵件'); 
+              }else if (!emailrule.test(this.email)){
+                alert('請填寫正確電子郵件格式');
+            }else{
+              this.pass_email = true
+            }
+          },
+          checkevent(){
+            if(this.select == ''){
+              alert('請選擇活動')
+            }else{
+              this.pass_event = true
+            }
+          },
+          checkpeople(){
+            if(this.pepolenum == ''){
+            alert('請選擇人數')
+            }else{
+              this.pass_people = true
+            }
+          },
+          apponintment_make(){
+            if(this.pass_member == false){
+              alert('請先註冊會員才可預約');
+              return
+            }
+            if(this.pass_name == true && this.pass_phone == true && this.pass_email == true && this.pass_event == true && this.pass_people == true){
+              $.ajax({
+                method: 'POST',
+                url:'../php/apponintment_make.php',
+                data:{
+                  ACTIVITY_ID:this.select.ACTIVITY_ID,
+                  DATE:this.date,
+                  PEPOLENUM:this.pepolenum,
+                  NAME:this.name,
+                  EMAIL:this.email,
+                  PHONE:this.phone
+                },
+                dataType: 'text',
+                success: function(response) {
+                  if(response == 'yes'){
+                    alert('活動預約成功!到會員中心查看')
+                    window.location.href='member.html'
+                  }else{
+                    alert('請先註冊會員才可預約');
+                    console.log(response);
+                  }
+                }
+              })
+            }else {
+              alert('表單不得為空');
+            }
           }
         },
-
+   
         mounted() {
-        $.ajax({
+          $.ajax({
             method: 'POST',
-            url:'php/getACTIVITY.php',
+            url:'../php/getACTIVITY.php',
             data: {},
             dataType: 'json',
             success: function(response) {
@@ -354,9 +353,36 @@
                 console.log(exception)
             },
           })
-          
       },
     })
+    </script>
+    <script>
+      function ifMember(){
+        $.ajax({
+              method: 'POST',
+              url: '../php/ifMember.php',
+              data:{},
+              dataType: 'text',
+              success: function(response) {
+                console.log(response);
+                if(response == 'yes'){
+                  $('.nav_block_log > span').text('會員中心');
+                  $('.login').click(function(){
+                    window.location.href = 'member.html';
+                  });
+                  event_info_block.pass_member = true
+                }else{
+                  $('.login').click(function(){
+                    window.location.href = 'login.html';
+                  });
+                }
+              },
+              error: function(exception) {
+                  console.log(exception)
+                  alert("發生錯誤: " + exception.status);
+              },
+        });  
+      }
     </script>
 </body>
 
