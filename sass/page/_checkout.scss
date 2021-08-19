@@ -165,6 +165,7 @@ div.checkout_shopping_detail{
         padding: 20px 0px;
         display: flex;
         background-color: $white;
+        border-bottom: 1px solid $brown;
         .checkout_shopping_product_detail_img{
             width: 20%;
             align-self: center;
@@ -218,9 +219,21 @@ div.checkout_shopping_detail{
     }
     .checkout_shopping_detail_keep_shopping{
         margin-top: 10px;
-        @include a_link();
         display: block;
         text-align: right;
+        a{
+            @include a_link();
+            @include hover_line();
+            &:hover{
+                &::after{
+                    width: 100%;
+                }
+            }
+            &::after{
+                left: 0;
+                bottom: -3px;
+            }
+        }
     }
 }
 
@@ -376,13 +389,10 @@ div.checkout_shopping_detail{
             width: 100%;
             max-width: 1200px;
             height: auto;
-            padding: 30px 0px;
+            padding: 30px 0px 20px 0px;
             display: flex;
             background-color: $white;
             position: relative;
-            // @include mobile {
-            //     font-size: 12px;
-            // }
             .checkout_shopping_product_detail_img{
                 width: 20%;
                 align-self: center;
@@ -441,9 +451,9 @@ div.checkout_shopping_detail{
                 text-align: center;
                 @include mobile {
                     position: absolute;
-                    top: 3%;
+                    top: 7%;
                     right: 0%;
-                    width: 3%;
+                    width: 4%;
                 }
                 img{
                     width: 30%;
@@ -518,12 +528,16 @@ div.checkout_shopping_detail{
         section{
             padding: 10px 10%;
             p{
+                display: flex;
                 padding: 15px 0px;
                 span{
                     display: inline-block;
-                    width: 40px;
-                    text-align: right;
-                    margin-left: 50%;
+                    width: 30%;
+                    text-align: left;
+                    &:nth-child(2){
+                        width: 70%;
+                        text-align: right;
+                    }
                 }
             }
             button{
@@ -543,12 +557,18 @@ div.checkout_shopping_detail{
                 display: none;
                 width: 100%;
                 text-align: center;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
+                p{
+                    display: block;
+                    padding: 0px 0px 20px 0px;
+                    text-align: center;
+                }
                 input{
                     width: 20%;
                     margin: 0px 5px;
                     outline: none;
                     border: 0px;
+                    font-size: $h5 ;
                     border-bottom: 1px solid $brown;
                     background-color: $white;
                     text-align: center;
@@ -557,7 +577,17 @@ div.checkout_shopping_detail{
                 }
             }
             .checkout_shopping_checkform_orderblock_total{
-                padding: 30px 0px;
+                display: flex;
+                padding: 15px 0px;
+                span{
+                    display: inline-block;
+                    width: 30%;
+                    text-align: left;
+                    &:nth-child(2){
+                        width: 70%;
+                        text-align: right;
+                    }
+                }
             }
         }
         a{
@@ -624,21 +654,6 @@ div.checkout_shopping_detail{
                 background-color: $bkc_lightorange;
                 padding: 10px 10%;
             }
-            section{
-                padding: 10px 10%;
-                p{
-                    padding: 15px 0px;
-                    span{
-                        display: inline-block;
-                        width: 55%;
-                        text-align: right;
-                        margin-left: 0px;
-                    }
-                }
-                .checkout_shopping_checkform_orderblock_total{
-                    padding: 30px 0px;
-                }
-            }
             a{
                 @include btn(80%);
                 display: block;
@@ -703,21 +718,6 @@ div.checkout_shopping_detail{
                 background-color: $bkc_lightorange;
                 padding: 10px 10%;
             }
-            section{
-                padding: 10px 10%;
-                p{
-                    padding: 15px 0px;
-                    span{
-                        display: inline-block;
-                        width: 70%;
-                        text-align: right;
-                        margin-left: 0px;
-                    }
-                }
-                .checkout_shopping_checkform_orderblock_total{
-                    padding: 30px 0px;
-                }
-            }
             a{
                 @include btn(80%);
                 display: block;
@@ -727,6 +727,7 @@ div.checkout_shopping_detail{
                 border: 1px solid $brown;
                 color: $brown;
                 background-color: $white;
+                font-size: $h5;
                 &:hover{
                     color:$white;
                     border: 1px solid $green;
@@ -744,5 +745,51 @@ div.checkout_shopping_detail{
     width: 200px;
     @include tablet {
         display: none;
+    }
+}
+
+// 結帳彈窗
+.discount_get{
+    display: none;
+    .black_black{
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 49;
+        @include tablet{
+          height: 100%;
+        }
+    }
+    .discount_get_block{
+        @include abs_center();
+        position: fixed;
+        background-color: $white;
+        width: 30%;
+        padding: 30px 0px;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 50;
+        @include tablet{
+            top: 59%;
+            width: 50%;
+        }
+        @include mobile{
+            
+        }
+
+        h4{
+            padding: 20px 20px;
+            text-align: center;
+        }
+         
+        .close_up{
+            @include btn(50%);
+            display: block;
+            @include marginAuto();
+            margin-top: 30px;
+        }
     }
 }

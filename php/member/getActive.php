@@ -1,17 +1,18 @@
 <?php
 
-    include("./connection.php");
+    include("../connection.php");
     $pdo = MemberDB();
 
     //建立SQL語法
 
-    include("./Lib/Member.php");
+
+    include("../Lib/Member.php");
     getMemberID();
     $memberID = $_SESSION['MemberID'];
 
     // 從$_SETTION抓出顧客ID，透過顧客ID撈出此顧客的活動預約。
     // $sql = "SELECT * FROM `tfd102-g4`.APPOINTMENT WHERE CUSTOMER_ID = $_SESSION(memberID)";
-    $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER WHERE CUSTOMER_ID = $memberID";
+    $sql = "SELECT AP.APPOINTMENT_ID, AC.ACTIVITY_NAME,AP.APPOINTMENT_DATE, AC.ACTIVITY_PRICE, AP.PEOPLE_NUM FROM `tfd102-g4`.APPOINTMENT AP join `tfd102-g4`.ACTIVITY AC on AP.ACTIVITY_ID = AC.ACTIVITY_ID WHERE CUSTOMER_ID = $memberID ";
 
 
 

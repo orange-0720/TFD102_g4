@@ -123,6 +123,7 @@
             a{
                 @include a_link();
                 display: block;
+                cursor: pointer;
                 .shopping_product_pic{
                     position: relative;
                     border: 1px solid $brown;
@@ -143,6 +144,7 @@
                         background-size: 70%;
                         background-position: center;
                         transition: 0.5s;
+                        cursor: pointer;
                         &:hover{
                             bottom: 7%;
                         }
@@ -199,7 +201,7 @@
                 }
                 .products_imgs{
                     width: 50%;
-                    align-items: center;
+                    align-self: center;
                     text-align: center;
                     transition: all 0.5s ease;
                     @include tablet{
@@ -269,6 +271,11 @@
                             @include btn(40%);
                             margin: 0 5%;
                             text-align: center;
+                            @include mobile{
+                                @include btn(45%);
+                                margin: 0 2.5%;
+                                font-size: $h5;
+                            }
                         }
                     }
                 }
@@ -817,7 +824,7 @@
             @include btn(50%);
             display: block;
             @include marginAuto();
-            margin-top: 30px;
+            margin-top: 15px;
         }
     }
 }

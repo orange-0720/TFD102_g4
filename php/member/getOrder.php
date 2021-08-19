@@ -1,11 +1,11 @@
 <?php
 
-    include("./connection.php");
+    include("../connection.php");
     $pdo = MemberDB();
 
     //建立SQL語法
 
-    include("./Lib/Member.php");
+    include("../Lib/Member.php");
     getMemberID();
     $memberID = $_SESSION['MemberID'];
 
@@ -26,17 +26,5 @@
     if($data >= 1) {
         echo json_encode($data);
     }
-        
-    // $sql = "SELECT * FROM `tfd102-g4`.ORDER A1 
-	//             join `tfd102-g4`.ORDER_STATUS_TYPE A2 
-	// 	            on A1.ORDER_STATUS_ID = A2.ORDER_STATUS_ID 
-    //             left join `tfd102-g4`.ORDER_DETAIL A3
-	// 	            on A1.ORDER_ID = A3.ORDER_ID
-	//             left join `tfd102-g4`.CUSTOM_MADE A4
-	// 	            on A3.CUSTOM_MADE_ID = A4.CUSTOM_MADE_ID 
-    //             left join `tfd102-g4`.PRODUCT A5
-    //                 on A3.PRODUCT_ID = A5.PRODUCT_ID             
-    //         WHERE CUSTOMER_ID = $memberID";
     
-
 ?>

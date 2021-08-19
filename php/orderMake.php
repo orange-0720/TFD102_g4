@@ -12,6 +12,7 @@
     $discount = $_POST['discount'];
     $buyer = $_POST['buyer'];
     $gender = $_POST['gender'];
+    $payment = $_POST['payment'];
     
     include("./connection.php");
     $pdo = MemberDB();
@@ -31,7 +32,7 @@
     // 判斷是SESSION是否有MemberID存在
     if(isset($_SESSION['MemberID'])){
         $memberID = $_SESSION['MemberID'];
-        $sql = "INSERT INTO `tfd102-g4`.ORDER(CUSTOMER_ID, RECIPIENT , ORDER_PHONE , CITY, AREA, ADDRESS,DELIVERY,PAYMENT,EMAIL,ADD_DATE,DISCOUNT,ORDER_PRICE,REMARKS,ORDER_STATUS_ID,GENDER,BUYER) VALUES ($memberID, ?, ?, ?, ?, ?, '宅配', '信用卡', ?, NOW(),?, ?, ? ,1,? ,?)";
+        $sql = "INSERT INTO `tfd102-g4`.ORDER(CUSTOMER_ID, RECIPIENT , ORDER_PHONE , CITY, AREA, ADDRESS,DELIVERY,PAYMENT,EMAIL,ADD_DATE,DISCOUNT,ORDER_PRICE,REMARKS,ORDER_STATUS_ID,GENDER,BUYER) VALUES ($memberID, ?, ?, ?, ?, ?, '宅配', ?, ?, NOW(),?, ?, ? ,1,? ,?)";
     
         
         //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
@@ -42,12 +43,13 @@
         $statement->bindParam(3, $city);
         $statement->bindParam(4, $area);
         $statement->bindParam(5, $address);
-        $statement->bindParam(6, $email);
-        $statement->bindParam(7, $discount);
-        $statement->bindParam(8, $total_price);
-        $statement->bindParam(9, $remarks);
-        $statement->bindParam(10, $gender);
-        $statement->bindParam(11, $buyer);
+        $statement->bindParam(6, $payment);
+        $statement->bindParam(7, $email);
+        $statement->bindParam(8, $discount);
+        $statement->bindParam(9, $total_price);
+        $statement->bindParam(10, $remarks);
+        $statement->bindParam(11, $gender);
+        $statement->bindParam(12, $buyer);
 
         $statement->execute();
         
@@ -182,7 +184,7 @@
         }
 
         // 插入該筆訂單
-        $sql = "INSERT INTO `tfd102-g4`.ORDER(CUSTOMER_ID, RECIPIENT , ORDER_PHONE , CITY, AREA, ADDRESS,DELIVERY,PAYMENT,EMAIL,ADD_DATE,DISCOUNT,ORDER_PRICE,REMARKS,ORDER_STATUS_ID,GENDER,BUYER) VALUES (?, ?, ?, ?, ?, ?, '宅配', '信用卡', ?, NOW(),?, ?, ? ,1,? ,?)";
+        $sql = "INSERT INTO `tfd102-g4`.ORDER(CUSTOMER_ID, RECIPIENT , ORDER_PHONE , CITY, AREA, ADDRESS,DELIVERY,PAYMENT,EMAIL,ADD_DATE,DISCOUNT,ORDER_PRICE,REMARKS,ORDER_STATUS_ID,GENDER,BUYER) VALUES (?, ?, ?, ?, ?, ?, '宅配', ?, ?, NOW(),?, ?, ? ,1,? ,?)";
     
     
         //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
@@ -194,12 +196,13 @@
         $statement->bindParam(4, $city);
         $statement->bindParam(5, $area);
         $statement->bindParam(6, $address);
-        $statement->bindParam(7, $email);
-        $statement->bindParam(8, $discount);
-        $statement->bindParam(9, $total_price);
-        $statement->bindParam(10, $remarks);
-        $statement->bindParam(11, $gender);
-        $statement->bindParam(12, $buyer);
+        $statement->bindParam(7, $payment);
+        $statement->bindParam(8, $email);
+        $statement->bindParam(9, $discount);
+        $statement->bindParam(10, $total_price);
+        $statement->bindParam(11, $remarks);
+        $statement->bindParam(12, $gender);
+        $statement->bindParam(13, $buyer);
 
         $statement->execute();
         

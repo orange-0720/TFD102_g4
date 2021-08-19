@@ -30,7 +30,7 @@ let shopping_page = {
                     />
                 </div>
                 <div class="shopping_page" v-for="(page,index) in pages" @click="move_page(index)">
-                    {{page.num}}
+                    {{page}}
                 </div>
                 <div class="page_next" @click="nextPage">
                     <img
@@ -48,9 +48,7 @@ let shopping_page = {
             limit: 9,
             products:[],
             pages:[
-                {num:1},
-                {num:2},
-                {num:3},
+                
             ]
         }
     },
@@ -161,8 +159,8 @@ let shopping_page = {
     },
     computed: {
         page_products(){
-          const last_index = this.page * (this.limit -1);
-          const first_index = (this.page -1) * (this.limit -1);
+          const last_index = this.page * (this.limit) -1;
+          const first_index = (this.page - 1) * (this.limit);
           const page_product = [];
           for(let i = first_index; i < this.products.length; i++){
             if(last_index < i) break;
@@ -175,8 +173,14 @@ let shopping_page = {
         axios.post('../php/getProduct.php').then(res =>{
             console.log(res.data);
             this.products = res.data;
+            let length = res.data.length;
+            let pages = Math.ceil(length / this.limit)
+            console.log(pages);
+            console.log(length);
+            for(i = 1; i <= pages; i++){
+                this.pages.push(i);
+            }
         })
-        
     },
 }
 
@@ -306,9 +310,10 @@ let shopping_inside_page = {
                 let new_price = price_now + total_price;
                 $('.cart_total_price').html(new_price);
 
-                let num_now = parseInt($('.buy_num').text());
-                let new_num = num_now +1;
-                $('.buy_num').text(new_num);
+                $('.buy_num').fadeIn();
+                let nums = $('.cart_inside_item').length;
+                console.log(nums);
+                $('.buy_num').text(nums);
                 $('.shop_car').addClass('cart_move');
 
             } else {
@@ -321,9 +326,9 @@ let shopping_inside_page = {
                 $('.cart_total_price').html(new_price);
 
                 $('.buy_num').fadeIn();
-                let num_now = parseInt($('.buy_num').text());
-                let new_num = num_now +1;
-                $('.buy_num').text(new_num);
+                let nums = $('.cart_inside_item').length;
+                console.log(nums);
+                $('.buy_num').text(nums);
                 $('.shop_car').addClass('cart_move');
             }
             sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
