@@ -153,6 +153,7 @@ sign_confirm_btn.addEventListener('click', function(e){
     let partten = /^09[0-9]{8}$/;
 
     let answer = 0;
+
     if(val.search(emailRule) === -1){
         sign_email.value = '';
         sign_email.style.border = '3px solid red';
@@ -160,13 +161,8 @@ sign_confirm_btn.addEventListener('click', function(e){
     }else{
         answer ++;
     }
-    
-    // alert(sign_pwd.length);
-    // alert(pwd_confirm.length);
-    // alert(sign_pwd);
-    // alert(pwd_confirm);
-    if(sign_pwd.length <= 8 && pwd_confirm.length <= 8){
-        //alert('密碼需超過八位數')
+
+    if(sign_pwd.length < 8 && pwd_confirm.length < 8){
         $('#sign_pwd_fail').show();
         $('#pwd_confirm_fail').show();
         document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
@@ -174,8 +170,8 @@ sign_confirm_btn.addEventListener('click', function(e){
     }else{
         answer ++;
     }
+
     if(sign_pwd != pwd_confirm){
-        //alert('請確認密碼是否相同')
         $('#pwd_confirm_fail').show();
         $('#sign_pwd_fail').show();
         document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
@@ -199,6 +195,7 @@ sign_confirm_btn.addEventListener('click', function(e){
     }
 
     if(answer == 5){
+        let pass = Math.floor(Math.random()* 1000000000)
         Email.send({
             Host: "smtp.gmail.com",
             Username: "goodvegetablebox@gmail.com",
@@ -206,20 +203,20 @@ sign_confirm_btn.addEventListener('click', function(e){
             To: val,
             From: "良耕野菜<goodvegetablebox@gmail.com>",
             Subject: "良耕野菜",
-            Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
+            Body: `感謝您成為良耕野菜的會員，您的驗證碼為為${pass}，輸入驗證碼後即可完成註冊`,
         }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
         .then($('.sign_block').fadeToggle());
-    }
 
+        // 驗證碼輸入並執行撈資料庫資料
+        sign_send_btn.addEventListener('click', function(){
+            let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
+            if(sign_confirm.value == pass){
+                doInsert();
+            }
+        })
+    }
 });
 
-// 驗證碼輸入並執行撈資料庫資料
-sign_send_btn.addEventListener('click', function(){
-    let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
-    if(sign_confirm.value == 11111111){
-        doInsert();
-    }
-})
 
 // 判斷登入表單不能為空
 document.getElementById('login_btn').addEventListener('click', function(){
@@ -239,3 +236,104 @@ document.getElementById('login_btn').addEventListener('click', function(){
         $('#pwd_fail').show();
     }
 })
+
+
+//註冊
+function doInsert(){
+    $.ajax({            
+        method: "POST",
+        url: "../php/Insert.php",
+        data:{ 
+            account: $('#sign_email').val(),
+            pwd : $('#sign_pwd').val(),
+            tel : $('#sign_tel').val(),
+        },            
+        dataType: "text",
+        success: function (response) {
+            if(response == 'done'){
+                alert('註冊成功');
+                let site_now = JSON.parse(sessionStorage.getItem('site_now'));
+                if(site_now){
+                let go_back = site_now
+                sessionStorage.removeItem('site_now');
+                window.location.href = go_back;
+                }else{
+                window.location.href = './index.html';  
+                }
+            }else{
+                alert('此信箱已註冊過，請確認!')
+            }
+        },
+        error: function(exception) {
+            alert("發生錯誤: " + exception.status);
+        }
+    });
+}
+
+function forget_pwd(){
+    let new_pwd = Math.floor(Math.random() * 1000000000);
+    $.ajax({
+      method: 'POST',
+      url: '../php/forget_pwd.php',
+      data:{
+        account: $('#pwd_resend').val(),
+        new_pwd: new_pwd,
+      },
+      dataType: 'json',
+      success: function(response) {
+          console.log(response);
+          if(response === 'yes'){
+              Email.send({
+              Host: "smtp.gmail.com",
+              Username: "goodvegetablebox@gmail.com",
+              Password: "tfd102g4",
+              To: $('#pwd_resend').val(),
+              From: "良耕野菜<goodvegetablebox@gmail.com>",
+              Subject: "良耕野菜",
+              Body: `感謝您使用本網站，您的新密碼為${new_pwd}，請使用新密碼重新登入`,
+              }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入。並請至會員中心更改密碼'))
+              .then($('.pwd_block').fadeToggle());
+          }else{
+              console.log(response)
+              alert('查無此信箱')
+          }
+      },
+      error: function(exception) {
+          alert("發生錯誤: " + exception.status);
+      },
+    })
+};
+
+// 登入
+function Login(){
+    $.ajax({
+      method: 'POST',
+      url: '../php/login.php',
+      data:{
+        account: $('#login_email').val(),
+        pwd : $('#login_pwd').val(),
+      },
+      dataType: 'json',
+      success: function(response) {
+          console.log(response);
+          let site_now = JSON.parse(sessionStorage.getItem('site_now'));
+          if(response == 1){
+              alert('登入成功');
+              if(site_now){
+                let go_back = site_now
+                console.log(go_back);
+                sessionStorage.removeItem('site_now');
+                window.location.href = go_back;
+              }else{
+                window.location.href = './member.html';  
+              }
+          }else{
+              console.log(response)
+              alert('查無會員')
+          }
+      },
+      error: function(exception) {
+          alert("發生錯誤: " + exception.status);
+      },
+    })
+};

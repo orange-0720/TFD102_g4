@@ -359,4 +359,5 @@ $('.cart_buy_list').on('click','.fruit_box_minus',function(e){
 $('.cart_buy_list').on('click','.fruit_detail',function(e){
     console.log(e.target);
     $(e.target).next().slideToggle();
+    $('.cart_arrow').toggleClass('cart_arrow_turn')
 })

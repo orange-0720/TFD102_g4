@@ -4,7 +4,7 @@
        $phone = htmlspecialchars($_POST['phone']);
        $address = htmlspecialchars($_POST['address']);
 
-       include("./connection.php");
+       include("../connection.php");
        $pdo = MemberDB();
 
        //---------------------------------------------------

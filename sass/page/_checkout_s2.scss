@@ -1,3 +1,21 @@
+input{
+    &:focus{
+        outline: 1px solid $brown;
+    }
+}
+
+select{
+    &:focus{
+        outline: 1px solid $brown;
+    }
+}
+
+textarea{
+    &:focus{
+        outline: 1px solid $brown;
+    }
+}
+
 .checkout_s2_shopping_detail{
     width: 80%;
     max-width: 1200px;
@@ -8,8 +26,8 @@
         width: 80%;
         max-width: 400px;
         @include marginAuto();
-        padding: 20px 0px 0px 0px;
-        font-size: 20px;
+        padding: 10px 0px 10px 0px;
+        font-size: $h4;
         text-align: center;
     }
     .checkout_s2_shopping_detail_total{
@@ -31,8 +49,9 @@
         background-color: $bkc_lightorange;
         font-size: $h4;
         p{
-            padding: 20px 0px 0px 0px;
-            font-size: 20px;
+            @include pad{
+                font-size: $h5;
+            }
         }
         .checkout_s2_shopping_detail_total{
             vertical-align: top;
@@ -171,7 +190,6 @@
         align-self: flex-start;
         padding-bottom: 20px;
         h3{
-            font-size: $h3;
             background-color: $bkc_lightorange;
             padding: 10px 10%;
         }
@@ -316,6 +334,7 @@
             align-self: flex-start;
             padding-bottom: 20px;
             h3{
+                font-size: $h4;
                 background-color: $bkc_lightorange;
                 padding: 10px 10%;
             }
@@ -327,7 +346,7 @@
                     display: block;
                     width: 100%;
                     padding: 5px;
-                    font-size: $h4;
+                    font-size: $h5;
                 }
             }
         }
@@ -340,7 +359,7 @@
             align-self: flex-start;
             padding-bottom: 20px;
             h3{
-                font-size: $h3;
+                font-size: $h4;
                 background-color: $bkc_lightorange;
                 padding: 10px 10%;
             }
@@ -348,7 +367,7 @@
                 display: block;
                 margin: 10px 0px;
                 padding: 10px 10%;
-                font-size: $h4;
+                font-size: $h5;
             }
             .checkout_s2_deliver_infro_group{
                 margin-top: 10px;
@@ -357,14 +376,14 @@
                 label{
                     display: block;
                     margin: 5px 0px;
-                    font-size: $h4;
+                    font-size: $h5;
                 }
                 input{
                     margin-top: 5px;
                     display: block;
                     width: 100%;
                     padding: 5px;
-                    font-size: $h4;
+                    font-size: $h5;
                 }
                 hr{
                     margin-top:15px;
@@ -373,13 +392,13 @@
                     display: inline-block;
                     width: 45%;
                     padding: 5px;
-                    font-size: $h4;
+                    font-size: $h5;
                 }
                 .checkout_s2_area{
                     margin-left: 10%;
                 }
                 p{
-                    font-size: $h4;
+                    font-size: $h5;
                 }
             }
         }
@@ -483,6 +502,7 @@
             background-color: $white;
             padding-bottom: 20px;
             h3{
+                font-size: $h4;
                 background-color: $bkc_lightorange;
                 padding: 10px 10%;
             }
@@ -490,7 +510,8 @@
                 display: block;
                 padding: 10px;
                 margin: 20px 10% 0px 10%;
-                width: 80%
+                width: 80%;
+                font-size: $h5;
             }
         }
         .chekout_s2_order_other_block_pay{
@@ -502,10 +523,11 @@
             h3{
                 background-color: $bkc_lightorange;
                 padding: 10px 10%;
+                font-size: $h4;
             }
             p{
                 padding: 20px 0 0 10%;
-                font-size: $h3;
+                font-size: $h5;
             }
         }
     }
@@ -518,8 +540,10 @@
     margin-top: 70px;
     font-size: 20px;
     text-align: center;
-    label{
-        margin-left: 10px;
+    input{
+        &:focus{
+            outline: none;
+        }
     }
     .chekout_s2_order_privacy_next{
         button{
@@ -528,6 +552,9 @@
             margin: 50px 50px;
             font-size: 20px;
         }
+    }
+    a{
+        color: darkgreen;
     }
 }
 
@@ -539,9 +566,6 @@
         margin-top: 70px;
         font-size: 20px;
         text-align: center;
-        label{
-            margin-left: 10px;
-        }
         .chekout_s2_order_privacy_next{
             button{
                 @include btn(200px);
@@ -559,17 +583,17 @@
         max-width: 1200px;
         @include marginAuto();
         margin-top: 40px;
-        font-size: 20px;
+        font-size: $h4;
         text-align: center;
         label{
-            margin-left: 10px;
+            font-size: $h5
         }
         .chekout_s2_order_privacy_next{
             button{
                 @include btn(50%);
                 padding: 10px;
                 margin: 30px auto;
-                font-size: 20px;
+                font-size: $h5;
                 display: block;
             }
         }
@@ -590,6 +614,11 @@
         z-index: 499;
         overflow-y: scroll;
     }
+    .credit_form{
+        @include tablet{
+            width: 80%;
+        }
+    }
 }
 
 
@@ -599,9 +628,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 70%;
     padding: 20px 2%;
-    background-color: $bkc_yellow;
+    background-color:#f9f5ee;
+    border-radius: 25px;
+    
+    h2{
+        margin-top: 20px;
+    }
     .step_back_btn{
         position: absolute;
         top: 10px;
@@ -609,8 +643,8 @@
         cursor: pointer;
         img{
             display: inline-block;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
         }
     }
     .credit_form_block{
@@ -639,8 +673,8 @@
                 @include marginAuto();
                 .card_img{
                     position: absolute;
-                    max-width: 100%;
-                    max-height: 100%;
+                    width: 450px;
+                    height: 285px;
                     top: 0;
                     left: 0;
                     z-index: -1;
@@ -650,42 +684,57 @@
                     @include marginAuto();
                 }
                 .left_block_name{
-                    padding-top: 18%;
-                    padding-left: 30%;
+                    padding-top: 21%;
+                    padding-left: 10%;
                     text-align: left;
                     p{
                         font-size: $h4;
-                        color: black;
+                        color: $white;
                         padding: 5px 0px;
                         &:last-child{
                             font-size: $h3;
                             padding-left: 10%;
-                            color:$font_color;
+                            color:#000000;
                             min-height: 40px;
                         }
                     }
                 }
                 .left_block_number{
                     text-align: left;
-                    padding-left: 30%;
-                    padding-top: 2%;
+                    padding-left: 30px;
+                    padding-top: 134px;
                     margin-bottom: 10px;
                     p{
                         font-size: $h4;
-                        color: black;
+
+                        color: $white;
                         padding: 5px 0;
                         &:last-child{
                             font-size: $h3;
                             padding-left: 5px;
-                            color:$font_color;
+                            color:$white;
                             min-height: 40px;
                         }
                     }
                 }
+                .left_block_valid{
+                    color: rgb(255, 255, 255);
+                    font-size: 20px;
+                    display: inline-block;
+                    padding-bottom: 5px;
+                    vertical-align: top;
+                    margin-left: 300px;
+                    span{
+                        display: block;
+                        color:rgb(255, 255, 255);
+                        font-size: 20px;
+                        margin: 0
+                    }
+                }
             }
             .credit_card_img_back{
-                width: 100%;
-                height: 100%;
+                width: 450px;
+                height: 285px;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -696,8 +745,8 @@
                 @include marginAuto();
                 .card_img{
                     position: absolute;
-                    max-width: 100%;
-                    max-height: 100%;
+                    width: 450px;
+                    height: 285px;
                     top: 0;
                     left: 0;
                     z-index: -1;
@@ -707,48 +756,51 @@
                     @include marginAuto();
                 }
                 .left_block_name{
-                    padding-top: 18%;
-                    padding-left: 30%;
+                    padding-top: 22%;
+                    @include pad{
+                        padding-top: 25%;
+                    }
+                    padding-left: 10%;
                     text-align: left;
                     p{
                         font-size: $h4;
-                        color: black;
+                        color: $white;
                         padding: 5px 0px;
                         &:last-child{
                             font-size: $h3;
                             padding-left: 20px;
-                            color:$font_color;
+                            color:#000000;
                             min-height: 40px;
                         }
                     }
                 }
                 .left_block_other{
-                    padding-top: 10%;
+                    padding-top: 15%;
                     text-align: left;
                     padding-left: 10%;
-                    .left_block_valid{
-                        color: black;
-                        font-size: $h5;
-                        display: inline-block;
-                        padding-bottom: 5px;
-                        vertical-align: top;
-                        span{
-                            display: block;
-                            color:$font_color;
-                            font-size: $h3;
-                            padding-top: 10px;
-                            margin: 0
-                        }
+                    color: rgb(0, 0, 0);
+                    font-size: 16px;
+                    display: inline-block;
+                    padding-bottom: 5px;
+                    vertical-align: top;
+                    padding-left: 260px;
+                    @include pad{
+                        padding-top: 21%;
+                    }
+                    span{
+                        display: block;
+                        color:rgb(0, 0, 0);
+                        font-size: 20px;
+                        padding-top: 10px;
+                        margin: 0
                     }
                     .left_block_security{
                         @extend .left_block_valid;
-                        margin-left: 70px;
                     }
                 }
             }
         }
         .credit_form_right_block{
-            // width: 50%;
             flex: 0 1 50%;
             padding:0 5%;
             text-align: left;
@@ -759,14 +811,17 @@
                 label{
                     display: block;
                     margin-bottom: 10px;
-                    font-size: $h3;
+                    font-size: 20px;
                 }
                 input{
                     display: block;
                     width: 100%;
-                    padding: 10px;
+                    padding: 6px;
                     font-size: $h3;
-                    border: 1px solid $brown;
+                    border: 2px solid $brown;
+                    cursor:pointer;
+                    -webkit-border-radius: 5px;
+                    border-radius: 5px; 
                 }
             }
             .right_block_number{
@@ -778,7 +833,7 @@
                 width: 80%;
                 @include marginAuto();
                 .right_block_valid{
-                    font-size: $h3;
+                    font-size: 20px;
                     width: 40%;
                     label{
                         display: block;
@@ -787,9 +842,11 @@
                     input{
                         display: block;
                         width: 100%;
-                        padding: 10px;
+                        padding: 6px;
                         font-size: $h3;
-                        border: 1px solid $brown;
+                        border: 2px solid $brown;
+                        cursor:pointer;
+                        border-radius: 5px;
                     }
                 }
                 .right_block_security{
@@ -812,10 +869,10 @@
         top: 80px;
         left: 50%;
         transform: translateX(-50%);
-        width: 90%;
+        width: 100%;
         height: auto;
         padding: 30px 5%;
-        background-color: $bkc_yellow;
+        background-color:#f9f5ee;
         margin-bottom: 80px;
         .step_back_btn{
             position: absolute;
@@ -824,14 +881,14 @@
             cursor: pointer;
             img{
                 display: inline-block;
-                width: 30px;
-                height: 30px;
+                width: 40px;
+                height: 40px;
             }
         }
         .credit_form_block{
             display: block;
             margin-top: 30px;
-            overflow-y: auto;
+            //overflow-y: auto;
             .credit_form_left_block{
                 width: 60%;
                 @include marginAuto();
@@ -841,47 +898,46 @@
                     @include marginAuto();
                     width: 100%;
                     height: 100%;
-                    left: 0;
+                
                     .left_block_name{
                         padding-top: 14%;
-                        padding-left: 30%;
+                        padding-left: 10%;
                         text-align: left;
                         p{
                             font-size: $h4;
-                            color: black;
+                            color: $white;
                             padding: 5px 0px;
                             &:last-child{
                                 font-size: $h4;
                                 padding-left: 10%;
-                                color:$font_color;
+                                color:#000000;
                                 min-height: 40px;
                             }
                         }
                     }
                     .left_block_number{
                         text-align: left;
-                        padding-left: 30%;
-                        padding-top: 0%;
                         margin-bottom: 10px;
                         p{
                             font-size: $h4;
-                            color: black;
+                            color: $white;
                             padding: 5px 0;
                             &:last-child{
                                 font-size: $h4;
                                 padding-left: 5px;
-                                color:$font_color;
+                                color:$white;
                                 min-height: 40px;
                             }
                         }
                     }
                 }
                 .credit_card_img_back{
-                    width: 100%;
+                    // /width: 600px;
                     height: 100%;
                     position: absolute;
                     top: 0;
-                    left: 0;
+                    //left: 0;
+                    //left: -70px;
                 }
             }
             .credit_form_right_block{
@@ -903,6 +959,7 @@
                         width: 100%;
                         padding: 10px;
                         font-size: $h3;
+                        
                     }
                 }
                 .right_block_other{
@@ -922,6 +979,9 @@
                             width: 100%;
                             padding: 10px;
                             font-size: $h3;
+                            border: 2px solid $brown;
+                            cursor:pointer;
+                            //-webkit-border-radius: 5px; 
                         }
                     }
                     .right_block_security{
@@ -944,11 +1004,14 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 90%;
+        width: 450px;
         height: auto;
         padding: 30px 5%;
-        background-color: $bkc_yellow;
+        background-color: #f9f5ee;
         margin-bottom: 80px;
+        @include mobile{
+            //width: 300px;
+        }
         .step_back_btn{
             position: absolute;
             top: 10px;
@@ -956,14 +1019,13 @@
             cursor: pointer;
             img{
                 display: inline-block;
-                width: 30px;
-                height: 30px;
+                width: 40px;
+                height: 40px;
             }
         }
         .credit_form_block{
             display: block;
             margin-top: 30px;
-            overflow-y: auto;
             .credit_form_left_block{
                 width: 90%;
                 @include marginAuto();
@@ -974,27 +1036,23 @@
                 }
                 .credit_card_img_front{
                     @include marginAuto();
-                    width: 450px;
-                    height: 330px;
+                   
                     left: 0%;
                     @include mobile {
                         width: 100%;
                         height: 250px;
-                    }
-                   
+                    }  
+                    
                 }
                 .credit_card_img_back{
-                    width: 450px;
+                    width: 400px;
                     height: 330px;
                     position: absolute;
+                
                     @include marginAuto();
                     top: 0;
                     left: 0%;
-                    @include mobile {
-                        width: 100%;
-                        height: 250px;
-                    }
-                    
+    
                 }
             }
             .credit_form_right_block{
@@ -1003,7 +1061,7 @@
                 padding:0 5%;
                 text-align: left;
                 @include mobile {
-                    margin-top: 30px;
+                    margin-top: 60px;
                 }
                 .right_block_name{
                     width: 100%;
@@ -1065,9 +1123,4 @@
             }
         }
     }
-}
-
-
-.detail_icon_close{
-    
 }

@@ -1030,6 +1030,16 @@ body{
     z-index: 3;
     font-size: $h5;
     color: $yellow;
+    
+    @include tablet{
+        left: 80%;
+    }
+    @include pad{
+        left: 70%;
+    }
+    @include mobile{
+        left: 62%;
+    }
 }
 
 @keyframes cart_move{

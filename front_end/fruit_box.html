@@ -6,9 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>良耕野菜-客製蔬果箱</title>
-  <link rel="icon" href="../images/logo-02.svg">
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="icon" href="../iimages/logo-02.svg">
+  <link rel="icon" href="../images/logo-02.svg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="../js/jquery-3.6.0.js"></script>
@@ -309,7 +308,7 @@
         <div class="fruit_box_board">
 
           <div class="fruit_box_1">
-            <a href="./itemtest.html">
+            <a href="./shopping_page.html#/shopping_inside_page/0">
               <div class="_mask"></div>
               <img src="../images/fruit_box/fruit_box.jpg" alt="商品圖片" />
               <p class="product_name"><i class="bi bi-cart4">&nbsp</i>防疫蔬果箱</p>
@@ -317,7 +316,7 @@
           </div>
 
           <div class="fruit_box_2">
-            <a href="./itemtest.html">
+            <a href="./shopping_page.html#/shopping_inside_page/1">
               <div class="_mask"></div>
               <p class="product_name"><i class="bi bi-cart4">&nbsp</i>快樂蔬果箱</p>
               <img src="../images/fruit_box/fruit_box.jpg" alt="商品圖片" />
@@ -325,7 +324,7 @@
           </div>
 
           <div class="fruit_box_3">
-            <a href="./itemtest.html">
+            <a href="./shopping_page.html#/shopping_inside_page/2">
               <div class="_mask"></div>
               <p class="product_name"><i class="bi bi-cart4">&nbsp</i>營養蔬果箱</p>
               <img src="../images/fruit_box/fruit_box.jpg" alt="商品圖片" />
@@ -602,16 +601,12 @@
           switch (price) {
             case 399:
               data = '../js/_fruitBoxData_399.json'
-              this.delete_basket=[];
-              //this.fruits_item=[];
               break;
             case 499:
               data = '../js/_fruitBoxData_499.json'
-              this.delete_basket=[];
               break;
             case 599:
               data = '../js/_fruitBoxData_599.json'
-              this.delete_basket=[];
               break;
           }
           await $.getJSON(data)

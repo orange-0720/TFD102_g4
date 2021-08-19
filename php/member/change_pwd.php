@@ -3,7 +3,7 @@
     $old_pwd = htmlspecialchars($_POST['old_pwd']);
     $new_pwd = htmlspecialchars($_POST['new_pwd']);
 
-    include("./connection.php");
+    include("../connection.php");
     $pdo = MemberDB();
 
     //---------------------------------------------------

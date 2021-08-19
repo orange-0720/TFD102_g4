@@ -10,33 +10,6 @@
     <script src="../js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
-  <script>
-    function ifMember(){
-      $.ajax({
-            method: 'POST',
-            url: '../php/ifMember.php',
-            data:{},
-            dataType: 'text',
-            success: function(response) {
-              console.log(response);
-              if(response == 'yes'){
-                $('.nav_block_log > span').text('會員中心');
-                $('.login').click(function(){
-                  window.location.href = 'member.html';
-                });
-              }else{
-                $('.login').click(function(){
-                  window.location.href = 'login.html';
-                });
-              }
-            },
-            error: function(exception) {
-                console.log(exception)
-                alert("發生錯誤: " + exception.status);
-            },
-      });  
-    }
-  </script>
   <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
@@ -151,7 +124,9 @@
             <img src="../images/checkout/delete_icon.svg" alt="">
           </section>
         </div>
-        <a class="checkout_shopping_detail_keep_shopping" href="./shopping_page.html">繼續購物</a>
+        <div class="checkout_shopping_detail_keep_shopping">
+          <a href="./shopping_page.html">繼續購物</a>
+        </div>
       </div>
 
       <div class="checkout_shopping_checkform">
@@ -193,9 +168,10 @@
           </section>
           <section class="checkout_payment">
               <p>付款方式</p>
-              <select>
-                <option value="信用卡付款">信用卡付款</option>
-                <option value="貨到付款" disabled>貨到付款(疫情不開放)</option>
+              <select v-model="payment">
+                <option disabled>請選擇付款方式</option>
+                <option value="信用卡" selected>信用卡付款</option>
+                <option value="貨到付款" :disabled="disable">貨到付款(會員專用)</option>
               </select>
           </section>
 
@@ -203,8 +179,8 @@
         <div class="checkout_shopping_checkform_orderblock">
           <h3>訂單資訊</h3>
           <section>
-            <p>商品小記: <span>{{shopping_charge}}</span></p>
-            <p>本次運費: <span>{{deliver_fee}}</span></p>
+            <p class="checkform_list"><span>商品小記:</span><span>{{shopping_charge}}</span></p>
+            <p class="checkform_list"><span>本次運費: </span><span>{{deliver_fee}}</span></p>
             <button @click="cuppon">點我使用購物金</button>
             <div class="cuppon_money">
               <p>您持有的購物金 : {{discount_have}}</p>
@@ -218,13 +194,26 @@
               元
             </div>
             <hr>
-            <p class="checkout_shopping_checkform_orderblock_total">本次合計: <span>{{final_price}}</span></p>
+            <p class="checkout_shopping_checkform_orderblock_total"><span>本次合計:</span><span>{{final_price}}</span></p>
           </section>
           
-          <a v-for="(link,index) in links" :href="link.link" @click="save_cuppon">
+          <a v-for="(link,index) in links" @click="save_cuppon(index)">
             {{link.name}}
           </a>
         </div>
+
+        <!-- 按購物金彈窗 -->
+        <div class="discount_get">
+          <div class="black_black" @click="close_up"></div>
+          <div class="discount_get_block">
+            <h4>
+              {{cuppon_jump}}
+            </h4>
+            <input type="button" class="close_up" value="確認" @click="close_up">
+          </div>
+        </div>
+        <!-- 確認購買視窗結束 -->
+
       </div>
     </div>
 
@@ -296,6 +285,8 @@
           fruit_boxs:[],
           deliver_fee:0,
           shopping_charge:0,
+          payment:'請選擇付款方式',
+          disable:true,
           cuppon_money:0,
           links:[
             {link:'./checkout_s2.html',name:'直接前往結帳',click:'save_coppon'},
@@ -328,6 +319,7 @@
           ],
           discount_have: 0,
           final_price: 0,
+          cuppon_jump:'',
         },
         methods: {
           delete_this(index){
@@ -512,9 +504,11 @@
                 success: function(response) {
                   console.log(response);
                   if(response == 2){
-                    alert('您沒有購物金');
+                    checkout1.cuppon_jump = '您的購物金為0';
+                    $('.discount_get').fadeIn();
                   }else if(response == 3){
-                    alert('您並不是會員，無法使用購物金')
+                    checkout1.cuppon_jump = '您並不是會員，無法使用購物金';
+                    $('.discount_get').fadeIn();
                   }else{
                     checkout1.discount_have = +response;
                     $('.cuppon_money').fadeToggle();
@@ -544,21 +538,42 @@
             }
             
           },
-          save_cuppon(){
-            if(this.cuppon_money == ''){
-              this.cuppon_money = 0;
-            }
-            let cuppon_box =[];
-            cuppon_box.push(this.cuppon_money)
-            sessionStorage.setItem("cuppon_box", JSON.stringify(cuppon_box));
+          save_cuppon(index){
+            if(index == 0){
+              if(this.payment !='請選擇付款方式'){
+                let payment = this.payment
+                sessionStorage.setItem("payment",JSON.stringify(payment));
 
-            let site_now = JSON.parse(sessionStorage.getItem("site_now"));
-            if(site_now){
-              site_now = [];
-              site_now.push(location.href)
+                if(this.cuppon_money == ''){
+                  this.cuppon_money = 0;
+                }
+                let cuppon_box =[];
+                cuppon_box.push(this.cuppon_money)
+                sessionStorage.setItem("cuppon_box", JSON.stringify(cuppon_box));
+
+                location.href = './checkout_s2.html';
+
+              }else{
+                alert('請選擇付款方式');
+              }
+              
+
+            }else if(index == 1){
+              let site_now = JSON.parse(sessionStorage.getItem("site_now"));
+              if(site_now){
+                site_now = [];
+                site_now.push(location.href)
+              }else{
+                sessionStorage.setItem('site_now', JSON.stringify(location.href));
+              }
+              location.href = './login.html';
             }else{
-              sessionStorage.setItem('site_now', JSON.stringify(location.href));
+              location.href = './shopping_page.html';
             }
+
+          },
+          close_up(){
+            $('.discount_get').fadeOut();
           }
         },
         computed:{
@@ -575,7 +590,6 @@
           }
         },
         mounted() {
-
           let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
           if(cart_items){
             this.cart_item = cart_items;
@@ -583,7 +597,6 @@
             cart_items.forEach(function(cart, i){
               cart_charge += cart.total_price;
             })
-
             this.shopping_charge += cart_charge;
           }
       
@@ -598,10 +611,39 @@
 
             this.shopping_charge += cart_charge;
           }
-
           this.final_price = this.shopping_charge - this.cuppon_money;
+
+          
         },
       })
+
+      function ifMember(){
+        $.ajax({
+            method: 'POST',
+            url: '../php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.login').click(function(){
+                  window.location.href = 'member.html';
+                });
+                checkout1.disable = false;
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+        });  
+      }
+
 
       // 回頁首
       $("#go_top").on("click", function (e) {

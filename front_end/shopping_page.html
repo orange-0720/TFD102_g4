@@ -23,7 +23,7 @@
       
       <div class="menu">
         <div class="logo_img">
-          <a>
+          <a href="./index.html">
             <img src="../images/logo.svg" alt="logo" />
           </a>
         </div>
@@ -207,16 +207,31 @@
             var product_id = parseInt(this.boxs[index].PRODUCT_ID);
             product_id --;
             router.push({path:`/shopping_inside_page/${product_id}`});
+            if(window.innerWidth <= 992){
+              $('.show_box_block').slideToggle();
+              $(".shopping_box_link").slideToggle();
+              $('.shopping_box_slide > img').toggleClass('arrow_updown');
+            }
           },
           veg_push_into(index){
             var product_id = parseInt(this.vegs[index].PRODUCT_ID);
             product_id --;
             router.push({path:`/shopping_inside_page/${product_id}`});
+            if(window.innerWidth <= 992){
+              $('.show_box_block').slideToggle();
+              $(".shopping_veg_link").slideToggle();
+              $('.shopping_veg_slide > img').toggleClass('arrow_updown'); 
+            }
           },
           fruit_push_into(index){
             var product_id = parseInt(this.fruits[index].PRODUCT_ID);
             product_id --;
             router.push({path:`/shopping_inside_page/${product_id}`});
+            if(window.innerWidth <= 992){
+              $('.show_box_block').slideToggle();
+              $(".shopping_fruit_link").slideToggle();
+              $('.shopping_fruit_slide > img').toggleClass('arrow_updown');
+            }
           }
         },
         mounted() {
@@ -246,14 +261,17 @@
       
       $(".shopping_box_slide").on("click", function () {
         $(".shopping_box_link").slideToggle();
+        $('.shopping_box_slide > img').toggleClass('arrow_updown');
       });
 
       $(".shopping_veg_block").on("click", function () {
         $(".shopping_veg_link").slideToggle();
+        $('.shopping_veg_slide > img').toggleClass('arrow_updown');
       });
 
       $(".shopping_fruit_block").on("click", function () {
         $(".shopping_fruit_link").slideToggle();
+        $('.shopping_fruit_slide > img').toggleClass('arrow_updown');
       });
 
       $('.show_out_block').on('click',function(){
@@ -261,18 +279,6 @@
           $('.show_box_block').slideToggle();
         }
       })
-      
-      $('.shopping_veg_slide').click(function(){
-        $('.shopping_veg_slide > img').toggleClass('arrow_updown');
-      })
-     
-      $('.shopping_box_slide').click(function(){
-        $('.shopping_box_slide > img').toggleClass('arrow_updown');
-      })
-
-      $(".shopping_fruit_slide").on("click", function () {
-         $('.shopping_fruit_slide > img').toggleClass('arrow_updown');
-      });
 
       
 
