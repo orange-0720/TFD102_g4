@@ -9,7 +9,7 @@
     getMemberID();
     $memberID = $_SESSION['MemberID'];
 
-    $sql = "SELECT * FROM `tfd102-g4`.MESSAGE_BOARD WHERE CUSTOMER_ID = $memberID and MESSAGE_IMG is null ";
+    $sql = "SELECT * FROM MESSAGE_BOARD WHERE CUSTOMER_ID = $memberID and MESSAGE_IMG is null ";
 
     $statement = $pdo->prepare($sql);
     $statement->execute();

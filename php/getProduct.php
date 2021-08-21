@@ -4,7 +4,7 @@
     $pdo = MemberDB();
 
     //建立SQL語法
-    $sql = "SELECT * FROM `tfd102-g4`.PRODUCT";
+    $sql = "SELECT * FROM PRODUCT";
 
     $statement = $pdo->prepare($sql);
     $statement->execute();

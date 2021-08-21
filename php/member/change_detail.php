@@ -10,7 +10,7 @@
        //---------------------------------------------------
 
        //建立SQL
-       $sql = "UPDATE `tfd102-g4`.`CUSTOMER` SET NAME = ? , PHONE = ? , ADDRESS = ? WHERE (`CUSTOMER_ID` = '1');";
+       $sql = "UPDATE `CUSTOMER` SET NAME = ? , PHONE = ? , ADDRESS = ? WHERE (`CUSTOMER_ID` = '1');";
 
        //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
         $statement = $pdo->prepare($sql);

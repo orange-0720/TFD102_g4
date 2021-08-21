@@ -9,7 +9,7 @@
     getMemberID();
     $memberID = $_SESSION['MemberID'];
 
-    $sql = "SELECT MESSAGE_IMG, ADD_DATE FROM `tfd102-g4`.MESSAGE_BOARD WHERE CUSTOMER_ID = $memberID and MESSAGE_IMG is not null ";
+    $sql = "SELECT MESSAGE_IMG, ADD_DATE FROM MESSAGE_BOARD WHERE CUSTOMER_ID = $memberID and MESSAGE_IMG is not null ";
 
     $statement = $pdo->prepare($sql);
     $statement->execute();

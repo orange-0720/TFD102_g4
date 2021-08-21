@@ -7,7 +7,7 @@
 
     //建立SQL語法
 
-    $sql="SELECT * FROM `tfd102-g4`.ORDER A1 join `tfd102-g4`.ORDER_STATUS_TYPE A2 on A1.ORDER_STATUS_ID = A2.ORDER_STATUS_ID  WHERE ORDER_ID = ?";
+    $sql="SELECT * FROM ORDER A1 join ORDER_STATUS_TYPE A2 on A1.ORDER_STATUS_ID = A2.ORDER_STATUS_ID  WHERE ORDER_ID = ?";
     
     $statement = $pdo->prepare($sql);
     $statement->bindParam(1, $order_id);

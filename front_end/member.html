@@ -138,7 +138,8 @@
           <h3>會員資料</h3>
           <div class="member_right_detail">
             <div class="member_pic_block">
-              <img src="../images/member/member_fake_img.svg" alt="大頭照">
+              <input type="file" id="member_pic" style="display: none;" @change="change_pic" accept=".jpg, .png, .jpeg">
+              <img :src="member_pic" alt="大頭照" id="member_photo" @click="pick_pic">
               <button class="member_pwd_change" @click="show_up">
                 <img src="../images/member/member_pen.svg" alt="pen">變更密碼
               </button>
@@ -207,7 +208,7 @@
                 </div>
               </div>
               <hr>
-              <div @click="turn_on(index)" class="show_order_detail" :id="index">
+              <div @click="turn_on(index)" class="show_order_detail">
                 訂單內容
                 <img class="member_arrow_icon" src="../images/member/member_arrow_icon.svg" alt="">
                 <div class="member_check_order_detail">
@@ -217,18 +218,18 @@
                     </div>
 
                     <!-- 訂單內容迴圈出現 -->
-                    <div class="show_order_product_detail" v-for="item in order_detail">
+                    <div class="show_order_product_detail" v-for="prod in order.prods">
                       <section class="show_order_product_detail_img">
-                        <img :src="item.PRODUCT_OUT_IMG">
+                        <img :src="prod.PRODUCT_OUT_IMG">
                       </section>
-                      <section class="show_order_product_detail_name">{{item.PRODUCT_NAME}}</section>
+                      <section class="show_order_product_detail_name">{{prod.PRODUCT_NAME}}</section>
                       <section class="show_order_product_detail_sum">
-                        {{item.QUANTITY}}
+                        {{prod.QUANTITY}}
                       </section>
-                      <section class="show_order_product_detail_price">{{item.PRODUCT_PRICE}}</section>
-                      <section class="show_order_product_detail_total">{{item.ORDER_DETAIL_PRICE}}</section>
+                      <section class="show_order_product_detail_price">{{prod.PRODUCT_PRICE}}</section>
+                      <section class="show_order_product_detail_total">{{prod.ORDER_DETAIL_PRICE}}</section>
                     </div>
-                    <div class="show_order_product_detail" v-for="box in box_detail">
+                    <div class="show_order_product_detail" v-for="box in order.custom">
                       <section class="show_order_product_detail_img">
                         <img :src="box.CUSTOM_MADE_IMG" />
                       </section>
@@ -290,10 +291,10 @@
                     </div>
                   </div>
                 </div>
+                <h3 class="up_load_center">上傳專區</h3>
                 <div class="img_show_block" v-for="(img,index) in imgs">
                   <div class="member_check_img">
-                    <span>圖檔{{index + 1}}</span>
-                    <button @click="check_img(index)">查看圖檔</button>
+                    <span @click="check_img(index)">{{img.name}}</span>
                   </div>
                 </div>
 
@@ -391,6 +392,7 @@
           member_phone:"",
           member_mail:"",
           member_address:"",
+          member_pic:"../images/member/member_fake_img.svg",
           active_line:[
             '預約編號',
             '活動內容',
@@ -428,28 +430,39 @@
         },
         methods: {
           turn_on(index){
-            if(!$('.member_arrow_icon').hasClass('turn_on')){
-              this.order_detail = [];
-              this.box_detail = [];
-              let order_id = this.orders[index].ORDER_ID;
-              console.log(order_id);
-              console.log(typeof(order_id));
-              axios.post('../php/member/getOrder_detail.php',{
-                order_id: order_id
-                }).then(res =>{
-                console.log(res.data);
-                this.order_detail = res.data;
-              });
-              axios.post('../php/member/getOrder_custom.php',{
-                order_id: order_id
-                }).then(res =>{
-                console.log(res.data);
-                this.box_detail = res.data;
-              });
-            }
             let order_item = document.getElementsByClassName('show_order_detail')[index];
             $(order_item).children('.member_arrow_icon').toggleClass('turn_on');
             $(order_item).children('.member_check_order_detail').slideToggle();
+          },
+          pick_pic(){
+            document.getElementById('member_pic').click();
+          },
+          change_pic(){
+            let file = document.getElementById('member_pic').files[0];
+            console.log(file);
+            if(file != undefined){
+
+              form_data = new FormData();
+              form_data.append('file',file)
+              console.log(form_data);
+              $.ajax({
+                  method:'POST',
+                  url:'../php/member/member_pic.php',
+                  data:form_data,
+                  cache: false,
+                  processData:false,
+                  contentType:false,
+                  dataType: 'text',
+                  success: function(response){
+                    console.log(response)
+                    member_block.member_pic = response;
+                  },
+                  error: function(exception) {
+                      alert("發生錯誤: " + exception.status);
+                      console.log(exception)
+                  },
+              })
+            }
           },
           show_member(){
             this.memberShow = true;
@@ -666,11 +679,16 @@
             dataType: 'json',
             success: function(response) {
               console.log(response);
+              console.log($('#member_pic').src);
               response.forEach(function(index,i){
                 member_block.member_name = index['NAME'];
                 member_block.member_mail = index['EMAIL'];
                 member_block.member_phone = index['PHONE'];
                 member_block.member_address = index['ADDRESS'];
+                if(index['IMG']){
+                  member_block.member_pic = index['IMG'];
+                }
+                
                 if(index['DISCOUNT'] > 0){
                   $('.discount_money').text(index['DISCOUNT'])
                 }
@@ -683,25 +701,29 @@
           }),
 
           // 取得訂單資訊
-          $.ajax({
-            method: 'POST',
-            url: '../php/member/getOrder.php',
-            data:{},
-            dataType: 'json',
-            success: function(response) {
-              console.log(response);
-              response.forEach(function(index,i){
-                member_block.orders = response;
-              })
-            },
-            error: function(exception) {
-              alert("發生錯誤: " + exception.status);
-              console.log(exception);
-            },
-          }),
+          axios.post('../php/member/getOrder.php').then(res =>{
+            console.log(res.data)
+            this.orders = res.data;    
+            this.orders.forEach(function(index, i){
+              let id = index.ORDER_ID;
+              axios.post('../php/member/getOrder_detail.php',{
+                order_id: id
+                }).then(res =>{
+                console.log(res.data);
+                this.order_detail = res.data;
+                index.prods = res.data;
+              });
+              axios.post('../php/member/getOrder_custom.php',{
+                order_id: id
+                }).then(res =>{
+                console.log(res.data);
+                this.box_detail = res.data;
+                index.custom = res.data;                
+              });
+            })
+          });
 
           // 取得留言板資訊
-
           axios.post('../php/member/getMessage.php').then(res =>{
             console.log(res.data)
             this.message = res.data;
@@ -709,9 +731,16 @@
               this.if_message = false
             }
           });
+          
+          // 取得留言板照片
           axios.post('../php/member/getImg.php').then(res =>{
               console.log(res.data);
               this.imgs = res.data;
+              this.imgs.forEach(function(index, i){
+                let img = index.MESSAGE_IMG;
+                let name = img.split('/')[3];
+                index.name = name;
+              })
           })
 
         },

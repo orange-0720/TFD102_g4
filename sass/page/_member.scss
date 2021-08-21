@@ -119,8 +119,9 @@
                 margin-top: 50px;
                 img{
                     display: block;
-                    width: 70%;
+                    width: 60%;
                     @include marginAuto();
+                    cursor: pointer;
                 }
                 .member_pwd_change{
                     @include btn(60%);
@@ -224,7 +225,7 @@
                     margin-top: 50px;
                     img{
                         display: block;
-                        width: 70%;
+                        width: 60%;
                         @include marginAuto();
                     }
                     .member_pwd_change{
@@ -827,8 +828,19 @@
             display: flex;
             padding: 20px;
             h4{
-                width: 20%;
                 text-align: center;
+                font-size: $h4;
+                margin: 5px 0px;
+                padding: 5px;
+                &:nth-child(1){
+                    width: 20%;
+                }
+                &:nth-child(2),&:nth-child(3){
+                    width: 25%;
+                }
+                &:nth-child(4),&:nth-child(5){
+                    width: 15%;
+                }
             }
         }
         .active_inside_detail{
@@ -836,8 +848,19 @@
             display: flex;
             padding: 20px;
             h4{
-                width: 20%;
                 text-align: center;
+                font-size: $h4;
+                margin: 5px 0px;
+                padding: 5px;
+                &:nth-child(1){
+                    width: 20%;
+                }
+                &:nth-child(2),&:nth-child(3){
+                    width: 25%;
+                }
+                &:nth-child(4),&:nth-child(5){
+                    width: 15%;
+                }
             }
         }
     }
@@ -865,9 +888,19 @@
                 display: flex;
                 padding: 20px 10px;
                 h4{
-                    width: 20%;
                     text-align: center;
                     font-size: $h5;
+                    margin: 5px 0px;
+                    padding: 5px;
+                    &:nth-child(1){
+                        width: 20%;
+                    }
+                    &:nth-child(2),&:nth-child(3){
+                        width: 25%;
+                    }
+                    &:nth-child(4),&:nth-child(5){
+                        width: 15%;
+                    }
                 }
             }
             .active_inside_detail{
@@ -875,9 +908,19 @@
                 display: flex;
                 padding: 20px 10px;
                 h4{
-                    width: 20%;
                     text-align: center;
                     font-size: $h5;
+                    margin: 5px 0px;
+                    padding: 5px;
+                    &:nth-child(1){
+                        width: 20%;
+                    }
+                    &:nth-child(2),&:nth-child(3){
+                        width: 25%;
+                    }
+                    &:nth-child(4),&:nth-child(5){
+                        width: 15%;
+                    }
                 }
             }
         }
@@ -902,31 +945,46 @@
             @include marginAuto();
             .active_box{
                 display: flex;
+                flex-wrap: wrap;
                 .active_line{
-                    flex-direction: column;
-                    width: 40%;
+                    width: 100%;
                     background-color: $bkc_lightorange;
                     display: flex;
                     padding: 10px 10px;
                     h4{
-                        width: 100%;
                         text-align: center;
                         font-size: $h5;
                         margin: 5px 0px;
+                        &:nth-child(1){
+                            width: 20%;
+                        }
+                        &:nth-child(2),&:nth-child(3){
+                            width: 25%;
+                        }
+                        &:nth-child(4),&:nth-child(5){
+                            width: 15%;
+                        }
                     }
                 }
                 .active_inside_detail{
-                    flex-direction: column;
                     background-color: $white;
-                    width: 60%;
+                    width: 100%;
                     display: flex;
                     padding: 10px;
                     h4{
-                        width: 100%;
-                        text-align: left;
-                        padding-left: 20%;
+                        text-align: center;
                         font-size: $h5;
                         margin: 5px 0px;
+                        padding: 5px;
+                        &:nth-child(1){
+                            width: 20%;
+                        }
+                        &:nth-child(2),&:nth-child(3){
+                            width: 25%;
+                        }
+                        &:nth-child(4),&:nth-child(5){
+                            width: 15%;
+                        }
                     }
                 }
             }
@@ -1393,6 +1451,28 @@
 // 變更密碼彈窗結束
 
 // 照片彈窗
+.up_load_center{
+    text-align: center;
+    padding: 0px;
+    margin: 15px 0px;
+    position: relative;
+    &::after{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left:50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        width: 10%;
+        height: 10px;
+        background-color: $bkc_lightorange;
+    }
+    @include tablet{
+        font-size: $h4;
+        padding: 0px;
+        margin: 15px 0px;
+    }
+}
 
 .img_show_block{
     width: 70%;
@@ -1416,17 +1496,10 @@
             margin: 0 20px;
             padding: 10px 0px;
             font-size: $h4;
+            text-decoration: underline;
+            cursor: pointer;
         }
-        button{
-            @include btn(20%);
-            padding: 10px 0px;
-            font-size: $h5;
-            @include mobile{
-                @include btn(40%);
-                padding: 5px 0px;
-                font-size:$h5
-            }
-        }
+        
     }
 }
 

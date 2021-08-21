@@ -132,6 +132,15 @@
             <section class="checkout_shopping_product_detail_total">
               {{item.total_price}}
             </section>
+            <div class="fruit_box_detail" @click="ifShow(index)">
+              <div class="box_arrow_block">
+                查看明細
+                <img class="box_arrow" src="../images/shopping_page/shopping_arrow_icon.svg"/>
+              </div>
+              <ul>
+                  <li v-for="pick in item.product_name">{{pick}}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -201,85 +210,28 @@
         <label for="checkout_privacy">我已同意<a href="./checkout_s2_terms.html" target="_blank">網站服務條款及隱私權</a></label>
         <div class="chekout_s2_order_privacy_next">
           <button onclick=window.location.href='checkout.html'>返回購物車</button>
-          <button @click="credit_confirm">提交訂單</button>
+          <button @click="order_confirm">{{order_send}}</button>
         </div>
-        <div class="credit_bkc" v-if="isShow" @click="credit_confirm">
-          <!-- @click="credit_confirm" 冒泡事件 -->
-          <div class="credit_form" v-if="isShow" @click.stop>
-            <h1>信用卡結帳系統</h1>
-            <div class="step_back_btn" @click="credit_confirm">
-              <img src="../images/checkout/X_mark.svg" alt="X" />
-            </div>
-            <div class="credit_form_block">
-              <div class="credit_form_left_block">
-                <div class="credit_card_img_front">
-                  <img class="card_img" src="../images/checkout/credit_card.png">
-                  <div class="left_block_number">
-                    <section class="left_block_number_1">
-                    <p>card number</p>
-                    <p>{{card_number}}</p>
-                  </section>
-                  <section class="left_block_valid">
-                    <span>{{card_valid}}</span>
-                  </section>
-                </div>
-                </div>
-                <div class="credit_card_img_back">
-                  <img class="card_img" src="../images/checkout/credit card_2.png">
-                  <div class="left_block_name">
-                    <!-- <p>cardholder Name:</p> -->
-                    <p>{{card_name}}</p>
-                  </div>
-                  <div class="left_block_other">
-                    <section class="left_block_security">
-                      Security Code
-                      <span>{{card_security}}</span>
-                    </section>
-                  </div>
-                </div>
-              </div>
-              <div class="credit_form_right_block">
-                <section class="right_block_name">
-                  <label>持有人名稱</label>
-                  <input type="text" v-model="card_name" placeholder="王大明" @focus="turn_front"  />
-                </section>
-                <section class="right_block_number">
-                  <label>信用卡號</label>
-                  <input type="text" v-model="card_number" oninput = "value=value.replace(/[^\d]/g,'')" @focus="turn_front" />
-                </section>
-                <form class="right_block_other">
-                  <section class="right_block_valid">
-                    <label for="">有效期限</label>
-                    <input
-                      type="text"
-                      v-model="card_valid"
-                      placeholder="08/21"
-                      oninput = "value=value.replace(/[^\d]/g,'')"
-                      maxlength="5"
-                      @focus = "turn_front"
-                      @input = 'addChart'
-                    />
-                  </section>
-                  <section class="right_block_security">
-                    <label for="">安全碼</label>
-                      <input 
-                        type="text"  
-                        v-model="card_security"
-                        maxlength="3" 
-                        oninput = "value=value.replace(/[^\d]/g,'')" 
-                        @focus = "turn_back" />
-                  </section>
-                </form>
-              </div>
-            </div>
-            <!-- <input
-              type="submit"
-              value="確認送出"
-              class="credit_detail_confirm"
-            /> -->
-            <a class="credit_detail_confirm" @click.prevent="order_make" href="./checkout_s3.html">確認送出</a>
+        <form id="idFormAioCheckOut" method="post" action="../php/payment/Ecpay.php" hidden>
+          <label class="col-xs-12">類型 (PaymentType):
+              <input type="text" name="PaymentType" value="aio" class="form-control"/>
+              aio
+          </label>
+          <label class="col-xs-12">金額 (TotalAmount):
+              <input type="text" name="TotalAmount" :value="total_money" class="form-control"/>
+          </label>
+          <div v-for="item in cart_items">
+            <input type="text" name="name[]" :value="item.item_name">
+            <input type="text" name="price[]" :value="item.unit_price">
+            <input type="text" name="Quantity[]" :value="item.item_number">
           </div>
-        </div>
+          <div v-for="item in fruit_boxs">
+            <input type="text" name="name[]" :value="item.item_name">
+            <input type="text" name="price[]" :value="item.unit_price">
+            <input type="text" name="Quantity[]" :value="item.item_number">
+          </div>
+          <input type="text" v-if="cuppon_money!=0" name="cuppon" :value="cuppon_money">
+        </form>
       </div>
     </div>
 
@@ -355,12 +307,6 @@
 
           ],
           note:'',
-          
-          isShow: false,  //信用卡彈窗
-          card_name: "",
-          card_number: "",
-          card_valid: "",
-          card_security: "",
           theSame:false, // 訂購資訊相同
           privacy:false, // 隱私
           payment:'',
@@ -863,9 +809,10 @@
             }
           ],
           gender:'女',
+          order_send:''
         },
         methods: {
-          credit_confirm() {
+          order_confirm() {
             if(this.payment == '貨到付款'){
               $.ajax({
                 method: 'POST',
@@ -905,85 +852,83 @@
               })
             }else{
 
-            //   let answer = 0;
+              let answer = 0;
   
-            //   if($('.receiver_name').val() != ''){
-            //     answer ++ ;
-            //   }else{
-            //     $('.receiver_name').addClass('error');
-            //   }
+              if($('.receiver_name').val() != ''){
+                answer ++ ;
+              }else{
+                $('.receiver_name').addClass('error');
+              }
   
-            //   if($('.receiver_email').val() != ''){
-            //     let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-            //     let strEmail = $('.receiver_email').val();
-            //     if(strEmail.search(emailRule)!= -1){
-            //       answer ++;
-            //     }else{
-            //       $('.receiver_email').addClass('error');
-            //     }
-            //   }else{
-            //     $('.receiver_email').addClass('error');
-            //   }
+              if($('.receiver_email').val() != ''){
+                let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+                let strEmail = $('.receiver_email').val();
+                if(strEmail.search(emailRule)!= -1){
+                  answer ++;
+                }else{
+                  $('.receiver_email').addClass('error');
+                }
+              }else{
+                $('.receiver_email').addClass('error');
+              }
   
-            //   if($('.receiver_phone').val() !=''){
-            //     let partten = /^09[0-9]{8}$/;
-            //     if(partten.test($('.receiver_phone').val()) == true){
-            //       answer ++
-            //     }else{
-            //       $('.receiver_phone').addClass('error');
-            //     }
-            //   }else{
-            //     $('.receiver_phone').addClass('error');
-            //   }
+              if($('.receiver_phone').val() !=''){
+                let partten = /^09[0-9]{8}$/;
+                if(partten.test($('.receiver_phone').val()) == true){
+                  answer ++
+                }else{
+                  $('.receiver_phone').addClass('error');
+                }
+              }else{
+                $('.receiver_phone').addClass('error');
+              }
               
-            //   if($('.deliver_name').val() !=''){
-            //     answer ++;
-            //   }else{
-            //     $('.deliver_name').addClass('error');
-            //   }
+              if($('.deliver_name').val() !=''){
+                answer ++;
+              }else{
+                $('.deliver_name').addClass('error');
+              }
   
-            //   if($('.deliver_phone').val() !=""){
-            //     let partten = /^09[0-9]{8}$/;
-            //     if(partten.test($('.deliver_phone').val()) == true){
-            //       answer ++
-            //     }else{
-            //       $('.deliver_phone').addClass('error');
-            //     }
-            //   }else{
-            //     $('.deliver_phone').addClass('error');
-            //   }
+              if($('.deliver_phone').val() !=""){
+                let partten = /^09[0-9]{8}$/;
+                if(partten.test($('.deliver_phone').val()) == true){
+                  answer ++
+                }else{
+                  $('.deliver_phone').addClass('error');
+                }
+              }else{
+                $('.deliver_phone').addClass('error');
+              }
   
-            //   if(this.mainArea != '請選擇縣市'){
-            //     answer ++
-            //   }else{
-            //     $('.checkout_s2_city').addClass('error')
-            //   }
+              if(this.mainArea != '請選擇縣市'){
+                answer ++
+              }else{
+                $('.checkout_s2_city').addClass('error')
+              }
   
-            //   if(this.subArea != '請選擇分區'){
-            //     answer ++
-            //   }else{
-            //     $('.checkout_s2_area').addClass('error')
-            //   }
+              if(this.subArea != '請選擇分區'){
+                answer ++
+              }else{
+                $('.checkout_s2_area').addClass('error')
+              }
   
-            //   if(this.address !=''){
-            //     answer ++;
-            //   }else{
-            //     $('.checkout_s2_area ~ input').addClass('error')
-            //   };
+              if(this.address !=''){
+                answer ++;
+              }else{
+                $('.checkout_s2_area ~ input').addClass('error')
+              };
               
-            //   if(this.privacy == true){
-            //     answer ++;
-            //   }else{
-            //     $('.chekout_s2_order_privacy > label').addClass('error');
-            //   }
+              if(this.privacy == true){
+                answer ++;
+              }else{
+                $('.chekout_s2_order_privacy > label').addClass('error');
+              }
   
-            //   if(answer == 9){
-                this.isShow = !this.isShow;
-            //   }else{
-            //     alert('請填妥紅框內容或確認內容是否有誤')
-            //   }
-  
-            //   console.log(answer);
+              if(answer == 9){
+                    this.order_make();
+              }else{
+                alert('請填妥紅框內容或確認內容是否有誤')
+              }
             }
           },
           turn_front(){
@@ -1005,33 +950,14 @@
             }
             this.card_valid = text;
           },
+          ifShow(index){
+            let fruit_box_detail = document.getElementsByClassName('fruit_box_detail');
+            let arrow_inside = fruit_box_detail[index].querySelector('ul');
+            console.log(arrow_inside);
+            $(arrow_inside).slideToggle();
+            $('.box_arrow').toggleClass('box_arrow_turn')
+          },
           order_make(){
-            let result = 0;
-            if(this.card_name != ""){
-              result ++;
-            }else{
-              $('.right_block_name > input').addClass('error');
-            }
-
-            if(is.creditCard(this.card_number)){
-              result ++;
-            }else{
-              $('.right_block_number > input').addClass('error');
-            }
-
-            if(this.valid != ''){
-              result ++;
-            }else{
-              $('.right_block_valid > input').addClass('error');
-            }
-            
-            if(this.card_security != ''){
-              result ++;
-            }else{
-              $('.right_block_security > input').addClass('error');
-            }
-
-            if(result == 4){
               $.ajax({
                 method: 'POST',
                 url: '../php/orderMake.php',
@@ -1049,14 +975,15 @@
                   discount: this.cuppon_money,
                   cart_items: this.cart_items,
                   fruit_boxs: this.fruit_boxs,
-                  gender: this.gender
+                  gender: this.gender,
+                  payment:this.payment,
                 },
                 dataType: 'json',
                 success: function(response) {
                   console.log(response)
                   if(response == 'yes'){
                     sessionStorage.clear();
-                    window.location.href='checkout_s3.html'
+                    $('#idFormAioCheckOut').submit();
                   }else{
                     alert('錯誤');
                     console.log(response);
@@ -1067,9 +994,6 @@
                     alert("發生錯誤: " + exception.status);
                 },
               });
-            }else{
-              alert('請確認填寫的資訊是否正確');
-            }
           }
         },
         watch:{
@@ -1126,8 +1050,14 @@
           this.total_money = total_money;
           this.total_money -= this.cuppon_money;
 
+
           let payment = JSON.parse(sessionStorage.getItem("payment"));
           this.payment = payment;
+          if(payment == '貨到付款'){
+            this.order_send = '提交訂單'
+          }else{
+            this.order_send ='前往付款'
+          }
         },
       });
 

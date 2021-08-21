@@ -68,10 +68,10 @@ function shopping_cart(){
                     </div>
                     </div>
                     <div class="fruit_detail">
-                    <img class="cart_arrow" src="../images/shopping_page/shopping_arrow_icon.svg"/>
-                    <ul>
-                        ${product_name_list}
-                    </ul>
+                        <img class="cart_arrow" src="../images/shopping_page/shopping_arrow_icon.svg"/>
+                        <ul>
+                            ${product_name_list}
+                        </ul>
                     </div>
                 </div>
                 `

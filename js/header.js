@@ -79,13 +79,19 @@ function ifMember(){
           console.log(response);
           if(response == 'yes'){
             $('.nav_block_log > span').text('會員中心');
-            $('.login').click(function(){
+            $('.nav_block_log').click(function(){
               window.location.href = 'member.html';
+            })
+            $('.login').click(function(){
+              location.href = 'member.html';
             });
           }else{
             $('.login').click(function(){
               window.location.href = 'login.html';
             });
+            $('.nav_block_log').click(function(){
+              location.href = 'login.html';
+            })
           }
         },
         error: function(exception) {

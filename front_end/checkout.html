@@ -123,6 +123,15 @@
           <section class="checkout_shopping_product_detail_delete" @click="delete_box(index)">
             <img src="../images/checkout/delete_icon.svg" alt="">
           </section>
+          <div class="fruit_box_detail" @click="ifShow(index)">
+            <div class="box_arrow_block">
+              查看明細
+              <img class="box_arrow" src="../images/shopping_page/shopping_arrow_icon.svg"/>
+            </div>
+            <ul>
+                <li v-for="pick in item.product_name">{{pick}}</li>
+            </ul>
+          </div>
         </div>
         <div class="checkout_shopping_detail_keep_shopping">
           <a href="./shopping_page.html">繼續購物</a>
@@ -327,6 +336,7 @@
             if(confirm('是否確認刪除')){
               let total_price = this.cart_item[index].total_price;
               this.shopping_charge -= total_price;
+              this.final_price -= total_price;
               this.cart_item.splice(index,1);
               // 清除sesstion_storage裡的資料
               
@@ -409,6 +419,7 @@
             if(confirm('是否確認刪除')){
               let total_price = this.fruit_boxs[index].total_price;
               this.shopping_charge -= total_price;
+              this.final_price -= total_price;
               this.fruit_boxs.splice(index,1);
 
               // 清除sesstion_storage裡的資料
@@ -494,6 +505,13 @@
               this.shopping_charge -= unit_price;
               this.final_price -= unit_price;
             }
+          },
+          ifShow(index){
+            let fruit_box_detail = document.getElementsByClassName('fruit_box_detail');
+            let arrow_inside = fruit_box_detail[index].querySelector('ul');
+            console.log(arrow_inside);
+            $(arrow_inside).slideToggle();
+            $('.box_arrow').toggleClass('box_arrow_turn')
           },
           cuppon(){
             $.ajax({

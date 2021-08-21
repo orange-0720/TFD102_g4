@@ -7,7 +7,7 @@
 
 
     // 從$_SETTION抓出顧客ID，透過顧客ID撈出此顧客的活動。
-    $sql = "SELECT * FROM `tfd102-g4`.ACTIVITY where ACTIVITY_STATUS_ID = 1";
+    $sql = "SELECT * FROM ACTIVITY where ACTIVITY_STATUS_ID = 1";
 
 
 

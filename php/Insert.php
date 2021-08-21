@@ -10,7 +10,7 @@
        //---------------------------------------------------
    
        //建立SQL
-       $sql = 'SELECT * FROM `tfd102-g4`.CUSTOMER WHERE EMAIL = ?';
+       $sql = 'SELECT * FROM CUSTOMER WHERE EMAIL = ?';
        $statement = $pdo->prepare($sql);
        $statement->bindValue(1, $account);
        $statement->execute();
@@ -20,7 +20,7 @@
               echo 'have';
        }else{
 
-              $sql = "INSERT INTO `tfd102-g4`.CUSTOMER(EMAIL, PWD, PHONE , QUALIFY, ADD_DATE, STATUS,DISCOUNT,DISCOUNT_HAVE) VALUES (?, ?, ?, 1, NOW(), 1, 0, 0)";
+              $sql = "INSERT INTO CUSTOMER(EMAIL, PWD, PHONE , QUALIFY, ADD_DATE, STATUS,DISCOUNT,DISCOUNT_HAVE) VALUES (?, ?, ?, 1, NOW(), 1, 0, 0)";
           
               //執行
               // $pdo->exec($sql);
@@ -31,7 +31,7 @@
               $statement->execute();
        
        
-              $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER WHERE EMAIL = ? and PWD = ? and QUALIFY = 1";
+              $sql = "SELECT * FROM CUSTOMER WHERE EMAIL = ? and PWD = ? and QUALIFY = 1";
        
               $statement = $pdo->prepare($sql);
               $statement->bindValue(1, $account);

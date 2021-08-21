@@ -164,6 +164,7 @@ div.checkout_shopping_detail{
         height: auto;
         padding: 20px 0px;
         display: flex;
+        flex-wrap: wrap;
         background-color: $white;
         border-bottom: 1px solid $brown;
         .checkout_shopping_product_detail_img{
@@ -216,11 +217,48 @@ div.checkout_shopping_detail{
                 cursor: pointer;
             }
         }
+        .fruit_box_detail{
+            width: 100%;
+            position: relative;
+            @include mobile{
+                margin-top: 20px;
+            }
+            .box_arrow_block{
+                text-align: center;
+                cursor: pointer;
+                font-size: $h4;
+                @include mobile{
+                    font-size: $h5;
+                }
+                img{
+                    display: block;
+                    @include marginAuto();
+                    margin-top: 20px;
+                    transition: 0.5s;
+                }
+            }
+            ul{
+                display: none;
+                margin-top: 20px;
+                li{
+                    margin: 5px 0px;
+                    text-align: center;
+                    font-size: $h4;
+                    @include mobile{
+                        font-size: $h5;
+                    }
+                }
+            }
+        }
     }
     .checkout_shopping_detail_keep_shopping{
         margin-top: 10px;
         display: block;
         text-align: right;
+        font-size: $h4;
+        @include mobile{
+            font-size: $h5;
+        }
         a{
             @include a_link();
             @include hover_line();
@@ -330,12 +368,6 @@ div.checkout_shopping_detail{
                     cursor: pointer;
                 }
             }
-        }
-        .checkout_shopping_detail_keep_shopping{
-            margin-top: 10px;
-            @include a_link();
-            display: block;
-            text-align: right;
         }
     }
 }
@@ -464,12 +496,6 @@ div.checkout_shopping_detail{
                 }
             }
         }
-        .checkout_shopping_detail_keep_shopping{
-            margin-top: 10px;
-            @include a_link();
-            display: block;
-            text-align: right;
-        }
     }
 }
 
@@ -532,10 +558,9 @@ div.checkout_shopping_detail{
                 padding: 15px 0px;
                 span{
                     display: inline-block;
-                    width: 30%;
+                    width: 50%;
                     text-align: left;
                     &:nth-child(2){
-                        width: 70%;
                         text-align: right;
                     }
                 }
@@ -581,10 +606,9 @@ div.checkout_shopping_detail{
                 padding: 15px 0px;
                 span{
                     display: inline-block;
-                    width: 30%;
+                    width: 50%;
                     text-align: left;
                     &:nth-child(2){
-                        width: 70%;
                         text-align: right;
                     }
                 }
@@ -697,7 +721,7 @@ div.checkout_shopping_detail{
                 }
                 select{
                     display: block;
-                    width: 90%;
+                    width: 100%;
                     padding: 5px;
                 }
             }
@@ -792,4 +816,8 @@ div.checkout_shopping_detail{
             margin-top: 30px;
         }
     }
+}
+
+.box_arrow_turn{
+    transform: rotate(180deg) !important;
 }

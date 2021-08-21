@@ -47,10 +47,10 @@ if(window.innerWidth >= 768){
     login_pic.classList.toggle("pic_move");
     if (form_block.classList.contains("form_move")) {
     login_img.src =
-        "./images/login&out/logout_01.jpg";
+        "../images/login&out/logout_01.jpg";
     } else {
     login_img.src =
-        "./images/login&out/login_01.jpg";
+        "../images/login&out/login_01.jpg";
     }
     if(login_form.style.display = 'none'){
     signup_form.style.display = 'none';
@@ -96,10 +96,6 @@ pwd_resend_btn.addEventListener("click", function () {
 // 註冊會員寄信
 
 $('.sign_send_btn').click(function(){
-$('.sign_block').fadeToggle();
-})
-
-$('.sign_block').click(function(){
 $('.sign_block').fadeToggle();
 })
 
@@ -196,22 +192,51 @@ sign_confirm_btn.addEventListener('click', function(e){
 
     if(answer == 5){
         let pass = Math.floor(Math.random()* 1000000000)
-        Email.send({
-            Host: "smtp.gmail.com",
-            Username: "goodvegetablebox@gmail.com",
-            Password: "tfd102g4",
-            To: val,
-            From: "良耕野菜<goodvegetablebox@gmail.com>",
-            Subject: "良耕野菜",
-            Body: `感謝您成為良耕野菜的會員，您的驗證碼為為${pass}，輸入驗證碼後即可完成註冊`,
-        }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
-        .then($('.sign_block').fadeToggle());
+
+        $.ajax({            
+            method: "POST",
+            url: "../php/checkEmail.php",
+            data:{ 
+                account: $('#sign_email').val(),
+            },            
+            dataType: "text",
+            success: function (response) {
+                if(response == 'done'){
+                    const serviceID = 'service_ihy2xr8' ;
+                    const templateID = "template_z6vu9t8" ;
+                    const user_id = 'user_liKYa8LoxueayCZfwKoQk';
+                    emailjs.send(
+                        serviceID,
+                        templateID,
+                        {
+                            message: pass,
+                            reply_to: $('#sign_email').val()
+                        },
+                        user_id
+                    )
+                    .then(() => {
+                        alert('已寄出驗證碼，請輸入驗證碼後完成註冊');
+                        $('.sign_block').fadeToggle()
+                    }, (err) => {
+                        alert(JSON.stringify(err));
+                    });
+                }else{
+                    alert('此信箱已註冊過，請確認!')
+                }
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
 
         // 驗證碼輸入並執行撈資料庫資料
         sign_send_btn.addEventListener('click', function(){
             let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
             if(sign_confirm.value == pass){
                 doInsert();
+            }else{
+                alert('驗證碼錯誤，請確認');
+                sign_confirm.value ='';
             }
         })
     }
@@ -260,8 +285,6 @@ function doInsert(){
                 }else{
                 window.location.href = './index.html';  
                 }
-            }else{
-                alert('此信箱已註冊過，請確認!')
             }
         },
         error: function(exception) {
@@ -283,16 +306,24 @@ function forget_pwd(){
       success: function(response) {
           console.log(response);
           if(response === 'yes'){
-              Email.send({
-              Host: "smtp.gmail.com",
-              Username: "goodvegetablebox@gmail.com",
-              Password: "tfd102g4",
-              To: $('#pwd_resend').val(),
-              From: "良耕野菜<goodvegetablebox@gmail.com>",
-              Subject: "良耕野菜",
-              Body: `感謝您使用本網站，您的新密碼為${new_pwd}，請使用新密碼重新登入`,
-              }).then((message) => alert('已寄出新密碼，請使用新密碼進行登入。並請至會員中心更改密碼'))
-              .then($('.pwd_block').fadeToggle());
+              const serviceID = 'service_ihy2xr8' ;
+              const templateID = "template_2lypwgq" ;
+              const user_id = 'user_liKYa8LoxueayCZfwKoQk';
+              emailjs.send(
+                  serviceID,
+                  templateID,
+                  {
+                      message: new_pwd,
+                      reply_to: $('#pwd_resend').val()
+                  },
+                  user_id
+              )
+              .then(() => {
+                  alert('已寄出新密碼，請使用新密碼進行登入。並請至會員中心更改密碼');
+                  $('.pwd_block').fadeToggle();
+              }, (err) => {
+                  alert(JSON.stringify(err));
+              });
           }else{
               console.log(response)
               alert('查無此信箱')
@@ -327,13 +358,20 @@ function Login(){
               }else{
                 window.location.href = './member.html';  
               }
+          }else if(response ==2){
+              alert('密碼錯誤');
+              $('#login_pwd').val('');
           }else{
               console.log(response)
               alert('查無會員')
+              $('#login_email').val('')
+              $('#login_pwd').val('')
           }
+
       },
       error: function(exception) {
           alert("發生錯誤: " + exception.status);
+          console.log(exception)
       },
     })
 };

@@ -10,7 +10,7 @@
 
     $order_id = $_SESSION['ORDER_ID'];
 
-    $sql =' SELECT * FROM `tfd102-g4`.ORDER WHERE ORDER_ID = ? ';
+    $sql =' SELECT * FROM `tibamefe_tfd102g4`.ORDER WHERE ORDER_ID = ? ';
     $statement = $pdo->prepare($sql);
     $statement->bindParam(1, $order_id);
     $statement->execute(); 

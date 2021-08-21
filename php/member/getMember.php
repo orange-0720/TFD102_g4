@@ -10,8 +10,8 @@
     $memberID = $_SESSION['MemberID'];
 
     // 從$_SETTION抓出顧客ID，透過顧客ID撈出此顧客的活動預約。
-    // $sql = "SELECT * FROM `tfd102-g4`.APPOINTMENT WHERE CUSTOMER_ID = $_SESSION(memberID)";
-    $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER WHERE CUSTOMER_ID = $memberID";
+    // $sql = "SELECT * FROM APPOINTMENT WHERE CUSTOMER_ID = $_SESSION(memberID)";
+    $sql = "SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = $memberID";
 
 
 

@@ -19,7 +19,7 @@
     // 判斷是SESSION是否有MemberID存在
     if(isset($_SESSION['MemberID'])){
         $memberID = $_SESSION['MemberID'];
-        $sql = "INSERT INTO `tfd102-g4`.APPOINTMENT
+        $sql = "INSERT INTO APPOINTMENT
         (ACTIVITY_ID , CUSTOMER_ID , APPOINTMENT_DATE, PEOPLE_NUM, APPOINTMENT_NAME,APPOINTMENT_EMAIL,APPOINTMENT_PHONE) VALUES 
         (?, ?, ?, ?, ?, ?, ?)";
     

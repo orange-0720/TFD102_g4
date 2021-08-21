@@ -155,9 +155,11 @@ body{
         display: flex;
         .nav_block_contact{
             display: none;
+            cursor: pointer;
         }
         .nav_block_log{
             display: none;
+            cursor: pointer;
         }
         .nav_right_block{
             width: 50%;
@@ -574,7 +576,7 @@ body{
             overflow: hidden;
             z-index: 4;
             @include pad{
-                top: 60%;
+                top: 50%;
             }
             @include mobile{
                 width: 80%;

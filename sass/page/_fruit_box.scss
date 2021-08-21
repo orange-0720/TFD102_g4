@@ -604,8 +604,8 @@
       overflow: hidden;
       z-index: 4;
         @include tablet{
-          top: 59%;
-          width: 50%;
+          top: 55%;
+          width: 60%;
         }
         @include mobile{
           width: 90%;
@@ -699,9 +699,12 @@
           background-position: center;
           margin-top: 20px;
       }
+      @include tablet{
+        width: 45%;
+      }
       @include pad{
-        width: 60%;
-        top: 62%;
+        width: 80%;
+        top: 55%;
       }
 
     h4{

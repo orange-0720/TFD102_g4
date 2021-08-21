@@ -53,7 +53,7 @@ $(".jump_hamburger_block").append(`
         <img src="../images/nav_block_pen.svg" >
         聯絡我們
       </div>
-      <a class="nav_block_log" href="./login.html">
+      <a class="nav_block_log">
         <img src="../images/nav_block_log.svg">
         <span>登入註冊</span>
       </a>          
