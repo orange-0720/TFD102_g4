@@ -94,19 +94,19 @@
                   </div>
                   <div>
                       <span>姓名</span>
-                      <input class="appoinment_name" type="text" v-model="name" @blur='checkname' placeholder="請輸入你的姓名">
+                      <input class="appoinment_name" type="text" v-model="name" @change='checkname' placeholder="請輸入你的姓名" required>
                   </div>
                   <div>
                       <span>電話</span>
-                      <input class="appoinment_phone" type="text" v-model="phone" @blur='checkphone' placeholder="請輸入你的電話"/> 
+                      <input class="appoinment_phone" type="text" v-model="phone" @change='checkphone' placeholder="請輸入你的電話" required/> 
                   </div>
                   <div>
                       <span>電子郵件</span>
-                      <input class="appoinment_email" type="email" v-model="email" @blur='checkemail' placeholder="請輸入你的E-MAIL">
+                      <input class="appoinment_email" type="email" v-model="email" @change='checkemail' placeholder="請輸入你的E-MAIL" required>
                   </div>
                   <div>
                       <span>報名活動</span>
-                      <select  v-model="select" @blur='checkevent'>
+                      <select  v-model="select" @change='checkevent'>
                         <option disabled value="">請選擇活動</option>
                         <option 
                         id="ACTIVITY_SELECT" 
@@ -117,7 +117,7 @@
                   </div>
                   <div>
                       <span>人數</span>                    
-                      <select class="appoinment_pepolenum" v-model="pepolenum" @blur='checkpeople'>
+                      <select class="appoinment_pepolenum" v-model="pepolenum" @change='checkpeople'>
                       <option disabled value="">請選擇人數</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -259,6 +259,9 @@
           pass_people: false,
         },
         methods: {
+          destroyed(){
+            
+          },
           checkdate(){
 
           },
@@ -285,6 +288,7 @@
             alert('請填寫電子郵件'); 
               }else if (!emailrule.test(this.email)){
                 alert('請填寫正確電子郵件格式');
+                this.email.fouce();
             }else{
               this.pass_email = true
             }
@@ -306,7 +310,6 @@
           apponintment_make(){
             if(this.pass_member == false){
               alert('請先註冊會員才可預約');
-              return
             }
             if(this.pass_name == true && this.pass_phone == true && this.pass_email == true && this.pass_event == true && this.pass_people == true){
               $.ajax({
