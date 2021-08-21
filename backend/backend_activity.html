@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/logo-02.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>良耕野菜-後臺頁面</title>
+
+
+</head>
+
+<body id="backend_page" onload="init()">
+  <div class="container fluid">
+    <div class="row justify-content-end" id="BackEnd_header">
+      <h2 class="col offset-md-5">後台管理</h2>
+      <button type="button" class="btn btn-warning rounded-pill" id="logout"
+        onclick="javascript: location.href = './API/back_logout.php';">登出<span class="icon"><img
+            src="../images/backend/Icon open-account-logout.png"></span></button>
+    </div>
+    <div class="row" id="BackEnd_main">
+      <!-- ==側邊攔== -->
+      <aside class="col-2 " id="BackEnd_main">
+        <div class="row justify-content-center">
+          <div class="BackEnd_logo text-center"><img src="../images/logo.svg" alt="" width="150px" id="logo"></div>
+          <button type="button" class="btn btn-light rounded-pill" id="back_member"
+            onclick="backChange('./backend_member.html')">會員管理</button>
+          <div class="w-100"></div>
+          <button type="button" class="btn btn-light rounded-pill" id="back_product"
+            onclick="backChange('./backend_product.html')">商品管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_order"
+            onclick="backChange('./backend_order.html')">訂單管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_reserve"
+            onclick="backChange('./backend_reserve.html')">預約管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_activity"
+            onclick="backChange('./backend_activity.html')" style="background-color:#FAE7C3">活動管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_message"
+            onclick="backChange('./backend_message.html')">留言板管理</button>
+        </div>
+      </aside>
+      <section class="col-10 " id="main">
+        <div class="backend_search">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input type="text" class="rounded-pill" placeholder="搜尋活動名稱" name="keyword" onblur="getData()" id="keyword">
+          <button type="button" class="btn btn-success rounded-pill pill_type_new" data-toggle="modal" data-target="#add_pop">新增活動</button>
+        </div>
+        <div class="table_scroll">
+          <table class="table table-striped">
+            <thead class="tr_color">
+              <tr class="col_set">
+                <th scope="col">活動編號</th>
+                <th scope="col">活動名稱</th>
+                <th scope="col">活動日期</th>
+                <th scope="col">活動時數</th>
+                <th scope="col">活動金額</th>
+                <th scope="col">活動描述</th>
+                <th scope="col">狀態</th>
+                <th scope="col">編輯</th>
+              </tr>
+            </thead>
+            <tbody class="tbody_color" id="result">
+              <!-- 資料庫資料 -->
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <!-- <div class="row justify-content-center">
+      <nav aria-label="Page navigation example ">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div> -->
+  </div>
+  </section>
+  </div>
+
+
+  <!-- 編輯活動彈窗 -->
+  <div class="modal fade" id="modify_pop" tabindex="-1" role="dialog" aria-labelledby="modify_popTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modify_popTitle">編輯活動管理</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modify_activity_info">
+            <form method="post" id="data_from">
+              <div class="row mb-2">
+                <label for="ACTIVITY_NAME" class="col-auto col-form-label">活動名稱：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="ACTIVITY_NAME" name="ACTIVITY_NAME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_DATE" class="col-auto col-form-label">活動日期：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="ACTIVITY_DATE" name="ACTIVITY_DATE">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_TIME" class="col-auto col-form-label">活動時數：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="ACTIVITY_TIME" name="ACTIVITY_TIME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_PRICE" class="col-auto col-form-label">活動金額：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="ACTIVITY_PRICE" name="ACTIVITY_PRICE" oninput="value=value.replace(/[^\d]/g,'')">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_INFO" class="col-auto col-form-label">活動描述：</label>
+                <div class="col-auto">
+                  <textarea cols="22" rows="5" class="form-control" id="ACTIVITY_INFO"
+                    name="ACTIVITY_INFO"></textarea>
+                </div>
+              </div>
+          </div>
+          <div class="row mb-2">
+            <label for="ACTIVITY_STATUS_ID" class="col-auto col-form-label">活動狀態：</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="ACTIVITY_STATUS_ID" value="1">
+              <label class="form-check-label" for="ACTIVITY_STATUS_ID"></label>開放中</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="ACTIVITY_STATUS_ID" value="2">
+              <label class="form-check-label" for="ACTIVITY_STATUS_ID">已結束</label>
+            </div>
+          </div>
+          <!-- PK記錄在這，form送出時才能知道要更新那一筆資料 -->
+          <input type="hidden" name="ACTIVITY_ID" id="ACTIVITY_ID" />
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消修改</button>
+            <button type="button" class="btn btn-primary" onclick="update()">確認修改</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 編輯活動彈窗 -->
+
+  <!-- 新增活動彈窗 -->
+  <div class="modal fade" id="add_pop" tabindex="-1" role="dialog" aria-labelledby=add_popTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add_popTitle">新增活動</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="add_product_info">
+            <form method="post" enctype="multipart/form-data" id="add_from">
+              <div class="row mb-2">
+                <label for="ACTIVITY_NAME" class="col-auto col-form-label">活動名稱：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="add_ACTIVITY_NAME" name="ACTIVITY_NAME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_DATE" class="col-auto col-form-label">活動日期：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="add_ACTIVITY_DATE" name="ACTIVITY_DATE">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_TIME" class="col-auto col-form-label">活動時數：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="add_ACTIVITY_TIME" name="ACTIVITY_TIME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_PRICE" class="col-auto col-form-label">活動金額：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="add_ACTIVITY_PRICE" name="ACTIVITY_PRICE" oninput="value=value.replace(/[^\d]/g,'')">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="ACTIVITY_INFO" class="col-auto col-form-label">活動描述：</label>
+                <div class="col-auto">
+                  <textarea cols="22" rows="5" class="form-control" id="add_ACTIVITY_INFO"
+                    name="ACTIVITY_INFO"></textarea>
+                </div>
+              </div>
+          </div>
+          <div class="row mb-2">
+            <label for="add_ACTIVITY_STATUS_ID" class="col-auto col-form-label">活動狀態：</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="add_ACTIVITY_STATUS_ID" value="1">
+              <label class="form-check-label" for="add_ACTIVITY_STATUS_ID"></label>開放中</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="add_ACTIVITY_STATUS_ID" value="2">
+              <label class="form-check-label" for="add_ACTIVITY_STATUS_ID">已結束</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消新增</button>
+            <button type="button" class="btn btn-primary" onclick="return doAdd();">確認新增</button>
+          </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 新增商品彈窗 -->
+
+      <footer>
+    <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
+    <script type="text/javascript" src="/src/main.js"></script> -->
+
+  <script src="../js/backend_search.js"></script>
+
+
+  <script>
+    function init() {
+      $.ajax({
+        method: "POST",
+        url: "./API/back_login_check.php",
+        data: {},
+        dataType: "text",
+        success: function (response) {
+          if (response == "") {
+            alert('請先登入，將前往登入頁');
+            location.href = 'back_login.html';
+          } else {
+            getData();
+          }
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        }
+      });
+    }
+
+    function getData() {
+      $.ajax({
+        method: "POST",
+        url: "./API/activity/backend_activity.php",
+        data: {
+          // Search
+          'keyword': $('#keyword').val()
+        },
+        dataType: "json",
+        success: function (response) {
+          display(response);
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        }
+      });
+    }
+
+    function display(response) {
+      // 清空TABLE
+      $("#result").html('');
+      
+      $.each(response, function (index, row) {
+
+        var status;
+        switch (row.ACTIVITY_STATUS_ID) {
+          case "1":
+            status = "<font color='green'>開放中</font>";
+            break;
+          case "2":
+            status = "<font color='red'>已結束</font>";
+            break;
+          default:
+            break;
+        }
+
+        $("#result").append(
+          '<tr class="col_set">' +
+          '<th scope="row">' + row.ACTIVITY_ID + '</th>' +
+          '<th scope="row">' + row.ACTIVITY_NAME + '</th>' +
+          '<th scope="row" class="activity_date_scroll">' + row.ACTIVITY_DATE + '</th>' +
+          '<th scope="row">' + row.ACTIVITY_TIME + '</th>' +
+          '<th scope="row">' + row.ACTIVITY_PRICE + '</th>' +
+          '<th scope="row" class="activity_info_scroll" title="' + row.ACTIVITY_INFO + '">' + row.ACTIVITY_INFO +
+          '</th>' +
+          '<td>' + status + '</td>' +
+          '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#modify_pop" onclick="modify(' + row.ACTIVITY_ID + ')">' +
+          '修改' + '</button></td>' +
+          '</tr>'
+        );
+      })
+    }
+  
+    // 抓取資料
+    function modify(id){
+      $.ajax({
+        method: 'POST',
+        url: './API/activity/backend_activityDetail.php',
+        data: {
+          "id": id
+        },
+        dataType: 'json',
+        success: function (response) {
+          $('#ACTIVITY_ID').val(response.ACTIVITY_ID);
+          $('#ACTIVITY_NAME').val(response.ACTIVITY_NAME);
+          $('#ACTIVITY_INFO').val(response.ACTIVITY_INFO);
+          $('#ACTIVITY_DATE').val(response.ACTIVITY_DATE);
+          $('#ACTIVITY_TIME').val(response.ACTIVITY_TIME);
+          $('#ACTIVITY_PRICE').val(response.ACTIVITY_PRICE);
+          $("input[name=ACTIVITY_STATUS_ID][value=" + response.ACTIVITY_STATUS_ID + "]").prop('checked', true);
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    }
+  
+    // 更新資料
+    function update(){
+      var form = $("#data_from").serializeArray();
+      var formData = new FormData();
+
+      form.forEach(element => {
+        formData.append(element.name, element.value);
+      });
+      $.ajax({
+        method: 'POST',
+        url: './API/activity/backend_activityUpdate.php',
+        processData: false,
+        contentType: false,
+        data: formData,
+        dataType: 'text',
+        success: function (response) {
+          console.log(response);
+          if (response == 'SUCCESS') {
+            alert('修改成功!');
+            location.reload();
+          }
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    }
+  
+    // 新增資料
+    function doAdd() {
+      if ($("#add_ACTIVITY_NAME").val() == 0) {
+        alert("請填寫[活動名稱]");
+        return false;
+      }
+      if ($('#add_ACTIVITY_DATE').val() == '') {
+        alert("請填寫[活動日期]");
+        return false;
+      }
+      if ($('#add_ACTIVITY_TIME').val() == '') {
+        alert("請填寫[活動時數]]");
+        return false;
+      }
+      if ($('#add_ACTIVITY_PRICE').val() == '') {
+        alert("請填寫[活動金額]");
+        return false;
+      }
+      if ($('#add_ACTIVITY_INFO').val() == '') {
+        alert("請填寫[活動描述]");
+        return false;
+      }
+
+      //判斷Status(radio button)是否有值?
+      var obj = $("input[name=add_ACTIVITY_STATUS_ID]:checked").val();
+
+      if (!obj) {
+        alert("請選擇[商品狀態]");
+        return false;
+      }
+
+      var form = $("#add_from").serializeArray();
+      var formData = new FormData();
+      console.log(form);
+
+      form.forEach(element => {
+        formData.append(element.name, element.value);
+      });
+
+      $.ajax({
+        method: 'POST',
+        url: './API/activity/backend_activityAdd.php',
+        processData: false,
+        contentType: false,
+        data: formData,
+        dataType: 'text',
+        success: function (response) {
+          console.log(response);
+          if (response == 'SUCCESS') {
+            alert('新增成功!');
+            location.reload();
+          }
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    }
+
+  </script>
+</body>
+
+</html>

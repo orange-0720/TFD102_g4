@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/logo-02.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>良耕野菜-後臺頁面</title>
+
+
+</head>
+
+<body id="backend_page" onload="init()">
+  <div class="container fluid">
+    <div class="row justify-content-end" id="BackEnd_header">
+      <h2 class="col offset-md-5">後台管理</h2>
+      <button type="button" class="btn btn-warning rounded-pill" id="logout" onclick="javascript: location.href = './API/back_logout.php';">登出<span class="icon"><img src="../images/backend/Icon open-account-logout.png"></span></button>
+    </div>
+    <div class="row" id="BackEnd_main">
+      <!-- ==側邊攔== -->
+      <aside class="col-2 " id="BackEnd_main">
+        <div class="row justify-content-center">
+          <div class="BackEnd_logo text-center"><img src="../images/logo.svg" alt="" width="150px" id="logo"></div>
+          <button type="button" class="btn btn-light rounded-pill" id="back_member" onclick="backChange('./backend_member.html')">會員管理</button>
+          <div class="w-100"></div>
+          <button type="button" class="btn btn-light rounded-pill" id="back_product" onclick="backChange('./backend_product.html')">商品管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_order" onclick="backChange('./backend_order.html')">訂單管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_reserve" onclick="backChange('./backend_reserve.html')" style="background-color:#FAE7C3">預約管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_activity" onclick="backChange('./backend_activity.html')">活動管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_message" onclick="backChange('./backend_message.html')">留言板管理</button>
+        </div>
+      </aside>
+
+      <section class="col-10 " id="main">
+        <div class="backend_search">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input type="text" class="rounded-pill" placeholder="搜尋EMAIL" name="keyword" onblur="getData()" id="keyword">
+        </div>
+        <div class="table_scroll">
+        <table class="table table-striped">
+          <thead class="tr_color">
+            <tr class="col_set">
+              <th scope="col">預約編號</th>
+              <th scope="col">會員編號</th>
+              <th scope="col">活動名稱</th>
+              <th scope="col">預約日期</th>
+              <th scope="col">預約人</th>
+              <th scope="col">電子信箱</th>
+              <th scope="col">預約人數</th>
+              <th scope="col">編輯</th>
+            </tr>
+          </thead>
+          <tbody class="tbody_color" id="result">
+            <!-- 資料庫資料 -->
+          </tbody>
+        </table>
+    </div>
+  </div>
+  </div>
+  </section>
+  </div>
+
+  <!-- 編輯預約資訊彈窗 -->
+  <div class="modal fade" id="modify_pop" tabindex="-1" role="dialog" aria-labelledby="modify_popTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modify_popTitle">編輯預約資訊</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modify_product_info">
+            <form method="post" id="data_from">
+              <div class="row mb-2">
+                <label for="APPOINTMENT_DATE" class="col-auto col-form-label">預約日期：</label>
+                <div class="col-auto">
+                  <input type="date" class="form-control" id="APPOINTMENT_DATE" name="APPOINTMENT_DATE">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="APPOINTMENT_NAME" class="col-auto col-form-label">預約姓名：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="APPOINTMENT_NAME" name="APPOINTMENT_NAME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="APPOINTMENT_EMAIL" class="col-auto col-form-label">電子信箱：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="APPOINTMENT_EMAIL" name="APPOINTMENT_EMAIL">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PEOPLE_NUM" class="col-auto col-form-label">預約人數：</label>
+                <div class="col-auto">
+                  <select class="form-control" name="PEOPLE_NUM" id="PEOPLE_NUM">
+                    <option value="0">請選擇人數</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+              </div>
+              <!-- PK記錄在這，form送出時才能知道要更新那一筆資料 -->
+              <input type="hidden" name="APPOINTMENT_ID" id="APPOINTMENT_ID" />
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消修改</button>
+                <button type="button" class="btn btn-primary" onclick="update()">確認修改</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 編輯預約資訊彈窗 -->
+
+    <footer>
+    <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
+    <script type="text/javascript" src="/src/main.js"></script> -->
+
+<script src="../js/backend_search.js"></script>
+
+
+
+    <script>
+    
+      function init() {
+      $.ajax({
+        method: "POST",
+        url: "./API/back_login_check.php",
+        data: {},
+        dataType: "text",
+        success: function (response) {
+          if (response == "") {
+            alert('請先登入，將前往登入頁');
+            location.href = 'back_login.html';
+          } else {
+            getData();
+          }
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        }
+      });
+    }
+
+      function getData(){
+        $.ajax({
+          method: "POST",
+          url: "./API/reserve/backend_reserve.php",
+          data: {
+            // Search
+            'keyword': $('#keyword').val()
+          },
+          dataType: "json",
+          success: function (response) {
+            display(response);
+            // console.log(response);
+          },
+          error: function (exception) {
+            alert("數據載入失敗: " + exception.status);
+            // console.log(exception);
+          }
+        });
+      }
+
+    function display(response){
+        $("#result").html('');
+
+        $.each(response, function(index, row) {
+          // console.log(row);
+          $("#result").append( 
+              '<tr class="col_set">' + 
+                '<th scope="row">'+ row.APPOINTMENT_ID + '</th>' +
+                '<th scope="row">'+ row.CUSTOMER_ID + '</th>' +
+                '<th scope="row">'+ row.ACTIVITY_NAME + '</th>' +
+                '<th scope="row">'+ row.APPOINTMENT_DATE + '</th>' +
+                '<th scope="row">'+ row.APPOINTMENT_NAME + '</th>' +
+                '<th scope="row">'+ row.APPOINTMENT_EMAIL + '</th>' +
+                '<th scope="row">'+ row.PEOPLE_NUM + '</th>' +
+                '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#modify_pop" onclick="modify('+ row.APPOINTMENT_ID +')">'+'編輯'+'</button></td>' +
+              '</tr>'
+          );
+        })
+      }
+    
+    // 抓取資料
+    function modify(id) {
+      $.ajax({
+        method: 'POST',
+        url: './API/reserve/backend_reserveDetail.php',
+        data: {
+          "id": id
+        },
+        dataType: 'json',
+        success: function (response) {
+          $('#ACTIVITY_ID').val(response.ACTIVITY_ID);
+          $('#APPOINTMENT_DATE').val(response.APPOINTMENT_DATE);
+          $('#APPOINTMENT_NAME').val(response.APPOINTMENT_NAME);
+          $('#APPOINTMENT_EMAIL').val(response.APPOINTMENT_EMAIL);
+          $('#PEOPLE_NUM').val(response.PEOPLE_NUM);
+          $('#APPOINTMENT_ID').val(response.APPOINTMENT_ID);
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    }
+  
+    // 更新資料
+    function update(ele) {
+      var form = $("#data_from").serializeArray();
+      var formData = new FormData();
+
+      form.forEach(element => {
+        formData.append(element.name, element.value);
+      });
+      $.ajax({
+        method: 'POST',
+        url: './API/reserve/backend_reserveUpdate.php',
+        processData: false,
+        contentType: false,
+        data: formData,
+        dataType: 'text',
+        success: function (response) {
+          console.log(response);
+          if (response == 'SUCCESS') {
+            alert('修改成功!');
+            location.reload();
+          }
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    }
+  
+  
+  
+  </script>
+
+</body>
+
+</html>

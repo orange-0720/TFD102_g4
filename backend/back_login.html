@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>良耕野菜-管理員登入</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/logo-02.svg">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+  <script>
+
+    function doSubmit() {
+      if (document.getElementById('account').value == '') {
+        alert("請填寫[帳號]");
+        return false;
+      }
+      if (document.getElementById('pwd').value == '') {
+        alert("請填寫[密碼]");
+        return false;
+      }
+    }
+  </script>
+
+
+</head>
+
+<body class="back_log_body">
+
+  <div id="back_back">
+    <div class="backLeft"><img src="../images/backend/loginbg.jpg" /></div>
+  </div>
+
+  <div class="back_right">
+    <div class="back_content">
+      <h2>管理員登入</h2>
+      <form method="post" action="./API/back_login.php">
+        <div class="form_group">
+          <label for="username" class="form_label">User name</label>
+          <input class="back_input" type="text" id="account" name="account" />
+          <label for="password" class="form_label">Password</label>
+          <input class="back_input" type="password" id="pwd" name="pwd" />
+        </div>
+        <input class="back_login" id="submitBtn" name="submitBtn" type="submit" value="Login" onclick="doSubmit()">
+        <div class="account_forget">
+          <a href="mailto:goodvegetablebox@gmail.com">
+            忘記帳號或密碼？
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
+    <script type="text/javascript" src="/src/main.js"></script> -->
+</body>
+
+</html>
