@@ -10,7 +10,7 @@
   
 
   //建立SQL
-  $sql = "UPDATE `tfd102-g4`.`CUSTOMER` SET `QUALIFY` = ? WHERE (`CUSTOMER_ID` = ?)";
+  $sql = "UPDATE `tibamefe_tfd102g4`.`CUSTOMER` SET `QUALIFY` = ? WHERE (`CUSTOMER_ID` = ?)";
     
   //執行
   $statement = $pdo->prepare($sql);

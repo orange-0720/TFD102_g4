@@ -4,7 +4,7 @@
   $pdo = MemberDB();
 
   //建立SQL語法
-  $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER";
+  $sql = "SELECT * FROM `tibamefe_tfd102g4`.CUSTOMER";
 
   $keyword = $_POST["keyword"];
 

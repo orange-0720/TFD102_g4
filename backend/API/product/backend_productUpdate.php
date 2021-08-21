@@ -20,7 +20,7 @@
   $pdo = MemberDB();  
 
   //建立SQL
-  $sql = "UPDATE `tfd102-g4`.`PRODUCT` SET `PRODUCT_NAME` = ?, `PRODUCT_TYPE_ID` = ?, `PRODUCT_PRICE` = ?, `PRODUCT_SHORTINFO` = ?, `PRODUC_LONGINFO` = ?, `PRODUCT_STATUS_TYPE` = ?";
+  $sql = "UPDATE `tibamefe_tfd102g4`.`PRODUCT` SET `PRODUCT_NAME` = ?, `PRODUCT_TYPE_ID` = ?, `PRODUCT_PRICE` = ?, `PRODUCT_SHORTINFO` = ?, `PRODUC_LONGINFO` = ?, `PRODUCT_STATUS_TYPE` = ?";
 
   foreach ($_FILES as $key => $file) {
     $path = upload($_FILES[$key]);

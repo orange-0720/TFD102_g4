@@ -6,7 +6,7 @@
 
 
     //建立SQL
-    $sql = "SELECT * FROM `tfd102-g4`.CUSTOMER WHERE QUALIFY = 1 AND EMAIL = ? AND PWD = ?";
+    $sql = "SELECT * FROM `tibamefe_tfd102g4`.CUSTOMER WHERE QUALIFY = 1 AND EMAIL = ? AND PWD = ?";
 
     //執行
     $statement = $pdo->prepare($sql);    

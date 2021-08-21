@@ -6,7 +6,7 @@ include("../../../php/connection.php");
   $pdo = MemberDB();
 
 
-  $sql = "SELECT * FROM `tfd102-g4`.MESSAGE_BOARD WHERE MESSAGE_BOARD_ID LIKE ?";
+  $sql = "SELECT * FROM `tibamefe_tfd102g4`.MESSAGE_BOARD WHERE MESSAGE_BOARD_ID LIKE ?";
   $statement = $pdo->prepare($sql);
   $statement->bindValue(1, $id);
   $statement->execute();

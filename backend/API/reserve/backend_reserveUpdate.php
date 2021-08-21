@@ -12,7 +12,7 @@
 
 
   //建立SQL
-  $sql = "UPDATE `tfd102-g4`.`APPOINTMENT` SET `APPOINTMENT_DATE` = ?, `APPOINTMENT_NAME` = ?, `APPOINTMENT_EMAIL` = ?, `PEOPLE_NUM` = ? WHERE (`APPOINTMENT_ID` = ?)";
+  $sql = "UPDATE `tibamefe_tfd102g4`.`APPOINTMENT` SET `APPOINTMENT_DATE` = ?, `APPOINTMENT_NAME` = ?, `APPOINTMENT_EMAIL` = ?, `PEOPLE_NUM` = ? WHERE (`APPOINTMENT_ID` = ?)";
     
   //執行
   $statement = $pdo->prepare($sql);  

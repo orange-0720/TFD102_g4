@@ -63,21 +63,4 @@
     }
 
 
-    //取得檔案副檔名
-    function getExtensionName($filePath){
-        $path_parts = pathinfo($filePath);
-        return $path_parts["extension"];
-    }
-
-    function getFilePath() {
-        //Apache實際的根目錄路徑
-        $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-
-        //Apache根目錄之下的檔案存放路徑
-        $filePath = "/tfd102_g4/images/upload/";
-
-        return $ServerRoot . $filePath;
-    }
-
-
 ?>

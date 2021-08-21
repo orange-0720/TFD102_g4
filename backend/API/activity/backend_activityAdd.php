@@ -12,7 +12,7 @@
   $pdo = MemberDB();
 
   //建立SQL
-  $sql = "INSERT INTO `tfd102-g4`.`ACTIVITY` (`ACTIVITY_NAME`, `ACTIVITY_PRICE`, `ACTIVITY_INFO`, `ACTIVITY_STATUS_ID`, `ACTIVITY_DATE`, `ACTIVITY_TIME`) VALUES (?, ?, ?, ?, ?, ?);";
+  $sql = "INSERT INTO `tibamefe_tfd102g4`.`ACTIVITY` (`ACTIVITY_NAME`, `ACTIVITY_PRICE`, `ACTIVITY_INFO`, `ACTIVITY_STATUS_ID`, `ACTIVITY_DATE`, `ACTIVITY_TIME`) VALUES (?, ?, ?, ?, ?, ?);";
             
   //執行
   $statement = $pdo->prepare($sql);

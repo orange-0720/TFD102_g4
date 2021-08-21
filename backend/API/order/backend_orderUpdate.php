@@ -10,7 +10,7 @@
 
 
   //建立SQL
-  $sql = "UPDATE `tfd102-g4`.`ORDER` SET `ORDER_STATUS_ID` = ? WHERE (`ORDER_ID` = ?)";
+  $sql = "UPDATE `tibamefe_tfd102g4`.`ORDER` SET `ORDER_STATUS_ID` = ? WHERE (`ORDER_ID` = ?)";
 
   //執行
   $statement = $pdo->prepare($sql);

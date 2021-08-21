@@ -7,7 +7,7 @@
     $keyword = $_POST["keyword"];
 
   //建立SQL語法
-    $sql = "SELECT * FROM `tfd102-g4`.ORDER A1 join `tfd102-g4`.ORDER_STATUS_TYPE A2 on A1.ORDER_STATUS_ID = A2.ORDER_STATUS_ID";
+    $sql = "SELECT * FROM `tibamefe_tfd102g4`.ORDER A1 join `tibamefe_tfd102g4`.ORDER_STATUS_TYPE A2 on A1.ORDER_STATUS_ID = A2.ORDER_STATUS_ID";
 
     if ($keyword) {
       $sql = $sql . " WHERE ORDER_ID LIKE '%{$keyword}%'";

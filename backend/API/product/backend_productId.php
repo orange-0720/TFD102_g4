@@ -6,7 +6,7 @@
     $product_id = $_POST["PRODUCT_ID"]; //PK
 
     //建立SQL
-    $sql = "SELECT * FROM `tfd102-g4`.PRODUCT WHERE PRODUCT_ID = ?";
+    $sql = "SELECT * FROM `tibamefe_tfd102g4`.PRODUCT WHERE PRODUCT_ID = ?";
     
     //執行
     $statement = $pdo->prepare($sql);    

@@ -6,7 +6,7 @@ include("../../../php/connection.php");
   $pdo = MemberDB();
 
 
-  $sql = "SELECT PRODUCT_NAME FROM `tfd102-g4`.PRODUCT WHERE PRODUCT_NAME LIKE ?";
+  $sql = "SELECT PRODUCT_NAME FROM `tibamefe_tfd102g4`.PRODUCT WHERE PRODUCT_NAME LIKE ?";
   $statement = $pdo->prepare($sql);
   $statement->bindValue(1, "%".$keyword."%");
   $statement->execute();

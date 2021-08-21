@@ -17,7 +17,7 @@
       $pdo = MemberDB();
 
       //建立SQL
-      $sql = "INSERT INTO `tfd102-g4`.`PRODUCT` (`PRODUCT_NAME`, `PRODUCT_TYPE_ID`, `PRODUCT_PRICE`, `PRODUCT_SHORTINFO`, `PRODUC_LONGINFO`, `PRODUCT_STATUS_TYPE`) VALUES (?, ?, ?, ?, ?, ?);";
+      $sql = "INSERT INTO `tibamefe_tfd102g4`.`PRODUCT` (`PRODUCT_NAME`, `PRODUCT_TYPE_ID`, `PRODUCT_PRICE`, `PRODUCT_SHORTINFO`, `PRODUC_LONGINFO`, `PRODUCT_STATUS_TYPE`) VALUES (?, ?, ?, ?, ?, ?);";
             
       //執行
       $statement = $pdo->prepare($sql);
@@ -33,7 +33,7 @@
       // print_r($last_id);
       
 
-      $sql2 = "UPDATE `tfd102-g4`.`PRODUCT` SET `PRODUCT_NAME` = ?, `PRODUCT_TYPE_ID` = ?, `PRODUCT_PRICE` = ?, `PRODUCT_SHORTINFO` = ?, `PRODUC_LONGINFO` = ?, `PRODUCT_STATUS_TYPE` = ?";
+      $sql2 = "UPDATE `tibamefe_tfd102g4`.`PRODUCT` SET `PRODUCT_NAME` = ?, `PRODUCT_TYPE_ID` = ?, `PRODUCT_PRICE` = ?, `PRODUCT_SHORTINFO` = ?, `PRODUC_LONGINFO` = ?, `PRODUCT_STATUS_TYPE` = ?";
       
       foreach ($_FILES as $key => $file) {
         $path = upload($_FILES[$key]);

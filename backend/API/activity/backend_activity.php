@@ -6,7 +6,7 @@
   $keyword = $_POST["keyword"];
 
   //建立SQL語法
-  $sql = "SELECT * FROM `tfd102-g4`.ACTIVITY";
+  $sql = "SELECT * FROM `tibamefe_tfd102g4`.ACTIVITY";
 
   if ($keyword) {
     $sql = $sql . " WHERE ACTIVITY_NAME LIKE '%{$keyword}%'";

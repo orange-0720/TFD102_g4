@@ -11,7 +11,7 @@
 
 
   //建立SQL
-  $sql = "UPDATE `tfd102-g4`.`MESSAGE_BOARD` SET `COMMENTS` = ?, `REPLY` = ?, `MESSAGE_STATUS_ID` = ? WHERE (`MESSAGE_BOARD_ID` = ?)";
+  $sql = "UPDATE `tibamefe_tfd102g4`.`MESSAGE_BOARD` SET `COMMENTS` = ?, `REPLY` = ?, `MESSAGE_STATUS_ID` = ? WHERE (`MESSAGE_BOARD_ID` = ?)";
     
   //執行
   $statement = $pdo->prepare($sql);

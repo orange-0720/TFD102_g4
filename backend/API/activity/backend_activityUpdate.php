@@ -14,7 +14,7 @@
 
 
   //建立SQL
-  $sql = "UPDATE `tfd102-g4`.`ACTIVITY` SET `ACTIVITY_NAME` = ?, `ACTIVITY_PRICE` = ?, `ACTIVITY_INFO` = ?, `ACTIVITY_STATUS_ID` = ?, `ACTIVITY_DATE` = ?, `ACTIVITY_TIME` = ? WHERE (`ACTIVITY_ID` = ?)";
+  $sql = "UPDATE `tibamefe_tfd102g4`.`ACTIVITY` SET `ACTIVITY_NAME` = ?, `ACTIVITY_PRICE` = ?, `ACTIVITY_INFO` = ?, `ACTIVITY_STATUS_ID` = ?, `ACTIVITY_DATE` = ?, `ACTIVITY_TIME` = ? WHERE (`ACTIVITY_ID` = ?)";
     
   //執行
   $statement = $pdo->prepare($sql);

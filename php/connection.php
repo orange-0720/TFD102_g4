@@ -3,9 +3,9 @@
     function MemberDB(){ //可能會有一大堆的資料庫DB，給名稱去區分
         //MySQL相關資訊
         $db_host = "127.0.0.1";
-        $db_user = "root";
-        $db_pass = "apple905";
-        $db_select = "tfd102-g4";
+        $db_user = "tibamefe_since2021";
+        $db_pass = "vwRBSb.j&K#E";
+        $db_select = "tibamefe_tfd102g4";
     
         //建立資料庫連線物件
         $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
@@ -20,4 +20,7 @@
     //     $db_user = "tibamefe_since2021";
     //     $db_pass = "vwRBSb.j&K#E";
     //     $db_select = "tibamefe_tfd102g4";
+    // $db_user = "root";
+    // $db_pass = "apple905";
+    // $db_select = "tibamefe_tfd102g4";
 ?>

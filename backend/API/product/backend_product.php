@@ -6,7 +6,7 @@
   $keyword = $_POST["keyword"];
 
   //建立SQL語法
-    $sql = "SELECT * FROM `tfd102-g4`.PRODUCT";
+    $sql = "SELECT * FROM `tibamefe_tfd102g4`.PRODUCT";
 
     if ($keyword) {
       $sql = $sql . " WHERE PRODUCT_NAME LIKE '%{$keyword}%'";

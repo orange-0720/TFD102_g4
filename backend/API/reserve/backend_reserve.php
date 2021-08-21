@@ -6,7 +6,7 @@
   $keyword = $_POST["keyword"];
 
   //建立SQL語法
-  $sql = "SELECT * FROM `tfd102-g4`.APPOINTMENT a JOIN `tfd102-g4`.ACTIVITY b ON a.ACTIVITY_ID = b.ACTIVITY_ID";
+  $sql = "SELECT * FROM `tibamefe_tfd102g4`.APPOINTMENT a JOIN `tibamefe_tfd102g4`.ACTIVITY b ON a.ACTIVITY_ID = b.ACTIVITY_ID";
 
   if ($keyword) {
     $sql = $sql . " WHERE a.APPOINTMENT_EMAIL LIKE '%{$keyword}%'";
