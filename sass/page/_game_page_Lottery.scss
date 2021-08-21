@@ -186,7 +186,7 @@ section.game_play_border_lottery {
     flex-direction: column;
     position: relative;
     margin-top: 3rem;
-    z-index: 10;
+    z-index: 4;
     @include pad {
       height: 300px;
       // margin-top: 2rem;
@@ -360,7 +360,7 @@ section.game_play_border_lottery {
     width: 65%;
     text-align: justify;
     padding: 1rem;
-    z-index: 10;
+    z-index: 4;
     height: 120px;
     background-color: $white;
     @include pad {
@@ -775,7 +775,7 @@ div#get_coin {
     }
   }
   span#submit_11 {
-    z-index: 10;
+    z-index: 4;
     top: 0%;
     left: 30%;
     position: absolute;

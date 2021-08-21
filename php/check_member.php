@@ -19,7 +19,7 @@ getMemberID();
 //檢查sesion變數是否存在，表示已成功登入
 if($_SESSION['MemberID'] = true ){//讓PHP只做檢查這件事情
     $memberID = $_SESSION['MemberID'];
-    $sql = "SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = $memberID and DISCOUNT is null and DISCOUNT_HAVE is null and QUALIFY=1 ";
+    $sql = "SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = $memberID and DISCOUNT=0 and DISCOUNT_HAVE=0 and QUALIFY=1 ";
     //等所有會員登入狀態PHP完成後開啟上列，關閉下列
     $statement = $pdo->prepare($sql);//用來事先編譯好一個SQL敍述
     $statement->execute();//用來執行不會取得數據(result set)的指令

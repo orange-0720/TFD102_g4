@@ -94,7 +94,7 @@
       </div>
       <div id="game_question" class="animate__animated animate__bounceInDown">
         <h2 id="defeat" v-html="defeat"></h2>
-        <div id="finalscore">{{"積分"+finalscore+"分"}}</div>
+        <div id="finalscore" v-if="finalscore">{{"積分"+finalscore+"分"}}</div>
       </div>
       <div id="game_bottom_part_PassandDefeat">
         <div id="game_answer">

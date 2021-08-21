@@ -13564,7 +13564,8 @@ section.game_play_border #game_question h2 {
   section.game_play_border #game_question h2 {
     font-size: 16px;
     font-weight: bolder;
-    text-align: center;
+    text-align: justify;
+    width: 250px;
   }
 }
 
@@ -15255,7 +15256,7 @@ section.game_play_border_lottery div.game_test_3 {
   flex-direction: column;
   position: relative;
   margin-top: 3rem;
-  z-index: 10;
+  z-index: 4;
 }
 
 @media (max-width: 767px) {
@@ -15461,7 +15462,7 @@ section.game_play_border_lottery #game_question {
   width: 65%;
   text-align: justify;
   padding: 1rem;
-  z-index: 10;
+  z-index: 4;
   height: 120px;
   background-color: #FAF9EF;
 }
@@ -16038,7 +16039,7 @@ div#get_coin span#submit_12 img#pig {
 }
 
 #game_bottom_part_lottery span#submit_11 {
-  z-index: 10;
+  z-index: 4;
   top: 0%;
   left: 30%;
   position: absolute;
