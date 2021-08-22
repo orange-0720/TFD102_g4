@@ -15413,6 +15413,27 @@ header .video iframe {
   z-index: 1;
 }
 
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+}
+
 div#game_title {
   height: 200px;
   display: -webkit-box;

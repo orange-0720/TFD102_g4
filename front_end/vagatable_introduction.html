@@ -83,31 +83,31 @@
       </div>
       <div class="process_content_box">
         <div class="process_content">
-          <button class="process_item nursery" @click="content='nursery'">
+          <button class="process_item nursery" @click="moveToNO(1)">
             <h4>1.育苗</h4>
             <img src=" ../images/farm/vagatable_page/process01.jpg" alt="nursery">
           </button>
-          <button class="process_item soil" @click="content='soil'">
+          <button class="process_item soil"  @click="moveToNO(2)">
             <h4>2.土壤準備</h4>
             <img src=" ../images/farm/vagatable_page/process02.jpg" alt="soil">
           </button>
-          <button class="process_item transplant" @click="content='transplant'">
+          <button class="process_item transplant" @click="moveToNO(3)">
             <h4>3.移植</h4>
             <img src=" ../images/farm/vagatable_page/process03.jpg" alt="transplant">
           </button>
-          <button class="process_item" @click="content='fertilizer'">
+          <button class="process_item"  @click="moveToNO(4)">
             <h4>4.肥料</h4>
             <img src=" ../images/farm/vagatable_page/process04.jpg" alt="fertilizer">
           </button>
-          <button class="process_item" @click="content='dredge'">
+          <button class="process_item" @click="moveToNO(5)">
             <h4>5.疏苗</h4>
             <img src=" ../images/farm/vagatable_page/process05.jpg" alt="dredge">
           </button>
-          <button class="process_item" @click="content='irrigation'">
+          <button class="process_item" @click="moveToNO(6)">
             <h4>6.灌溉</h4>
             <img src=" ../images/farm/vagatable_page/process06.jpg" alt="irrigation">
           </button>
-          <button class="process_item" @click="content='harvest',showwhich(7)">
+          <button class="process_item"  @click="moveToNO(7)">
             <h4>7.採收</h4>
             <img src=" ../images/farm/vagatable_page/process07.jpg" alt="harvest">
           </button>
@@ -115,7 +115,7 @@
         <!-- 進度條 -->
         <div class="process_bar">
           <div class="bar_item">
-            <button class="small_bar bar_01" @click="content='nursery'($event)"></button>
+            <button class="small_bar bar_01" @click="content='nursery'"></button>
             <button class="small_bar bar_02" @click="content='soil'"></button>
             <button class="small_bar bar_03" @click="content='transplant'"></button>
             <button class="small_bar bar_04" @click="content='fertilizer'"></button>
@@ -125,8 +125,18 @@
           </div>
         </div>
       </div>
-      <component :is="content"></component>  
-      <!-- <component :is='"content - " + process_content[currentIndex].type"'></component>   -->
+      <!-- <component :is="content"></component>   -->
+      <div  id="slider">
+        <ul>
+          <li><nursery/></li>
+          <li><soil/></li>
+          <li><transplant/></li>
+          <li><fertilizer/></li>
+          <li><dredge/></li>
+          <li><irrigation/></li>
+          <li><harvest/></li>
+        </ul>
+      </div>
     </div>
     <div class="bg_white_radish_pic">
       <img src="../images/farm/box_1.png" alt="大根">
@@ -572,47 +582,65 @@
    new Vue({
         el: '#process',
         data: {
-            content:'nursery', 
-            timer:'',
-            value:0,
+          content:1, //預設是第一筆
+          contentLength:7
         },    
         methods: {
-          get(){
-            this.value ++;
-            console.log(this.value);
+        moveLeft: function(isClick) {
+          const vm=this
+          var slideWidth = $('#slider ul li').width();
+            $('#slider ul').animate({
+                left: + slideWidth
+            },  isClick?50:200, function () {
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+            vm.content>1?(vm.content-=1):(vm.content=vm.contentLength)
+            },
+        moveRight:function(isClick) {
+          const vm=this
+          var slideWidth = $('#slider ul li').width();
+            $('#slider ul').animate({
+                left: - slideWidth
+            }, isClick?50:200, function () {
+                $('#slider ul li:first-child').appendTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+            vm.content<vm.contentLength?(vm.content+=1):(vm.content=1)
+          },
+        moveToNO:function(order){
+          const vm =this
+          let deviation =order-vm.content
+          let directionLeft= (deviation)<0
+          let times =Math.abs(deviation)
+          if(directionLeft){
+            for (let i = 0; i < times; i++) {
+              vm.moveLeft(true)
           }
-        },
+          return
+          }
+          if(!directionLeft){
+            for (let i = 0; i < times; i++) {
+              vm.moveRight(true)
+            }
+          }
+        }         
+      },
       mounted() {
-        function prosess_silder() {
-          let bar = document.getElementsByClassName("bar_item");  //進度條
-          bar.width = (index / 7) + '%';  //進度條長度
-
-          let processs_content = document.getElementsByClassName("process_item")[0]; //介紹內容
-          
-          setTimeout(() => {
-              $nextSlide.style.transform = "translateX(0)";
-              // ...
-          }, 0);
-          
-          
-        }
-
-        this.timer  = setTimeout(this.get,1000);//定時器
-      
-      // methods: {
-      //   showwhich(index){
-      //     alert(index);
-      //     let bar = document.getElementsByClassName('bar')[0];
-      //     bar.width = (index / 7) + '%'; 
-      //   }
-        
-      // }
-      },
-      
-      beforeDestroy() {
-        clearTimeout(this.timer);
-      },
-   });
+        const vm =this
+        jQuery(document).ready(function ($) {
+          var slideCount = $('#slider ul li').length;
+          var slideWidth = $('#slider ul li').width();
+          var sliderUlWidth = slideCount * slideWidth;
+          $('#slider').css({ width: slideWidth });
+          $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+          $('#slider ul li:last-child').prependTo('#slider ul');
+          setInterval(function () {
+            vm.moveRight();
+          }, 5000);
+        });    
+      }  
+    });
   </script>
 
   <!-- 品種介紹 -->
