@@ -74,32 +74,37 @@
           width:90%;
           flex-wrap: wrap;
         }
-        .process_item{
-          display: flex;
-          flex-direction: column;
-          vertical-align: middle;
-          align-items: center;
-          @include tablet{
-            //border:1px solid red;
-            padding:8px; 
-          }
-          @include pad{
-            //border:1px solid red;
-            padding:8px; 
-          }
-          @include mobile{
-            padding:6px; 
-          }
-          img{
-            border-radius: 50%;
-            width:150px;
-            padding:10px;
+        button{
+          background-color:transparent;
+          border-color:transparent;
+          cursor: pointer;
+         }
+          .process_item{
+            display: flex;
+            flex-direction: column;
+            vertical-align: middle;
+            align-items: center;
             @include tablet{
               //border:1px solid red;
-              display:none;
-            };
+              padding:8px; 
+            }
+            @include pad{
+              //border:1px solid red;
+              padding:8px; 
+            }
+            @include mobile{
+              padding:6px; 
+            }
+            img{
+              border-radius: 50%;
+              width:150px;
+              padding:10px;
+              @include tablet{
+                //border:1px solid red;
+                display:none;
+              };
+            }
           }
-        }
       }
       //品種介紹進度條
       .process_bar{
@@ -122,6 +127,7 @@
           border-radius:30px;
           position:relative;
           width:100%;
+          overflow: hidden;
           @include mobile{
             width:90%;
           };
@@ -151,8 +157,68 @@
             }
             @include tablet{
               --small_bar_size:calc(var(--process_bar_size)/7);
-            
             }
+          }
+          button{
+            background-color:transparent;
+            border:transparent;
+          }
+          .bar_01{
+            background-color: #91C359;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            left:0;
+            z-index: -1;
+          }
+          .bar_02{
+            background-color: transparent;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            // border:1px solid red; 
+            left:15%;
+          }
+          .bar_03{
+            background-color: transparent;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            // border:1px solid red; 
+            left:30%;
+          }
+          .bar_04{
+            background-color: transparent;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            left:460px;
+            left:43%;
+            // border:1px solid red; 
+          }
+          .bar_05{
+            background-color: transparent;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            left:58%;
+            // border:1px solid red; 
+          }
+          .bar_06{
+            background-color: transparent;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            left:72%;
+            // border:1px solid red; 
+          }
+          .bar_07{
+            background-color: transparent;
+            height: 20px;
+            border-radius:30px;
+            position: absolute;
+            left:86%;
+            // border:1px solid red; 
           }
         }
       }
@@ -193,6 +259,7 @@
       }
     }
   }
+
   //蔬菜介紹頁面的裝飾蘿蔔
   .bg_white_radish_pic{
     position:absolute ;
@@ -204,27 +271,18 @@
     img{
       width:220px;
       position:absolute;
-      @include tablet{
-        width:150px;
-      };
-      @include pad{
-        width:120px;
-      };
-      @include mobile{
-        width:80px;
-      };
     }
   }
   //水果介紹頁的裝飾草莓
   .bg_strawberry_pic{
     position:absolute ;
-    right:300px;
-    top:-150px;
+    right:250px;
+    top:-80px;
     @include tablet{
      display:none;
     };
     img{
-      width:150px;
+      width:100px;
       position:absolute;
     }
   }
@@ -761,6 +819,7 @@
   justify-content: center;
   align-items: center;
   vertical-align: middle;
+  flex-wrap: wrap;
   .vagatable_detail_introduce_content , .fruit_detail_introduce_content{
     display:flex;
     justify-content: center;
@@ -780,7 +839,7 @@
         align-items: center;
         vertical-align: middle;
         flex-wrap: wrap;
-        width:60%;
+        width:50%;
         @include tablet{
           width:90%;
         };
@@ -790,33 +849,51 @@
         @include mobile{
           width:95%;
         };
-        .vagatable_detail_introduce_item , .fruit_detail_introduce_item {
-          padding:15px;
+        .vagatable_detail_introduce_item_button_box , .fruit_detail_introduce_item_button_box{
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          vertical-align: middle;
+          flex-wrap: wrap;
+          width:80%;
+          margin-bottom:20px;
           @include mobile{
-            padding:10px;
+            width:95%;
           };
-          img{
-            border-radius: 50%;
-            border:5px solid #91C359;
-            width:100px;
-            height:100px;
-            padding:5px;
-            @include tablet{
-              width:100px;
-              height:100px;
-            };
-            @include pad{
-              border:3px solid #91C359;
-              width:80px;
-              height:80px;
-            };
+
+          button{
+            background-color:transparent;
+            border-color:transparent;
+            cursor: pointer;
+           }
+          .vagatable_detail_introduce_item , .fruit_detail_introduce_item {
+            padding:10px;
             @include mobile{
-              border:2px solid #91C359;
-              width:60px;
-              height:60px;
+              padding:10px;
             };
+            img{
+              border-radius: 50%;
+              border:5px solid #91C359;
+              width:90px;
+              height:90px;
+              padding:3px;
+              @include tablet{
+                width:100px;
+                height:100px;
+              };
+              @include pad{
+                border:3px solid #91C359;
+                width:80px;
+                height:80px;
+              };
+              @include mobile{
+                border:2px solid #91C359;
+                width:60px;
+                height:60px;
+              };
+            }
           }
-        }
+        }  
         .strawberry{
           img{
             padding:15px 18px;

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../images/logo-02.svg">
   <script src="../js/jquery-3.6.0.js"></script>
+  <script src="../js/vue.js"></script>
 </head>
 
 <body onload="ifMember()">
@@ -75,138 +76,62 @@
     </div>
   </div>
   <!-- 生產流程介紹 -->
-  <div class="production_process_box vagatable_production_process_box">
+  <div class="production_process_box vagatable_production_process_box" id="process">
     <div class="production_process">
       <div clss="production_process_title">
-        <h2 class="farm_title_h2">生產流程介紹</h2>
+        <h2>生產流程介紹</h2>
       </div>
       <div class="process_content_box">
         <div class="process_content">
-          <div class="process_item">
+          <button class="process_item nursery" @click="content='nursery'">
             <h4>1.育苗</h4>
-            <img src=" ../images/farm/vagatable_page/process01.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/vagatable_page/process01.jpg" alt="nursery">
+          </button>
+          <button class="process_item soil" @click="content='soil'">
             <h4>2.土壤準備</h4>
-            <img src=" ../images/farm/vagatable_page/process02.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/vagatable_page/process02.jpg" alt="soil">
+          </button>
+          <button class="process_item transplant" @click="content='transplant'">
             <h4>3.移植</h4>
-            <img src=" ../images/farm/vagatable_page/process03.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/vagatable_page/process03.jpg" alt="transplant">
+          </button>
+          <button class="process_item" @click="content='fertilizer'">
             <h4>4.肥料</h4>
-            <img src=" ../images/farm/vagatable_page/process04.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/vagatable_page/process04.jpg" alt="fertilizer">
+          </button>
+          <button class="process_item" @click="content='dredge'">
             <h4>5.疏苗</h4>
-            <img src=" ../images/farm/vagatable_page/process05.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/vagatable_page/process05.jpg" alt="dredge">
+          </button>
+          <button class="process_item" @click="content='irrigation'">
             <h4>6.灌溉</h4>
-            <img src=" ../images/farm/vagatable_page/process06.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/vagatable_page/process06.jpg" alt="irrigation">
+          </button>
+          <button class="process_item" @click="content='harvest',showwhich(7)">
             <h4>7.採收</h4>
-            <img src=" ../images/farm/vagatable_page/process07.jpg" alt="process">
-          </div>
+            <img src=" ../images/farm/vagatable_page/process07.jpg" alt="harvest">
+          </button>
         </div>
         <!-- 進度條 -->
         <div class="process_bar">
           <div class="bar_item">
-            <div class="small_bar bar_01"></div>
-            <div class="small_bar bar_02"></div>
-            <div class="small_bar bar_03"></div>
-            <div class="small_bar bar_04"></div>
-            <div class="small_bar bar_05"></div>
-            <div class="small_bar bar_06"></div>
-            <div class="small_bar bar_07"></div>
+            <button class="small_bar bar_01" @click="content='nursery'($event)"></button>
+            <button class="small_bar bar_02" @click="content='soil'"></button>
+            <button class="small_bar bar_03" @click="content='transplant'"></button>
+            <button class="small_bar bar_04" @click="content='fertilizer'"></button>
+            <button class="small_bar bar_05" @click="content='dredge'"></button>
+            <button class="small_bar bar_06" @click="content='irrigation'"></button>
+            <button class="small_bar bar_07" @click="content='harvest'"></button>
           </div>
         </div>
       </div>
-      <div class="vagatable_process_box">
-        <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ../images/farm/vagatable_page/process_b01.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>01.育苗</h3>
-            <p>選用優良苗株，並種植在穴盤內</p>
-          </div>
-        </div>
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/vagatable_page/process_b02.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>02.土壤準備</h3>
-            <p>使用富含益生菌、多種有益微生物的培養土，土壤無污染，不含病菌及害蟲。</p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/vagatable_page/process_b03.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>03.移植</h3>
-            <p>待種子於育苗盤中培育25~30天，發芽長出4~5枚本葉，便可將蔬菜苗移植至田壟。
-              由於育苗蔬菜之幼苗生長勢弱，加上為了易於去除雜草，故需控制植株間栽培之行株距，而行株距通常也會依氣候的差異進行調整。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/vagatable_page/process_b04.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>04.肥料</h3>
-            <p>採用黑水虻幼蟲分解廚餘所轉換的虻糞施肥。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/vagatable_page/process_b05.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>05.疏苗</h3>
-            <p>目的主要為避免蔬菜於栽培期間幼苗生長過密導致徒長及空氣不流通，而於適當時期進行拔除採收部分蔬菜，以利其生長。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/vagatable_page/process_b06.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>06.灌溉</h3>
-            <p>通常於清晨或傍晚引水灌溉，提供植株水分。但需注意排水，避免水分過多及淹水過久，以免土壤水分過多使土中空氣稀少而阻礙根部呼吸作用。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/vagatable_page/process_b07.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>07.採收</h3>
-            <p>待蔬菜生長到達生長週期即可採收。
-            </p>
-          </div>
-        </div> -->
-      </div>
+      <component :is="content"></component>  
+      <!-- <component :is='"content - " + process_content[currentIndex].type"'></component>   -->
     </div>
     <div class="bg_white_radish_pic">
       <img src="../images/farm/box_1.png" alt="大根">
     </div>
   </div>
-
 
   <!-- 蔬果產期表 -->
   <div class="vagatable_vagatable_table">
@@ -376,58 +301,39 @@
         </div>
     </div>
   </div>
-  <div class="vagatable_detail_introduce_box">
+  <div class="vagatable_detail_introduce_box"  id="app1">
     <div class="vagatable_detail_introduce_content">
-        <div class="vagatable_etail_introduce_title">
-          <h2 class="farm_title_h2">品種介紹</h2>
+        <div class="vagatable_detail_introduce_title">
+          <h2>品種介紹</h2>
         </div>
         <div class="vagatable_detail_introduce_item_box">
-          <div class="vagatable_detail_introduce_item">
-            <img src="../images/farm/vagatable/cabbage.png" alt="cabbage">
+          <div class="vagatable_detail_introduce_item_button_box">
+              <button class="vagatable_detail_introduce_item cabbage" id="introduce_cabbage" @click="content='cabbage'">
+                <img src="../images/farm/vagatable/cabbage.png" alt="cabbage">
+              </button>
+              <button class="vagatable_detail_introduce_item chinese_cabbage" id="introduce_chinese_cabbage" @click="content='chinese_cabbage'">
+                <img src=" ../images/farm/vagatable/chinese_cabbage.png" alt="chinese_cabbage">
+              </button>
+              <button class="vagatable_detail_introduce_item lettuce" id="introduce_lettuce" @click="content='lettuce'">
+                <img src=" ../images/farm/vagatable/lettuce_01.png" alt="lettuce">
+              </button>
+              <button class="vagatable_detail_introduce_item carrot" id="introduce_carrot" @click="content='carrot'">
+                <img src=" ../images/farm/vagatable/carrot.png" alt="carrot">
+              </button>
+              <button class="vagatable_detail_introduce_item white_radish" id="introduce_white_radish" @click="content='white_radish'">
+                <img src=" ../images/farm/vagatable/white_radish.png" alt="white_radish">
+              </button>
+              <button class="vagatable_detail_introduce_item corn" id="introduce_corn" @click="content='corn'">
+                <img src=" ../images/farm/vagatable/corn.png" alt="corn">
+              </button>
+              <button class="vagatable_detail_introduce_item tomato" id="introduce_tomato" @click="content='tomato'">
+                <img src=" ../images/farm/vagatable/tomato.png" alt="tomato">
+              </button>
+              <button class="vagatable_detail_introduce_item sweet_potato" id="introduce_sweet_potato" @click="content='sweet_potato'">
+                <img src=" ../images/farm/vagatable/sweet_potato.png" alt="sweet_potato">
+              </button>
           </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/chinese_cabbage.png" alt="chinese_cabbage">
-          </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/lettuce_01.png" alt="lettuce">
-          </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/carrot.png" alt="carrot">
-          </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/white_radish.png" alt="white_radish">
-          </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/corn.png" alt="corn">
-          </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/tomato.png" alt="tomato">
-          </div>
-          <div class="vagatable_detail_introduce_item">
-            <img src=" ../images/farm/vagatable/sweet_potato.png" alt="sweet_potato">
-          </div>
-        </div>
-        <!-- 品種介紹內容 -->
-        <div class="vagatable_detail_introduce_detail_content_box">
-          <div class="vagatable_detail_introduce_detail_content">
-            <div class="vagatable_detail_introduce_detail_pic">
-              <img src="../images/farm/vagatable/cabbage.png" alt="cabbage">
-            </div>
-            <div class="vagatable_detail_introduce_detail_pic_title">
-              <h3>高麗菜</h3>
-            </div>
-            <div class="vagatable_introduce" >
-             <div class="vagatable_vertify_name">
-               <h5>品種名稱:</h5>
-               <p>台南1號(夏初秋)</p>
-             </div>
-             <div class="vagatable_planting_conditions">
-               <h5>種植條件:</h5>
-               <p>充足水分，適合溫度為15~21度，排水良好的砂質土壤</p>
-             </div>
-            </div>
-          </div>
-        </div>
+        <component :is="content"></component>
     </div>
   </div>
 
@@ -527,23 +433,7 @@
       </div>
     </div>
   </footer>
-  
-  <!-- 進度條特效 -->
-  <!-- <script>
-    function move() {
-        var elem = document.getElementsByClassName("small_bar");
-        var width = 1;
-        var id = setInterval(frame, 10);
-        function frame() {
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-                elem.style.width = width + '%';
-            }
-        }
-    }
-  </script> -->
+
   <script src="../js/right_nav_bar.js"></script>
   <script src="../js/shopping_cart.js"></script>
   <script src="../js/header.js"></script>
@@ -553,7 +443,6 @@
     document.addEventListener("scroll", function () {
       menu.style.top = (0 - (scrollY)) + "px";
     });
-
     $("#go_top").on("click", function (e) {
       e.preventDefault();
       $('html, body').animate({
@@ -561,6 +450,392 @@
       }, 750);
     });
   </script>
+
+  <!-- 生產流程介紹 -->
+  <script>
+     Vue.component('nursery',{
+     template: `  
+     <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b01.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>01.育苗</h3>
+            <p>選用優良苗株，並種植在穴盤內</p>
+          </div>
+        </div>
+      </div>  
+      `,
+   });
+   Vue.component('soil',{
+     template: `  
+     <div class="vagatable_process_box">
+       <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b02.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>02.土壤準備</h3>
+            <p>使用富含益生菌、多種有益微生物的培養土，土壤無污染，不含病菌及害蟲。</p>
+          </div>
+        </div>
+      </div>  
+      `,
+   });
+   Vue.component('transplant',{
+     template: `  
+     <div class="vagatable_process_box">
+       <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b03.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>03.移植</h3>
+            <p>待種子於育苗盤中培育25~30天，發芽長出4~5枚本葉，便可將蔬菜苗移植至田壟。
+              由於育苗蔬菜之幼苗生長勢弱，加上為了易於去除雜草，故需控制植株間栽培之行株距，而行株距通常也會依氣候的差異進行調整。
+            </p>
+          </div>
+        </div>
+      </div>  
+    `,
+   });
+   Vue.component('fertilizer',{
+     template: `  
+     <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b04.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>04.肥料</h3>
+            <p>採用黑水虻幼蟲分解廚餘所轉換的虻糞施肥。
+            </p>  
+          </div>
+        </div>
+      </div>  
+      `,
+   });
+   Vue.component('dredge',{
+     template: `  
+     <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b05.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>05.疏苗</h3>
+            <p>目的主要為避免蔬菜於栽培期間幼苗生長過密導致徒長及空氣不流通，而於適當時期進行拔除採收部分蔬菜，以利其生長。
+            </p>
+          </div>
+        </div>
+      </div>  
+      `,
+   });
+   Vue.component('irrigation',{
+     template: `  
+     <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b06.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>06.灌溉</h3>
+            <p>通常於清晨或傍晚引水灌溉，提供植株水分。但需注意排水，避免水分過多及淹水過久，以免土壤水分過多使土中空氣稀少而阻礙根部呼吸作用。
+            </p>
+          </div>
+        </div>
+      </div>  
+      `,
+   });
+   Vue.component('harvest',{
+     template: `  
+     <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+          <div class="vagatable_process_pic">
+            <img src=" ../images/farm/vagatable_page/process_b07.jpg" alt="process">
+          </div>
+          <div class="vagatable_process_descript">
+            <h3>07.採收</h3>
+            <p>待蔬菜生長到達生長週期即可採收。
+            </p>
+          </div>
+        </div>
+      </div>  
+      `,
+   });
+
+   new Vue({
+           el: '#process',
+           data: {
+               content:'nursery', 
+               timer:'',
+               value:0,
+           },    
+           methods: {
+             get(){
+               this.value ++;
+               console.log(this.value);
+             }
+           },
+          mounted() {
+            function prosess_silder() {
+              let bar = document.getElementsByClassName("bar_item");  //進度條
+              bar.width = (index / 7) + '%';  //進度條長度
+
+              let processs_content = document.getElementsByClassName("process_item")[0]; //介紹內容
+              
+              setTimeout(() => {
+                  $nextSlide.style.transform = "translateX(0)";
+                  // ...
+              }, 0);
+              
+             
+            }
+
+            this.timer  = setTimeout(this.get,1000);//定時器
+          
+          // methods: {
+          //   showwhich(index){
+          //     alert(index);
+          //     let bar = document.getElementsByClassName('bar')[0];
+          //     bar.width = (index / 7) + '%'; 
+          //   }
+            
+          // }
+          },
+         
+          beforeDestroy() {
+            clearTimeout(this.timer);
+          },
+
+     });
+  </script>
+
+  <!-- 品種介紹 -->
+  <script>
+    Vue.component('cabbage',{
+     template: `
+      <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/cabbage.jpg" alt="cabbage">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>高麗菜</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>台南1號(夏初秋)</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>充足水分，適合溫度為15~21度，排水良好的砂質土壤</p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('chinese_cabbage',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/chinese_cabbage.jpg" alt="chinese_cabbage">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>小白菜</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>無絲小白菜</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              日照:須有充足明亮的光線。  土壤: 肥沃、疏鬆、保水、排水良好之砂質壤土。 種植株距: 約15∼20公分。 水量: 不耐旱，須保持土壤濕潤，早晚各澆一次水。溫度: 20∼25℃。 小白菜採撒播的方式栽種，必須注意種子要疏密適當，苗株才能均勻生長。 小白菜根系淺，不耐旱，生長期間要有充足的水分。此外，必須注意土壤要排水良好，以防產生病蟲害。澆水時注意避免沖散種子。栽種小白菜可以紗網覆蓋，略為抵擋風雨。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('lettuce',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/lettuce.jpg" alt="lettuce">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>萵苣</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>共三種:蘿蔓萵苣、紅橡木萵苣、紅皺葉萵苣</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              萵苣性冷涼氣候。萵苣成長過程低限溫度 為4℃，生長適溫在11～25℃，結球適溫為17～18℃氣溫。萵苣雖然對土壤適應性廣，但由於其根群較小，只分佈在表土層，因此以排水良好，肥沃的有機砂質壤土最佳，生育期間注意保持土壤濕潤。pH值5.5-6.5為宜。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('carrot',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/carrot.jpg" alt="carrot">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>紅蘿蔔</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>陽光人參</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              適合冷涼氣候，生育最佳溫度為18℃-21℃，高溫時根形變劣，發育緩慢，表皮粗糙，超過28℃以上各部生育停頓且易發生病害，3℃以下根部發育停止，已肥大之根不易受害，16℃-20℃根部著色良好。土壤之適應性依品種而異，長根種適於土層深厚之沖積土；短根種適於砂質壤土，色澤較好，土壤PH值6.0-6.6較適合栽培。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('white_radish',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/white_radish.jpg" alt="white_radish">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>白蘿蔔</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>改良四真大梅花</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              蘿蔔性喜冷涼氣候，耐寒性較強。適於排水良好，表土深厚的砂質壤土。白蘿蔔的生長溫度在18攝氏度左右。生長的環境濕度要達到85%左右，同時水分不易過多，不然會造成蘿蔔根部表面粗糙，甚至缺氧死亡的情況發生。水分不足的話一般會導致蘿蔔出現開裂的現象。白蘿蔔需要充足的光照，因為光照的充足與否，會直接影響到蘿蔔的產量多少。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('corn',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/corn.jpg" alt="corn">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>玉米</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>興農236</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              玉米是短日照植物,日照時數在12小時內,成熟提早。長日照則開花延遲,甚至不能結穗。在短日照(8-10小時)條件下可開花結實。玉米的植株高大、葉面積較大,因而蒸騰作用強,生長期間內最適的降水量為600mm左右。當土壤含水量下降到田間持水量50%-55%時,就需要灌溉。玉米對土壤要求不十分嚴格,土質疏鬆,土層深厚即可,以有機質豐富的黑土、黑鈣土、淡黑鈣土、沖積土和厚層草甸土為最好,pH為5-8範圍內均可種植玉米,其中以6.5-7.0最為適宜。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('tomato',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/tomato.jpg" alt="tomato">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>大番茄</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>黑柿番茄</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              蕃茄適合壤土或較黏質土種植，結果的適合溫度為19-24℃,溫度過高尤其夜溫過高時，易引起嚴重落花現象，致使結果不良，甚或不完全結果或結的果實較小。番茄果實紅色『茄紅素』的發育適溫在19-24℃左右。溫度超過30℃時，則發育不良，果實著色不佳，不呈紅色而呈橙黃色。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   Vue.component('sweet_potato',{
+     template: `
+     <div class="vagatable_detail_introduce_detail_content_box">
+        <div class="vagatable_detail_introduce_detail_content">
+          <div class="vagatable_detail_introduce_detail_pic">
+            <img src="../images/farm/vagatable/sweet_potato02.jpg" alt="sweet_potato">
+          </div>
+          <div class="vagatable_detail_introduce_detail_pic_title">
+            <h3>地瓜</h3>
+          </div>
+          <div class="vagatable_introduce" >
+          <div class="vagatable_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>有機66號紅心地瓜</p>
+          </div>
+          <div class="vagatable_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              生產期間需要高溫，充分日照、適當降雨量，生長適溫在20~30度之間，溫度在15度以上時才能發芽及發根，溫度長時間高於35度會造成生育減退，10~15度生長呈現休眠狀態。
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+     `,
+   });
+
+   new Vue({
+           el: '#app1',
+           data: {
+               content:'cabbage', //預設是第一筆
+           },       
+       });
+
+ </script>
 </body>
 
 </html>
