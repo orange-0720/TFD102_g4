@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../images/logo-02.svg">
   <script src="../js/jquery-3.6.0.js"></script>
-  <script src="../js/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
 </head>
 
 <body onload="ifMember()">
@@ -344,23 +344,23 @@
      </div>
      <div class="farm_products_item_box">
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/3"></a>
         <img src=" ../images/farm/vagatable/s_cabbage.jpg" alt="cabbage">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/9"></a>
         <img src=" ../images/farm/vagatable/s_tomato.jpg" alt="tomato">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/6"></a>
         <img src=" ../images/farm/vagatable/s_white_radish.jpg" alt="white_radish">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/7"></a>
         <img src=" ../images/farm/vagatable/s_carrot.jpg" alt="carrot">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/8"></a>
         <img src=" ../images/farm/vagatable/s_corn.jpg" alt="corn">
        </div>
        <div class="farm_products_item">
@@ -368,15 +368,15 @@
         <img src=" ../images/farm/vagatable/s_onion.jpg" alt="onion">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/5"></a>
         <img src=" ../images/farm/vagatable/s_lettuce.jpg" alt="lettuce">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/4"></a>
         <img src=" ../images/farm/vagatable/s_chinese_cabbage.jpg" alt="chinese_cabbage">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/10"></a>
         <img src=" ../images/farm/vagatable/s_sweet_potato.jpg" alt="sweet_potato">
        </div>
      </div>
@@ -431,6 +431,10 @@
           <a href="./shopping_page.html">水果</a>
         </div>
       </div>
+    </div>
+    <div  style=" text-align: center; padding: 20px 0px;">
+      本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+      若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
     </div>
   </footer>
 
@@ -566,50 +570,49 @@
    });
 
    new Vue({
-           el: '#process',
-           data: {
-               content:'nursery', 
-               timer:'',
-               value:0,
-           },    
-           methods: {
-             get(){
-               this.value ++;
-               console.log(this.value);
-             }
-           },
-          mounted() {
-            function prosess_silder() {
-              let bar = document.getElementsByClassName("bar_item");  //進度條
-              bar.width = (index / 7) + '%';  //進度條長度
+        el: '#process',
+        data: {
+            content:'nursery', 
+            timer:'',
+            value:0,
+        },    
+        methods: {
+          get(){
+            this.value ++;
+            console.log(this.value);
+          }
+        },
+      mounted() {
+        function prosess_silder() {
+          let bar = document.getElementsByClassName("bar_item");  //進度條
+          bar.width = (index / 7) + '%';  //進度條長度
 
-              let processs_content = document.getElementsByClassName("process_item")[0]; //介紹內容
-              
-              setTimeout(() => {
-                  $nextSlide.style.transform = "translateX(0)";
-                  // ...
-              }, 0);
-              
-             
-            }
-
-            this.timer  = setTimeout(this.get,1000);//定時器
+          let processs_content = document.getElementsByClassName("process_item")[0]; //介紹內容
           
-          // methods: {
-          //   showwhich(index){
-          //     alert(index);
-          //     let bar = document.getElementsByClassName('bar')[0];
-          //     bar.width = (index / 7) + '%'; 
-          //   }
-            
-          // }
-          },
-         
-          beforeDestroy() {
-            clearTimeout(this.timer);
-          },
+          setTimeout(() => {
+              $nextSlide.style.transform = "translateX(0)";
+              // ...
+          }, 0);
+          
+          
+        }
 
-     });
+        this.timer  = setTimeout(this.get,1000);//定時器
+      
+      // methods: {
+      //   showwhich(index){
+      //     alert(index);
+      //     let bar = document.getElementsByClassName('bar')[0];
+      //     bar.width = (index / 7) + '%'; 
+      //   }
+        
+      // }
+      },
+      
+      beforeDestroy() {
+        clearTimeout(this.timer);
+      },
+   });
   </script>
 
   <!-- 品種介紹 -->
@@ -619,7 +622,7 @@
       <div class="vagatable_detail_introduce_detail_content_box">
         <div class="vagatable_detail_introduce_detail_content">
           <div class="vagatable_detail_introduce_detail_pic">
-            <img src="../images/farm/vagatable/cabbage.jpg" alt="cabbage">
+            <img src="../images/farm/vagatable/cabbage.png" alt="cabbage">
           </div>
           <div class="vagatable_detail_introduce_detail_pic_title">
             <h3>高麗菜</h3>
@@ -806,7 +809,7 @@
      <div class="vagatable_detail_introduce_detail_content_box">
         <div class="vagatable_detail_introduce_detail_content">
           <div class="vagatable_detail_introduce_detail_pic">
-            <img src="../images/farm/vagatable/sweet_potato02.jpg" alt="sweet_potato">
+            <img src="../images/farm/vagatable/sweet_potato.jpg" alt="sweet_potato">
           </div>
           <div class="vagatable_detail_introduce_detail_pic_title">
             <h3>地瓜</h3>
@@ -828,12 +831,12 @@
      `,
    });
 
-   new Vue({
-           el: '#app1',
-           data: {
-               content:'cabbage', //預設是第一筆
-           },       
-       });
+  new Vue({
+      el: '#app1',
+      data: {
+          content:'cabbage', //預設是第一筆
+      },       
+  });
 
  </script>
 </body>

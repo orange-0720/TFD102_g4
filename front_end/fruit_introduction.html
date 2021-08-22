@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../images/logo-02.svg">
   <script src="../js/jquery-3.6.0.js"></script>
-  <script src="../js/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
 </head>
 
 <body onload="ifMember()">
@@ -84,31 +84,31 @@
       </div>
       <div class="process_content_box">
         <div class="process_content">
-          <button class="process_item seedling" @click="content='seedling'">
+          <button class="process_item seedling" @click="moveToNO(1)">
             <h4>1.苗木</h4>
             <img src=" ../images/farm/fruit_page/process_s01.jpg" alt="seedling">
           </button>
-          <button class="process_item planting_distance" @click="content='planting_distance'">
+          <button class="process_item planting_distance" @click="moveToNO(2)">
             <h4>2.種植行株距</h4>
             <img src=" ../images/farm/fruit_page/process_s02.jpg" alt="planting_distance">
           </button>
-          <button class="process_item fertilize" @click="content='fertilize'">
+          <button class="process_item fertilize" @click="moveToNO(3)">
             <h4>3.施肥</h4>
             <img src=" ../images/farm/fruit_page/process_s03.jpg" alt="fertilize">
           </button>
-          <button class="process_item pruning" @click="content='pruning'">
+          <button class="process_item pruning" @click="moveToNO(4)">
             <h4>4.整枝</h4>
             <img src=" ../images/farm/fruit_page/process_s04.jpg" alt="pruning">
           </button>
-          <button class="process_item flowering" @click="content='flowering'">
+          <button class="process_item flowering" @click="moveToNO(5)">
             <h4>5.開花</h4>
             <img src=" ../images/farm/fruit_page/process_s05.jpg" alt="flowering">
           </button>
-          <button class="process_item fruitful" @click="content='fruitful'">
+          <button class="process_item fruitful" @click="moveToNO(6)">
             <h4>6.結果</h4>
             <img src=" ../images/farm/fruit_page/process_s06.jpg" alt="fruitful">
           </button>
-          <button class="process_item harvest" @click="content='harvest'">
+          <button class="process_item harvest" @click="moveToNO(7)">
             <h4>7.採收</h4>
             <img src=" ../images/farm/fruit_page/process_s07.jpg" alt="harvest">
           </button>
@@ -125,7 +125,18 @@
           </div>
         </div>
       </div>
-      <component :is="content"></component>  
+      <!-- <component :is="content"></component>   -->
+      <div  id="slider">
+        <ul>
+          <li><seedling/></li>
+          <li><plantingDistance/></li>
+          <li><fertilize/></li>
+          <li><pruning/></li>
+          <li><flowering/></li>
+          <li><fruitful/></li>
+          <li><harvest/></li>
+        </ul>
+      </div>
     </div>
     <div class="bg_strawberry_pic">
       <img src="../images/farm/bg_strawberry.png" alt="草莓">
@@ -334,10 +345,8 @@
               </button>
            
           </div>   
-            
-             <!-- component這個標籤利用 :is 這個屬性去幫你 v-bind ，
-             因為component有一個屬性叫is，只是它的屬性值要從Vue來 -->
-             <component :is="content"></component>
+          
+          <component :is="content"></component>
     </div>
   </div>
 
@@ -348,39 +357,39 @@
      </div>
      <div class="farm_products_item_box">
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/11"></a>
         <img src=" ../images/farm/fruit/s_strawberry.jpg" alt="strawberry">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/12"></a>
         <img src=" ../images/farm/fruit/s_mango.jpg" alt="mango">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/14"></a>
         <img src=" ../images/farm/fruit/s_cherry_tomato.jpg" alt="cherry_tomato">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/15"></a>
         <img src=" ../images/farm/fruit/s_banana.jpg" alt="banana">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/16"></a>
         <img src=" ../images/farm/fruit/s_guava.jpg" alt="guava">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/18"></a>
         <img src=" ../images/farm/fruit/s_persimmon.jpg" alt="persimmon">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/17"></a>
         <img src=" ../images/farm/fruit/s_lemon.jpg" alt="lemon">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/13"></a>
         <img src=" ../images/farm/fruit/s_orange.jpg" alt="orange">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/14"></a>
         <img src=" ../images/farm/fruit/s_cherry_tomato01.jpg" alt="cherry_tomato">
        </div>
      </div>
@@ -435,6 +444,10 @@
           <a href="./shopping_page.html">水果</a>
         </div>
       </div>
+    </div>
+    <div  style=" text-align: center; padding: 20px 0px;">
+      本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+      若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
     </div>
   </footer>
 
@@ -573,11 +586,67 @@
     });
  
     new Vue({
-            el: '#process',
-            data: {
-                content:'seedling', //預設是第一筆
-            },       
-      });
+      el: '#process',
+      data: {
+          content:1, //預設是第一筆
+          contentLength:7
+      }, 
+      methods: {
+        moveLeft: function(isClick) {
+          const vm=this
+          var slideWidth = $('#slider ul li').width();
+            $('#slider ul').animate({
+                left: + slideWidth
+            },  isClick?50:200, function () {
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+            vm.content>1?(vm.content-=1):(vm.content=vm.contentLength)
+            },
+        moveRight:function(isClick) {
+          const vm=this
+          var slideWidth = $('#slider ul li').width();
+            $('#slider ul').animate({
+                left: - slideWidth
+            }, isClick?50:200, function () {
+                $('#slider ul li:first-child').appendTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+            vm.content<vm.contentLength?(vm.content+=1):(vm.content=1)
+          },
+        moveToNO:function(order){
+          const vm =this
+          let deviation =order-vm.content
+          let directionLeft= (deviation)<0
+          let times =Math.abs(deviation)
+          if(directionLeft){
+            for (let i = 0; i < times; i++) {
+              vm.moveLeft(true)
+          }
+          return
+          }
+          if(!directionLeft){
+            for (let i = 0; i < times; i++) {
+              vm.moveRight(true)
+            }
+          }
+        }         
+      },
+      mounted() {
+        const vm =this
+        jQuery(document).ready(function ($) {
+          var slideCount = $('#slider ul li').length;
+          var slideWidth = $('#slider ul li').width();
+          var sliderUlWidth = slideCount * slideWidth;
+          $('#slider').css({ width: slideWidth });
+          $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+          $('#slider ul li:last-child').prependTo('#slider ul');
+          setInterval(function () {
+            vm.moveRight();
+          }, 5000);
+        });    
+      }  
+    });
    </script>
 
   <script>
@@ -842,47 +911,3 @@
 </body>
 
 </html>
-
-
-
-
-<!-- fruit_name_arr: [
-"草莓" ,
-"芒果" ,
-"柳丁" ,
-"小番茄",
-"香蕉",
-"番石榴(芭樂)",
-"檸檬",
-"柿子"
-],
-fruit_variety_arr = [
-"台農1號(結合香水與豐香的新品種)",
-"金煌",
-"柳丁(又稱柳橙)",
-"聖女番茄",
-"北蕉",
-"彩虹芭樂(西瓜芭樂)",
-"無子檸檬(萊姆)",
-"甜柿-次郎"
-],
-fruit_plan_condition_arr: [
-'草莓喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'芒果喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'柳丁喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'小番茄喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'香蕉喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'芭樂喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'檸檬喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-'柿子喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。',
-],
-fruit_sweety_arr: [
-"約為10～12度，最高可達14度",
-"約為8～12度，最高可達14度",
-"約為5～12度，最高可達14度",
-"約為3～5度，最高可達14度",
-"約為5～7度，最高可達14度",
-"約為8～12度，最高可達14度",
-"約為6～8度，最高可達14度",
-"約為8～10度，最高可達14度",
-], -->
