@@ -336,12 +336,12 @@ body{
                     margin-top: 10px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                         &:last-child{
                             margin-top: 10px;
@@ -354,13 +354,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                         &:last-child,
                         &:nth-child(2){
@@ -374,13 +374,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                     }
                 }
@@ -391,13 +391,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                         &:last-child,
                         &:nth-child(2){
@@ -411,13 +411,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                     }
                 }
@@ -522,6 +522,7 @@ body{
             display: none;
             @include marginAuto();
             margin-top: 30px;
+
             .order_line{
                 width: 100%;
                 display:flex;
@@ -538,6 +539,7 @@ body{
                 display:flex;
                 h4{
                     padding: 15px 0px;
+                    margin: 0px;
                     width: 25%;
                     text-align: center;
                 }
@@ -655,6 +657,7 @@ body{
         }
     }
 }
+
 
 // 購物車
 .cart_bk {
@@ -1059,4 +1062,10 @@ body{
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
+}
+
+input{
+    &:focus{
+        outline: none;
+    }
 }

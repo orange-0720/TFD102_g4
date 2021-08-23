@@ -104,7 +104,7 @@
         $filePath = $ServerRoot.'/tfd102/project/g4/images/upload/';
         // $filePath = "/tfd102_g4/images/upload/";
 
-        return $ServerRoot . $filePath;
+        return $filePath;
       }
       
 

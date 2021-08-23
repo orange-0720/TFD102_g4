@@ -229,6 +229,11 @@ textarea{
             margin: 10px 0px;
             padding: 10px 10%;
             font-size: $h4;
+            input{
+                &:focus{
+                    outline: none;
+                }
+            }
         }
         .checkout_s2_deliver_infro_group{
             margin-top: 10px;
@@ -311,6 +316,7 @@ textarea{
                 margin: 10px 0px;
                 padding: 10px 10%;
                 font-size: $h4;
+                
             }
             .checkout_s2_deliver_infro_group{
                 margin-top: 10px;
@@ -626,4 +632,8 @@ textarea{
             }
         }
     }
+}
+
+.error{
+    border: 2px solid $red !important;
 }

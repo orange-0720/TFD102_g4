@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon" href="../images/logo-02.svg">
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   </head>
   <body onload="ifMember()">
     <header class="header">
@@ -37,7 +37,7 @@
           <button class="comm_us">
             聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
           </button>
-          <a class="buy_now">
+          <a class="buy_now" href="./shopping_page.html">
             立即買<img src="../images/buy_now.svg" width="25px" alt="" />
           </a>
         </div>
@@ -818,44 +818,119 @@
         methods: {
           order_confirm() {
             if(this.payment == '貨到付款'){
-              $.ajax({
-                method: 'POST',
-                url: '../php/orderMake.php',
-                data:{
-                  EMAIL: $('.receiver_email').val(),
-                  PHONE: $('.receiver_phone').val(),
-                  RECIPIENT: $('.deliver_name').val(),
-                  ORDER_PHONE: $('.deliver_phone').val(),
-                  buyer: $('.receiver_name').val(),
-                  CITY: this.mainArea,
-                  AREA: this.subArea,
-                  ADDRESS: this.address,
-                  TOTAL_PRICE: this.total_money,
-                  REMARKS: this.note,
-                  discount: this.cuppon_money,
-                  cart_items: this.cart_items,
-                  fruit_boxs: this.fruit_boxs,
-                  gender: this.gender,
-                  payment:this.payment,
-                },
-                dataType: 'json',
-                success: function(response) {
-                  console.log(response)
-                  if(response == 'yes'){
-                    sessionStorage.clear();
-                    window.location.href='checkout_s3.html'
+                let answer = 0;
+    
+                if($('.receiver_name').val() != ''){
+                  answer ++ ;
+                }else{
+                  $('.receiver_name').addClass('error');
+                }
+    
+                if($('.receiver_email').val() != ''){
+                  let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+                  let strEmail = $('.receiver_email').val();
+                  if(strEmail.search(emailRule)!= -1){
+                    answer ++;
                   }else{
-                    alert('錯誤');
-                    console.log(response);
+                    $('.receiver_email').addClass('error');
                   }
-                },
-                error: function(exception) {
-                    console.log(exception)
-                    alert("發生錯誤: " + exception.status);
-                },
-              })
+                }else{
+                  $('.receiver_email').addClass('error');
+                }
+    
+                if($('.receiver_phone').val() !=''){
+                  let partten = /^09[0-9]{8}$/;
+                  if(partten.test($('.receiver_phone').val()) == true){
+                    answer ++
+                  }else{
+                    $('.receiver_phone').addClass('error');
+                  }
+                }else{
+                  $('.receiver_phone').addClass('error');
+                }
+                
+                if($('.deliver_name').val() !=''){
+                  answer ++;
+                }else{
+                  $('.deliver_name').addClass('error');
+                }
+    
+                if($('.deliver_phone').val() !=""){
+                  let partten = /^09[0-9]{8}$/;
+                  if(partten.test($('.deliver_phone').val()) == true){
+                    answer ++
+                  }else{
+                    $('.deliver_phone').addClass('error');
+                  }
+                }else{
+                  $('.deliver_phone').addClass('error');
+                }
+    
+                if(this.mainArea != '請選擇縣市'){
+                  answer ++
+                }else{
+                  $('.checkout_s2_city').addClass('error')
+                }
+    
+                if(this.subArea != '請選擇分區'){
+                  answer ++
+                }else{
+                  $('.checkout_s2_area').addClass('error')
+                }
+    
+                if(this.address !=''){
+                  answer ++;
+                }else{
+                  $('.checkout_s2_area ~ input').addClass('error')
+                };
+                
+                if(this.privacy == true){
+                  answer ++;
+                }else{
+                  $('.chekout_s2_order_privacy > label').addClass('error');
+                }
+    
+                if(answer == 9){
+                  $.ajax({
+                    method: 'POST',
+                    url: '../php/orderMake.php',
+                    data:{
+                      EMAIL: $('.receiver_email').val(),
+                      PHONE: $('.receiver_phone').val(),
+                      RECIPIENT: $('.deliver_name').val(),
+                      ORDER_PHONE: $('.deliver_phone').val(),
+                      buyer: $('.receiver_name').val(),
+                      CITY: this.mainArea,
+                      AREA: this.subArea,
+                      ADDRESS: this.address,
+                      TOTAL_PRICE: this.total_money,
+                      REMARKS: this.note,
+                      discount: this.cuppon_money,
+                      cart_items: this.cart_items,
+                      fruit_boxs: this.fruit_boxs,
+                      gender: this.gender,
+                      payment:this.payment,
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                      console.log(response)
+                      if(response == 'yes'){
+                        sessionStorage.clear();
+                        window.location.href='checkout_s3.html'
+                      }else{
+                        alert('錯誤');
+                        console.log(response);
+                      }
+                    },
+                    error: function(exception) {
+                        console.log(exception)
+                        alert("發生錯誤: " + exception.status);
+                    },
+                  })
+                }else{
+                  alert('請填妥紅框內容或確認內容是否有誤')
+                }
             }else{
-
               let answer = 0;
   
               if($('.receiver_name').val() != ''){
@@ -1021,6 +1096,11 @@
               $('.deliver_name').val('');
               $('.deliver_phone').val('');
             }
+          },
+          privacy:function(){
+            if(this.privacy == true){
+              $('.chekout_s2_order_privacy > label').removeClass('error');
+            }
           }
         },
         mounted() {
@@ -1032,7 +1112,7 @@
           if(cart_items){
             this.cart_items = cart_items;
             cart_items.forEach(function(cart, i){
-              total_money += cart.total_price;
+              total_money += parseInt(cart.total_price);
               return total_money;
             })
             this.total_item += cart_items.length;
@@ -1045,7 +1125,7 @@
           if(fruit_boxs){
             this.fruit_boxs = fruit_boxs;
             fruit_boxs.forEach(function(box, i){
-              total_money += box.total_price;
+              total_money += parseInt(box.total_price);
             })
             this.total_item += fruit_boxs.length;
           }

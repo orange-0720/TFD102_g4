@@ -60,6 +60,7 @@
                 <th scope="col">會員編號</th>
                 <th scope="col">留言日期</th>
                 <th scope="col">留言內容</th>
+                <th scope="col">留言圖片</th>
                 <th scope="col">回覆內容</th>
                 <th scope="col">回覆狀態</th>
                 <th scope="col">編輯</th>
@@ -71,26 +72,6 @@
           </table>
         </div>
     </div>
-    <!-- <div class="row justify-content-center">
-      <nav aria-label="Page navigation example ">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">4</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div> -->
   </div>
   </section>
   </div>
@@ -148,6 +129,25 @@
 
   <!-- 編輯留言彈窗 -->
 
+  <!-- 查看圖片彈窗 -->
+  <div class="modal fade" id="img_pop" tabindex="-1" role="dialog" aria-labelledby="img_popTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <form method="post" id="data_from">
+              <input type="hidden" data-img="message_img" name="file">
+                <img alt="無上傳圖片" id="message_img" style="width:100%;">
+              <!-- PK記錄在這，form送出時才能知道要更新那一筆資料 -->
+              <input type="hidden" name="MESSAGE_BOARD_ID" id="MESSAGE_BOARD_ID" />
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 查看圖片彈窗 -->
+
     <footer>
     <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -160,12 +160,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
-    <script type="text/javascript" src="/src/main.js"></script> -->
 
   <script src="../js/backend_search.js"></script>
-
-
 
 
   <script>
@@ -238,6 +234,8 @@
           '<th scope="row">' + row.CUSTOMER_ID + '</th>' +
           '<th scope="row">' + row.ADD_DATE + '</th>' +
           '<th scope="row" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;" title="' + row.COMMENTS + '">' + row.COMMENTS + '</th>' +
+          '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#img_pop" onclick="imgShow(' + row.MESSAGE_BOARD_ID + ')">' +
+          '查看' + '</button></td>' +
           '<th scope="row" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;" title="' + reply + '">' + reply + '</th>' +
           '<th scope="row">' + status + '</th>' +
           '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#modify_pop" onclick="modify(' + row.MESSAGE_BOARD_ID + ')">' +
@@ -294,6 +292,25 @@
           alert("發生錯誤: " + exception.status);
         },
       })
+    }
+
+
+    function imgShow(id){
+      $.ajax({
+        method: "POST",
+        url: "./API/message/backend_messageImg.php",
+        data: {
+          "id": id
+        },
+        dataType: "json",
+        success: function (response) {
+          // console.log(response.MESSAGE_IMG);
+          $('#message_img').attr('src', response.MESSAGE_IMG);
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        }
+      });
     }
 
   </script>

@@ -295,6 +295,44 @@ header{
                         animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
                         animation-direction:alternate-reverse;
                     }
+                    p{
+                        color:transparent;
+                        position:absolute;
+                        top:-120px;
+                        right:100px;
+                        z-index: -1;
+                        animation:cute_animal_text01;
+                        animation-duration: 2s;
+                        animation-delay: 3s;
+                        animation-iteration-count:infinite;
+                        animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                        animation-direction:alternate-reverse;
+                        @keyframes cute_animal_text01 {
+                            0% {
+                                top:-130px; 
+                                color:#ED8217;
+                                right:80px;
+                                transform: rotate(10deg);
+                              }
+                            50% {
+                                top:-150px; 
+                                right:100px;
+                                transform: rotate(12deg);
+                              }
+                            75%{
+                                top:-160px; 
+                                right:90px;
+                                color:#ED8217;
+                                transform: rotate(-10deg);
+                            }  
+                            100% {
+                                top: -130px;
+                                right:80px;
+                                color:#ED8217;
+                                transform: rotate(5deg);
+                            }  
+                        }
+                    }
                     @keyframes cute_animal {
                         0% {
                             top:-80px; 
@@ -348,6 +386,41 @@ header{
                         animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
                         animation-direction:alternate-reverse;
                     }
+                    p{
+                        color:transparent;
+                        position:absolute;
+                        top:-120px;
+                        right:100px;
+                        z-index: -1;
+                        animation:cute_animal_text02;
+                        animation-duration: 2s;
+                        animation-delay: 3s;
+                        animation-iteration-count:infinite;
+                        animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                        animation-direction:alternate-reverse;
+                        @keyframes cute_animal_text02 {
+                            0% {
+                                top:-160px; 
+                                color:#ED8217;
+                                right:60px;
+                              }
+                            50% {
+                                top:-150px; 
+                                right:100px;
+                                transform: rotate(15deg);
+                              }
+                            75%{
+                                top:-160px; 
+                                right:90px;
+                                color:#ED8217;
+                                transform: rotate(-15deg);
+                            }  
+                            100% {
+                                top: -130px;
+                                right:80px;
+                            }  
+                        }
+                    }
                     @keyframes cute_animal {
                         0% {
                             top:-220px; 
@@ -362,6 +435,234 @@ header{
                             top: -130px;
                         }  
                     }
+                }
+            }
+            .about_us_decoration_foot_img{
+                position:absolute;
+                top:-100px;
+                right:150px;
+                animation:footprint;
+                animation-duration: 7s;
+                animation-delay: 5s;
+                animation-iteration-count:infinite;
+                animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                animation-direction:normal;
+                @include tablet{
+                    display:none;
+                };
+                @keyframes footprint {
+                    0%{
+                        top:-60px;
+                        right:150px;
+                    }
+                    20%{
+                        top:-40px;
+                        right:170px;
+                    }
+                    40%{
+                        top:-20px;
+                        right:180px;
+                    }
+                    60%{
+                        top:0px;
+                        right:200px;
+                    }
+                    80%{
+                        top:10px;
+                        right:220px;
+                    }
+                    100%{
+                        top:50px;
+                        right:240px;
+                    }                
+                }
+                .left_foot{
+                    position:relative;
+                    animation:leftfoot;
+                    animation-duration: 5s;
+                    animation-delay: 3s;
+                    animation-iteration-count:infinite;
+                    animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                    animation-direction:alternate-reverse;
+                    @keyframes leftfoot {
+                        0%{
+                            opacity:1;
+                            top:0px;
+                            right:2px;
+                        }
+                        20%{
+                            opacity:0;
+                            top:2px;
+                        }
+                        40%{
+                            opacity:1;
+                            top:0px;
+                            right:2px;
+                        }
+                        60%{
+                            opacity:0;
+                            top:2px;                           
+                        }
+                        80%{
+                            opacity:1;
+                            top:0px;   
+                            right:2px;                      
+                        }
+                        100%{
+                            opacity:0;
+                            top:2px;
+                        }    
+                    }    
+                }
+                .right_foot{
+                    position:relative;
+                    padding:10px;
+                    animation:rightfoot;
+                    animation-duration: 5s;
+                    animation-delay: 3s;
+                    animation-iteration-count:infinite;
+                    animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                    animation-direction:alternate-reverse;
+                    @keyframes rightfoot {
+                        0%{
+                            opacity:0;
+                        }
+                        20%{
+                            opacity:1;
+                            top:0px;
+                            right:5px;
+                        }
+                        40%{
+                            opacity:0;
+                        }
+                        60%{
+                            opacity:1;
+                            top:0px;
+                            right:5px;
+                        }
+                        80%{
+                            opacity:0;
+                        }
+                        100%{
+                            opacity:1;
+                            top:0px;
+                            right:5px;
+                        }
+                    }    
+                }
+            }
+            .about_us_decoration_foot_img01{
+                position:absolute;
+                top:1150px;
+                left:120px;
+                animation:footprint01;
+                animation-duration: 7s;
+                animation-delay: 5s;
+                animation-iteration-count:infinite;
+                animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                animation-direction:normal;
+                @include tablet{
+                    display:none;
+                };
+                @keyframes footprint01 {
+                    0%{
+                        top:1150px;
+                        left:120px;
+                    }
+                    20%{
+                        top:1170px;
+                        left:140px;;
+                    }
+                    40%{
+                        top:1210px;
+                        left:160px;
+                    }
+                    60%{
+                        top:1230px;
+                        left:180px;
+                    }
+                    80%{
+                        top:1250px;
+                        left:200px;
+                    }
+                    100%{
+                        top:1270px;
+                        left:220px;
+                    }                
+                }
+                .left_foot01{
+                    position:relative;
+                    animation:leftfoot;
+                    animation-duration: 5s;
+                    animation-delay: 3s;
+                    animation-iteration-count:infinite;
+                    animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                    animation-direction:alternate-reverse;
+                    @keyframes leftfoot {
+                        0%{
+                            opacity:1;
+                            top:0px;
+                            right:2px;
+                        }
+                        20%{
+                            opacity:0;
+                            top:2px;
+                        }
+                        40%{
+                            opacity:1;
+                            top:0px;
+                            right:2px;
+                        }
+                        60%{
+                            opacity:0;
+                            top:2px;                           
+                        }
+                        80%{
+                            opacity:1;
+                            top:0px;   
+                            right:2px;                      
+                        }
+                        100%{
+                            opacity:0;
+                            top:2px;
+                        }    
+                    }    
+                }
+                .right_foot01{
+                    position:relative;
+                    padding:10px;
+                    animation:rightfoot;
+                    animation-duration: 5s;
+                    animation-delay: 3s;
+                    animation-iteration-count:infinite;
+                    animation-timing-function:ease-in-out：cubic-bezier(.42, 0, .58, 1);
+                    animation-direction:alternate-reverse;
+                    @keyframes rightfoot {
+                        0%{
+                            opacity:0;
+                        }
+                        20%{
+                            opacity:1;
+                            top:0px;
+                            right:5px;
+                        }
+                        40%{
+                            opacity:0;
+                        }
+                        60%{
+                            opacity:1;
+                            top:0px;
+                            right:5px;
+                        }
+                        80%{
+                            opacity:0;
+                        }
+                        100%{
+                            opacity:1;
+                            top:0px;
+                            right:5px;
+                        }
+                    }    
                 }
             }
         }

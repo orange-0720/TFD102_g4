@@ -95,10 +95,6 @@ pwd_resend_btn.addEventListener("click", function () {
 
 // 註冊會員寄信
 
-$('.sign_send_btn').click(function(){
-$('.sign_block').fadeToggle();
-})
-
 $('.sign_block_inside').click(e=>{
 e.stopPropagation();
 })
@@ -191,7 +187,8 @@ sign_confirm_btn.addEventListener('click', function(e){
     }
 
     if(answer == 5){
-        let pass = Math.floor(Math.random()* 1000000000)
+        var pass = Math.floor(Math.random()* 1000000000)
+        // console.log(pass);
 
         $.ajax({            
             method: "POST",
@@ -222,6 +219,10 @@ sign_confirm_btn.addEventListener('click', function(e){
                     });
                 }else{
                     alert('此信箱已註冊過，請確認!')
+                    $('#sign_email').val('');
+                    $('.sign_pwd').val('');
+                    $('.pwd_confirm').val('');
+                    $('.sign_tel').val('');
                 }
             },
             error: function(exception) {
@@ -230,8 +231,13 @@ sign_confirm_btn.addEventListener('click', function(e){
         });
 
         // 驗證碼輸入並執行撈資料庫資料
-        sign_send_btn.addEventListener('click', function(){
+        sign_send_btn.addEventListener('click', function(e){
+            e.stopPropagation();
             let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
+            console.log(pass);
+            console.log(typeof(pass));
+            console.log(sign_confirm.value);
+            console.log(typeof(sign_confirm.value));
             if(sign_confirm.value == pass){
                 doInsert();
             }else{
@@ -279,11 +285,11 @@ function doInsert(){
                 alert('註冊成功');
                 let site_now = JSON.parse(sessionStorage.getItem('site_now'));
                 if(site_now){
-                let go_back = site_now
-                sessionStorage.removeItem('site_now');
-                window.location.href = go_back;
+                    let go_back = site_now
+                    sessionStorage.removeItem('site_now');
+                    window.location.href = go_back;
                 }else{
-                window.location.href = './index.html';  
+                    window.location.href = './index.html';  
                 }
             }
         },
@@ -361,6 +367,8 @@ function Login(){
           }else if(response ==2){
               alert('密碼錯誤');
               $('#login_pwd').val('');
+          }else if(response ==4 ){
+            alert('此帳號已被停權')
           }else{
               console.log(response)
               alert('查無會員')

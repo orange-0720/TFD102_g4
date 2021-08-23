@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../images/logo-02.svg">
   <script src="../js/jquery-3.6.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
 </head>
 
 <body onload="ifMember()">
@@ -76,41 +77,41 @@
     </div>
   </div>
   <!-- 生產流程介紹 -->
-  <div class="production_process_box">
+  <div class="production_process_box"  id="process">
     <div class="production_process">
       <div clss="production_process_title">
         <h2>生產流程介紹</h2>
       </div>
       <div class="process_content_box">
         <div class="process_content">
-          <div class="process_item">
+          <button class="process_item seedling" @click="moveToNO(1)">
             <h4>1.苗木</h4>
-            <img src=" ../images/farm/fruit_page/process_s01.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/fruit_page/process_s01.jpg" alt="seedling">
+          </button>
+          <button class="process_item planting_distance" @click="moveToNO(2)">
             <h4>2.種植行株距</h4>
-            <img src=" ../images/farm/fruit_page/process_s02.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/fruit_page/process_s02.jpg" alt="planting_distance">
+          </button>
+          <button class="process_item fertilize" @click="moveToNO(3)">
             <h4>3.施肥</h4>
-            <img src=" ../images/farm/fruit_page/process_s03.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/fruit_page/process_s03.jpg" alt="fertilize">
+          </button>
+          <button class="process_item pruning" @click="moveToNO(4)">
             <h4>4.整枝</h4>
-            <img src=" ../images/farm/fruit_page/process_s04.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/fruit_page/process_s04.jpg" alt="pruning">
+          </button>
+          <button class="process_item flowering" @click="moveToNO(5)">
             <h4>5.開花</h4>
-            <img src=" ../images/farm/fruit_page/process_s05.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/fruit_page/process_s05.jpg" alt="flowering">
+          </button>
+          <button class="process_item fruitful" @click="moveToNO(6)">
             <h4>6.結果</h4>
-            <img src=" ../images/farm/fruit_page/process_s06.jpg" alt="process">
-          </div>
-          <div class="process_item">
+            <img src=" ../images/farm/fruit_page/process_s06.jpg" alt="fruitful">
+          </button>
+          <button class="process_item harvest" @click="moveToNO(7)">
             <h4>7.採收</h4>
-            <img src=" ../images/farm/fruit_page/process_s07.jpg" alt="process">
-          </div>
+            <img src=" ../images/farm/fruit_page/process_s07.jpg" alt="harvest">
+          </button>
         </div>
         <div class="process_bar">
           <div class="bar_item">
@@ -124,89 +125,24 @@
           </div>
         </div>
       </div>
-      <div class="fruit_process_box">
-        <div class="fruit_process_content">
-          <div class="fruit_process_pic">
-            <img src=" ../images/farm/fruit_page/process_L01.jpg" alt="process">
-          </div>
-          <div class="fruit_process_descript">
-            <h3>01.苗木</h3>
-            <p>選用無病蟲害，有完整密集分布均勻根系，並且擁有較多的側根和鬚根的強壯苗株。</p>
-          </div>
-        </div>
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/fruit_page/process_L02.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>02.種植行株距</h3>
-            <p>依據果樹不同而有各自適合的行距，適宜的行距可使果樹有良好的日照通風、以及便於後續採果。</p>
-          </div>
-        </div> -->
-        <!-- 
-        <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/fruit_page/process_L03.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>03.施肥</h3>
-            <p>採用黑水虻幼蟲分解廚餘所轉換的虻糞施肥。
-              
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/fruit_page/process_L04.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>04.整枝</h3>
-            <p>讓果樹能吸收足夠的水分與養分，並將具有生產能力的芽做適度的分
-              配，使之能均勻分配到整個生產基地所佔的空間，以及提高果樹的生產潛能。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/fruit_page/process_L05.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>05.開花</h3>
-            <p>經採花、取粉、授粉後，還須具備其他條件，果樹才會開始結果。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/fruit_page/process_L06.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>06.結果</h3>
-            <p>會因品種不同而實施套袋作業，使果實外觀著色均勻，並防止病蟲害。
-            </p>
-          </div>
-        </div> -->
-
-        <!-- <div class="vagatable_process_content">
-          <div class="vagatable_process_pic">
-            <img src=" ./images/farm/fruit_page/process_L07.jpg" alt="process">
-          </div>
-          <div class="vagatable_process_descript">
-            <h3>07.採收</h3>
-            <p>待果樹果實生長成熟即可採收。
-            </p>
-          </div>
-        </div> -->
+      <!-- <component :is="content"></component>   -->
+      <div  id="slider">
+        <ul>
+          <li><seedling/></li>
+          <li><planting_distance/></li>
+          <li><fertilize/></li>
+          <li><pruning/></li>
+          <li><flowering/></li>
+          <li><fruitful/></li>
+          <li><harvest/></li>
+        </ul>
       </div>
     </div>
     <div class="bg_strawberry_pic">
       <img src="../images/farm/bg_strawberry.png" alt="草莓">
     </div>
   </div>
+
   <!-- 蔬果產期表 -->
   <div class="fruit_fruit_table">
     <h2>水果產期表</h2>
@@ -375,64 +311,42 @@
         </div>
     </div>
   </div>
-  <div class="fruit_detail_introduce_box">
+  <div class="fruit_detail_introduce_box" id="app">
     <div class="fruit_detail_introduce_content">
         <div class="fruit_detail_introduce_title">
           <h2>品種介紹</h2>
         </div>
         <div class="fruit_detail_introduce_item_box">
-          <div class="fruit_detail_introduce_item strawberry">
-            <img src=" ../images/farm/fruit/strawberry.png" alt="strawberry">
-          </div>
-          <div class="fruit_detail_introduce_item mango">
-            <img src=" ../images/farm/fruit/mango.png" alt="mango">
-          </div>
-          <div class="fruit_detail_introduce_item orange">
-            <img src=" ../images/farm/fruit/orange.png" alt="orange">
-          </div>
-          <div class="fruit_detail_introduce_item cherry_tomato">
-            <img src=" ../images/farm/fruit/cherry_tomato_01.png" alt="cherry_tomato">
-          </div>
-          <div class="fruit_detail_introduce_item banana">
-            <img src=" ../images/farm/fruit/banana.png" alt="banana">
-          </div>
-          <div class="fruit_detail_introduce_item guava">
-            <img src=" ../images/farm/fruit/guava.png" alt="guava">
-          </div>
-          <div class="fruit_detail_introduce_item lemon">
-            <img src=" ../images/farm/fruit/lemon.png" alt="lemon">
-          </div>
-          <div class="fruit_detail_introduce_item persimmon">
-            <img src=" ../images/farm/fruit/persimmon.png" alt="persimmon">
-          </div>
-        </div>
-        <!-- 品種介紹內容 -->
-        <div class="fruit_detail_introduce_detail_content_box">
-          <div class="fruit_detail_introduce_detail_content">
-            <div class="fruit_detail_introduce_detail_pic">
-              <img src=" ../images/farm/fruit/strawberry.jpg" alt="cabbage">
-            </div>
-            <div class="fruit_detail_introduce_detail_pic_title">
-              <h3>草莓</h3>
-            </div>
-            <div class="fruit_introduce">
-             <div class="fruit_vertify_name">
-               <h5>品種名稱:</h5>
-               <p>台農1號 (結合香水與豐香的新品種)</p>
-             </div>
-             <div class="fruit_planting_conditions">
-               <h5>種植條件:</h5>
-               <p>
-                 草莓喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。
-               </p>
-             </div>
-             <div class="swetness"> 
-               <h5>甜度:</h5>
-               <p> 約為10～12度，最高可達14度</p>
-             </div>
-            </div>
-          </div>
-        </div>
+          <div class="fruit_detail_introduce_item_button_box">
+           
+              <button class="fruit_detail_introduce_item strawberry" id="introduce_strawberry" @click="content='strawberry'">
+                <img src=" ../images/farm/fruit/strawberry.png" alt="strawberry">
+              </button>
+              <button class="fruit_detail_introduce_item mango" id="introduce_mango" @click="content='mango'">
+                <img src=" ../images/farm/fruit/mango.png" alt="mango">
+              </button>
+              <button class="fruit_detail_introduce_item orange" id="introduce_orange" @click="content='orange'">
+                <img src=" ../images/farm/fruit/orange.png" alt="orange">
+              </button>
+              <button class="fruit_detail_introduce_item cherry_tomato" id="introduce_cherry_tomato" @click="content='cherry_tomato'">
+                <img src=" ../images/farm/fruit/cherry_tomato_01.png" alt="cherry_tomato">
+              </button>
+              <button class="fruit_detail_introduce_item banana" id="introduce_banana" @click="content='banana'">
+                <img src=" ../images/farm/fruit/banana.png" alt="banana">
+                </button>
+              <button class="fruit_detail_introduce_item guava" id="introduce_guava" @click="content='guava'">
+                <img src=" ../images/farm/fruit/guava.png" alt="guava">
+              </button>
+              <button class="fruit_detail_introduce_item lemon" id="introduce_lemon" @click="content='lemon'">
+                <img src=" ../images/farm/fruit/lemon.png" alt="lemon">
+              </button>
+              <button class="fruit_detail_introduce_item persimmon" id="introduce_persimmon" @click="content='persimmon'">
+                <img src=" ../images/farm/fruit/persimmon.png" alt="persimmon">
+              </button>
+           
+          </div>   
+          
+          <component :is="content"></component>
     </div>
   </div>
 
@@ -443,39 +357,39 @@
      </div>
      <div class="farm_products_item_box">
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/11"></a>
         <img src=" ../images/farm/fruit/s_strawberry.jpg" alt="strawberry">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/12"></a>
         <img src=" ../images/farm/fruit/s_mango.jpg" alt="mango">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/14"></a>
         <img src=" ../images/farm/fruit/s_cherry_tomato.jpg" alt="cherry_tomato">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/15"></a>
         <img src=" ../images/farm/fruit/s_banana.jpg" alt="banana">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/16"></a>
         <img src=" ../images/farm/fruit/s_guava.jpg" alt="guava">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/18"></a>
         <img src=" ../images/farm/fruit/s_persimmon.jpg" alt="persimmon">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/17"></a>
         <img src=" ../images/farm/fruit/s_lemon.jpg" alt="lemon">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/13"></a>
         <img src=" ../images/farm/fruit/s_orange.jpg" alt="orange">
        </div>
        <div class="farm_products_item">
-        <a href="./shopping_page.html"></a>
+        <a href="./shopping_page.html#/shopping_inside_page/14"></a>
         <img src=" ../images/farm/fruit/s_cherry_tomato01.jpg" alt="cherry_tomato">
        </div>
      </div>
@@ -531,6 +445,10 @@
         </div>
       </div>
     </div>
+    <div  style=" text-align: center; padding: 20px 0px;">
+      本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+      若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+    </div>
   </footer>
 
   <script src="../js/right_nav_bar.js"></script>
@@ -551,11 +469,445 @@
         scrollTop: 0
       }, 750);
     });
+  </script>
+    <!-- 生產流程介紹 -->
+    <script>
+      Vue.component('seedling',{
+      template: `  
+      <div class="fruit_process_box">
+        <div class="fruit_process_content">
+            <div class="fruit_process_pic">
+              <img src=" ../images/farm/fruit_page/process_L01.jpg" alt="process">
+            </div>
+            <div class="fruit_process_descript">
+              <h3>01.苗木</h3>
+              <p>選用無病蟲害，有完整密集分布均勻根系，並且擁有較多的側根和鬚根的強壯苗株。</p>
+            </div>
+        </div>
+      </div>
+      `,
+    });
+    Vue.component('planting_distance',{
+      template: `  
+      <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+           <div class="vagatable_process_pic">
+            <img src=" ../images/farm/fruit_page/process_L02.jpg" alt="process">
+           </div>
+           <div class="vagatable_process_descript">
+            <h3>02.種植行株距</h3>
+            <p>依據果樹不同而有各自適合的行距，適宜的行距可使果樹有良好的日照通風、以及便於後續採果。
+            </p>
+           </div>
+         </div>
+       </div>  
+       `,
+    });
+    Vue.component('fertilize',{
+      template: `  
+      <div class="vagatable_process_box">
+        <div class="vagatable_process_content">
+           <div class="vagatable_process_pic">
+            <img src=" ../images/farm/fruit_page/process_L03.jpg" alt="process">
+           </div>
+           <div class="vagatable_process_descript">
+            <h3>03.施肥</h3>
+            <p>採用黑水虻幼蟲分解廚餘所轉換的虻糞施肥。
+            </p>
+           </div>
+         </div>
+       </div>  
+     `,
+    });
+    Vue.component('pruning',{
+      template: `  
+      <div class="vagatable_process_box">
+         <div class="vagatable_process_content">
+           <div class="vagatable_process_pic">
+            <img src=" ../images/farm/fruit_page/process_L04.jpg" alt="process">
+           </div>
+           <div class="vagatable_process_descript">
+            <h3>04.整枝</h3>
+            <p>讓果樹能吸收足夠的水分與養分，並將具有生產能力的芽做適度的分
+              配，使之能均勻分配到整個生產基地所佔的空間，以及提高果樹的生產潛能。
+            </p>
+           </div>
+         </div>
+       </div>  
+       `,
+    });
+    Vue.component('flowering',{
+      template: `  
+      <div class="vagatable_process_box">
+         <div class="vagatable_process_content">
+           <div class="vagatable_process_pic">
+            <img src=" ../images/farm/fruit_page/process_L05.jpg" alt="process">
+           </div>
+           <div class="vagatable_process_descript">
+            <h3>05.開花</h3>
+            <p>經採花、取粉、授粉後，還須具備其他條件，果樹才會開始結果。
+            </p>
+           </div>
+         </div>
+       </div>  
+       `,
+    });
+    Vue.component('fruitful',{
+      template: `  
+      <div class="vagatable_process_box">
+         <div class="vagatable_process_content">
+           <div class="vagatable_process_pic">
+            <img src=" ../images/farm/fruit_page/process_L06.jpg" alt="process">
+           </div>
+           <div class="vagatable_process_descript">
+            <h3>06.結果</h3>
+            <p>會因品種不同而實施套袋作業，使果實外觀著色均勻，並防止病蟲害。
+            </p>
+           </div>
+         </div>
+       </div>  
+       `,
+    });
+    Vue.component('harvest',{
+      template: `  
+      <div class="vagatable_process_box">
+         <div class="vagatable_process_content">
+           <div class="vagatable_process_pic">
+            <img src=" ../images/farm/fruit_page/process_L07.jpg" alt="process">
+           </div>
+           <div class="vagatable_process_descript">
+            <h3>07.採收</h3>
+            <p>待果樹果實生長成熟即可採收。
+            </p>
+           </div>
+         </div>
+       </div>  
+       `,
+    });
+ 
+    new Vue({
+      el: '#process',
+      data: {
+          content:1, //預設是第一筆
+          contentLength:7
+      }, 
+      methods: {
+        moveLeft: function(isClick) {
+          const vm=this
+          var slideWidth = $('#slider ul li').width();
+            $('#slider ul').animate({
+                left: + slideWidth
+            },  isClick?50:200, function () {
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+            vm.content>1?(vm.content-=1):(vm.content=vm.contentLength)
+            },
+        moveRight:function(isClick) {
+          const vm=this
+          var slideWidth = $('#slider ul li').width();
+            $('#slider ul').animate({
+                left: - slideWidth
+            }, isClick?50:200, function () {
+                $('#slider ul li:first-child').appendTo('#slider ul');
+                $('#slider ul').css('left', '');
+            });
+            vm.content<vm.contentLength?(vm.content+=1):(vm.content=1)
+          },
+        moveToNO:function(order){
+          const vm =this
+          let deviation =order-vm.content
+          let directionLeft= (deviation)<0
+          let times =Math.abs(deviation)
+          if(directionLeft){
+            for (let i = 0; i < times; i++) {
+              vm.moveLeft(true)
+          }
+          return
+          }
+          if(!directionLeft){
+            for (let i = 0; i < times; i++) {
+              vm.moveRight(true)
+            }
+          }
+        }         
+      },
+      mounted() {
+        const vm =this
+        jQuery(document).ready(function ($) {
+          var slideCount = $('#slider ul li').length;
+          var slideWidth = $('#slider ul li').width();
+          var sliderUlWidth = slideCount * slideWidth;
+          $('#slider').css({ width: slideWidth });
+          $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+          $('#slider ul li:last-child').prependTo('#slider ul');
+          setInterval(function () {
+            vm.moveRight();
+          }, 5000);
+        });    
+      }  
+    });
+   </script>
 
+  <script>
+     Vue.component('strawberry',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/strawberry.jpg" alt="cabbage">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3>草莓</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>台農1號 (結合香水與豐香的新品種)</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              草莓喜溫涼氣候，宜生長於肥沃、疏鬆透氣、保水保肥好，以及pH值為5.5-6.5之土壤，土壤含水量至少需70%。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約為10～12度，最高可達14度</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
 
+    Vue.component('mango',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/mango.jpg" alt="mango">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+          
+            <h3>芒果</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>金煌</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              芒果對土壤之要求不嚴，然手重排水良好，地下水位低，土壤酸鹼值介於pH5.5~7.5之間。芒果性喜高溫乾燥不耐嚴寒，能忍受的最低溫度為1~2°，零度以下的溫度將導致植株死亡。每日平均溫度愈高，可使花期縮短，產期提早，反之，溫度愈低，則開花時期將會拉長，產期亦將延後。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 15度以上</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
 
+    Vue.component('orange',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/orange.jpg" alt="orange">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3> 柳丁</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>柳丁(又稱柳橙)</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              最適生長溫度為24~34度之間。土壤以排水良好砂質土壤為佳，生長環境需有充足陽光及水源。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約為10～13度</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
+
+    Vue.component('cherry_tomato',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/cherry_tomato.jpg" alt="cherry_tomato">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3>小番茄</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>聖女番茄</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              生長適溫為20℃~25℃。對水分的要求並不是很多，耐半乾旱，適宜在空氣相對濕度為45%~50%，如果空氣濕度過高易引起多種真菌性、細菌性病害，也影響自花授粉、受精。對土壤要求不高，適應能力強。但最適宜在土層深厚、排水良好、富含有機質、土壤PH值在5.6~6.7之間的肥沃土壤中生長。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約為7～10度左右</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
+
+    Vue.component('banana',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/banana.jpg" alt="banana">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3> 香蕉</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>北蕉</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              生長發育最適宜溫度為24~32℃。香蕉生長結果需大量水分，水分不足葉片生長速度慢、葉片小，而且壽命短、極易下垂乾裂。自然條件下要求月降雨量150毫米以上才適宜香蕉生長結果。香蕉樹對土壤適應性廣，但耕種幫建議蕉園土壤肥力好、疏鬆透氣、土層深厚、排灌方便、PH值在5.5~6.5最佳。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約為6度左右</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
+
+    Vue.component('guava',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/guava.jpg" alt="guava">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3 >芭樂</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>彩虹芭樂(西瓜芭樂)</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              性喜溫暖潮濕的氣候，合適生育溫度為15-32℃，合適著果為23-28℃。芭樂屬淺根性作物，根系分布淺，速生快長，當年定植，當年即可結果。適宜於酸鹼值在pH5.5-7.5之間、排水良好、富含有機質的土壤適合生長。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約8~10度左右</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
+
+    Vue.component('lemon',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/lemon.jpg" alt="lemon">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3>檸檬</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>無子檸檬(萊姆)</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              檸檬性喜高溫，土壤以排水艮好的砂價壤土或壤土較適合，酸鹼度以pll5.5-7.0均宜，6.0-6.5最佳。種植於排水良好環境，地下水位高或排水不良的地區容易發生据腐病或根腐病等土壤傳播性病害。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約為3～9度</p>
+          </div>
+          </div>
+        </div>
+      </div>
+      `,
+    });
+
+    Vue.component('persimmon',{
+      template: `
+      <div class="fruit_detail_introduce_detail_content_box" >
+        <div class="fruit_detail_introduce_detail_content">
+          <div class="fruit_detail_introduce_detail_pic">
+            <img src=" ../images/farm/fruit/persimmon.jpg" alt="persimmon">
+          </div>
+          <div class="fruit_detail_introduce_detail_pic_title">
+            <h3>柿子</h3>
+          </div>
+          <div class="fruit_introduce">
+          <div class="fruit_vertify_name">
+            <h5>品種名稱:</h5>
+            <p>甜柿-次郎</p>
+          </div>
+          <div class="fruit_planting_conditions">
+            <h5>種植條件:</h5>
+            <p>
+              柿子在台灣是屬於少量多樣化水果。柿子的品種很多，一般依其果實在樹上成熟時是否可自然脫澀而分為澀柿與甜柿兩大類。理想的甜柿栽培土壤條件是土層深厚，保永保肥力強，排水良好。柿對土壤及氣候之適應性很強，但欲求果實品質良好，須在夏秋之交有相當之高溫，且日夜溫差很大，尤以甜柿為然。甜柿果實在生育期間需有一定條件的氣溫方能脫澀完全，果實成長期平均溫度宜在18～19℃，脫澀期之氣溫宜在21～23℃，成熟期之果實，日、夜溫差最少在9℃以上，果實成熟度才可提高，果色鮮艷，台灣以中部海拔800～1,000公尺之山坡地較適合此條件。土壤以稍帶粘質之壤土為佳，pH6～6.8生育最好。柿子是屬落葉果樹，但也需要足夠日照時間，至少要在1,400小時以上。日照不足，枝條容易枯死、花芽分化不良、容易落果、果實成熟著色不佳。雨水過多或雨季過長也將會影響柿的植株發育，尤其在花芽分化期、開花期及果實成熟期宜乾旱，否則容易引起落花及落果。
+            </p>
+          </div>
+          <div class="swetness"> 
+            <h5>甜度:</h5>
+            <p> 約為15～18度之間</p>
+          </div>
+          </div>
+        </div>
+      </div>  
+      `,
+    });
+
+    new Vue({
+            el: '#app',
+            data: {
+                content: 'strawberry', //預設是第一筆
+            },       
+        });
 
   </script>
+
 </body>
 
 </html>

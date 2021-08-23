@@ -1242,6 +1242,19 @@
             align-self: center;
             background-color: #fff;
             line-height: 1.2em;
+            position: relative;
+            &::after{
+                content: '';
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: 50%;
+                left: -9px;
+                transform: translateY(-50%) rotate(45deg);
+                background-color: white;
+                border-left: 1px solid $brown;
+                border-bottom: 1px solid $brown;
+            }
         }
     }
     .our_reply{
@@ -1276,6 +1289,19 @@
             align-self: center;
             background-color: #fff;
             line-height: 1.2em;
+            position: relative;
+            &::after{
+                content: '';
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: 50%;
+                left: -9px;
+                transform: translateY(-50%) rotate(45deg);
+                background-color: white;
+                border-left: 1px solid $brown;
+                border-bottom: 1px solid $brown;
+            }
         }
     }
 }
@@ -1489,7 +1515,6 @@
     .member_check_img{
         text-align: left;
         @include mobile{
-            text-align: center;
             font-size:$h5;
         }
         span{
@@ -1498,6 +1523,9 @@
             font-size: $h4;
             text-decoration: underline;
             cursor: pointer;
+            @include mobile{
+                font-size:$h5;
+            }
         }
         
     }

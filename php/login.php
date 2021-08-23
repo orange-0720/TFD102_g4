@@ -10,8 +10,8 @@
     // $sql = "SELECT * FROM member WHERE NAME = '$account' and PWD = '$pwd'";
 
     if($account !='' && $pwd !=''){
-        $sql = "SELECT * FROM CUSTOMER WHERE EMAIL = ? and QUALIFY = 1";
-    
+
+        $sql = "SELECT * FROM CUSTOMER WHERE EMAIL = ?";
     
         //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
         // $statement = $pdo->query($sql);
@@ -24,7 +24,7 @@
         
         if(count($data)>0){
 
-            $sql = "SELECT * FROM CUSTOMER WHERE EMAIL = ? and PWD =? and QUALIFY = 1";
+            $sql = "SELECT * FROM CUSTOMER WHERE EMAIL = ? and PWD =? ";
     
             //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
             // $statement = $pdo->query($sql);
@@ -42,11 +42,11 @@
                 foreach($data as $index => $row){
                     $memberID = $row['CUSTOMER_ID'];
                     $memberEMAIL = $row["EMAIL"];
-                    
+                    $qualify = $row["QUALIFY"];
                 }
     
                 //判斷是否有會員資料?
-                if($memberEMAIL != "" && $memberID != ""){
+                if($memberEMAIL != "" && $memberID != "" && $qualify == 1){
                     // include("./Lib/Member.php");        
                 
                     //將會員資訊寫入session
@@ -67,6 +67,8 @@
                     // echo json_encode($data); 
                     // echo json_encode($_SESSION['MemberID]);
                     echo json_encode(1); 
+                }else{
+                    echo json_encode(4);
                 }
             }else{
                 echo json_encode(2);

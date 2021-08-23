@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../images/logo-02.svg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   <script src="../js/jquery-3.6.0.js"></script>
   <!-- Animate.css  -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
@@ -17,33 +17,6 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<script>
-  function ifMember(){
-    $.ajax({
-          method: 'POST',
-          url: '../php/ifMember.php',
-          data:{},
-          dataType: 'text',
-          success: function(response) {
-            console.log(response);
-            if(response == 'yes'){
-              $('.nav_block_log > span').text('會員中心');
-              $('.login').click(function(){
-                window.location.href = 'member.html';
-              });
-            }else{
-              $('.login').click(function(){
-                window.location.href = 'login.html';
-              });
-            }
-          },
-          error: function(exception) {
-              console.log(exception)
-              alert("發生錯誤: " + exception.status);
-          },
-    });  
-  }
-</script>
 
 <body onload="ifMember()">
   <header class="header">
@@ -312,7 +285,7 @@
           <div class="fruit_box_1">
             <a href="./shopping_page.html#/shopping_inside_page/0">
               <div class="_mask"></div>
-              <img src="../images/fruit_box/fruit_box.jpg" alt="商品圖片" />
+              <img src="../images/shopping_page/17_veg_box_1/vegbox_1.jpg" alt="商品圖片" />
               <p class="product_name"><i class="bi bi-cart4">&nbsp</i>防疫蔬果箱</p>
             </a>
           </div>
@@ -321,7 +294,7 @@
             <a href="./shopping_page.html#/shopping_inside_page/1">
               <div class="_mask"></div>
               <p class="product_name"><i class="bi bi-cart4">&nbsp</i>快樂蔬果箱</p>
-              <img src="../images/fruit_box/fruit_box.jpg" alt="商品圖片" />
+              <img src="../images/shopping_page/18_veg_box_2/vegbox_2.jpg" alt="商品圖片" />
             </a>
           </div>
 
@@ -329,7 +302,7 @@
             <a href="./shopping_page.html#/shopping_inside_page/2">
               <div class="_mask"></div>
               <p class="product_name"><i class="bi bi-cart4">&nbsp</i>營養蔬果箱</p>
-              <img src="../images/fruit_box/fruit_box.jpg" alt="商品圖片" />
+              <img src="../images/shopping_page/19_veg_box_3/vegbox_3.jpg" alt="商品圖片" />
             </a>
           </div>
 

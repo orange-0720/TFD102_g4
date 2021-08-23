@@ -9,7 +9,7 @@
     <link rel="icon" href="../images/logo-02.svg">
     <script src="../js/jquery-3.6.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
       function Logout(){
@@ -31,31 +31,6 @@
           },
         })
       };
-      function ifMember(){
-        $.ajax({
-              method: 'POST',
-              url: '../php/ifMember.php',
-              data:{},
-              dataType: 'text',
-              success: function(response) {
-                console.log(response);
-                if(response == 'yes'){
-                  $('.nav_block_log > span').text('會員中心');
-                  $('.login').click(function(){
-                    window.location.href = 'member.html';
-                  });
-                }else{
-                  $('.login').click(function(){
-                    window.location.href = 'login.html';
-                  });
-                }
-              },
-              error: function(exception) {
-                  console.log(exception)
-                  alert("發生錯誤: " + exception.status);
-              },
-        });  
-      }
     </script>
   </head>
   <body onload="ifMember()">
@@ -179,9 +154,9 @@
               </div>
               <h2>變更密碼</h2>
               <div class="change_box">
-                <input type="text" id="old_pwd1" placeholder="請輸入原本密碼">
-                <input type="text" id="old_pwd2" placeholder="請再次輸入">
-                <input type="text" id="new_pwd" placeholder="請輸入新密碼">
+                <input type="password" id="old_pwd1" placeholder="請輸入原本密碼">
+                <input type="password" id="old_pwd2" placeholder="請再次輸入">
+                <input type="password" id="new_pwd" placeholder="請輸入新密碼">
               </div>
               <input type="button" class="change_send" value="確認變更" @click="change_pwd">
           </div>
@@ -291,6 +266,8 @@
                     </div>
                   </div>
                 </div>
+                <h3 class="no_message" v-show="if_message">目前尚未收到您的任何訊息</h3>
+
                 <h3 class="up_load_center">上傳專區</h3>
                 <div class="img_show_block" v-for="(img,index) in imgs">
                   <div class="member_check_img">
@@ -307,7 +284,6 @@
                   </div>
                 </div>
 
-                <h3 class="no_message" v-show="if_message">目前尚未收到您的任何訊息</h3>
                 <textarea class="your_question" rows="5" placeholder="請寫下您的疑問" v-model="your_question"></textarea>
                 <div class="up_load_file">
                   <p class="file_name">圖片檔名: <span class="file_true"></span></p>
@@ -556,8 +532,15 @@
                 success: function(response){
                   if(response == 1){
                     alert('密碼變更完成');
+                    $('.change_pwd_box').fadeOut();
+                    $('#old_pwd1').val('');
+                    $('#old_pwd2').val('');
+                    $('#new_pwd').val('');
                   }else{
-                    alert('密碼錯誤');
+                    alert('原密碼錯誤，請重新輸入');
+                    $('#old_pwd1').val('');
+                    $('#old_pwd2').val('');
+                    $('#new_pwd').val('');
                     console.log(response)
                   }
                 },
@@ -572,7 +555,6 @@
           },
           send_message(){
             if(this.your_question != ''){
-              alert('aaa');
               $.ajax({
                 method:'POST',
                 url:'../php/member/message.php',
@@ -646,6 +628,11 @@
             axios.post('../php/member/getImg.php').then(res =>{
               console.log(res.data);
               this.imgs = res.data;
+              this.imgs.forEach(function(index, i){
+                let img = index.MESSAGE_IMG;
+                let name = img.split('/')[3];
+                index.name = name;
+              })
             })
           },
           check_img(index){
@@ -681,7 +668,6 @@
             dataType: 'json',
             success: function(response) {
               console.log(response);
-              console.log($('#member_pic').src);
               response.forEach(function(index,i){
                 member_block.member_name = index['NAME'];
                 member_block.member_mail = index['EMAIL'];

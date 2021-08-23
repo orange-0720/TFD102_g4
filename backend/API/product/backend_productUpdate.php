@@ -89,7 +89,7 @@
     //Apache根目錄之下的檔案存放路徑
     $filePath = $ServerRoot.'/tfd102/project/g4/images/upload/';
 
-    return $ServerRoot . $filePath;
+    return $filePath;
   }
 
 ?>

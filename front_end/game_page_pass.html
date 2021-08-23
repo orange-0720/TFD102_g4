@@ -14,7 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   </head>
   <body id="game_page" onload="ifMember()">
     <header class="header">
@@ -344,8 +344,11 @@
                 console.log(response);
                 if(response == 'yes'){
                     $('.nav_block_log > span').text('會員中心');
-                    $('.login').click(function(){
+                    $('.nav_block_log').click(function(){
                       window.location.href = 'member.html';
+                    })
+                    $('.login').click(function(){
+                      location.href = 'member.html';
                     });
                     $('#submit_1').css("display","none");
                     $('#action2').css("display","none");
@@ -356,6 +359,9 @@
                     $('.login').click(function(){
                       window.location.href = 'login.html';
                     });
+                    $('.nav_block_log').click(function(){
+                      location.href = 'login.html';
+                    })
                     $('#iflogin').css("display","none");
                     $('#action2ifLogin').css("display","none");
                 }

@@ -16,8 +16,10 @@ getMemberID();
 // $sql = "SELECT * FROM APPOINTMENT WHERE CUSTOMER_ID = $_SESSION(memberID)";
 
 // $_SESSION['MemberID'] =true
+
 //檢查sesion變數是否存在，表示已成功登入
-if($_SESSION['MemberID'] = true ){//讓PHP只做檢查這件事情
+
+if(isset($_SESSION['MemberID'])){//讓PHP只做檢查這件事情
     $memberID = $_SESSION['MemberID'];
     $sql = "SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = $memberID and DISCOUNT=0 and DISCOUNT_HAVE=0 and QUALIFY=1 ";
     //等所有會員登入狀態PHP完成後開啟上列，關閉下列

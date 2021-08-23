@@ -32,7 +32,7 @@
             //將暫存檔搬移到正確位置
             move_uploaded_file($filePath_Temp, $filePath);
 
-            $img = '../images/message/'.$fileName;
+            $img = '../images/member_pic/'.$fileName;
 
             $sql = "UPDATE `CUSTOMER` SET IMG = ? WHERE CUSTOMER_ID = ? and QUALIFY = 1";
 
@@ -47,21 +47,21 @@
     }
 
 
-    //取得檔案副檔名
-    function getExtensionName($filePath){
-        $path_parts = pathinfo($filePath);
-        return $path_parts["extension"];
-    }
+    // //取得檔案副檔名
+    // function getExtensionName($filePath){
+    //     $path_parts = pathinfo($filePath);
+    //     return $path_parts["extension"];
+    // }
 
-    function getFilePath() {
-        //Apache實際的根目錄路徑
-        $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
+    // function getFilePath() {
+    //     //Apache實際的根目錄路徑
+    //     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
 
-        //Apache根目錄之下的檔案存放路徑
-        $filePath = "/tfd102_g4/images/upload/";
+    //     //Apache根目錄之下的檔案存放路徑
+    //     $filePath = "/tfd102_g4/images/upload/";
 
-        return $ServerRoot . $filePath;
-    }
+    //     return $ServerRoot . $filePath;
+    // }
 
 
 ?>

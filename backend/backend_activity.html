@@ -111,7 +111,7 @@
         </div>
         <div class="modal-body">
           <div class="modify_activity_info">
-            <form method="post" id="data_from">
+            <form method="post" id="data_from" action="API/activity/backend_activityUpdate.php" enctype='multipart/form-data' >
               <div class="row mb-2">
                 <label for="ACTIVITY_NAME" class="col-auto col-form-label">活動名稱：</label>
                 <div class="col-auto">
@@ -155,6 +155,10 @@
               <label class="form-check-label" for="ACTIVITY_STATUS_ID">已結束</label>
             </div>
           </div>
+          <div class="modify_back_img">
+            活動圖片 ：<input type="file" data-img="ACTIVITY_IMG" name="file" class="upload">
+            <img src="" alt="img" id="ACTIVITY_IMG" style="width:300px;margin-top:5px;">
+          </div>
           <!-- PK記錄在這，form送出時才能知道要更新那一筆資料 -->
           <input type="hidden" name="ACTIVITY_ID" id="ACTIVITY_ID" />
           <div class="modal-footer">
@@ -180,7 +184,7 @@
         </div>
         <div class="modal-body">
           <div class="add_product_info">
-            <form method="post" enctype="multipart/form-data" id="add_from">
+            <form method="post" enctype="multipart/form-data" id="add_from" action="API/activity/backend_activityAdd.php">
               <div class="row mb-2">
                 <label for="ACTIVITY_NAME" class="col-auto col-form-label">活動名稱：</label>
                 <div class="col-auto">
@@ -224,6 +228,10 @@
               <label class="form-check-label" for="add_ACTIVITY_STATUS_ID">已結束</label>
             </div>
           </div>
+          <div class="modify_back_img">
+            活動圖片 ：<input type="file" data-img="add_ACTIVITY_IMG" name="file" class="add_img">
+            <img src="" alt="img" id="add_ACTIVITY_IMG" style="width:300px;margin-top:5px;">
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">取消新增</button>
             <button type="button" class="btn btn-primary" onclick="return doAdd();">確認新增</button>
@@ -234,9 +242,9 @@
       </div>
     </div>
   </div>
-  <!-- 新增商品彈窗 -->
+  <!-- 新增活動彈窗 -->
 
-      <footer>
+  <footer>
     <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
@@ -249,8 +257,6 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
-    <script type="text/javascript" src="/src/main.js"></script> -->
 
   <script src="../js/backend_search.js"></script>
 
@@ -346,6 +352,7 @@
           $('#ACTIVITY_TIME').val(response.ACTIVITY_TIME);
           $('#ACTIVITY_PRICE').val(response.ACTIVITY_PRICE);
           $("input[name=ACTIVITY_STATUS_ID][value=" + response.ACTIVITY_STATUS_ID + "]").prop('checked', true);
+          $('#ACTIVITY_IMG').attr('src', response.ACTIVITY_IMG);
         },
         error: function (exception) {
           alert("發生錯誤: " + exception.status);
@@ -354,31 +361,34 @@
     }
   
     // 更新資料
-    function update(){
-      var form = $("#data_from").serializeArray();
-      var formData = new FormData();
+    function update(ele){
+      $('#data_from').submit();
 
-      form.forEach(element => {
-        formData.append(element.name, element.value);
-      });
-      $.ajax({
-        method: 'POST',
-        url: './API/activity/backend_activityUpdate.php',
-        processData: false,
-        contentType: false,
-        data: formData,
-        dataType: 'text',
-        success: function (response) {
-          console.log(response);
-          if (response == 'SUCCESS') {
-            alert('修改成功!');
-            location.reload();
-          }
-        },
-        error: function (exception) {
-          alert("發生錯誤: " + exception.status);
-        },
-      })
+      // var form = $("#data_from").serializeArray();
+      // var formData = new FormData();
+
+      // form.forEach(element => {
+      //   formData.append(element.name, element.value);
+      // });
+
+      // $.ajax({
+      //   method: 'POST',
+      //   url: './API/activity/backend_activityUpdate.php',
+      //   processData: false,
+      //   contentType: false,
+      //   data: formData,
+      //   dataType: 'text',
+      //   success: function (response) {
+      //     console.log(response);
+      //     if (response == 'SUCCESS') {
+      //       alert('修改成功!');
+      //       location.reload();
+      //     }
+      //   },
+      //   error: function (exception) {
+      //     alert("發生錯誤: " + exception.status);
+      //   },
+      // })
     }
   
     // 新增資料
@@ -412,33 +422,71 @@
         return false;
       }
 
-      var form = $("#add_from").serializeArray();
-      var formData = new FormData();
-      console.log(form);
+      $('#add_from').submit();
 
-      form.forEach(element => {
-        formData.append(element.name, element.value);
-      });
 
-      $.ajax({
-        method: 'POST',
-        url: './API/activity/backend_activityAdd.php',
-        processData: false,
-        contentType: false,
-        data: formData,
-        dataType: 'text',
-        success: function (response) {
-          console.log(response);
-          if (response == 'SUCCESS') {
-            alert('新增成功!');
-            location.reload();
-          }
-        },
-        error: function (exception) {
-          alert("發生錯誤: " + exception.status);
-        },
-      })
+      // var form = $("#add_from").serializeArray();
+      // var formData = new FormData();
+      // console.log(form);
+
+      // form.forEach(element => {
+      //   formData.append(element.name, element.value);
+      // });
+
+      // $.ajax({
+      //   method: 'POST',
+      //   url: './API/activity/backend_activityAdd.php',
+      //   processData: false,
+      //   contentType: false,
+      //   data: formData,
+      //   dataType: 'text',
+      //   success: function (response) {
+      //     console.log(response);
+      //     if (response == 'SUCCESS') {
+      //       alert('新增成功!');
+      //       location.reload();
+      //     }
+      //   },
+      //   error: function (exception) {
+      //     alert("發生錯誤: " + exception.status);
+      //   },
+      // })
     }
+
+    $(function () {
+      $('.upload').change(function () {
+        var input = this;
+        var url = $(this).val();  //C://desktop/aaa.png
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        var img_name = $(this).data('img'); //data-img
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#' + img_name).attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          alert('非圖片檔案格式，請重新上傳');
+        }
+      });
+      $('.add_img').change(function () {
+        var input = this;
+        var url = $(this).val();  //C://desktop/aaa.png
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        var img_name = $(this).data('img'); //data-img
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#' + img_name).attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          alert('非圖片檔案格式，請重新上傳');
+        }
+      });
+    });
 
   </script>
 </body>

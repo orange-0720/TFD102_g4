@@ -625,6 +625,10 @@
             background-size: 60%;
             background-position: center;
             margin-top: 20px;
+            position: relative;
+            img{
+              @include abs_center();
+            }
         }
 
       h4{
@@ -698,6 +702,10 @@
           background-size: 60%;
           background-position: center;
           margin-top: 20px;
+          position: relative;
+          img{
+            @include abs_center();
+          }
       }
       @include tablet{
         width: 45%;

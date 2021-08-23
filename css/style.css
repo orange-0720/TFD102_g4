@@ -517,14 +517,14 @@ body {
     margin-top: 10px;
     padding-left: 0;
     background-image: none;
-    padding: 10px 0px 10px 20px;
+    padding: 15px 0px 15px 20px;
   }
   .jump_hamburger_block .header_nav_block .nav_right_block .nav_active a {
     text-decoration: none;
     color: #A07332;
     display: inline-block;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 0px;
   }
   .jump_hamburger_block .header_nav_block .nav_right_block .nav_active a:link, .jump_hamburger_block .header_nav_block .nav_right_block .nav_active a:visited {
@@ -539,7 +539,7 @@ body {
     margin-top: 0px;
     padding-left: 0;
     background-image: none;
-    padding: 10px 0px 10px 20px;
+    padding: 15px 0px 15px 20px;
   }
   .jump_hamburger_block .header_nav_block .nav_right_block .nav_buy_now a {
     width: 100%;
@@ -547,7 +547,7 @@ body {
     color: #A07332;
     display: inline-block;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 0px;
   }
   .jump_hamburger_block .header_nav_block .nav_right_block .nav_buy_now a:link, .jump_hamburger_block .header_nav_block .nav_right_block .nav_buy_now a:visited {
@@ -562,7 +562,7 @@ body {
     margin-top: 0px;
     padding-left: 0;
     background-image: none;
-    padding: 10px 0px 10px 20px;
+    padding: 15px 0px 15px 20px;
   }
   .jump_hamburger_block .header_nav_block .nav_right_block .nav_knowledge a {
     width: 100%;
@@ -570,7 +570,7 @@ body {
     color: #A07332;
     display: inline-block;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 0px;
   }
   .jump_hamburger_block .header_nav_block .nav_right_block .nav_knowledge a:link, .jump_hamburger_block .header_nav_block .nav_right_block .nav_knowledge a:visited {
@@ -583,7 +583,7 @@ body {
     margin-top: 0px;
     padding-left: 0;
     background-image: none;
-    padding: 10px 0px 10px 20px;
+    padding: 15px 0px 15px 20px;
   }
   .jump_hamburger_block .header_nav_block .nav_left_block .nav_about_us a {
     width: 100%;
@@ -591,7 +591,7 @@ body {
     color: #A07332;
     display: inline-block;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 0px;
   }
   .jump_hamburger_block .header_nav_block .nav_left_block .nav_about_us a:link, .jump_hamburger_block .header_nav_block .nav_left_block .nav_about_us a:visited {
@@ -606,7 +606,7 @@ body {
     margin-top: 0px;
     padding-left: 0;
     background-image: none;
-    padding: 10px 0px 10px 20px;
+    padding: 15px 0px 15px 20px;
   }
   .jump_hamburger_block .header_nav_block .nav_left_block .nav_QA a {
     width: 100%;
@@ -614,7 +614,7 @@ body {
     color: #A07332;
     display: inline-block;
     text-align: left;
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 0px;
   }
   .jump_hamburger_block .header_nav_block .nav_left_block .nav_QA a:link, .jump_hamburger_block .header_nav_block .nav_left_block .nav_QA a:visited {
@@ -757,6 +757,7 @@ body {
 
 .index_contact_box .cotanct_block .order_find .order_inside_detail h4 {
   padding: 15px 0px;
+  margin: 0px;
   width: 25%;
   text-align: center;
 }
@@ -1450,6 +1451,10 @@ body {
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
+}
+
+input:focus, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select:focus {
+  outline: none;
 }
 
 .footer_bg {
@@ -4050,6 +4055,10 @@ div.login_block .login_pic img {
   background-color: #6b9837;
 }
 
+.sign_block .sign_block_inside .sign_send_btn:focus {
+  outline: none;
+}
+
 .sign_block .sign_block_inside .sign_cancel_btn {
   position: absolute;
   top: 5px;
@@ -5397,6 +5406,10 @@ textarea:focus {
   font-size: 20px;
 }
 
+.chekout_s2_order_detail_block .checkout_s2_deliver_infro .checkout_s2_deliver_infro_check input:focus, .chekout_s2_order_detail_block .checkout_s2_deliver_infro .checkout_s2_deliver_infro_check .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group select:focus, .chekout_s2_order_detail_block .checkout_s2_receiver_infro .checkout_s2_receiver_infro_group .checkout_s2_deliver_infro .checkout_s2_deliver_infro_check select:focus {
+  outline: none;
+}
+
 .chekout_s2_order_detail_block .checkout_s2_deliver_infro .checkout_s2_deliver_infro_group {
   margin-top: 10px;
   padding: 10px 10%;
@@ -5853,6 +5866,10 @@ textarea:focus {
   }
 }
 
+.error {
+  border: 2px solid #FF5B3B !important;
+}
+
 .checkout_s3_ordercheck {
   width: 100%;
   text-align: center;
@@ -6117,10 +6134,26 @@ div.checkout_s3_order_detail .order_total_price {
 #checkout_s3 .checkout_s3_other_product .product_link_block a {
   display: inline-block;
   margin: 30px 0%;
+  position: relative;
+}
+
+#checkout_s3 .checkout_s3_other_product .product_link_block a:hover::after {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #checkout_s3 .checkout_s3_other_product .product_link_block a:nth-child(2) {
   margin: 30px 5%;
+}
+
+#checkout_s3 .checkout_s3_other_product .product_link_block a::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.5s;
 }
 
 #checkout_s3 .checkout_s3_other_product .order_keep_shopping {
@@ -7831,6 +7864,20 @@ div.checkout_s3_order_detail .order_total_price {
   align-self: center;
   background-color: #fff;
   line-height: 1.2em;
+  position: relative;
+}
+
+.customer_message .cusomer_message_send .customer_message_right::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: -9px;
+  transform: translateY(-50%) rotate(45deg);
+  background-color: white;
+  border-left: 1px solid #A07332;
+  border-bottom: 1px solid #A07332;
 }
 
 .customer_message .our_reply {
@@ -7872,6 +7919,20 @@ div.checkout_s3_order_detail .order_total_price {
   align-self: center;
   background-color: #fff;
   line-height: 1.2em;
+  position: relative;
+}
+
+.customer_message .our_reply .reply_message_right::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: -9px;
+  transform: translateY(-50%) rotate(45deg);
+  background-color: white;
+  border-left: 1px solid #A07332;
+  border-bottom: 1px solid #A07332;
 }
 
 .member_footer_img {
@@ -8149,7 +8210,6 @@ div.checkout_s3_order_detail .order_total_price {
 
 @media (max-width: 575px) {
   .img_show_block .member_check_img {
-    text-align: center;
     font-size: 16px;
   }
 }
@@ -8160,6 +8220,12 @@ div.checkout_s3_order_detail .order_total_price {
   font-size: 20px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media (max-width: 575px) {
+  .img_show_block .member_check_img span {
+    font-size: 16px;
+  }
 }
 
 .member_img_block {
@@ -10343,6 +10409,14 @@ div.qa_item div.qa_problem p.question::after {
   background-size: 60%;
   background-position: center;
   margin-top: 20px;
+  position: relative;
+}
+
+.happy_buy .contact_block .want_block_Xmark img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .happy_buy .contact_block h4 {
@@ -10439,6 +10513,14 @@ div.qa_item div.qa_problem p.question::after {
   background-size: 60%;
   background-position: center;
   margin-top: 20px;
+  position: relative;
+}
+
+.not_buy .contact_block .want_block_Xmark img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1199px) {
@@ -10927,6 +11009,46 @@ header .video iframe {
   animation-direction: alternate-reverse;
 }
 
+.farm_description_box .farm_descript_item .farm_description_item_box .farm_building_materials .farm_decoration_pic p {
+  color: transparent;
+  position: absolute;
+  top: -120px;
+  right: 100px;
+  z-index: -1;
+  animation: cute_animal_text01;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes cute_animal_text01 {
+  0% {
+    top: -130px;
+    color: #ED8217;
+    right: 80px;
+    transform: rotate(10deg);
+  }
+  50% {
+    top: -150px;
+    right: 100px;
+    transform: rotate(12deg);
+  }
+  75% {
+    top: -160px;
+    right: 90px;
+    color: #ED8217;
+    transform: rotate(-10deg);
+  }
+  100% {
+    top: -130px;
+    right: 80px;
+    color: #ED8217;
+    transform: rotate(5deg);
+  }
+}
+
 @keyframes cute_animal {
   0% {
     top: -80px;
@@ -10983,6 +11105,43 @@ header .video iframe {
   animation-direction: alternate-reverse;
 }
 
+.farm_description_box .farm_descript_item .farm_description_item_box .production_equipment .farm_decoration_pic p {
+  color: transparent;
+  position: absolute;
+  top: -120px;
+  right: 100px;
+  z-index: -1;
+  animation: cute_animal_text02;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes cute_animal_text02 {
+  0% {
+    top: -160px;
+    color: #ED8217;
+    right: 60px;
+  }
+  50% {
+    top: -150px;
+    right: 100px;
+    transform: rotate(15deg);
+  }
+  75% {
+    top: -160px;
+    right: 90px;
+    color: #ED8217;
+    transform: rotate(-15deg);
+  }
+  100% {
+    top: -130px;
+    right: 80px;
+  }
+}
+
 @keyframes cute_animal {
   0% {
     top: -220px;
@@ -10995,6 +11154,252 @@ header .video iframe {
   }
   100% {
     top: -130px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img {
+  position: absolute;
+  top: -100px;
+  right: 150px;
+  animation: footprint;
+  animation-duration: 7s;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: normal;
+}
+
+@media (max-width: 1199px) {
+  .farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img {
+    display: none;
+  }
+}
+
+@keyframes footprint {
+  0% {
+    top: -60px;
+    right: 150px;
+  }
+  20% {
+    top: -40px;
+    right: 170px;
+  }
+  40% {
+    top: -20px;
+    right: 180px;
+  }
+  60% {
+    top: 0px;
+    right: 200px;
+  }
+  80% {
+    top: 10px;
+    right: 220px;
+  }
+  100% {
+    top: 50px;
+    right: 240px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img .left_foot {
+  position: relative;
+  animation: leftfoot;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes leftfoot {
+  0% {
+    opacity: 1;
+    top: 0px;
+    right: 2px;
+  }
+  20% {
+    opacity: 0;
+    top: 2px;
+  }
+  40% {
+    opacity: 1;
+    top: 0px;
+    right: 2px;
+  }
+  60% {
+    opacity: 0;
+    top: 2px;
+  }
+  80% {
+    opacity: 1;
+    top: 0px;
+    right: 2px;
+  }
+  100% {
+    opacity: 0;
+    top: 2px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img .right_foot {
+  position: relative;
+  padding: 10px;
+  animation: rightfoot;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes rightfoot {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    top: 0px;
+    right: 5px;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+    top: 0px;
+    right: 5px;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 0px;
+    right: 5px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img01 {
+  position: absolute;
+  top: 1150px;
+  left: 120px;
+  animation: footprint01;
+  animation-duration: 7s;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: normal;
+}
+
+@media (max-width: 1199px) {
+  .farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img01 {
+    display: none;
+  }
+}
+
+@keyframes footprint01 {
+  0% {
+    top: 1150px;
+    left: 120px;
+  }
+  20% {
+    top: 1170px;
+    left: 140px;
+  }
+  40% {
+    top: 1210px;
+    left: 160px;
+  }
+  60% {
+    top: 1230px;
+    left: 180px;
+  }
+  80% {
+    top: 1250px;
+    left: 200px;
+  }
+  100% {
+    top: 1270px;
+    left: 220px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img01 .left_foot01 {
+  position: relative;
+  animation: leftfoot;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes leftfoot {
+  0% {
+    opacity: 1;
+    top: 0px;
+    right: 2px;
+  }
+  20% {
+    opacity: 0;
+    top: 2px;
+  }
+  40% {
+    opacity: 1;
+    top: 0px;
+    right: 2px;
+  }
+  60% {
+    opacity: 0;
+    top: 2px;
+  }
+  80% {
+    opacity: 1;
+    top: 0px;
+    right: 2px;
+  }
+  100% {
+    opacity: 0;
+    top: 2px;
+  }
+}
+
+.farm_description_box .farm_descript_item .farm_description_item_box .about_us_decoration_foot_img01 .right_foot01 {
+  position: relative;
+  padding: 10px;
+  animation: rightfoot;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out：cubic-bezier(0.42, 0, 0.58, 1);
+  animation-direction: alternate-reverse;
+}
+
+@keyframes rightfoot {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    top: 0px;
+    right: 5px;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+    top: 0px;
+    right: 5px;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 0px;
+    right: 5px;
   }
 }
 
@@ -11696,6 +12101,12 @@ header .video iframe {
   }
 }
 
+.production_process_box .production_process .process_content_box .process_content button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
 .production_process_box .production_process .process_content_box .process_content .process_item {
   display: flex;
   flex-direction: column;
@@ -11754,6 +12165,7 @@ header .video iframe {
   border-radius: 30px;
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 @media (max-width: 575px) {
@@ -11791,6 +12203,69 @@ header .video iframe {
   .production_process_box .production_process .process_content_box .process_bar .bar_item .small_bar {
     --small_bar_size:calc(var(--process_bar_size)/7);
   }
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item button {
+  background-color: transparent;
+  border: transparent;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_01 {
+  background-color: #91C359;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_02 {
+  background-color: transparent;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 15%;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_03 {
+  background-color: transparent;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 30%;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_04 {
+  background-color: transparent;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 460px;
+  left: 43%;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_05 {
+  background-color: transparent;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 58%;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_06 {
+  background-color: transparent;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 72%;
+}
+
+.production_process_box .production_process .process_content_box .process_bar .bar_item .bar_07 {
+  background-color: transparent;
+  height: 20px;
+  border-radius: 30px;
+  position: absolute;
+  left: 86%;
 }
 
 .production_process_box .production_process .vagatable_process_box, .production_process_box .production_process .fruit_process_box {
@@ -11860,28 +12335,10 @@ header .video iframe {
   position: absolute;
 }
 
-@media (max-width: 1199px) {
-  .production_process_box .bg_white_radish_pic img {
-    width: 150px;
-  }
-}
-
-@media (max-width: 767px) {
-  .production_process_box .bg_white_radish_pic img {
-    width: 120px;
-  }
-}
-
-@media (max-width: 575px) {
-  .production_process_box .bg_white_radish_pic img {
-    width: 80px;
-  }
-}
-
 .production_process_box .bg_strawberry_pic {
   position: absolute;
-  right: 300px;
-  top: -150px;
+  right: 250px;
+  top: -80px;
 }
 
 @media (max-width: 1199px) {
@@ -11891,7 +12348,7 @@ header .video iframe {
 }
 
 .production_process_box .bg_strawberry_pic img {
-  width: 150px;
+  width: 100px;
   position: absolute;
 }
 
@@ -12946,6 +13403,7 @@ header .video iframe {
   justify-content: center;
   align-items: center;
   vertical-align: middle;
+  flex-wrap: wrap;
 }
 
 .vagatable_detail_introduce_box .vagatable_detail_introduce_content, .vagatable_detail_introduce_box .fruit_detail_introduce_content, .fruit_detail_introduce_box .vagatable_detail_introduce_content, .fruit_detail_introduce_box .fruit_detail_introduce_content {
@@ -12983,7 +13441,7 @@ header .video iframe {
   align-items: center;
   vertical-align: middle;
   flex-wrap: wrap;
-  width: 60%;
+  width: 50%;
 }
 
 @media (max-width: 1199px) {
@@ -13004,33 +13462,55 @@ header .video iframe {
   }
 }
 
-.vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item {
-  padding: 15px;
+.vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 575px) {
-  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item {
+  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box {
+    width: 95%;
+  }
+}
+
+.vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box button, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box button, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item {
+  padding: 10px;
+}
+
+@media (max-width: 575px) {
+  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item {
     padding: 10px;
   }
 }
 
-.vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img {
+.vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img {
   border-radius: 50%;
   border: 5px solid #91C359;
-  width: 100px;
-  height: 100px;
-  padding: 5px;
+  width: 90px;
+  height: 90px;
+  padding: 3px;
 }
 
 @media (max-width: 1199px) {
-  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img {
+  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img {
     width: 100px;
     height: 100px;
   }
 }
 
 @media (max-width: 767px) {
-  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img {
+  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img {
     border: 3px solid #91C359;
     width: 80px;
     height: 80px;
@@ -13038,7 +13518,7 @@ header .video iframe {
 }
 
 @media (max-width: 575px) {
-  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item img {
+  .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .vagatable_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .vagatable_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .vagatable_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .vagatable_detail_introduce_item_button_box .fruit_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .vagatable_detail_introduce_item img, .fruit_detail_introduce_box .fruit_detail_introduce_content .fruit_detail_introduce_item_box .fruit_detail_introduce_item_button_box .fruit_detail_introduce_item img {
     border: 2px solid #91C359;
     width: 60px;
     height: 60px;
@@ -13226,9 +13706,33 @@ header .video iframe {
 .vagatable_and_fruit_introduction_footer_decoration_pic img {
   width: 150px;
   position: absolute;
-  bottom: -85px;
-  right: 50px;
+  bottom: -600px;
+  right: 80px;
   z-index: 1;
+}
+
+#slider {
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 500px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 200px;
 }
 
 div#game_title {
@@ -13463,7 +13967,7 @@ section.game_play_border #count {
 @media (max-width: 575px) {
   section.game_play_border #count {
     background-size: 90px 72px;
-    top: -4.8%;
+    top: -2.8%;
     right: -6%;
   }
 }
@@ -13481,7 +13985,7 @@ section.game_play_border #count h1 {
 
 @media (max-width: 575px) {
   section.game_play_border #count h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -13979,7 +14483,7 @@ section.game_play_border #count {
 @media (max-width: 575px) {
   section.game_play_border #count {
     background-size: 90px 72px;
-    top: -4.8%;
+    top: -2.8%;
     right: -6%;
   }
 }
@@ -13997,7 +14501,7 @@ section.game_play_border #count h1 {
 
 @media (max-width: 575px) {
   section.game_play_border #count h1 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -14594,7 +15098,7 @@ section.game_play_border_PassandDefeat #count {
 @media (max-width: 575px) {
   section.game_play_border_PassandDefeat #count {
     background-size: 90px 72px;
-    top: -4.8%;
+    top: -2.8%;
     right: -6%;
   }
 }
@@ -15294,7 +15798,7 @@ section.game_play_border_lottery div.game_test_3 img#cooking_nabe_top {
 @media (max-width: 575px) {
   section.game_play_border_lottery div.game_test_3 img#cooking_nabe_top {
     width: 55vw;
-    left: 16.5%;
+    left: 15.5%;
   }
 }
 
@@ -15318,7 +15822,7 @@ section.game_play_border_lottery div.game_test_3 img#cooking_nabe_bottom {
 @media (max-width: 575px) {
   section.game_play_border_lottery div.game_test_3 img#cooking_nabe_bottom {
     width: 55vw;
-    left: 16.5%;
+    left: 15.5%;
   }
 }
 
@@ -15346,9 +15850,9 @@ section.game_play_border_lottery div.game_test_3 div#bowl {
 
 @media (max-width: 575px) {
   section.game_play_border_lottery div.game_test_3 div#bowl {
-    width: 170px;
-    height: 170px;
-    left: 22%;
+    width: 160px;
+    height: 160px;
+    left: 23.5%;
   }
 }
 
@@ -15665,8 +16169,8 @@ div#get_coin button#submit_12:hover {
 @media (max-width: 575px) {
   div#get_coin button#submit_12 {
     display: inline-block;
-    width: 120px;
-    height: 35px;
+    width: 130px;
+    height: 45px;
     background-color: #91C359;
     text-decoration: none;
     font-family: "huninn";
