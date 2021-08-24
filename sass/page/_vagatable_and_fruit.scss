@@ -891,6 +891,7 @@
         .strawberry{
           img{
             padding:15px 18px;
+            width:10px;
           }
         }
       }
@@ -1032,8 +1033,8 @@
   img{
     width:150px;
     position: absolute;
-    bottom:-85px;
-    right: 50px;
+    bottom:-600px;
+    right: 80px;
     z-index: 1;
   }
 }
@@ -1041,18 +1042,22 @@
 #slider {
   position: relative;
   overflow: hidden;
-  margin: 20px auto 0 auto;
-  border-radius: 4px;
+  padding:10px;
 }
 #slider ul {
   position: relative;
   margin: 0;
   padding: 0;
-  height: 200px;
+  height: 500px;
   list-style: none;
 }
 #slider ul li {
   position: relative;
   display: block;
   float: left;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 200px;
 }
+
