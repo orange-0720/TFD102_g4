@@ -9710,8 +9710,15 @@ div.qa_item div.qa_problem p.question::after {
 .price_all {
   max-width: 1000px;
   width: 80%;
+  margin-top: 45px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 1199px) {
+  .price_all {
+    margin-top: 0px;
+  }
 }
 
 .price_all .select_amount {
@@ -9781,7 +9788,7 @@ div.qa_item div.qa_problem p.question::after {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  max-width: 700px;
   flex-wrap: wrap;
 }
 
@@ -9796,10 +9803,10 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_remove_menu {
-  width: 40%;
+  width: 35%;
   background-color: #FFF7D2;
-  margin-top: 2%;
   border-radius: 10px;
+  margin-left: -160px;
 }
 
 .fruits_box_two .fruits_remove_menu .choose_text {
@@ -9808,7 +9815,7 @@ div.qa_item div.qa_problem p.question::after {
 
 @media (max-width: 1199px) {
   .fruits_box_two .fruits_remove_menu {
-    width: 60%;
+    margin-left: 0px;
   }
   .fruits_box_two .fruits_remove_menu .five_fruits {
     width: 100%;
@@ -9817,6 +9824,13 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 @media (max-width: 1199px) and (max-width: 767px) {
+  .fruits_box_two .fruits_remove_menu {
+    width: 50%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 1199px) and (max-width: 767px) and (max-width: 575px) {
   .fruits_box_two .fruits_remove_menu {
     width: 80%;
   }
@@ -9870,7 +9884,7 @@ div.qa_item div.qa_problem p.question::after {
 
 .fruits_box_two .fruits_basket .outer_layer {
   width: 730px;
-  height: 500px;
+  height: 430px;
   position: relative;
 }
 
@@ -9881,23 +9895,72 @@ div.qa_item div.qa_problem p.question::after {
 }
 
 .fruits_box_two .fruits_basket .outer_layer #wooden {
-  width: 100%;
-  top: 24%;
+  width: 90%;
+  top: 14%;
   left: 0%;
   z-index: 0;
   position: absolute;
 }
 
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_basket .outer_layer #wooden {
+    left: 10%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fruits_box_two .fruits_basket .outer_layer #wooden {
+    left: 0%;
+  }
+}
+
 .fruits_box_two .fruits_basket .outer_layer #wooden_box {
-  width: 100%;
-  top: 24%;
+  width: 90%;
+  top: 14%;
   left: 0%;
   z-index: -3;
   position: absolute;
 }
 
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_basket .outer_layer #wooden_box {
+    left: 10%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fruits_box_two .fruits_basket .outer_layer #wooden_box {
+    left: 0%;
+  }
+}
+
 .fruits_box_two .fruits_basket .outer_layer .img_src {
   z-index: -2;
+  width: 70%;
+  margin-top: -60px;
+}
+
+@media (max-width: 1199px) {
+  .fruits_box_two .fruits_basket .outer_layer .img_src {
+    margin-top: -35px;
+    width: 95%;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .fruits_box_two .fruits_basket .outer_layer .img_src {
+    margin-top: -35px;
+    width: 80%;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 575px) {
+  .fruits_box_two .fruits_basket .outer_layer .img_src {
+    width: 100%;
+    margin-top: 0px;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -9925,17 +9988,24 @@ div.qa_item div.qa_problem p.question::after {
   }
   .fruits_box_two .fruits_basket .outer_layer #wooden {
     width: 110%;
-    top: 80px;
+    top: 60px;
     left: -6%;
   }
   .fruits_box_two .fruits_basket .outer_layer #wooden_box {
     width: 110%;
-    top: 80px;
+    top: 60px;
     left: -6%;
   }
   .fruits_box_two .fruits_basket .outer_layer .img_src {
+    width: 90%;
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 575px) and (max-width: 575px) {
+  .fruits_box_two .fruits_basket .outer_layer .img_src .img_src {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 0px;
   }
 }
 
@@ -9944,7 +10014,7 @@ div.qa_item div.qa_problem p.question::after {
   justify-content: flex-end;
   align-items: flex-end;
   z-index: 1;
-  width: 80%;
+  margin-top: -128px;
   max-width: 1200px;
 }
 
@@ -9962,7 +10032,19 @@ div.qa_item div.qa_problem p.question::after {
 
 @media (max-width: 1199px) {
   .fruits_box_two .fruits_check_butten {
-    margin-top: 40px;
+    margin-top: -140px;
+  }
+}
+
+@media (max-width: 1199px) and (max-width: 767px) {
+  .fruits_box_two .fruits_check_butten {
+    margin-top: -100px;
+  }
+}
+
+@media (max-width: 1199px) and (max-width: 767px) and (max-width: 575px) {
+  .fruits_box_two .fruits_check_butten {
+    margin-top: -5%;
   }
 }
 
@@ -10014,7 +10096,7 @@ div.qa_item div.qa_problem p.question::after {
 .butten_check_price button {
   width: 100px;
   height: 50px;
-  background-color: #008000;
+  background-color: #91c359;
   text-decoration: none;
   border-radius: 101px;
   border: 0;
@@ -10026,7 +10108,6 @@ div.qa_item div.qa_problem p.question::after {
 .select_fruits {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%;
   max-width: 1200px;
   width: 80%;
 }
@@ -10034,7 +10115,7 @@ div.qa_item div.qa_problem p.question::after {
 .select_fruits .select_second {
   width: 60%;
   max-width: 1000px;
-  padding: 0 0 20px 0;
+  padding: 20px 0 20px 0;
   margin-left: 12%;
 }
 
@@ -10232,8 +10313,7 @@ div.qa_item div.qa_problem p.question::after {
 @media (max-width: 575px) {
   .product_name {
     justify-content: center;
-    margin-left: 26%;
-    font-size: 30px;
+    font-size: 24px;
   }
 }
 
@@ -10409,14 +10489,6 @@ div.qa_item div.qa_problem p.question::after {
   background-size: 60%;
   background-position: center;
   margin-top: 20px;
-  position: relative;
-}
-
-.happy_buy .contact_block .want_block_Xmark img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .happy_buy .contact_block h4 {
@@ -10513,14 +10585,6 @@ div.qa_item div.qa_problem p.question::after {
   background-size: 60%;
   background-position: center;
   margin-top: 20px;
-  position: relative;
-}
-
-.not_buy .contact_block .want_block_Xmark img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 1199px) {
