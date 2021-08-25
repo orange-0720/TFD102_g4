@@ -285,12 +285,12 @@ section.game_play_border_PassandDefeat {
       }
     }
     div#finalscore {
-      width: 50%;
+      width: 60%;
       height: 50%;
       position: absolute;
-      top: 55%;
-      right: -25%;
-      font-size: 48px;
+      top: 60%;
+      right: -45%;
+      font-size: 40px;
       color: $text_underline;
       border-radius: 10px;
       @include pad {
