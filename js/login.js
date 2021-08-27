@@ -47,10 +47,10 @@ if(window.innerWidth >= 768){
     login_pic.classList.toggle("pic_move");
     if (form_block.classList.contains("form_move")) {
     login_img.src =
-        "./images/login&out/logout_01.jpg";
+        "../images/login&out/logout_01.jpg";
     } else {
     login_img.src =
-        "./images/login&out/login_01.jpg";
+        "../images/login&out/login_01.jpg";
     }
     if(login_form.style.display = 'none'){
     signup_form.style.display = 'none';
@@ -94,14 +94,6 @@ pwd_resend_btn.addEventListener("click", function () {
 // 忘記密碼結束
 
 // 註冊會員寄信
-
-$('.sign_send_btn').click(function(){
-$('.sign_block').fadeToggle();
-})
-
-$('.sign_block').click(function(){
-$('.sign_block').fadeToggle();
-})
 
 $('.sign_block_inside').click(e=>{
 e.stopPropagation();
@@ -153,6 +145,7 @@ sign_confirm_btn.addEventListener('click', function(e){
     let partten = /^09[0-9]{8}$/;
 
     let answer = 0;
+
     if(val.search(emailRule) === -1){
         sign_email.value = '';
         sign_email.style.border = '3px solid red';
@@ -160,13 +153,8 @@ sign_confirm_btn.addEventListener('click', function(e){
     }else{
         answer ++;
     }
-    
-    // alert(sign_pwd.length);
-    // alert(pwd_confirm.length);
-    // alert(sign_pwd);
-    // alert(pwd_confirm);
-    if(sign_pwd.length <= 8 && pwd_confirm.length <= 8){
-        //alert('密碼需超過八位數')
+
+    if(sign_pwd.length < 8 && pwd_confirm.length < 8){
         $('#sign_pwd_fail').show();
         $('#pwd_confirm_fail').show();
         document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
@@ -174,8 +162,8 @@ sign_confirm_btn.addEventListener('click', function(e){
     }else{
         answer ++;
     }
+
     if(sign_pwd != pwd_confirm){
-        //alert('請確認密碼是否相同')
         $('#pwd_confirm_fail').show();
         $('#sign_pwd_fail').show();
         document.getElementsByClassName('sign_pwd')[0].style.border = '3px solid red';
@@ -199,27 +187,67 @@ sign_confirm_btn.addEventListener('click', function(e){
     }
 
     if(answer == 5){
-        Email.send({
-            Host: "smtp.gmail.com",
-            Username: "goodvegetablebox@gmail.com",
-            Password: "tfd102g4",
-            To: val,
-            From: "良耕野菜<goodvegetablebox@gmail.com>",
-            Subject: "良耕野菜",
-            Body: "感謝您成為良耕野菜的會員，您的驗證碼為為11111111，輸入驗證碼後即可完成註冊",
-        }).then((message) => alert('已寄出驗證碼，請輸入驗證碼後完成註冊'))
-        .then($('.sign_block').fadeToggle());
-    }
+        var pass = Math.floor(Math.random()* 1000000000)
+        // console.log(pass);
 
+        $.ajax({            
+            method: "POST",
+            url: "../php/checkEmail.php",
+            data:{ 
+                account: $('#sign_email').val(),
+            },            
+            dataType: "text",
+            success: function (response) {
+                if(response == 'done'){
+                    const serviceID = 'service_ihy2xr8' ;
+                    const templateID = "template_z6vu9t8" ;
+                    const user_id = 'user_liKYa8LoxueayCZfwKoQk';
+                    emailjs.send(
+                        serviceID,
+                        templateID,
+                        {
+                            message: pass,
+                            reply_to: $('#sign_email').val()
+                        },
+                        user_id
+                    )
+                    .then(() => {
+                        alert('已寄出驗證碼，請輸入驗證碼後完成註冊');
+                        $('.sign_block').fadeToggle()
+                    }, (err) => {
+                        alert(JSON.stringify(err));
+                    });
+                }else{
+                    alert('此信箱已註冊過，請確認!')
+                    $('#sign_email').val('');
+                    $('.sign_pwd').val('');
+                    $('.pwd_confirm').val('');
+                    $('.sign_tel').val('');
+                }
+            },
+            error: function(exception) {
+                alert("發生錯誤: " + exception.status);
+            }
+        });
+
+        // 驗證碼輸入並執行撈資料庫資料
+        sign_send_btn.addEventListener('click', function(e){
+            e.stopPropagation();
+            let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
+            console.log(pass);
+            console.log(typeof(pass));
+            console.log(sign_confirm.value);
+            console.log(typeof(sign_confirm.value));
+            if(sign_confirm.value == pass){
+                doInsert();
+            }else{
+                alert('驗證碼錯誤，請確認');
+                sign_confirm.value ='';
+            }
+        })
+    }
 });
 
-// 驗證碼輸入並執行撈資料庫資料
-sign_send_btn.addEventListener('click', function(){
-    let sign_confirm = document.getElementsByClassName('sign_confirm')[0];
-    if(sign_confirm.value == 11111111){
-        doInsert();
-    }
-})
 
 // 判斷登入表單不能為空
 document.getElementById('login_btn').addEventListener('click', function(){
@@ -239,3 +267,119 @@ document.getElementById('login_btn').addEventListener('click', function(){
         $('#pwd_fail').show();
     }
 })
+
+
+//註冊
+function doInsert(){
+    $.ajax({            
+        method: "POST",
+        url: "../php/Insert.php",
+        data:{ 
+            account: $('#sign_email').val(),
+            pwd : $('#sign_pwd').val(),
+            tel : $('#sign_tel').val(),
+        },            
+        dataType: "text",
+        success: function (response) {
+            if(response == 'done'){
+                alert('註冊成功');
+                let site_now = JSON.parse(sessionStorage.getItem('site_now'));
+                if(site_now){
+                    let go_back = site_now
+                    sessionStorage.removeItem('site_now');
+                    window.location.href = go_back;
+                }else{
+                    window.location.href = './index.html';  
+                }
+            }
+        },
+        error: function(exception) {
+            alert("發生錯誤: " + exception.status);
+        }
+    });
+}
+
+function forget_pwd(){
+    let new_pwd = Math.floor(Math.random() * 1000000000);
+    $.ajax({
+      method: 'POST',
+      url: '../php/forget_pwd.php',
+      data:{
+        account: $('#pwd_resend').val(),
+        new_pwd: new_pwd,
+      },
+      dataType: 'json',
+      success: function(response) {
+          console.log(response);
+          if(response === 'yes'){
+              const serviceID = 'service_ihy2xr8' ;
+              const templateID = "template_2lypwgq" ;
+              const user_id = 'user_liKYa8LoxueayCZfwKoQk';
+              emailjs.send(
+                  serviceID,
+                  templateID,
+                  {
+                      message: new_pwd,
+                      reply_to: $('#pwd_resend').val()
+                  },
+                  user_id
+              )
+              .then(() => {
+                  alert('已寄出新密碼，請使用新密碼進行登入。並請至會員中心更改密碼');
+                  $('.pwd_block').fadeToggle();
+              }, (err) => {
+                  alert(JSON.stringify(err));
+              });
+          }else{
+              console.log(response)
+              alert('查無此信箱')
+          }
+      },
+      error: function(exception) {
+          alert("發生錯誤: " + exception.status);
+      },
+    })
+};
+
+// 登入
+function Login(){
+    $.ajax({
+      method: 'POST',
+      url: '../php/login.php',
+      data:{
+        account: $('#login_email').val(),
+        pwd : $('#login_pwd').val(),
+      },
+      dataType: 'json',
+      success: function(response) {
+          console.log(response);
+          let site_now = JSON.parse(sessionStorage.getItem('site_now'));
+          if(response == 1){
+              alert('登入成功');
+              if(site_now){
+                let go_back = site_now
+                console.log(go_back);
+                sessionStorage.removeItem('site_now');
+                window.location.href = go_back;
+              }else{
+                window.location.href = './member.html';  
+              }
+          }else if(response ==2){
+              alert('密碼錯誤');
+              $('#login_pwd').val('');
+          }else if(response ==4 ){
+            alert('此帳號已被停權')
+          }else{
+              console.log(response)
+              alert('查無會員')
+              $('#login_email').val('')
+              $('#login_pwd').val('')
+          }
+
+      },
+      error: function(exception) {
+          alert("發生錯誤: " + exception.status);
+          console.log(exception)
+      },
+    })
+};

@@ -19,6 +19,9 @@
   <!-- Swiper -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Aos  -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body onload="ifMember()">
@@ -103,7 +106,7 @@
         <div class="text_underline"></div>
       </div>
       <div class="news_board">
-        <div class="news_board_card">
+        <div class="news_board_card" data-aos="fade-up" data-aos-duration="1000">
           <a href="./fruit_box.html">
             <div class="card_cover">
               <img src="../images/index/01_1.jpg" />
@@ -117,7 +120,7 @@
             </div>
           </a>
         </div>
-        <div class="news_board_card">
+        <div class="news_board_card" data-aos="fade-up" data-aos-duration="2000">
           <a href="./game.html">
             <div class="card_cover">
               <img src="../images/index/01_2.jpg" />
@@ -131,7 +134,7 @@
             </div>
           </a>
         </div>
-        <div class="news_board_card">
+        <div class="news_board_card" data-aos="fade-up" data-aos-duration="3000">
           <a href="./event.html">
             <div class="card_cover">
               <img src="../images/index/01_3.jpg" />
@@ -182,7 +185,7 @@
           <div class="text_underline"></div>
         </div>
       </div>
-      <div class="buy_item">
+      <div class="buy_item" data-aos="zoom-in-down">
         <div class="buy_card">
           <div class="buy_card_hover">
             <a href="./fruit_box.html"><img class="buycard_img" src="../images/index/03_05.png" /></a>
@@ -240,7 +243,9 @@
         <div class="text_underline"></div>
       </div>
       <div class="farm_expr_board">
-        <div class="farm_expr_card">
+        <div class="farm_expr_card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000">
           <img src="../images/index/05_01.jpg">
           <div class="farm_expr_text">
             <h4>摘採野菜體驗</h4>
@@ -251,22 +256,26 @@
               <h5>詳細內容</h5></a>
             </button></center>
         </div>
-        <div class="farm_expr_card">
+        <div class="farm_expr_card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000">
           <img src="../images/index/05_02.jpg">
           <div class="farm_expr_text">
-            <h4>摘採野菜體驗</h4>
-            <h5>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！</h5>
+            <h4>手作窯烤比薩</h4>
+            <h5>披薩在全世界都相當受到歡迎，做法簡單易上手，在發酵的麵團上抹上番茄醬，加上良耕農場新鮮蔬果，最後放上起司，窯烤出爐後便是最棒的美味！</h5>
           </div>
           <center>
             <a href="./event.html"><button class="farm_expr_btn">
               <h5>詳細內容</h5></a>
             </button></center>
         </div>
-        <div class="farm_expr_card">
+        <div class="farm_expr_card" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000">
           <img src="../images/index/05_03.jpg">
           <div class="farm_expr_text">
-            <h4>摘採野菜體驗</h4>
-            <h5>在良耕農場與溫室棚裡都可以親身體驗都市少有的自然農作，即使是最常見的青菜蘋果草莓，也能從觸摸摘採的過程中感受最純粹的土地回饋！</h5>
+            <h4>自製芒果果醬</h4>
+            <h5>嚴選良耕農場芒果，綜合了愛文芒果的細緻質地與土芒果的濃香風味，用來做果醬可以濃縮最完美的芒果香氣，將美好味道帶回家享用！</h5>
           </div>
           <center>
             <a href="./event.html"><button class="farm_expr_btn">
@@ -282,9 +291,9 @@
       <div class="about_us">
         <h4 class="us_title1">想知道關於我們的故事嗎？</h4>
         <a href="./aboutUs.html">
-          <a href="./aboutUs.html"></a><h2 class="us_title2">關於我們 >
+          <h2 class="us_title2">關於我們 >
             <div class="text_underline"></div>
-          </h2></a>
+          </h2>
         </a>
         <img class="us_bg1" src="../images/index/06_about_bg1.svg" alt="">
         <img class="us_bg2" src="../images/index/06_about_bg2.svg" alt="">
@@ -458,7 +467,10 @@
         </div>
       </div>
     </div>
-
+    <div  style=" text-align: center; padding: 20px 0px;">
+      本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+      若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+    </div>
   </footer>
   <script src="../js/right_nav_bar.js"></script>
   <script src="../js/shopping_cart.js"></script>
@@ -547,6 +559,10 @@
       var onceTime = contentWidth / speed * 9000; //ms
       marqueeContent.style.animationDuration = onceTime + "ms";
     })()
+  </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
 
 </body>

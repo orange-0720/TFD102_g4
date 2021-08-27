@@ -1,3 +1,7 @@
+a{
+  text-decoration:none;
+}
+
 .back_log_body {
   height: 100%;
   overflow: hidden;
@@ -12,10 +16,8 @@
   width: 50%;
   height: 100%;
   img{
-    // width: 125%;
     height: 100%;
     background-size: cover;
-    // background-position: 20% 50%;
   }
 }
 
@@ -45,8 +47,6 @@
   h2 {
     color: $darkgreen;
     margin-bottom: 30px;
-    // font-weight: 300;
-    // font-size: 35px;
   }
 }
 
@@ -66,7 +66,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
-  margin: 15px 15px 15px 0;
+  margin: 15px 15px 35px 0;
   transition: all 0.25s;
 }
 
@@ -78,7 +78,6 @@
 
 
 input.back_input {
-  // border: 1px solid blue;
   background: transparent;
   border: 0;
   outline: 0;
@@ -89,3 +88,6 @@ input.back_input {
   margin: 10px 0 20px 0;
 }
 
+.account_forget{
+  padding-left: 30px;
+}

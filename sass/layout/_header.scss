@@ -155,9 +155,11 @@ body{
         display: flex;
         .nav_block_contact{
             display: none;
+            cursor: pointer;
         }
         .nav_block_log{
             display: none;
+            cursor: pointer;
         }
         .nav_right_block{
             width: 50%;
@@ -334,12 +336,12 @@ body{
                     margin-top: 10px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                         &:last-child{
                             margin-top: 10px;
@@ -352,13 +354,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                         &:last-child,
                         &:nth-child(2){
@@ -372,13 +374,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                     }
                 }
@@ -389,13 +391,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                         &:last-child,
                         &:nth-child(2){
@@ -409,13 +411,13 @@ body{
                     margin-top: 0px;
                     padding-left: 0;
                     background-image: none;
-                    padding: 10px 0px 10px 20px;
+                    padding: 15px 0px 15px 20px;
                     a{
                         width: 100%;
                         @include a_link();
                         display: inline-block;
                         text-align: left;
-                        font-size: $h5;
+                        font-size: $h4;
                         margin-top: 0px;
                     }
                 }
@@ -520,6 +522,7 @@ body{
             display: none;
             @include marginAuto();
             margin-top: 30px;
+
             .order_line{
                 width: 100%;
                 display:flex;
@@ -536,6 +539,7 @@ body{
                 display:flex;
                 h4{
                     padding: 15px 0px;
+                    margin: 0px;
                     width: 25%;
                     text-align: center;
                 }
@@ -574,7 +578,7 @@ body{
             overflow: hidden;
             z-index: 4;
             @include pad{
-                top: 60%;
+                top: 50%;
             }
             @include mobile{
                 width: 80%;
@@ -653,6 +657,7 @@ body{
         }
     }
 }
+
 
 // 購物車
 .cart_bk {
@@ -1030,6 +1035,16 @@ body{
     z-index: 3;
     font-size: $h5;
     color: $yellow;
+    
+    @include tablet{
+        left: 80%;
+    }
+    @include pad{
+        left: 70%;
+    }
+    @include mobile{
+        left: 62%;
+    }
 }
 
 @keyframes cart_move{
@@ -1047,4 +1062,10 @@ body{
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
+}
+
+input{
+    &:focus{
+        outline: none;
+    }
 }

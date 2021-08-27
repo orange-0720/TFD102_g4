@@ -15,7 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   </head>
   <body id="game_page" onload="ifMember()">
     <header class="header">
@@ -94,6 +94,7 @@
       </div>
       <div id="game_question" class="animate__animated animate__bounceInDown">
         <h2 id="defeat" v-html="defeat"></h2>
+        <div id="finalscore" v-if="finalscore">{{"積分"+finalscore+"分"}}</div>
       </div>
       <div id="game_bottom_part_PassandDefeat">
         <div id="game_answer">
@@ -187,6 +188,10 @@
           </div>
         </div>
       </div>
+      <div  style=" text-align: center; padding: 20px 0px;">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
     </footer>
 
     <script src="../js/right_nav_bar.js"></script>
@@ -202,6 +207,20 @@
           defeat: "好可惜!購買蔬果、預約體驗農場-增加蔬果小知識再來挑戰吧!",
           goShopping: "組裝你的蔬菜箱",
           goReserve: "預約體驗農場",
+          finalscore: "",
+        },
+        beforeMount() {
+          // 讀取實際分數;
+          let final_score = JSON.parse(sessionStorage.getItem("total"));
+          console.log(final_score);
+          this.finalscore = final_score;
+          //this綁定data=變數，將變數傳入data
+          // 這裡的 this 代表『Vue instance』裡面唯一的finalscore
+        },
+        destroyed() {
+          sessionStorage.removeItem("total");
+          console.log("123");
+          //為什麼清不掉
         },
       });
 
@@ -222,8 +241,6 @@
           currentIndex = nextIndex;
         }
       });
-
-      // 讀取實際分數;
 
       //     // ====以下為共用====
       //     // 控制HEADER裡的黃色NAV區塊

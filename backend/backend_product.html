@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="../images/logo-02.svg">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>良耕野菜-後臺頁面</title>
+
+
+
+</head>
+
+<body id="backend_page" onload="init()">
+  <div class="container fluid">
+    <div class="row justify-content-end" id="BackEnd_header">
+      <h2 class="col offset-md-5">後台管理</h2>
+      <button type="button" class="btn btn-warning rounded-pill" id="logout"
+        onclick="javascript: location.href = './API/back_logout.php';">登出<span class="icon"><img
+            src="../images/backend/Icon open-account-logout.png"></span></button>
+    </div>
+    <div class="row" id="BackEnd_main">
+      <!-- ==側邊攔== -->
+      <aside class="col-2 " id="BackEnd_main">
+        <div class="row justify-content-center">
+          <div class="BackEnd_logo text-center"><img src="../images/logo.svg" alt="" width="150px" id="logo"></div>
+          <button type="button" class="btn btn-light rounded-pill" id="back_member"
+            onclick="backChange('./backend_member.html')">會員管理</button>
+          <div class="w-100"></div>
+          <button type="button" class="btn btn-light rounded-pill" id="back_product"
+            onclick="backChange('./backend_product.html')" style="background-color:#FAE7C3">商品管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_order"
+            onclick="backChange('./backend_order.html')">訂單管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_reserve"
+            onclick="backChange('./backend_reserve.html')">預約管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_activity"
+            onclick="backChange('./backend_activity.html')">活動管理</button>
+          <div class="w-100"></div>
+          <button type="button" class=" btn btn-light rounded-pill" id="back_message"
+            onclick="backChange('./backend_message.html')">留言板管理</button>
+        </div>
+      </aside>
+
+      <section class="col-10 " id="main">
+        <div class="backend_search">
+          <span class="icon"><i class="fa fa-search"></i></span>
+          <input type="text" class="rounded-pill" placeholder="搜尋商品名稱" name="keyword" onblur="getData()" id="keyword">
+          <button type="button" class="btn btn-success rounded-pill pill_type_new" data-toggle="modal"
+            data-target="#add_pop">新增商品</button>
+        </div>
+        <div class="table_scroll">
+          <table class="table table-striped">
+            <thead class="tr_color">
+              <tr class="col_set">
+                <th scope="col">商品編號</th>
+                <th scope="col">商品類型</th>
+                <th scope="col">商品名稱</th>
+                <th scope="col">商品價格</th>
+                <th scope="col">商品描述</th>
+                <th scope="col">狀態</th>
+                <th scope="col">編輯</th>
+              </tr>
+            </thead>
+            <tbody class="tbody_color" id="result">
+              <!-- 資料庫資料 -->
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+  </section>
+  </div>
+
+  <!-- 編輯商品彈窗 -->
+  <div class="modal fade" id="modify_pop" tabindex="-1" role="dialog" aria-labelledby="modify_popTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modify_popTitle">編輯商品明細</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modify_product_info">
+            <form method="post" id="data_from" enctype='multipart/form-data' action="./API/product/backend_productUpdate.php">
+              <div class="row mb-2">
+                <label for="PRODUCT_TYPE_ID" class="col-auto col-form-label">商品分類：</label>
+                <div class="col-auto">
+                  <select class="form-control" name="PRODUCT_TYPE_ID" id="PRODUCT_TYPE_ID">
+                    <option value="0" disabled>請選擇</option>
+                    <option value="1">蔬果箱</option>
+                    <option value="2">水果</option>
+                    <option value="3">蔬菜</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_NAME" class="col-auto col-form-label">商品名稱：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="PRODUCT_NAME" name="PRODUCT_NAME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_PRICE" class="col-auto col-form-label">商品價格：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="PRODUCT_PRICE" name="PRODUCT_PRICE" oninput="value=value.replace(/[^\d]/g,'')">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_SHORTINFO" class="col-auto col-form-label">商品短描述：</label>
+                <div class="col-auto">
+                  <textarea cols="22" rows="2" class="form-control" id="PRODUCT_SHORTINFO"
+                    name="PRODUCT_SHORTINFO"></textarea>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUC_LONGINFO" class="col-auto col-form-label">商品長描述：</label>
+                <div class="col-auto">
+                  <textarea cols="22" rows="5" class="form-control" id="PRODUC_LONGINFO"
+                    name="PRODUC_LONGINFO"></textarea>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_STATUS_TYPE" class="col-auto col-form-label">商品狀態：</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="PRODUCT_STATUS_TYPE" value="1">
+                  <label class="form-check-label" for="PRODUCT_STATUS_TYPE"></label>上架中</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="PRODUCT_STATUS_TYPE" value="2">
+                  <label class="form-check-label" for="PRODUCT_STATUS_TYPE">已下架</label>
+                </div>
+              </div>
+              <div class="modify_back_img">
+                外部商品圖片 ：<input type="file" data-img="img_out" name="file" class="upload">
+                <img src="" alt="img" id="img_out" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片1：<input type="file" data-img="img_in1" name="file1" class="upload">
+                <img src="" alt="img" id="img_in1" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片2：<input type="file" data-img="img_in2" name="file2" class="upload">
+                <img src="" alt="img" id="img_in2" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片3：<input type="file" data-img="img_in3" name="file3" class="upload">
+                <img src="" alt="img" id="img_in3" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片4：<input type="file" data-img="img_in4" name="file4" class="upload">
+                <img src="" alt="img" id="img_in4" style="width:100px;">
+              </div>
+              <!-- PK和圖片名稱需記錄在這，form送出時才能知道要更新那一筆資料 -->
+              <input type="hidden" name="PRODUCT_ID" id="PRODUCT_ID" />
+              <!-- <input type="hidden" name="PictureName" id="PictureName" />
+              <input type="hidden" name="PictureBase64" id="PictureBase64" /> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消修改</button>
+                <button type="button" class="btn btn-primary" onclick="update()">確認修改</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 編輯商品彈窗 -->
+
+  <!-- 新增商品彈窗 -->
+  <div class="modal fade" id="add_pop" tabindex="-1" role="dialog" aria-labelledby=add_popTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add_popTitle">新增商品</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="add_product_info">
+            <form method="post" enctype="multipart/form-data" id="add_from" action="./API/product/backend_productAdd.php">
+              <div class="row mb-2">
+                <label for="PRODUCT_TYPE_ID" class="col-auto col-form-label">商品分類：</label>
+                <div class="col-auto">
+                  <select class="form-control" name="PRODUCT_TYPE_ID" id="add_PRODUCT_TYPE_ID">
+                    <option value="0" disabled>請選擇</option>
+                    <option value="1">蔬果箱</option>
+                    <option value="2">水果</option>
+                    <option value="3">蔬菜</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_NAME" class="col-auto col-form-label">商品名稱：</label>
+                <div class="col-auto">
+                  <input type="text" class="form-control" id="add_PRODUCT_NAME" name="PRODUCT_NAME">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_PRICE" class="col-auto col-form-label">商品價格：</label>
+                <div class="col-auto">
+                  <input type="number" class="form-control" id="add_PRODUCT_PRICE" name="PRODUCT_PRICE" oninput="value=value.replace(/[^\d]/g,'')">
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_SHORTINFO" class="col-auto col-form-label">商品短描述：</label>
+                <div class="col-auto">
+                  <textarea cols="22" rows="2" class="form-control" id="add_PRODUCT_SHORTINFO"
+                    name="PRODUCT_SHORTINFO"></textarea>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUC_LONGINFO" class="col-auto col-form-label">商品長描述：</label>
+                <div class="col-auto">
+                  <textarea cols="22" rows="5" class="form-control" id="add_PRODUC_LONGINFO"
+                    name="PRODUC_LONGINFO"></textarea>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <label for="PRODUCT_STATUS_TYPE" class="col-auto col-form-label">商品狀態：</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="add_PRODUCT_STATUS_TYPE" value="1">
+                  <label class="form-check-label" for="add_PRODUCT_STATUS_TYPE"></label>上架中</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="add_PRODUCT_STATUS_TYPE" value="2">
+                  <label class="form-check-label" for="add_PRODUCT_STATUS_TYPE">已下架</label>
+                </div>
+              </div>
+              <div class="modify_back_img">
+                外部商品圖片 ：<input type="file" data-img="add_img_out" name="file" class="add_img">
+                <img src="" alt="img" id="add_img_out" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片1：<input type="file" data-img="add_img_in1" name="file1" class="add_img">
+                <img src="" alt="img" id="add_img_in1" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片2：<input type="file" data-img="add_img_in2" name="file2" class="add_img">
+                <img src="" alt="img" id="add_img_in2" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片3：<input type="file" data-img="add_img_in3" name="file3" class="add_img">
+                <img src="" alt="img" id="add_img_in3" style="width:100px;">
+              </div>
+              <div class="modify_back_img">
+                內部商品圖片4：<input type="file" data-img="add_img_in4" name="file4" class="add_img">
+                <img src="" alt="img" id="add_img_in4" style="width:100px;">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消新增</button>
+                <input type="button" class="btn btn-primary" value="確認新增" onclick="return doAdd();" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新增商品彈窗 -->
+
+  <footer>
+    <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="/src/assets/backend.js"></script>
+    <script type="text/javascript" src="/src/main.js"></script> -->
+
+  <script src="../js/backend_search.js"></script>
+
+
+  <script>
+    function init() {
+      $.ajax({
+        method: "POST",
+        url: "API/back_login_check.php",
+        data: {},
+        dataType: "text",
+        success: function (response) {
+          if (response == "") {
+            alert('請先登入，將前往登入頁');
+            location.href = 'back_login.html';
+          } else {
+            getData();
+          }
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+        }
+      });
+    }
+
+    function getData() {
+      $.ajax({
+        method: "POST",
+        url: "API/product/backend_product.php",
+        data: {
+          // Search
+          'keyword': $('#keyword').val()
+        },
+        dataType: "json",
+        success: function (response) {
+          display(response);
+        },
+        error: function (exception) {
+          alert("數據載入失敗: " + exception.status);
+          console.log(exception);
+        }
+      });
+    }
+
+    function display(response) {
+      // 清空TABLE
+      $("#result").html('');
+
+      // Render DATA
+      $.each(response, function (index, row) {
+        var status;
+        switch (row.PRODUCT_STATUS_TYPE) {
+          case "1":
+            status = "<font color='green'>上架中</font>";
+            break;
+          case "2":
+            status = "<font color='red'>已下架</font>";
+            break;
+          default:
+            break;
+        }
+
+        var typeId;
+        switch (row.PRODUCT_TYPE_ID) {
+          case "1":
+            typeId = "蔬果箱";
+            break;
+          case "2":
+            typeId = "水果";
+            break;
+          case "3":
+            typeId = "蔬菜";
+            break;
+          default:
+            break;
+        }
+
+        $("#result").append(
+          '<tr class="col_set">' +
+          '<th scope="row">' + row.PRODUCT_ID + '</th>' +
+          '<th scope="row">' + typeId + '</th>' +
+          '<th scope="row">' + row.PRODUCT_NAME + '</th>' +
+          '<th scope="row">' + row.PRODUCT_PRICE + '</th>' +
+          '<th scope="row">' + row.PRODUCT_SHORTINFO + '</th>' +
+          '<td>' + status + '</td>' +
+          '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#modify_pop" onclick="modify(' +
+          row.PRODUCT_ID + ')">' + '編輯' + '</button></td>' +
+          '</tr>'
+        )
+      })
+    }
+
+    // 抓取商品資料
+    function modify(id) {
+      $.ajax({
+        method: 'POST',
+        url: './API/product/backend_productDetail.php',
+        data: {
+          "id": id
+        },
+        dataType: 'json',
+        success: function (response) {
+          $('#PRODUCT_ID').val(response.PRODUCT_ID);
+          $('#PRODUCT_NAME').val(response.PRODUCT_NAME);
+          $('#PRODUCT_SHORTINFO').val(response.PRODUCT_SHORTINFO);
+          $('#PRODUCT_PRICE').val(response.PRODUCT_PRICE);
+          $("input[name=PRODUCT_STATUS_TYPE][value=" + response.PRODUCT_STATUS_TYPE + "]").prop('checked', true);
+          $('#PRODUCT_TYPE_ID').val(response.PRODUCT_TYPE_ID);
+          $('#PRODUC_LONGINFO').val(response.PRODUC_LONGINFO);
+          $('#img_out').attr('src', response.PRODUCT_OUT_IMG); //顯示原本的圖片
+          $('#img_in1').attr('src', response.PRODUCT_IN_IMG_1);
+          $('#img_in2').attr('src', response.PRODUCT_IN_IMG_2);
+          $('#img_in3').attr('src', response.PRODUCT_IN_IMG_3);
+          $('#img_in4').attr('src', response.PRODUCT_IN_IMG_4);
+        },
+        error: function (exception) {
+          alert("發生錯誤: " + exception.status);
+        },
+      })
+    }
+
+    // 更新商品資料
+    function update(ele) {
+
+      $('#data_from').submit();
+
+      var form = $("#data_from").serializeArray();
+      var formData = new FormData();
+
+      form.forEach(element => {
+        formData.append(element.name, element.value);
+      });
+
+      // $.ajax({
+      //   method: 'POST',
+      //   url: './API/product/backend_productUpdate.php',
+      //   processData: false,
+      //   contentType: false,
+      //   data: formData,
+      //   dataType: 'text',
+      //   success: function (response) {
+      //     console.log(response);
+      //     if (response == 'SUCCESS') {
+      //       alert('修改成功!');
+      //       location.reload();
+      //     }
+      //   },
+      //   error: function (exception) {
+      //     alert("發生錯誤: " + exception.status);
+      //   },
+      // })
+    }
+
+    // 新增商品
+    function doAdd() {
+      // console.log($("#add_PRODUCT_TYPE_ID").val())
+      if ($("#add_PRODUCT_TYPE_ID").val() == 0) {
+        alert("請填寫[商品分類]");
+        return false;
+      }
+      if ($('#add_PRODUCT_NAME').val() == '') {
+        alert("請填寫[商品名稱]");
+        return false;
+      }
+      if ($('#add_PRODUCT_PRICE').val() == '') {
+        alert("請填寫[商品價格]");
+        return false;
+      }
+      if ($('#add_PRODUCT_SHORTINFO').val() == '') {
+        alert("請填寫[商品短描述]");
+        return false;
+      }
+      if ($('#add_PRODUC_LONGINFO').val() == '') {
+        alert("請填寫[商品長描述]");
+        return false;
+      }
+
+      //判斷Status(radio button)是否有值?
+      var obj = $("input[name=add_PRODUCT_STATUS_TYPE]:checked").val();
+
+      if (!obj) {
+        alert("請選擇[商品狀態]");
+        return false;
+      }
+
+
+      $('#add_from').submit();
+
+      var form = $("#add_from").serializeArray();
+      var formData = new FormData();
+      // console.log(form);
+
+      form.forEach(element => {
+        formData.append(element.name, element.value);
+      });
+
+      // $.ajax({
+      //   method: 'POST',
+      //   url: './API/product/backend_productAdd.php',
+      //   processData: false,
+      //   contentType: false,
+      //   data: formData,
+      //   dataType: 'text',
+      //   success: function (response) {
+      //     console.log(response);
+      //     if (response == 'SUCCESS') {
+      //       alert('新增成功!');
+      //       location.reload();
+      //     }
+      //   },
+      //   error: function (exception) {
+      //     alert("發生錯誤: " + exception.status);
+      //   },
+      // })
+    }
+
+    $(function () {
+      $('.upload').change(function () {
+        var input = this;
+        var url = $(this).val();  //C://desktop/aaa.png
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        var img_name = $(this).data('img'); //data-img
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#' + img_name).attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          alert('非圖片檔案格式，請重新上傳');
+        }
+      });
+      $('.add_img').change(function () {
+        var input = this;
+        var url = $(this).val();  //C://desktop/aaa.png
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        var img_name = $(this).data('img'); //data-img
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $('#' + img_name).attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          alert('非圖片檔案格式，請重新上傳');
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

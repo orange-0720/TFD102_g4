@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon" href="../images/logo-02.svg">
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   </head>
   <body onload="ifMember()">
     <header class="header">
@@ -37,7 +37,7 @@
           <button class="comm_us">
             聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
           </button>
-          <a class="buy_now">
+          <a class="buy_now" href="./shopping_page.html">
             立即買<img src="../images/buy_now.svg" width="25px" alt="" />
           </a>
         </div>
@@ -144,17 +144,17 @@
       <div class="checkout_s3_other_product">
         <h2>其他熱銷商品</h2>
         <div class="product_link_block">
-          <a href="./shopping_page.html#/shopping_inside_page/0">
-            <img src="../images/checkout/tomato.svg" alt="">
+          <a href="./shopping_page.html#/shopping_inside_page/14">
+            <img src="../images/shopping_page/12_cherrry_tomato/cherrry_tomato_1.png" alt="">
           </a>
-          <a href="./itemtest.html">
-            <img src="../images/checkout/cabbage.svg" alt="">
+          <a href="./shopping_page.html#/shopping_inside_page/3">
+            <img src="../images/shopping_page/1_cabbage/cabbage1.png" alt="">
           </a>
-          <a href="./itemtest.html">
-            <img src="../images/checkout/corn.svg" alt="">
+          <a href="./shopping_page.html#/shopping_inside_page/8">
+            <img src="../images/shopping_page/6_corn/corn_1.png" alt="">
           </a>
         </div>
-        <a class="order_keep_shopping" href="#">繼續購物</a>
+        <a class="order_keep_shopping" href="./shopping_page.html">繼續購物</a>
       </div>
     </div>
 
@@ -202,6 +202,10 @@
           </div>
         </div>
       </div>
+      <div  style=" text-align: center; padding: 20px 0px;">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
     </footer>
 
     <script src="../js/right_nav_bar.js"></script>
@@ -234,7 +238,7 @@
           // 抓訂單ID
           $.ajax({
             method: 'POST',
-            url: '../php/Order_id.php',
+            url: '../php/order_id.php',
             data:{},
             dataType: 'json',
             success: function(response) {

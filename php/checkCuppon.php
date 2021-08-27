@@ -10,7 +10,7 @@ getMemberID();
 if(isset($_SESSION['MemberID'])){// ISSET判斷是否有值
     //建立SQL語法
     $memberID = $_SESSION['MemberID'];
-    $sql="SELECT * FROM `tfd102-g4`.CUSTOMER WHERE CUSTOMER_ID = ? and DISCOUNT > 0";
+    $sql="SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = ? and DISCOUNT > 0";
 
     $statement = $pdo->prepare($sql);
     $statement->bindParam(1, $memberID);

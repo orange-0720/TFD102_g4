@@ -186,7 +186,7 @@ section.game_play_border_lottery {
     flex-direction: column;
     position: relative;
     margin-top: 3rem;
-    z-index: 10;
+    z-index: 4;
     @include pad {
       height: 300px;
       // margin-top: 2rem;
@@ -210,7 +210,7 @@ section.game_play_border_lottery {
       }
       @include mobile {
         width: 55vw;
-        left: 16.5%;
+        left: 15.5%;
       }
     }
     img#cooking_nabe_bottom {
@@ -227,7 +227,7 @@ section.game_play_border_lottery {
       }
       @include mobile {
         width: 55vw;
-        left: 16.5%;
+        left: 15.5%;
       }
     }
     div#bowl {
@@ -248,9 +248,9 @@ section.game_play_border_lottery {
         left: 31.5%;
       }
       @include mobile {
-        width: 170px;
-        height: 170px;
-        left: 22%;
+        width: 160px;
+        height: 160px;
+        left: 23.5%;
       }
       img {
         width: 40px;
@@ -360,7 +360,7 @@ section.game_play_border_lottery {
     width: 65%;
     text-align: justify;
     padding: 1rem;
-    z-index: 10;
+    z-index: 4;
     height: 120px;
     background-color: $white;
     @include pad {
@@ -498,7 +498,7 @@ div#get_coin {
       justify-content: center;
     }
     @include mobile {
-      @include btn(120px, 35px);
+      @include btn(130px, 45px);
       background-color: $yellow;
       color: $brown;
       font-size: 16px;
@@ -775,7 +775,7 @@ div#get_coin {
     }
   }
   span#submit_11 {
-    z-index: 10;
+    z-index: 4;
     top: 0%;
     left: 30%;
     position: absolute;

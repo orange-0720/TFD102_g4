@@ -86,10 +86,10 @@ aside#BackEnd_main {
   }
 }
 
-  // 該頁面按鈕更改顏色顯示
-  .back_hover {
-    background-color: $yellow !important;
-  }
+// 該頁面按鈕更改顏色顯示
+.back_hover {
+  background-color: $yellow !important;
+}
 
 // ==搜尋輸入==
 div.backend_search {
@@ -98,7 +98,7 @@ div.backend_search {
 
   .icon {
     position: absolute;
-    top: 20%;
+    top: 8%;
     left: 1%;
     z-index: 1;
     color: #4f5b66;
@@ -121,7 +121,9 @@ section#main {
 
   .table_scroll {
     width: 100%;
+    height: 100%;
     overflow-x: scroll;
+    overflow-y: scroll;
   }
 
   .tr_color {
@@ -162,23 +164,18 @@ a.page-link {
   position: absolute;
   width: 100px;
   right: 15px;
-  top: 10px;
+  // top: 5px;
 }
 
 
-// .msg_text .res_text{
-//   font-size: .8rem;
-//   letter-spacing: 1px;
-// }
+.activity_info_scroll{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
 
-// textarea{
-//   border-radius: 5px;
-//   border: 1px solid #ccc;
-//   box-shadow: 1px 1px 1px #999;
-// }
+.activity_date_scroll{
+  max-width: 150px;
+}
 
-// .msg_content {
-//   display: inline-block;
-//   width: 100%;
-//   text-overflow: ellipsis;
-// }

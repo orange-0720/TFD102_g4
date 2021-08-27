@@ -30,7 +30,7 @@ let shopping_page = {
                     />
                 </div>
                 <div class="shopping_page" v-for="(page,index) in pages" @click="move_page(index)">
-                    {{page.num}}
+                    {{page}}
                 </div>
                 <div class="page_next" @click="nextPage">
                     <img
@@ -48,9 +48,7 @@ let shopping_page = {
             limit: 9,
             products:[],
             pages:[
-                {num:1},
-                {num:2},
-                {num:3},
+                
             ]
         }
     },
@@ -70,8 +68,6 @@ let shopping_page = {
             }
         },
         incart(index){
-            console.log(this.products[index]);
-            console.log(this.products[index].PRODUCT_NAME);
             product_name = this.products[index].PRODUCT_NAME;
             product_price = parseInt(this.products[index].PRODUCT_PRICE);
             product_img = this.products[index].PRODUCT_OUT_IMG;
@@ -80,77 +76,145 @@ let shopping_page = {
             let item_id = Date.now();
             $('.item_buy').fadeIn();
             $('.cart_nothing').fadeOut();
-            $('.cart_buy_list').append(
-              `
-                <div class="cart_inside_item" data-id="${item_id}">
-                  <div class="cart_item_img">
-                    <img src="${product_img}"/>  
-                  </div>
-                  <div class="cart_item_name">${product_name}</div>
-                  <div class="cart_item_number">
-                    <button class="number_minus">-</button>
-                    <input type="text" value="${product_value}"/ disabled>
-                    <button class="number_plus">+</button>
-                  </div>
-                  <div class="cart_item_price">${product_price}</div>
-                  <div class="cart_item_delete">
-                    <img src="../images/checkout/delete_icon.svg"/>  
-                  </div>
-                </div>
-              `
-            );
-            
 
-            let cart_item = {
-                item_id: item_id,
-                item_img: product_img,
-                item_name: product_name,
-                item_number: parseInt(product_value),
-                unit_price : parseInt(product_price),
-                total_price: parseInt(product_price),
-                product_id: product_id,
-            };
             let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+            let answer = [];
 
-            $('.incart_checkout_btn').attr('href', './checkout.html');
-            $('.incart_checkout_btn').html('結帳去');
-            $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
-            $('.incart_checkout_btn_mobile').html('結帳去');
+            if(cart_items){
+                cart_items.forEach(function(item, i){
+                    if(product_name == item.item_name){
+                        item.item_number += product_value;
+                        item.total_price += product_price;
+                        let cart_item_name = document.getElementsByClassName('cart_item_name');
+                        for(i=0;i<cart_item_name.length; i++){
+                            if(cart_item_name[i].innerText == product_name){
+                                let cart_block = cart_item_name[i].closest('div.cart_inside_item');
+                                console.log(cart_block);
+                                let number_block = cart_block.querySelector('div.cart_item_number > input');
+                                let number = parseInt(number_block.value);
+                                let price_block =  cart_block.querySelector('div.cart_item_price');
+                                let price = parseInt(price_block.innerHTML);
+                                console.log(price);
+                                price_block.innerHTML = price + product_price;
+                                number_block.value = number + product_value;
+                            }
+                        }
 
-            if (cart_items) {
-                // 若存在
-                console.log('已存在')
-                cart_items.unshift(cart_item);
+                        let cart_totoal_price = parseInt($('.cart_total_price').text());
+                        cart_totoal_price += product_price;
+                        $('.cart_total_price').text(cart_totoal_price);
 
-                let count_price = 0;
-                cart_items.forEach(function(cart, i){
-                    count_price += parseInt(cart.total_price)
+                        sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+                        answer.push('yes');
+                    }
                 });
 
-                $('.cart_total_price').text(count_price);
-
-                $('.buy_num').fadeIn();
-                let nums = $('.cart_inside_item').length;
-                console.log(nums);
-                $('.buy_num').text(nums);
-                $('.shop_car').addClass('cart_move');
-
-            } else {
-                // 若不存在
-                console.log('不存在')
+                console.log(answer);
+                if(answer.length == 0){
+                    cart_items.forEach(function(item, i){
+                        if(product_name != item.item_name){
+                            let updated_cart_items = cart_items
+                            $('.cart_buy_list').append(
+                                `
+                                  <div class="cart_inside_item" data-id="${item_id}">
+                                    <div class="cart_item_img">
+                                      <img src="${product_img}"/>  
+                                    </div>
+                                    <div class="cart_item_name">${product_name}</div>
+                                    <div class="cart_item_number">
+                                      <button class="number_minus">-</button>
+                                      <input type="text" value="${product_value}"/ disabled>
+                                      <button class="number_plus">+</button>
+                                    </div>
+                                    <div class="cart_item_price">${product_price}</div>
+                                    <div class="cart_item_delete">
+                                      <img src="../images/checkout/delete_icon.svg"/>  
+                                    </div>
+                                  </div>
+                                `
+                              );
+                              
+                              let cart_item = {
+                                  item_id: item_id,
+                                  item_img: product_img,
+                                  item_name: product_name,
+                                  item_number: parseInt(product_value),
+                                  unit_price : parseInt(product_price),
+                                  total_price: parseInt(product_price),
+                                  product_id: product_id,
+                              };
+        
+                              updated_cart_items.unshift(cart_item);
+                              // 回存至 localStorage
+                              sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
+        
+                              let count_price = 0;
+                              cart_items.forEach(function(cart, i){
+                                  count_price += parseInt(cart.total_price)
+                              });
+        
+                              $('.cart_total_price').text(count_price);
+        
+                              $('.buy_num').fadeIn();
+                              let nums = $('.cart_inside_item').length;
+                              console.log(nums);
+                              $('.buy_num').text(nums);
+                              $('.shop_car').addClass('cart_move');
+                              throw new Error('over');
+                        }
+                    })
+                } 
+            }else{
+                $('.cart_buy_list').append(
+                  `
+                    <div class="cart_inside_item" data-id="${item_id}">
+                      <div class="cart_item_img">
+                        <img src="${product_img}"/>  
+                      </div>
+                      <div class="cart_item_name">${product_name}</div>
+                      <div class="cart_item_number">
+                        <button class="number_minus">-</button>
+                        <input type="text" value="${product_value}"/ disabled>
+                        <button class="number_plus">+</button>
+                      </div>
+                      <div class="cart_item_price">${product_price}</div>
+                      <div class="cart_item_delete">
+                        <img src="../images/checkout/delete_icon.svg"/>  
+                      </div>
+                    </div>
+                  `
+                );
+                
+                let cart_item = {
+                    item_id: item_id,
+                    item_img: product_img,
+                    item_name: product_name,
+                    item_number: parseInt(product_value),
+                    unit_price : parseInt(product_price),
+                    total_price: parseInt(product_price),
+                    product_id: product_id,
+                };
+                
+                $('.incart_checkout_btn').attr('href', './checkout.html');
+                $('.incart_checkout_btn').html('結帳去');
+                $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
+                $('.incart_checkout_btn_mobile').html('結帳去');
+                
                 cart_items = [cart_item];
                 let price_now = parseInt($('.cart_total_price').text());
                 console.log(price_now);
                 let new_price = price_now + product_price;
                 $('.cart_total_price').html(new_price);
-
+    
                 $('.buy_num').fadeIn();
                 let nums = $('.cart_inside_item').length;
                 console.log(nums);
                 $('.buy_num').text(nums);
                 $('.shop_car').addClass('cart_move');
+
+                sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
             }
-            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+            
         },
         push_into(index){
             let product_id = this.page_products[index].PRODUCT_ID;
@@ -161,8 +225,8 @@ let shopping_page = {
     },
     computed: {
         page_products(){
-          const last_index = this.page * (this.limit -1);
-          const first_index = (this.page -1) * (this.limit -1);
+          const last_index = this.page * (this.limit) -1;
+          const first_index = (this.page - 1) * (this.limit);
           const page_product = [];
           for(let i = first_index; i < this.products.length; i++){
             if(last_index < i) break;
@@ -175,8 +239,14 @@ let shopping_page = {
         axios.post('../php/getProduct.php').then(res =>{
             console.log(res.data);
             this.products = res.data;
+            let length = res.data.length;
+            let pages = Math.ceil(length / this.limit)
+            console.log(pages);
+            console.log(length);
+            for(i = 1; i <= pages; i++){
+                this.pages.push(i);
+            }
         })
-        
     },
 }
 
@@ -250,83 +320,149 @@ let shopping_inside_page = {
             product_price = parseInt(this.inside_page[index].PRODUCT_PRICE);
             product_img = this.inside_page[index].PRODUCT_OUT_IMG;
             product_id = this.inside_page[index].PRODUCT_ID;
-            product_value = $('.inside_value').val();
+            product_value = parseInt($('.inside_value').val());
             total_price = parseInt(product_price) * parseInt(product_value);
             let item_id = Date.now();
             $('.item_buy').fadeIn();
             $('.cart_nothing').fadeOut();
-            $('.cart_buy_list').append(
-              `
-                <div class="cart_inside_item" data-id="${item_id}">
-                  <div class="cart_item_img">
-                    <img src="${product_img}"/>  
-                  </div>
-                  <div class="cart_item_name">${product_name}</div>
-                  <div class="cart_item_number">
-                    <button class="number_minus">-</button>
-                    <input type="text" value="${product_value}"/ disabled>
-                    <button class="number_plus">+</button>
-                  </div>
-                  <div class="cart_item_price">${total_price}</div>
-                  <div class="cart_item_delete">
-                    <img src="../images/checkout/delete_icon.svg"/>  
-                  </div>
-                </div>
-              `
-            );
-            
 
-            let cart_item = {
-                item_id: item_id,
-                item_img: product_img,
-                item_name: product_name,
-                item_number: parseInt(product_value),
-                unit_price : parseInt(product_price),
-                total_price: total_price,
-                product_id: product_id,
-            };
             let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+            let answer = [];
 
-            $('.incart_checkout_btn').attr('href', './checkout.html');
-            $('.incart_checkout_btn').html('結帳去');
-            $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
-            $('.incart_checkout_btn_mobile').html('結帳去');
+            if(cart_items){
+                cart_items.forEach(function(item, i){
+                    if(product_name == item.item_name){
+                        item.item_number += product_value;
+                        item.total_price += total_price;
+                        let cart_item_name = document.getElementsByClassName('cart_item_name');
+                        for(i=0;i<cart_item_name.length; i++){
+                            if(cart_item_name[i].innerText == product_name){
+                                let cart_block = cart_item_name[i].closest('div.cart_inside_item');
+                                console.log(cart_block);
+                                let number_block = cart_block.querySelector('div.cart_item_number > input');
+                                let number = parseInt(number_block.value);
+                                let price_block =  cart_block.querySelector('div.cart_item_price');
+                                let price = parseInt(price_block.innerHTML);
+                                console.log(price);
+                                price_block.innerHTML = price + total_price;
+                                number_block.value = number + product_value;
+                            }
+                        }
 
-            if (cart_items) {
-                // 若存在
-                console.log('已存在')
-                cart_items.unshift(cart_item);
+                        let cart_totoal_price = parseInt($('.cart_total_price').text());
+                        cart_totoal_price += total_price;
+                        $('.cart_total_price').text(cart_totoal_price);
 
-                let count_price = 0;
-                cart_items.forEach(function(cart, i){
-                    count_price += parseInt(cart.total_price)
+                        sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+                        answer.push('yes');
+                    }
                 });
 
-                let price_now = parseInt($('.cart_total_price').text());
-                let new_price = price_now + total_price;
-                $('.cart_total_price').html(new_price);
-
-                let num_now = parseInt($('.buy_num').text());
-                let new_num = num_now +1;
-                $('.buy_num').text(new_num);
-                $('.shop_car').addClass('cart_move');
-
-            } else {
-                // 若不存在
-                console.log('不存在')
+                console.log(answer);
+                if(answer.length == 0){
+                    cart_items.forEach(function(item, i){
+                        if(product_name != item.item_name){
+                            let updated_cart_items = cart_items
+                            $('.cart_buy_list').append(
+                                `
+                                  <div class="cart_inside_item" data-id="${item_id}">
+                                    <div class="cart_item_img">
+                                      <img src="${product_img}"/>  
+                                    </div>
+                                    <div class="cart_item_name">${product_name}</div>
+                                    <div class="cart_item_number">
+                                      <button class="number_minus">-</button>
+                                      <input type="text" value="${product_value}"/ disabled>
+                                      <button class="number_plus">+</button>
+                                    </div>
+                                    <div class="cart_item_price">${total_price}</div>
+                                    <div class="cart_item_delete">
+                                      <img src="../images/checkout/delete_icon.svg"/>  
+                                    </div>
+                                  </div>
+                                `
+                              );
+                              
+                              let cart_item = {
+                                  item_id: item_id,
+                                  item_img: product_img,
+                                  item_name: product_name,
+                                  item_number: parseInt(product_value),
+                                  unit_price : parseInt(product_price),
+                                  total_price: parseInt(total_price),
+                                  product_id: product_id,
+                              };
+        
+                              updated_cart_items.unshift(cart_item);
+                              // 回存至 localStorage
+                              sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
+        
+                              let count_price = 0;
+                              cart_items.forEach(function(cart, i){
+                                  count_price += parseInt(cart.total_price)
+                              });
+        
+                              $('.cart_total_price').text(count_price);
+        
+                              $('.buy_num').fadeIn();
+                              let nums = $('.cart_inside_item').length;
+                              console.log(nums);
+                              $('.buy_num').text(nums);
+                              $('.shop_car').addClass('cart_move');
+                              throw new Error('over');
+                        }
+                    })
+                } 
+            }else{
+                $('.cart_buy_list').append(
+                  `
+                    <div class="cart_inside_item" data-id="${item_id}">
+                      <div class="cart_item_img">
+                        <img src="${product_img}"/>  
+                      </div>
+                      <div class="cart_item_name">${product_name}</div>
+                      <div class="cart_item_number">
+                        <button class="number_minus">-</button>
+                        <input type="text" value="${product_value}"/ disabled>
+                        <button class="number_plus">+</button>
+                      </div>
+                      <div class="cart_item_price">${total_price}</div>
+                      <div class="cart_item_delete">
+                        <img src="../images/checkout/delete_icon.svg"/>  
+                      </div>
+                    </div>
+                  `
+                );
+                
+                let cart_item = {
+                    item_id: item_id,
+                    item_img: product_img,
+                    item_name: product_name,
+                    item_number: parseInt(product_value),
+                    unit_price : parseInt(product_price),
+                    total_price: parseInt(total_price),
+                    product_id: product_id,
+                };
+                
+                $('.incart_checkout_btn').attr('href', './checkout.html');
+                $('.incart_checkout_btn').html('結帳去');
+                $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
+                $('.incart_checkout_btn_mobile').html('結帳去');
+                
                 cart_items = [cart_item];
                 let price_now = parseInt($('.cart_total_price').text());
                 console.log(price_now);
                 let new_price = price_now + total_price;
                 $('.cart_total_price').html(new_price);
-
+    
                 $('.buy_num').fadeIn();
-                let num_now = parseInt($('.buy_num').text());
-                let new_num = num_now +1;
-                $('.buy_num').text(new_num);
+                let nums = $('.cart_inside_item').length;
+                console.log(nums);
+                $('.buy_num').text(nums);
                 $('.shop_car').addClass('cart_move');
+
+                sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
             }
-            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
         },
         check_out(index){
             console.log(this.inside_page[index]);
@@ -335,74 +471,150 @@ let shopping_inside_page = {
             product_price = parseInt(this.inside_page[index].PRODUCT_PRICE);
             product_img = this.inside_page[index].PRODUCT_OUT_IMG;
             product_id = this.inside_page[index].PRODUCT_ID;
-            product_value = $('.inside_value').val();
+            product_value = parseInt($('.inside_value').val());
             total_price = parseInt(product_price) * parseInt(product_value);
             let item_id = Date.now();
-            alert('已加入購物車')
+            $('.item_buy').fadeIn();
             $('.cart_nothing').fadeOut();
-            $('.cart_buy_list').append(
-                `
-                <div class="cart_inside_item" data-id="${item_id}">
-                    <div class="cart_item_img">
-                    <img src="${product_img}"/>  
-                    </div>
-                    <div class="cart_item_name">${product_name}</div>
-                    <div class="cart_item_number">
-                    <button class="number_minus">-</button>
-                    <input type="text" value="${product_value}"/ disabled>
-                    <button class="number_plus">+</button>
-                    </div>
-                    <div class="cart_item_price">${total_price}</div>
-                    <div class="cart_item_delete">
-                    <img src="../images/checkout/delete_icon.svg"/>  
-                    </div>
-                </div>
-                `
-            );
-            
 
-            let cart_item = {
-                item_id: item_id,
-                item_img: product_img,
-                item_name: product_name,
-                item_number: parseInt(product_value),
-                unit_price : parseInt(product_price),
-                total_price: total_price,
-                product_id: product_id,
-            };
             let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
+            let answer = [];
 
-            $('.incart_checkout_btn').attr('href', './checkout.html');
-            $('.incart_checkout_btn').html('結帳去');
-            $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
-            $('.incart_checkout_btn_mobile').html('結帳去');
+            if(cart_items){
+                cart_items.forEach(function(item, i){
+                    if(product_name == item.item_name){
+                        item.item_number += product_value;
+                        item.total_price += total_price;
+                        let cart_item_name = document.getElementsByClassName('cart_item_name');
+                        for(i=0;i<cart_item_name.length; i++){
+                            if(cart_item_name[i].innerText == product_name){
+                                let cart_block = cart_item_name[i].closest('div.cart_inside_item');
+                                console.log(cart_block);
+                                let number_block = cart_block.querySelector('div.cart_item_number > input');
+                                let number = parseInt(number_block.value);
+                                let price_block =  cart_block.querySelector('div.cart_item_price');
+                                let price = parseInt(price_block.innerHTML);
+                                console.log(price);
+                                price_block.innerHTML = price + total_price;
+                                number_block.value = number + product_value;
+                            }
+                        }
 
-            if (cart_items) {
-                // 若存在
-                console.log('已存在')
-                cart_items.unshift(cart_item);
+                        let cart_totoal_price = parseInt($('.cart_total_price').text());
+                        cart_totoal_price += total_price;
+                        $('.cart_total_price').text(cart_totoal_price);
 
-                let count_price = 0;
-                cart_items.forEach(function(cart, i){
-                    count_price += parseInt(cart.total_price)
+                        sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
+                        answer.push('yes');
+                    }
                 });
 
-                let price_now = parseInt($('.cart_total_price').text());
-                let new_price = price_now + total_price;
-                $('.cart_total_price').html(new_price);
-
-            } else {
-                // 若不存在
-                console.log('不存在')
+                console.log(answer);
+                if(answer.length == 0){
+                    cart_items.forEach(function(item, i){
+                        if(product_name != item.item_name){
+                            let updated_cart_items = cart_items
+                            $('.cart_buy_list').append(
+                                `
+                                  <div class="cart_inside_item" data-id="${item_id}">
+                                    <div class="cart_item_img">
+                                      <img src="${product_img}"/>  
+                                    </div>
+                                    <div class="cart_item_name">${product_name}</div>
+                                    <div class="cart_item_number">
+                                      <button class="number_minus">-</button>
+                                      <input type="text" value="${product_value}"/ disabled>
+                                      <button class="number_plus">+</button>
+                                    </div>
+                                    <div class="cart_item_price">${total_price}</div>
+                                    <div class="cart_item_delete">
+                                      <img src="../images/checkout/delete_icon.svg"/>  
+                                    </div>
+                                  </div>
+                                `
+                              );
+                              
+                              let cart_item = {
+                                  item_id: item_id,
+                                  item_img: product_img,
+                                  item_name: product_name,
+                                  item_number: parseInt(product_value),
+                                  unit_price : parseInt(product_price),
+                                  total_price: parseInt(total_price),
+                                  product_id: product_id,
+                              };
+        
+                              updated_cart_items.unshift(cart_item);
+                              // 回存至 localStorage
+                              sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
+        
+                              let count_price = 0;
+                              cart_items.forEach(function(cart, i){
+                                  count_price += parseInt(cart.total_price)
+                              });
+        
+                              $('.cart_total_price').text(count_price);
+        
+                              $('.buy_num').fadeIn();
+                              let nums = $('.cart_inside_item').length;
+                              console.log(nums);
+                              $('.buy_num').text(nums);
+                              $('.shop_car').addClass('cart_move');
+                              throw new Error('over');
+                        }
+                    })
+                } 
+            }else{
+                $('.cart_buy_list').append(
+                  `
+                    <div class="cart_inside_item" data-id="${item_id}">
+                      <div class="cart_item_img">
+                        <img src="${product_img}"/>  
+                      </div>
+                      <div class="cart_item_name">${product_name}</div>
+                      <div class="cart_item_number">
+                        <button class="number_minus">-</button>
+                        <input type="text" value="${product_value}"/ disabled>
+                        <button class="number_plus">+</button>
+                      </div>
+                      <div class="cart_item_price">${total_price}</div>
+                      <div class="cart_item_delete">
+                        <img src="../images/checkout/delete_icon.svg"/>  
+                      </div>
+                    </div>
+                  `
+                );
+                
+                let cart_item = {
+                    item_id: item_id,
+                    item_img: product_img,
+                    item_name: product_name,
+                    item_number: parseInt(product_value),
+                    unit_price : parseInt(product_price),
+                    total_price: parseInt(total_price),
+                    product_id: product_id,
+                };
+                
+                $('.incart_checkout_btn').attr('href', './checkout.html');
+                $('.incart_checkout_btn').html('結帳去');
+                $('.incart_checkout_btn_mobile').attr('href', './checkout.html');
+                $('.incart_checkout_btn_mobile').html('結帳去');
+                
                 cart_items = [cart_item];
                 let price_now = parseInt($('.cart_total_price').text());
                 console.log(price_now);
                 let new_price = price_now + total_price;
                 $('.cart_total_price').html(new_price);
+    
+                $('.buy_num').fadeIn();
+                let nums = $('.cart_inside_item').length;
+                console.log(nums);
+                $('.buy_num').text(nums);
+                $('.shop_car').addClass('cart_move');
+
+                sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
             }
-            sessionStorage.setItem("cart_items", JSON.stringify(cart_items));
             location.href = './checkout.html';
-        
         },
         get_product(id){
             let index = id;
@@ -430,6 +642,7 @@ let shopping_inside_page = {
             handler(new_id){
                 console.log(new_id);
                 this.get_product(new_id);
+                $('.inside_value').val(1);
             }
         }
     },

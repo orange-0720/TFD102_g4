@@ -9,7 +9,7 @@
     <link rel="icon" href="../images/logo-02.svg">
     <script src="../js/jquery-3.6.0.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
       function Logout(){
@@ -31,31 +31,6 @@
           },
         })
       };
-      function ifMember(){
-        $.ajax({
-              method: 'POST',
-              url: '../php/ifMember.php',
-              data:{},
-              dataType: 'text',
-              success: function(response) {
-                console.log(response);
-                if(response == 'yes'){
-                  $('.nav_block_log > span').text('會員中心');
-                  $('.login').click(function(){
-                    window.location.href = 'member.html';
-                  });
-                }else{
-                  $('.login').click(function(){
-                    window.location.href = 'login.html';
-                  });
-                }
-              },
-              error: function(exception) {
-                  console.log(exception)
-                  alert("發生錯誤: " + exception.status);
-              },
-        });  
-      }
     </script>
   </head>
   <body onload="ifMember()">
@@ -138,13 +113,19 @@
           <h3>會員資料</h3>
           <div class="member_right_detail">
             <div class="member_pic_block">
-              <img src="../images/member/member_fake_img.svg" alt="大頭照">
+              <input type="file" id="member_pic" style="display: none;" @change="change_pic" accept=".jpg, .png, .jpeg">
+              <img :src="member_pic" alt="大頭照" id="member_photo" @click="pick_pic">
               <button class="member_pwd_change" @click="show_up">
                 <img src="../images/member/member_pen.svg" alt="pen">變更密碼
               </button>
             </div>
             <!-- 會員資料印出 -->
             <div class="member_detail_info">
+              <div class="member_info_mail">
+                <p style="font-size: 16px;">*會員帳號無法更改*</p>
+                郵件:
+                <input class="member_mail" type="text" disabled v-model="member_mail">
+              </div>
               <div class="member_info_name">
                 姓名:
                 <input type="text" :disabled="onChange" v-model="member_name">
@@ -157,11 +138,6 @@
                 地址:
                 <input type="text" :disabled="onChange" v-model="member_address">
               </div>
-              <div class="member_info_mail">
-                郵件:
-                <input type="text" disabled v-model="member_mail">
-              </div>
-              
             </div>
           </div>
           <button class="member_change_detail" @click="changeWord">
@@ -178,9 +154,9 @@
               </div>
               <h2>變更密碼</h2>
               <div class="change_box">
-                <input type="text" id="old_pwd1" placeholder="請輸入原本密碼">
-                <input type="text" id="old_pwd2" placeholder="請再次輸入">
-                <input type="text" id="new_pwd" placeholder="請輸入新密碼">
+                <input type="password" id="old_pwd1" placeholder="請輸入原本密碼">
+                <input type="password" id="old_pwd2" placeholder="請再次輸入">
+                <input type="password" id="new_pwd" placeholder="請輸入新密碼">
               </div>
               <input type="button" class="change_send" value="確認變更" @click="change_pwd">
           </div>
@@ -207,7 +183,7 @@
                 </div>
               </div>
               <hr>
-              <div @click="turn_on(index)" class="show_order_detail" :id="index">
+              <div @click="turn_on(index)" class="show_order_detail">
                 訂單內容
                 <img class="member_arrow_icon" src="../images/member/member_arrow_icon.svg" alt="">
                 <div class="member_check_order_detail">
@@ -217,18 +193,18 @@
                     </div>
 
                     <!-- 訂單內容迴圈出現 -->
-                    <div class="show_order_product_detail" v-for="item in order_detail">
+                    <div class="show_order_product_detail" v-for="prod in order.prods">
                       <section class="show_order_product_detail_img">
-                        <img :src="item.PRODUCT_OUT_IMG">
+                        <img :src="prod.PRODUCT_OUT_IMG">
                       </section>
-                      <section class="show_order_product_detail_name">{{item.PRODUCT_NAME}}</section>
+                      <section class="show_order_product_detail_name">{{prod.PRODUCT_NAME}}</section>
                       <section class="show_order_product_detail_sum">
-                        {{item.QUANTITY}}
+                        {{prod.QUANTITY}}
                       </section>
-                      <section class="show_order_product_detail_price">{{item.PRODUCT_PRICE}}</section>
-                      <section class="show_order_product_detail_total">{{item.ORDER_DETAIL_PRICE}}</section>
+                      <section class="show_order_product_detail_price">{{prod.PRODUCT_PRICE}}</section>
+                      <section class="show_order_product_detail_total">{{prod.ORDER_DETAIL_PRICE}}</section>
                     </div>
-                    <div class="show_order_product_detail" v-for="box in box_detail">
+                    <div class="show_order_product_detail" v-for="box in order.custom">
                       <section class="show_order_product_detail_img">
                         <img :src="box.CUSTOM_MADE_IMG" />
                       </section>
@@ -266,17 +242,59 @@
             </div>
           </div>
 
+          <!-- 留言板 -->
           <div class="member_message_detail" v-if="messageShow">
             <h3>留言板</h3>
             <div class="member_message_block">
               <div class="message_line">良耕野菜</div>
               <div class="message_inside_detail">
-                <h3 class="no_message">目前尚未收到您的任何訊息</h3>
+                <div class="customer_message" v-for="text in message">
+                  <div class="cusomer_message_send">
+                    <div class="customer_message_left">
+                      <span>會員</span>
+                    </div>
+                    <div class="customer_message_right">
+                      {{text.COMMENTS}}    
+                    </div>       
+                  </div>
+                  <div class="our_reply" v-if="text.REPLY">
+                    <div class="reply_message_left">
+                      <span>官方</span>
+                    </div>
+                    <div class="reply_message_right">
+                      {{text.REPLY}}    
+                    </div>
+                  </div>
+                </div>
+                <h3 class="no_message" v-show="if_message">目前尚未收到您的任何訊息</h3>
+
+                <h3 class="up_load_center">上傳專區</h3>
+                <div class="img_show_block" v-for="(img,index) in imgs">
+                  <div class="member_check_img">
+                    <span @click="check_img(index)">{{img.name}}</span>
+                  </div>
+                </div>
+
+                <!-- 照片彈窗 -->
+                <div class="member_img_block" v-if="img_show">
+                  <div class="black_black" @click="close_up"></div>
+                  <div class="img_block">
+                    <img :src="img" class="your_img">
+                    <input type="button" class="close_up" value="關閉" @click="close_up">
+                  </div>
+                </div>
+
                 <textarea class="your_question" rows="5" placeholder="請寫下您的疑問" v-model="your_question"></textarea>
+                <div class="up_load_file">
+                  <p class="file_name">圖片檔名: <span class="file_true"></span></p>
+                  <button class="file_submit" @click="save_data">上傳</button>
+                </div>
                 <div class="member_message_button">
-                  <input type="file" id="message_img">
-                  <label for="message_img">加入圖片</label>
-                  <input type="button" value="傳送" id="message_submit" @click ='send_message'>
+                  <form action="../php/member/message.php" method="POST" id="uploadForm">
+                    <input type="file" id="message_img" @change="upload" name="userImage" accept=".jpg, .png, .jpeg">
+                  </form>
+                  <label class="add_pic" for="message_img">加入圖片</label>
+                  <input type="button" value="傳送訊息" id="message_submit" @click ='send_message'>
                 </div>
               </div>
             </div>
@@ -326,8 +344,10 @@
           </div>
         </div>
       </div>
-      <div><center>本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。
-        若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]，後續會由專人協助處理。</center></div>
+      <div  style=" text-align: center; padding: 20px 0px;">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
     </footer>
     
     <script src="../js/right_nav_bar.js"></script>
@@ -350,6 +370,7 @@
           member_phone:"",
           member_mail:"",
           member_address:"",
+          member_pic:"../images/member/member_fake_img.svg",
           active_line:[
             '預約編號',
             '活動內容',
@@ -366,8 +387,6 @@
           activeShow:false,
           messageShow:false,
 
-          your_question: "",
-
           actives:[],
           orders:[],
           order_detail:[],
@@ -379,61 +398,96 @@
             {class:'show_order_detail_price', name:'單價'},
             {class:'show_order_detail_total', name:'小計'},
           ],
+          
+          your_question: "",
+          imgs:[],
+          img:'',
+          message:[],
+          if_message:true,
+          img_show:false
         },
         methods: {
           turn_on(index){
-            if(!$('.member_arrow_icon').hasClass('turn_on')){
-              this.order_detail = [];
-              this.box_detail = [];
-              let order_id = this.orders[index].ORDER_ID;
-              console.log(order_id);
-              console.log(typeof(order_id));
-              axios.post('../php/getOrder_detail.php',{
-                order_id: order_id
-                }).then(res =>{
-                console.log(res.data);
-                this.order_detail = res.data;
-              });
-              axios.post('../php/getOrder_custom.php',{
-                order_id: order_id
-                }).then(res =>{
-                console.log(res.data);
-                this.box_detail = res.data;
-              });
-            }
             let order_item = document.getElementsByClassName('show_order_detail')[index];
             $(order_item).children('.member_arrow_icon').toggleClass('turn_on');
             $(order_item).children('.member_check_order_detail').slideToggle();
+          },
+          pick_pic(){
+            document.getElementById('member_pic').click();
+          },
+          change_pic(){
+            let file = document.getElementById('member_pic').files[0];
+            console.log(file);
+            if(file != undefined){
+
+              form_data = new FormData();
+              form_data.append('file',file)
+              console.log(form_data);
+              $.ajax({
+                  method:'POST',
+                  url:'../php/member/member_pic.php',
+                  data:form_data,
+                  cache: false,
+                  processData:false,
+                  contentType:false,
+                  dataType: 'text',
+                  success: function(response){
+                    console.log(response)
+                    member_block.member_pic = response;
+                  },
+                  error: function(exception) {
+                      alert("發生錯誤: " + exception.status);
+                      console.log(exception)
+                  },
+              })
+            }
           },
           show_member(){
             this.memberShow = true;
             this.orderShow = false;
             this.activeShow = false;
             this.messageShow = false;
+            $('.member_detail').addClass('on_click');
+            $('.member_order').removeClass('on_click');
+            $('.member_active').removeClass('on_click');
+            $('.member_message').removeClass('on_click');
           },
           show_order(){
             this.orderShow = true;
             this.memberShow = false;
             this.activeShow = false
             this.messageShow = false;
+            $('.member_detail').removeClass('on_click');
+            $('.member_order').addClass('on_click');
+            $('.member_active').removeClass('on_click');
+            $('.member_message').removeClass('on_click');
           },
           show_active(){
             this.orderShow = false;
             this.memberShow = false;
             this.activeShow = true;
             this.messageShow = false;
+            $('.member_detail').removeClass('on_click');
+            $('.member_order').removeClass('on_click');
+            $('.member_active').addClass('on_click');
+            $('.member_message').removeClass('on_click');
           },
           show_message(){
             this.orderShow = false;
             this.memberShow = false;
             this.activeShow = false;
             this.messageShow = true;
+            $('.member_detail').removeClass('on_click');
+            $('.member_order').removeClass('on_click');
+            $('.member_active').removeClass('on_click');
+            $('.member_message').addClass('on_click');
           },
           changeWord() {
             this.onChange = !this.onChange;
             if(this.onChange == false){
               $('.member_change_detail > span').text('儲存變更');
               $('.member_detail_info input').css('background-color', '#FFF')
+              $('.member_mail').css('background-color', '#FFF7D2')
             }else{
               $('.member_change_detail > span').text('編輯會員資料');
               $('.member_detail_info input').css('background-color', '#FFF7D2');
@@ -442,27 +496,11 @@
           },
           show_up(){
             $('.change_pwd_box').fadeToggle();
-            console.log('aaa')
-          },
-          send_message(){
-            let val = $('.your_question').val();
-            $('.no_message').fadeOut();
-            $('.message_inside_detail').prepend(
-              `<div class="customer_message">
-                    <div class="customer_message_left">
-                      <span>會員</span>
-                    </div>
-                    <div class="customer_message_right">
-                      ${this.your_question}    
-                    </div>       
-                </div>
-            `);
-            this.your_question = "";
           },
           change_detail(){
             $.ajax({
               method:'POST',
-              url:'../php/change_detail.php',
+              url:'../php/member/change_detail.php',
               data:{
                 name: this.member_name,
                 hb: this.member_hb,
@@ -476,8 +514,8 @@
                 }
               },
               error: function(exception) {
-                  alert("發生錯誤: " + exception.status);
-                  console.log(exception)
+                alert("發生錯誤: " + exception.status);
+                console.log(exception)
               },
             })
           },
@@ -485,7 +523,7 @@
             if($('#old_pwd1').val() == $('#old_pwd2').val()){
               $.ajax({
                 method:'POST',
-                url:'../php/change_pwd.php',
+                url:'../php/member/change_pwd.php',
                 data:{
                   old_pwd: $('#old_pwd1').val(),
                   new_pwd: $('#new_pwd').val(),
@@ -494,9 +532,39 @@
                 success: function(response){
                   if(response == 1){
                     alert('密碼變更完成');
+                    $('.change_pwd_box').fadeOut();
+                    $('#old_pwd1').val('');
+                    $('#old_pwd2').val('');
+                    $('#new_pwd').val('');
                   }else{
-                    alert('密碼錯誤');
+                    alert('原密碼錯誤，請重新輸入');
+                    $('#old_pwd1').val('');
+                    $('#old_pwd2').val('');
+                    $('#new_pwd').val('');
                     console.log(response)
+                  }
+                },
+                error: function(exception) {
+                  alert("發生錯誤: " + exception.status);
+                  console.log(exception)
+                },
+              })
+            }else{
+              alert('請確認兩次密碼是否相同')
+            }
+          },
+          send_message(){
+            if(this.your_question != ''){
+              $.ajax({
+                method:'POST',
+                url:'../php/member/message.php',
+                data:{
+                  text: this.your_question,
+                },
+                dataType: 'json',
+                success: function(response){
+                  if(response == 'yes'){
+                    member_block.get_message();
                   }
                 },
                 error: function(exception) {
@@ -505,22 +573,82 @@
                 },
               })
             }else{
-              alert('請確認兩次密碼是否相同')
+              
             }
-          }
-        },
-        computed:{
-          order_list(){
-            return this.orders.filter(function(order){
-              return +order.ORDER_ID === 1;
+            this.your_question = "";
+          },
+          get_message(){
+            axios.post('../php/member/getMessage.php').then(res =>{
+              console.log(res.data)
+              this.message = res.data;
+              if(this.message!=[]){
+                this.if_message = false
+              }
             })
+          },
+          upload(){
+            $('.up_load_file').fadeIn();
+            let file = document.getElementById('message_img').files[0];
+            console.log(file);
+           
+            $('.file_true').text(file.name);
+            $('.add_pic').text('變更圖片');
+          },
+          save_data(){
+            let file = document.getElementById('message_img').files[0];
+            console.log(file);
+            
+            form_data = new FormData();
+            form_data.append('file',file)
+            console.log(form_data);
+            $.ajax({
+                method:'POST',
+                url:'../php/member/message.php',
+                data:form_data,
+                cache: false,
+                processData:false,
+                contentType:false,
+                dataType: 'json',
+                success: function(response){
+                  console.log(response)
+                  if(response == 'yes'){
+                    $('.up_load_file').fadeOut();     
+                    $('.file_true').text();
+                    $('.add_pic').text('加入圖片');
+                    member_block.getImg();
+                  }
+                },
+                error: function(exception) {
+                    alert("發生錯誤: " + exception.status);
+                    console.log(exception)
+                },
+            })
+          },
+          getImg(){
+            axios.post('../php/member/getImg.php').then(res =>{
+              console.log(res.data);
+              this.imgs = res.data;
+              this.imgs.forEach(function(index, i){
+                let img = index.MESSAGE_IMG;
+                let name = img.split('/')[3];
+                index.name = name;
+              })
+            })
+          },
+          check_img(index){
+            this.img_show = true;
+            this.img = this.imgs[index].MESSAGE_IMG;
+          },
+          close_up(){
+            this.img_show = false;
           }
         },
+        
         mounted() {
           // 串接活動
           $.ajax({
             method: 'POST',
-            url: '../php/getActive.php',
+            url: '../php/member/getActive.php',
             data:{},
             dataType: 'json',
             success: function(response) {
@@ -535,7 +663,7 @@
           // 取得會員資料&購物金
           $.ajax({
             method: 'POST',
-            url: '../php/getMember.php',
+            url: '../php/member/getMember.php',
             data:{},
             dataType: 'json',
             success: function(response) {
@@ -545,6 +673,10 @@
                 member_block.member_mail = index['EMAIL'];
                 member_block.member_phone = index['PHONE'];
                 member_block.member_address = index['ADDRESS'];
+                if(index['IMG']){
+                  member_block.member_pic = index['IMG'];
+                }
+                
                 if(index['DISCOUNT'] > 0){
                   $('.discount_money').text(index['DISCOUNT'])
                 }
@@ -555,25 +687,54 @@
               console.log(exception);
             },
           }),
+
           // 取得訂單資訊
-          $.ajax({
-            method: 'POST',
-            url: '../php/getOrder.php',
-            data:{},
-            dataType: 'json',
-            success: function(response) {
-              console.log(response);
-              response.forEach(function(index,i){
-                member_block.orders = response;
+          axios.post('../php/member/getOrder.php').then(res =>{
+            console.log(res.data)
+            this.orders = res.data;    
+            this.orders.forEach(function(index, i){
+              let id = index.ORDER_ID;
+              axios.post('../php/member/getOrder_detail.php',{
+                order_id: id
+                }).then(res =>{
+                console.log(res.data);
+                this.order_detail = res.data;
+                index.prods = res.data;
+              });
+              axios.post('../php/member/getOrder_custom.php',{
+                order_id: id
+                }).then(res =>{
+                console.log(res.data);
+                this.box_detail = res.data;
+                index.custom = res.data;                
+              });
+            })
+          });
+
+          // 取得留言板資訊
+          axios.post('../php/member/getMessage.php').then(res =>{
+            console.log(res.data)
+            this.message = res.data;
+            if(this.message.length > 0){
+              this.if_message = false
+            }
+          });
+          
+          // 取得留言板照片
+          axios.post('../php/member/getImg.php').then(res =>{
+              console.log(res.data);
+              this.imgs = res.data;
+              this.imgs.forEach(function(index, i){
+                let img = index.MESSAGE_IMG;
+                let name = img.split('/')[3];
+                index.name = name;
               })
-            },
-            error: function(exception) {
-              alert("發生錯誤: " + exception.status);
-              console.log(exception);
-            },
           })
-        }
+
+        },
       })
+
+      
 
     </script>
   </body>

@@ -14,7 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   </head>
   <body id="game_page" onload="ifMember()">
     <header class="header">
@@ -176,7 +176,7 @@
           </transition>
           <transition>
             <div id="get_coin" v-show="randomNumber">
-              <button type="submit" id="submit_12" @click="get_coin()">
+              <button type="submit" id="submit_12" @click="check_cuppon">
                 <!-- <button type="submit" id="submit_12" @click="get_coin(200)"> -->
                 <div id="action1">查看購物金</div>
                 <img
@@ -284,6 +284,10 @@
           </div>
         </div>
       </div>
+      <div  style=" text-align: center; padding: 20px 0px;">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
     </footer>
     <script src="../js/right_nav_bar.js"></script>
     <script src="../js/shopping_cart.js"></script>
@@ -303,6 +307,7 @@
           final_result() {
             //樂透數字區間,把程式分開寫比較好閱讀
             this.randomNumber = this.getRandom(100, 200);
+            this.get_coin();
           },
           show_result() {
             this.final_result();
@@ -320,7 +325,6 @@
                 //response是由php回傳
                 //更新html內容
                 console.log(response);
-                window.location.href = "member.html";
                 alert("購物金已存入!");
               },
               error: function(exception) {
@@ -329,6 +333,9 @@
               },
             });
           },
+          check_cuppon(){
+            location.href = 'member.html';
+          }
         },
       });
       //==VUE區域==

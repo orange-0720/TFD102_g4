@@ -8,35 +8,8 @@
     <link rel="icon" href="../images/logo-02.svg">
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
   </head>
-  <script>
-    function ifMember(){
-      $.ajax({
-            method: 'POST',
-            url: '../php/ifMember.php',
-            data:{},
-            dataType: 'text',
-            success: function(response) {
-              console.log(response);
-              if(response == 'yes'){
-                $('.nav_block_log > span').text('會員中心');
-                $('.login').click(function(){
-                  window.location.href = 'member.html';
-                });
-              }else{
-                $('.login').click(function(){
-                  window.location.href = 'login.html';
-                });
-              }
-            },
-            error: function(exception) {
-                console.log(exception)
-                alert("發生錯誤: " + exception.status);
-            },
-      });  
-    }
-  </script>
   <body onload="ifMember()">
     <header class="header">
       <!-- 手機板header -->
@@ -63,7 +36,7 @@
           <button class="comm_us">
             聯絡我們 <img src="../images/cotact_us.svg" width="25px" alt="" />
           </button>
-          <a class="buy_now">
+          <a class="buy_now" href="./shopping_page.html">
             立即買<img src="../images/buy_now.svg" width="25px" alt="" />
           </a>
         </div>
@@ -150,8 +123,19 @@
           <section class="checkout_shopping_product_detail_delete" @click="delete_box(index)">
             <img src="../images/checkout/delete_icon.svg" alt="">
           </section>
+          <div class="fruit_box_detail" @click="ifShow(index)">
+            <div class="box_arrow_block">
+              查看明細
+              <img class="box_arrow" src="../images/shopping_page/shopping_arrow_icon.svg"/>
+            </div>
+            <ul>
+                <li v-for="pick in item.product_name">{{pick}}</li>
+            </ul>
+          </div>
         </div>
-        <a class="checkout_shopping_detail_keep_shopping" href="./shopping_page.html">繼續購物</a>
+        <div class="checkout_shopping_detail_keep_shopping">
+          <a href="./shopping_page.html">繼續購物</a>
+        </div>
       </div>
 
       <div class="checkout_shopping_checkform">
@@ -159,7 +143,7 @@
           <h3>送貨及付款方式</h3>
           <section class="checkout_location">
             <p>送貨地點</p>
-            <select class="city">
+            <select class="city" v-model="pick_city">
               <option disable>請選擇送貨縣市</option>
               <option v-for="city in citys">{{city}}</option>
             </select>
@@ -193,9 +177,10 @@
           </section>
           <section class="checkout_payment">
               <p>付款方式</p>
-              <select>
-                <option value="信用卡付款">信用卡付款</option>
-                <option value="貨到付款" disabled>貨到付款(疫情不開放)</option>
+              <select v-model="payment">
+                <option disabled>請選擇付款方式</option>
+                <option value="信用卡" selected>信用卡付款</option>
+                <option value="貨到付款" :disabled="disable">貨到付款(會員專用)</option>
               </select>
           </section>
 
@@ -203,8 +188,8 @@
         <div class="checkout_shopping_checkform_orderblock">
           <h3>訂單資訊</h3>
           <section>
-            <p>商品小記: <span>{{shopping_charge}}</span></p>
-            <p>本次運費: <span>{{deliver_fee}}</span></p>
+            <p class="checkform_list"><span>商品小記:</span><span>{{shopping_charge}}</span></p>
+            <p class="checkform_list"><span>本次運費: </span><span>{{deliver_fee}}</span></p>
             <button @click="cuppon">點我使用購物金</button>
             <div class="cuppon_money">
               <p>您持有的購物金 : {{discount_have}}</p>
@@ -218,13 +203,26 @@
               元
             </div>
             <hr>
-            <p class="checkout_shopping_checkform_orderblock_total">本次合計: <span>{{final_price}}</span></p>
+            <p class="checkout_shopping_checkform_orderblock_total"><span>本次合計:</span><span>{{final_price}}</span></p>
           </section>
           
-          <a v-for="(link,index) in links" :href="link.link" @click="save_cuppon">
+          <a v-for="(link,index) in links" @click="save_cuppon(index)">
             {{link.name}}
           </a>
         </div>
+
+        <!-- 按購物金彈窗 -->
+        <div class="discount_get">
+          <div class="black_black" @click="close_up"></div>
+          <div class="discount_get_block">
+            <h4>
+              {{cuppon_jump}}
+            </h4>
+            <input type="button" class="close_up" value="確認" @click="close_up">
+          </div>
+        </div>
+        <!-- 確認購買視窗結束 -->
+
       </div>
     </div>
 
@@ -273,7 +271,10 @@
           </div>
         </div>
       </div>
-  
+      <div  style=" text-align: center; padding: 20px 0px;">
+        本網站為緯育TibaMe前端設計工程師班第66期第4組學員專題成果作品，本平台僅供學習、展示之用。<br>
+        若有侵權疑慮，您可以私訊<a class="text-dark" href="https://www.facebook.com/webindex/">[TibaMe-前端設計工程師養成班]</a>，後續會由專人協助處理。
+      </div>
     </footer>
 
     <script src="../js/right_nav_bar.js"></script>
@@ -296,6 +297,8 @@
           fruit_boxs:[],
           deliver_fee:0,
           shopping_charge:0,
+          payment:'請選擇付款方式',
+          disable:true,
           cuppon_money:0,
           links:[
             {link:'./checkout_s2.html',name:'直接前往結帳',click:'save_coppon'},
@@ -328,6 +331,8 @@
           ],
           discount_have: 0,
           final_price: 0,
+          cuppon_jump:'',
+          pick_city:'請選擇送貨縣市',
         },
         methods: {
           delete_this(index){
@@ -335,7 +340,8 @@
             if(confirm('是否確認刪除')){
               let total_price = this.cart_item[index].total_price;
               this.shopping_charge -= total_price;
-              this.cart_item.splice(index,1);
+              this.final_price -= total_price;
+              
               // 清除sesstion_storage裡的資料
               
               let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
@@ -347,6 +353,27 @@
                   window.location.href = 'index.html';
                 }
               }else{
+                let item_name = this.cart_item[index].item_name;
+                let cart_item_name = document.getElementsByClassName('cart_item_name');
+                for(let i = 0; i < cart_item_name.length; i++){
+                  if(item_name == cart_item_name[i].innerHTML){
+                    let cart_inside_item = cart_item_name[i].closest('div.cart_inside_item');
+                    let cart_item_price = cart_inside_item.querySelector('div.cart_item_price')
+                    let total_price = parseInt(cart_item_price.innerHTML);
+                    let current_price = parseInt($('.cart_total_price').text());
+                    let new_price = current_price - total_price;
+
+                    // 購定金額
+                    $('.cart_total_price').text(new_price);
+                    cart_inside_item.remove();
+
+                    // 變更購物車數字
+                    let nums = $('.cart_inside_item').length;
+                    $('.buy_num').text(nums);
+                    $('.shop_car').addClass('cart_move');
+                  }
+                }
+
                 let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
                 
                 cart_items.forEach(function(cart, i){
@@ -358,15 +385,35 @@
                 // 回存至 localStorage
                 sessionStorage.setItem("cart_items", JSON.stringify(updated_cart_items));
               }
+              this.cart_item.splice(index,1);
             }
           },
           plus_number(index){
             let new_number = this.cart_item[index].item_number + 1;
-            let unit_price = this.cart_item[index].unit_price;
+            let unit_price = parseInt(this.cart_item[index].unit_price);
             let new_total_price = unit_price * new_number;
             let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
             console.log(new_total_price);
             console.log(new_number);
+
+            let cart_inside_item = document.getElementsByClassName('cart_inside_item');
+            for(let i = 0; i < cart_inside_item.length; i++){
+              if(this_id == cart_inside_item[i].dataset.id){
+                let inside_item = cart_inside_item[i];
+                let cart_item_number = inside_item.querySelector('div.cart_item_number');
+                cart_item_number.querySelector('input').value = new_number;
+
+
+                let cart_item_price = inside_item.querySelector('div.cart_item_price');
+                cart_item_price.innerHTML = new_total_price;
+
+                let current_price = parseInt($('.cart_total_price').text());
+                let new_price = current_price + unit_price;
+
+                // 購定金額
+                $('.cart_total_price').text(new_price);
+              }
+            }
 
             let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
             cart_items.forEach(function(cart, i){
@@ -387,12 +434,31 @@
           minus_number(index){
             if(this.cart_item[index].item_number > 1){
               let new_number = this.cart_item[index].item_number - 1;
-              let unit_price = this.cart_item[index].unit_price;
+              let unit_price = parseInt(this.cart_item[index].unit_price);
               let new_total_price = unit_price * new_number;
               let this_id = this.cart_item[index].item_id;  //找出該項目的item_id
               console.log(new_total_price);
               console.log(new_number);
-  
+              
+              let cart_inside_item = document.getElementsByClassName('cart_inside_item');
+              for(let i = 0; i < cart_inside_item.length; i++){
+                if(this_id == cart_inside_item[i].dataset.id){
+                  let inside_item = cart_inside_item[i];
+                  let cart_item_number = inside_item.querySelector('div.cart_item_number');
+                  cart_item_number.querySelector('input').value = new_number;
+
+
+                  let cart_item_price = inside_item.querySelector('div.cart_item_price');
+                  cart_item_price.innerHTML = new_total_price;
+
+                  let current_price = parseInt($('.cart_total_price').text());
+                  let new_price = current_price - unit_price;
+
+                  // 購定金額
+                  $('.cart_total_price').text(new_price);
+                }
+              }
+
               let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));    // 從 localStorage 取得資料
               cart_items.forEach(function(cart, i){
                 if(this_id == cart.item_id){
@@ -408,6 +474,8 @@
 
               this.shopping_charge -= unit_price;
               this.final_price -= unit_price;
+            }else{
+              alert('僅剩一個囉')
             }
           },
 
@@ -417,6 +485,7 @@
             if(confirm('是否確認刪除')){
               let total_price = this.fruit_boxs[index].total_price;
               this.shopping_charge -= total_price;
+              this.final_price -= total_price;
               this.fruit_boxs.splice(index,1);
 
               // 清除sesstion_storage裡的資料
@@ -430,6 +499,26 @@
                   window.location.href = 'index.html';
                 }
               }else{
+                let cart_inside_item = document.getElementsByClassName('cart_inside_item');
+                for(let i = 0; i < cart_inside_item.length; i++){
+                  if(this_id == cart_inside_item[i].dataset.id){
+                    let inside_item = cart_inside_item[i]
+                    let fruit_box_price = inside_item.querySelector('div.fruit_box_price')
+                    let total_price = parseInt(fruit_box_price.innerHTML);
+                    let current_price = parseInt($('.cart_total_price').text());
+                    let new_price = current_price - total_price;
+
+                    // 購定金額
+                    $('.cart_total_price').text(new_price);
+                    inside_item.remove();
+
+                    // 變更購物車數字
+                    let nums = $('.cart_inside_item').length;
+                    $('.buy_num').text(nums);
+                    $('.shop_car').addClass('cart_move');
+                  }
+                }
+
                 let updated_cart_items = [];   // 準備用來放要存到 localStorage 裡的資料
                 
                 fruit_boxs.forEach(function(box, i){
@@ -450,6 +539,26 @@
             let this_id = this.fruit_boxs[index].item_id;  //找出該項目的item_id
             console.log(new_total_price);
             console.log(new_number);
+
+            let cart_inside_item = document.getElementsByClassName('cart_inside_item');
+            for(let i = 0; i < cart_inside_item.length; i++){
+              if(this_id == cart_inside_item[i].dataset.id){
+                let inside_item = cart_inside_item[i];
+                let cart_item_number = inside_item.querySelector('div.fruit_box_number');
+                cart_item_number.querySelector('input').value = new_number;
+
+
+                let cart_item_price = inside_item.querySelector('div.fruit_box_price');
+                cart_item_price.innerHTML = new_total_price;
+
+                let current_price = parseInt($('.cart_total_price').text());
+                let new_price = current_price + unit_price;
+
+                // 購定金額
+                $('.cart_total_price').text(new_price);
+              }
+            }
+
 
             let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
             fruit_boxs.forEach(function(box, i){
@@ -480,7 +589,27 @@
               let this_id = this.fruit_boxs[index].item_id;  //找出該項目的item_id
               console.log(new_total_price);
               console.log(new_number);
-  
+              
+              let cart_inside_item = document.getElementsByClassName('cart_inside_item');
+              for(let i = 0; i < cart_inside_item.length; i++){
+                if(this_id == cart_inside_item[i].dataset.id){
+                  let inside_item = cart_inside_item[i];
+                  let cart_item_number = inside_item.querySelector('div.fruit_box_number');
+                  cart_item_number.querySelector('input').value = new_number;
+
+
+                  let cart_item_price = inside_item.querySelector('div.fruit_box_price');
+                  cart_item_price.innerHTML = new_total_price;
+
+                  let current_price = parseInt($('.cart_total_price').text());
+                  let new_price = current_price - unit_price;
+
+                  // 購定金額
+                  $('.cart_total_price').text(new_price);
+                }
+              }
+
+
               let fruit_boxs = JSON.parse(sessionStorage.getItem("fruit_boxs"));    // 從 localStorage 取得資料
               fruit_boxs.forEach(function(box, i){
                 if(this_id == box.item_id){
@@ -501,7 +630,16 @@
               })
               this.shopping_charge -= unit_price;
               this.final_price -= unit_price;
+            }else{
+              alert('僅剩一個囉');
             }
+          },
+          ifShow(index){
+            let fruit_box_detail = document.getElementsByClassName('fruit_box_detail');
+            let arrow_inside = fruit_box_detail[index].querySelector('ul');
+            console.log(arrow_inside);
+            $(arrow_inside).slideToggle();
+            $('.box_arrow').toggleClass('box_arrow_turn')
           },
           cuppon(){
             $.ajax({
@@ -512,9 +650,11 @@
                 success: function(response) {
                   console.log(response);
                   if(response == 2){
-                    alert('您沒有購物金');
+                    checkout1.cuppon_jump = '您的購物金為0';
+                    $('.discount_get').fadeIn();
                   }else if(response == 3){
-                    alert('您並不是會員，無法使用購物金')
+                    checkout1.cuppon_jump = '您並不是會員，無法使用購物金';
+                    $('.discount_get').fadeIn();
                   }else{
                     checkout1.discount_have = +response;
                     $('.cuppon_money').fadeToggle();
@@ -544,21 +684,50 @@
             }
             
           },
-          save_cuppon(){
-            if(this.cuppon_money == ''){
-              this.cuppon_money = 0;
-            }
-            let cuppon_box =[];
-            cuppon_box.push(this.cuppon_money)
-            sessionStorage.setItem("cuppon_box", JSON.stringify(cuppon_box));
+          save_cuppon(index){
+            if(index == 0){
+              let answer = 0;
+              if(this.payment !='請選擇付款方式'){
+                answer++;
+              }else{
+                alert('請選擇付款方式');
+              }
+              if(this.pick_city != '請選擇送貨縣市'){
+                answer ++;
+              }else{
+                alert('請選擇配貨縣市')
+              }
+              
+              if(answer == 2){
+                let payment = this.payment
+                sessionStorage.setItem("payment",JSON.stringify(payment));
 
-            let site_now = JSON.parse(sessionStorage.getItem("site_now"));
-            if(site_now){
-              site_now = [];
-              site_now.push(location.href)
+                if(this.cuppon_money == ''){
+                  this.cuppon_money = 0;
+                }
+                let cuppon_box =[];
+                cuppon_box.push(this.cuppon_money)
+                sessionStorage.setItem("cuppon_box", JSON.stringify(cuppon_box));
+
+                location.href = './checkout_s2.html';
+              }
+
+            }else if(index == 1){
+              let site_now = JSON.parse(sessionStorage.getItem("site_now"));
+              if(site_now){
+                site_now = [];
+                site_now.push(location.href)
+              }else{
+                sessionStorage.setItem('site_now', JSON.stringify(location.href));
+              }
+              location.href = './login.html';
             }else{
-              sessionStorage.setItem('site_now', JSON.stringify(location.href));
+              location.href = './shopping_page.html';
             }
+
+          },
+          close_up(){
+            $('.discount_get').fadeOut();
           }
         },
         computed:{
@@ -566,24 +735,27 @@
         },
         watch:{
           cuppon_money: function(newMoney, oldMoney){
-              let discount = parseInt(newMoney) - parseInt(newMoney);
-              if(parseInt(newMoney) <= parseInt(newMoney)){
-                  this.cuppon_money -= discount;
+              if(newMoney == ''){
+                this.cuppon_money = 0;
               }else{
-                  this.cuppon_money += discount;
+                let discount = parseInt(newMoney) - parseInt(newMoney);
+                if(parseInt(newMoney) <= parseInt(newMoney)){
+                    this.cuppon_money -= discount;
+                }else{
+                    this.cuppon_money += discount;
+                }
               }
           }
         },
         mounted() {
-
           let cart_items = JSON.parse(sessionStorage.getItem("cart_items"));
           if(cart_items){
             this.cart_item = cart_items;
             let cart_charge = 0;
-            cart_items.forEach(function(cart, i){
-              cart_charge += cart.total_price;
-            })
 
+            cart_items.forEach(function(cart, i){
+              cart_charge += parseInt(cart.total_price);
+            })
             this.shopping_charge += cart_charge;
           }
       
@@ -593,7 +765,7 @@
             console.log(fruit_boxs);
             let cart_charge = 0;
             fruit_boxs.forEach(function(cart, i){
-              cart_charge += cart.total_price;
+              cart_charge += parseInt(cart.total_price);
             })
 
             this.shopping_charge += cart_charge;
@@ -602,6 +774,40 @@
           this.final_price = this.shopping_charge - this.cuppon_money;
         },
       })
+
+      function ifMember(){
+        $.ajax({
+            method: 'POST',
+            url: '../php/ifMember.php',
+            data:{},
+            dataType: 'text',
+            success: function(response) {
+              console.log(response);
+              if(response == 'yes'){
+                $('.nav_block_log > span').text('會員中心');
+                $('.nav_block_log').click(function(){
+                  window.location.href = 'member.html';
+                })
+                $('.login').click(function(){
+                  location.href = 'member.html';
+                });
+                checkout1.disable = false;
+              }else{
+                $('.login').click(function(){
+                  window.location.href = 'login.html';
+                });
+                $('.nav_block_log').click(function(){
+                  location.href = 'login.html';
+                })
+              }
+            },
+            error: function(exception) {
+                console.log(exception)
+                alert("發生錯誤: " + exception.status);
+            },
+        });  
+      }
+
 
       // 回頁首
       $("#go_top").on("click", function (e) {

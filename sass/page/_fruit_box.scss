@@ -22,8 +22,11 @@
 .price_all {
   max-width: 1000px;
   width: 80%;
+  margin-top: 45px;
   @include marginAuto();
-
+  @include tablet{
+    margin-top: 0px;
+  }
   .select_amount {
     width: 200px;
     max-width: 1000px;
@@ -72,7 +75,7 @@
 .fruits_box_two {
   width: 80%;
   @include marginAuto();
-  max-width: 800px;
+  max-width: 700px;
   @include tablet {
     //width: 100%;
   }
@@ -88,22 +91,26 @@
   // 蔬菜箱移除選項
   .fruits_remove_menu {
     //border: 1px solid purple;
-    width: 40%;
+    width: 35%;
     background-color: $bkc_yellow;
-    margin-top: 2%;
     border-radius: 10px;
+    margin-left: -160px;
     .choose_text {
       padding: 10px;
     }
 
     @include tablet {
-      width: 60%;
+      margin-left: 0px;
       .five_fruits {
         width: 100%;
         background-color: $bkc_yellow;
       }
       @include pad {
-        width: 80%;
+        width: 50%;
+        margin-top: 20px;
+        @include mobile{
+          width: 80%;
+        }
       }
     }
 
@@ -153,7 +160,7 @@
     .outer_layer {
       //border: 1px solid orange;
       width: 730px;
-      height: 500px;
+      height: 430px;
       position: relative;
 
       @include tablet {
@@ -161,22 +168,50 @@
       }
       // margin-top: 20px;
       #wooden {
-        width: 100%;
-        top: 24%;
+        width: 90%;
+        top: 14%;
         left: 0%;
         z-index: 0;
         position: absolute;
+        @include tablet{
+          left: 10%;
+        }
+        @include pad{
+          left: 0%;
+        }
       }
 
       #wooden_box {
-        width: 100%;
-        top: 24%;
+        width: 90%;
+        top: 14%;
         left: 0%;
         z-index: -3;
         position: absolute;
+        @include tablet{
+          left: 10%;
+        }
+        @include pad{
+          left: 0%;
+        }
       }
       .img_src{
         z-index: -2;
+        width: 70%;
+        margin-top: -60px;
+        @include tablet{
+          margin-top: -35px;
+          width: 95%;
+          margin-left: 20px;
+        }
+        @include pad{
+          margin-top: -35px;
+          width: 80%;
+          margin-left: 0px;
+        }
+        @include mobile{
+          width: 100%;
+          margin-top: 0px;
+        }
       }
       @include tablet {
        img{
@@ -199,18 +234,23 @@
         height: 260px;
         #wooden{
           width: 110%;
-          top:80px;
+          top:60px;
           left: -6%;
         }
         #wooden_box {
           width: 110%;
-          top:80px;
+          top:60px;
           left: -6%;
         }
         .img_src{
-          width: 100%;
-          margin-top: 10px;
-
+          width: 90%;
+          margin-top: -20px;
+          @include mobile{
+            .img_src{
+              width: 100%;
+              margin-top: 0px;
+            }
+          }
         }
       }
     }
@@ -221,7 +261,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     z-index: 1;
-    width: 80%;
+    margin-top: -128px;
     max-width: 1200px;
 
     @include tablet {
@@ -233,7 +273,13 @@
     }
 
     @include tablet{
-      margin-top: 40px;
+      margin-top: -140px;
+      @include pad{
+        margin-top: -100px;
+        @include mobile{
+          margin-top: -5%;
+        }
+      }
     }
     button {
       outline: none;
@@ -279,7 +325,7 @@
   button {
     width: 100px;
     height: 50px;
-    background-color: $darkgreen;
+    background-color: #91c359;
     text-decoration: none;
     @include border_radius();
     border: 0;
@@ -292,7 +338,6 @@
 // 選擇蔬果第二大欄
 .select_fruits {
   @include marginAuto();
-  margin-top: 3%;
   //border: 1px solid red;
   max-width: 1200px;
   width: 80%;
@@ -300,7 +345,7 @@
   .select_second {
     width: 60%;
     max-width: 1000px;
-    padding: 0 0 20px 0;
+    padding: 20px 0 20px 0;
     margin-left: 12%;
   }
 
@@ -473,8 +518,7 @@
 
   @include mobile {
     justify-content: center;
-    margin-left: 26%;
-    font-size: $h2;
+    font-size:24px;
   }
 }
 .fruit_box_1 {
@@ -604,8 +648,8 @@
       overflow: hidden;
       z-index: 4;
         @include tablet{
-          top: 59%;
-          width: 50%;
+          top: 55%;
+          width: 60%;
         }
         @include mobile{
           width: 90%;
@@ -699,9 +743,12 @@
           background-position: center;
           margin-top: 20px;
       }
+      @include tablet{
+        width: 45%;
+      }
       @include pad{
-        width: 60%;
-        top: 62%;
+        width: 80%;
+        top: 55%;
       }
 
     h4{

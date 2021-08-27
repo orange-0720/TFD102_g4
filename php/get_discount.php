@@ -16,14 +16,14 @@ if(isset($_SESSION['MemberID'])){// ISSET判斷是否有值
     //建立SQL語法
     $memberID = $_SESSION['MemberID'];
     // echo "value";
-    $sql="UPDATE `tfd102-g4`.CUSTOMER set DISCOUNT = $money , DISCOUNT_HAVE = 1 WHERE CUSTOMER_ID = $memberID";
+    $sql="UPDATE CUSTOMER set DISCOUNT = $money , DISCOUNT_HAVE = 1 WHERE CUSTOMER_ID = $memberID";
     // 同時update兩筆資料要用","
     //執行
     $pdo->exec($sql);    
     // echo $money;  
 }else{
     echo "nodata";
-    // $sql="INSERT INTO  `tfd102-g4`.CUSTOMER(DISCOUNT) VALUES ('$money')";
+    // $sql="INSERT INTO  CUSTOMER(DISCOUNT) VALUES ('$money')";
     //執行
     $pdo->exec($sql); 
 }

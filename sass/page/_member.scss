@@ -119,8 +119,9 @@
                 margin-top: 50px;
                 img{
                     display: block;
-                    width: 70%;
+                    width: 60%;
                     @include marginAuto();
+                    cursor: pointer;
                 }
                 .member_pwd_change{
                     @include btn(60%);
@@ -224,7 +225,7 @@
                     margin-top: 50px;
                     img{
                         display: block;
-                        width: 70%;
+                        width: 60%;
                         @include marginAuto();
                     }
                     .member_pwd_change{
@@ -716,66 +717,54 @@
                     border-top: 1px solid $brown;
                     display: none;
                     .check_order_box{
-                        display: flex;
                         .show_order_detail_block{
-                            flex-direction: column;
                             padding: 5px;
                             background-color: $green;
                             color:$white;
-                            width: 40%;
+                            width: 100;
                             display: flex;
                             align-self: flex-start;
                             .show_order_detail_img{
-                                width: 100%;
-                                height: 50px;
-                                line-height: 50px;
-                                text-align: center;
-                                margin: 5px 0px;
+                                display: none;
                             }
                             .show_order_detail_name{
-                                width: 100%;
+                                width: 25%;
+                                align-self: center;
                                 text-align: center;
                                 margin: 5px 0px;
                             }
                             .show_order_detail_sum{
-                                width: 100%;
+                                width: 25%;
+                                align-self: center;
                                 text-align: center;
                                 margin: 5px 0px;
                             }
                             .show_order_detail_price,
                             .show_order_detail_total{
-                                width: 100%;
+                                width: 25%;
+                                align-self: center;
                                 text-align: center;
                                 margin: 5px 0px;
                             }
                         }
                         .show_order_product_detail{
-                            flex-direction: column;
-                            width: 60%;
+                            width: 100%;
                             max-width: 1200px;
                             padding: 5px;
                             display: flex;
                             background-color: $white;
                             font-size: $h5;
                             .show_order_product_detail_img{
-                                width: 100%;
-                                align-self: center;
-                                text-align: center;
-                                margin: 5px 0px;
-                                height:50px;
-                                img{
-                                    width: 50%;
-                                    max-height: 100%;
-                                }
+                                display: none;
                             }
                             .show_order_product_detail_name{
-                                width: 100%;
+                                width: 25%;
                                 align-self: center;
                                 text-align: center;
                                 margin: 5px 0px;
                             }
                             .show_order_product_detail_sum{
-                                width: 100%;
+                                width: 25%;
                                 align-self: center;
                                 text-align: center;
                                 justify-content: center;
@@ -790,7 +779,7 @@
                             }
                             .show_order_product_detail_price,
                             .show_order_product_detail_total{
-                                width: 100%;
+                                width: 25%;
                                 align-self: center;
                                 text-align: center;
                                 margin: 5px 0px;
@@ -839,8 +828,19 @@
             display: flex;
             padding: 20px;
             h4{
-                width: 20%;
                 text-align: center;
+                font-size: $h4;
+                margin: 5px 0px;
+                padding: 5px;
+                &:nth-child(1){
+                    width: 20%;
+                }
+                &:nth-child(2),&:nth-child(3){
+                    width: 25%;
+                }
+                &:nth-child(4),&:nth-child(5){
+                    width: 15%;
+                }
             }
         }
         .active_inside_detail{
@@ -848,8 +848,19 @@
             display: flex;
             padding: 20px;
             h4{
-                width: 20%;
                 text-align: center;
+                font-size: $h4;
+                margin: 5px 0px;
+                padding: 5px;
+                &:nth-child(1){
+                    width: 20%;
+                }
+                &:nth-child(2),&:nth-child(3){
+                    width: 25%;
+                }
+                &:nth-child(4),&:nth-child(5){
+                    width: 15%;
+                }
             }
         }
     }
@@ -877,9 +888,19 @@
                 display: flex;
                 padding: 20px 10px;
                 h4{
-                    width: 20%;
                     text-align: center;
                     font-size: $h5;
+                    margin: 5px 0px;
+                    padding: 5px;
+                    &:nth-child(1){
+                        width: 20%;
+                    }
+                    &:nth-child(2),&:nth-child(3){
+                        width: 25%;
+                    }
+                    &:nth-child(4),&:nth-child(5){
+                        width: 15%;
+                    }
                 }
             }
             .active_inside_detail{
@@ -887,9 +908,19 @@
                 display: flex;
                 padding: 20px 10px;
                 h4{
-                    width: 20%;
                     text-align: center;
                     font-size: $h5;
+                    margin: 5px 0px;
+                    padding: 5px;
+                    &:nth-child(1){
+                        width: 20%;
+                    }
+                    &:nth-child(2),&:nth-child(3){
+                        width: 25%;
+                    }
+                    &:nth-child(4),&:nth-child(5){
+                        width: 15%;
+                    }
                 }
             }
         }
@@ -914,31 +945,46 @@
             @include marginAuto();
             .active_box{
                 display: flex;
+                flex-wrap: wrap;
                 .active_line{
-                    flex-direction: column;
-                    width: 40%;
+                    width: 100%;
                     background-color: $bkc_lightorange;
                     display: flex;
                     padding: 10px 10px;
                     h4{
-                        width: 100%;
                         text-align: center;
                         font-size: $h5;
                         margin: 5px 0px;
+                        &:nth-child(1){
+                            width: 20%;
+                        }
+                        &:nth-child(2),&:nth-child(3){
+                            width: 25%;
+                        }
+                        &:nth-child(4),&:nth-child(5){
+                            width: 15%;
+                        }
                     }
                 }
                 .active_inside_detail{
-                    flex-direction: column;
                     background-color: $white;
-                    width: 60%;
+                    width: 100%;
                     display: flex;
                     padding: 10px;
                     h4{
-                        width: 100%;
-                        text-align: left;
-                        padding-left: 20%;
+                        text-align: center;
                         font-size: $h5;
                         margin: 5px 0px;
+                        padding: 5px;
+                        &:nth-child(1){
+                            width: 20%;
+                        }
+                        &:nth-child(2),&:nth-child(3){
+                            width: 25%;
+                        }
+                        &:nth-child(4),&:nth-child(5){
+                            width: 15%;
+                        }
                     }
                 }
             }
@@ -978,6 +1024,28 @@
                 width: 70%;
                 @include marginAuto();
                 font-size: $h3;
+            }
+            .up_load_file{
+                display: none;
+                width: 70%;
+                margin: 40px auto;
+                font-size: 0px;
+                .file_name{
+                    display: inline-block;
+                    width: 70%;
+                    font-size: $h4;
+                    background-color: #fff;
+                    border: 1px solid $brown;
+                    padding: 5px 10px;
+                }
+                .file_submit{
+                    display: inline-block;
+                    margin-left: 5%;
+                    width: 25%;
+                    font-size: $h4;
+                    @include btn(25%);
+                    padding: 5px 0;
+                }
             }
         }
         .member_message_button{
@@ -1108,7 +1176,10 @@
                     @include btn(40%);
                     text-align: center;
                     margin: 0 10px;
-                    padding: 15px 0px
+                    padding: 15px 0px;
+                    @include mobile{
+                        font-size: $h5;
+                    }
                 }
                 #message_submit{
                     @include btn(40%);
@@ -1116,7 +1187,10 @@
                     text-align: center;
                     margin: 0 10px;
                     line-height: 1;
-                    padding: 15px 0px
+                    padding: 15px 0px;
+                    @include mobile{
+                        font-size: $h5;
+                    }
                 }
             }
         }
@@ -1128,31 +1202,113 @@
     @include marginAuto();
     font-size: $h3;
     padding: 20px 0px;
-    display: flex;
-    align-content: center;
-    .customer_message_left{
-        width: 25%;      
-        align-self: center;   
-        span{
-            display: inline-block;
-            width: 80px;
-            height: 80px;
-            line-height: 80px;
-            background-color: $green;
-            text-align: center;
-            border-radius: 50%;
-            color: $white;
+    @include tablet{
+        width: 80%;
+        font-size: $h4;
+    }
+    @include mobile{
+        width: 90%;
+        font-size: $h5;
+    }
+    .cusomer_message_send{
+        width: 100%;
+        display: flex;
+        align-content: center;
+        margin: 10px 0px;
+        .customer_message_left{
+            width: 25%;      
+            align-self: center;   
+            span{
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                background-color: $green;
+                text-align: center;
+                border-radius: 50%;
+                color: $white;
+                @include mobile{
+                    width: 70px;
+                    height: 70px;
+                    line-height: 70px;
+                }
+            }
+        }
+        .customer_message_right{
+            width: 70%;
+            margin-left: 5%;
+            padding: 10px;
+            border: 1px solid $brown;
+            align-self: center;
+            background-color: #fff;
+            line-height: 1.2em;
+            position: relative;
+            &::after{
+                content: '';
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: 50%;
+                left: -9px;
+                transform: translateY(-50%) rotate(45deg);
+                background-color: white;
+                border-left: 1px solid $brown;
+                border-bottom: 1px solid $brown;
+            }
         }
     }
-    .customer_message_right{
-        width: 70%;
-        margin-left: 5%;
-        padding: 10px;
-        border: 1px solid $brown;
-        align-self: center;
-        background-color: #fff;
+    .our_reply{
+        width: 100%;
+        display: flex;
+        align-content: center;
+        margin: 10px 0px;
+        .reply_message_left{
+            width: 25%;      
+            align-self: center;   
+            span{
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                background-color: $bkc_lightorange;
+                text-align: center;
+                border-radius: 50%;
+                color: $font_color;
+                @include mobile{
+                    width: 70px;
+                    height: 70px;
+                    line-height: 70px;
+                }
+            }
+        }
+        .reply_message_right{
+            width: 70%;
+            margin-left: 5%;
+            padding: 10px;
+            border: 1px solid $brown;
+            align-self: center;
+            background-color: #fff;
+            line-height: 1.2em;
+            position: relative;
+            &::after{
+                content: '';
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: 50%;
+                left: -9px;
+                transform: translateY(-50%) rotate(45deg);
+                background-color: white;
+                border-left: 1px solid $brown;
+                border-bottom: 1px solid $brown;
+            }
+        }
     }
 }
+
+
+
+
 
 
 // 該頁footer 大圖
@@ -1319,3 +1475,108 @@
 }
 
 // 變更密碼彈窗結束
+
+// 照片彈窗
+.up_load_center{
+    text-align: center;
+    padding: 0px;
+    margin: 15px 0px;
+    position: relative;
+    &::after{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left:50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        width: 10%;
+        height: 10px;
+        background-color: $bkc_lightorange;
+    }
+    @include tablet{
+        font-size: $h4;
+        padding: 0px;
+        margin: 15px 0px;
+    }
+}
+
+.img_show_block{
+    width: 70%;
+    @include marginAuto();
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include tablet{
+        width: 80%;
+    }
+    @include mobile{
+        width: 90%;
+        
+    }
+    .member_check_img{
+        text-align: left;
+        @include mobile{
+            font-size:$h5;
+        }
+        span{
+            margin: 0 20px;
+            padding: 10px 0px;
+            font-size: $h4;
+            text-decoration: underline;
+            cursor: pointer;
+            @include mobile{
+                font-size:$h5;
+            }
+        }
+        
+    }
+}
+
+// 照片彈窗結束
+
+.member_img_block{
+    display: block;
+    .black_black{
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 49;
+        @include tablet{
+          height: 100%;
+        }
+    }
+    .img_block{
+        text-align: center;
+        @include abs_center();
+        position: fixed;
+        background-color: $white;
+        width: 30%;
+        padding: 30px 0px;
+        border-radius: 25px;
+        overflow: hidden;
+        z-index: 50;
+        @include tablet{
+            width: 70%;
+        }
+        .your_img{
+            width: 60%;
+            max-width: 100%;
+            @include mobile{
+                width: 80%;
+            }
+        }
+         
+        .close_up{
+            @include btn(50%);
+            display: block;
+            @include marginAuto();
+            margin-top: 30px;
+        }
+    }
+}
+
+.on_click{
+    background-color: $yellow !important;
+}
